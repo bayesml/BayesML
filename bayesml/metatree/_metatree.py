@@ -475,12 +475,13 @@ class GenModel(base.Generative):
         else:
             node.h_g = 0 if node.depth == self.c_max_depth else original_node.h_g
             try:
-                sub_h_params = node.sub_model.get_h_params()
+                sub_h_params = original_node.sub_model.get_h_params()
             except:
-                sub_h_params = node.sub_model.get_hn_params()
+                sub_h_params = original_node.sub_model.get_hn_params()
             node.sub_model.set_h_params(*sub_h_params.values())
             if original_node.leaf or node.depth == self.c_max_depth:  # leaf node
                 node.leaf = True
+                node.h_g = 0
             else:
                 node.k = original_node.k
                 node.children = [None for i in range(self.c_num_children_vec[node.k])]
