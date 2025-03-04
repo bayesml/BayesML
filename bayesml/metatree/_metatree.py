@@ -2754,15 +2754,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                     return node.h_g * self.hn_g ** (sum_nodes-1)
         else:
             tmp1 = 1.0-node.h_g
-            tmp_vec = np.empty(self.c_num_children_vec[node.k])
+            tmp2 = node.h_g
             for i in range(self.c_num_children_vec[node.k]):
-                tmp_vec[i] = self._map_recursion(node.children[i])
-            if tmp1 > node.h_g*tmp_vec.prod():
+                tmp2 *= self._map_recursion(node.children[i])
+            if tmp1 > tmp2:
                 node.map_leaf = True
                 return tmp1
             else:
                 node.map_leaf = False
-                return node.h_g*tmp_vec.prod()
+                return tmp2
 
     def _copy_map_tree_recursion(self,copied_node:_Node,original_node:_Node):
         copied_node.h_g = original_node.h_g
