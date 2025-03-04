@@ -1094,6 +1094,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         A non-negative integer
     c_dim_categorical : int
         A non-negative integer
+    c_max_depth : int, optional
+        A positive integer, by default 2
     c_num_children_vec : numpy.ndarray, optional
         A vector of positive integers whose length is 
         ``c_dim_continuous+c_dim_categorical``, by default [2,2,...,2].
@@ -1102,8 +1104,6 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         inner nodes. The other ``c_dim_categorial`` elements 
         represent those of categorical features.
         If a single integer is input, it will be broadcasted.
-    c_max_depth : int, optional
-        A positive integer, by default 2
     c_num_assignment_vec : numpy.ndarray, optional
         A vector of positive integers whose length is 
         ``c_dim_continuous+c_dim_categorical``. 
@@ -1162,8 +1162,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             self,
             c_dim_continuous,
             c_dim_categorical,
-            c_num_children_vec=2,
             c_max_depth=2,
+            c_num_children_vec=2,
             c_num_assignment_vec=None,
             c_ranges=None,
             SubModel=bernoulli,
