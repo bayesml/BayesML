@@ -596,3 +596,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 - self._n * np.log(2*np.pi)
             )
         )
+    
+    def calc_pred_var(self):
+        if self.p_nu > 2:
+            return self.p_nu / self.p_lambda / (self.p_nu-2)
+        else:
+            warnings.warn("Variance of the predictive distribution cannot defined for the current p_nu.",ResultWarning)
+            return None
