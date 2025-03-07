@@ -51,6 +51,34 @@ REG_MODELS = {
 
 THRESHOLD_TYPES = {'even','random'}
 
+def _make_thresholds(x): # num_children must be 2
+    tmp_x = np.unique(x)
+    tmp_th = 0
+    n_l = 1
+    sum_l = tmp_x[0]
+    sum_sq_l = tmp_x[0] * tmp_x[0]
+    n_r = len(tmp_x)-1
+    sum_r = tmp_x[1:].sum()
+    sum_sq_r = (tmp_x[1:]*tmp_x[1:]).sum()
+    tmp_min = (sum_sq_l - sum_l*sum_l/n_l) + (sum_sq_r - sum_r*sum_r/n_r)
+    for i in range(1,len(tmp_x)-1):
+        x_i = tmp_x[i]
+        x_i_sq = x_i * x_i
+
+        n_l += 1
+        sum_l += x_i
+        sum_sq_l += x_i_sq
+        
+        n_r -= 1
+        sum_r -= x_i
+        sum_sq_r -= x_i_sq
+
+        metric = (sum_sq_l - sum_l*sum_l/n_l) + (sum_sq_r - sum_r*sum_r/n_r)
+        if metric < tmp_min:
+            tmp_min = metric
+            tmp_th = i    
+    return np.array([tmp_x.min(),(tmp_x[tmp_th]+tmp_x[tmp_th+1])/2,tmp_x.max()])
+
 class _Node:
     def __init__(self,
                  depth,
@@ -64,6 +92,7 @@ class _Node:
                  leaf=False,
                  map_leaf=False,
                  log_children_marginal_likelihood=None,
+                 log_marginal_likelihood=None,
                  ):
         self.depth = depth
         self.children = children
@@ -76,6 +105,8 @@ class _Node:
         self.leaf = leaf
         self.map_leaf = map_leaf
         self.log_children_marginal_likelihood = log_children_marginal_likelihood
+        self.log_marginal_likelihood = log_marginal_likelihood
+        self._is_no_sample = False
 
 class GenModel(base.Generative):
     """ The stochastice data generative model and the prior distribution
@@ -105,7 +136,7 @@ class GenModel(base.Generative):
         represent those of categorical features. If it 
         has a negative element (e.g., -1), the corresponding 
         feature will be assigned any number of times. 
-        By default [c_max_depth,...,c_max_depth,1,...,1].
+        By default [-1,...,-1].
     c_ranges : numpy.ndarray, optional
         A numpy.ndarray whose size is (c_dim_continuous,2).
         A threshold for the ``k``-th continuous feature will be 
@@ -181,10 +212,14 @@ class GenModel(base.Generative):
         self.c_num_children_vec = np.ones(self.c_dim_continuous+self.c_dim_categorical,dtype=int)*2
         self.c_num_children_vec[:] = c_num_children_vec
         
-        self.c_num_assignment_vec = np.ones(self.c_dim_features,dtype=int)
-        self.c_num_assignment_vec[:self.c_dim_continuous] *= self.c_max_depth
+        self.c_num_assignment_vec = -np.ones(self.c_dim_features,dtype=int)
         if c_num_assignment_vec is not None:
             _check.ints(c_num_assignment_vec,'c_num_assignment_vec',ParameterFormatError)
+            if np.all(c_num_assignment_vec==0):
+                raise(ParameterFormatError(
+                    'At least one element of c_num_assignment_vec must be non-zero: '
+                    +f'c_num_assignment_vec={c_num_assignment_vec}.'
+                ))
             self.c_num_assignment_vec[:] = c_num_assignment_vec
         
         self.c_ranges = np.zeros([self.c_dim_continuous,2])
@@ -475,12 +510,13 @@ class GenModel(base.Generative):
         else:
             node.h_g = 0 if node.depth == self.c_max_depth else original_node.h_g
             try:
-                sub_h_params = node.sub_model.get_h_params()
+                sub_h_params = original_node.sub_model.get_h_params()
             except:
-                sub_h_params = node.sub_model.get_hn_params()
+                sub_h_params = original_node.sub_model.get_hn_params()
             node.sub_model.set_h_params(*sub_h_params.values())
             if original_node.leaf or node.depth == self.c_max_depth:  # leaf node
                 node.leaf = True
+                node.h_g = 0
             else:
                 node.k = original_node.k
                 node.children = [None for i in range(self.c_num_children_vec[node.k])]
@@ -1058,6 +1094,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         A non-negative integer
     c_dim_categorical : int
         A non-negative integer
+    c_max_depth : int, optional
+        A positive integer, by default 2
     c_num_children_vec : numpy.ndarray, optional
         A vector of positive integers whose length is 
         ``c_dim_continuous+c_dim_categorical``, by default [2,2,...,2].
@@ -1066,8 +1104,6 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         inner nodes. The other ``c_dim_categorial`` elements 
         represent those of categorical features.
         If a single integer is input, it will be broadcasted.
-    c_max_depth : int, optional
-        A positive integer, by default 2
     c_num_assignment_vec : numpy.ndarray, optional
         A vector of positive integers whose length is 
         ``c_dim_continuous+c_dim_categorical``. 
@@ -1077,7 +1113,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         represent those of categorical features. If it 
         has a negative element (e.g., -1), the corresponding 
         feature will be assigned any number of times. 
-        By default [c_max_depth,...,c_max_depth,1,...,1].
+        By default [-1,...,-1].
     c_ranges : numpy.ndarray, optional
         A numpy.ndarray whose size is (c_dim_continuous,2).
         A threshold for the ``k``-th continuous feature will be 
@@ -1126,8 +1162,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             self,
             c_dim_continuous,
             c_dim_categorical,
-            c_num_children_vec=2,
             c_max_depth=2,
+            c_num_children_vec=2,
             c_num_assignment_vec=None,
             c_ranges=None,
             SubModel=bernoulli,
@@ -1158,10 +1194,14 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.c_num_children_vec = np.ones(self.c_dim_continuous+self.c_dim_categorical,dtype=int)*2
         self.c_num_children_vec[:] = c_num_children_vec
         
-        self.c_num_assignment_vec = np.ones(self.c_dim_features,dtype=int)
-        self.c_num_assignment_vec[:self.c_dim_continuous] *= self.c_max_depth
+        self.c_num_assignment_vec = -np.ones(self.c_dim_features,dtype=int)
         if c_num_assignment_vec is not None:
             _check.ints(c_num_assignment_vec,'c_num_assignment_vec',ParameterFormatError)
+            if np.all(c_num_assignment_vec==0):
+                raise(ParameterFormatError(
+                    'At least one element of c_num_assignment_vec must be non-zero: '
+                    +f'c_num_assignment_vec={c_num_assignment_vec}.'
+                ))
             self.c_num_assignment_vec[:] = c_num_assignment_vec
         
         self.c_ranges = np.zeros([self.c_dim_continuous,2])
@@ -1688,7 +1728,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
     def _update_posterior_recursion_batch(self,node:_Node,x_continuous,x_categorical,y):
         if node.leaf:  # leaf node
-            return self._update_posterior_leaf_batch(node,y)
+            node.log_marginal_likelihood = self._update_posterior_leaf_batch(node,y)
+            return node.log_marginal_likelihood
         else:  # inner node
             if node.k < self.c_dim_continuous:
                 for i in range(self.c_num_children_vec[node.k]):
@@ -1723,7 +1764,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                     else:
                         node.log_children_marginal_likelihood[i] = 0.0
             tmp1 = np.log(node.h_g) + node.log_children_marginal_likelihood.sum()
-            tmp2 = np.logaddexp(np.log(1 - node.h_g) + self._update_posterior_leaf_batch(node,y), tmp1)
+            node.log_marginal_likelihood = self._update_posterior_leaf_batch(node,y)
+            tmp2 = np.logaddexp(np.log(1 - node.h_g) + node.log_marginal_likelihood, tmp1)
             node.h_g = np.exp(tmp1 - tmp2)
             return tmp2
 
@@ -1733,7 +1775,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
     def _update_posterior_recursion_lr_batch(self,node:_Node,x_continuous,x_categorical,y):
         if node.leaf:  # leaf node
-            return self._update_posterior_leaf_lr_batch(node,x_continuous,y)
+            node.log_marginal_likelihood = self._update_posterior_leaf_lr_batch(node,x_continuous,y)
+            return node.log_marginal_likelihood
         else:  # inner node
             if node.k < self.c_dim_continuous:
                 for i in range(self.c_num_children_vec[node.k]):
@@ -1768,7 +1811,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                     else:
                         node.log_children_marginal_likelihood[i] = 0.0
             tmp1 = np.log(node.h_g) + node.log_children_marginal_likelihood.sum()
-            tmp2 = np.logaddexp(np.log(1 - node.h_g) + self._update_posterior_leaf_lr_batch(node,x_continuous,y), tmp1)
+            node.log_marginal_likelihood = self._update_posterior_leaf_lr_batch(node,x_continuous,y)
+            tmp2 = np.logaddexp(np.log(1 - node.h_g) + node.log_marginal_likelihood, tmp1)
             node.h_g = np.exp(tmp1 - tmp2)
             return tmp2
 
@@ -1981,6 +2025,644 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             ParameterFormatError
             )
         return x_continuous,x_categorical,y
+    
+    def _MTMCMC(
+            self,
+            x_continuous,
+            x_categorical,
+            y,
+            burn_in=100,
+            num_metatrees=500,
+            g_max=0.0,
+            rho=0.99,
+            phi=0.999,
+            p_obj=0.3,
+            threshold_type='1d_kmeans',
+            seed=None,
+            ):
+        # check condition
+        if np.any(self.c_num_children_vec != self.c_num_children_vec[0]):
+            raise(ParameterFormatError(
+                'MTMCMC is supported only when all the elements of '
+                + 'self.c_num_children_vec are the same. '
+                + f'self.c_num_children_vec = {self.c_num_children_vec}.'
+            ))
+        self._num_children = self.c_num_children_vec[0]
+
+        if np.any(self.c_num_assignment_vec > 0):
+            raise(ParameterFormatError(
+                'MTMCMC is supported only when all the elements of '
+                + 'self.c_num_assignment_vec are not positive. '
+                + f'self.c_num_assignment_vec = {self.c_num_assignment_vec}.'
+            ))
+        
+        if not np.allclose(self.h0_k_weight_vec,self.h0_k_weight_vec[0]):
+            raise(ParameterFormatError(
+                'MTMCMC is supported only when all the elements of '
+                + 'self.h0_k_weight_vec are the same. '
+                + f'self.h0_k_weight_vec = {self.h0_k_weight_vec}.'
+            ))
+
+        # add variables
+        self.rng = np.random.default_rng(seed)
+        self._hn_node_sub_model = self.SubModel.LearnModel(
+            **self.sub_constants,
+            **self.sub_h0_params,
+        ).set_hn_params(**self.sub_hn_params)
+        if not threshold_type in {'1d_kmeans', 'sample_midpoint'}:
+            raise(ParameterFormatError(
+                'threshold_type must be "1d_kmeans" or "sample_midpoint".'
+            ))
+        self._threshold_type = threshold_type
+        self._tmp_root = _Node(
+            0,
+            self._root_k_candidates,
+            self.hn_g,
+            self.rng.choice(self._root_k_candidates),
+            sub_model=copy.deepcopy(self._hn_node_sub_model),
+            ranges=self.c_ranges,
+            log_children_marginal_likelihood=np.zeros(self._num_children),
+            )
+        self._tmp_metatree_list = [self._tmp_root]
+        self._tmp_metatree_count_list = [1]
+        if self.SubModel is linearregression:
+            self._l_last = self.generate_truncated_and_update_lr(None,self._tmp_root,True,x_continuous,x_categorical,y)
+        else:
+            self._l_last = self.generate_truncated_and_update(None,self._tmp_root,True,x_continuous,x_categorical,y)
+        
+        if self.c_dim_features == 1:
+            return self._tmp_metatree_list, np.array([1])
+
+        self._num_proposed = 1
+        self._num_accepted = 1
+        self._rho = rho
+        self._phi = phi
+        self._g_max = g_max
+        self._denominator = 0.0
+        self._p_obj = p_obj
+        self._numerator = self._denominator * p_obj
+        self._g_list = []
+        self._l_list = []
+        self._g_max_denominator = 0
+        self._g_max_accumulated = g_max * self._g_max_denominator
+
+        # procedure
+        print(f'brun_in: {burn_in}')
+        while self._num_proposed < burn_in:
+            self.mh_step_truncated(
+                x_continuous,
+                x_categorical,
+                y,
+            )
+            self._update_g_max()
+        print()
+        tmp = self._num_accepted-1
+        self._tmp_metatree_count_list[-1] = 1
+        print(f'burn_in + num_metatrees: {burn_in + num_metatrees}')
+        while self._num_proposed < burn_in + num_metatrees:
+            self.mh_step_truncated(
+                x_continuous,
+                x_categorical,
+                y,
+            )
+        print()
+        
+        # output
+        _tmp_metatree_prob_vec = np.array(self._tmp_metatree_count_list[tmp:],dtype=float)
+        _tmp_metatree_prob_vec /= _tmp_metatree_prob_vec.sum()
+        return self._marge_metatrees(self._tmp_metatree_list[tmp:],_tmp_metatree_prob_vec)
+
+    def _REMTMCMC(
+            self,
+            x_continuous,
+            x_categorical,
+            y,
+            burn_in=100,
+            num_metatrees=500,
+            num_chains=8,
+            g_max=0.9,
+            beta_vec=None,
+            num_interval=10,
+            num_exchange=8,
+            threshold_type='1d_kmeans',
+            seed=None,
+            ):
+        # check condition
+        if np.any(self.c_num_children_vec != self.c_num_children_vec[0]):
+            raise(ParameterFormatError(
+                'MTMCMC is supported only when all the elements of '
+                + 'self.c_num_children_vec are the same. '
+                + f'self.c_num_children_vec = {self.c_num_children_vec}.'
+            ))
+        self._num_children = self.c_num_children_vec[0]
+
+        if np.any(self.c_num_assignment_vec > 0):
+            raise(ParameterFormatError(
+                'MTMCMC is supported only when all the elements of '
+                + 'self.c_num_assignment_vec are not positive. '
+                + f'self.c_num_assignment_vec = {self.c_num_assignment_vec}.'
+            ))
+        
+        if not np.allclose(self.h0_k_weight_vec,self.h0_k_weight_vec[0]):
+            raise(ParameterFormatError(
+                'MTMCMC is supported only when all the elements of '
+                + 'self.h0_k_weight_vec are the same. '
+                + f'self.h0_k_weight_vec = {self.h0_k_weight_vec}.'
+            ))
+
+        # add variables
+        self.rng = np.random.default_rng(seed)
+        self._hn_node_sub_model = self.SubModel.LearnModel(
+            **self.sub_constants,
+            **self.sub_h0_params,
+        ).set_hn_params(**self.sub_hn_params)
+        self._num_chains = _check.pos_int(num_chains,'num_chains',ParameterFormatError)
+        if not threshold_type in {'1d_kmeans', 'sample_midpoint'}:
+            raise(ParameterFormatError(
+                'threshold_type must be "1d_kmeans" or "sample_midpoint".'
+            ))
+        self._threshold_type = threshold_type
+        self._tmp_roots =[]
+        for i in range(self._num_chains):
+            self._tmp_roots.append(
+                _Node(
+                    0,
+                    self._root_k_candidates,
+                    self.hn_g,
+                    self.rng.choice(self._root_k_candidates),
+                    sub_model=copy.deepcopy(self._hn_node_sub_model),
+                    ranges=self.c_ranges,
+                    log_children_marginal_likelihood=np.zeros(self._num_children),
+                )
+            )
+        self._tmp_metatree_lists = [[self._tmp_roots[i]] for i in range(self._num_chains)]
+        self._tmp_metatree_count_lists = [[1] for i in range(self._num_chains)]
+        self._l_lasts = np.zeros(self._num_chains)
+        if self.SubModel is linearregression:
+            for i in range(self._num_chains):
+                self._l_lasts[i] = self.generate_truncated_and_update_lr(None,self._tmp_roots[i],True,x_continuous,x_categorical,y)
+        else:
+            for i in range(self._num_chains):
+                self._l_lasts[i] = self.generate_truncated_and_update(None,self._tmp_roots[i],True,x_continuous,x_categorical,y)
+        
+        if self.c_dim_features == 1:
+            return self._tmp_metatree_lists[self._num_chains-1], np.array([1])
+
+        self._g_max = g_max
+        self._l_list = []
+        self._l_new = np.zeros(self._num_chains)
+        self._beta_vec = (np.arange(self._num_chains)+1) / self._num_chains
+        if beta_vec is not None:
+            self._beta_vec[:] = beta_vec
+            if np.any(self._beta_vec < 0) or np.any(self._beta_vec > 1):
+                raise(ParameterFormatError(
+                    'All the elements of beta_vec must be in [0,1] '
+                    + f'beta_vec = {beta_vec}.'
+                ))
+        self._num_interval = _check.pos_int(num_interval,'num_interval',ParameterFormatError)
+        self._num_exchange = _check.pos_int(num_exchange,'num_exchange',ParameterFormatError)    
+        self._exchange_list = []    
+
+        # procedure
+        print(f'brun_in: {burn_in}')
+        for i in range(burn_in):
+            self.remh_step_truncated_memory_efficient(
+                x_continuous,
+                x_categorical,
+                y,
+            )
+            if self._num_chains > 1 and i % self._num_interval == 0:
+                self._replica_exchange_memory_efficient()
+            print(f'\r{i}', end='')
+        print()
+        tmp = len(self._tmp_metatree_count_lists[self._num_chains-1])-1
+        for i in range(self._num_chains):
+            self._tmp_metatree_count_lists[i][-1] = 1
+        print(f'num_metatrees: {num_metatrees}')
+        for i in range(num_metatrees):
+            self.remh_step_truncated_memory_efficient(
+                x_continuous,
+                x_categorical,
+                y,
+            )
+            if self._num_chains > 1 and i % self._num_interval == 0:
+                self._replica_exchange_memory_efficient()
+            print(f'\r{i}', end='')
+        print()
+        
+        # output
+        _tmp_metatree_prob_vec = np.array(self._tmp_metatree_count_lists[self._num_chains-1][tmp:],dtype=float)
+        _tmp_metatree_prob_vec /= _tmp_metatree_prob_vec.sum()
+        return self._marge_metatrees(self._tmp_metatree_lists[self._num_chains-1][tmp:],_tmp_metatree_prob_vec)
+
+    def generate_truncated_and_update_lr(
+            self,
+            last:_Node,
+            new:_Node,
+            flag:bool,
+            x_continuous,
+            x_categorical,
+            y,
+            ):
+        # always
+        if flag:
+            new.sub_model=copy.deepcopy(self._hn_node_sub_model)
+            new.sub_model._update_posterior(x_continuous,y)
+            new.log_marginal_likelihood = new.sub_model.calc_log_marginal_likelihood()
+        else:
+            new.sub_model = copy.deepcopy(last.sub_model)
+            new.log_marginal_likelihood = last.log_marginal_likelihood
+
+        # leaf node
+        if (new.depth == self.c_max_depth 
+            or (np.allclose(x_continuous,x_continuous[0]) 
+                and np.allclose(x_categorical,x_categorical[0]))):
+            new.h_g = 0
+            new.leaf = True
+            return new.log_marginal_likelihood
+
+        # inner node
+        if flag:
+            new.k = self.rng.choice(new.k_candidates)
+        elif self.rng.random() > min(last.h_g,self._g_max):
+            flag = True
+            last.division_flag = False
+            new.division_flag = False
+            new.k = self.rng.choice([k for k in new.k_candidates if k != last.k])
+        else:
+            last.division_flag = True
+            new.division_flag = True
+            new.k = last.k
+
+        new.ranges[:,0] = x_continuous.min(axis=0)
+        new.ranges[:,1] = x_continuous.max(axis=0)
+        self._make_children_for_mcmc(new,x_continuous)
+
+        if new.k < self.c_dim_continuous:
+            for i in range(self._num_children):
+                if i == 0:
+                    indices = x_continuous[:,new.k] < new.thresholds[i+1]
+                elif i == self._num_children-1:
+                    indices = new.thresholds[i] <= x_continuous[:,new.k]
+                else:
+                    indices = (new.thresholds[i] <= x_continuous[:,new.k]) & (x_continuous[:,new.k] < new.thresholds[i+1])
+                
+                if np.any(indices):
+                    new.log_children_marginal_likelihood[i] = \
+                        self.generate_truncated_and_update_lr(
+                            None if flag else last.children[i],
+                            new.children[i],
+                            flag,
+                            x_continuous[indices],
+                            x_categorical[indices],
+                            y[indices],
+                        )
+                else:
+                    new.log_children_marginal_likelihood[i] = 0.0
+                    new.children[i].leaf = True
+                    new.children[i].log_marginal_likelihood = 0.0
+                    new.children[i].sub_model = copy.deepcopy(self._hn_node_sub_model)
+        else:
+            for i in range(self._num_children):
+                indices = x_categorical[:,new.k-self.c_dim_continuous] == i
+                if np.any(indices):
+                    new.log_children_marginal_likelihood[i] = \
+                        self.generate_truncated_and_update_lr(
+                            None if flag else last.children[i],
+                            new.children[i],
+                            flag,
+                            x_continuous[indices],
+                            x_categorical[indices],
+                            y[indices],
+                        )
+                else:
+                    new.log_children_marginal_likelihood[i] = 0.0
+                    new.children[i].leaf = True
+                    new.children[i].log_marginal_likelihood = 0.0
+                    new.children[i].sub_model = copy.deepcopy(self._hn_node_sub_model)
+        tmp1 = np.log(new.h_g) + new.log_children_marginal_likelihood.sum()
+        tmp2 = np.logaddexp(np.log(1 - new.h_g) + new.log_marginal_likelihood, tmp1)
+        new.h_g = np.exp(tmp1 - tmp2)
+        return tmp2
+
+    def generate_truncated_and_update(
+            self,
+            last:_Node,
+            new:_Node,
+            flag:bool,
+            x_continuous,
+            x_categorical,
+            y,
+            ):
+        # always
+        if flag:
+            new.sub_model=copy.deepcopy(self._hn_node_sub_model)
+            new.sub_model._update_posterior(y)
+            new.log_marginal_likelihood = new.sub_model.calc_log_marginal_likelihood()
+        else:
+            new.sub_model = copy.deepcopy(last.sub_model)
+            new.log_marginal_likelihood = last.log_marginal_likelihood
+
+        # leaf node
+        if (new.depth == self.c_max_depth 
+            or (np.allclose(x_continuous,x_continuous[0]) 
+                and np.allclose(x_categorical,x_categorical[0]))):
+            new.h_g = 0
+            new.leaf = True
+            return new.log_marginal_likelihood
+
+        # inner node
+        if flag:
+            new.k = self.rng.choice(new.k_candidates)
+        elif self.rng.random() > min(last.h_g,self._g_max):
+            flag = True
+            last.division_flag = False
+            new.division_flag = False
+            new.k = self.rng.choice([k for k in new.k_candidates if k != last.k])
+        else:
+            last.division_flag = True
+            new.division_flag = True
+            new.k = last.k
+
+        new.ranges[:,0] = x_continuous.min(axis=0)
+        new.ranges[:,1] = x_continuous.max(axis=0)
+        self._make_children_for_mcmc(new,x_continuous)
+
+        if new.k < self.c_dim_continuous:
+            for i in range(self._num_children):
+                if i == 0:
+                    indices = x_continuous[:,new.k] < new.thresholds[i+1]
+                elif i == self._num_children-1:
+                    indices = new.thresholds[i] <= x_continuous[:,new.k]
+                else:
+                    indices = (new.thresholds[i] <= x_continuous[:,new.k]) & (x_continuous[:,new.k] < new.thresholds[i+1])
+                
+                if np.any(indices):
+                    new.log_children_marginal_likelihood[i] = \
+                        self.generate_truncated_and_update(
+                            None if flag else last.children[i],
+                            new.children[i],
+                            flag,
+                            x_continuous[indices],
+                            x_categorical[indices],
+                            y[indices],
+                        )
+                else:
+                    new.log_children_marginal_likelihood[i] = 0.0
+                    new.children[i].leaf = True
+                    new.children[i].log_marginal_likelihood = 0.0
+                    new.children[i].sub_model = copy.deepcopy(self._hn_node_sub_model)
+        else:
+            for i in range(self._num_children):
+                indices = x_categorical[:,new.k-self.c_dim_continuous] == i
+                if np.any(indices):
+                    new.log_children_marginal_likelihood[i] = \
+                        self.generate_truncated_and_update(
+                            None if flag else last.children[i],
+                            new.children[i],
+                            flag,
+                            x_continuous[indices],
+                            x_categorical[indices],
+                            y[indices],
+                        )
+                else:
+                    new.log_children_marginal_likelihood[i] = 0.0
+                    new.children[i].leaf = True
+                    new.children[i].log_marginal_likelihood = 0.0
+                    new.children[i].sub_model = copy.deepcopy(self._hn_node_sub_model)
+        tmp1 = np.log(new.h_g) + new.log_children_marginal_likelihood.sum()
+        tmp2 = np.logaddexp(np.log(1 - new.h_g) + new.log_marginal_likelihood, tmp1)
+        new.h_g = np.exp(tmp1 - tmp2)
+        return tmp2
+
+    def mh_step_truncated(self,x_continuous,x_categorical,y):
+        self._tmp_root = _Node(
+            0,
+            self._root_k_candidates,
+            self.hn_g,
+            self.rng.choice(self._root_k_candidates),
+            sub_model=copy.deepcopy(self._hn_node_sub_model),
+            ranges=self.c_ranges,
+            log_children_marginal_likelihood=np.zeros(self._num_children),
+            )
+
+        if self.SubModel is linearregression:
+            _l_new = self.generate_truncated_and_update_lr(
+                self._tmp_metatree_list[-1],
+                self._tmp_root,
+                False,
+                x_continuous,
+                x_categorical,
+                y,
+            )
+        else:
+            _l_new = self.generate_truncated_and_update(
+                self._tmp_metatree_list[-1],
+                self._tmp_root,
+                False,
+                x_continuous,
+                x_categorical,
+                y,
+            )
+
+        _t_posteror_new = self._calc_truncated_posterior_lean(self._tmp_root)
+        _t_posteror_last = self._calc_truncated_posterior_lean(self._tmp_metatree_list[-1])
+
+        if self.rng.random() < np.exp(_l_new-_t_posteror_last-self._l_last+_t_posteror_new):
+            # accept
+            self._tmp_metatree_list.append(self._tmp_root)
+            self._tmp_metatree_count_list.append(1)
+            self._l_last = _l_new
+            self._l_list.append(_l_new)
+            self._num_proposed += 1
+            self._num_accepted += 1
+            self._numerator *= self._rho
+            self._numerator += 1
+            self._denominator *= self._rho
+            self._denominator += 1
+            print(f'\r{self._num_proposed}(accepted:{self._num_accepted})', end='')
+        else:
+            # reject
+            self._tmp_metatree_count_list[-1] += 1
+            self._l_list.append(self._l_last)
+            self._num_proposed += 1
+            self._numerator *= self._rho
+            self._denominator *= self._rho
+            self._denominator += 1
+            print(f'\r{self._num_proposed}(accepted:{self._num_accepted})', end='')
+
+    def remh_step_truncated_memory_efficient(self,x_continuous,x_categorical,y):
+        for i in range(self._num_chains-1):
+            self._tmp_roots[i] = _Node(
+                0,
+                self._root_k_candidates,
+                self.hn_g,
+                self.rng.choice(self._root_k_candidates),
+                sub_model=copy.deepcopy(self._hn_node_sub_model),
+                ranges=self.c_ranges,
+                log_children_marginal_likelihood=np.zeros(self._num_children),
+            )
+
+            if self.SubModel is linearregression:
+                _l_new = self.generate_truncated_and_update_lr(
+                    self._tmp_metatree_lists[i][-1],
+                    self._tmp_roots[i],
+                    False,
+                    x_continuous,
+                    x_categorical,
+                    y,
+                )
+            else:
+                _l_new = self.generate_truncated_and_update(
+                    self._tmp_metatree_lists[i][-1],
+                    self._tmp_roots[i],
+                    False,
+                    x_continuous,
+                    x_categorical,
+                    y,
+                )
+
+            _t_posteror_new = self._calc_truncated_posterior_lean(self._tmp_roots[i])
+            _t_posteror_last = self._calc_truncated_posterior_lean(self._tmp_metatree_lists[i][-1])
+
+            if self.rng.random() < np.exp((_l_new-self._l_lasts[i])*self._beta_vec[i]-_t_posteror_last+_t_posteror_new):
+                # accept
+                self._tmp_metatree_lists[i][-1] = self._tmp_roots[i]
+                self._tmp_metatree_count_lists[i][-1] = 1
+                self._l_lasts[i] = _l_new
+            else:
+                # reject
+                self._tmp_metatree_count_lists[i][-1] += 1
+
+        self._tmp_roots[-1] = _Node(
+            0,
+            self._root_k_candidates,
+            self.hn_g,
+            self.rng.choice(self._root_k_candidates),
+            sub_model=copy.deepcopy(self._hn_node_sub_model),
+            ranges=self.c_ranges,
+            log_children_marginal_likelihood=np.zeros(self._num_children),
+        )
+
+        if self.SubModel is linearregression:
+            _l_new = self.generate_truncated_and_update_lr(
+                self._tmp_metatree_lists[-1][-1],
+                self._tmp_roots[-1],
+                False,
+                x_continuous,
+                x_categorical,
+                y,
+            )
+        else:
+            _l_new = self.generate_truncated_and_update(
+                self._tmp_metatree_lists[-1][-1],
+                self._tmp_roots[-1],
+                False,
+                x_continuous,
+                x_categorical,
+                y,
+            )
+
+        _t_posteror_new = self._calc_truncated_posterior_lean(self._tmp_roots[-1])
+        _t_posteror_last = self._calc_truncated_posterior_lean(self._tmp_metatree_lists[-1][-1])
+
+        if self.rng.random() < np.exp((_l_new-self._l_lasts[-1])*self._beta_vec[-1]-_t_posteror_last+_t_posteror_new):
+            # accept
+            self._tmp_metatree_lists[-1].append(self._tmp_roots[-1])
+            self._tmp_metatree_count_lists[-1].append(1)
+            self._l_lasts[-1] = _l_new
+        else:
+            # reject
+            self._tmp_metatree_count_lists[-1][-1] += 1
+
+        self._l_list.append(self._l_lasts[-1])
+
+    def _replica_exchange_memory_efficient(self):
+        self._exchange_list.append(-1)
+        for i in range(self._num_exchange):
+            j = self.rng.choice(self._num_chains-1)
+            if self.rng.random() < np.exp(
+                    self._l_lasts[j]*self._beta_vec[j+1]
+                    +self._l_lasts[j+1]*self._beta_vec[j]
+                    -self._l_lasts[j]*self._beta_vec[j]
+                    -self._l_lasts[j+1]*self._beta_vec[j+1]
+                ):
+                if j == self._num_chains-2:
+                    self._exchange_list.append(j)
+                    self._tmp_metatree_lists[j+1].append(self._tmp_metatree_lists[j][-1])
+                    self._tmp_metatree_lists[j][-1] = self._tmp_metatree_lists[j+1][-2]
+                    self._tmp_metatree_count_lists[j][-1] = 1
+                    self._tmp_metatree_count_lists[j+1][-1] -= 1
+                    self._tmp_metatree_count_lists[j+1].append(1)
+                    tmp = self._l_lasts[j]
+                    self._l_lasts[j] = self._l_lasts[j+1]
+                    self._l_lasts[j+1] = tmp
+                    self._l_list.append(self._l_lasts[j+1])
+                else:
+                    self._exchange_list.append(j)
+                    tmp = self._tmp_metatree_lists[j+1][-1]
+                    self._tmp_metatree_lists[j+1][-1] = self._tmp_metatree_lists[j][-1]
+                    self._tmp_metatree_lists[j][-1] = tmp
+                    self._tmp_metatree_count_lists[j][-1] = 1
+                    self._tmp_metatree_count_lists[j+1][-1] = 1
+                    tmp = self._l_lasts[j]
+                    self._l_lasts[j] = self._l_lasts[j+1]
+                    self._l_lasts[j+1] = tmp
+
+    def _calc_truncated_posterior_lean(self,node:_Node):
+        if node.k is None:
+            return 0.0
+        elif node.division_flag:
+            tmp = 0
+            for i in range(self._num_children):
+                tmp += self._calc_truncated_posterior_lean(node.children[i])
+            return np.log(min(node.h_g,self._g_max)) + tmp
+        else:
+            return np.log(1.0-min(node.h_g,self._g_max))
+
+    def _update_g_max(self):
+        p_hat = self._numerator / self._denominator
+        if p_hat > self._p_obj:
+            g_max_new = self._g_max * self._p_obj / p_hat
+        else:
+            g_max_new = 1.0 - (1.0-self._g_max) * (1.0-self._p_obj) / (1.0-p_hat)
+        self._g_max_accumulated *= self._phi
+        self._g_max_accumulated += g_max_new
+        self._g_max_denominator *= self._phi
+        self._g_max_denominator += 1
+        self._g_max = self._g_max_accumulated / self._g_max_denominator
+        self._g_list.append(self._g_max)
+
+    def _make_children_for_mcmc(self,node:_Node,x):
+        child_k_candidates = node.k_candidates.copy()
+        if self.c_num_assignment_vec[node.k] > 0:
+            child_k_candidates.remove(node.k)
+        if node.k < self.c_dim_continuous:
+            if node.ranges[node.k,0] == node.ranges[node.k,1]:
+                node.thresholds = np.ones(self._num_children+1) * node.ranges[node.k,0]
+            elif self._threshold_type == '1d_kmeans' and self._num_children == 2:
+                node.thresholds = _make_thresholds(x[:,node.k])
+            else:
+                node.thresholds = np.arange(
+                    node.ranges[node.k,0],
+                    node.ranges[node.k,1]+(node.ranges[node.k,1]-node.ranges[node.k,0])/self._num_children/2,
+                    (node.ranges[node.k,1]-node.ranges[node.k,0])/self._num_children,
+                )
+        else:
+            node.thresholds = None
+        node.children = [None for i in range(self._num_children)]
+        for i in range(self._num_children):
+            node.children[i] = _Node(
+                node.depth+1,
+                child_k_candidates,
+                h_g=self.h0_g,
+                ranges=np.array(node.ranges),
+                log_children_marginal_likelihood=np.zeros(self._num_children),
+                )
+            if node.thresholds is not None:
+                node.children[i].ranges[node.k,0] = node.thresholds[i]
+                node.children[i].ranges[node.k,1] = node.thresholds[i+1]
+
 
     def update_posterior(self,x_continuous=None,x_categorical=None,y=None,alg_type='MTRF',**kwargs):
         """Update the hyperparameters of the posterior distribution using traning data.
@@ -2008,7 +2690,13 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 = self._MTRF(x_continuous,x_categorical,y,**kwargs)
             self._given_MT(x_continuous,x_categorical,y)
         elif alg_type == 'given_MT':
-            self._given_MT(x_continuous,x_categorical,y)
+            self._given_MT(x_continuous,x_categorical,y)            
+        elif alg_type == 'MTMCMC':
+            self.hn_metatree_list, self.hn_metatree_prob_vec \
+                = self._MTMCMC(x_continuous,x_categorical,y,**kwargs)
+        elif alg_type == 'REMTMCMC':
+            self.hn_metatree_list, self.hn_metatree_prob_vec \
+                = self._REMTMCMC(x_continuous,x_categorical,y,**kwargs)
         return self
 
     def _map_recursion_add_nodes(self,node:_Node):
@@ -2033,7 +2721,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             child_k_candidates = node.k_candidates.copy()
             if self.c_num_assignment_vec[node.k] > 0:
                 child_k_candidates.remove(node.k)
-            node.leaf = False
+            # node.leaf = False # To distinguish the leaf with no sample from map leaf, node.leaf must be left as it is.
             for i in range(self.c_num_children_vec[node.k]):
                 node.children[i] = _Node(
                     node.depth+1,
@@ -2066,15 +2754,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                     return node.h_g * self.hn_g ** (sum_nodes-1)
         else:
             tmp1 = 1.0-node.h_g
-            tmp_vec = np.empty(self.c_num_children_vec[node.k])
+            tmp2 = node.h_g
             for i in range(self.c_num_children_vec[node.k]):
-                tmp_vec[i] = self._map_recursion(node.children[i])
-            if tmp1 > node.h_g*tmp_vec.prod():
+                tmp2 *= self._map_recursion(node.children[i])
+            if tmp1 > tmp2:
                 node.map_leaf = True
                 return tmp1
             else:
                 node.map_leaf = False
-                return node.h_g*tmp_vec.prod()
+                return tmp2
 
     def _copy_map_tree_recursion(self,copied_node:_Node,original_node:_Node):
         copied_node.h_g = original_node.h_g
@@ -2562,3 +3250,102 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         prediction = self.make_prediction(loss=loss)
         self.update_posterior(x_continuous,x_categorical,y,alg_type='given_MT')
         return prediction
+
+    def _calc_pred_var_recursion(self,node:_Node):
+        if node.leaf:  # leaf node
+            return (node.sub_model.make_prediction(loss='squared'),
+                    node.sub_model.calc_pred_var())
+        else:  # inner node
+            if node.k < self.c_dim_continuous:
+                index = 0
+                for i in range(self.c_num_children_vec[node.k]-1):
+                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
+                        break
+                    index += 1
+            else:
+                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
+            
+            tmp_mean_child,tmp_var_child = self._calc_pred_var_recursion(node.children[index])
+            tmp_mean = node.sub_model.make_prediction(loss='squared')
+            tmp_var = node.sub_model.calc_pred_var()
+
+            mix_mean = (1-node.h_g) * tmp_mean + node.h_g * tmp_mean_child
+            mix_var = ((1-node.h_g) * ((mix_mean-tmp_mean)*(mix_mean-tmp_mean)+tmp_var)
+                       + node.h_g * ((mix_mean-tmp_mean_child)*(mix_mean-tmp_mean_child)+tmp_var_child))
+
+            return mix_mean,mix_var
+
+    def calc_pred_var(self):
+        """Calculate the variance of the predictive distribution.
+        
+        Returns
+        -------
+        var : float
+            The variance of the predictive distribution.
+        """
+        tmp_means = np.empty(len(self.hn_metatree_list))
+        tmp_vars = np.empty(len(self.hn_metatree_list))
+        for i,metatree in enumerate(self.hn_metatree_list):
+            tmp_means[i],tmp_vars[i] = self._calc_pred_var_recursion(metatree)
+        mix_mean = self.hn_metatree_prob_vec @ tmp_means
+        return self.hn_metatree_prob_vec @ ((tmp_means-mix_mean)*(tmp_means-mix_mean)+tmp_vars)
+
+    def _calc_feature_importances_recursion(self,node:_Node):
+        if node.leaf:
+            return 0
+        else:
+            tmp_feature_importances = np.zeros(self.c_dim_features)
+            for i in range(self.c_num_children_vec[node.k]):
+                tmp_feature_importances += self._calc_feature_importances_recursion(node.children[i])
+            
+            for i in range(self.c_num_children_vec[node.k]):
+                tmp_feature_importances[node.k] += node.children[i].log_marginal_likelihood
+            tmp_feature_importances[node.k] -= node.log_marginal_likelihood
+            
+            return node.h_g * tmp_feature_importances
+
+    def calc_feature_importances(self):
+        """Calculate the feature importances
+        
+        Returns
+        -------
+        feature_importances : numpy.ndarray
+            The feature importances.
+        """
+        feature_importances = np.zeros(self.c_dim_features)
+        for i,metatree in enumerate(self.hn_metatree_list):
+            feature_importances += self.hn_metatree_prob_vec[i] * self._calc_feature_importances_recursion(metatree)
+        return feature_importances
+
+    def _calc_pred_density_recursion(self,node:_Node,y):
+        if node.leaf:  # leaf node
+            return node.sub_model._calc_pred_density(y)
+        else:  # inner node
+            if node.k < self.c_dim_continuous:
+                index = 0
+                for i in range(self.c_num_children_vec[node.k]-1):
+                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
+                        break
+                    index += 1
+            else:
+                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
+            return ((1 - node.h_g) * node.sub_model._calc_pred_density(y)
+                    + node.h_g * self._calc_pred_density_recursion(node.children[index],y))
+
+    def calc_pred_density(self,y):
+        """Calculate the values of the probability density function of the predictive distribution.
+        
+        Parameters
+        ----------
+        y : numpy.ndarray
+            A float vector
+        
+        Returns
+        -------
+        p_y : numpy.ndarray
+            The values of the probability density function of the predictive distribution.
+        """
+        tmp = np.zeros(y.shape)
+        for i,metatree in enumerate(self.hn_metatree_list):
+            tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
+        return tmp
