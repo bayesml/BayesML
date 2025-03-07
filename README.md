@@ -3,7 +3,7 @@ Document Author
 Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
 Shota Saito <shota.s@gunma-u.ac.jp>
 -->
-<div style="text-align: center">
+<div align="center">
 Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href="https://bayesml.github.io/BayesML/">here!</a>
 </div>
 
