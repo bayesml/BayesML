@@ -3283,6 +3283,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         var : float
             The variance of the predictive distribution.
         """
+        if self.SubModel not in {normal,linearregression}:
+            raise(ParameterFormatError("SubModel must be normal or linearregression."))
         tmp_means = np.empty(len(self.hn_metatree_list))
         tmp_vars = np.empty(len(self.hn_metatree_list))
         for i,metatree in enumerate(self.hn_metatree_list):
@@ -3345,7 +3347,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         p_y : numpy.ndarray
             The values of the probability density function of the predictive distribution.
         """
-        tmp = np.zeros(y.shape)
+        y = _check.floats(y,'y',DataFormatError)
+        tmp = 0.0
         for i,metatree in enumerate(self.hn_metatree_list):
             tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
         return tmp
