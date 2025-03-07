@@ -2069,9 +2069,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             **self.sub_constants,
             **self.sub_h0_params,
         ).set_hn_params(**self.sub_hn_params)
-        if not threshold_type in {'1d_kmeans', 'even'}:
+        if not threshold_type in {'1d_kmeans', 'sample_midpoint'}:
             raise(ParameterFormatError(
-                'threshold_type must be "1d_kmeans" or "even".'
+                'threshold_type must be "1d_kmeans" or "sample_midpoint".'
             ))
         self._threshold_type = threshold_type
         self._tmp_root = _Node(
@@ -2177,9 +2177,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             **self.sub_h0_params,
         ).set_hn_params(**self.sub_hn_params)
         self._num_chains = _check.pos_int(num_chains,'num_chains',ParameterFormatError)
-        if not threshold_type in {'1d_kmeans', 'even'}:
+        if not threshold_type in {'1d_kmeans', 'sample_midpoint'}:
             raise(ParameterFormatError(
-                'threshold_type must be "1d_kmeans" or "even".'
+                'threshold_type must be "1d_kmeans" or "sample_midpoint".'
             ))
         self._threshold_type = threshold_type
         self._tmp_roots =[]
@@ -3319,7 +3319,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                     + node.h_g * self._calc_pred_density_recursion(node.children[index],y))
 
     def calc_pred_density(self,y):
-        tmp = 0
+        tmp = np.zeros(y.shape)
         for i,metatree in enumerate(self.hn_metatree_list):
             tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
         return tmp
