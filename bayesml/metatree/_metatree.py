@@ -3276,6 +3276,13 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             return mix_mean,mix_var
 
     def calc_pred_var(self):
+        """Calculate the variance of the predictive distribution.
+        
+        Returns
+        -------
+        var : float
+            The variance of the predictive distribution.
+        """
         tmp_means = np.empty(len(self.hn_metatree_list))
         tmp_vars = np.empty(len(self.hn_metatree_list))
         for i,metatree in enumerate(self.hn_metatree_list):
@@ -3298,6 +3305,13 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             return node.h_g * tmp_feature_importances
 
     def calc_feature_importances(self):
+        """Calculate the feature importances
+        
+        Returns
+        -------
+        feature_importances : numpy.ndarray
+            The feature importances.
+        """
         feature_importances = np.zeros(self.c_dim_features)
         for i,metatree in enumerate(self.hn_metatree_list):
             feature_importances += self.hn_metatree_prob_vec[i] * self._calc_feature_importances_recursion(metatree)
@@ -3319,6 +3333,18 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                     + node.h_g * self._calc_pred_density_recursion(node.children[index],y))
 
     def calc_pred_density(self,y):
+        """Calculate the values of the probability density function of the predictive distribution.
+        
+        Parameters
+        ----------
+        y : numpy.ndarray
+            A float vector
+        
+        Returns
+        -------
+        p_y : numpy.ndarray
+            The values of the probability density function of the predictive distribution.
+        """
         tmp = np.zeros(y.shape)
         for i,metatree in enumerate(self.hn_metatree_list):
             tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
