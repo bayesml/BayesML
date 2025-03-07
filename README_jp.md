@@ -2,7 +2,7 @@
 Document Author
 Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
 -->
-<div style="background-color: #DAAE37; padding: 5px; text-align: center">
+<div style="text-align: center">
 メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href="https://bayesml.github.io/BayesML/">こちら</a>！
 </div>
 
