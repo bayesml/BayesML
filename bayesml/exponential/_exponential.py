@@ -2,10 +2,10 @@
 # Luyu Ruan <zzstarsound@gmail.com>
 # Koshi Shimada <shimada.koshi.re@gmail.com>
 # Yuji Iikubo <yuji-iikubo.8@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Yuji Iikubo <yuji-iikubo.8@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import expon as ss_expon, gamma as ss_gamma, lomax as ss_lomax

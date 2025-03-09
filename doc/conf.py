@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'BayesML'
-copyright = '2022, BayesML Developers'
+copyright = '2025, BayesML Developers'
 author = 'BayesML Developers'
 
 # The full version, including alpha/beta/rc tags
-release = '0.2.5'
+release = '0.3.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -36,8 +36,9 @@ extensions = [
 	'sphinx.ext.autodoc',
 	'numpydoc',
 	'sphinx.ext.autosummary',
-	'sphinx.ext.intersphinx'
-	#'sphinx.ext.napoleon'
+	'sphinx.ext.intersphinx',
+	#'sphinx.ext.napoleon',
+	'nbsphinx',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -61,6 +62,8 @@ html_theme = 'sphinx_book_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+html_css_files = ["custom.css"]
+
 html_title = 'BayesML'
 
 html_logo = 'logos/BayesML_logo.png'
@@ -68,9 +71,9 @@ html_logo = 'logos/BayesML_logo.png'
 myst_enable_extensions = ["dollarmath", "amsmath","html_image"]
 
 html_theme_options = {
-  "logo_only": True,
-  "repository_url": "https://github.com/yuta-nakahara/BayesML/",
+  "repository_url": "https://github.com/bayesml/BayesML/",
   "use_repository_button": True,
+  "announcement": "Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html'>here</a>!",
 }
 
 napoleon_use_rtype = False
@@ -80,8 +83,6 @@ autodoc_default_options = {
 }
 
 #numpydoc_show_class_members = False
-
-# html_style = 'css/customize.css'
 
 autosummary_generate = True
 

@@ -1,5 +1,5 @@
 # Document Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
 r"""
 The Gaussian mixture model with the Gauss-Wishart prior distribution and the Dirichlet prior distribution.

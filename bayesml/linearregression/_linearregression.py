@@ -1,9 +1,9 @@
 # Code Author
 # Taisuke Ishiwatari <taisuke.ishiwatari@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Taisuke Ishiwatari <taisuke.ishiwatari@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import gamma as ss_gamma

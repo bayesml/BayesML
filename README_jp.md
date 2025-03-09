@@ -2,6 +2,10 @@
 Document Author
 Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
 -->
+<div align="center">
+<b>メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href="https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html">こちら</a>！</b>
+</div>
+
 <img src="./doc/logos/BayesML_logo.png" width="600">
 
 ## 目的
@@ -16,7 +20,11 @@ BayesMLは以下の特徴を持っています．
 * 学習アルゴリズムの多くはデータ生成確率モデルと事前分布の共役性を効果的に用いているため，MCMC法などの汎用的なベイズ学習アルゴリズムと比べて非常に高速で，オンライン学習にも適しています．
 * 2~3次元空間上で，データ生成確率モデル，生成された人工データ，学習された事後分布を可視化するメソッドが全てのパッケージに備わっています．そのため，人工データの生成と学習を通じて確率モデル，アルゴリズムの特性を効果的に把握することができます．
 
-詳細は[Webサイト](https://yuta-nakahara.github.io/BayesML/ "BayesML's Documentation")をご覧ください．
+詳細は[Webサイト](https://bayesml.github.io/BayesML/ "BayesML's Documentation")をご覧ください．
+
+## ニュース
+
+* メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択されました．サンプルコードは[こちら](https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html)をご覧ください．
 
 ## インストール
 
@@ -107,18 +115,18 @@ print(learn_model.estimate_params(loss='0-1'))
 
 現在，以下のモデルに関するパッケージが利用可能です．本ライブラリでは，データ生成確率モデル，事前分布，事後分布（または近似事後分布），予測分布（または近似予測分布）を合わせてモデルと呼んでいます．
 
-* [ベルヌーイモデル](https://yuta-nakahara.github.io/BayesML/bayesml.bernoulli.html "Bayesml Bernoulli Model")
-* [カテゴリカルモデル](https://yuta-nakahara.github.io/BayesML/bayesml.categorical.html "BayesML Categorical Model")
-* [ポアソンモデル](https://yuta-nakahara.github.io/BayesML/bayesml.poisson.html "BayesML Poisson Model")
-* [正規モデル](https://yuta-nakahara.github.io/BayesML/bayesml.normal.html "BayesML Normal Model")
-* [多変量正規モデル](https://yuta-nakahara.github.io/BayesML/bayesml.multivariate_normal.html "BayesML Multivariate Normal Model")
-* [指数モデル](https://yuta-nakahara.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
-* [混合正規モデル](https://yuta-nakahara.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
-* [線形回帰モデル](https://yuta-nakahara.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
-* [メタツリーモデル](https://yuta-nakahara.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
-* [自己回帰モデル](https://yuta-nakahara.github.io/BayesML/bayesml.autoregressive.html "BayesML Autoregressive Model")
-* [隠れマルコフモデル](https://yuta-nakahara.github.io/BayesML/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
-* [文脈木モデル](https://yuta-nakahara.github.io/BayesML/bayesml.contexttree.html "BayesML Context Tree Model")
+* [ベルヌーイモデル](https://bayesml.github.io/BayesML/bayesml.bernoulli.html "Bayesml Bernoulli Model")
+* [カテゴリカルモデル](https://bayesml.github.io/BayesML/bayesml.categorical.html "BayesML Categorical Model")
+* [ポアソンモデル](https://bayesml.github.io/BayesML/bayesml.poisson.html "BayesML Poisson Model")
+* [正規モデル](https://bayesml.github.io/BayesML/bayesml.normal.html "BayesML Normal Model")
+* [多変量正規モデル](https://bayesml.github.io/BayesML/bayesml.multivariate_normal.html "BayesML Multivariate Normal Model")
+* [指数モデル](https://bayesml.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
+* [混合正規モデル](https://bayesml.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
+* [線形回帰モデル](https://bayesml.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
+* [メタツリーモデル](https://bayesml.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
+* [自己回帰モデル](https://bayesml.github.io/BayesML/bayesml.autoregressive.html "BayesML Autoregressive Model")
+* [隠れマルコフモデル](https://bayesml.github.io/BayesML/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
+* [文脈木モデル](https://bayesml.github.io/BayesML/bayesml.contexttree.html "BayesML Context Tree Model")
 
 また，今後はより複雑な階層的モデルを取り扱うパッケージを追加していく予定です．
 
@@ -134,8 +142,9 @@ BayesMLへのコントリビューションを考えてくださってありが�
 
 ```
 Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
-S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML 0.2.5,'' 
-[Online] https://github.com/yuta-nakahara/BayesML
+S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
+Python package version 0.3.0, 
+[Online] https://github.com/bayesml/BayesML
 ```
 
 BibTeX
@@ -145,8 +154,9 @@ BibTeX
   author = {Nakahara, Yuta and Ichijo, Naoki and Shimada, Koshi and
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
-  title = {BayesML 0.2.5},
-  howpublished = {\url{https://github.com/yuta-nakahara/BayesML}},
-  year = {2022}
+  title = {{BayesML}},
+  howpublished = {Python package version 0.3.0},
+  note = {\url{https://github.com/bayesml/BayesML}},
+  year = {2025}
 }
 ```

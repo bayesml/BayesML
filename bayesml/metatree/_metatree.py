@@ -1,7 +1,7 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Wenbin Yu <ywb827748728@163.com>
 import warnings
 import copy
@@ -2086,9 +2086,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self._tmp_metatree_list = [self._tmp_root]
         self._tmp_metatree_count_list = [1]
         if self.SubModel is linearregression:
-            self._l_last = self.generate_truncated_and_update_lr(None,self._tmp_root,True,x_continuous,x_categorical,y)
+            self._l_last = self._generate_truncated_and_update_lr(None,self._tmp_root,True,x_continuous,x_categorical,y)
         else:
-            self._l_last = self.generate_truncated_and_update(None,self._tmp_root,True,x_continuous,x_categorical,y)
+            self._l_last = self._generate_truncated_and_update(None,self._tmp_root,True,x_continuous,x_categorical,y)
         
         if self.c_dim_features == 1:
             return self._tmp_metatree_list, np.array([1])
@@ -2109,7 +2109,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         # procedure
         print(f'brun_in: {burn_in}')
         while self._num_proposed < burn_in:
-            self.mh_step_truncated(
+            self._mh_step_truncated(
                 x_continuous,
                 x_categorical,
                 y,
@@ -2120,7 +2120,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self._tmp_metatree_count_list[-1] = 1
         print(f'burn_in + num_metatrees: {burn_in + num_metatrees}')
         while self._num_proposed < burn_in + num_metatrees:
-            self.mh_step_truncated(
+            self._mh_step_truncated(
                 x_continuous,
                 x_categorical,
                 y,
@@ -2200,10 +2200,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self._l_lasts = np.zeros(self._num_chains)
         if self.SubModel is linearregression:
             for i in range(self._num_chains):
-                self._l_lasts[i] = self.generate_truncated_and_update_lr(None,self._tmp_roots[i],True,x_continuous,x_categorical,y)
+                self._l_lasts[i] = self._generate_truncated_and_update_lr(None,self._tmp_roots[i],True,x_continuous,x_categorical,y)
         else:
             for i in range(self._num_chains):
-                self._l_lasts[i] = self.generate_truncated_and_update(None,self._tmp_roots[i],True,x_continuous,x_categorical,y)
+                self._l_lasts[i] = self._generate_truncated_and_update(None,self._tmp_roots[i],True,x_continuous,x_categorical,y)
         
         if self.c_dim_features == 1:
             return self._tmp_metatree_lists[self._num_chains-1], np.array([1])
@@ -2226,7 +2226,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         # procedure
         print(f'brun_in: {burn_in}')
         for i in range(burn_in):
-            self.remh_step_truncated_memory_efficient(
+            self._remh_step_truncated_memory_efficient(
                 x_continuous,
                 x_categorical,
                 y,
@@ -2240,7 +2240,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             self._tmp_metatree_count_lists[i][-1] = 1
         print(f'num_metatrees: {num_metatrees}')
         for i in range(num_metatrees):
-            self.remh_step_truncated_memory_efficient(
+            self._remh_step_truncated_memory_efficient(
                 x_continuous,
                 x_categorical,
                 y,
@@ -2255,7 +2255,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         _tmp_metatree_prob_vec /= _tmp_metatree_prob_vec.sum()
         return self._marge_metatrees(self._tmp_metatree_lists[self._num_chains-1][tmp:],_tmp_metatree_prob_vec)
 
-    def generate_truncated_and_update_lr(
+    def _generate_truncated_and_update_lr(
             self,
             last:_Node,
             new:_Node,
@@ -2309,7 +2309,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 
                 if np.any(indices):
                     new.log_children_marginal_likelihood[i] = \
-                        self.generate_truncated_and_update_lr(
+                        self._generate_truncated_and_update_lr(
                             None if flag else last.children[i],
                             new.children[i],
                             flag,
@@ -2327,7 +2327,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 indices = x_categorical[:,new.k-self.c_dim_continuous] == i
                 if np.any(indices):
                     new.log_children_marginal_likelihood[i] = \
-                        self.generate_truncated_and_update_lr(
+                        self._generate_truncated_and_update_lr(
                             None if flag else last.children[i],
                             new.children[i],
                             flag,
@@ -2345,7 +2345,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         new.h_g = np.exp(tmp1 - tmp2)
         return tmp2
 
-    def generate_truncated_and_update(
+    def _generate_truncated_and_update(
             self,
             last:_Node,
             new:_Node,
@@ -2399,7 +2399,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 
                 if np.any(indices):
                     new.log_children_marginal_likelihood[i] = \
-                        self.generate_truncated_and_update(
+                        self._generate_truncated_and_update(
                             None if flag else last.children[i],
                             new.children[i],
                             flag,
@@ -2417,7 +2417,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 indices = x_categorical[:,new.k-self.c_dim_continuous] == i
                 if np.any(indices):
                     new.log_children_marginal_likelihood[i] = \
-                        self.generate_truncated_and_update(
+                        self._generate_truncated_and_update(
                             None if flag else last.children[i],
                             new.children[i],
                             flag,
@@ -2435,7 +2435,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         new.h_g = np.exp(tmp1 - tmp2)
         return tmp2
 
-    def mh_step_truncated(self,x_continuous,x_categorical,y):
+    def _mh_step_truncated(self,x_continuous,x_categorical,y):
         self._tmp_root = _Node(
             0,
             self._root_k_candidates,
@@ -2447,7 +2447,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             )
 
         if self.SubModel is linearregression:
-            _l_new = self.generate_truncated_and_update_lr(
+            _l_new = self._generate_truncated_and_update_lr(
                 self._tmp_metatree_list[-1],
                 self._tmp_root,
                 False,
@@ -2456,7 +2456,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 y,
             )
         else:
-            _l_new = self.generate_truncated_and_update(
+            _l_new = self._generate_truncated_and_update(
                 self._tmp_metatree_list[-1],
                 self._tmp_root,
                 False,
@@ -2491,7 +2491,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             self._denominator += 1
             print(f'\r{self._num_proposed}(accepted:{self._num_accepted})', end='')
 
-    def remh_step_truncated_memory_efficient(self,x_continuous,x_categorical,y):
+    def _remh_step_truncated_memory_efficient(self,x_continuous,x_categorical,y):
         for i in range(self._num_chains-1):
             self._tmp_roots[i] = _Node(
                 0,
@@ -2504,7 +2504,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             )
 
             if self.SubModel is linearregression:
-                _l_new = self.generate_truncated_and_update_lr(
+                _l_new = self._generate_truncated_and_update_lr(
                     self._tmp_metatree_lists[i][-1],
                     self._tmp_roots[i],
                     False,
@@ -2513,7 +2513,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                     y,
                 )
             else:
-                _l_new = self.generate_truncated_and_update(
+                _l_new = self._generate_truncated_and_update(
                     self._tmp_metatree_lists[i][-1],
                     self._tmp_roots[i],
                     False,
@@ -2545,7 +2545,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         )
 
         if self.SubModel is linearregression:
-            _l_new = self.generate_truncated_and_update_lr(
+            _l_new = self._generate_truncated_and_update_lr(
                 self._tmp_metatree_lists[-1][-1],
                 self._tmp_roots[-1],
                 False,
@@ -2554,7 +2554,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 y,
             )
         else:
-            _l_new = self.generate_truncated_and_update(
+            _l_new = self._generate_truncated_and_update(
                 self._tmp_metatree_lists[-1][-1],
                 self._tmp_roots[-1],
                 False,
@@ -3283,6 +3283,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         var : float
             The variance of the predictive distribution.
         """
+        if self.SubModel not in {normal,linearregression}:
+            raise(ParameterFormatError("SubModel must be normal or linearregression."))
         tmp_means = np.empty(len(self.hn_metatree_list))
         tmp_vars = np.empty(len(self.hn_metatree_list))
         for i,metatree in enumerate(self.hn_metatree_list):
@@ -3345,7 +3347,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         p_y : numpy.ndarray
             The values of the probability density function of the predictive distribution.
         """
-        tmp = np.zeros(y.shape)
+        y = _check.floats(y,'y',DataFormatError)
+        tmp = 0.0
         for i,metatree in enumerate(self.hn_metatree_list):
             tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
         return tmp

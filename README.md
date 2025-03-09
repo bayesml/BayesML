@@ -3,6 +3,10 @@ Document Author
 Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
 Shota Saito <shota.s@gunma-u.ac.jp>
 -->
+<div align="center">
+<b>Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href="https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html">here</a>!</b>
+</div>
+
 <img src="./doc/logos/BayesML_logo.png" width="600">
 
 ## Purpose
@@ -17,7 +21,11 @@ BayesML has the following characteristics.
 * Many of our learning algorithms are much faster than general-purpose Bayesian learning algorithms such as MCMC methods because they effectively use the conjugate property of a probabilistic data generative model and a prior distribution. Moreover, they are suitable for online learning.
 * All packages have methods to visualize the probabilistic data generative model, generated data from that model, and the posterior distribution learned from the data in 2~3 dimensional space. Thus, you can effectively understand the characteristics of probabilistic data generative models and algorithms through the generation of synthetic data and learning from them.
 
-For more details, see our [website](https://yuta-nakahara.github.io/BayesML/ "BayesML's Documentation").
+For more details, see our [website](https://bayesml.github.io/BayesML/ "BayesML's Documentation").
+
+## News
+
+* Our algorithm for the meta-tree model is accepted at AISTATS 2025! A sample code is [here](https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html).
 
 ## Installation
 
@@ -110,18 +118,18 @@ Different settings of a loss function yield different optimal estimates.
 
 The following packages are currently available. In this library, a probabilistic data generative model, prior distribution, posterior distribution (or approximate posterior distribution), and predictive distribution (or approximate predictive distribution) are collectively called a model.
 
-* [Bernoulli model](https://yuta-nakahara.github.io/BayesML/bayesml.bernoulli.html "Bayesml Bernoulli Model")
-* [Categorical model](https://yuta-nakahara.github.io/BayesML/bayesml.categorical.html "BayesML Categorical Model")
-* [Poisson model](https://yuta-nakahara.github.io/BayesML/bayesml.poisson.html "BayesML Poisson Model")
-* [Normal model](https://yuta-nakahara.github.io/BayesML/bayesml.normal.html "BayesML Normal Model")
-* [Multivariate normal model](https://yuta-nakahara.github.io/BayesML/bayesml.multivariate_normal.html "BayesML Multivariate Normal Model")
-* [Exponential model](https://yuta-nakahara.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
-* [Gaussian mixture model](https://yuta-nakahara.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
-* [Linear regression model](https://yuta-nakahara.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
-* [Meta-tree model](https://yuta-nakahara.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
-* [Autoregressive model](https://yuta-nakahara.github.io/BayesML/bayesml.autoregressive.html "BayesML Autoregressive Model")
-* [Hidden Markov normal model](https://yuta-nakahara.github.io/BayesML/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
-* [Context tree model](https://yuta-nakahara.github.io/BayesML/bayesml.contexttree.html "BayesML Context Tree Model")
+* [Bernoulli model](https://bayesml.github.io/BayesML/bayesml.bernoulli.html "Bayesml Bernoulli Model")
+* [Categorical model](https://bayesml.github.io/BayesML/bayesml.categorical.html "BayesML Categorical Model")
+* [Poisson model](https://bayesml.github.io/BayesML/bayesml.poisson.html "BayesML Poisson Model")
+* [Normal model](https://bayesml.github.io/BayesML/bayesml.normal.html "BayesML Normal Model")
+* [Multivariate normal model](https://bayesml.github.io/BayesML/bayesml.multivariate_normal.html "BayesML Multivariate Normal Model")
+* [Exponential model](https://bayesml.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
+* [Gaussian mixture model](https://bayesml.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
+* [Linear regression model](https://bayesml.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
+* [Meta-tree model](https://bayesml.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
+* [Autoregressive model](https://bayesml.github.io/BayesML/bayesml.autoregressive.html "BayesML Autoregressive Model")
+* [Hidden Markov normal model](https://bayesml.github.io/BayesML/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
+* [Context tree model](https://bayesml.github.io/BayesML/bayesml.contexttree.html "BayesML Context Tree Model")
 
 In the future, we will add packages to deal with more complicated hierarchical models.
 
@@ -137,8 +145,9 @@ Plain text
 
 ```
 Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
-S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML 0.2.5,'' 
-[Online] https://github.com/yuta-nakahara/BayesML
+S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
+Python package version 0.3.0, 
+[Online] https://github.com/bayesml/BayesML
 ```
 
 BibTeX
@@ -148,8 +157,9 @@ BibTeX
   author = {Nakahara, Yuta and Ichijo, Naoki and Shimada, Koshi and
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
-  title = {BayesML 0.2.5},
-  howpublished = {\url{https://github.com/yuta-nakahara/BayesML}},
-  year = {2022}
+  title = {{BayesML}},
+  howpublished = {Python package version 0.3.0},
+  note = {\url{https://github.com/bayesml/BayesML}},
+  year = {2025}
 }
 ```
