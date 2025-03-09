@@ -3,7 +3,7 @@ Document Author
 Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
 -->
 <div align="center">
-メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href="https://bayesml.github.io/BayesML/">こちら</a>！
+<b>メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href="https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html">こちら</a>！</b>
 </div>
 
 <img src="./doc/logos/BayesML_logo.png" width="600">
@@ -24,7 +24,7 @@ BayesMLは以下の特徴を持っています．
 
 ## ニュース
 
-* メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択されました．サンプルコードは[こちら](https://bayesml.github.io/BayesML/)をご覧ください．
+* メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択されました．サンプルコードは[こちら](https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html)をご覧ください．
 
 ## インストール
 
@@ -154,9 +154,9 @@ BibTeX
   author = {Nakahara, Yuta and Ichijo, Naoki and Shimada, Koshi and
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
-  title = {BayesML},
-  note = {Python package version 0.3.0}
-  howpublished = {\url{https://github.com/bayesml/BayesML}},
+  title = {{BayesML}},
+  howpublished = {Python package version 0.3.0},
+  note = {\url{https://github.com/bayesml/BayesML}},
   year = {2025}
 }
 ```

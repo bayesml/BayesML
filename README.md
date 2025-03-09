@@ -4,7 +4,7 @@ Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
 Shota Saito <shota.s@gunma-u.ac.jp>
 -->
 <div align="center">
-Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href="https://bayesml.github.io/BayesML/">here!</a>
+<b>Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href="https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html">here</a>!</b>
 </div>
 
 <img src="./doc/logos/BayesML_logo.png" width="600">
@@ -25,7 +25,7 @@ For more details, see our [website](https://bayesml.github.io/BayesML/ "BayesML'
 
 ## News
 
-* Our algorithm for the meta-tree model is accepted at AISTATS 2025! A sample code is [here](https://bayesml.github.io/BayesML/).
+* Our algorithm for the meta-tree model is accepted at AISTATS 2025! A sample code is [here](https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html).
 
 ## Installation
 
@@ -157,9 +157,9 @@ BibTeX
   author = {Nakahara, Yuta and Ichijo, Naoki and Shimada, Koshi and
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
-  title = {BayesML},
-  note = {Python package version 0.3.0}
-  howpublished = {\url{https://github.com/bayesml/BayesML}},
+  title = {{BayesML}},
+  howpublished = {Python package version 0.3.0},
+  note = {\url{https://github.com/bayesml/BayesML}},
   year = {2025}
 }
 ```

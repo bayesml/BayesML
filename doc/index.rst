@@ -6,8 +6,7 @@
    Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
    Shota Saito <shota.s@gunma-u.ac.jp>
 
-BayesML's Documentation
-=======================
+.. image:: ./logos/BayesML_logo.png
 
 Purpose
 -------
@@ -22,6 +21,11 @@ BayesML has the following characteristics.
 * The structure of the library reflects the philosophy of Bayesian statistics and Bayesian decision theory: updating the posterior distribution learned from the data and outputting the optimal estimate based on the Bayes criterion.
 * Many of our learning algorithms are much faster than general-purpose Bayesian learning algorithms such as MCMC methods because they effectively use the conjugate property of a probabilistic data generative model and a prior distribution. Moreover, they are suitable for online learning.
 * All packages have methods to visualize the probabilistic data generative model, generated data from that model, and the posterior distribution learned from the data in 2~3 dimensional space. Thus, you can effectively understand the characteristics of probabilistic data generative models and algorithms through the generation of synthetic data and learning from them.
+
+News
+----
+
+* Our algorithm for the meta-tree model is accepted at AISTATS 2025! A sample code is `here <https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html>`_.
 
 Installation
 ------------
@@ -66,6 +70,7 @@ Outputs:
    | x2:[1 0 1 1 0 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1]  
    | x3:[1 1 1 0 1 1 0 1 0 0 0 0 1 0 1 1 1 1 1 1]  
    | x4:[0 0 1 0 0 0 1 1 1 1 1 1 1 1 0 0 1 1 1 1]  
+   
    .. image:: ./images/README_ex_img1.png
 
 After confirming that the frequency of occurrence of 1 is around `theta=0.7`, we generate a sample and store it to variable `x`.
@@ -150,9 +155,9 @@ Plain text
 .. code-block::
 
    Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
-   S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML 0.2.5,'' 
-   [Online] https://github.com/yuta-nakahara/BayesML
-
+   S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
+   Python package version 0.3.0, 
+   [Online] https://github.com/bayesml/BayesML
 
 BibTeX
 
@@ -160,11 +165,12 @@ BibTeX
    
    @misc{bayesml,
    author = {Nakahara, Yuta and Ichijo, Naoki and Shimada, Koshi and
-               Iikubo, Yuji and Saito, Shota and Kazama, Koki and
-               Matsushima, Toshiyasu and {BayesML Developers}},
-   title = {BayesML 0.2.5},
-   howpublished = {\url{https://github.com/yuta-nakahara/BayesML}},
-   year = {2022}
+             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
+             Matsushima, Toshiyasu and {BayesML Developers}},
+   title = {{BayesML}},
+   howpublished = {Python package version 0.3.0},
+   note = {\url{https://github.com/bayesml/BayesML}},
+   year = {2025}
    }
 
 Contents
@@ -174,6 +180,7 @@ Contents
    :maxdepth: 1
    
    bayesml
+   examples
    developers
 
 Indices
