@@ -2,7 +2,7 @@
 # Ryota Maniwa <r_maniwa115@fuji.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
 # Yuta Nakahara <y.nakahara@waseda.jp>
-# Koki Kazama <kokikazama@aoni.waseda.jp>
+# Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
 The Poisson distribution with the gamma prior distribution.
 

@@ -1,6 +1,6 @@
 # Document Author
 # Yuta Nakahara <y.nakahara@waseda.jp>
-# Koki Kazama <kokikazama@aoni.waseda.jp>
+# Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
 The Bernoulli distribution with the beta prior distribution.
 

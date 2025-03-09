@@ -2,7 +2,7 @@
 # Noboru Namegaya <n.noboru20180403@toki.waseda.jp>
 # Koshi Shimada <shimada.koshi.re@gmail.com>
 # Yuta Nakahara <y.nakahara@waseda.jp>
-# Koki Kazama <kokikazama@aoni.waseda.jp>
+# Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
 The normal distribution with the normaml-gamma prior distribution.
 
