@@ -25,7 +25,7 @@ Document Author
 ===============
 * `Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University
 * `Shota Saito <https://researchmap.jp/wa-shota?lang=en>`_, Gunma University
-* `Koki Kazama <https://researchmap.jp/KokiKAZAMA?lang=en>`_, Waseda University
+* `Koki Kazama <https://researchmap.jp/KokiKAZAMA?lang=en>`_, Shonan Institute of Technology
 * RyoheiO
 * Yasushi Esaki
 * Koshi Shimada, Waseda University (Ph.D. Student)
