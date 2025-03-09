@@ -1,11 +1,11 @@
 # Code Author
 # Noboru Namegaya <n.noboru20180403@toki.waseda.jp>
 # Koshi Shimada <shimada.koshi.re@gmail.com>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Noboru Namegaya <n.noboru20180403@toki.waseda.jp>
 # Koshi Shimada <shimada.koshi.re@gmail.com>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import norm as ss_norm

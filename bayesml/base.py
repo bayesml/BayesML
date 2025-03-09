@@ -1,5 +1,5 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 
 from abc import ABCMeta, abstractmethod
 import pickle

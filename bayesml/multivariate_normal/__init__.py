@@ -1,7 +1,7 @@
 # Document Author
 # Keito Tajima <wool812@akane.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kokikazama@aoni.waseda.jp>
 r"""
 The multivariate normal distribution with normal-wishart prior distribution.

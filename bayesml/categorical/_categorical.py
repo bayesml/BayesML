@@ -1,11 +1,11 @@
 # Code Author
 # Kohei Horinouchi <horinochi_18@toki.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Kohei Horinouchi <horinochi_18@toki.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import dirichlet as ss_dirichlet

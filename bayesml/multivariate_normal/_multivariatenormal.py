@@ -1,11 +1,11 @@
 # Code Author
 # Keito Tajima <wool812@akane.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Keito Tajima <wool812@akane.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import multivariate_normal as ss_multivariate_normal

@@ -1,7 +1,7 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Wenbin Yu <ywb827748728@163.com>
 import warnings
 import copy

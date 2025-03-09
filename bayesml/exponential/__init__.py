@@ -1,6 +1,6 @@
 # Document Author
 # Koki Kazama <kokikazama@aoni.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 r"""
 The exponential distribution with the gamma prior distribution.
 

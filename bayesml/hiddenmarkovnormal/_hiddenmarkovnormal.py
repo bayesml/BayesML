@@ -1,5 +1,5 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Jun Nishikawa <jun.b.nishikawa@gmail.com>
 from email import message
 import warnings
