@@ -1,7 +1,7 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import multivariate_normal as ss_multivariate_normal
@@ -724,19 +724,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
     def _calc_n_x_bar_s(self,x):
         self.ns[:] = self.r_vecs.sum(axis=0)
-        indices = self.ns.astype(bool)
-        if np.all(indices):
-            self.x_bar_vecs[:] = (self.r_vecs[:,:,np.newaxis] * x[:,np.newaxis,:]).sum(axis=0) / self.ns[:,np.newaxis]
-            self.s_mats[:] = np.sum(self.r_vecs[:,:,np.newaxis,np.newaxis]
-                                    * ((x[:,np.newaxis,:] - self.x_bar_vecs)[:,:,:,np.newaxis]
-                                    @ (x[:,np.newaxis,:] - self.x_bar_vecs)[:,:,np.newaxis,:]),
-                                    axis=0) / self.ns[:,np.newaxis,np.newaxis]
-        else:
-            self.x_bar_vecs[indices] = (self.r_vecs[:,indices,np.newaxis] * x[:,np.newaxis,:]).sum(axis=0) / self.ns[indices,np.newaxis]
-            self.s_mats[indices] = np.sum(self.r_vecs[:,indices,np.newaxis,np.newaxis]
-                                    * ((x[:,np.newaxis,:] - self.x_bar_vecs[indices])[:,:,:,np.newaxis]
-                                    @ (x[:,np.newaxis,:] - self.x_bar_vecs[indices])[:,:,np.newaxis,:]),
-                                    axis=0) / self.ns[indices,np.newaxis,np.newaxis]
+        self.x_bar_vecs[:] = self.r_vecs.T @ x
+        for k in range(self.c_num_classes):
+            if self.ns[k] > 0:
+                self.x_bar_vecs[k] /= self.ns[k]
+                diff = x - self.x_bar_vecs[k]
+                self.s_mats[k] = ((self.r_vecs[:,k]*diff.T) @ diff) / self.ns[k]
 
     def _init_random_responsibility(self,x):
         self.r_vecs[:] = self.rng.dirichlet(np.ones(self.c_num_classes),self.r_vecs.shape[0])
@@ -778,15 +771,14 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
     def _update_q_z(self,x):
         self._ln_rho[:] = (self._e_ln_pi_vec
-                          + (self._e_ln_lambda_dets
-                             - self.c_degree * np.log(2*np.pi)
-                             - self.c_degree / self.hn_kappas
-                             - ((x[:,np.newaxis,:]-self.hn_m_vecs)[:,:,np.newaxis,:]
-                                @ self._e_lambda_mats
-                                @ (x[:,np.newaxis,:]-self.hn_m_vecs)[:,:,:,np.newaxis]
-                                )[:,:,0,0]
-                             ) / 2.0
-                          )
+                           + (self._e_ln_lambda_dets
+                              - self.c_degree * np.log(2*np.pi)
+                              - self.c_degree / self.hn_kappas
+                              ) / 2.0
+                           )
+        for k in range(self.c_num_classes):
+            diff = x-self.hn_m_vecs[k]
+            self._ln_rho[:,k] -= np.sum((diff @ self._e_lambda_mats[k]) * diff,axis=1) / 2.0
         self.r_vecs[:] = np.exp(self._ln_rho - self._ln_rho.max(axis=1,keepdims=True))
         self.r_vecs[:] /= self.r_vecs.sum(axis=1,keepdims=True)
         self._calc_n_x_bar_s(x)

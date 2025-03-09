@@ -1,9 +1,9 @@
 # Code Author
 # Taisuke Ishiwatari <taisuke.ishiwatari@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Taisuke Ishiwatari <taisuke.ishiwatari@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import gamma as ss_gamma
@@ -536,29 +536,29 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             float array.
         """
         x,y = self._check_sample(x,y)            
+        n = x.shape[0]
         
         hn1_Lambda = np.array(self.hn_lambda_mat)
         hn1_mu = np.array(self.hn_mu_vec)
         self.hn_lambda_mat +=  x.T @ x
-        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y[:,np.newaxis]  + hn1_Lambda @ hn1_mu[:,np.newaxis])[:,0]
-        self.hn_alpha +=   x.shape[0]/2.0
-        self.hn_beta += (-self.hn_mu_vec[np.newaxis,:] @ self.hn_lambda_mat @ self.hn_mu_vec[:,np.newaxis]
-                         + y @ y + hn1_mu[np.newaxis,:] @ hn1_Lambda @ hn1_mu[:,np.newaxis])[0,0] /2.0
-        self._n += x.shape[0]
+        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y + hn1_Lambda @ hn1_mu)
+        self.hn_alpha += n/2.0
+        self.hn_beta += (-self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec
+                         + y @ y + hn1_mu @ hn1_Lambda @ hn1_mu) /2.0
+        self._n += n
         return self
 
     def _update_posterior(self, x, y):
         """Update opsterior without input check."""
-        x = x.reshape(-1,self.c_degree)
-        y = np.ravel(y)
+        n = x.shape[0]
         hn1_Lambda = np.array(self.hn_lambda_mat)
         hn1_mu = np.array(self.hn_mu_vec)
         self.hn_lambda_mat +=  x.T @ x
-        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y[:,np.newaxis]  + hn1_Lambda @ hn1_mu[:,np.newaxis])[:,0]
-        self.hn_alpha +=   x.shape[0]/2.0
-        self.hn_beta += (-self.hn_mu_vec[np.newaxis,:] @ self.hn_lambda_mat @ self.hn_mu_vec[:,np.newaxis]
-                         + y @ y + hn1_mu[np.newaxis,:] @ hn1_Lambda @ hn1_mu[:,np.newaxis])[0,0] /2.0
-        self._n += x.shape[0]
+        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y + hn1_Lambda @ hn1_mu)
+        self.hn_alpha += n/2.0
+        self.hn_beta += (-self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec
+                         + y @ y + hn1_mu @ hn1_Lambda @ hn1_mu) /2.0
+        self._n += n
         return self
 
     def estimate_params(self,loss="squared",dict_out=False):
@@ -802,3 +802,17 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 - self._n * np.log(2*np.pi)
             )
         )
+    
+    def calc_pred_var(self):
+        """Calculate the variance of the predictive distribution.
+        
+        Returns
+        -------
+        var : float
+            The variance of the predictive distribution.
+        """
+        if self.p_nu > 2:
+            return self.p_nu / self.p_lambda / (self.p_nu-2)
+        else:
+            warnings.warn("Variance of the predictive distribution cannot defined for the current p_nu.",ResultWarning)
+            return None

@@ -1,5 +1,5 @@
-bayesml package
-===============
+Bayesml packages
+================
 
 Subpackages
 -----------

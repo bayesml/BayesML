@@ -1,11 +1,11 @@
 # Code Author
 # Keito Tajima <wool812@akane.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Keito Tajima <wool812@akane.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import multivariate_normal as ss_multivariate_normal
@@ -510,9 +510,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         n = x.shape[0]
         x_bar = x.sum(axis=0)/n
+        diff1 = x-x_bar
+        diff2 = x_bar-self.hn_m_vec
 
-        self.hn_w_mat_inv[:] = (self.hn_w_mat_inv + (x-x_bar).T @ (x-x_bar)
-                                + (x_bar - self.hn_m_vec)[:,np.newaxis] @ (x_bar - self.hn_m_vec)[np.newaxis,:]
+        self.hn_w_mat_inv[:] = (self.hn_w_mat_inv + diff1.T @ diff1
+                                + diff2[:,np.newaxis] @ diff2[np.newaxis,:]
                                   * self.hn_kappa * n / (self.hn_kappa + n))
         self.hn_m_vec[:] = (self.hn_kappa*self.hn_m_vec + n*x_bar) / (self.hn_kappa+n)
         self.hn_kappa += n

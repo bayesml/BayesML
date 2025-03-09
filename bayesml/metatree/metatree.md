@@ -1,7 +1,7 @@
 <!--
 Document Author
 Shota Saito <shota.s@gunma-u.ac.jp>
-Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+Yuta Nakahara <y.nakahara@waseda.jp>
 -->
 
 The stochastic data generative model is as follows:

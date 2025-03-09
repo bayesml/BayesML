@@ -1,7 +1,7 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import gamma as ss_gamma
@@ -475,31 +475,32 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             If \"zeros\" is given, the zero vector is used as a initial value.
         """
         _check.float_vec(x,'x',DataFormatError)
-        if x.shape[0] <= self.c_degree:
+        n = x.shape[0]
+        if n <= self.c_degree:
             raise(DataFormatError("The length of x must greater than self.c_degree"))
-        x_mat = np.zeros((x.shape[0],self.c_degree+1))
+        x_mat = np.zeros((n,self.c_degree+1))
         x_mat[:,0] = 1.0
-        for n in range(1,self.c_degree+1):
-            x_mat[n,-n:] = x[:n]
-        for n in range(self.c_degree+1,x.shape[0]):
-            x_mat[n,1:] = x[n-self.c_degree:n]
+        for i in range(1,self.c_degree+1):
+            x_mat[i,-i:] = x[:i]
+        for i in range(self.c_degree+1,n):
+            x_mat[i,1:] = x[i-self.c_degree:i]
         
         mu_tmp = np.array(self.hn_mu_vec)
         lambda_tmp = np.array(self.hn_lambda_mat)
         if padding == "zeros":
             self.hn_lambda_mat += x_mat.T @ x_mat
             self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat,
-                                                lambda_tmp @ mu_tmp[:,np.newaxis] + x_mat.T @ x[:,np.newaxis])[:,0]
-            self.hn_alpha += x.shape[0] / 2.0
-            self.hn_beta += (-self.hn_mu_vec[np.newaxis,:] @ self.hn_lambda_mat @ self.hn_mu_vec[:,np.newaxis]
-                            + x @ x + mu_tmp[np.newaxis,:] @ lambda_tmp @ mu_tmp[:,np.newaxis])[0,0] / 2.0
+                                                lambda_tmp @ mu_tmp + x_mat.T @ x)
+            self.hn_alpha += n / 2.0
+            self.hn_beta += (-self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec
+                            + x @ x + mu_tmp @ lambda_tmp @ mu_tmp) / 2.0
         else:
             self.hn_lambda_mat += x_mat[self.c_degree:].T @ x_mat[self.c_degree:]
             self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat,
-                                                lambda_tmp @ mu_tmp[:,np.newaxis] + x_mat[self.c_degree:].T @ x[self.c_degree:,np.newaxis])[:,0]
-            self.hn_alpha += (x.shape[0]-self.c_degree) / 2.0
-            self.hn_beta += (-self.hn_mu_vec[np.newaxis,:] @ self.hn_lambda_mat @ self.hn_mu_vec[:,np.newaxis] 
-                            + x[self.c_degree:] @ x[self.c_degree:] + mu_tmp[np.newaxis,:] @ lambda_tmp @ mu_tmp[:,np.newaxis])[0,0] / 2.0
+                                                lambda_tmp @ mu_tmp + x_mat[self.c_degree:].T @ x[self.c_degree:])
+            self.hn_alpha += (n-self.c_degree) / 2.0
+            self.hn_beta += (-self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec 
+                            + x[self.c_degree:] @ x[self.c_degree:] + mu_tmp @ lambda_tmp @ mu_tmp) / 2.0
         return self
 
     def estimate_params(self,loss="squared"):

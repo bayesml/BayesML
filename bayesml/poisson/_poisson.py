@@ -1,11 +1,11 @@
 # Code Author
 # Ryota Maniwa <r_maniwa115@fuji.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Ryota Maniwa <r_maniwa115@fuji.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import numpy as np
 from scipy.stats import poisson as ss_poisson
 from scipy.stats import gamma as ss_gamma 

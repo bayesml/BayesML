@@ -1,5 +1,5 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Jun Nishikawa <jun.b.nishikawa@gmail.com>
 from email import message
 import warnings
@@ -837,19 +837,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
     def _calc_n_m_x_bar_s(self,x):
         self.ns[:] = self.gamma_vecs.sum(axis=0)
         self.ms[:] = self.xi_mats.sum(axis=0) # xi must be initialized as a zero matrix
-        indices = self.ns.astype(bool)
-        if np.all(indices):
-            self.x_bar_vecs[:] = (self.gamma_vecs[:,:,np.newaxis] * x[:,np.newaxis,:]).sum(axis=0) / self.ns[:,np.newaxis]
-            self.s_mats[:] = np.sum(self.gamma_vecs[:,:,np.newaxis,np.newaxis]
-                                    * ((x[:,np.newaxis,:] - self.x_bar_vecs)[:,:,:,np.newaxis]
-                                       @ (x[:,np.newaxis,:] - self.x_bar_vecs)[:,:,np.newaxis,:]),
-                                    axis=0) / self.ns[:,np.newaxis,np.newaxis]
-        else:
-            self.x_bar_vecs[indices] = (self.gamma_vecs[:,indices,np.newaxis] * x[:,np.newaxis,:]).sum(axis=0) / self.ns[indices,np.newaxis]
-            self.s_mats[indices] = np.sum(self.gamma_vecs[:,indices,np.newaxis,np.newaxis]
-                                    * ((x[:,np.newaxis,:] - self.x_bar_vecs[indices])[:,:,:,np.newaxis]
-                                       @ (x[:,np.newaxis,:] - self.x_bar_vecs[indices])[:,:,np.newaxis,:]),
-                                    axis=0) / self.ns[indices,np.newaxis,np.newaxis]
+        self.x_bar_vecs[:] = self.gamma_vecs.T @ x
+        for k in range(self.c_num_classes):
+            if self.ns[k] > 0:
+                self.x_bar_vecs[k] /= self.ns[k]
+                diff = x - self.x_bar_vecs[k]
+                self.s_mats[k] = ((self.gamma_vecs[:,k]*diff.T) @ diff) / self.ns[k]
 
     def _calc_q_pi_features(self):
         self._ln_pi_tilde_vec[:] = digamma(self.hn_eta_vec) - digamma(self.hn_eta_vec.sum())
@@ -996,12 +989,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self._ln_rho[:] = ((self._e_ln_lambda_dets
                             - self.c_degree * np.log(2*np.pi)
                             - self.c_degree / self.hn_kappas
-                            - ((x[:,np.newaxis,:]-self.hn_m_vecs)[:,:,np.newaxis,:]
-                               @ self._e_lambda_mats
-                               @ (x[:,np.newaxis,:]-self.hn_m_vecs)[:,:,:,np.newaxis]
-                               )[:,:,0,0]
                             ) / 2.0
                           )
+        for k in range(self.c_num_classes):
+            diff = x-self.hn_m_vecs[k]
+            self._ln_rho[:,k] -= np.sum((diff @ self._e_lambda_mats[k]) * diff,axis=1) / 2.0
         self._rho[:] = np.exp(self._ln_rho)
 
     def _forward(self):

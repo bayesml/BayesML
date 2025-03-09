@@ -33,11 +33,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='bayesml',
-    version='0.2.5',
+    version='0.3.0',
     packages=find_packages(),
     author='Yuta Nakahara et al.',
-    author_email='yuta.nakahara@aoni.waseda.jp',
-    url='https://yuta-nakahara.github.io/BayesML/',
+    author_email='y.nakahara@waseda.jp',
+    url='https://bayesml.github.io/BayesML/',
     description=DOCLINES[0],
     long_description="\n".join(DOCLINES[2:]),
     long_description_content_type='text/markdown',

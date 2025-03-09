@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>bayesml.metatree package &#8212; BayesML</title>
   
@@ -14,33 +14,35 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=622a0701" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=46e1a7d4"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/documentation_options.js?v=83a61292"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bayesml.metatree';</script>
     <link rel="icon" href="_static/BayesML_favicon.ico"/>
@@ -57,28 +59,23 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -100,12 +97,23 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html'>here</a>!</div>
+</aside>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -120,6 +128,9 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -138,10 +149,21 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesml.html">bayesml package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesml.html">Bayesml packages</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.bernoulli.html">bayesml.bernoulli package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.categorical.html">bayesml.categorical package</a></li>
@@ -155,7 +177,11 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.poisson.html">bayesml.poisson package</a></li>
 </ul>
-</li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html">Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML Developers</a></li>
 </ul>
 
@@ -172,7 +198,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -181,14 +207,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -200,7 +226,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/yuta-nakahara/BayesML" target="_blank"
+<a href="https://github.com/bayesml/BayesML" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -278,26 +304,28 @@
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -344,6 +372,9 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_dist"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_dist()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.make_prediction"><code class="docutils literal notranslate"><span class="pre">LearnModel.make_prediction()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.pred_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.pred_and_update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_var"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_var()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_feature_importances"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_feature_importances()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_density"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_density()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -357,7 +388,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="bayesml-metatree-package">
 <h1>bayesml.metatree package<a class="headerlink" href="#bayesml-metatree-package" title="Link to this heading">#</a></h1>
@@ -450,7 +481,7 @@ q_s(y_{i} | \boldsymbol{x}_{i}, \boldsymbol{x}^{i-1}, y^{i-1}, \boldsymbol{k}),&
 </ul>
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.metatree.GenModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'</span> <span class="pre">from</span> <span class="pre">'C:\\Users\\nakahara\\Documents\\GitHub\\BayesML\\bayesml\\bernoulli\\__init__.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_prob_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'</span><span class="pre">&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_prob_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesml.html#bayesml.base.Generative" title="bayesml.base.Generative"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generative</span></code></a></p>
 <p>The stochastice data generative model and the prior distribution</p>
 <dl class="field-list simple">
@@ -478,7 +509,7 @@ on a path. The other <code class="docutils literal notranslate"><span class="pre
 represent those of categorical features. If it 
 has a negative element (e.g., -1), the corresponding 
 feature will be assigned any number of times. 
-By default [c_max_depth,…,c_max_depth,1,…,1].</p>
+By default [-1,…,-1].</p>
 </dd>
 <dt><strong>c_ranges</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>A numpy.ndarray whose size is (c_dim_continuous,2).
 A threshold for the <code class="docutils literal notranslate"><span class="pre">k</span></code>-th continuous feature will be 
@@ -521,7 +552,7 @@ by default None</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.gen_params" title="bayesml.metatree.GenModel.gen_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_params</span></code></a>([feature_fix, threshold_fix, ...])</p></td>
 <td><p>Generate the parameter from the prior distribution.</p></td>
@@ -564,6 +595,7 @@ by default None</p>
 </tr>
 </tbody>
 </table>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.metatree.GenModel.get_constants">
 <span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.get_constants" title="Link to this definition">#</a></dt>
@@ -746,7 +778,7 @@ by default None. Each element x_categorical[i,j] must satisfy
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -782,7 +814,7 @@ by default None. Each element x_categorical[i,j] must satisfy
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayesml</span> <span class="kn">import</span> <span class="n">metatree</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">metatree</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">metatree</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_continuous</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_categorical</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -798,7 +830,7 @@ by default None. Each element x_categorical[i,j] must satisfy
 
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.metatree.LearnModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'</span> <span class="pre">from</span> <span class="pre">'C:\\Users\\nakahara\\Documents\\GitHub\\BayesML\\bayesml\\bernoulli\\__init__.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h0_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_prob_vec=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'</span><span class="pre">&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h0_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_prob_vec=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesml.html#bayesml.base.Posterior" title="bayesml.base.Posterior"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posterior</span></code></a>, <a class="reference internal" href="bayesml.html#bayesml.base.PredictiveMixin" title="bayesml.base.PredictiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictiveMixin</span></code></a></p>
 <p>The posterior distribution and the predictive distribution.</p>
 <dl class="field-list simple">
@@ -808,6 +840,8 @@ by default None. Each element x_categorical[i,j] must satisfy
 </dd>
 <dt><strong>c_dim_categorical</strong><span class="classifier">int</span></dt><dd><p>A non-negative integer</p>
 </dd>
+<dt><strong>c_max_depth</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default 2</p>
+</dd>
 <dt><strong>c_num_children_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>A vector of positive integers whose length is 
 <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code>, by default [2,2,…,2].
 The first <code class="docutils literal notranslate"><span class="pre">c_dim_continuous</span></code> elements represent 
@@ -815,8 +849,6 @@ the numbers of children of continuous features at
 inner nodes. The other <code class="docutils literal notranslate"><span class="pre">c_dim_categorial</span></code> elements 
 represent those of categorical features.
 If a single integer is input, it will be broadcasted.</p>
-</dd>
-<dt><strong>c_max_depth</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default 2</p>
 </dd>
 <dt><strong>c_num_assignment_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>A vector of positive integers whose length is 
 <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code>. 
@@ -826,7 +858,7 @@ on a path. The other <code class="docutils literal notranslate"><span class="pre
 represent those of categorical features. If it 
 has a negative element (e.g., -1), the corresponding 
 feature will be assigned any number of times. 
-By default [c_max_depth,…,c_max_depth,1,…,1].</p>
+By default [-1,…,-1].</p>
 </dd>
 <dt><strong>c_ranges</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>A numpy.ndarray whose size is (c_dim_continuous,2).
 A threshold for the <code class="docutils literal notranslate"><span class="pre">k</span></code>-th continuous feature will be 
@@ -876,64 +908,74 @@ Sum of its elements is 1.0.</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.calc_feature_importances" title="bayesml.metatree.LearnModel.calc_feature_importances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_feature_importances</span></code></a>()</p></td>
+<td><p>Calculate the feature importances</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.calc_pred_density" title="bayesml.metatree.LearnModel.calc_pred_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_density</span></code></a>(y)</p></td>
+<td><p>Calculate the values of the probability density function of the predictive distribution.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.calc_pred_dist" title="bayesml.metatree.LearnModel.calc_pred_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_dist</span></code></a>([x_continuous, x_categorical])</p></td>
 <td><p>Calculate the parameters of the predictive distribution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.estimate_params" title="bayesml.metatree.LearnModel.estimate_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_params</span></code></a>([loss, visualize, filename, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.calc_pred_var" title="bayesml.metatree.LearnModel.calc_pred_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_var</span></code></a>()</p></td>
+<td><p>Calculate the variance of the predictive distribution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.estimate_params" title="bayesml.metatree.LearnModel.estimate_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_params</span></code></a>([loss, visualize, filename, ...])</p></td>
 <td><p>Estimate the parameter under the given criterion.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_constants" title="bayesml.metatree.LearnModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_constants" title="bayesml.metatree.LearnModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
 <td><p>Get constants of LearnModel.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_h0_params" title="bayesml.metatree.LearnModel.get_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h0_params</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_h0_params" title="bayesml.metatree.LearnModel.get_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h0_params</span></code></a>()</p></td>
 <td><p>Get the hyperparameters of the prior distribution.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_hn_params" title="bayesml.metatree.LearnModel.get_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hn_params</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_hn_params" title="bayesml.metatree.LearnModel.get_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hn_params</span></code></a>()</p></td>
 <td><p>Get the hyperparameters of the posterior distribution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_p_params" title="bayesml.metatree.LearnModel.get_p_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_p_params</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_p_params" title="bayesml.metatree.LearnModel.get_p_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_p_params</span></code></a>()</p></td>
 <td><p>Get the parameters of the predictive distribution.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h0_params</span></code>(filename)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h0_params</span></code>(filename)</p></td>
 <td><p>Load the hyperparameters to h0_params.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_hn_params</span></code>(filename)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_hn_params</span></code>(filename)</p></td>
 <td><p>Load the hyperparameters to hn_params.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.make_prediction" title="bayesml.metatree.LearnModel.make_prediction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_prediction</span></code></a>([loss])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.make_prediction" title="bayesml.metatree.LearnModel.make_prediction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_prediction</span></code></a>([loss])</p></td>
 <td><p>Predict a new data point under the given criterion.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwrite_h0_params</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwrite_h0_params</span></code>()</p></td>
 <td><p>Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.pred_and_update" title="bayesml.metatree.LearnModel.pred_and_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pred_and_update</span></code></a>([x_continuous, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.pred_and_update" title="bayesml.metatree.LearnModel.pred_and_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pred_and_update</span></code></a>([x_continuous, ...])</p></td>
 <td><p>Predict a new data point and update the posterior sequentially.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_hn_params</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_hn_params</span></code>()</p></td>
 <td><p>Reset the hyperparameters of the posterior distribution to their initial values.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h0_params</span></code>(filename)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h0_params</span></code>(filename)</p></td>
 <td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_hn_params</span></code>(filename)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_hn_params</span></code>(filename)</p></td>
 <td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.set_h0_params" title="bayesml.metatree.LearnModel.set_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h0_params</span></code></a>([h0_k_weight_vec, h0_g, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.set_h0_params" title="bayesml.metatree.LearnModel.set_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h0_params</span></code></a>([h0_k_weight_vec, h0_g, ...])</p></td>
 <td><p>Set the hyperparameters of the prior distribution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.set_hn_params" title="bayesml.metatree.LearnModel.set_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_hn_params</span></code></a>([hn_k_weight_vec, hn_g, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.set_hn_params" title="bayesml.metatree.LearnModel.set_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_hn_params</span></code></a>([hn_k_weight_vec, hn_g, ...])</p></td>
 <td><p>Set the hyperparameters of the posterior distribution.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.update_posterior" title="bayesml.metatree.LearnModel.update_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_posterior</span></code></a>([x_continuous, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.update_posterior" title="bayesml.metatree.LearnModel.update_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_posterior</span></code></a>([x_continuous, ...])</p></td>
 <td><p>Update the hyperparameters of the posterior distribution using traning data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.visualize_posterior" title="bayesml.metatree.LearnModel.visualize_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_posterior</span></code></a>([filename, format, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.visualize_posterior" title="bayesml.metatree.LearnModel.visualize_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_posterior</span></code></a>([filename, format, ...])</p></td>
 <td><p>Visualize the posterior distribution for the parameter.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.metatree.LearnModel.get_constants">
 <span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.get_constants" title="Link to this definition">#</a></dt>
@@ -1144,7 +1186,7 @@ if <code class="docutils literal notranslate"><span class="pre">False</span></co
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayesml</span> <span class="kn">import</span> <span class="n">metatree</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">metatree</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gen_model</span> <span class="o">=</span> <span class="n">metatree</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_continuous</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_categorical</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1245,6 +1287,54 @@ This function supports “squared”, “0-1”, and “KL”.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.calc_pred_var">
+<span class="sig-name descname"><span class="pre">calc_pred_var</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.calc_pred_var" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the variance of the predictive distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>var</strong><span class="classifier">float</span></dt><dd><p>The variance of the predictive distribution.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.calc_feature_importances">
+<span class="sig-name descname"><span class="pre">calc_feature_importances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.calc_feature_importances" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the feature importances</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>feature_importances</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>The feature importances.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.calc_pred_density">
+<span class="sig-name descname"><span class="pre">calc_pred_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.calc_pred_density" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the values of the probability density function of the predictive distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A float vector</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>p_y</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>The values of the probability density function of the predictive distribution.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -1258,8 +1348,8 @@ This function supports “squared”, “0-1”, and “KL”.</p>
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="bayesml.linearregression.html"
@@ -1287,6 +1377,7 @@ This function supports “squared”, “0-1”, and “KL”.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1320,6 +1411,9 @@ This function supports “squared”, “0-1”, and “KL”.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_dist"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_dist()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.make_prediction"><code class="docutils literal notranslate"><span class="pre">LearnModel.make_prediction()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.pred_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.pred_and_update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_var"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_var()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_feature_importances"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_feature_importances()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_density"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_density()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1345,9 +1439,10 @@ By BayesML Developers
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022, BayesML Developers.
+      © Copyright 2025, BayesML Developers.
       <br/>
     
   </p>
@@ -1371,8 +1466,8 @@ By BayesML Developers
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
