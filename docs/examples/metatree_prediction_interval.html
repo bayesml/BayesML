@@ -370,17 +370,19 @@ document.write(`
 <h1>Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)<a class="headerlink" href="#Prediction-interval-calculation-by-bayesml.metatree-(accepted-at-AISTATS-2025)" title="Link to this heading">#</a></h1>
 <section id="Installation-of-BayesML">
 <h2>Installation of BayesML<a class="headerlink" href="#Installation-of-BayesML" title="Link to this heading">#</a></h2>
-<p>Installation from PyPI will be available soon. Until then, please follow these steps:</p>
-<ol class="arabic simple">
-<li><p>Clone BayesML from <a class="github reference external" href="https://github.com/bayesml/BayesML">bayesml/BayesML</a>.</p></li>
-<li><p>Change the directory and move to the root of the cloned BayesML folder where setup.py exists. (e.g., /Users/UserName/Documents/GitHub/BayesML)</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code></p></li>
-</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>bayesml
+</pre></div>
+</div>
+</div>
 </section>
 <section id="Load-dataset">
 <h2>Load dataset<a class="headerlink" href="#Load-dataset" title="Link to this heading">#</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -393,7 +395,7 @@ document.write(`
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -513,7 +515,7 @@ document.write(`
 <section id="Preprocessing">
 <h2>Preprocessing<a class="headerlink" href="#Preprocessing" title="Link to this heading">#</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -544,7 +546,7 @@ document.write(`
 <h2>Create model instance<a class="headerlink" href="#Create-model-instance" title="Link to this heading">#</a></h2>
 <p>First, calculate model constants.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># feature dimensions</span>
@@ -566,7 +568,7 @@ document.write(`
 </div>
 <p>Then, create a model instance based on the model constants.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">metatree</span><span class="p">,</span><span class="n">linearregression</span>
@@ -593,7 +595,7 @@ document.write(`
 <section id="Calculate-posterior-distribution">
 <h2>Calculate posterior distribution<a class="headerlink" href="#Calculate-posterior-distribution" title="Link to this heading">#</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">update_posterior</span><span class="p">(</span>
@@ -623,7 +625,7 @@ num_metatrees: 500
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -636,7 +638,7 @@ num_metatrees: 500
 <h2>Calculate prediction interval<a class="headerlink" href="#Calculate-prediction-interval" title="Link to this heading">#</a></h2>
 <p>First, define subroutines to calculate <code class="docutils literal notranslate"><span class="pre">100(1-alpha)</span></code>% prediction interval from the values of the probability density function of the predictive distribution. The initial range is determined by the mean and the variance of the predictive distribution.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">simpson</span>
@@ -668,7 +670,7 @@ num_metatrees: 500
 </div>
 <p>Calculate prediction interval by using the above subroutines.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_interval</span> <span class="o">=</span> <span class="p">[]</span>
@@ -697,7 +699,7 @@ num_metatrees: 500
 <h2>Evaluation<a class="headerlink" href="#Evaluation" title="Link to this heading">#</a></h2>
 <p>First, define subroutines for evaluation.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate frequency that the true value is in the prediction interval</span>
@@ -723,7 +725,7 @@ num_metatrees: 500
 </div>
 <p>Evaluate the results. Note that frequency close to <code class="docutils literal notranslate"><span class="pre">100(1-alpha)</span></code>% (here, 0.95) and short length are desireble.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Avg. frequency: </span><span class="si">{</span><span class="n">calc_frequency</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred_interval</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -745,7 +747,7 @@ Avg. length: 2.700600606247248
 <h2>Calculate prediction interval by sampling<a class="headerlink" href="#Calculate-prediction-interval-by-sampling" title="Link to this heading">#</a></h2>
 <p>Using metatree.GenModel, prediction intervals can be calculated from a sample from the posterior predictive distribution.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen_model</span> <span class="o">=</span> <span class="n">metatree</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
@@ -773,7 +775,7 @@ Avg. length: 2.700600606247248
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -782,7 +784,7 @@ Avg. length: 2.700600606247248
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">arviz</span><span class="w"> </span><span class="kn">import</span> <span class="n">hdi</span>
@@ -814,7 +816,7 @@ Avg. length: 2.700600606247248
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Avg. frequency: </span><span class="si">{</span><span class="n">calc_frequency</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred_interval</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>

@@ -3,9 +3,14 @@ Document Author
 Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
 Shota Saito <shota.s@gunma-u.ac.jp>
 -->
+
+---
+
 <div align="center">
 <b>Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href="https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html">here</a>!</b>
 </div>
+
+---
 
 <img src="./doc/logos/BayesML_logo.png" width="600">
 
