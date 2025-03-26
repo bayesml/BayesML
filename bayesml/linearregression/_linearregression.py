@@ -711,11 +711,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         x : numpy ndarray
             1 dimensional float array whose size is ``self.c_degree``
         """
-        _check.float_vec(x,'x',DataFormatError)
-        if x.shape != (self.c_degree,):
-            raise(DataFormatError("x must be a 1 dimensional float array whose size coincide with ``self.c_degree``"))
+        # _check.float_vec(x,'x',DataFormatError)
+        # if x.shape != (self.c_degree,):
+        #     raise(DataFormatError("x must be a 1 dimensional float array whose size coincide with ``self.c_degree``"))
         self.p_m = x @ self.hn_mu_vec
-        self.p_lambda = self.hn_alpha / self.hn_beta / (1.0 + x @ np.linalg.solve(self.hn_lambda_mat,x))
+        self.p_lambda = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
         self.p_nu = 2.0 * self.hn_alpha
         return self
 
