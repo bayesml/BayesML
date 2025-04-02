@@ -510,7 +510,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         _check.float_vecs(x,'x',DataFormatError)
         if x.shape[-1] != self.c_degree:
             raise(DataFormatError(f"x.shape[-1] must be c_degree:{self.c_degree}"))
-
+        return x.reshape(-1,self.c_degree)
+    
     def _check_sample_y(self,y):
         _check.floats(y,'y',DataFormatError)
 
@@ -714,20 +715,21 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         # _check.float_vec(x,'x',DataFormatError)
         # if x.shape != (self.c_degree,):
         #     raise(DataFormatError("x must be a 1 dimensional float array whose size coincide with ``self.c_degree``"))
+        x = self._check_sample_x(x)
         self.p_m = x @ self.hn_mu_vec
         self.p_lambda = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
-        self.p_nu = 2.0 * self.hn_alpha
+        self.p_nu = np.ones(x.shape[0]) * 2.0 * self.hn_alpha
         return self
 
     def _calc_pred_dist(self, x):
         """Calculate predictive distribution without check."""
         self.p_m = x @ self.hn_mu_vec
-        self.p_lambda = self.hn_alpha / self.hn_beta / (1.0 + x @ np.linalg.solve(self.hn_lambda_mat,x))
-        self.p_nu = 2.0 * self.hn_alpha
+        self.p_lambda = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
+        self.p_nu = np.ones(x.shape[0]) * 2.0 * self.hn_alpha
         return self
 
     def _calc_pred_density(self,y):
-        return ss_t.pdf(y,loc=self.p_m, scale=1.0/np.sqrt(self.p_lambda), df=self.p_nu)
+        return ss_t.pdf(y.T,loc=self.p_m, scale=1.0/np.sqrt(self.p_lambda), df=self.p_nu).T
     
     def make_prediction(self,loss="squared"):
         """Predict a new data point under the given criterion.
