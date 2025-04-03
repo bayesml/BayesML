@@ -813,8 +813,13 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         var : float
             The variance of the predictive distribution.
         """
-        if self.p_nu > 2:
-            return self.p_nu / self.p_lambda / (self.p_nu-2)
-        else:
-            warnings.warn("Variance of the predictive distribution cannot defined for the current p_nu.",ResultWarning)
-            return None
+        # if self.p_nu > 2:
+        #     return self.p_nu / self.p_lambda / (self.p_nu-2)
+        # else:
+        #     warnings.warn("Variance of the predictive distribution cannot defined for the current p_nu.",ResultWarning)
+        #     return None
+        indices = self.p_nu > 2
+        var = np.zeros(self.p_nu.shape[0])
+        var[indices] = self.p_nu[indices] / self.p_lambda[indices] / (self.p_nu[indices]-2)
+        var[~indices] = np.nan
+        return var

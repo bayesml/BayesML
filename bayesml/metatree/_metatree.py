@@ -107,6 +107,7 @@ class _Node:
         self.log_children_marginal_likelihood = log_children_marginal_likelihood
         self.log_marginal_likelihood = log_marginal_likelihood
         self._is_no_sample = False
+        self._p_indices = None
 
 class GenModel(base.Generative):
     """ The stochastice data generative model and the prior distribution
@@ -3096,31 +3097,75 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """
         return None
     
-    def _calc_pred_dist_recursion(self,node:_Node,x_continuous,x_categorical):
+    # def _calc_pred_dist_recursion(self,node:_Node,x_continuous,x_categorical):
+    #     node.sub_model.calc_pred_dist()
+    #     if not node.leaf:  # inner node
+    #         if node.k < self.c_dim_continuous:
+    #             index = 0
+    #             for i in range(self.c_num_children_vec[node.k]-1):
+    #                 if x_continuous[node.k] < node.thresholds[i+1]:
+    #                     break
+    #                 index += 1
+    #         else:
+    #             index = x_categorical[node.k-self.c_dim_continuous]
+    #         self._calc_pred_dist_recursion(node.children[index],x_continuous,x_categorical)
+
+    # def _calc_pred_dist_recursion_lr(self,node:_Node,x_continuous,x_categorical):
+    #     node.sub_model._calc_pred_dist(x_continuous)
+    #     if not node.leaf:  # inner node
+    #         if node.k < self.c_dim_continuous:
+    #             index = 0
+    #             for i in range(self.c_num_children_vec[node.k]-1):
+    #                 if x_continuous[node.k] < node.thresholds[i+1]:
+    #                     break
+    #                 index += 1
+    #         else:
+    #             index = x_categorical[node.k-self.c_dim_continuous]
+    #         self._calc_pred_dist_recursion_lr(node.children[index],x_continuous,x_categorical)
+
+    def _calc_pred_dist_recursion_batch(self,node:_Node,x_continuous,x_categorical):
         node.sub_model.calc_pred_dist()
         if not node.leaf:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = x_categorical[node.k-self.c_dim_continuous]
-            self._calc_pred_dist_recursion(node.children[index],x_continuous,x_categorical)
+            node._p_indices = np.empty((x_continuous.shape[0],self.c_num_children_vec[node.k]),dtype=bool)
+            for i in range(self.c_num_children_vec[node.k]):
+                if node.k < self.c_dim_continuous:
+                    if i == 0:
+                        node._p_indices[:,i] = x_continuous[:,node.k] < node.thresholds[i+1]
+                    elif i == self.c_num_children_vec[node.k]-1:
+                        node._p_indices[:,i] = node.thresholds[i] <= x_continuous[:,node.k]
+                    else:
+                        node._p_indices[:,i] = (node.thresholds[i] <= x_continuous[:,node.k]) & (x_continuous[:,node.k] < node.thresholds[i+1])
+                else:
+                    node._p_indices[:,i] = x_categorical[:,node.k-self.c_dim_continuous] == i
+                    
+                if np.any(node._p_indices[:,i]):
+                    self._calc_pred_dist_recursion_batch(
+                        node.children[i],
+                        x_continuous[node._p_indices[:,i]],
+                        x_categorical[node._p_indices[:,i]],
+                    )
 
-    def _calc_pred_dist_recursion_lr(self,node:_Node,x_continuous,x_categorical):
+    def _calc_pred_dist_recursion_lr_batch(self,node:_Node,x_continuous,x_categorical):
         node.sub_model._calc_pred_dist(x_continuous)
         if not node.leaf:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = x_categorical[node.k-self.c_dim_continuous]
-            self._calc_pred_dist_recursion_lr(node.children[index],x_continuous,x_categorical)
+            node._p_indices = np.empty((x_continuous.shape[0],self.c_num_children_vec[node.k]),dtype=bool)
+            for i in range(self.c_num_children_vec[node.k]):
+                if node.k < self.c_dim_continuous:
+                    if i == 0:
+                        node._p_indices[:,i] = x_continuous[:,node.k] < node.thresholds[i+1]
+                    elif i == self.c_num_children_vec[node.k]-1:
+                        node._p_indices[:,i] = node.thresholds[i] <= x_continuous[:,node.k]
+                    else:
+                        node._p_indices[:,i] = (node.thresholds[i] <= x_continuous[:,node.k]) & (x_continuous[:,node.k] < node.thresholds[i+1])
+                else:
+                    node._p_indices[:,i] = x_categorical[:,node.k-self.c_dim_continuous] == i
+                    
+                if np.any(node._p_indices[:,i]):
+                    self._calc_pred_dist_recursion_lr_batch(
+                        node.children[i],
+                        x_continuous[node._p_indices[:,i]],
+                        x_categorical[node._p_indices[:,i]],
+                    )
 
     def calc_pred_dist(self,x_continuous=None,x_categorical=None):
         """Calculate the parameters of the predictive distribution.
@@ -3137,45 +3182,74 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """
         x_continuous,x_categorical = self._check_sample_x(x_continuous,x_categorical)
 
-        self._tmp_x_continuous[:] = x_continuous
-        self._tmp_x_categorical[:] = x_categorical
+        # self._tmp_x_continuous[:] = x_continuous
+        # self._tmp_x_categorical[:] = x_categorical
         if self.SubModel is linearregression:
             for root in self.hn_metatree_list:
-                self._calc_pred_dist_recursion_lr(root,self._tmp_x_continuous,self._tmp_x_categorical)
+                # self._calc_pred_dist_recursion_lr(root,self._tmp_x_continuous,self._tmp_x_categorical)
+                self._calc_pred_dist_recursion_lr_batch(root,x_continuous,x_categorical)
         else:
             for root in self.hn_metatree_list:
-                self._calc_pred_dist_recursion(root,self._tmp_x_continuous,self._tmp_x_categorical)
+                # self._calc_pred_dist_recursion(root,self._tmp_x_continuous,self._tmp_x_categorical)
+                self._calc_pred_dist_recursion_batch(root,x_continuous,x_categorical)
         return self
 
-    def _make_prediction_recursion_squared(self,node:_Node):
+    # def _make_prediction_recursion_squared(self,node:_Node):
+    #     if node.leaf:  # leaf node
+    #         return node.sub_model.make_prediction(loss='squared')
+    #     else:  # inner node
+    #         if node.k < self.c_dim_continuous:
+    #             index = 0
+    #             for i in range(self.c_num_children_vec[node.k]-1):
+    #                 if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
+    #                     break
+    #                 index += 1
+    #         else:
+    #             index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
+    #         return ((1 - node.h_g) * node.sub_model.make_prediction(loss='squared')
+    #                 + node.h_g * self._make_prediction_recursion_squared(node.children[index]))
+
+    def _make_prediction_recursion_squared_batch(self,node:_Node):
         if node.leaf:  # leaf node
             return node.sub_model.make_prediction(loss='squared')
         else:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-            return ((1 - node.h_g) * node.sub_model.make_prediction(loss='squared')
-                    + node.h_g * self._make_prediction_recursion_squared(node.children[index]))
+            tmp_pred_values = np.empty(node._p_indices.shape[0])
+            tmp_pred_values[:] = node.sub_model.make_prediction(loss='squared')
+            for i in range(self.c_num_children_vec[node.k]):
+                if np.any(node._p_indices[:,i]):
+                    tmp_pred_values[node._p_indices[:,i]] = (
+                        (1-node.h_g) * tmp_pred_values[node._p_indices[:,i]]
+                        + node.h_g * self._make_prediction_recursion_squared_batch(node.children[i])
+                    )
+            return tmp_pred_values
 
-    def _make_prediction_recursion_kl(self,node:_Node):
+    # def _make_prediction_recursion_kl(self,node:_Node):
+    #     if node.leaf:  # leaf node
+    #         return node.sub_model.make_prediction(loss='KL')
+    #     else:  # inner node
+    #         if node.k < self.c_dim_continuous:
+    #             index = 0
+    #             for i in range(self.c_num_children_vec[node.k]-1):
+    #                 if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
+    #                     break
+    #                 index += 1
+    #         else:
+    #             index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
+    #         return ((1 - node.h_g) * node.sub_model.make_prediction(loss='KL')
+    #                 + node.h_g * self._make_prediction_recursion_kl(node.children[index]))
+
+    def _make_prediction_recursion_kl_batch(self,node:_Node):
         if node.leaf:  # leaf node
             return node.sub_model.make_prediction(loss='KL')
         else:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-            return ((1 - node.h_g) * node.sub_model.make_prediction(loss='KL')
-                    + node.h_g * self._make_prediction_recursion_kl(node.children[index]))
+            tmp_pred_values = np.tile(node.sub_model.make_prediction(loss='KL'),(node._p_indices.shape[0],1))
+            for i in range(self.c_num_children_vec[node.k]):
+                if np.any(node._p_indices[:,i]):
+                    tmp_pred_values[node._p_indices[:,i]] = (
+                        (1-node.h_g) * tmp_pred_values[node._p_indices[:,i]]
+                        + node.h_g * self._make_prediction_recursion_kl_batch(node.children[i])
+                    )
+            return tmp_pred_values
 
     def make_prediction(self,loss="squared"):
         """Predict a new data point under the given criterion.
@@ -3192,29 +3266,40 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             The predicted value under the given loss function. 
         """
         if loss == "squared":
-            if self.SubModel is categorical:
-                tmp_pred_vec = np.empty([len(self.hn_metatree_list),self.sub_constants['c_degree']])
+            # if self.SubModel is categorical:
+            #     tmp_pred_vec = np.empty([len(self.hn_metatree_list),self.sub_constants['c_degree']])
+            # else:
+            #     tmp_pred_vec = np.empty(len(self.hn_metatree_list))
+            # for i,metatree in enumerate(self.hn_metatree_list):
+            #     tmp_pred_vec[i] = self._make_prediction_recursion_squared(metatree)
+            if self.SubModel in REG_MODELS:
+                tmp_pred_vec = np.empty([len(self.hn_metatree_list),self.hn_metatree_list[0]._p_indices.shape[0]])
+                for i,metatree in enumerate(self.hn_metatree_list):
+                    tmp_pred_vec[i] = self._make_prediction_recursion_squared_batch(metatree)
+                return self.hn_metatree_prob_vec @ tmp_pred_vec
             else:
-                tmp_pred_vec = np.empty(len(self.hn_metatree_list))
-            for i,metatree in enumerate(self.hn_metatree_list):
-                tmp_pred_vec[i] = self._make_prediction_recursion_squared(metatree)
-            return self.hn_metatree_prob_vec @ tmp_pred_vec
+                raise(CriteriaError("Unsupported loss function! \"squared\" is supported "
+                                    +"only when self.SubModel is normal, linearregression, exponential, or poisson."))
         elif loss == "0-1":
             if self.SubModel in CLF_MODELS:
                 degree = 2 if self.SubModel is bernoulli else self.sub_constants['c_degree']
-                tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
+                # tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
+                tmp_pred_dist_vec = np.empty([self.hn_metatree_list[0]._p_indices.shape[0],len(self.hn_metatree_list),degree])
                 for i,metatree in enumerate(self.hn_metatree_list):
-                    tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
-                return np.argmax(self.hn_metatree_prob_vec @ tmp_pred_dist_vec)
+                    # tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
+                    tmp_pred_dist_vec[:,i] = self._make_prediction_recursion_kl_batch(metatree)
+                return np.argmax(self.hn_metatree_prob_vec @ tmp_pred_dist_vec,axis=1)
             else:
                 raise(CriteriaError("Unsupported loss function! \"0-1\" is supported "
                                     +"only when self.SubModel is bernoulli or categorical."))
         elif loss == "KL":
             if self.SubModel in CLF_MODELS:
                 degree = 2 if self.SubModel is bernoulli else self.sub_constants['c_degree']
-                tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
+                # tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
+                tmp_pred_dist_vec = np.empty([self.hn_metatree_list[0]._p_indices.shape[0],len(self.hn_metatree_list),degree])
                 for i,metatree in enumerate(self.hn_metatree_list):
-                    tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
+                    # tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
+                    tmp_pred_dist_vec[:,i] = self._make_prediction_recursion_kl_batch(metatree)
                 return self.hn_metatree_prob_vec @ tmp_pred_dist_vec
             else:
                 raise(CriteriaError("Unsupported loss function! \"KL\" is supported "
@@ -3251,29 +3336,54 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.update_posterior(x_continuous,x_categorical,y,alg_type='given_MT')
         return prediction
 
-    def _calc_pred_var_recursion(self,node:_Node):
+    # def _calc_pred_var_recursion(self,node:_Node):
+    #     if node.leaf:  # leaf node
+    #         return (node.sub_model.make_prediction(loss='squared'),
+    #                 node.sub_model.calc_pred_var())
+    #     else:  # inner node
+    #         if node.k < self.c_dim_continuous:
+    #             index = 0
+    #             for i in range(self.c_num_children_vec[node.k]-1):
+    #                 if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
+    #                     break
+    #                 index += 1
+    #         else:
+    #             index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
+            
+    #         tmp_mean_child,tmp_var_child = self._calc_pred_var_recursion(node.children[index])
+    #         tmp_mean = node.sub_model.make_prediction(loss='squared')
+    #         tmp_var = node.sub_model.calc_pred_var()
+
+    #         mix_mean = (1-node.h_g) * tmp_mean + node.h_g * tmp_mean_child
+    #         mix_var = ((1-node.h_g) * ((mix_mean-tmp_mean)*(mix_mean-tmp_mean)+tmp_var)
+    #                    + node.h_g * ((mix_mean-tmp_mean_child)*(mix_mean-tmp_mean_child)+tmp_var_child))
+
+    #         return mix_mean,mix_var
+
+    def _calc_pred_var_recursion_batch(self,node:_Node):
         if node.leaf:  # leaf node
             return (node.sub_model.make_prediction(loss='squared'),
                     node.sub_model.calc_pred_var())
         else:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-            
-            tmp_mean_child,tmp_var_child = self._calc_pred_var_recursion(node.children[index])
-            tmp_mean = node.sub_model.make_prediction(loss='squared')
-            tmp_var = node.sub_model.calc_pred_var()
+            tmp_means_child = np.empty(node._p_indices.shape[0])
+            tmp_vars_child = np.empty(node._p_indices.shape[0])
+            for i in range(self.c_num_children_vec[node.k]):
+                if np.any(node._p_indices[:,i]):
+                    (tmp_means_child[node._p_indices[:,i]],
+                     tmp_vars_child[node._p_indices[:,i]]) = (
+                        self._calc_pred_var_recursion_batch(node.children[i])
+                    )
 
-            mix_mean = (1-node.h_g) * tmp_mean + node.h_g * tmp_mean_child
-            mix_var = ((1-node.h_g) * ((mix_mean-tmp_mean)*(mix_mean-tmp_mean)+tmp_var)
-                       + node.h_g * ((mix_mean-tmp_mean_child)*(mix_mean-tmp_mean_child)+tmp_var_child))
+            tmp_means = np.empty(node._p_indices.shape[0])
+            tmp_vars = np.empty(node._p_indices.shape[0])
+            tmp_means[:] = node.sub_model.make_prediction(loss='squared')
+            tmp_vars[:] = node.sub_model.calc_pred_var()
 
-            return mix_mean,mix_var
+            mix_means = (1-node.h_g) * tmp_means + node.h_g * tmp_means_child
+            mix_vars = ((1-node.h_g) * ((mix_means-tmp_means)*(mix_means-tmp_means)+tmp_vars)
+                       + node.h_g * ((mix_means-tmp_means_child)*(mix_means-tmp_means_child)+tmp_vars_child))
+
+            return mix_means,mix_vars
 
     def calc_pred_var(self):
         """Calculate the variance of the predictive distribution.
@@ -3285,12 +3395,18 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """
         if self.SubModel not in {normal,linearregression}:
             raise(ParameterFormatError("SubModel must be normal or linearregression."))
-        tmp_means = np.empty(len(self.hn_metatree_list))
-        tmp_vars = np.empty(len(self.hn_metatree_list))
+        # tmp_means = np.empty(len(self.hn_metatree_list))
+        # tmp_vars = np.empty(len(self.hn_metatree_list))
+        # for i,metatree in enumerate(self.hn_metatree_list):
+        #     tmp_means[i],tmp_vars[i] = self._calc_pred_var_recursion(metatree)
+        # mix_mean = self.hn_metatree_prob_vec @ tmp_means
+        # return self.hn_metatree_prob_vec @ ((tmp_means-mix_mean)*(tmp_means-mix_mean)+tmp_vars)
+        tmp_means = np.empty([len(self.hn_metatree_list),self.hn_metatree_list[0]._p_indices.shape[0]])
+        tmp_vars = np.empty([len(self.hn_metatree_list),self.hn_metatree_list[0]._p_indices.shape[0]])
         for i,metatree in enumerate(self.hn_metatree_list):
-            tmp_means[i],tmp_vars[i] = self._calc_pred_var_recursion(metatree)
-        mix_mean = self.hn_metatree_prob_vec @ tmp_means
-        return self.hn_metatree_prob_vec @ ((tmp_means-mix_mean)*(tmp_means-mix_mean)+tmp_vars)
+            tmp_means[i],tmp_vars[i] = self._calc_pred_var_recursion_batch(metatree)
+        mix_means = self.hn_metatree_prob_vec @ tmp_means
+        return self.hn_metatree_prob_vec @ ((tmp_means-mix_means)*(tmp_means-mix_means)+tmp_vars)
 
     def _calc_feature_importances_recursion(self,node:_Node):
         if node.leaf:
@@ -3319,20 +3435,33 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             feature_importances += self.hn_metatree_prob_vec[i] * self._calc_feature_importances_recursion(metatree)
         return feature_importances
 
-    def _calc_pred_density_recursion(self,node:_Node,y):
+    # def _calc_pred_density_recursion(self,node:_Node,y):
+    #     if node.leaf:  # leaf node
+    #         return node.sub_model._calc_pred_density(y)
+    #     else:  # inner node
+    #         if node.k < self.c_dim_continuous:
+    #             index = 0
+    #             for i in range(self.c_num_children_vec[node.k]-1):
+    #                 if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
+    #                     break
+    #                 index += 1
+    #         else:
+    #             index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
+    #         return ((1 - node.h_g) * node.sub_model._calc_pred_density(y)
+    #                 + node.h_g * self._calc_pred_density_recursion(node.children[index],y))
+
+    def _calc_pred_density_recursion_batch(self,node:_Node,y):
         if node.leaf:  # leaf node
             return node.sub_model._calc_pred_density(y)
         else:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-            return ((1 - node.h_g) * node.sub_model._calc_pred_density(y)
-                    + node.h_g * self._calc_pred_density_recursion(node.children[index],y))
+            tmp_pred_densities = node.sub_model._calc_pred_density(y)
+            for i in range(self.c_num_children_vec[node.k]):
+                if np.any(node._p_indices[:,i]):
+                    tmp_pred_densities[node._p_indices[:,i]] = (
+                        (1-node.h_g) * tmp_pred_densities[node._p_indices[:,i]]
+                        + node.h_g * self._calc_pred_density_recursion_batch(node.children[i],y[node._p_indices[:,i]])
+                    )
+            return tmp_pred_densities
 
     def calc_pred_density(self,y):
         """Calculate the values of the probability density function of the predictive distribution.
@@ -3348,7 +3477,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             The values of the probability density function of the predictive distribution.
         """
         y = _check.floats(y,'y',DataFormatError)
+        y = (np.transpose(y) + np.zeros(self.hn_metatree_list[0]._p_indices.shape[0])).T # added
         tmp = 0.0
         for i,metatree in enumerate(self.hn_metatree_list):
-            tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
+            # tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
+            tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion_batch(metatree,y)
         return tmp

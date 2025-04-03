@@ -609,4 +609,4 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             return self.p_nu / self.p_lambda / (self.p_nu-2)
         else:
             warnings.warn("Variance of the predictive distribution cannot defined for the current p_nu.",ResultWarning)
-            return None
+            return np.nan
