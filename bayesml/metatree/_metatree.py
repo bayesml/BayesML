@@ -1247,8 +1247,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_metatree_list = []
         self.hn_metatree_prob_vec = None
 
-        self._tmp_x_continuous = np.zeros(self.c_dim_continuous,dtype=float)
-        self._tmp_x_categorical = np.zeros(self.c_dim_categorical,dtype=int)
+        # self._tmp_x_continuous = np.zeros(self.c_dim_continuous,dtype=float)
+        # self._tmp_x_categorical = np.zeros(self.c_dim_categorical,dtype=int)
+        self._p_n = 0
 
         self.set_h0_params(
             h0_k_weight_vec,
@@ -3181,6 +3182,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             0 <= x_categorical[i] < self.c_num_children_vec[self.c_dim_continuous+i].
         """
         x_continuous,x_categorical = self._check_sample_x(x_continuous,x_categorical)
+        self._p_n = x_continuous.shape[0]
 
         # self._tmp_x_continuous[:] = x_continuous
         # self._tmp_x_categorical[:] = x_categorical
@@ -3273,7 +3275,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             # for i,metatree in enumerate(self.hn_metatree_list):
             #     tmp_pred_vec[i] = self._make_prediction_recursion_squared(metatree)
             if self.SubModel in REG_MODELS:
-                tmp_pred_vec = np.empty([len(self.hn_metatree_list),self.hn_metatree_list[0]._p_indices.shape[0]])
+                tmp_pred_vec = np.empty([len(self.hn_metatree_list),self._p_n])
                 for i,metatree in enumerate(self.hn_metatree_list):
                     tmp_pred_vec[i] = self._make_prediction_recursion_squared_batch(metatree)
                 return self.hn_metatree_prob_vec @ tmp_pred_vec
@@ -3284,7 +3286,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             if self.SubModel in CLF_MODELS:
                 degree = 2 if self.SubModel is bernoulli else self.sub_constants['c_degree']
                 # tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
-                tmp_pred_dist_vec = np.empty([self.hn_metatree_list[0]._p_indices.shape[0],len(self.hn_metatree_list),degree])
+                tmp_pred_dist_vec = np.empty([self._p_n,len(self.hn_metatree_list),degree])
                 for i,metatree in enumerate(self.hn_metatree_list):
                     # tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
                     tmp_pred_dist_vec[:,i] = self._make_prediction_recursion_kl_batch(metatree)
@@ -3296,7 +3298,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             if self.SubModel in CLF_MODELS:
                 degree = 2 if self.SubModel is bernoulli else self.sub_constants['c_degree']
                 # tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
-                tmp_pred_dist_vec = np.empty([self.hn_metatree_list[0]._p_indices.shape[0],len(self.hn_metatree_list),degree])
+                tmp_pred_dist_vec = np.empty([self._p_n,len(self.hn_metatree_list),degree])
                 for i,metatree in enumerate(self.hn_metatree_list):
                     # tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
                     tmp_pred_dist_vec[:,i] = self._make_prediction_recursion_kl_batch(metatree)
@@ -3401,8 +3403,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         #     tmp_means[i],tmp_vars[i] = self._calc_pred_var_recursion(metatree)
         # mix_mean = self.hn_metatree_prob_vec @ tmp_means
         # return self.hn_metatree_prob_vec @ ((tmp_means-mix_mean)*(tmp_means-mix_mean)+tmp_vars)
-        tmp_means = np.empty([len(self.hn_metatree_list),self.hn_metatree_list[0]._p_indices.shape[0]])
-        tmp_vars = np.empty([len(self.hn_metatree_list),self.hn_metatree_list[0]._p_indices.shape[0]])
+        tmp_means = np.empty([len(self.hn_metatree_list),self._p_n])
+        tmp_vars = np.empty([len(self.hn_metatree_list),self._p_n])
         for i,metatree in enumerate(self.hn_metatree_list):
             tmp_means[i],tmp_vars[i] = self._calc_pred_var_recursion_batch(metatree)
         mix_means = self.hn_metatree_prob_vec @ tmp_means
@@ -3457,9 +3459,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             tmp_pred_densities = node.sub_model._calc_pred_density(y)
             for i in range(self.c_num_children_vec[node.k]):
                 if np.any(node._p_indices[:,i]):
-                    tmp_pred_densities[node._p_indices[:,i]] = (
-                        (1-node.h_g) * tmp_pred_densities[node._p_indices[:,i]]
-                        + node.h_g * self._calc_pred_density_recursion_batch(node.children[i],y[node._p_indices[:,i]])
+                    tmp_pred_densities[...,node._p_indices[:,i]] = (
+                        (1-node.h_g) * tmp_pred_densities[...,node._p_indices[:,i]]
+                        + node.h_g * self._calc_pred_density_recursion_batch(node.children[i],y[...,node._p_indices[:,i]])
                     )
             return tmp_pred_densities
 
@@ -3477,7 +3479,14 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             The values of the probability density function of the predictive distribution.
         """
         y = _check.floats(y,'y',DataFormatError)
-        y = (np.transpose(y) + np.zeros(self.hn_metatree_list[0]._p_indices.shape[0])).T # added
+        try:
+            y = y + np.zeros(self._p_n)
+        except:
+            raise(DataFormatError(
+                f"y must have a size that is broadcastable to ({self._p_n},). "
+                +f"Here, {self._p_n} is the sample size of x when you called metatree.calc_pred_dist(x). "
+                )
+            )
         tmp = 0.0
         for i,metatree in enumerate(self.hn_metatree_list):
             # tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)

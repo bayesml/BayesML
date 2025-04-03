@@ -729,7 +729,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         return self
 
     def _calc_pred_density(self,y):
-        return ss_t.pdf(y.T,loc=self.p_m, scale=1.0/np.sqrt(self.p_lambda), df=self.p_nu).T
+        return ss_t.pdf(y,loc=self.p_m, scale=1.0/np.sqrt(self.p_lambda), df=self.p_nu)
     
     def make_prediction(self,loss="squared"):
         """Predict a new data point under the given criterion.
