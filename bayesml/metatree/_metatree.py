@@ -3487,8 +3487,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 +f"Here, {self._p_n} is the sample size of x when you called metatree.calc_pred_dist(x). "
                 )
             )
+        flag = False
+        if self._p_n == 1 and y.shape[-1] != 1:
+            flag=True
+            y = y[...,np.newaxis]
         tmp = 0.0
         for i,metatree in enumerate(self.hn_metatree_list):
             # tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
             tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion_batch(metatree,y)
-        return tmp
+        if flag:
+            return tmp[...,0]
+        else:
+            return tmp
