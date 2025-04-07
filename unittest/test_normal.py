@@ -1,14 +1,15 @@
 import pytest
-
-import numpy as np
-
 import os
 import sys
 
 # Add the parent directory to sys.path
+# NOTE: This is a workaround for the import error when running the test file directly.
 parent_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(parent_path)
+
 from bayesml import normal
+
+import numpy as np
 
 RNG = np.random.default_rng(12345)
 
