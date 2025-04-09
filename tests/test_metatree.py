@@ -8,7 +8,7 @@ parent_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(parent_path)
 
 from bayesml import metatree
-from bayesml import linearregression as submodel
+from bayesml import linearregression
 
 import numpy as np
 
@@ -29,7 +29,7 @@ def metatree_sample_data(): # linear regression sample data
         'y_categorical': y_categorical
     }
 
-def test_metatree_batch_pred(metatree_sample_data):
+def test_metatree_linearregression_batch_pred(metatree_sample_data):
     x_continuous = metatree_sample_data['x_continuous']
     x_categorical = metatree_sample_data['x_categorical']
     y_continuous = metatree_sample_data['y_continuous']
@@ -39,7 +39,7 @@ def test_metatree_batch_pred(metatree_sample_data):
     model = metatree.LearnModel(
         c_dim_continuous=3,
         c_dim_categorical=2,
-        SubModel=submodel,
+        SubModel=linearregression,
         sub_constants={'c_degree':3},
         sub_h0_params={'h0_alpha':1.1},
     )
