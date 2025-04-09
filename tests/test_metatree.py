@@ -8,7 +8,7 @@ parent_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(parent_path)
 
 from bayesml import metatree
-from bayesml import linearregression, poisson, exponential # REG models
+from bayesml import normal, linearregression, poisson, exponential # REG models
 from bayesml import bernoulli, categorical # CLF models
 
 import numpy as np
@@ -29,6 +29,71 @@ def metatree_sample_data():
         'y_continuous': y_continuous,
         'y_categorical': y_categorical
     }
+
+
+def test_metatree_normal_batch_pred(metatree_sample_data):
+    x_continuous = metatree_sample_data['x_continuous']
+    x_categorical = metatree_sample_data['x_categorical']
+    y_continuous = metatree_sample_data['y_continuous']
+    y_categorical = metatree_sample_data['y_categorical']
+
+    # initialise the model
+    model = metatree.LearnModel(
+        c_dim_continuous=3,
+        c_dim_categorical=2,
+        SubModel=normal,
+    )
+    # update the posterior distribution
+    model.update_posterior(
+        x_continuous=x_continuous,
+        x_categorical=x_categorical,
+        y=y_continuous,
+        random_state=123,
+    )
+    # calculate the predictive distribution
+    model.calc_pred_dist(
+        x_continuous=x_continuous,
+        x_categorical=x_categorical,
+    )
+    
+    ##############################
+    # test on prediction values
+    ##############################
+    # calculate the prediction values
+    pred_values = model.make_prediction(loss='squared')
+    # desired prediction values
+    # the values have been calculated using the same model and parameters, but as sequential predictions
+    desireble_pred_values = np.array(
+        [0.27641338, 0.28833937, 0.28857635, 0.28985178, 0.28706087,
+         0.2855081 , 0.27751605, 0.27984023, 0.28821349, 0.28831634])
+    # check if the prediction values are close to the desired values
+    assert np.all(np.isclose(pred_values, desireble_pred_values)), f"Prediction values are incorrect: {pred_values} != {desireble_pred_values}"
+
+    ##############################
+    # test on prediction variances
+    ##############################
+    # calculate the prediction variances
+    pred_vars = model.calc_pred_var()
+    # desired prediction variances
+    desireble_pred_vars = np.array(
+        [0.35755206, 0.31119767, 0.33593725, 0.33574303, 0.30342827,
+         0.3154599 , 0.34116193, 0.36740548, 0.31259223, 0.30591997])
+    # check if the prediction variances are close to the desired values
+    assert np.all(np.isclose(pred_vars, desireble_pred_vars)), f"Prediction variances are incorrect: {pred_vars} != {desireble_pred_vars}"
+
+    ##############################
+    # test on prediction densities
+    ##############################
+    # calculate the prediction densities
+    pred_densities = model.calc_pred_density(np.arange(2)[:,np.newaxis])
+    # desired prediction densities
+    desireble_pred_densities = np.array(
+        [[0.6500694 , 0.65388057, 0.64928667, 0.64943002, 0.65552694,
+          0.65364597, 0.65171061, 0.64985625, 0.65385478, 0.65467585],
+        [0.27694262, 0.28162349, 0.28181434, 0.28212561, 0.28105075,
+         0.28043262, 0.27731163, 0.27854053, 0.28156627, 0.28163985]])
+    # check if the prediction densities are close to the desired values
+    assert np.all(np.isclose(pred_densities, desireble_pred_densities)), f"Prediction densities are incorrect: {pred_densities} != {desireble_pred_densities}"
 
 def test_metatree_linearregression_batch_pred(metatree_sample_data):
     x_continuous = metatree_sample_data['x_continuous']

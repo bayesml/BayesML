@@ -40,9 +40,9 @@ def standard_normal_sample_data():
     return genmodel.gen_sample(num_samples)
 
 
-def test_null(random_sample_data):
-    # do nothing, just check if the test runs
-    pass
+# def test_null(random_sample_data):
+#     # do nothing, just check if the test runs
+#     pass
 
 def test_posterior_mean(standard_normal_sample_data):
     # Test the posterior distribution
