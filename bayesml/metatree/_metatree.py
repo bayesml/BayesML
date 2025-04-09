@@ -3478,9 +3478,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         p_y : numpy.ndarray
             The values of the probability density function of the predictive distribution.
         """
-        y = _check.floats(y,'y',DataFormatError)
+        if self.SubModel is linearregression:
+            y = self.SubModel.LearnModel(**self.sub_constants)._check_sample_y(y)
+        else:
+            y = self.SubModel.LearnModel(**self.sub_constants)._check_sample(y)
         try:
-            y = y + np.zeros(self._p_n)
+            y = y + np.zeros(self._p_n,dtype=y.dtype)
         except:
             raise(DataFormatError(
                 f"y must have a size that is broadcastable to ({self._p_n},). "

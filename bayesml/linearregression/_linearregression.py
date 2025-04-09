@@ -513,7 +513,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         return x.reshape(-1,self.c_degree)
     
     def _check_sample_y(self,y):
-        _check.floats(y,'y',DataFormatError)
+        return _check.floats(y,'y',DataFormatError)
 
     def _check_sample(self,x,y):
         self._check_sample_x(x)

@@ -431,10 +431,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         return self
 
     def _calc_pred_density(self,x):
-        if x:
-            return self.p_theta
-        else:
-            return 1.0-self.p_theta
+        return np.where(x==1,self.p_theta,1.0-self.p_theta)
 
     def make_prediction(self,loss="squared"):
         """Predict a new data point under the given criterion.
