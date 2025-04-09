@@ -8,8 +8,8 @@ parent_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(parent_path)
 
 from bayesml import metatree
-from bayesml import linearregression
-from bayesml import categorical
+from bayesml import linearregression # REG models
+from bayesml import bernoulli, categorical # CLF models
 
 import numpy as np
 
@@ -17,7 +17,7 @@ SEED = 123
 rng = np.random.default_rng(SEED)
 
 @pytest.fixture
-def metatree_sample_data(): # linear regression sample data
+def metatree_sample_data():
     n = 10
     x_continuous = rng.random((n,3))
     x_categorical = rng.choice([0,1], size=(n,2))
@@ -95,6 +95,60 @@ def test_metatree_linearregression_batch_pred(metatree_sample_data):
         0.29176254, 0.25486811, 0.24659016, 0.18370341, 0.36756198]])
     # check if the prediction densities are close to the desired values
     assert np.all(np.isclose(pred_densities, desireble_pred_densities)), f"Prediction densities are incorrect: {pred_densities} != {desireble_pred_densities}"
+
+def test_metatree_bernoulli_batch_pred(metatree_sample_data):
+    x_continuous = metatree_sample_data['x_continuous']
+    x_categorical = metatree_sample_data['x_categorical']
+    y_continuous = metatree_sample_data['y_continuous']
+    y_categorical = metatree_sample_data['y_categorical']
+
+    # initialise the model
+    model = metatree.LearnModel(
+        c_dim_continuous=3,
+        c_dim_categorical=2,
+        SubModel=bernoulli,
+    )
+    # update the posterior distribution
+    model.update_posterior(
+        x_continuous=x_continuous,
+        x_categorical=x_categorical,
+        y=y_categorical,
+        random_state=123,
+    )
+    # calculate the predictive distribution
+    model.calc_pred_dist(
+        x_continuous=x_continuous,
+        x_categorical=x_categorical,
+    )
+    
+    ##############################
+    # test on prediction values
+    ##############################
+    # calculate the prediction values
+    pred_values = model.make_prediction(loss='0-1')
+    # desired prediction values
+    # the values have been calculated using the same model and parameters, but as sequential predictions
+    desireble_pred_values = np.array([1., 0., 0., 0., 0., 0., 0., 0., 1., 0.])
+    # check if the prediction values are close to the desired values
+    assert np.all(np.isclose(pred_values, desireble_pred_values)), f"Prediction values are incorrect: {pred_values} != {desireble_pred_values}"
+
+    # calculate the prediction values
+    pred_values = model.make_prediction(loss='KL')
+    # desired prediction values
+    # the values have been calculated using the same model and parameters, but as sequential predictions
+    desireble_pred_values = np.array(
+        [[0.33298576, 0.66701424],
+        [0.69952726, 0.30047274],
+        [0.84431809, 0.15568191],
+        [0.84643166, 0.15356834],
+        [0.8445064 , 0.1554936 ],
+        [0.62956863, 0.37043137],
+        [0.84574869, 0.15425131],
+        [0.82346626, 0.17653374],
+        [0.3595937 , 0.6404063 ],
+        [0.59751374, 0.40248626]])
+    # check if the prediction values are close to the desired values
+    assert np.all(np.isclose(pred_values, desireble_pred_values)), f"Prediction values are incorrect: {pred_values} != {desireble_pred_values}"
 
 def test_metatree_categorical_batch_pred(metatree_sample_data):
     x_continuous = metatree_sample_data['x_continuous']
