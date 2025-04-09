@@ -8,7 +8,7 @@ parent_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(parent_path)
 
 from bayesml import metatree
-from bayesml import linearregression # REG models
+from bayesml import linearregression, poisson, exponential # REG models
 from bayesml import bernoulli, categorical # CLF models
 
 import numpy as np
@@ -128,7 +128,7 @@ def test_metatree_bernoulli_batch_pred(metatree_sample_data):
     pred_values = model.make_prediction(loss='0-1')
     # desired prediction values
     # the values have been calculated using the same model and parameters, but as sequential predictions
-    desireble_pred_values = np.array([1., 0., 0., 0., 0., 0., 0., 0., 1., 0.])
+    desireble_pred_values = np.array([1, 0, 0, 0, 0, 0, 0, 0, 1, 0])
     # check if the prediction values are close to the desired values
     assert np.all(np.isclose(pred_values, desireble_pred_values)), f"Prediction values are incorrect: {pred_values} != {desireble_pred_values}"
 
@@ -149,6 +149,26 @@ def test_metatree_bernoulli_batch_pred(metatree_sample_data):
         [0.59751374, 0.40248626]])
     # check if the prediction values are close to the desired values
     assert np.all(np.isclose(pred_values, desireble_pred_values)), f"Prediction values are incorrect: {pred_values} != {desireble_pred_values}"
+
+    ##############################
+    # test on prediction densities
+    ##############################
+    # calculate the prediction densities
+    pred_densities = model.calc_pred_density(np.arange(2)[:,np.newaxis])
+    # desired prediction densities
+    desireble_pred_densities = np.array(
+        [[0.33298576, 0.66701424],
+        [0.69952726, 0.30047274],
+        [0.84431809, 0.15568191],
+        [0.84643166, 0.15356834],
+        [0.8445064 , 0.1554936 ],
+        [0.62956863, 0.37043137],
+        [0.84574869, 0.15425131],
+        [0.82346626, 0.17653374],
+        [0.3595937 , 0.6404063 ],
+        [0.59751374, 0.40248626]]).T
+    # check if the prediction densities are close to the desired values
+    assert np.all(np.isclose(pred_densities, desireble_pred_densities)), f"Prediction densities are incorrect: {pred_densities} != {desireble_pred_densities}"
 
 def test_metatree_categorical_batch_pred(metatree_sample_data):
     x_continuous = metatree_sample_data['x_continuous']
@@ -205,6 +225,130 @@ def test_metatree_categorical_batch_pred(metatree_sample_data):
          [0.5943782 , 0.33592791, 0.06969389]])
     # check if the prediction values are close to the desired values
     assert np.all(np.isclose(pred_values, desireble_pred_values)), f"Prediction values are incorrect: {pred_values} != {desireble_pred_values}"
+
+    ##############################
+    # test on prediction densities
+    ##############################
+    # calculate the prediction densities
+    pred_densities = model.calc_pred_density(np.arange(3)[:,np.newaxis])
+    # desired prediction densities
+    desireble_pred_densities = np.array(
+        [[0.35627564, 0.54269806, 0.1010263 ],
+         [0.65728076, 0.27916022, 0.06355903],
+         [0.76414301, 0.17634316, 0.05951382],
+         [0.76537173, 0.1754697 , 0.05915857],
+         [0.76452273, 0.17636313, 0.05911414],
+         [0.61047234, 0.3179039 , 0.07162376],
+         [0.76485687, 0.17597582, 0.0591673 ],
+         [0.74948527, 0.19151863, 0.0589961 ],
+         [0.37772062, 0.52622695, 0.09605243],
+         [0.5943782 , 0.33592791, 0.06969389]]).T
+    # check if the prediction densities are close to the desired values
+    assert np.all(np.isclose(pred_densities, desireble_pred_densities)), f"Prediction densities are incorrect: {pred_densities} != {desireble_pred_densities}"
+
+def test_metatree_poisson_batch_pred(metatree_sample_data):
+    x_continuous = metatree_sample_data['x_continuous']
+    x_categorical = metatree_sample_data['x_categorical']
+    y_continuous = metatree_sample_data['y_continuous']
+    y_categorical = metatree_sample_data['y_categorical']
+
+    # initialise the model
+    model = metatree.LearnModel(
+        c_dim_continuous=3,
+        c_dim_categorical=2,
+        SubModel=poisson,
+    )
+    # update the posterior distribution
+    model.update_posterior(
+        x_continuous=x_continuous,
+        x_categorical=x_categorical,
+        y=y_categorical,
+        random_state=123,
+    )
+    # calculate the predictive distribution
+    model.calc_pred_dist(
+        x_continuous=x_continuous,
+        x_categorical=x_categorical,
+    )
+    
+    ##############################
+    # test on prediction values
+    ##############################
+    # calculate the prediction values
+    pred_values = model.make_prediction(loss='squared')
+    # desired prediction values
+    # the values have been calculated using the same model and parameters, but as sequential predictions
+    desireble_pred_values = np.array(
+        [0.67354393, 0.36882062, 0.27093895, 0.27142963, 0.27083067,
+         0.40199871, 0.27170506, 0.28673035, 0.64816579, 0.42163253])
+    # check if the prediction values are close to the desired values
+    assert np.all(np.isclose(pred_values, desireble_pred_values)), f"Prediction values are incorrect: {pred_values} != {desireble_pred_values}"
+
+    ##############################
+    # test on prediction densities
+    ##############################
+    # calculate the prediction densities
+    pred_densities = model.calc_pred_density(np.arange(2)[:,np.newaxis])
+    # desired prediction densities
+    desireble_pred_densities = np.array(
+        [[0.56255316, 0.71529643, 0.77638916, 0.77599045, 0.77639383,
+          0.69650307, 0.77585311, 0.76625645, 0.57362505, 0.68548729],
+         [0.28051919, 0.2188778 , 0.18365569, 0.18394869, 0.18370441,
+          0.22826409, 0.18399693, 0.18968977, 0.27729537, 0.23370997]])
+    # check if the prediction densities are close to the desired values
+    assert np.all(np.isclose(pred_densities, desireble_pred_densities)), f"Prediction densities are incorrect: {pred_densities} != {desireble_pred_densities}"
+
+def test_metatree_exponential_batch_pred(metatree_sample_data):
+    x_continuous = metatree_sample_data['x_continuous']
+    x_categorical = metatree_sample_data['x_categorical']
+    y_continuous = metatree_sample_data['y_continuous']
+    y_categorical = metatree_sample_data['y_categorical']
+
+    # initialise the model
+    model = metatree.LearnModel(
+        c_dim_continuous=3,
+        c_dim_categorical=2,
+        SubModel=exponential,
+    )
+    # update the posterior distribution
+    model.update_posterior(
+        x_continuous=x_continuous,
+        x_categorical=x_categorical,
+        y=y_continuous,
+        random_state=123,
+    )
+    # calculate the predictive distribution
+    model.calc_pred_dist(
+        x_continuous=x_continuous,
+        x_categorical=x_categorical,
+    )
+    
+    ##############################
+    # test on prediction values
+    ##############################
+    # calculate the prediction values
+    pred_values = model.make_prediction(loss='squared')
+    # desired prediction values
+    # the values have been calculated using the same model and parameters, but as sequential predictions
+    desireble_pred_values = np.array(
+        [0.43923559, 0.4472961 , 0.473235  , 0.48113332, 0.42870636,
+         0.44227565, 0.43145572, 0.44318417, 0.45067431, 0.43933846])
+    # check if the prediction values are close to the desired values
+    assert np.all(np.isclose(pred_values, desireble_pred_values)), f"Prediction values are incorrect: {pred_values} != {desireble_pred_values}"
+
+    ##############################
+    # test on prediction densities
+    ##############################
+    # calculate the prediction densities
+    pred_densities = model.calc_pred_density(np.arange(1,3)[:,np.newaxis])
+    # desired prediction densities
+    desireble_pred_densities = np.array(
+        [[0.20178678, 0.20684251, 0.21068319, 0.21083722, 0.20291791,
+          0.20500958, 0.20031508, 0.20336086, 0.20712402, 0.20584713],
+         [0.02684789, 0.02820515, 0.03105924, 0.03131836, 0.02607321,
+          0.02764364, 0.02602114, 0.02710114, 0.02843944, 0.02747074]])
+    # check if the prediction densities are close to the desired values
+    assert np.all(np.isclose(pred_densities, desireble_pred_densities)), f"Prediction densities are incorrect: {pred_densities} != {desireble_pred_densities}"
 
 if __name__ == "__main__":
     pytest.main()
