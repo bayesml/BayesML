@@ -14,10 +14,10 @@ from bayesml import bernoulli, categorical # CLF models
 import numpy as np
 
 SEED = 123
-rng = np.random.default_rng(SEED)
 
 @pytest.fixture
 def metatree_sample_data():
+    rng = np.random.default_rng(SEED)
     n = 10
     x_continuous = rng.random((n,3))
     x_categorical = rng.choice([0,1], size=(n,2))
