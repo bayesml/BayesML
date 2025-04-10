@@ -326,12 +326,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         a positive real number
     hn_beta : float
         a positive real number
-    p_m : float
-        a positive real number
-    p_lambda : float
-        a positive real number
-    p_nu : float
-        a positive real number
+    p_ms : numpy ndarray
+        positive real numbers
+    p_lambdas : numpy ndarray
+        positive real numbers
+    p_nus : numpy ndarray
+        positive real numbers
     """
     def __init__(
             self,
@@ -357,9 +357,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_beta = 1.0
 
         # p_params
-        self.p_m = 0.0
-        self.p_lambda =  1.0
-        self.p_nu = 2.0
+        self.p_ms = 0.0
+        self.p_lambdas =  1.0
+        self.p_nus = 2.0
 
         # sample size
         self._n = 0
@@ -698,11 +698,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Returns
         -------
         p_params : dict of {str: float}
-            * ``"p_m"`` : The value of ``self.p_m``
-            * ``"p_lambda"`` : The value of ``self.p_lambda``
-            * ``"p_nu"`` : The value of ``self.p_nu``
+            * ``"p_ms"`` : The value of ``self.p_ms``
+            * ``"p_lambdas"`` : The value of ``self.p_lambdas``
+            * ``"p_nus"`` : The value of ``self.p_nus``
         """
-        return {"p_m":self.p_m, "p_lambda":self.p_lambda, "p_nu":self.p_nu}
+        return {"p_ms":self.p_ms, "p_lambdas":self.p_lambdas, "p_nus":self.p_nus}
     
     def calc_pred_dist(self, x):
         """Calculate the parameters of the predictive distribution.
@@ -716,20 +716,20 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         # if x.shape != (self.c_degree,):
         #     raise(DataFormatError("x must be a 1 dimensional float array whose size coincide with ``self.c_degree``"))
         x = self._check_sample_x(x)
-        self.p_m = x @ self.hn_mu_vec
-        self.p_lambda = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
-        self.p_nu = np.ones(x.shape[0]) * 2.0 * self.hn_alpha
+        self.p_ms = x @ self.hn_mu_vec
+        self.p_lambdas = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
+        self.p_nus = np.ones(x.shape[0]) * 2.0 * self.hn_alpha
         return self
 
     def _calc_pred_dist(self, x):
         """Calculate predictive distribution without check."""
-        self.p_m = x @ self.hn_mu_vec
-        self.p_lambda = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
-        self.p_nu = np.ones(x.shape[0]) * 2.0 * self.hn_alpha
+        self.p_ms = x @ self.hn_mu_vec
+        self.p_lambdas = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
+        self.p_nus = np.ones(x.shape[0]) * 2.0 * self.hn_alpha
         return self
 
     def _calc_pred_density(self,y):
-        return ss_t.pdf(y,loc=self.p_m, scale=1.0/np.sqrt(self.p_lambda), df=self.p_nu)
+        return ss_t.pdf(y,loc=self.p_ms, scale=1.0/np.sqrt(self.p_lambdas), df=self.p_nus)
     
     def make_prediction(self,loss="squared"):
         """Predict a new data point under the given criterion.
@@ -753,9 +753,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         scipy.stats.rv_discrete
         """
         if loss == "squared" or loss == "0-1" or loss == "abs":
-            return self.p_m
+            return self.p_ms
         elif loss == "KL":
-            return ss_t(loc=self.p_m, scale=1.0/np.sqrt(self.p_lambda), df=self.p_nu)
+            return ss_t(loc=self.p_ms, scale=1.0/np.sqrt(self.p_lambdas), df=self.p_nus)
         else:
             raise(CriteriaError("Unsupported loss function! "
                                 "This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."))
@@ -818,8 +818,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         # else:
         #     warnings.warn("Variance of the predictive distribution cannot defined for the current p_nu.",ResultWarning)
         #     return None
-        indices = self.p_nu > 2
-        var = np.zeros(self.p_nu.shape[0])
-        var[indices] = self.p_nu[indices] / self.p_lambda[indices] / (self.p_nu[indices]-2)
+        indices = self.p_nus > 2
+        var = np.empty(self.p_nus.shape[0])
+        var[indices] = self.p_nus[indices] / self.p_lambdas[indices] / (self.p_nus[indices]-2)
         var[~indices] = np.nan
         return var
