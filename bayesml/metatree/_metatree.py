@@ -752,19 +752,19 @@ class GenModel(base.Generative):
         sample_size : int, optional
             A positive integer, by default ``None``
         x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
 
         Returns
         -------
         x_continuous : numpy ndarray
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``.
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``.
         x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``.
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``.
             Each element x_categorical[i,j] must satisfies 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
@@ -869,10 +869,10 @@ class GenModel(base.Generative):
         sample_size : int, optional
             A positive integer, by default ``None``
         x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         
@@ -989,10 +989,10 @@ class GenModel(base.Generative):
         sample_size : int, optional
             A positive integer, by default 100
         x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
 
@@ -1861,10 +1861,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
@@ -1926,10 +1926,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
@@ -2670,10 +2670,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
@@ -3146,10 +3146,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         """
@@ -3244,10 +3244,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
