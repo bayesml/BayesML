@@ -697,7 +697,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        p_params : dict of {str: float}
+        p_params : dict of {str: numpy ndarray}
             * ``"p_ms"`` : The value of ``self.p_ms``
             * ``"p_lambdas"`` : The value of ``self.p_lambdas``
             * ``"p_nus"`` : The value of ``self.p_nus``
@@ -710,11 +710,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x : numpy ndarray
-            1 dimensional float array whose size is ``self.c_degree``
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
         """
-        # _check.float_vec(x,'x',DataFormatError)
-        # if x.shape != (self.c_degree,):
-        #     raise(DataFormatError("x must be a 1 dimensional float array whose size coincide with ``self.c_degree``"))
         x = self._check_sample_x(x)
         self.p_ms = x @ self.hn_mu_vec
         self.p_lambdas = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
@@ -742,10 +740,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {float, rv_frozen}
-            The predicted value under the given loss function. 
+        Predicted_values : {numpy ndarray, rv_frozen}
+            The predicted values under the given loss function. 
+            The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
             If the loss function is \"KL\", the predictive distribution itself will be returned
-            as rv_frozen object of scipy.stats.
+            as rv_frozen object of scipy.stats. The rv_frozen object supports broadcasting.
 
         See Also
         --------
@@ -766,7 +765,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x : numpy ndarray
-            1 dimensional float array whose size is ``self.c_degree``.
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
         y : float
 
         loss : str, optional
@@ -775,8 +775,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {float, rv_frozen}
-            The predicted value under the given loss function. 
+        Predicted_values : {numpy ndarray, rv_frozen}
+            The predicted values under the given loss function. 
+            The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
             If the loss function is \"KL\", the predictive distribution itself will be returned
             as rv_frozen object of scipy.stats.
         """
@@ -810,14 +811,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         
         Returns
         -------
-        var : float
-            The variance of the predictive distribution.
+        vars : numpy ndarray
+            The variances of the predictive distribution. 
+            The size of the vars is the same as the sample size of x when you called calc_pred_dist(x).
         """
-        # if self.p_nu > 2:
-        #     return self.p_nu / self.p_lambda / (self.p_nu-2)
-        # else:
-        #     warnings.warn("Variance of the predictive distribution cannot defined for the current p_nu.",ResultWarning)
-        #     return None
         indices = self.p_nus > 2
         var = np.empty(self.p_nus.shape[0])
         var[indices] = self.p_nus[indices] / self.p_lambdas[indices] / (self.p_nus[indices]-2)

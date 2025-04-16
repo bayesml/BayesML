@@ -757,7 +757,7 @@ class GenModel(base.Generative):
         x_categorical : numpy ndarray, optional
             2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
 
         Returns
         -------
@@ -766,7 +766,7 @@ class GenModel(base.Generative):
         x_categorical : numpy ndarray, optional
             2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``.
             Each element x_categorical[i,j] must satisfies 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
             1 dimensional array whose size is ``sample_size``.
         """                        
@@ -874,7 +874,7 @@ class GenModel(base.Generative):
         x_categorical : numpy ndarray, optional
             2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         
         See Also
         --------
@@ -994,7 +994,7 @@ class GenModel(base.Generative):
         x_categorical : numpy ndarray, optional
             2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
 
         Examples
         --------
@@ -1247,8 +1247,6 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_metatree_list = []
         self.hn_metatree_prob_vec = None
 
-        # self._tmp_x_continuous = np.zeros(self.c_dim_continuous,dtype=float)
-        # self._tmp_x_categorical = np.zeros(self.c_dim_categorical,dtype=int)
         self._p_n = 0
 
         self.set_h0_params(
@@ -1868,7 +1866,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         x_categorical : numpy ndarray, optional
             2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
             values of objective variable whose dtype may be int or float
         n_estimators : int, optional
@@ -1933,7 +1931,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         x_categorical : numpy ndarray, optional
             2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
             values of objective variable whose dtype may be int or float
 
@@ -2677,10 +2675,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         x_categorical : numpy ndarray, optional
             2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
             values of objective variable whose dtype may be int or float
-        alg_type : {'MTRF', 'given_MT'}, optional
+        alg_type : {'MTRF', 'given_MT', 'MTMCMC', 'REMTMCMC'}, optional
             type of algorithm, by default 'MTRF'
         **kwargs : dict, optional
             optional parameters of algorithms, by default {}
@@ -3098,32 +3096,6 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """
         return None
     
-    # def _calc_pred_dist_recursion(self,node:_Node,x_continuous,x_categorical):
-    #     node.sub_model.calc_pred_dist()
-    #     if not node.leaf:  # inner node
-    #         if node.k < self.c_dim_continuous:
-    #             index = 0
-    #             for i in range(self.c_num_children_vec[node.k]-1):
-    #                 if x_continuous[node.k] < node.thresholds[i+1]:
-    #                     break
-    #                 index += 1
-    #         else:
-    #             index = x_categorical[node.k-self.c_dim_continuous]
-    #         self._calc_pred_dist_recursion(node.children[index],x_continuous,x_categorical)
-
-    # def _calc_pred_dist_recursion_lr(self,node:_Node,x_continuous,x_categorical):
-    #     node.sub_model._calc_pred_dist(x_continuous)
-    #     if not node.leaf:  # inner node
-    #         if node.k < self.c_dim_continuous:
-    #             index = 0
-    #             for i in range(self.c_num_children_vec[node.k]-1):
-    #                 if x_continuous[node.k] < node.thresholds[i+1]:
-    #                     break
-    #                 index += 1
-    #         else:
-    #             index = x_categorical[node.k-self.c_dim_continuous]
-    #         self._calc_pred_dist_recursion_lr(node.children[index],x_continuous,x_categorical)
-
     def _calc_pred_dist_recursion_batch(self,node:_Node,x_continuous,x_categorical):
         node.sub_model.calc_pred_dist()
         if not node.leaf:  # inner node
@@ -3174,42 +3146,23 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x_continuous : numpy ndarray, optional
-            A float vector whose length is ``self.c_dim_continuous``, 
+            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            A int vector whose length is ``self.c_dim_categorical``, 
-            by default None. Each element x_categorical[i] must satisfy 
-            0 <= x_categorical[i] < self.c_num_children_vec[self.c_dim_continuous+i].
+            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         """
         x_continuous,x_categorical = self._check_sample_x(x_continuous,x_categorical)
         self._p_n = x_continuous.shape[0]
 
-        # self._tmp_x_continuous[:] = x_continuous
-        # self._tmp_x_categorical[:] = x_categorical
         if self.SubModel is linearregression:
             for root in self.hn_metatree_list:
-                # self._calc_pred_dist_recursion_lr(root,self._tmp_x_continuous,self._tmp_x_categorical)
                 self._calc_pred_dist_recursion_lr_batch(root,x_continuous,x_categorical)
         else:
             for root in self.hn_metatree_list:
-                # self._calc_pred_dist_recursion(root,self._tmp_x_continuous,self._tmp_x_categorical)
                 self._calc_pred_dist_recursion_batch(root,x_continuous,x_categorical)
         return self
-
-    # def _make_prediction_recursion_squared(self,node:_Node):
-    #     if node.leaf:  # leaf node
-    #         return node.sub_model.make_prediction(loss='squared')
-    #     else:  # inner node
-    #         if node.k < self.c_dim_continuous:
-    #             index = 0
-    #             for i in range(self.c_num_children_vec[node.k]-1):
-    #                 if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-    #                     break
-    #                 index += 1
-    #         else:
-    #             index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-    #         return ((1 - node.h_g) * node.sub_model.make_prediction(loss='squared')
-    #                 + node.h_g * self._make_prediction_recursion_squared(node.children[index]))
 
     def _make_prediction_recursion_squared_batch(self,node:_Node):
         if node.leaf:  # leaf node
@@ -3224,21 +3177,6 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                         + node.h_g * self._make_prediction_recursion_squared_batch(node.children[i])
                     )
             return tmp_pred_values
-
-    # def _make_prediction_recursion_kl(self,node:_Node):
-    #     if node.leaf:  # leaf node
-    #         return node.sub_model.make_prediction(loss='KL')
-    #     else:  # inner node
-    #         if node.k < self.c_dim_continuous:
-    #             index = 0
-    #             for i in range(self.c_num_children_vec[node.k]-1):
-    #                 if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-    #                     break
-    #                 index += 1
-    #         else:
-    #             index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-    #         return ((1 - node.h_g) * node.sub_model.make_prediction(loss='KL')
-    #                 + node.h_g * self._make_prediction_recursion_kl(node.children[index]))
 
     def _make_prediction_recursion_kl_batch(self,node:_Node):
         if node.leaf:  # leaf node
@@ -3264,16 +3202,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        predicted_value : {float, numpy.ndarray}
-            The predicted value under the given loss function. 
+        predicted_values : {float, numpy.ndarray}
+            The predicted values under the given loss function. 
         """
         if loss == "squared":
-            # if self.SubModel is categorical:
-            #     tmp_pred_vec = np.empty([len(self.hn_metatree_list),self.sub_constants['c_degree']])
-            # else:
-            #     tmp_pred_vec = np.empty(len(self.hn_metatree_list))
-            # for i,metatree in enumerate(self.hn_metatree_list):
-            #     tmp_pred_vec[i] = self._make_prediction_recursion_squared(metatree)
             if self.SubModel in REG_MODELS:
                 tmp_pred_vec = np.empty([len(self.hn_metatree_list),self._p_n])
                 for i,metatree in enumerate(self.hn_metatree_list):
@@ -3285,10 +3217,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         elif loss == "0-1":
             if self.SubModel in CLF_MODELS:
                 degree = 2 if self.SubModel is bernoulli else self.sub_constants['c_degree']
-                # tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
                 tmp_pred_dist_vec = np.empty([self._p_n,len(self.hn_metatree_list),degree])
                 for i,metatree in enumerate(self.hn_metatree_list):
-                    # tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
                     tmp_pred_dist_vec[:,i] = self._make_prediction_recursion_kl_batch(metatree)
                 return np.argmax(self.hn_metatree_prob_vec @ tmp_pred_dist_vec,axis=1)
             else:
@@ -3297,10 +3227,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         elif loss == "KL":
             if self.SubModel in CLF_MODELS:
                 degree = 2 if self.SubModel is bernoulli else self.sub_constants['c_degree']
-                # tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
                 tmp_pred_dist_vec = np.empty([self._p_n,len(self.hn_metatree_list),degree])
                 for i,metatree in enumerate(self.hn_metatree_list):
-                    # tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
                     tmp_pred_dist_vec[:,i] = self._make_prediction_recursion_kl_batch(metatree)
                 return self.hn_metatree_prob_vec @ tmp_pred_dist_vec
             else:
@@ -3316,12 +3244,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x_continuous : numpy ndarray, optional
-            A float vector whose length is ``self.c_dim_continuous``, 
+            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
         x_categorical : numpy ndarray, optional
-            A int vector whose length is ``self.c_dim_categorical``, 
-            by default None. Each element x_categorical[i] must satisfy 
-            0 <= x_categorical[i] < self.c_num_children_vec[self.c_dim_continuous+i].
+            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         y : numpy ndarray
             values of objective variable whose dtype may be int or float
         loss : str, optional
@@ -3330,37 +3258,13 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        predicted_value : {float, numpy.ndarray}
-            The predicted value under the given loss function. 
+        predicted_values : {float, numpy.ndarray}
+            The predicted values under the given loss function. 
         """
         self.calc_pred_dist(x_continuous,x_categorical)
         prediction = self.make_prediction(loss=loss)
         self.update_posterior(x_continuous,x_categorical,y,alg_type='given_MT')
         return prediction
-
-    # def _calc_pred_var_recursion(self,node:_Node):
-    #     if node.leaf:  # leaf node
-    #         return (node.sub_model.make_prediction(loss='squared'),
-    #                 node.sub_model.calc_pred_var())
-    #     else:  # inner node
-    #         if node.k < self.c_dim_continuous:
-    #             index = 0
-    #             for i in range(self.c_num_children_vec[node.k]-1):
-    #                 if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-    #                     break
-    #                 index += 1
-    #         else:
-    #             index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-            
-    #         tmp_mean_child,tmp_var_child = self._calc_pred_var_recursion(node.children[index])
-    #         tmp_mean = node.sub_model.make_prediction(loss='squared')
-    #         tmp_var = node.sub_model.calc_pred_var()
-
-    #         mix_mean = (1-node.h_g) * tmp_mean + node.h_g * tmp_mean_child
-    #         mix_var = ((1-node.h_g) * ((mix_mean-tmp_mean)*(mix_mean-tmp_mean)+tmp_var)
-    #                    + node.h_g * ((mix_mean-tmp_mean_child)*(mix_mean-tmp_mean_child)+tmp_var_child))
-
-    #         return mix_mean,mix_var
 
     def _calc_pred_var_recursion_batch(self,node:_Node):
         if node.leaf:  # leaf node
@@ -3392,17 +3296,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         
         Returns
         -------
-        var : float
-            The variance of the predictive distribution.
+        vars : numpy ndarray
+            The variances of the predictive distribution. 
+            The size of the vars is the same as the sample size of x when you called calc_pred_dist(x).
         """
         if self.SubModel not in {normal,linearregression}:
             raise(ParameterFormatError("SubModel must be normal or linearregression."))
-        # tmp_means = np.empty(len(self.hn_metatree_list))
-        # tmp_vars = np.empty(len(self.hn_metatree_list))
-        # for i,metatree in enumerate(self.hn_metatree_list):
-        #     tmp_means[i],tmp_vars[i] = self._calc_pred_var_recursion(metatree)
-        # mix_mean = self.hn_metatree_prob_vec @ tmp_means
-        # return self.hn_metatree_prob_vec @ ((tmp_means-mix_mean)*(tmp_means-mix_mean)+tmp_vars)
         tmp_means = np.empty([len(self.hn_metatree_list),self._p_n])
         tmp_vars = np.empty([len(self.hn_metatree_list),self._p_n])
         for i,metatree in enumerate(self.hn_metatree_list):
@@ -3437,21 +3336,6 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             feature_importances += self.hn_metatree_prob_vec[i] * self._calc_feature_importances_recursion(metatree)
         return feature_importances
 
-    # def _calc_pred_density_recursion(self,node:_Node,y):
-    #     if node.leaf:  # leaf node
-    #         return node.sub_model._calc_pred_density(y)
-    #     else:  # inner node
-    #         if node.k < self.c_dim_continuous:
-    #             index = 0
-    #             for i in range(self.c_num_children_vec[node.k]-1):
-    #                 if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-    #                     break
-    #                 index += 1
-    #         else:
-    #             index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-    #         return ((1 - node.h_g) * node.sub_model._calc_pred_density(y)
-    #                 + node.h_g * self._calc_pred_density_recursion(node.children[index],y))
-
     def _calc_pred_density_recursion_batch(self,node:_Node,y):
         if node.leaf:  # leaf node
             return node.sub_model._calc_pred_density(y)
@@ -3471,7 +3355,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         y : numpy.ndarray
-            A float vector
+            y must have a size that is broadcastable to (sample_size,), i.e., 
+            the size along the last dimension must be 1 or sample_size.
+            Here, sample_size is the sample size of x when you called calc_pred_dist(x).
         
         Returns
         -------
@@ -3487,7 +3373,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         except:
             raise(DataFormatError(
                 f"y must have a size that is broadcastable to ({self._p_n},). "
-                +f"Here, {self._p_n} is the sample size of x when you called metatree.calc_pred_dist(x). "
+                +f"Here, {self._p_n} is the sample size of x when you called calc_pred_dist(x). "
                 )
             )
         flag = False
@@ -3496,7 +3382,6 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             y = y[...,np.newaxis]
         tmp = 0.0
         for i,metatree in enumerate(self.hn_metatree_list):
-            # tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
             tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion_batch(metatree,y)
         if flag:
             return tmp[...,0]
