@@ -504,7 +504,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x : numpy.ndarray
-            All the elements must be real number.
+            All the elements must be real numbers.
         """
         x = self._check_sample(x)
 
@@ -709,7 +709,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {float, numpy.ndarray}
+        Predicted_value : {numpy.ndarray, rv_frozen}
             The predicted value under the given loss function. 
             If the loss function is \"KL\", the posterior distribution itself will be returned
             as rv_frozen object of scipy.stats.
@@ -742,8 +742,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {float, numpy.ndarray}
+        Predicted_value : {numpy.ndarray, rv_frozen}
             The predicted value under the given loss function. 
+            If the loss function is \"KL\", the posterior distribution itself will be returned
+            as rv_frozen object of scipy.stats.
         """
         _check.float_vec(x,'x',DataFormatError)
         if x.shape != (self.c_degree,):
@@ -752,3 +754,42 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         prediction = self.make_prediction(loss=loss)
         self.update_posterior(x[np.newaxis,:])
         return prediction
+
+    def fit(self,x):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            All the elements must be real numbers.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x)
+        return self
+
+    def predict(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="squared")
+
+        Returns
+        -------
+        predicted_value : numpy.ndarray
+            The predicted value under the squared loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="squared")
