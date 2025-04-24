@@ -495,3 +495,42 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 - gammaln(self.h0_alpha)
                 - self.hn_alpha * np.log(self.hn_beta)
                 + gammaln(self.hn_alpha))
+    
+    def fit(self,x):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            All the elements must be positive real numbers.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x)
+        return self
+
+    def predict(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="squared")
+
+        Returns
+        -------
+        predicted_value : int
+            The predicted value under the squared loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="squared")
