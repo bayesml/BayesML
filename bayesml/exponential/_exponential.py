@@ -438,7 +438,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {int, numpy.ndarray}
+        Predicted_value : {float,None,rv_frozen}
             The predicted value under the given loss function.
             If the loss function is \"KL\", the predictive distribution itself will be returned
             as numpy.ndarray.
@@ -472,7 +472,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {float, numpy.ndarray}
+        Predicted_value : {float,None,rv_frozen}
             The predicted value under the given loss function.
             If the loss function is \"KL\", the predictive distribution itself will be returned
             as numpy.ndarray.
@@ -529,7 +529,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        predicted_value : int
+        predicted_value : {float,None}
             The predicted value under the squared loss function. 
         """
         self.calc_pred_dist()
