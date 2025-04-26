@@ -780,6 +780,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
             If the loss function is \"KL\", the predictive distribution itself will be returned
             as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         self.calc_pred_dist(x)
         prediction = self.make_prediction(loss=loss)

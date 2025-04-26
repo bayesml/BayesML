@@ -478,9 +478,14 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Returns
         -------
         Predicted_value : {float,None,rv_frozen}
-            The predicted value under the given loss function.
-            If the loss function is \"KL\", the predictive distribution itself will be returned
-            as numpy.ndarray.
+            The predicted value under the given loss function. 
+            If the loss function is \"KL\", the posterior distribution itself will be returned
+            as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         _check.pos_float(x,'x',DataFormatError)
         self.calc_pred_dist()

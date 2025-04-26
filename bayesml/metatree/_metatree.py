@@ -3275,8 +3275,13 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         -------
         predicted_values : numpy.ndarray
             The predicted values under the given loss function. 
-            The size of the predicted values is the same as the sample size of 
-            x_continuous and x_categorical.
+            If the submodel is a classification model (bernoulli or categorical) and 
+            the loss function is \"KL\", the predictive distribution will be returned
+            as numpy.ndarray that consists of occurence probabilities.
+
+            The size of the predicted values or the number of predictive distribution is 
+            the same as the sample size of x_continuous and x_categorical 
+            when you called calc_pred_dist(x_continuous,x_categorical).
         """
         self.calc_pred_dist(x_continuous,x_categorical)
         prediction = self.make_prediction(loss=loss)

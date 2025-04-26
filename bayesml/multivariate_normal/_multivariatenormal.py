@@ -746,6 +746,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             The predicted value under the given loss function. 
             If the loss function is \"KL\", the posterior distribution itself will be returned
             as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         _check.float_vec(x,'x',DataFormatError)
         if x.shape != (self.c_degree,):
