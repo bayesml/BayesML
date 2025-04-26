@@ -751,23 +751,23 @@ class GenModel(base.Generative):
         ----------
         sample_size : int, optional
             A positive integer, by default ``None``
-        x_continuous : numpy ndarray, optional
+        x_continuous : numpy.ndarray, optional
             A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
+        x_categorical : numpy.ndarray, optional
             A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
 
         Returns
         -------
-        x_continuous : numpy ndarray
+        x_continuous : numpy.ndarray
             A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``.
-        x_categorical : numpy ndarray, optional
+        x_categorical : numpy.ndarray, optional
             A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``.
             Each element x_categorical[i,j] must satisfies 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
-        y : numpy ndarray
+        y : numpy.ndarray
             1 dimensional array whose size is ``sample_size``.
         """                        
         if x_continuous is not None:
@@ -868,10 +868,10 @@ class GenModel(base.Generative):
             ``.npz`` will be appended if it isn't there.
         sample_size : int, optional
             A positive integer, by default ``None``
-        x_continuous : numpy ndarray, optional
+        x_continuous : numpy.ndarray, optional
             A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
+        x_categorical : numpy.ndarray, optional
             A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
@@ -988,10 +988,10 @@ class GenModel(base.Generative):
             Rendering output format (``\"pdf\"``, ``\"png\"``, ...).
         sample_size : int, optional
             A positive integer, by default 100
-        x_continuous : numpy ndarray, optional
+        x_continuous : numpy.ndarray, optional
             A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
+        x_categorical : numpy.ndarray, optional
             A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
@@ -1860,14 +1860,14 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
+        x_continuous : numpy.ndarray, optional
             A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
+        x_categorical : numpy.ndarray, optional
             A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
-        y : numpy ndarray
+        y : numpy.ndarray
             values of objective variable whose dtype may be int or float
         n_estimators : int, optional
             number of trees in sklearn.RandomForestClassifier or 
@@ -1877,7 +1877,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         -------
         metatree_list : list of metatree._Node
             Each element is a root node of metatree.
-        metatree_prob_vec : numpy ndarray
+        metatree_prob_vec : numpy.ndarray
         """
         if np.any(self.c_num_children_vec != 2):
             raise(ParameterFormatError(
@@ -1925,21 +1925,21 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
+        x_continuous : numpy.ndarray, optional
             A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
+        x_categorical : numpy.ndarray, optional
             A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
-        y : numpy ndarray
+        y : numpy.ndarray
             values of objective variable whose dtype may be int or float
 
         Returns
         -------
         metatree_list : list of metatree._Node
             Each element is a root node of metatree.
-        metatree_prob_vec : numpy ndarray
+        metatree_prob_vec : numpy.ndarray
         """
         if not self.hn_metatree_list:
             raise(ParameterFormatError("given_MT is supported only when len(self.hn_metatree_list) > 0."))
@@ -2669,14 +2669,14 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
+        x_continuous : numpy.ndarray, optional
             A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
+        x_categorical : numpy.ndarray, optional
             A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
-        y : numpy ndarray
+        y : numpy.ndarray
             values of objective variable whose dtype may be int or float
         alg_type : {'MTRF', 'given_MT', 'MTMCMC', 'REMTMCMC'}, optional
             type of algorithm, by default 'MTRF'
@@ -3145,10 +3145,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
+        x_continuous : numpy.ndarray, optional
             A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
+        x_categorical : numpy.ndarray, optional
             A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
@@ -3191,20 +3191,35 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                     )
             return tmp_pred_values
 
-    def make_prediction(self,loss="squared"):
+    def make_prediction(self,loss=None):
         """Predict a new data point under the given criterion.
 
         Parameters
         ----------
         loss : str, optional
-            Loss function underlying the Bayes risk function, by default \"squared\".
+            Loss function underlying the Bayes risk function, by default None.
             This function supports \"squared\", \"0-1\", and \"KL\".
+            If loss is None, \"squared\" is used when the submodel is a regression model (normal, poisson, exponential, or linear regression), 
+            and \"0-1\" is used when the submodel is a classification model (bernoulli or categorical).
 
         Returns
         -------
-        predicted_values : {float, numpy.ndarray}
+        predicted_values : numpy.ndarray
             The predicted values under the given loss function. 
+            If the submodel is a classification model (bernoulli or categorical) and 
+            the loss function is \"KL\", the predictive distribution will be returned
+            as numpy.ndarray that consists of occurence probabilities.
+
+            The size of the predicted values or the number of predictive distribution is 
+            the same as the sample size of x_continuous and x_categorical 
+            when you called calc_pred_dist(x_continuous,x_categorical).
         """
+        if loss is None:
+            if self.SubModel in REG_MODELS:
+                loss = "squared"
+            else: # the case where self.SubModel is in CLF_MODELS
+                loss = "0-1"
+        
         if loss == "squared":
             if self.SubModel in REG_MODELS:
                 tmp_pred_vec = np.empty([len(self.hn_metatree_list),self._p_n])
@@ -3238,28 +3253,30 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             raise(CriteriaError("Unsupported loss function! "
                                 +"This function supports \"squared\", \"0-1\", and \"KL\"."))
 
-    def pred_and_update(self,x_continuous=None,x_categorical=None,y=None,loss="squared"):
+    def pred_and_update(self,x_continuous=None,x_categorical=None,y=None,loss=None):
         """Predict a new data point and update the posterior sequentially.
 
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
+        x_continuous : numpy.ndarray, optional
             A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
+        x_categorical : numpy.ndarray, optional
             A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
             0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
-        y : numpy ndarray
+        y : numpy.ndarray
             values of objective variable whose dtype may be int or float
         loss : str, optional
-            Loss function underlying the Bayes risk function, by default \"squared\".
+            Loss function underlying the Bayes risk function, by default None.
             This function supports \"squared\", \"0-1\", and \"KL\".
 
         Returns
         -------
-        predicted_values : {float, numpy.ndarray}
+        predicted_values : numpy.ndarray
             The predicted values under the given loss function. 
+            The size of the predicted values is the same as the sample size of 
+            x_continuous and x_categorical.
         """
         self.calc_pred_dist(x_continuous,x_categorical)
         prediction = self.make_prediction(loss=loss)
@@ -3296,7 +3313,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         
         Returns
         -------
-        vars : numpy ndarray
+        vars : numpy.ndarray
             The variances of the predictive distribution. 
             The size of the vars is the same as the sample size of x when you called calc_pred_dist(x).
         """
@@ -3387,3 +3404,99 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             return tmp[...,0]
         else:
             return tmp
+
+    def fit(self,x_continuous=None,x_categorical=None,y=None,alg_type='MTRF',**kwargs):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x_continuous,x_categorical,y,alg_type,**kwargs)
+        >>> return self
+
+        Parameters
+        ----------
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            by default None.
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        y : numpy.ndarray
+            values of objective variable whose dtype may be int or float
+        alg_type : {'MTRF', 'given_MT', 'MTMCMC', 'REMTMCMC'}, optional
+            type of algorithm, by default 'MTRF'
+        **kwargs : dict, optional
+            optional parameters of algorithms, by default {}
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x_continuous,x_categorical,y,alg_type,**kwargs)
+        return self
+    
+    def predict(self,x_continuous=None,x_categorical=None):
+        """Predict the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.calc_pred_dist(x_continuous,x_categorical)
+        >>> return self.make_prediction()
+
+        Parameters
+        ----------
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            by default None.
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        
+        Returns
+        -------
+        predicted_values : numpy.ndarray
+            If the submodel is a regression model (normal, poisson, exponential, or linear regression), 
+            the predicted values under the squared loss function will be returned. 
+            If the submodel is a classification model (bernoulli or categorical), 
+            the predicted values under the 0-1 loss function will be returend. 
+            The size of the predicted values is the same as the sample size of 
+            x_continuous and x_categorical.
+        """
+        self.calc_pred_dist(x_continuous,x_categorical)
+        return self.make_prediction()
+
+    def predict_proba(self,x_continuous=None,x_categorical=None):
+        """Predict the data.
+
+        This function is supported when the submodel is a classification model (bernoulli or categorical).
+        It is a wrapper of the following functions:
+        
+        >>> self.calc_pred_dist(x_continuous,x_categorical)
+        >>> return self.make_prediction(loss="KL")
+
+        Parameters
+        ----------
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            by default None.
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        
+        Returns
+        -------
+        predicted_distributions : numpy.ndarray
+            The predicted distributions under the KL loss function. 
+            The number of the predicted distributions is the same as the sample size of 
+            x_continuous and x_categorical.
+        """
+        if self.SubModel not in CLF_MODELS:
+            raise(ParameterFormatError("SubModel must be bernoulli or categorical."))
+        self.calc_pred_dist(x_continuous,x_categorical)
+        return self.make_prediction(loss="KL")
