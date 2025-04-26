@@ -540,10 +540,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         
         Returns
         -------
-        Predicted_value : {int, numpy.ndarray}
+        Predicted_value : {float, rv_frozen}
             The predicted value under the given loss function. 
-            If the loss function is \"KL\", the predictive distribution itself will be returned
-            as numpy.ndarray.
+            If the loss function is \"KL\", the posterior distribution itself will be returned
+            as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         if loss == "squared" or loss == "0-1" or loss == "abs":
             return self.p_mu
@@ -644,7 +649,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        predicted_value : numpy.ndarray
+        predicted_value : float
             The predicted value under the squared loss function. 
         """
         self.calc_pred_dist()
