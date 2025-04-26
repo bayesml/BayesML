@@ -780,6 +780,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
             If the loss function is \"KL\", the predictive distribution itself will be returned
             as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         self.calc_pred_dist(x)
         prediction = self.make_prediction(loss=loss)
@@ -820,3 +825,52 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         var[indices] = self.p_nus[indices] / self.p_lambdas[indices] / (self.p_nus[indices]-2)
         var[~indices] = np.nan
         return var
+    
+    def fit(self,x,y):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x,y)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x,y)
+        return self
+    
+    def predict(self,x):
+        """Predict the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.calc_pred_dist(x)
+        >>> return self.make_prediction(loss="squared")
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        
+        Returns
+        -------
+        Predicted_values : numpy ndarray
+            The predicted values under the squared loss function. 
+            The size of the predicted values is the same as the sample size of x.
+        """
+        self.calc_pred_dist(x)
+        return self.make_prediction(loss="squared")

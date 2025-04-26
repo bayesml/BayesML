@@ -442,10 +442,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {int, numpy.ndarray}
+        Predicted_value : {float, rv_frozen}
             The predicted value under the given loss function. 
-            If the loss function is \"KL\", the predictive distribution itself will be returned
-            as numpy.ndarray.
+            If the loss function is \"KL\", the posterior distribution itself will be returned
+            as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         if loss == "squared":
             return self.p_r * self.p_theta / (1.0-self.p_theta)
@@ -476,10 +481,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {int, numpy.ndarray}
+        Predicted_value : {float, rv_frozen}
             The predicted value under the given loss function. 
-            If the loss function is \"KL\", the predictive distribution itself will be returned
-            as numpy.ndarray.
+            If the loss function is \"KL\", the posterior distribution itself will be returned
+            as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         _check.nonneg_int(x,'x',DataFormatError)
         self.calc_pred_dist()
@@ -500,3 +510,42 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 - self.hn_alpha * np.log(self.hn_beta)
                 + gammaln(self.hn_alpha)
                 - self._sum_log_factorial)
+    
+    def fit(self,x):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            All the elements must be non-negative integer.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x)
+        return self
+
+    def predict(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="squared")
+
+        Returns
+        -------
+        predicted_value : float
+            The predicted value under the squared loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="squared")
