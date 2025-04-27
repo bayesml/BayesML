@@ -14,7 +14,7 @@ Shota Saito <shota.s@gunma-u.ac.jp>
 
 <img src="./doc/logos/BayesML_logo.png" width="600">
 
-## Your First Library for Bayesian Machine Learning
+# Your First Library for Bayesian Machine Learning
 
 BayesML contributes to wide society thourgh promoting education, research, and application of machine learning based on Bayesian statistics and Bayesian decision theory.
 
