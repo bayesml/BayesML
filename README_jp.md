@@ -127,7 +127,7 @@ learn_model.visualize_posterior()
 learn_model.update_posterior(x,y)
 ```
 
-更新された事後分布を可視化すると，事後分布の密度が`x,y`を生成するときに用いた真のパラメータの近くに移動していることがわかります．
+更新された事後分布を可視化すると，事後分布の密度が`x`, `y`を生成するときに用いた真のパラメータの近くに移動していることがわかります．
 
 ```python
 learn_model.visualize_posterior()
