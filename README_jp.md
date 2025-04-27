@@ -81,10 +81,10 @@ gen_model = linearregression.GenModel(
 gen_model.visualize_model()
 ```
 
->theta_vec:
->[1. 1.]
->tau:
->10.0
+>theta_vec:  
+>[1. 1.]  
+>tau:  
+>10.0  
 >![png](./doc/images/README_LR1.png)
 
 サンプルを生成し，変数`x`, `y`に保存するには以下のメソッドを用います．
