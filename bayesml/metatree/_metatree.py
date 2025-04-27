@@ -2665,7 +2665,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
 
     def update_posterior(self,x_continuous=None,x_categorical=None,y=None,alg_type='MTRF',**kwargs):
-        """Update the hyperparameters of the posterior distribution using traning data.
+        r"""Update the hyperparameters of the posterior distribution using traning data.
 
         Parameters
         ----------
@@ -2681,7 +2681,125 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         alg_type : {'MTRF', 'given_MT', 'MTMCMC', 'REMTMCMC'}, optional
             type of algorithm, by default 'MTRF'
         **kwargs : dict, optional
-            optional parameters of algorithms, by default {}
+            optional parameters of algorithms, by default {}.
+
+            * When ``alg_type='MTRF'``
+
+              * In MTRF[1], ``sklearn.ensemble.RandomForestClassifier`` or 
+                ``sklearn.ensemble.RandomForestRegressor`` is called as a subroutine. 
+                Arguments given as ``**kwargs`` are passed to these subroutines. 
+                Therefore, if you want to specify options for these subroutines, 
+                e.g., ``n_estimators`` or ``random_state``, etc., you can specify them here. 
+                However, ``max_depth`` of these subroutines is set to the value of 
+                ``self.c_max_depth``, so if you set it again, you will get an error.
+
+            * When ``alg_type='given_MT'``
+
+              * There are no optional parameters for ``'given_MT'``.
+
+            * When ``alg_type='MTMCMC'``
+
+              * burn_in : int
+
+                The length of the burn-in phase, by default 100.
+
+              * num_metatrees : int
+
+                The number of sampling after burn-in phase, by default 500.
+
+              * g_max=0.0 : float
+
+                An initial value of a parameter to controll the entropy of the proposal distribution 
+                in the Metropolis-Hastings step, by default 0.0.
+                ``g_max`` will be tuned in burn-in phase by Algorithm 1 in [2].
+
+              * rho : float
+
+                Parameter of Algorithm 1 in [2], by default 0.99.
+
+              * phi : float
+
+                Parameter of Algorithm 1 in [2], by default 0.999.
+
+              * p_obj : float
+
+                Parameter of Algorithm 1 in [2], by default 0.3. 
+                ``p_obj`` corresponds to $r_\\mathrm{obj}$ in Algorithm 1 in [2].
+
+              * threshold_type : {'1d_kmeans', 'sample_midpoint'}
+
+                A generating rule of thresholds for continuous explanatory variables, 
+                by default ``'1d_kmeans'``. See also Appendix G in [2].
+
+              * seed : {None, int}, optional
+
+                A seed to initialize numpy.random.default_rng(),
+                by default None.
+
+            * When ``alg_type='REMTMCMC'``
+
+              * burn_in : int
+
+                The length of the burn-in phase, by default 100.
+
+              * num_metatrees : int
+
+                The number of sampling after burn-in phase, by default 500.
+
+              * num_chains : int
+
+                Number of replicas in replica exchange Monte Carlo Methods, 
+                by default 8. It corresponds to $J$ in Appendix D in[2]
+
+              * g_max : float
+
+                A parameter to controll the entropy of the proposal distribution 
+                in the Metropolis-Hastings step, by default 0.9. In contrast to 
+                ``MTMCMC``, ``g_max`` tuning is not performed in burn-in phase.
+                See also Appendix B.4 in [2].
+
+              * beta_vec : {None, numpy.ndarray}
+
+                Temperature parameters for replica exchange Monte Carlo methods, 
+                by default None. It must satisfy $0 \\leq \\beta_1 < \\beta_2 < \\cdots < \\beta_J = 1$.
+                If None, $\\beta_j = j/J$. See also Appendix D in [2].
+
+              * num_interval : int
+
+                Length of interval between replica exchange processes, by default 10.
+                See also Appendix D in [2].
+
+              * num_exchange : int
+
+                Number of replicas exchanged in a single replica exchange process, 
+                by default 8. See also Appendix D in [2].
+
+              * threshold_type : {'1d_kmeans', 'sample_midpoint'}
+
+                A generating rule of thresholds for continuous explanatory variables, 
+                by default ``'1d_kmeans'``. See also Appendix G in [2].
+
+              * seed : {None, int}, optional
+
+                A seed to initialize numpy.random.default_rng(),
+                by default None.
+
+        See Also
+        --------
+        sklearn.ensemble.RandomForestClassifier
+        sklearn.ensemble.RandomForestRegressor
+
+        References
+        ----------
+        .. [1] Dobashi, N., Saito, S., Nakahara, Y., & Matsushima, T. (2021). 
+           Meta-Tree Random Forest: Probabilistic Data-Generative Model and 
+           Bayes Optimal Prediction. *Entropy*, 23(6), 768. 
+           Available from https://doi.org/10.3390/e23060768
+        .. [2] Nakahara, Y., Saito, S., Ichijo, N., Kazama, K. & Matsushima, T. (2025). 
+           Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. 
+           *Proceedings of The 28th International Conference on Artificial Intelligence and Statistics*, 
+           in *Proceedings of Machine Learning Research* 258:1045-1053 
+           Available from https://proceedings.mlr.press/v258/nakahara25a.html.
         """
         x_continuous,x_categorical,y = self._check_sample(x_continuous,x_categorical,y)
 

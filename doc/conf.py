@@ -90,7 +90,8 @@ autosummary_generate = True
 intersphinx_mapping = {'python': ('https://docs.python.org/3', None),
                        'numpy': ('https://numpy.org/doc/stable/', None),
                        'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
-                       'graphviz': ('https://graphviz.readthedocs.io/en/stable/', None)
+                       'graphviz': ('https://graphviz.readthedocs.io/en/stable/', None),
+                       'sklarn': ('https://scikit-learn.org/stable/', None),
 }
 
 html_favicon = 'logos/BayesML_favicon.ico'
