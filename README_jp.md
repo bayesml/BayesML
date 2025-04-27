@@ -13,13 +13,13 @@ Yuta Nakahara <y.nakahara@waseda.jp>
 
 <img src="./doc/logos/BayesML_logo.png" width="600">
 
-# はじめてのベイズ機械学習をBayesMLで
+# Your First Library for Bayesian Machine Learning
 
 BayesMLは，ベイズ統計学やベイズ決定理論に基づく機械学習の教育，研究，活用を促進し，社会に広く貢献することを目的としたライブラリです．
 
 ## 特徴
 
-* **使い方が簡単:**
+* **すぐ使える:**
   * 定義済みのベイズ統計モデルをインポートするだけで利用できます．PyMCやStanのようにモデルを自分で定義する必要はありません．
 * **ベイズ決定理論に基づくAPI:**
   * ライブラリのAPIがベイズ決定理論に基づく意思決定の構造と対応しています．ベイズ決定理論は，パラメータ推定や新規データの予測など，幅広い意思決定を統一的に取り扱うためのフレームワークです．そのため，BayesMLでは，scikit-learnなどで採用されているfit-predict型のAPIよりも幅広い意思決定を直感的な操作で実現できます．（多くのモデルにはfit-predict関数も実装されています．）
@@ -81,6 +81,7 @@ gen_model = linearregression.GenModel(
 gen_model.visualize_model()
 ```
 
+>Output:  
 >theta_vec:  
 >[1. 1.]  
 >tau:  
@@ -119,6 +120,7 @@ learn_model = linearregression.LearnModel(
 learn_model.visualize_posterior()
 ```
 
+>Output:  
 >![png](./doc/images/README_LR2.png)
 
 データからの学習によって事後分布を更新するには，以下のメソッドを用います．
@@ -133,6 +135,7 @@ learn_model.update_posterior(x,y)
 learn_model.visualize_posterior()
 ```
 
+>Output:  
 >![png](./doc/images/README_LR3.png)
 
 学習されたモデルに基づいてパラメータ推定や新規データの予測などの意思決定を行うには，以下のようにします．
@@ -143,6 +146,7 @@ learn_model.visualize_posterior()
 learn_model.estimate_params(loss="squared",dict_out=True)
 ```
 
+>Output:  
 >{'theta_vec': array([0.99846525, 0.96263024]), 'tau': 6.9036925167513195}
 
 `loss`オプションを`abs`に指定すると，絶対誤差損失関数に基づくベイズリスク関数を最小にする推定値が得られます．得られる値はパラメータの事後分布の中央値となるため，`tau`の推定値が先程と異なっています．
@@ -151,6 +155,7 @@ learn_model.estimate_params(loss="squared",dict_out=True)
 learn_model.estimate_params(loss="abs",dict_out=True)
 ```
 
+>Output:  
 >{'theta_vec': array([0.99846525, 0.96263024]), 'tau': 6.858623148933392}
 
 新規データに対する予測値を出力するためには，まず以下のメソッドを用いて新規説明変数に対する予測分布を計算します．
@@ -172,6 +177,7 @@ mse = np.sum((y_test - y_pred)**2) / len(y_test)
 print(f"MSE: {mse}")
 ```
 
+>Output:  
 >MSE: 0.09020880284291456
 
 データ生成に用いた雑音項の精度（分散の逆数）が10であったことを踏まえると，十分な精度で予測できていることがわかります．
@@ -187,6 +193,7 @@ hn_params = learn_model.get_hn_params()
 print(hn_params)
 ```
 
+>Output:  
 >{'hn_mu_vec': array([0.99846525, 0.96263024]), 'hn_lambda_mat': array(\[[ 99.87503339,   5.96145913],[  5.96145913, 101.        ]]), 'hn_alpha': 51.0, 'hn_beta': 7.387351026461872}
 
 これを`GenModel`に渡すことで，事後分布からパラメータをサンプリングできます．
@@ -207,6 +214,7 @@ posterior_gen_model.gen_params()
 print(posterior_gen_model.get_params())
 ```
 
+>Output:  
 >{'theta_vec': array([1.00935782, 0.93804208]), 'tau': 5.50775630793475}
 
 事後予測分布から新規データをサンプリングしたい場合，パラメータのサンプリングに続いてデータを生成してください．「[`GenModel`による人工データ生成](#genmodelによる人工データ生成)」で人工データを生成した際には`gen_sample`の引数に説明変数を与えませんでしたが，以下のように明示的に指定することもできます．
@@ -217,6 +225,7 @@ _,y_new = posterior_gen_model.gen_sample(x=x_test[:10])
 print(f"y_new: {y_new}")
 ```
 
+>Output:  
 >y_new: [-0.49532975  2.03473075  1.13758759 -0.46735058 -0.71902336 -0.09288005 0.89463227  2.07886012  2.81211771  1.60020635]
 
 ## パッケージ一覧

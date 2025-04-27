@@ -20,8 +20,8 @@ BayesML contributes to wide society thourgh promoting education, research, and a
 
 ## Characteristics
 
-* **East-to-use:**
-  * You can use pre-defined Bayesian statistical models by simply importing it. You don't need to define models yourself as PyMC or Stan.
+* **Easy-to-use:**
+  * You can use pre-defined Bayesian statistical models by simply importing it. You don't need to define models yourself like PyMC or Stan.
 * **Bayesian Decision Theoretic API:**
   * BayesML's API corresponds to the structure of decision-making based on Bayesian decision theory. Bayesian decision theory is a unified framework for handling various decision-making processes, such as parameter estimation and prediction of new data. Therefore, BayesML enables intuitive operations for a wider range of decision-making compared to the fit-predict type API adopted in libraries like scikit-learn. Moreover, many of our models also implement fit-predict functions.
 * **Model Visuialization Functions:**
@@ -82,6 +82,7 @@ You can visualize the characteristics of the created model by the following meth
 gen_model.visualize_model()
 ```
 
+>Output:  
 >theta_vec:  
 >[1. 1.]  
 >tau:  
@@ -120,6 +121,7 @@ A method for visualizing the posterior distribution of parameters is implemented
 learn_model.visualize_posterior()
 ```
 
+>Output:  
 >![png](./doc/images/README_LR2.png)
 
 To update the posterior distribution through learning from data, we use the following method.
@@ -134,6 +136,7 @@ If you visualize the updated posterior distribution, you can see that the densit
 learn_model.visualize_posterior()
 ```
 
+>Output:  
 >![png](./doc/images/README_LR3.png)
 
 To make decisions such as parameter estimation and prediction of new data based on the learned model, we proceed as follows.
@@ -144,6 +147,7 @@ For parameter estimation, we use the `estimate_params` method. By specifying the
 learn_model.estimate_params(loss="squared",dict_out=True)
 ```
 
+>Output:  
 >{'theta_vec': array([0.99846525, 0.96263024]), 'tau': 6.9036925167513195}
 
 If you specify the `loss` option as `abs`, you can obtain an estimate that minimizes the Bayes risk function based on the absolute error loss function. The resulting value is the median of the posterior distribution, which is why the estimated value of `tau` differs from the previous one.
@@ -152,6 +156,7 @@ If you specify the `loss` option as `abs`, you can obtain an estimate that minim
 learn_model.estimate_params(loss="abs",dict_out=True)
 ```
 
+>Output:  
 >{'theta_vec': array([0.99846525, 0.96263024]), 'tau': 6.858623148933392}
 
 To predict new data, we first use the following method to calculate the predictive distribution for new explanatory variables.
@@ -173,6 +178,7 @@ mse = np.sum((y_test - y_pred)**2) / len(y_test)
 print(f"MSE: {mse}")
 ```
 
+>Output:  
 >MSE: 0.09020880284291456
 
 Taking into account that the precision (inverse of variance) of the noise term used for data generation was 10, we can see that the predictions are achieved with sufficient accuracy.
@@ -188,6 +194,7 @@ hn_params = learn_model.get_hn_params()
 print(hn_params)
 ```
 
+>Output:  
 >{'hn_mu_vec': array([0.99846525, 0.96263024]), 'hn_lambda_mat': array(\[[ 99.87503339,   5.96145913],[  5.96145913, 101.        ]]), 'hn_alpha': 51.0, 'hn_beta': 7.387351026461872}
 
 By passing these to `GenModel`, you can sample parameters from the posterior distribution.
@@ -208,6 +215,7 @@ posterior_gen_model.gen_params()
 print(posterior_gen_model.get_params())
 ```
 
+>Output:  
 >{'theta_vec': array([1.00935782, 0.93804208]), 'tau': 5.50775630793475}
 
 To sample new data from the posterior predictive distribution, we generate data after sampling parameters. When we generated the synthetic data, we did not provide explanatory variables as arguments to `gen_sample` (see [here](#synthetic-data-generation-with-genmodel)), but you can also specify them explicitly as follows.
@@ -218,6 +226,7 @@ _,y_new = posterior_gen_model.gen_sample(x=x_test[:10])
 print(f"y_new: {y_new}")
 ```
 
+>Output:  
 >y_new: [-0.49532975  2.03473075  1.13758759 -0.46735058 -0.71902336 -0.09288005 0.89463227  2.07886012  2.81211771  1.60020635]
 
 ## Package list
