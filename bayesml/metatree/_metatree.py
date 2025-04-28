@@ -2143,7 +2143,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             g_max=0.9,
             beta_vec=None,
             num_interval=10,
-            num_exchange=8,
+            num_exchange=4,
             threshold_type='1d_kmeans',
             seed=None,
             ):
@@ -2772,7 +2772,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
               * num_exchange : int
 
                 Number of replicas exchanged in a single replica exchange process, 
-                by default 8. See also Appendix D in [2].
+                by default 4. See also Appendix D in [2].
 
               * threshold_type : {'1d_kmeans', 'sample_midpoint'}
 
