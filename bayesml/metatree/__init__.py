@@ -106,6 +106,7 @@ References
 
 * Dobashi, N.; Saito, S.; Nakahara, Y.; Matsushima, T. Meta-Tree Random Forest: Probabilistic Data-Generative Model and Bayes Optimal Prediction. *Entropy* 2021, 23, 768. https://doi.org/10.3390/e23060768
 * Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. https://doi.org/10.3390/e24030328
+* Nakahara, Y.; Saito, S.; Ichijo, N.; Kazama, K.; Matsushima, T. Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. *Proceedings of The 28th International Conference on Artificial Intelligence and Statistics*, in *Proceedings of Machine Learning Research* 2025, 258:1045-1053 Available from https://proceedings.mlr.press/v258/nakahara25a.html.
 """
 from ._metatree import GenModel
 from ._metatree import LearnModel

@@ -2707,10 +2707,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
                 The number of sampling after burn-in phase, by default 500.
 
-              * g_max=0.0 : float
+              * g_max : float
 
                 An initial value of a parameter to controll the entropy of the proposal distribution 
-                in the Metropolis-Hastings step, by default 0.0.
+                in the Metropolis-Hastings step, by default 0.0. See also Appendix B.4 in [2]. 
                 ``g_max`` will be tuned in burn-in phase by Algorithm 1 in [2].
 
               * rho : float
@@ -2755,7 +2755,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
                 A parameter to controll the entropy of the proposal distribution 
                 in the Metropolis-Hastings step, by default 0.9. In contrast to 
-                ``MTMCMC``, ``g_max`` tuning is not performed in burn-in phase.
+                MTMCMC, ``g_max`` tuning is not performed in burn-in phase.
                 See also Appendix B.4 in [2].
 
               * beta_vec : {None, numpy.ndarray}
