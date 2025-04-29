@@ -60,7 +60,7 @@ Plain text
 
    Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
    S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
-   Python package version 0.3.0, 
+   Python package version 0.3.1, 
    [Online] https://github.com/bayesml/BayesML
 
 BibTeX
@@ -72,7 +72,7 @@ BibTeX
              Iikubo, Yuji and Saito, Shota and Kazama, Koki and
              Matsushima, Toshiyasu and {BayesML Developers}},
    title = {{BayesML}},
-   howpublished = {Python package version 0.3.0},
+   howpublished = {Python package version 0.3.1},
    note = {\url{https://github.com/bayesml/BayesML}},
    year = {2025}
    }
