@@ -569,3 +569,71 @@ class LearnModel(base.Posterior, base.PredictiveMixin):
                 -gammaln(self.h0_alpha_vec).sum()
                 -gammaln(self.hn_alpha_vec.sum())
                 +gammaln(self.hn_alpha_vec).sum())
+    
+    def fit(self,x,onehot=True):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x,onehot)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            A non-negative int array. If onehot option is True, 
+            its shape must be ``(sample_size,c_degree)`` and 
+            each row must be a one-hot vector. If onehot option is False, 
+            its shape must be ``(sample_size,)`` and each element must be 
+            smaller than ``self.c_degree``.
+        onehot : bool, optional
+            If True, the input sample must be one-hot encoded, 
+            by default True.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x,onehot)
+        return self
+
+    def predict(self,onehot=True):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="0-1",onehot=onehot)
+
+        Parameters
+        ----------
+        onehot : bool, optional
+            If True, predected value will be one-hot encoded, 
+            by default True.
+        
+        Returns
+        -------
+        predicted_value : {int, numpy.ndarray}
+            The predicted value under the 0-1 loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="0-1",onehot=onehot)
+    
+    def predict_proba(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="KL")
+
+        Returns
+        -------
+        predicted_distribution : numpy.ndarray
+            The predicted distribution under the KL loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="KL")

@@ -107,6 +107,7 @@ class _Node:
         self.log_children_marginal_likelihood = log_children_marginal_likelihood
         self.log_marginal_likelihood = log_marginal_likelihood
         self._is_no_sample = False
+        self._p_indices = None
 
 class GenModel(base.Generative):
     """ The stochastice data generative model and the prior distribution
@@ -750,23 +751,23 @@ class GenModel(base.Generative):
         ----------
         sample_size : int, optional
             A positive integer, by default ``None``
-        x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
 
         Returns
         -------
-        x_continuous : numpy ndarray
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``.
-        x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``.
+        x_continuous : numpy.ndarray
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``.
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``.
             Each element x_categorical[i,j] must satisfies 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
-        y : numpy ndarray
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        y : numpy.ndarray
             1 dimensional array whose size is ``sample_size``.
         """                        
         if x_continuous is not None:
@@ -867,13 +868,13 @@ class GenModel(base.Generative):
             ``.npz`` will be appended if it isn't there.
         sample_size : int, optional
             A positive integer, by default ``None``
-        x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         
         See Also
         --------
@@ -987,13 +988,13 @@ class GenModel(base.Generative):
             Rendering output format (``\"pdf\"``, ``\"png\"``, ...).
         sample_size : int, optional
             A positive integer, by default 100
-        x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
 
         Examples
         --------
@@ -1246,8 +1247,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_metatree_list = []
         self.hn_metatree_prob_vec = None
 
-        self._tmp_x_continuous = np.zeros(self.c_dim_continuous,dtype=float)
-        self._tmp_x_categorical = np.zeros(self.c_dim_categorical,dtype=int)
+        self._p_n = 0
 
         self.set_h0_params(
             h0_k_weight_vec,
@@ -1860,14 +1860,14 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
-        y : numpy ndarray
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        y : numpy.ndarray
             values of objective variable whose dtype may be int or float
         n_estimators : int, optional
             number of trees in sklearn.RandomForestClassifier or 
@@ -1877,7 +1877,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         -------
         metatree_list : list of metatree._Node
             Each element is a root node of metatree.
-        metatree_prob_vec : numpy ndarray
+        metatree_prob_vec : numpy.ndarray
         """
         if np.any(self.c_num_children_vec != 2):
             raise(ParameterFormatError(
@@ -1925,21 +1925,21 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
-        y : numpy ndarray
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        y : numpy.ndarray
             values of objective variable whose dtype may be int or float
 
         Returns
         -------
         metatree_list : list of metatree._Node
             Each element is a root node of metatree.
-        metatree_prob_vec : numpy ndarray
+        metatree_prob_vec : numpy.ndarray
         """
         if not self.hn_metatree_list:
             raise(ParameterFormatError("given_MT is supported only when len(self.hn_metatree_list) > 0."))
@@ -2143,7 +2143,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             g_max=0.9,
             beta_vec=None,
             num_interval=10,
-            num_exchange=8,
+            num_exchange=4,
             threshold_type='1d_kmeans',
             seed=None,
             ):
@@ -2665,23 +2665,141 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
 
     def update_posterior(self,x_continuous=None,x_categorical=None,y=None,alg_type='MTRF',**kwargs):
-        """Update the hyperparameters of the posterior distribution using traning data.
+        r"""Update the hyperparameters of the posterior distribution using traning data.
 
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
-            2 dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
-            2 dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
             by default None. Each element x_categorical[i,j] must satisfy 
-            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+i].
-        y : numpy ndarray
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        y : numpy.ndarray
             values of objective variable whose dtype may be int or float
-        alg_type : {'MTRF', 'given_MT'}, optional
+        alg_type : {'MTRF', 'given_MT', 'MTMCMC', 'REMTMCMC'}, optional
             type of algorithm, by default 'MTRF'
         **kwargs : dict, optional
-            optional parameters of algorithms, by default {}
+            optional parameters of algorithms, by default {}.
+
+            * When ``alg_type='MTRF'``
+
+              * In MTRF[1], ``sklearn.ensemble.RandomForestClassifier`` or 
+                ``sklearn.ensemble.RandomForestRegressor`` is called as a subroutine. 
+                Arguments given as ``**kwargs`` are passed to these subroutines. 
+                Therefore, if you want to specify options for these subroutines, 
+                e.g., ``n_estimators`` or ``random_state``, etc., you can specify them here. 
+                However, ``max_depth`` of these subroutines is set to the value of 
+                ``self.c_max_depth``, so if you set it again, you will get an error.
+
+            * When ``alg_type='given_MT'``
+
+              * There are no optional parameters for ``'given_MT'``.
+
+            * When ``alg_type='MTMCMC'``
+
+              * burn_in : int
+
+                The length of the burn-in phase, by default 100.
+
+              * num_metatrees : int
+
+                The number of sampling after burn-in phase, by default 500.
+
+              * g_max : float
+
+                An initial value of a parameter to controll the entropy of the proposal distribution 
+                in the Metropolis-Hastings step, by default 0.0. See also Appendix B.4 in [2]. 
+                ``g_max`` will be tuned in burn-in phase by Algorithm 1 in [2].
+
+              * rho : float
+
+                Parameter of Algorithm 1 in [2], by default 0.99.
+
+              * phi : float
+
+                Parameter of Algorithm 1 in [2], by default 0.999.
+
+              * p_obj : float
+
+                Parameter of Algorithm 1 in [2], by default 0.3. 
+                ``p_obj`` corresponds to $r_\\mathrm{obj}$ in Algorithm 1 in [2].
+
+              * threshold_type : {'1d_kmeans', 'sample_midpoint'}
+
+                A generating rule of thresholds for continuous explanatory variables, 
+                by default ``'1d_kmeans'``. See also Appendix G in [2].
+
+              * seed : {None, int}, optional
+
+                A seed to initialize numpy.random.default_rng(),
+                by default None.
+
+            * When ``alg_type='REMTMCMC'``
+
+              * burn_in : int
+
+                The length of the burn-in phase, by default 100.
+
+              * num_metatrees : int
+
+                The number of sampling after burn-in phase, by default 500.
+
+              * num_chains : int
+
+                Number of replicas in replica exchange Monte Carlo Methods, 
+                by default 8. It corresponds to $J$ in Appendix D in[2]
+
+              * g_max : float
+
+                A parameter to controll the entropy of the proposal distribution 
+                in the Metropolis-Hastings step, by default 0.9. In contrast to 
+                MTMCMC, ``g_max`` tuning is not performed in burn-in phase.
+                See also Appendix B.4 in [2].
+
+              * beta_vec : {None, numpy.ndarray}
+
+                Temperature parameters for replica exchange Monte Carlo methods, 
+                by default None. It must satisfy $0 \\leq \\beta_1 < \\beta_2 < \\cdots < \\beta_J = 1$.
+                If None, $\\beta_j = j/J$. See also Appendix D in [2].
+
+              * num_interval : int
+
+                Length of interval between replica exchange processes, by default 10.
+                See also Appendix D in [2].
+
+              * num_exchange : int
+
+                Number of replicas exchanged in a single replica exchange process, 
+                by default 4. See also Appendix D in [2].
+
+              * threshold_type : {'1d_kmeans', 'sample_midpoint'}
+
+                A generating rule of thresholds for continuous explanatory variables, 
+                by default ``'1d_kmeans'``. See also Appendix G in [2].
+
+              * seed : {None, int}, optional
+
+                A seed to initialize numpy.random.default_rng(),
+                by default None.
+
+        See Also
+        --------
+        sklearn.ensemble.RandomForestClassifier
+        sklearn.ensemble.RandomForestRegressor
+
+        References
+        ----------
+        .. [1] Dobashi, N., Saito, S., Nakahara, Y., & Matsushima, T. (2021). 
+           Meta-Tree Random Forest: Probabilistic Data-Generative Model and 
+           Bayes Optimal Prediction. *Entropy*, 23(6), 768. 
+           Available from https://doi.org/10.3390/e23060768
+        .. [2] Nakahara, Y., Saito, S., Ichijo, N., Kazama, K. & Matsushima, T. (2025). 
+           Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. 
+           *Proceedings of The 28th International Conference on Artificial Intelligence and Statistics*, 
+           in *Proceedings of Machine Learning Research* 258:1045-1053 
+           Available from https://proceedings.mlr.press/v258/nakahara25a.html.
         """
         x_continuous,x_categorical,y = self._check_sample(x_continuous,x_categorical,y)
 
@@ -3096,125 +3214,155 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """
         return None
     
-    def _calc_pred_dist_recursion(self,node:_Node,x_continuous,x_categorical):
+    def _calc_pred_dist_recursion_batch(self,node:_Node,x_continuous,x_categorical):
         node.sub_model.calc_pred_dist()
         if not node.leaf:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = x_categorical[node.k-self.c_dim_continuous]
-            self._calc_pred_dist_recursion(node.children[index],x_continuous,x_categorical)
+            node._p_indices = np.empty((x_continuous.shape[0],self.c_num_children_vec[node.k]),dtype=bool)
+            for i in range(self.c_num_children_vec[node.k]):
+                if node.k < self.c_dim_continuous:
+                    if i == 0:
+                        node._p_indices[:,i] = x_continuous[:,node.k] < node.thresholds[i+1]
+                    elif i == self.c_num_children_vec[node.k]-1:
+                        node._p_indices[:,i] = node.thresholds[i] <= x_continuous[:,node.k]
+                    else:
+                        node._p_indices[:,i] = (node.thresholds[i] <= x_continuous[:,node.k]) & (x_continuous[:,node.k] < node.thresholds[i+1])
+                else:
+                    node._p_indices[:,i] = x_categorical[:,node.k-self.c_dim_continuous] == i
+                    
+                if np.any(node._p_indices[:,i]):
+                    self._calc_pred_dist_recursion_batch(
+                        node.children[i],
+                        x_continuous[node._p_indices[:,i]],
+                        x_categorical[node._p_indices[:,i]],
+                    )
 
-    def _calc_pred_dist_recursion_lr(self,node:_Node,x_continuous,x_categorical):
+    def _calc_pred_dist_recursion_lr_batch(self,node:_Node,x_continuous,x_categorical):
         node.sub_model._calc_pred_dist(x_continuous)
         if not node.leaf:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = x_categorical[node.k-self.c_dim_continuous]
-            self._calc_pred_dist_recursion_lr(node.children[index],x_continuous,x_categorical)
+            node._p_indices = np.empty((x_continuous.shape[0],self.c_num_children_vec[node.k]),dtype=bool)
+            for i in range(self.c_num_children_vec[node.k]):
+                if node.k < self.c_dim_continuous:
+                    if i == 0:
+                        node._p_indices[:,i] = x_continuous[:,node.k] < node.thresholds[i+1]
+                    elif i == self.c_num_children_vec[node.k]-1:
+                        node._p_indices[:,i] = node.thresholds[i] <= x_continuous[:,node.k]
+                    else:
+                        node._p_indices[:,i] = (node.thresholds[i] <= x_continuous[:,node.k]) & (x_continuous[:,node.k] < node.thresholds[i+1])
+                else:
+                    node._p_indices[:,i] = x_categorical[:,node.k-self.c_dim_continuous] == i
+                    
+                if np.any(node._p_indices[:,i]):
+                    self._calc_pred_dist_recursion_lr_batch(
+                        node.children[i],
+                        x_continuous[node._p_indices[:,i]],
+                        x_categorical[node._p_indices[:,i]],
+                    )
 
     def calc_pred_dist(self,x_continuous=None,x_categorical=None):
         """Calculate the parameters of the predictive distribution.
         
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
-            A float vector whose length is ``self.c_dim_continuous``, 
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
-            A int vector whose length is ``self.c_dim_categorical``, 
-            by default None. Each element x_categorical[i] must satisfy 
-            0 <= x_categorical[i] < self.c_num_children_vec[self.c_dim_continuous+i].
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
         """
         x_continuous,x_categorical = self._check_sample_x(x_continuous,x_categorical)
+        self._p_n = x_continuous.shape[0]
 
-        self._tmp_x_continuous[:] = x_continuous
-        self._tmp_x_categorical[:] = x_categorical
         if self.SubModel is linearregression:
             for root in self.hn_metatree_list:
-                self._calc_pred_dist_recursion_lr(root,self._tmp_x_continuous,self._tmp_x_categorical)
+                self._calc_pred_dist_recursion_lr_batch(root,x_continuous,x_categorical)
         else:
             for root in self.hn_metatree_list:
-                self._calc_pred_dist_recursion(root,self._tmp_x_continuous,self._tmp_x_categorical)
+                self._calc_pred_dist_recursion_batch(root,x_continuous,x_categorical)
         return self
 
-    def _make_prediction_recursion_squared(self,node:_Node):
+    def _make_prediction_recursion_squared_batch(self,node:_Node):
         if node.leaf:  # leaf node
             return node.sub_model.make_prediction(loss='squared')
         else:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-            return ((1 - node.h_g) * node.sub_model.make_prediction(loss='squared')
-                    + node.h_g * self._make_prediction_recursion_squared(node.children[index]))
+            tmp_pred_values = np.empty(node._p_indices.shape[0])
+            tmp_pred_values[:] = node.sub_model.make_prediction(loss='squared')
+            for i in range(self.c_num_children_vec[node.k]):
+                if np.any(node._p_indices[:,i]):
+                    tmp_pred_values[node._p_indices[:,i]] = (
+                        (1-node.h_g) * tmp_pred_values[node._p_indices[:,i]]
+                        + node.h_g * self._make_prediction_recursion_squared_batch(node.children[i])
+                    )
+            return tmp_pred_values
 
-    def _make_prediction_recursion_kl(self,node:_Node):
+    def _make_prediction_recursion_kl_batch(self,node:_Node):
         if node.leaf:  # leaf node
             return node.sub_model.make_prediction(loss='KL')
         else:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-            return ((1 - node.h_g) * node.sub_model.make_prediction(loss='KL')
-                    + node.h_g * self._make_prediction_recursion_kl(node.children[index]))
+            tmp_pred_values = np.tile(node.sub_model.make_prediction(loss='KL'),(node._p_indices.shape[0],1))
+            for i in range(self.c_num_children_vec[node.k]):
+                if np.any(node._p_indices[:,i]):
+                    tmp_pred_values[node._p_indices[:,i]] = (
+                        (1-node.h_g) * tmp_pred_values[node._p_indices[:,i]]
+                        + node.h_g * self._make_prediction_recursion_kl_batch(node.children[i])
+                    )
+            return tmp_pred_values
 
-    def make_prediction(self,loss="squared"):
+    def make_prediction(self,loss=None):
         """Predict a new data point under the given criterion.
 
         Parameters
         ----------
         loss : str, optional
-            Loss function underlying the Bayes risk function, by default \"squared\".
+            Loss function underlying the Bayes risk function, by default None.
             This function supports \"squared\", \"0-1\", and \"KL\".
+            If loss is None, \"squared\" is used when the submodel is a regression model (normal, poisson, exponential, or linear regression), 
+            and \"0-1\" is used when the submodel is a classification model (bernoulli or categorical).
 
         Returns
         -------
-        predicted_value : {float, numpy.ndarray}
-            The predicted value under the given loss function. 
+        predicted_values : numpy.ndarray
+            The predicted values under the given loss function. 
+            If the submodel is a classification model (bernoulli or categorical) and 
+            the loss function is \"KL\", the predictive distribution will be returned
+            as numpy.ndarray that consists of occurence probabilities.
+
+            The size of the predicted values or the number of predictive distribution is 
+            the same as the sample size of x_continuous and x_categorical 
+            when you called calc_pred_dist(x_continuous,x_categorical).
         """
+        if loss is None:
+            if self.SubModel in REG_MODELS:
+                loss = "squared"
+            else: # the case where self.SubModel is in CLF_MODELS
+                loss = "0-1"
+        
         if loss == "squared":
-            if self.SubModel is categorical:
-                tmp_pred_vec = np.empty([len(self.hn_metatree_list),self.sub_constants['c_degree']])
+            if self.SubModel in REG_MODELS:
+                tmp_pred_vec = np.empty([len(self.hn_metatree_list),self._p_n])
+                for i,metatree in enumerate(self.hn_metatree_list):
+                    tmp_pred_vec[i] = self._make_prediction_recursion_squared_batch(metatree)
+                return self.hn_metatree_prob_vec @ tmp_pred_vec
             else:
-                tmp_pred_vec = np.empty(len(self.hn_metatree_list))
-            for i,metatree in enumerate(self.hn_metatree_list):
-                tmp_pred_vec[i] = self._make_prediction_recursion_squared(metatree)
-            return self.hn_metatree_prob_vec @ tmp_pred_vec
+                raise(CriteriaError("Unsupported loss function! \"squared\" is supported "
+                                    +"only when self.SubModel is normal, linearregression, exponential, or poisson."))
         elif loss == "0-1":
             if self.SubModel in CLF_MODELS:
                 degree = 2 if self.SubModel is bernoulli else self.sub_constants['c_degree']
-                tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
+                tmp_pred_dist_vec = np.empty([self._p_n,len(self.hn_metatree_list),degree])
                 for i,metatree in enumerate(self.hn_metatree_list):
-                    tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
-                return np.argmax(self.hn_metatree_prob_vec @ tmp_pred_dist_vec)
+                    tmp_pred_dist_vec[:,i] = self._make_prediction_recursion_kl_batch(metatree)
+                return np.argmax(self.hn_metatree_prob_vec @ tmp_pred_dist_vec,axis=1)
             else:
                 raise(CriteriaError("Unsupported loss function! \"0-1\" is supported "
                                     +"only when self.SubModel is bernoulli or categorical."))
         elif loss == "KL":
             if self.SubModel in CLF_MODELS:
                 degree = 2 if self.SubModel is bernoulli else self.sub_constants['c_degree']
-                tmp_pred_dist_vec = np.empty([len(self.hn_metatree_list),degree])
+                tmp_pred_dist_vec = np.empty([self._p_n,len(self.hn_metatree_list),degree])
                 for i,metatree in enumerate(self.hn_metatree_list):
-                    tmp_pred_dist_vec[i] = self._make_prediction_recursion_kl(metatree)
+                    tmp_pred_dist_vec[:,i] = self._make_prediction_recursion_kl_batch(metatree)
                 return self.hn_metatree_prob_vec @ tmp_pred_dist_vec
             else:
                 raise(CriteriaError("Unsupported loss function! \"KL\" is supported "
@@ -3223,74 +3371,83 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             raise(CriteriaError("Unsupported loss function! "
                                 +"This function supports \"squared\", \"0-1\", and \"KL\"."))
 
-    def pred_and_update(self,x_continuous=None,x_categorical=None,y=None,loss="squared"):
+    def pred_and_update(self,x_continuous=None,x_categorical=None,y=None,loss=None):
         """Predict a new data point and update the posterior sequentially.
 
         Parameters
         ----------
-        x_continuous : numpy ndarray, optional
-            A float vector whose length is ``self.c_dim_continuous``, 
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
             by default None.
-        x_categorical : numpy ndarray, optional
-            A int vector whose length is ``self.c_dim_categorical``, 
-            by default None. Each element x_categorical[i] must satisfy 
-            0 <= x_categorical[i] < self.c_num_children_vec[self.c_dim_continuous+i].
-        y : numpy ndarray
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        y : numpy.ndarray
             values of objective variable whose dtype may be int or float
         loss : str, optional
-            Loss function underlying the Bayes risk function, by default \"squared\".
+            Loss function underlying the Bayes risk function, by default None.
             This function supports \"squared\", \"0-1\", and \"KL\".
 
         Returns
         -------
-        predicted_value : {float, numpy.ndarray}
-            The predicted value under the given loss function. 
+        predicted_values : numpy.ndarray
+            The predicted values under the given loss function. 
+            If the submodel is a classification model (bernoulli or categorical) and 
+            the loss function is \"KL\", the predictive distribution will be returned
+            as numpy.ndarray that consists of occurence probabilities.
+
+            The size of the predicted values or the number of predictive distribution is 
+            the same as the sample size of x_continuous and x_categorical 
+            when you called calc_pred_dist(x_continuous,x_categorical).
         """
         self.calc_pred_dist(x_continuous,x_categorical)
         prediction = self.make_prediction(loss=loss)
         self.update_posterior(x_continuous,x_categorical,y,alg_type='given_MT')
         return prediction
 
-    def _calc_pred_var_recursion(self,node:_Node):
+    def _calc_pred_var_recursion_batch(self,node:_Node):
         if node.leaf:  # leaf node
             return (node.sub_model.make_prediction(loss='squared'),
                     node.sub_model.calc_pred_var())
         else:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-            
-            tmp_mean_child,tmp_var_child = self._calc_pred_var_recursion(node.children[index])
-            tmp_mean = node.sub_model.make_prediction(loss='squared')
-            tmp_var = node.sub_model.calc_pred_var()
+            tmp_means_child = np.empty(node._p_indices.shape[0])
+            tmp_vars_child = np.empty(node._p_indices.shape[0])
+            for i in range(self.c_num_children_vec[node.k]):
+                if np.any(node._p_indices[:,i]):
+                    (tmp_means_child[node._p_indices[:,i]],
+                     tmp_vars_child[node._p_indices[:,i]]) = (
+                        self._calc_pred_var_recursion_batch(node.children[i])
+                    )
 
-            mix_mean = (1-node.h_g) * tmp_mean + node.h_g * tmp_mean_child
-            mix_var = ((1-node.h_g) * ((mix_mean-tmp_mean)*(mix_mean-tmp_mean)+tmp_var)
-                       + node.h_g * ((mix_mean-tmp_mean_child)*(mix_mean-tmp_mean_child)+tmp_var_child))
+            tmp_means = np.empty(node._p_indices.shape[0])
+            tmp_vars = np.empty(node._p_indices.shape[0])
+            tmp_means[:] = node.sub_model.make_prediction(loss='squared')
+            tmp_vars[:] = node.sub_model.calc_pred_var()
 
-            return mix_mean,mix_var
+            mix_means = (1-node.h_g) * tmp_means + node.h_g * tmp_means_child
+            mix_vars = ((1-node.h_g) * ((mix_means-tmp_means)*(mix_means-tmp_means)+tmp_vars)
+                       + node.h_g * ((mix_means-tmp_means_child)*(mix_means-tmp_means_child)+tmp_vars_child))
+
+            return mix_means,mix_vars
 
     def calc_pred_var(self):
         """Calculate the variance of the predictive distribution.
         
         Returns
         -------
-        var : float
-            The variance of the predictive distribution.
+        vars : numpy.ndarray
+            The variances of the predictive distribution. 
+            The size of the vars is the same as the sample size of x when you called calc_pred_dist(x).
         """
         if self.SubModel not in {normal,linearregression}:
             raise(ParameterFormatError("SubModel must be normal or linearregression."))
-        tmp_means = np.empty(len(self.hn_metatree_list))
-        tmp_vars = np.empty(len(self.hn_metatree_list))
+        tmp_means = np.empty([len(self.hn_metatree_list),self._p_n])
+        tmp_vars = np.empty([len(self.hn_metatree_list),self._p_n])
         for i,metatree in enumerate(self.hn_metatree_list):
-            tmp_means[i],tmp_vars[i] = self._calc_pred_var_recursion(metatree)
-        mix_mean = self.hn_metatree_prob_vec @ tmp_means
-        return self.hn_metatree_prob_vec @ ((tmp_means-mix_mean)*(tmp_means-mix_mean)+tmp_vars)
+            tmp_means[i],tmp_vars[i] = self._calc_pred_var_recursion_batch(metatree)
+        mix_means = self.hn_metatree_prob_vec @ tmp_means
+        return self.hn_metatree_prob_vec @ ((tmp_means-mix_means)*(tmp_means-mix_means)+tmp_vars)
 
     def _calc_feature_importances_recursion(self,node:_Node):
         if node.leaf:
@@ -3319,20 +3476,18 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             feature_importances += self.hn_metatree_prob_vec[i] * self._calc_feature_importances_recursion(metatree)
         return feature_importances
 
-    def _calc_pred_density_recursion(self,node:_Node,y):
+    def _calc_pred_density_recursion_batch(self,node:_Node,y):
         if node.leaf:  # leaf node
             return node.sub_model._calc_pred_density(y)
         else:  # inner node
-            if node.k < self.c_dim_continuous:
-                index = 0
-                for i in range(self.c_num_children_vec[node.k]-1):
-                    if self._tmp_x_continuous[node.k] < node.thresholds[i+1]:
-                        break
-                    index += 1
-            else:
-                index = self._tmp_x_categorical[node.k-self.c_dim_continuous]
-            return ((1 - node.h_g) * node.sub_model._calc_pred_density(y)
-                    + node.h_g * self._calc_pred_density_recursion(node.children[index],y))
+            tmp_pred_densities = node.sub_model._calc_pred_density(y)
+            for i in range(self.c_num_children_vec[node.k]):
+                if np.any(node._p_indices[:,i]):
+                    tmp_pred_densities[...,node._p_indices[:,i]] = (
+                        (1-node.h_g) * tmp_pred_densities[...,node._p_indices[:,i]]
+                        + node.h_g * self._calc_pred_density_recursion_batch(node.children[i],y[...,node._p_indices[:,i]])
+                    )
+            return tmp_pred_densities
 
     def calc_pred_density(self,y):
         """Calculate the values of the probability density function of the predictive distribution.
@@ -3340,15 +3495,131 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         y : numpy.ndarray
-            A float vector
+            y must have a size that is broadcastable to (sample_size,), i.e., 
+            the size along the last dimension must be 1 or sample_size.
+            Here, sample_size is the sample size of x when you called calc_pred_dist(x).
         
         Returns
         -------
         p_y : numpy.ndarray
             The values of the probability density function of the predictive distribution.
         """
-        y = _check.floats(y,'y',DataFormatError)
+        if self.SubModel is linearregression:
+            y = self.SubModel.LearnModel(**self.sub_constants)._check_sample_y(y)
+        else:
+            y = self.SubModel.LearnModel(**self.sub_constants)._check_sample(y)
+        try:
+            y = y + np.zeros(self._p_n,dtype=y.dtype)
+        except:
+            raise(DataFormatError(
+                f"y must have a size that is broadcastable to ({self._p_n},). "
+                +f"Here, {self._p_n} is the sample size of x when you called calc_pred_dist(x). "
+                )
+            )
+        flag = False
+        if self._p_n == 1 and y.shape[-1] != 1:
+            flag=True
+            y = y[...,np.newaxis]
         tmp = 0.0
         for i,metatree in enumerate(self.hn_metatree_list):
-            tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion(metatree,y)
-        return tmp
+            tmp += self.hn_metatree_prob_vec[i] * self._calc_pred_density_recursion_batch(metatree,y)
+        if flag:
+            return tmp[...,0]
+        else:
+            return tmp
+
+    def fit(self,x_continuous=None,x_categorical=None,y=None,alg_type='MTRF',**kwargs):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x_continuous,x_categorical,y,alg_type,**kwargs)
+        >>> return self
+
+        Parameters
+        ----------
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            by default None.
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        y : numpy.ndarray
+            values of objective variable whose dtype may be int or float
+        alg_type : {'MTRF', 'given_MT', 'MTMCMC', 'REMTMCMC'}, optional
+            type of algorithm, by default 'MTRF'
+        **kwargs : dict, optional
+            optional parameters of algorithms, by default {}
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x_continuous,x_categorical,y,alg_type,**kwargs)
+        return self
+    
+    def predict(self,x_continuous=None,x_categorical=None):
+        """Predict the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.calc_pred_dist(x_continuous,x_categorical)
+        >>> return self.make_prediction()
+
+        Parameters
+        ----------
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            by default None.
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        
+        Returns
+        -------
+        predicted_values : numpy.ndarray
+            If the submodel is a regression model (normal, poisson, exponential, or linear regression), 
+            the predicted values under the squared loss function will be returned. 
+            If the submodel is a classification model (bernoulli or categorical), 
+            the predicted values under the 0-1 loss function will be returend. 
+            The size of the predicted values is the same as the sample size of 
+            x_continuous and x_categorical.
+        """
+        self.calc_pred_dist(x_continuous,x_categorical)
+        return self.make_prediction()
+
+    def predict_proba(self,x_continuous=None,x_categorical=None):
+        """Predict the data.
+
+        This function is supported when the submodel is a classification model (bernoulli or categorical).
+        It is a wrapper of the following functions:
+        
+        >>> self.calc_pred_dist(x_continuous,x_categorical)
+        >>> return self.make_prediction(loss="KL")
+
+        Parameters
+        ----------
+        x_continuous : numpy.ndarray, optional
+            A 2-dimensional float array whose size is ``(sample_size,c_dim_continuous)``, 
+            by default None.
+        x_categorical : numpy.ndarray, optional
+            A 2-dimensional int array whose size is ``(sample_size,c_dim_categorical)``, 
+            by default None. Each element x_categorical[i,j] must satisfy 
+            0 <= x_categorical[i,j] < self.c_num_children_vec[self.c_dim_continuous+j].
+        
+        Returns
+        -------
+        predicted_distributions : numpy.ndarray
+            The predicted distributions under the KL loss function. 
+            The number of the predicted distributions is the same as the sample size of 
+            x_continuous and x_categorical.
+        """
+        if self.SubModel not in CLF_MODELS:
+            raise(ParameterFormatError("SubModel must be bernoulli or categorical."))
+        self.calc_pred_dist(x_continuous,x_categorical)
+        return self.make_prediction(loss="KL")

@@ -540,10 +540,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         
         Returns
         -------
-        Predicted_value : {int, numpy.ndarray}
+        Predicted_value : {float, rv_frozen}
             The predicted value under the given loss function. 
-            If the loss function is \"KL\", the predictive distribution itself will be returned
-            as numpy.ndarray.
+            If the loss function is \"KL\", the posterior distribution itself will be returned
+            as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         if loss == "squared" or loss == "0-1" or loss == "abs":
             return self.p_mu
@@ -566,10 +571,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         
         Returns
         -------
-        Predicted_value : {int, numpy.ndarray}
+        Predicted_value : {float, rv_frozen}
             The predicted value under the given loss function. 
-            If the loss function is \"KL\", the predictive distribution itself will be returned
-            as numpy.ndarray.
+            If the loss function is \"KL\", the posterior distribution itself will be returned
+            as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         _check.float_(x,'x',DataFormatError)
         self.calc_pred_dist()
@@ -609,4 +619,43 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             return self.p_nu / self.p_lambda / (self.p_nu-2)
         else:
             warnings.warn("Variance of the predictive distribution cannot defined for the current p_nu.",ResultWarning)
-            return None
+            return np.nan
+
+    def fit(self,x):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            All the elements must be real numbers.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x)
+        return self
+
+    def predict(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="squared")
+
+        Returns
+        -------
+        predicted_value : float
+            The predicted value under the squared loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="squared")
