@@ -368,6 +368,9 @@ document.write(`
                   
   <section id="Prediction-interval-calculation-by-bayesml.metatree-(accepted-at-AISTATS-2025)">
 <h1>Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)<a class="headerlink" href="#Prediction-interval-calculation-by-bayesml.metatree-(accepted-at-AISTATS-2025)" title="Link to this heading">#</a></h1>
+<p>For details of the API of <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code>, please see <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html">this page</a>.</p>
+<p>For theoretical details, please see the following paper.</p>
+<p>Nakahara, Y., Saito, S., Ichijo, N., Kazama, K. &amp; Matsushima, T. (2025). Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. <em>Proceedings of The 28th International Conference on Artificial Intelligence and Statistics</em>, in <em>Proceedings of Machine Learning Research</em> 258:1045-1053 Available from <a class="reference external" href="https://proceedings.mlr.press/v258/nakahara25a.html">https://proceedings.mlr.press/v258/nakahara25a.html</a>.</p>
 <section id="Installation-of-BayesML">
 <h2>Installation of BayesML<a class="headerlink" href="#Installation-of-BayesML" title="Link to this heading">#</a></h2>
 <div class="nbinput nblast docutils container">
@@ -566,7 +569,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<p>Then, create a model instance based on the model constants.</p>
+<p>Then, create a model instance based on the model constants. For details of the parameters of <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code>, please see <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel">this page</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -594,6 +597,7 @@ document.write(`
 </section>
 <section id="Calculate-posterior-distribution">
 <h2>Calculate posterior distribution<a class="headerlink" href="#Calculate-posterior-distribution" title="Link to this heading">#</a></h2>
+<p>For details of the parameters of <code class="docutils literal notranslate"><span class="pre">update_posterior</span></code>, please see <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel.update_posterior">this page</a>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -630,13 +634,13 @@ num_metatrees: 500
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;bayesml.metatree._metatree.LearnModel at 0x14f49d0d0&gt;
+&lt;bayesml.metatree._metatree.LearnModel at 0x14c1d6010&gt;
 </pre></div></div>
 </div>
 </section>
 <section id="Calculate-prediction-interval">
 <h2>Calculate prediction interval<a class="headerlink" href="#Calculate-prediction-interval" title="Link to this heading">#</a></h2>
-<p>First, define subroutines to calculate <code class="docutils literal notranslate"><span class="pre">100(1-alpha)</span></code>% prediction interval from the values of the probability density function of the predictive distribution. The initial range is determined by the mean and the variance of the predictive distribution.</p>
+<p>First, define subroutines to calculate <code class="docutils literal notranslate"><span class="pre">100(1-alpha)</span></code>% prediction interval from the values of the probability density function of the predictive distribution.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -647,42 +651,44 @@ num_metatrees: 500
 <span class="k">def</span><span class="w"> </span><span class="nf">calc_prediction_interval_sub</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">simpson</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">y</span><span class="o">&gt;=</span><span class="n">k</span><span class="p">],</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">[:</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">y</span><span class="o">&gt;=</span><span class="n">k</span><span class="p">)])</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">calc_prediction_interval</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">num_steps</span><span class="p">):</span>
-    <span class="n">mean</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">make_prediction</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;squared&#39;</span><span class="p">)</span>
-    <span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">calc_pred_var</span><span class="p">())</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">sd</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="c1"># Lower bound by Chebyshev&#39;s inequality</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">sd</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="c1"># Upper bound by Chebyshev&#39;s inequality</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">num_steps</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">calc_pred_density</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">k_max</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">(</span><span class="n">calc_prediction_interval_sub</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">k_max</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">alpha</span><span class="p">))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_prediction_interval</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">p_y</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="n">k_max</span> <span class="o">=</span> <span class="n">p_y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">(</span><span class="n">calc_prediction_interval_sub</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">k_max</span><span class="p">,(</span><span class="n">y</span><span class="p">,</span><span class="n">p_y</span><span class="p">,</span><span class="n">alpha</span><span class="p">))</span>
     <span class="n">l_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">r_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="n">l_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="n">r_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">p_y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">p_y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">l_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">p_y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">p_y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">r_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">l_list</span><span class="p">,</span><span class="n">r_list</span>
 </pre></div>
 </div>
 </div>
-<p>Calculate prediction interval by using the above subroutines.</p>
+<p>Calculate the values of the probability density function of the predictive distribution in the range determined by the mean and the variance of the predictive distribution.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_interval</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-    <span class="c1"># calculate predictive distribution for the i-th test data</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">calc_pred_dist</span><span class="p">(</span>
-        <span class="n">x_test_continuous</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-        <span class="n">x_test_categorical</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-    <span class="p">)</span>
-    <span class="c1"># calculate pretiction interval</span>
-    <span class="n">pred_interval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">calc_prediction_interval</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell may take a few minutes to run</span>
+
+<span class="c1"># calculate mean and standeard deviation of the predictive distribution</span>
+<span class="n">model</span><span class="o">.</span><span class="n">calc_pred_dist</span><span class="p">(</span><span class="n">x_test_continuous</span><span class="p">,</span><span class="n">x_test_categorical</span><span class="p">)</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">make_prediction</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;squared&#39;</span><span class="p">)</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">calc_pred_var</span><span class="p">())</span>
+
+<span class="c1"># Calculate lower and upper bounds of the prediction interval</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">sd</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="c1"># Lower bound by Chebyshev&#39;s inequality</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">sd</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="c1"># Upper bound by Chebyshev&#39;s inequality</span>
+
+<span class="c1"># For l &lt; y &lt; r, calculate the value of p(y) for the predictive distribution</span>
+<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">num_steps</span><span class="p">)</span>
+<span class="n">p_y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">calc_pred_density</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;y.shape: </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p_y.shape: </span><span class="si">{</span><span class="n">p_y</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -691,15 +697,28 @@ num_metatrees: 500
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-220/220
+y.shape: (1000, 221)
+p_y.shape: (1000, 221)
 </pre></div></div>
+</div>
+<p>Calculate prediction interval by using the above subroutines.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_interval</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="c1"># calculate pretiction interval</span>
+    <span class="n">pred_interval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">calc_prediction_interval</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span><span class="n">p_y</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span><span class="n">alpha</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </section>
 <section id="Evaluation">
 <h2>Evaluation<a class="headerlink" href="#Evaluation" title="Link to this heading">#</a></h2>
 <p>First, define subroutines for evaluation.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate frequency that the true value is in the prediction interval</span>
@@ -725,7 +744,7 @@ num_metatrees: 500
 </div>
 <p>Evaluate the results. Note that frequency close to <code class="docutils literal notranslate"><span class="pre">100(1-alpha)</span></code>% (here, 0.95) and short length are desireble.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Avg. frequency: </span><span class="si">{</span><span class="n">calc_frequency</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred_interval</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -739,15 +758,15 @@ num_metatrees: 500
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Avg. frequency: 0.9366515837104072
-Avg. length: 2.700600606247248
+Avg. length: 2.700041007869358
 </pre></div></div>
 </div>
 </section>
 <section id="Calculate-prediction-interval-by-sampling">
 <h2>Calculate prediction interval by sampling<a class="headerlink" href="#Calculate-prediction-interval-by-sampling" title="Link to this heading">#</a></h2>
-<p>Using metatree.GenModel, prediction intervals can be calculated from a sample from the posterior predictive distribution.</p>
+<p>Using metatree.GenModel, prediction intervals can be calculated from a sample from the posterior predictive distribution. For details of the parameters of <code class="docutils literal notranslate"><span class="pre">GenModel</span></code>, please see <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.GenModel">this page</a>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen_model</span> <span class="o">=</span> <span class="n">metatree</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
@@ -756,13 +775,8 @@ Avg. length: 2.700600606247248
     <span class="n">c_max_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">c_num_assignment_vec</span><span class="o">=</span><span class="n">num_assignment_vec</span><span class="p">,</span>
     <span class="n">c_ranges</span><span class="o">=</span><span class="n">ranges</span><span class="p">,</span>
-    <span class="n">h_g</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
     <span class="n">SubModel</span><span class="o">=</span><span class="n">linearregression</span><span class="p">,</span>
     <span class="n">sub_constants</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;c_degree&#39;</span><span class="p">:</span><span class="n">x_train_continuous</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]},</span>
-    <span class="n">sub_h_params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;h_mu_vec&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">continuous_dim</span><span class="p">),</span>
-                   <span class="s1">&#39;h_lambda_mat&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">continuous_dim</span><span class="p">),</span>
-                   <span class="s1">&#39;h_alpha&#39;</span><span class="p">:</span><span class="mf">2.1</span><span class="p">,</span>
-                   <span class="s1">&#39;h_beta&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">},</span>
     <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -775,16 +789,16 @@ Avg. length: 2.700600606247248
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;bayesml.metatree._metatree.GenModel at 0x16b81c610&gt;
+&lt;bayesml.metatree._metatree.GenModel at 0x16a6a5b90&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">arviz</span><span class="w"> </span><span class="kn">import</span> <span class="n">hdi</span>
@@ -803,7 +817,7 @@ Avg. length: 2.700600606247248
             <span class="n">x_categorical</span><span class="o">=</span><span class="n">x_test_categorical</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
         <span class="p">)</span>
     <span class="n">pred_interval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hdi</span><span class="p">(</span><span class="n">y_pred_sample</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="n">multimodal</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -812,11 +826,11 @@ Avg. length: 2.700600606247248
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-220/220
+221/221
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Avg. frequency: </span><span class="si">{</span><span class="n">calc_frequency</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred_interval</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -829,8 +843,8 @@ Avg. length: 2.700600606247248
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Avg. frequency: 0.9638009049773756
-Avg. length: 2.8378308334394333
+Avg. frequency: 0.9547511312217195
+Avg. length: 2.8353479432222652
 </pre></div></div>
 </div>
 </section>
