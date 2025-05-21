@@ -1,0 +1,1228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../bayesml.contexttree.rst:2
+msgid "bayesml.contexttree package"
+msgstr ""
+
+#: ../../bayesml.contexttree.rst:7
+msgid "Module contents"
+msgstr ""
+
+#: bayesml.contexttree:1 of
+msgid "The stochastic data generative model is as follows:"
+msgstr ""
+
+#: bayesml.contexttree:3 of
+#, python-brace-format
+msgid ":math:`\\mathcal{X}=\\{1,2,\\ldots,K\\}` : a space of a source symbol"
+msgstr ""
+
+#: bayesml.contexttree:4 of
+#, python-brace-format
+msgid ""
+":math:`x^n = x_1 x_2 \\cdots x_n \\in \\mathcal{X}^n~(n\\in\\mathbb{N})` "
+": an source sequence"
+msgstr ""
+
+#: bayesml.contexttree:5 of
+#, python-brace-format
+msgid ""
+":math:`D_\\mathrm{max} \\in \\mathbb{N}` : the maximum depth of context "
+"tree models"
+msgstr ""
+
+#: bayesml.contexttree:6 of
+#, python-brace-format
+msgid ""
+":math:`T` : a context tree model, :math:`K`-ary regular tree whose depth "
+"is smaller than or equal to :math:`D_\\mathrm{max}`, where \"regular\" "
+"means that all inner nodes have :math:`K` child nodes"
+msgstr ""
+
+#: bayesml.contexttree:7 of
+#, python-brace-format
+msgid ":math:`\\mathcal{T}` : a set of :math:`T`"
+msgstr ""
+
+#: bayesml.contexttree:8 of
+msgid ":math:`s` : a node of a context tree model"
+msgstr ""
+
+#: bayesml.contexttree:9 of
+#, python-brace-format
+msgid ":math:`\\mathcal{I}(T)` : a set of inner nodes of :math:`T`"
+msgstr ""
+
+#: bayesml.contexttree:10 of
+#, python-brace-format
+msgid ":math:`\\mathcal{L}(T)` : a set of leaf nodes of :math:`T`"
+msgstr ""
+
+#: bayesml.contexttree:11 of
+#, python-brace-format
+msgid ""
+":math:`\\mathcal{S}(T)` : a set of all nodes of :math:`T`, i.e., "
+":math:`\\mathcal{S}(T) = \\mathcal{I}(T) \\cup \\mathcal{L}(T)`"
+msgstr ""
+
+#: bayesml.contexttree:12 of
+#, python-brace-format
+msgid ""
+":math:`s_T(x^{n-1}) \\in \\mathcal{L}(T)` : a leaf node of :math:`T` "
+"corresponding to :math:`x^{n-1} = x_1 x_2\\cdots x_{n-1}`"
+msgstr ""
+
+#: bayesml.contexttree:13 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\theta}_s = (\\theta_{1|s}, \\theta_{2|s}, \\ldots, "
+"\\theta_{K|s})` : a parameter on a leaf node, where :math:`\\theta_{k|s}`"
+" denotes the occurrence probability of :math:`k\\in\\mathcal{X}`"
+msgstr ""
+
+#: bayesml.contexttree:15 of
+msgid ""
+"p(x_n | x^{n-1}, \\boldsymbol{\\theta}_T, T)=\\theta_{x_n|s_T(x^{n-1})}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:18 of
+msgid "The prior distribution is as follows:"
+msgstr ""
+
+#: bayesml.contexttree:20 of
+#, python-brace-format
+msgid ""
+":math:`g_{0,s} \\in [0,1]` : a hyperparameter assigned to :math:`s \\in "
+"\\mathcal{S}(T)`"
+msgstr ""
+
+#: bayesml.contexttree:21 of
+#, python-brace-format
+msgid ""
+":math:`\\beta_0(k|s) \\in\\mathbb{R}_{>0}` : a hyperparameter of the "
+"Dirichlet distribution"
+msgstr ""
+
+#: bayesml.contexttree:22 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\beta}_0(s) = (\\beta_0(1|s), \\beta_0(2|s), "
+"\\ldots, \\beta_0(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
+msgstr ""
+
+#: bayesml.contexttree:23 of
+msgid ""
+":math:`C(\\boldsymbol{\\beta}_0(s)) = "
+"\\frac{\\Gamma\\left(\\sum_{k=1}^{K} "
+"\\beta_0(k|s)\\right)}{\\prod_{k=1}^{K} "
+"\\Gamma\\left(\\beta_0(k|s)\\right)}`"
+msgstr ""
+
+#: bayesml.contexttree:25 of
+#, python-brace-format
+msgid ""
+"For :math:`\\boldsymbol{\\theta}_s` on :math:`s\\in\\mathcal{L}(T)`, the "
+"Dirichlet distribution is assumed as the prior distribution as follows:"
+msgstr ""
+
+#: bayesml.contexttree:27 of
+#, python-brace-format
+msgid ""
+"p(\\boldsymbol{\\theta}_s|T) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_0(s)) = "
+"C(\\boldsymbol{\\beta}_0(s)) \\prod_{k=1}^{K} "
+"\\theta_{k|s}^{\\beta_0(k|s)-1}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:30 bayesml.contexttree:56 of
+#, python-brace-format
+msgid "For :math:`T \\in \\mathcal{T}`,"
+msgstr ""
+
+#: bayesml.contexttree:32 of
+msgid ""
+"p(T)=\\prod_{s \\in \\mathcal{I}(T)} g_{0,s} \\prod_{s' \\in "
+"\\mathcal{L}(T)} (1-g_{0,s'}),\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:35 of
+#, python-brace-format
+msgid ""
+"where :math:`g_{0,s}=0` if the depth of :math:`s` is "
+":math:`D_\\mathrm{max}`."
+msgstr ""
+
+#: bayesml.contexttree:37 of
+msgid "The posterior distribution is as follows:"
+msgstr ""
+
+#: bayesml.contexttree:39 of
+#, python-brace-format
+msgid ":math:`g_{n,s} \\in [0,1]` : the updated hyperparameter"
+msgstr ""
+
+#: bayesml.contexttree:40 of
+#, python-brace-format
+msgid ""
+":math:`T_\\mathrm{max}` : a superposed context tree, :math:`K`-ary "
+"perfect tree whose depth is :math:`D_\\mathrm{max}`"
+msgstr ""
+
+#: bayesml.contexttree:41 of
+msgid ":math:`s_\\lambda` : the root node"
+msgstr ""
+
+#: bayesml.contexttree:42 of
+#, python-brace-format
+msgid ""
+":math:`\\beta_n(k|s) \\in\\mathbb{R}_{>0}` : a hyperparameter of the "
+"posterior Dirichlet distribution"
+msgstr ""
+
+#: bayesml.contexttree:43 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\beta}_n(s) = (\\beta_n(1|s), \\beta_n(2|s), "
+"\\ldots, \\beta_n(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
+msgstr ""
+
+#: bayesml.contexttree:44 of
+#, python-brace-format
+msgid ":math:`I \\{ \\cdot \\}`: the indicator function"
+msgstr ""
+
+#: bayesml.contexttree:46 of
+#, python-brace-format
+msgid "For :math:`\\boldsymbol{\\theta}_s \\in\\mathcal{L}(T_\\mathrm{max})`,"
+msgstr ""
+
+#: bayesml.contexttree:48 of
+#, python-brace-format
+msgid ""
+"p(\\boldsymbol{\\theta}_s|x^n) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_n(s)) = "
+"C(\\boldsymbol{\\beta}_n(s)) \\prod_{k=1}^{K} "
+"\\theta_{k|s}^{\\beta_n(k|s)-1},\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:51 of
+msgid "where the updating rule of the hyperparameter is as follows:"
+msgstr ""
+
+#: bayesml.contexttree:53 of
+msgid ""
+"\\beta_n(k|s) = \\beta_0(k|s) + \\sum_{i=1}^n I \\left\\{ s \\ "
+"\\mathrm{is \\ the \\ ancestor \\ of} \\ s_{T_\\mathrm{max}}(x^{i-1}) \\ "
+"\\mathrm{and} \\ x_i=k \\right\\}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:58 of
+msgid ""
+"p(T|x^{n-1})=\\prod_{s \\in \\mathcal{I}(T)} g_{n,s} \\prod_{s' \\in "
+"\\mathcal{L}(T)} (1-g_{n,s'}),\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:61 of
+msgid "where the updating rules of the hyperparameter are as follows:"
+msgstr ""
+
+#: bayesml.contexttree:63 of
+msgid ""
+"g_{n,s} =\n"
+"\\begin{cases}\n"
+"    g_{0,s}, & n=0, \\\\\n"
+"    \\frac{ g_{n-1,s} \\tilde{q}_{s_{\\mathrm{child}}} (x_n|x^{n-1}) }\n"
+"    { \\tilde{q}_s(x_n|x^{n-1}) } & \\mathrm{otherwise},\n"
+"\\end{cases}\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:71 of
+msgid ""
+"where :math:`s_{\\mathrm{child}}` is the child node of :math:`s` on the "
+"path from :math:`s_\\lambda` to :math:`s_{T_\\mathrm{max}}(x^n)` and"
+msgstr ""
+
+#: bayesml.contexttree:73 of
+msgid ""
+"\\tilde{q}_s(x_n|x^{n-1}) =\n"
+"\\begin{cases}\n"
+"    q_s(x_n|x^{n-1}) & s\\in\\mathcal{L}(T_\\mathrm{max}), \\\\\n"
+"    (1-g_{n-1,s}) q_s(x_n|x^{n-1}) + g_{n-1,s} "
+"\\tilde{q}_{s_{\\mathrm{child}}}(x_n|x^{n-1}) & \\mathrm{otherwise}.\n"
+"\\end{cases}\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:80 of
+msgid "Here,"
+msgstr ""
+
+#: bayesml.contexttree:82 of
+msgid ""
+"q_s(x_n|x^{n-1}) = \\frac{ \\beta_{n-1}(x_n|s) }\n"
+"{\\sum_{k'=1}^{K} \\beta_{n-1}(k'|s)}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:86 of
+msgid "The predictive distribution is as follows:"
+msgstr ""
+
+#: bayesml.contexttree:88 of
+msgid ""
+":math:`\\boldsymbol{\\theta}_\\mathrm{p} = (\\theta_{\\mathrm{p},1}, "
+"\\theta_{\\mathrm{p},2}, \\ldots, \\theta_{\\mathrm{p},K})` : a parameter"
+" of the predictive distribution, where :math:`\\theta_{\\mathrm{p},k}` "
+"denotes the occurrence probability of :math:`k\\in\\mathcal{X}`."
+msgstr ""
+
+#: bayesml.contexttree:90 of
+msgid ""
+"p(x_n|x^{n-1}) = \\theta_{\\mathrm{p},x_n},\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:93 of
+msgid ""
+"where the updating rule of the parameters of the pridictive distribution "
+"is as follows."
+msgstr ""
+
+#: bayesml.contexttree:95 of
+msgid ""
+"\\theta_{\\mathrm{p}, k} = \\tilde{q}_{s_\\lambda}(k|x^{n-1})\n"
+"\n"
+msgstr ""
+
+#: bayesml.contexttree:98 of
+msgid "References"
+msgstr ""
+
+#: bayesml.contexttree:100 of
+msgid ""
+"Matsushima, T.; and Hirasawa, S. Reducing the space complexity of a Bayes"
+" coding algorithm using an expanded context tree, *2009 IEEE "
+"International Symposium on Information Theory*, 2009, pp. 719-723, "
+"https://doi.org/10.1109/ISIT.2009.5205677"
+msgstr ""
+
+#: bayesml.contexttree:101 of
+msgid ""
+"Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability "
+"Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. "
+"https://doi.org/10.3390/e24030328"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:2 of
+msgid "The stochastice data generative model and the prior distribution"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel
+#: bayesml.contexttree._contexttree.GenModel.gen_params
+#: bayesml.contexttree._contexttree.GenModel.gen_sample
+#: bayesml.contexttree._contexttree.GenModel.save_sample
+#: bayesml.contexttree._contexttree.GenModel.set_h_params
+#: bayesml.contexttree._contexttree.GenModel.set_params
+#: bayesml.contexttree._contexttree.GenModel.visualize_model
+#: bayesml.contexttree._contexttree.LearnModel
+#: bayesml.contexttree._contexttree.LearnModel.calc_pred_dist
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params
+#: bayesml.contexttree._contexttree.LearnModel.make_prediction
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params
+#: bayesml.contexttree._contexttree.LearnModel.update_posterior
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior of
+msgid "Parameters"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:7
+#: bayesml.contexttree._contexttree.LearnModel:7 of
+msgid "**c_k**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:-1
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:-1
+#: bayesml.contexttree._contexttree.GenModel.save_sample:-1
+#: bayesml.contexttree._contexttree.LearnModel:-1 of
+msgid "int"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:8
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:8
+#: bayesml.contexttree._contexttree.GenModel.save_sample:13
+#: bayesml.contexttree._contexttree.LearnModel:8 of
+msgid "A positive integer"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:10
+#: bayesml.contexttree._contexttree.LearnModel:10 of
+msgid "**c_d_max**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:-1
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:-1
+#: bayesml.contexttree._contexttree.LearnModel:-1 of
+msgid "int, optional"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:11
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:14
+#: bayesml.contexttree._contexttree.LearnModel:11 of
+msgid "A positive integer, by default 10"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:13
+#: bayesml.contexttree._contexttree.GenModel.set_params:7 of
+msgid "**root**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:-1
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:-1
+#: bayesml.contexttree._contexttree.GenModel.set_params:-1
+#: bayesml.contexttree._contexttree.LearnModel:-1
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:-1
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:-1 of
+msgid "contexttree._Node, optional"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:14 of
+msgid ""
+"A root node of a context tree,  by default a tree consists of only one "
+"node."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:17
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:7 of
+msgid "**h_g**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:-1
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:-1
+#: bayesml.contexttree._contexttree.LearnModel:-1
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:-1
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:-1 of
+msgid "float, optional"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:18
+#: bayesml.contexttree._contexttree.LearnModel:14 of
+msgid "A real number in :math:`[0, 1]`, by default 0.5"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:20
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:10 of
+msgid "**h_beta_vec**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:-1
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:-1
+#: bayesml.contexttree._contexttree.LearnModel:-1
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:-1
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:-1 of
+msgid "numpy.ndarray, optional"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:21
+#: bayesml.contexttree._contexttree.LearnModel:17 of
+msgid ""
+"A vector of positive real numbers,  by default [1/2, 1/2, ... , 1/2]. If "
+"a single real number is input, it will be broadcasted."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:25
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:14 of
+msgid "**h_root**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:26
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:15
+#: bayesml.contexttree._contexttree.LearnModel:22
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:15
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:15 of
+msgid "A root node of a superposed tree for hyperparameters  by default ``None``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:29 of
+msgid "**seed**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:-1 of
+#, python-brace-format
+msgid "{None, int}, optional"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:30 of
+msgid "A seed to initialize numpy.random.default_rng(), by default ``None``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:35
+#: bayesml.contexttree._contexttree.LearnModel:37 of
+msgid "Methods"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`gen_params <bayesml.contexttree.GenModel.gen_params>`\\ "
+"\\(\\[tree\\_fix\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_params:2
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Generate the parameter from the prior distribution."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`gen_sample <bayesml.contexttree.GenModel.gen_sample>`\\ "
+"\\(sample\\_length\\[\\, initial\\_values\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:2
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Generate a sample from the stochastic data generative model."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`get_constants <bayesml.contexttree.GenModel.get_constants>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_constants:2
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Get constants of GenModel."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`get_h_params <bayesml.contexttree.GenModel.get_h_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_h_params:2
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1
+#: bayesml.contexttree._contexttree.LearnModel.get_h0_params:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Get the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ":py:obj:`get_params <bayesml.contexttree.GenModel.get_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_params:2
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Get the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h_params <bayesml.contexttree.GenModel.load_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Load the hyperparameters to h_params."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`load_params <bayesml.contexttree.GenModel.load_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Load the parameters saved by ``save_params``."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h_params <bayesml.contexttree.GenModel.save_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Save the hyperparameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`save_params <bayesml.contexttree.GenModel.save_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Save the parameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`save_sample <bayesml.contexttree.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_length\\[\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.save_sample:2
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Save the generated sample as NumPy ``.npz`` format."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`set_h_params <bayesml.contexttree.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_g\\, h\\_beta\\_vec\\, h\\_root\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:2
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Set the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`set_params <bayesml.contexttree.GenModel.set_params>`\\ "
+"\\(\\[root\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.set_params:2
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Set the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`visualize_model "
+"<bayesml.contexttree.GenModel.visualize_model>`\\ \\(\\[filename\\, "
+"format\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:2
+#: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
+msgid "Visualize the stochastic data generative model and generated samples."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_sample
+#: bayesml.contexttree._contexttree.GenModel.get_constants
+#: bayesml.contexttree._contexttree.GenModel.get_h_params
+#: bayesml.contexttree._contexttree.GenModel.get_params
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params
+#: bayesml.contexttree._contexttree.LearnModel.get_constants
+#: bayesml.contexttree._contexttree.LearnModel.get_h0_params
+#: bayesml.contexttree._contexttree.LearnModel.get_hn_params
+#: bayesml.contexttree._contexttree.LearnModel.get_p_params
+#: bayesml.contexttree._contexttree.LearnModel.make_prediction
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update of
+msgid "Returns"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_constants:10
+#: bayesml.contexttree._contexttree.LearnModel.get_constants:10 of
+msgid "**constants**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_constants:-1
+#: bayesml.contexttree._contexttree.LearnModel.get_constants:-1 of
+#, python-brace-format
+msgid "dict of {str: int, numpy.ndarray}"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_constants:11
+#: bayesml.contexttree._contexttree.LearnModel.get_constants:11 of
+msgid "``\"c_k\"`` : the value of ``self.c_k``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_constants:12
+#: bayesml.contexttree._contexttree.LearnModel.get_constants:12 of
+msgid "``\"c_d_max\"`` : the value of ``self.c_d_max``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:8
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:8
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:8 of
+msgid "A real number in :math:`[0, 1]`, by default ``None``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.set_h_params:11
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:11
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:11 of
+msgid "A vector of positive real numbers,  by default ``None``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_h_params:10
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:14 of
+msgid "**h_params**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_h_params:-1 of
+#, python-brace-format
+msgid "dict of {str: float, numpy.ndarray, contexttree._Node}"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_h_params:11 of
+msgid "``\"h_g\"`` : the value of ``self.h_g``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_h_params:12 of
+msgid "``\"h_beta_vec\"`` : the value of ``self.h_beta_vec``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_h_params:13 of
+msgid "``\"h_root\"`` : the value of ``self.h_root``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_params:4 of
+msgid "The generated vaule is set at ``self.root``."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_params:8 of
+msgid "**tree_fix**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_params:-1 of
+msgid "bool"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_params:9 of
+msgid "If ``True``, tree shape will be fixed, by default ``False``."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.set_params:8 of
+msgid "A root node of a contexttree, by default None."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_params:10 of
+msgid "**params**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_params:-1 of
+#, python-brace-format
+msgid "dict of {str:float}"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.get_params:11 of
+msgid "``\"root\"`` : The value of ``self.root``."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:7
+#: bayesml.contexttree._contexttree.GenModel.save_sample:12
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:13 of
+msgid "**sample_length**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:10
+#: bayesml.contexttree._contexttree.GenModel.save_sample:15 of
+msgid "**initial_valules**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:-1
+#: bayesml.contexttree._contexttree.GenModel.save_sample:-1 of
+msgid "numpy ndarray, optional"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:11
+#: bayesml.contexttree._contexttree.GenModel.save_sample:16 of
+msgid ""
+"1 dimensional int array whose size coincide with ``self.c_d_max``, by "
+"default ``None``. Its elements must be in [0,c_k-1]"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:18
+#: bayesml.contexttree._contexttree.LearnModel.calc_pred_dist:7
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:7
+#: bayesml.contexttree._contexttree.LearnModel.update_posterior:7 of
+msgid "**x**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:-1
+#: bayesml.contexttree._contexttree.LearnModel.calc_pred_dist:-1
+#: bayesml.contexttree._contexttree.LearnModel.update_posterior:-1 of
+msgid "numpy ndarray"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.gen_sample:19 of
+msgid "1 dimensional int array whose size is ``sammple_length``."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.save_sample:4 of
+msgid "It is saved as a NpzFile with keyword: \"x\"."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.save_sample:8
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:7
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:15
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:8 of
+msgid "**filename**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.save_sample:-1 of
+msgid "str"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.save_sample:9 of
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.save_sample:31 of
+msgid ":obj:`numpy.savez_compressed`"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:-1
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:-1
+#: bayesml.contexttree._contexttree.LearnModel.make_prediction:-1
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:-1
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:-1 of
+msgid "str, optional"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:8
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:16
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:9 of
+msgid "Filename for saving the figure, by default ``None``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:10
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:18
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:11 of
+msgid "**format**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:11
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:19
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:12 of
+msgid "Rendering output format (``\"pdf\"``, ``\"png\"``, ...)."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:28
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:38
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:30 of
+msgid ":obj:`graphviz.Digraph`"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel.visualize_model:34
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:36 of
+msgid "Examples"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:2 of
+msgid "The posterior distribution and the predictive distribution."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:13
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:7 of
+msgid "**h0_g**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:16
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:10 of
+msgid "**h0_beta_vec**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:21
+#: bayesml.contexttree._contexttree.LearnModel.set_h0_params:14 of
+msgid "**h0_root**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel of
+msgid "Attributes"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:27
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:7 of
+msgid "**hn_g**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:-1 of
+msgid "float"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:28 of
+msgid "A real number in :math:`[0, 1]`"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:30
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:10 of
+msgid "**hn_beta_vec**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:-1
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:-1 of
+msgid "numpy.ndarray"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:31 of
+msgid "A vector of positive real numbers."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:33
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:14 of
+msgid "**hn_root**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:-1
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:-1 of
+msgid "contexttree._Node"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:34 of
+msgid "A root node of a superposed tree for hyperparameters."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`calc_pred_dist "
+"<bayesml.contexttree.LearnModel.calc_pred_dist>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.calc_pred_dist:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Calculate the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.contexttree.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
+"visualize\\, filename\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Estimate the parameter under the given criterion."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`get_constants <bayesml.contexttree.LearnModel.get_constants>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_constants:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Get constants of LearnModel."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`get_h0_params <bayesml.contexttree.LearnModel.get_h0_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`get_hn_params <bayesml.contexttree.LearnModel.get_hn_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_hn_params:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Get the hyperparameters of the posterior distribution."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`get_p_params <bayesml.contexttree.LearnModel.get_p_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_p_params:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Get the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h0_params "
+"<bayesml.contexttree.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Load the hyperparameters to h0_params."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`load_hn_params "
+"<bayesml.contexttree.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Load the hyperparameters to hn_params."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.contexttree.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.make_prediction:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Predict a new data point under the given criterion."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.contexttree.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.contexttree.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Predict a new data point and update the posterior sequentially."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.contexttree.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h0_params "
+"<bayesml.contexttree.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`save_hn_params "
+"<bayesml.contexttree.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`set_h0_params <bayesml.contexttree.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_g\\, h0\\_beta\\_vec\\, h0\\_root\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`set_hn_params <bayesml.contexttree.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_g\\, hn\\_beta\\_vec\\, hn\\_root\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.set_hn_params:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Set the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.contexttree.LearnModel.update_posterior>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.update_posterior:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Update the hyperparameters using traning data."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.contexttree.LearnModel.visualize_posterior>`\\ \\(\\[filename\\,"
+" format\\, h\\_params\\]\\)"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:2
+#: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
+msgid "Visualize the posterior distribution for the parameter."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_h0_params:10 of
+msgid "**h0_params**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_h0_params:-1
+#: bayesml.contexttree._contexttree.LearnModel.get_hn_params:-1 of
+#, python-brace-format
+msgid "dict of {str: float, numpy.ndarray, contexttre._Node}"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_h0_params:11 of
+msgid "``\"h0_g\"`` : the value of ``self.h0_g``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_h0_params:12 of
+msgid "``\"h0_beta_vec\"`` : the value of ``self.h0_beta_vec``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_h0_params:13 of
+msgid "``\"h0_root\"`` : the value of ``self.h0_root``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_hn_params:10 of
+msgid "**hn_params**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_hn_params:11 of
+msgid "``\"hn_g\"`` : the value of ``self.hn_g``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_hn_params:12 of
+msgid "``\"hn_beta_vec\"`` : the value of ``self.hn_beta_vec``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_hn_params:13 of
+msgid "``\"hn_root\"`` : the value of ``self.hn_root``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.calc_pred_dist:8
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:8
+#: bayesml.contexttree._contexttree.LearnModel.update_posterior:8 of
+msgid "1-dimensional int array"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:7
+#: bayesml.contexttree._contexttree.LearnModel.make_prediction:7
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:10 of
+msgid "**loss**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:8 of
+msgid ""
+"Loss function underlying the Bayes risk function, by default ``\"0-1\"``."
+" This function supports only ``\"0-1\"``."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:11 of
+msgid "**visualize**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:-1
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:-1 of
+msgid "bool, optional"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:12 of
+msgid ""
+"If ``True``, the estimated context tree model will be visualized, by "
+"default ``True``. This visualization requires ``graphviz``."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:25 of
+msgid "**map_root**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.estimate_params:26 of
+msgid ""
+"The root node of the estimated context tree model  that also contains the"
+" estimated parameters in each node."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:4 of
+msgid "This method requires ``graphviz``."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:15 of
+msgid ""
+"If ``True``, hyperparameters at each node will be visualized.  if "
+"``False``, estimated parameters at each node will be visulaized."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_p_params:10 of
+msgid "**p_params**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_p_params:-1 of
+#, python-brace-format
+msgid "dict of {str: numpy.ndarray}"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.get_p_params:11 of
+msgid "``\"p_theta_vec\"`` : the value of ``self.p_theta_vec``"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.make_prediction:8 of
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"KL\". This"
+" function supports \"KL\" and \"0-1\"."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.make_prediction:15
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:18 of
+msgid "**predicted_value**"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.make_prediction:-1
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:-1 of
+#, python-brace-format
+msgid "{float, numpy.ndarray}"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.make_prediction:16 of
+msgid ""
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the predictive  distribution will be returned as a "
+"1-dimensional  numpy.ndarray that consists of occurence probabilities."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:11 of
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"KL\". This"
+" function supports \"KL\", and \"0-1\"."
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel.pred_and_update:19 of
+msgid "The predicted value under the given loss function."
+msgstr ""
+

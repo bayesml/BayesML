@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Your First Library for Bayesian Machine Learning &#8212; BayesML</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ad100702" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=385a908f"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="icon" href="_static/BayesML_favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bayesml packages" href="bayesml.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html'>here</a>!</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BayesML_logo.png" class="logo__image only-light" alt="BayesML - Home"/>
+    <script>document.write(`<img src="_static/BayesML_logo.png" class="logo__image only-dark" alt="BayesML - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><div style="text-align:center">
+  <span><i class="fas fa-globe"></i> Language:</span>
+  <a href="../en/index.html" class="language-link active" lang="en">English</a> / 
+  <a href="../ja/index.html" class="language-link" lang="ja">日本語</a>
+</div></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="bayesml.html">Bayesml packages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.bernoulli.html">bayesml.bernoulli package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.categorical.html">bayesml.categorical package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.contexttree.html">bayesml.contexttree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.exponential.html">bayesml.exponential package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.poisson.html">bayesml.poisson package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html">Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML Developers</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/bayesml/BayesML" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Your First Library for Bayesian Machine Learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Your First Library for Bayesian Machine Learning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics">Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#news">News</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial">Tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-generation-with-genmodel">Synthetic Data Generation with <code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-and-decision-making-with-learnmodel">Learning and Decision Making with <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-posterior-distribution-using-genmodel">Sampling from Posterior Distribution Using <code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-list">Package list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices">Indices</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <img alt="_images/BayesML_logo.png" src="_images/BayesML_logo.png" />
+<section id="your-first-library-for-bayesian-machine-learning">
+<h1>Your First Library for Bayesian Machine Learning<a class="headerlink" href="#your-first-library-for-bayesian-machine-learning" title="Link to this heading">#</a></h1>
+<p>BayesML contributes to wide society thourgh promoting education, research, and application of machine learning based on Bayesian statistics and Bayesian decision theory.</p>
+<section id="characteristics">
+<h2>Characteristics<a class="headerlink" href="#characteristics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Easy-to-use:</strong></p>
+<ul>
+<li><p>You can use pre-defined Bayesian statistical models by simply importing it. You don’t need to define models yourself like PyMC or Stan.</p></li>
+</ul>
+</li>
+<li><p><strong>Bayesian Decision Theoretic API:</strong></p>
+<ul>
+<li><p>BayesML’s API corresponds to the structure of decision-making based on Bayesian decision theory. Bayesian decision theory is a unified framework for handling various decision-making processes, such as parameter estimation and prediction of new data. Therefore, BayesML enables intuitive operations for a wider range of decision-making compared to the fit-predict type API adopted in libraries like scikit-learn. Moreover, many of our models also implement fit-predict functions.</p></li>
+</ul>
+</li>
+<li><p><strong>Model Visuialization Functions:</strong></p>
+<ul>
+<li><p>All packages have methods to visualize the probabilistic data generative model, generated data from that model, and the posterior distribution learned from the data in 2~3 dimensional space. Thus, you can effectively understand the characteristics of probabilistic data generative models and algorithms through the generation of synthetic data and learning from them.</p></li>
+</ul>
+</li>
+<li><p><strong>Fast Algorithms Using Conjugate Prior Distributions:</strong></p>
+<ul>
+<li><p>Many of our learning algorithms adopt exact calculation methods or variational Bayesian methods that effectively use the conjugacy between probabilistic data generative models and prior distributions. Therefore, they are much faster than general-purpose MCMC methods and are also suitable for online learning. Although some algorithms adopt MCMC methods, but they use MCMC methods specialized for each model, taking advantage of conjugacy.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="news">
+<h2>News<a class="headerlink" href="#news" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Our algorithm for the meta-tree model has been accepted to AISTATS 2025! For more details, please see the links below.</p>
+<ul>
+<li><p><a class="reference external" href="https://proceedings.mlr.press/v258/nakahara25a.html">Paper</a></p></li>
+<li><p><a class="reference external" href="https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html">Code Example</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>Please use the following command to install BayesML.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>bayesml
+</pre></div>
+</div>
+<p>The following are required.</p>
+<ul class="simple">
+<li><p>Python (&gt;= 3.7)</p></li>
+<li><p>NumPy (&gt;= 1.20)</p></li>
+<li><p>SciPy (&gt;= 1.7)</p></li>
+<li><p>MatplotLib (&gt;= 3.5)</p></li>
+<li><p>Scikit-learn (&gt;= 1.1)</p></li>
+</ul>
+</section>
+<section id="tutorial">
+<h2>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading">#</a></h2>
+<p>Each model in BayesML has two classes. One is <code class="docutils literal notranslate"><span class="pre">GenModel</span></code>, which can be used for parameter generation from prior or posterior distributions, and data generation. The other is <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code>, which can be used for estimating posterior distributions from data and calculating predictive distributions. Each has an API that aligns with Bayesian decision theory. Let’s look at how to use each with the <code class="docutils literal notranslate"><span class="pre">linearregression</span></code> model as an example.</p>
+<section id="synthetic-data-generation-with-genmodel">
+<h3>Synthetic Data Generation with <code class="docutils literal notranslate"><span class="pre">GenModel</span></code><a class="headerlink" href="#synthetic-data-generation-with-genmodel" title="Link to this heading">#</a></h3>
+<p>First, let’s import the library.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">linearregression</span>
+</pre></div>
+</div>
+<p>Next, we create an instance of the probabilistic data generative model. Here, we specify the dimension of the regression coefficients (including the constant term) as <code class="docutils literal notranslate"><span class="pre">c_degree=2</span></code> as a constant of the model, and we specify the regression coefficients as <code class="docutils literal notranslate"><span class="pre">theta_vec</span> <span class="pre">=</span> <span class="pre">np.array([1,1])</span></code> and the precision (inverse of variance) of the noise term as <code class="docutils literal notranslate"><span class="pre">tau</span> <span class="pre">=</span> <span class="pre">10</span></code> as parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gen_model</span> <span class="o">=</span> <span class="n">linearregression</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+    <span class="n">c_degree</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># degree</span>
+    <span class="n">theta_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="c1"># coefficients</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1"># noise precision</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>You can visualize the characteristics of the created model by the following method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gen_model</span><span class="o">.</span><span class="n">visualize_model</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">theta_vec:</div>
+<div class="line">[1. 1.]</div>
+<div class="line">tau:</div>
+<div class="line">10.0</div>
+</div>
+<img alt="_images/README_LR1.png" src="_images/README_LR1.png" />
+</div></blockquote>
+<p>To generate a sample and save it to variables <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, we use the following method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">gen_model</span><span class="o">.</span><span class="n">gen_sample</span><span class="p">(</span><span class="n">sample_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s also generate test data for later use.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_test</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">gen_model</span><span class="o">.</span><span class="n">gen_sample</span><span class="p">(</span><span class="n">sample_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="learning-and-decision-making-with-learnmodel">
+<h3>Learning and Decision Making with <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code><a class="headerlink" href="#learning-and-decision-making-with-learnmodel" title="Link to this heading">#</a></h3>
+<p>Let’s use <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> to learn a model from the data we just generated.</p>
+<p>Of course, the data that can be used with <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> is not limited to data generated from <code class="docutils literal notranslate"><span class="pre">GenModel</span></code>. You can analyze various real-world data.</p>
+<p>First, let’s create an instance of the learning model. Here, we only specify the degree <code class="docutils literal notranslate"><span class="pre">c_degree</span> <span class="pre">=</span> <span class="pre">2</span></code> as a constant of the model, but you can also specify hyperparameters for the prior distribution.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span> <span class="o">=</span> <span class="n">linearregression</span><span class="o">.</span><span class="n">LearnModel</span><span class="p">(</span>
+    <span class="n">c_degree</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># degree</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>A method for visualizing the posterior distribution of parameters is implemented in <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code>. If you visualize the posterior distribution at this point, the prior distribution will be displayed since learning from data has not yet been performed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">visualize_posterior</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><img alt="_images/README_LR2.png" src="_images/README_LR2.png" />
+</div></blockquote>
+<p>To update the posterior distribution through learning from data, we use the following method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">update_posterior</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you visualize the updated posterior distribution, you can see that the density of the posterior distribution has moved closer to the true parameters used to generate <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">visualize_posterior</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><img alt="_images/README_LR3.png" src="_images/README_LR3.png" />
+</div></blockquote>
+<p>To make decisions such as parameter estimation and prediction of new data based on the learned model, we proceed as follows.</p>
+<p>For parameter estimation, we use the <code class="docutils literal notranslate"><span class="pre">estimate_params</span></code> method. By specifying the <code class="docutils literal notranslate"><span class="pre">loss</span></code> option as <code class="docutils literal notranslate"><span class="pre">squared</span></code>, you can obtain an estimate that minimizes the Bayes risk function based on the squared error loss function. The resulting value is the expected value of the posterior distribution.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">estimate_params</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;squared&quot;</span><span class="p">,</span><span class="n">dict_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">{‘theta_vec’: array([0.99846525, 0.96263024]), ‘tau’: 6.9036925167513195}</div>
+</div>
+</div></blockquote>
+<p>If you specify the <code class="docutils literal notranslate"><span class="pre">loss</span></code> option as <code class="docutils literal notranslate"><span class="pre">abs</span></code>, you can obtain an estimate that minimizes the Bayes risk function based on the absolute error loss function. The resulting value is the median of the posterior distribution, which is why the estimated value of <code class="docutils literal notranslate"><span class="pre">tau</span></code> differs from the previous one.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">estimate_params</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;abs&quot;</span><span class="p">,</span><span class="n">dict_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">{‘theta_vec’: array([0.99846525, 0.96263024]), ‘tau’: 6.858623148933392}</div>
+</div>
+</div></blockquote>
+<p>To predict new data, we first use the following method to calculate the predictive distribution for new explanatory variables.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">calc_pred_dist</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we use the <code class="docutils literal notranslate"><span class="pre">make_prediction</span></code> method to obtain predicted values. Similar to parameter estimation, you can specify the loss function using the <code class="docutils literal notranslate"><span class="pre">loss</span></code> option. (In this example, the same predicted values will be returned whether you assume squared error loss or absolute error loss since the posterior predictive distribution is symmetrical.)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">learn_model</span><span class="o">.</span><span class="n">make_prediction</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;squared&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s calculate the mean squared error.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MSE: </span><span class="si">{</span><span class="n">mse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">MSE: 0.09020880284291456</div>
+</div>
+</div></blockquote>
+<p>Taking into account that the precision (inverse of variance) of the noise term used for data generation was 10, we can see that the predictions are achieved with sufficient accuracy.</p>
+</section>
+<section id="sampling-from-posterior-distribution-using-genmodel">
+<h3>Sampling from Posterior Distribution Using <code class="docutils literal notranslate"><span class="pre">GenModel</span></code><a class="headerlink" href="#sampling-from-posterior-distribution-using-genmodel" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GenModel</span></code> can also be used to sample parameters from the posterior distribution learned by <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code>, or to sample new data from the posterior predictive distribution.</p>
+<p>First, the hyperparameters of the posterior distribution learned by <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> can be obtained as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hn_params</span> <span class="o">=</span> <span class="n">learn_model</span><span class="o">.</span><span class="n">get_hn_params</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hn_params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">{‘hn_mu_vec’: array([0.99846525, 0.96263024]), ‘hn_lambda_mat’: array([[ 99.87503339,   5.96145913], [  5.96145913, 101.        ]]), ‘hn_alpha’: 51.0, ‘hn_beta’: 7.387351026461872}</div>
+</div>
+</div></blockquote>
+<p>By passing these to <code class="docutils literal notranslate"><span class="pre">GenModel</span></code>, you can sample parameters from the posterior distribution.</p>
+<p>We create a new <code class="docutils literal notranslate"><span class="pre">GenModel</span></code> instance for parameter sampling and pass the hyperparameters through the <code class="docutils literal notranslate"><span class="pre">set_h_params</span></code> method. (In the example below, we are unpacking the values of the dictionary <code class="docutils literal notranslate"><span class="pre">hn_params</span></code> using <code class="docutils literal notranslate"><span class="pre">*</span></code> for <code class="docutils literal notranslate"><span class="pre">hn_params.values()</span></code>. This is a Python feature, not a BayesML functionality.)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">posterior_gen_model</span> <span class="o">=</span> <span class="n">linearregression</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+    <span class="n">c_degree</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># degree</span>
+<span class="p">)</span>
+<span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">set_h_params</span><span class="p">(</span><span class="o">*</span><span class="n">hn_params</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">gen_params</span></code> method to generate parameters and the <code class="docutils literal notranslate"><span class="pre">get_params</span></code> method to retrieve the generated parameters. If you want to perform multiple samplings, please repeat the following in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">gen_params</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">get_params</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">{‘theta_vec’: array([1.00935782, 0.93804208]), ‘tau’: 5.50775630793475}</div>
+</div>
+</div></blockquote>
+<p>To sample new data from the posterior predictive distribution, we generate data after sampling parameters. When we generated the synthetic data, we did not provide explanatory variables as arguments to <code class="docutils literal notranslate"><span class="pre">gen_sample</span></code> (see [here](#synthetic-data-generation-with-genmodel)), but you can also specify them explicitly as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">gen_params</span><span class="p">()</span>
+<span class="n">_</span><span class="p">,</span><span class="n">y_new</span> <span class="o">=</span> <span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">gen_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_test</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y_new: </span><span class="si">{</span><span class="n">y_new</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">y_new: [-0.49532975  2.03473075  1.13758759 -0.46735058 -0.71902336 -0.09288005 0.89463227  2.07886012  2.81211771  1.60020635]</div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="package-list">
+<h2>Package list<a class="headerlink" href="#package-list" title="Link to this heading">#</a></h2>
+<p>The following packages are currently available. In this library, a probabilistic data generative model, prior distribution, posterior distribution (or approximate posterior distribution), and predictive distribution (or approximate predictive distribution) are collectively called a model.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="bayesml.html"><span class="doc">Bayesml packages</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.autoregressive.html"><span class="doc">bayesml.autoregressive package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.bernoulli.html"><span class="doc">bayesml.bernoulli package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.categorical.html"><span class="doc">bayesml.categorical package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.contexttree.html"><span class="doc">bayesml.contexttree package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.exponential.html"><span class="doc">bayesml.exponential package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.gaussianmixture.html"><span class="doc">bayesml.gaussianmixture package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.hiddenmarkovnormal.html"><span class="doc">bayesml.hiddenmarkovnormal package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.linearregression.html"><span class="doc">bayesml.linearregression package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.metatree.html"><span class="doc">bayesml.metatree package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.multivariate_normal.html"><span class="doc">bayesml.multivariate_normal package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.normal.html"><span class="doc">bayesml.normal package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.poisson.html"><span class="doc">bayesml.poisson package</span></a></p></li>
+</ul>
+<p>In the future, we will add packages to deal with more complicated hierarchical models.</p>
+</section>
+<section id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Link to this heading">#</a></h2>
+<p>When you use BayesML for your academic work, please provide the following bibliographic reference.</p>
+<p>Plain text</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo,
+S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,&#39;&#39;
+Python package version 0.3.1,
+[Online] https://github.com/bayesml/BayesML
+</pre></div>
+</div>
+<p>BibTeX</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">bayesml</span><span class="p">,</span>
+<span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Nakahara, Yuta and Ichijo, Naoki and Shimada, Koshi and</span>
+<span class="s">          Iikubo, Yuji and Saito, Shota and Kazama, Koki and</span>
+<span class="s">          Matsushima, Toshiyasu and {BayesML Developers}}</span><span class="p">,</span>
+<span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{BayesML}}</span><span class="p">,</span>
+<span class="na">howpublished</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Python package version 0.3.1}</span><span class="p">,</span>
+<span class="na">note</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{\url{https://github.com/bayesml/BayesML}}</span><span class="p">,</span>
+<span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bayesml.html">Bayesml packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML Developers</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="indices">
+<h1>Indices<a class="headerlink" href="#indices" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="bayesml.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bayesml packages</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Your First Library for Bayesian Machine Learning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics">Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#news">News</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial">Tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-generation-with-genmodel">Synthetic Data Generation with <code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-and-decision-making-with-learnmodel">Learning and Decision Making with <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-posterior-distribution-using-genmodel">Sampling from Posterior Distribution Using <code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-list">Package list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices">Indices</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By BayesML Developers
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, BayesML Developers.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

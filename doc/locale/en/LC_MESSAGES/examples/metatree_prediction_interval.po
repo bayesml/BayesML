@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-22 03:31+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../examples/metatree_prediction_interval.ipynb:9
+msgid ""
+"Prediction interval calculation by ``bayesml.metatree`` (accepted at "
+"AISTATS 2025)"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:11
+msgid ""
+"For details of the API of ``bayesml.metatree``, please see `this page "
+"<../bayesml.metatree.html>`__."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:13
+msgid "For theoretical details, please see the following paper."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:15
+msgid ""
+"Nakahara, Y., Saito, S., Ichijo, N., Kazama, K. & Matsushima, T. (2025). "
+"Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and "
+"Interpretability. *Proceedings of The 28th International Conference on "
+"Artificial Intelligence and Statistics*, in *Proceedings of Machine "
+"Learning Research* 258:1045-1053 Available from "
+"https://proceedings.mlr.press/v258/nakahara25a.html."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:27
+msgid "Installation of BayesML"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:49
+msgid "Load dataset"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:260
+msgid "Preprocessing"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:301
+msgid "Create model instance"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:303
+msgid "First, calculate model constants."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:337
+msgid ""
+"Then, create a model instance based on the model constants. For details "
+"of the parameters of ``LearnModel``, please see `this page "
+"<https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel>`__."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:375
+msgid "Calculate posterior distribution"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:377
+msgid ""
+"For details of the parameters of ``update_posterior``, please see `this "
+"page "
+"<https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel.update_posterior>`__."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:469
+msgid "Calculate prediction interval"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:471
+msgid ""
+"First, define subroutines to calculate ``100(1-alpha)``\\ % prediction "
+"interval from the values of the probability density function of the "
+"predictive distribution."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:509
+msgid ""
+"Calculate the values of the probability density function of the "
+"predictive distribution in the range determined by the mean and the "
+"variance of the predictive distribution."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:574
+msgid "Calculate prediction interval by using the above subroutines."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:599
+msgid "Evaluation"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:601
+msgid "First, define subroutines for evaluation."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:639
+msgid ""
+"Evaluate the results. Note that frequency close to ``100(1-alpha)``\\ % "
+"(here, 0.95) and short length are desireble."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:689
+msgid "Calculate prediction interval by sampling"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:691
+msgid ""
+"Using metatree.GenModel, prediction intervals can be calculated from a "
+"sample from the posterior predictive distribution. For details of the "
+"parameters of ``GenModel``, please see `this page "
+"<https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.GenModel>`__."
+msgstr ""
+
+#~ msgid ""
+#~ "For details of the API of "
+#~ "``bayesml.metatree``, please see `this page"
+#~ " <https://bayesml.github.io/BayesML/bayesml.metatree.html>`__."
+#~ msgstr ""
+

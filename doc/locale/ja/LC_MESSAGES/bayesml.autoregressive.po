@@ -1,0 +1,1287 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../bayesml.autoregressive.rst:2
+msgid "bayesml.autoregressive package"
+msgstr ""
+
+#: ../../bayesml.autoregressive.rst:7
+msgid "Module contents"
+msgstr ""
+
+#: bayesml.autoregressive:1 of
+msgid "The linear autoregressive model with the normal-gamma prior distribution."
+msgstr ""
+
+#: bayesml.autoregressive:3 of
+msgid "The stochastic data generative model is as follows:"
+msgstr ""
+
+#: bayesml.autoregressive:5 of
+#, python-brace-format
+msgid ":math:`d \\in \\mathbb{N}`: the degree of the model"
+msgstr ""
+
+#: bayesml.autoregressive:6 of
+#, python-brace-format
+msgid ":math:`n \\in \\mathbb{N}`: time index"
+msgstr ""
+
+#: bayesml.autoregressive:7 of
+#, python-brace-format
+msgid ":math:`x_n \\in \\mathbb{R}`: a data point at :math:`n`"
+msgstr ""
+
+#: bayesml.autoregressive:8 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{x}'_n := [1, x_{n-d}, x_{n-d+1}, \\dots , "
+"x_{n-1}]^\\top \\in \\mathbb{R}^{d+1}`. Here we assume :math:`x_n` for "
+":math:`n < 1` is given as a initial value."
+msgstr ""
+
+#: bayesml.autoregressive:9 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\theta} \\in \\mathbb{R}^{d+1}`: a regression "
+"coefficient parameter"
+msgstr ""
+
+#: bayesml.autoregressive:10 of
+#, python-brace-format
+msgid ":math:`\\tau \\in \\mathbb{R}_{>0}`: a precision parameter of noise"
+msgstr ""
+
+#: bayesml.autoregressive:12 of
+msgid ""
+"p(x_n | \\boldsymbol{x}'_{n-1}, \\boldsymbol{\\theta}, \\tau) &= "
+"\\mathcal{N}(x_n|\\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1}, "
+"\\tau^{-1}) \\\\\n"
+"&= \\sqrt{\\frac{\\tau}{2 \\pi}} \\exp \\left\\{ -\\frac{\\tau}{2} (x_n -"
+" \\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1})^2 \\right\\}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive:16 of
+#, python-brace-format
+msgid ""
+"&\\mathbb{E}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau] ="
+" \\boldsymbol{\\theta}^{\\top} \\boldsymbol{x}'_{n-1}, \\\\\n"
+"&\\mathbb{V}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau ] "
+"= \\tau^{-1}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive:21 of
+msgid "The prior distribution is as follows:"
+msgstr ""
+
+#: bayesml.autoregressive:23 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\mu}_0 \\in \\mathbb{R}^{d+1}`: a hyperparameter for"
+" :math:`\\boldsymbol{\\theta}`"
+msgstr ""
+
+#: bayesml.autoregressive:24 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\Lambda}_0 \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: "
+"a hyperparameter for :math:`\\boldsymbol{\\theta}` (a positive definite "
+"matrix)"
+msgstr ""
+
+#: bayesml.autoregressive:25 of
+#, python-brace-format
+msgid ""
+":math:`| \\boldsymbol{\\Lambda}_0 | \\in \\mathbb{R}`: the determinant of"
+" :math:`\\boldsymbol{\\Lambda}_0`"
+msgstr ""
+
+#: bayesml.autoregressive:26 of
+#, python-brace-format
+msgid ""
+":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter for "
+":math:`\\tau`"
+msgstr ""
+
+#: bayesml.autoregressive:27 of
+#, python-brace-format
+msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter for :math:`\\tau`"
+msgstr ""
+
+#: bayesml.autoregressive:28 of
+#, python-brace-format
+msgid ""
+":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}`: the Gamma "
+"function"
+msgstr ""
+
+#: bayesml.autoregressive:30 of
+msgid ""
+"p(\\boldsymbol{\\theta}, \\tau) &= "
+"\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_0, (\\tau "
+"\\boldsymbol{\\Lambda}_0)^{-1}) "
+"\\mathrm{Gam}(\\tau|\\alpha_0,\\beta_0)\\\\\n"
+"&= \\frac{|\\tau \\boldsymbol{\\Lambda}_0|^{1/2}}{(2 \\pi)^{(d+1)/2}} \n"
+"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - "
+"\\boldsymbol{\\mu}_0)^\\top \n"
+"\\boldsymbol{\\Lambda}_0 (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}_0) "
+"\\right\\}\n"
+"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\tau^{\\alpha_0 - 1} "
+"\\exp \\{ -\\beta_0 \\tau \\} .\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive:37 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[\\boldsymbol{\\theta}] &= \\boldsymbol{\\mu}_0 & \\left( "
+"\\alpha_0 > \\frac{1}{2} \\right), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{\\theta}] &= \\frac{\\beta_0}{\\alpha_0 - 1} "
+"\\boldsymbol{\\Lambda}_0^{-1} & (\\alpha_0 > 1), \\\\\n"
+"\\mathbb{E}[\\tau] &= \\frac{\\alpha_0}{\\beta_0}, \\\\\n"
+"\\mathbb{V}[\\tau] &= \\frac{\\alpha_0}{\\beta_0^2}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive:43 of
+msgid "The posterior distribution is as follows:"
+msgstr ""
+
+#: bayesml.autoregressive:45 of
+#, python-brace-format
+msgid ""
+":math:`x^n := [x_1, x_2, \\dots , x_n]^\\top \\in \\mathbb{R}^n`: given "
+"data"
+msgstr ""
+
+#: bayesml.autoregressive:46 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{X}_n = [\\boldsymbol{x}'_1, \\boldsymbol{x}'_2, "
+"\\dots , \\boldsymbol{x}'_n]^\\top \\in \\mathbb{R}^{n \\times (d+1)}`"
+msgstr ""
+
+#: bayesml.autoregressive:47 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\mu}_n \\in \\mathbb{R}^{d+1}`: a hyperparameter for"
+" :math:`\\boldsymbol{\\theta}`"
+msgstr ""
+
+#: bayesml.autoregressive:48 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\Lambda}_n \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: "
+"a hyperparameter for :math:`\\boldsymbol{\\theta}` (a positive definite "
+"matrix)"
+msgstr ""
+
+#: bayesml.autoregressive:49 of
+#, python-brace-format
+msgid ""
+":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter for "
+":math:`\\tau`"
+msgstr ""
+
+#: bayesml.autoregressive:50 of
+#, python-brace-format
+msgid ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: a hyperparameter for :math:`\\tau`"
+msgstr ""
+
+#: bayesml.autoregressive:52 of
+msgid ""
+"p(\\boldsymbol{\\theta}, \\tau | x^n) &= "
+"\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_n, (\\tau "
+"\\boldsymbol{\\Lambda}_n)^{-1}) "
+"\\mathrm{Gam}(\\tau|\\alpha_n,\\beta_n)\\\\\n"
+"&= \\frac{|\\boldsymbol{\\tau \\Lambda}_n|^{1/2}}{(2 \\pi)^{(d+1)/2}}\n"
+"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - "
+"\\boldsymbol{\\mu}_n)^\\top \n"
+"\\boldsymbol{\\Lambda}_n (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}_n) "
+"\\right\\}\n"
+"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\tau^{\\alpha_n - 1} "
+"\\exp \\{ -\\beta_n \\tau \\} .\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive:59 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[\\boldsymbol{\\theta} | x^n] &= \\boldsymbol{\\mu}_n & "
+"\\left( \\alpha_n > \\frac{1}{2} \\right), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{\\theta} | x^n] &= \\frac{\\beta_n}{\\alpha_n "
+"- 1} \\boldsymbol{\\Lambda}_n^{-1} & (\\alpha_n > 1), \\\\\n"
+"\\mathbb{E}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n}, \\\\\n"
+"\\mathbb{V}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n^2},\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive:65 of
+msgid "where the updating rules of the hyperparameters are"
+msgstr ""
+
+#: bayesml.autoregressive:67 of
+#, python-brace-format
+msgid ""
+"\\boldsymbol{\\Lambda}_n &= \\boldsymbol{\\Lambda}_0 + "
+"\\boldsymbol{X}_n^\\top \\boldsymbol{X}_n,\\\\\n"
+"\\boldsymbol{\\mu}_n &= \\boldsymbol{\\Lambda}_n^{-1} "
+"(\\boldsymbol{\\Lambda}_0 \\boldsymbol{\\mu}_0 + \\boldsymbol{X}_n^\\top "
+"x^n),\\\\\n"
+"\\alpha_n &= \\alpha_0 + \\frac{n}{2},\\\\\n"
+"\\beta_n &= \\beta_0 + \\frac{1}{2} \\left( -\\boldsymbol{\\mu}_n^\\top "
+"\\boldsymbol{\\Lambda}_n \\boldsymbol{\\mu}_n \n"
+"+ (x^n)^\\top x^n + \\boldsymbol{\\mu}_0^\\top \\boldsymbol{\\Lambda}_0 "
+"\\boldsymbol{\\mu}_0 \\right).\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive:74 of
+msgid "The predictive distribution is as follows:"
+msgstr ""
+
+#: bayesml.autoregressive:76 of
+#, python-brace-format
+msgid ":math:`x_{n+1} \\in \\mathbb{R}`: a new data point"
+msgstr ""
+
+#: bayesml.autoregressive:77 of
+#, python-brace-format
+msgid ":math:`m_\\mathrm{p} \\in \\mathbb{R}`: a parameter"
+msgstr ""
+
+#: bayesml.autoregressive:78 of
+#, python-brace-format
+msgid ":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: a parameter"
+msgstr ""
+
+#: bayesml.autoregressive:79 of
+#, python-brace-format
+msgid ":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: a parameter"
+msgstr ""
+
+#: bayesml.autoregressive:81 of
+msgid ""
+"\\mathrm{St}(x_{n+1}|m_\\mathrm{p}, \\lambda_\\mathrm{p}, "
+"\\nu_\\mathrm{p})\n"
+"= \\frac{\\Gamma (\\nu_\\mathrm{p}/2 + 1/2)}{\\Gamma "
+"(\\nu_\\mathrm{p}/2)}\n"
+"\\left( \\frac{\\lambda_\\mathrm{p}}{\\pi \\nu_\\mathrm{p}} "
+"\\right)^{1/2}\n"
+"\\left[ 1 + "
+"\\frac{\\lambda_\\mathrm{p}(x_{n+1}-m_\\mathrm{p})^2}{\\nu_\\mathrm{p}} "
+"\\right]^{-\\nu_\\mathrm{p}/2 - 1/2}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive:87 of
+msgid ""
+"\\mathbb{E}[x_{n+1} | x^n] &= m_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), "
+"\\\\\n"
+"\\mathbb{V}[x_{n+1} | x^n] &= \\frac{1}{\\lambda_\\mathrm{p}} "
+"\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} & (\\nu_\\mathrm{p} > 2),\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive:91 of
+msgid ""
+"where the parameters are obtained from the hyperparameters of the "
+"posterior distribution as follows."
+msgstr ""
+
+#: bayesml.autoregressive:93 of
+#, python-brace-format
+msgid ""
+"m_\\mathrm{p} &= \\boldsymbol{\\mu}_n^\\top \\boldsymbol{x}'_n,\\\\\n"
+"\\lambda_\\mathrm{p} &= \\frac{\\alpha_n}{\\beta_n} (1 + "
+"(\\boldsymbol{x}'_n)^\\top \\boldsymbol{\\Lambda}_n^{-1} "
+"\\boldsymbol{x}'_n)^{-1},\\\\\n"
+"\\nu_\\mathrm{p} &= 2 \\alpha_n.\n"
+"\n"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:2 of
+msgid "The stochastic data generative model and the prior distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params
+#: bayesml.autoregressive._autoregressive.GenModel.set_params
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model
+#: bayesml.autoregressive._autoregressive.LearnModel
+#: bayesml.autoregressive._autoregressive.LearnModel.calc_pred_dist
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update
+#: bayesml.autoregressive._autoregressive.LearnModel.predict_interval
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params
+#: bayesml.autoregressive._autoregressive.LearnModel.update_posterior of
+msgid "Parameters"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:7
+#: bayesml.autoregressive._autoregressive.LearnModel:7 of
+msgid "**c_degree**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:-1
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:-1
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:-1
+#: bayesml.autoregressive._autoregressive.LearnModel:-1 of
+msgid "int"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:8
+#: bayesml.autoregressive._autoregressive.LearnModel:8 of
+msgid "a positive integer."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:10
+#: bayesml.autoregressive._autoregressive.GenModel.set_params:7 of
+msgid "**theta_vec**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:-1
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:-1
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:-1
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:-1
+#: bayesml.autoregressive._autoregressive.GenModel.set_params:-1
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:-1
+#: bayesml.autoregressive._autoregressive.LearnModel:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:-1 of
+msgid "numpy ndarray, optional"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:11 of
+msgid ""
+"a vector of real numbers, which includs the constant term,  by default "
+"[0.0, 0.0, ... , 0.0]"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:14
+#: bayesml.autoregressive._autoregressive.GenModel.set_params:10 of
+msgid "**tau**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:-1
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:-1
+#: bayesml.autoregressive._autoregressive.LearnModel:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:-1 of
+msgid "float, optional"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:15
+#: bayesml.autoregressive._autoregressive.GenModel:24
+#: bayesml.autoregressive._autoregressive.GenModel:27
+#: bayesml.autoregressive._autoregressive.LearnModel:17
+#: bayesml.autoregressive._autoregressive.LearnModel:20 of
+msgid "a positive real number, by default 1.0"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:17
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:7 of
+msgid "**h_mu_vec**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:18
+#: bayesml.autoregressive._autoregressive.LearnModel:11 of
+msgid "a vector of real numbers, by default [0.0, 0.0, ... , 0.0]"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:20
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:10 of
+msgid "**h_lambda_mat**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:21
+#: bayesml.autoregressive._autoregressive.LearnModel:14 of
+msgid "a positive definate matrix, by default the identity matrix"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:23
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:13 of
+msgid "**h_alpha**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:26
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:16 of
+msgid "**h_beta**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:29 of
+msgid "**seed**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:-1 of
+#, python-brace-format
+msgid "{None, int}, optional"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:30 of
+msgid "A seed to initialize numpy.random.default_rng(), by default None"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:35
+#: bayesml.autoregressive._autoregressive.LearnModel:46 of
+msgid "Methods"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ":py:obj:`gen_params <bayesml.autoregressive.GenModel.gen_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_params:2
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Generate the parameter from the prior distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`gen_sample <bayesml.autoregressive.GenModel.gen_sample>`\\ "
+"\\(sample\\_length\\[\\, initial\\_values\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:2
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Generate a sample from the stochastic data generative model."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`get_constants <bayesml.autoregressive.GenModel.get_constants>`\\"
+" \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_constants:2
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Get constants of GenModel."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`get_h_params <bayesml.autoregressive.GenModel.get_h_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_h_params:2
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Get the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ":py:obj:`get_params <bayesml.autoregressive.GenModel.get_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_params:2
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Get the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h_params <bayesml.autoregressive.GenModel.load_h_params>`\\"
+" \\(filename\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Load the hyperparameters to h_params."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`load_params <bayesml.autoregressive.GenModel.load_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Load the parameters saved by ``save_params``."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h_params <bayesml.autoregressive.GenModel.save_h_params>`\\"
+" \\(filename\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Save the hyperparameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`save_params <bayesml.autoregressive.GenModel.save_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Save the parameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`save_sample <bayesml.autoregressive.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_length\\[\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:2
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Save the generated sample as NumPy ``.npz`` format."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`set_h_params <bayesml.autoregressive.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_mu\\_vec\\, h\\_lambda\\_mat\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:2
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Set the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`set_params <bayesml.autoregressive.GenModel.set_params>`\\ "
+"\\(\\[theta\\_vec\\, tau\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.set_params:2
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Set the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`visualize_model "
+"<bayesml.autoregressive.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_length\\, sample\\_num\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:2
+#: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
+msgid "Visualize the stochastic data generative model and generated samples."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample
+#: bayesml.autoregressive._autoregressive.GenModel.get_constants
+#: bayesml.autoregressive._autoregressive.GenModel.get_h_params
+#: bayesml.autoregressive._autoregressive.GenModel.get_params
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params
+#: bayesml.autoregressive._autoregressive.LearnModel.get_constants
+#: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params
+#: bayesml.autoregressive._autoregressive.LearnModel.get_hn_params
+#: bayesml.autoregressive._autoregressive.LearnModel.get_p_params
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update
+#: bayesml.autoregressive._autoregressive.LearnModel.predict_interval of
+msgid "Returns"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_constants:10
+#: bayesml.autoregressive._autoregressive.LearnModel.get_constants:10 of
+msgid "**constants**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_constants:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.get_constants:-1 of
+#, python-brace-format
+msgid "dict of {str: int}"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_constants:11
+#: bayesml.autoregressive._autoregressive.LearnModel.get_constants:11 of
+msgid "``\"c_degree\"`` : the value of ``self.c_degree``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:8
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:10
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:10 of
+msgid "a vector of real numbers, by default None."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:11
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:13
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:13 of
+msgid "a positive definate matrix, by default None."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:14
+#: bayesml.autoregressive._autoregressive.GenModel.set_h_params:17
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:16
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:19
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:16
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:19 of
+msgid "a positive real number, by default None."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_h_params:10 of
+msgid "**h_params**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_h_params:-1
+#: bayesml.autoregressive._autoregressive.GenModel.get_params:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.get_hn_params:-1 of
+#, python-brace-format
+msgid "dict of {str: float or numpy ndarray}"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_h_params:11 of
+msgid "``\"h_mu_vec\"`` : The value of ``self.h_mu_vec``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_h_params:12 of
+msgid "``\"h_lambda_mat\"`` : The value of ``self.h_lambda_mat``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_h_params:13 of
+msgid "``\"h_alpha\"`` : The value of ``self.h_alpha``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_h_params:14 of
+msgid "``\"h_beta\"`` : The value of ``self.h_beta``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_params:4 of
+msgid "The generated vaule is set at ``self.theta_vec`` and ``self.tau."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.set_params:8 of
+msgid "a vector of real numbers, by default None"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.set_params:-1 of
+msgid "float, optional, optional"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.set_params:11 of
+msgid "a positive real number, by default None"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_params:10 of
+msgid "**params**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_params:11 of
+msgid "``\"theta_vec\"`` : The value of ``self.theta_vec``."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.get_params:12 of
+msgid "``\"tau\"`` : The value of ``self.tau``."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:7
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:12
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:7 of
+msgid "**sample_length**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:8
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:13 of
+msgid "A positive integer"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:10
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:15
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:13 of
+msgid "**initial_valules**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:11
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:16
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:14 of
+msgid ""
+"1 dimensional float array whose size coincide with ``self.c_degree``,  by"
+" default None."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:18
+#: bayesml.autoregressive._autoregressive.LearnModel.calc_pred_dist:7
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:7
+#: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:7 of
+msgid "**x**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:-1
+#: bayesml.autoregressive._autoregressive.LearnModel:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.calc_pred_dist:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:-1 of
+msgid "numpy ndarray"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.gen_sample:19 of
+msgid "1 dimensional float array whose size is ``sammple_length``."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:4 of
+msgid "It is saved as a NpzFile with keyword: \"x\"."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:8 of
+msgid "**filename**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:-1 of
+msgid "str"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:9 of
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.save_sample:31 of
+msgid ":obj:`numpy.savez_compressed`"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:-1 of
+msgid "int, optional"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:8 of
+msgid "A positive integer, by default 50"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:10 of
+msgid "**sample_num**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:11 of
+msgid "A positive integer, by default 5"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.GenModel.visualize_model:30
+#: bayesml.autoregressive._autoregressive.LearnModel.visualize_posterior:19 of
+msgid "Examples"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:2 of
+msgid "The posterior distribution and the predictive distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:10
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:9 of
+msgid "**h0_mu_vec**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:13
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:12 of
+msgid "**h0_lambda_mat**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:16
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:15 of
+msgid "**h0_alpha**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:19
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:18 of
+msgid "**h0_beta**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel of
+msgid "Attributes"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:24
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:9 of
+msgid "**hn_mu_vec**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:25 of
+msgid "a vector of real numbers"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:27
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:12 of
+msgid "**hn_lambda_mat**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:28 of
+msgid "a positive definate matrix"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:30
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:15 of
+msgid "**hn_alpha**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:-1 of
+msgid "float"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:31
+#: bayesml.autoregressive._autoregressive.LearnModel:34
+#: bayesml.autoregressive._autoregressive.LearnModel:37
+#: bayesml.autoregressive._autoregressive.LearnModel:40
+#: bayesml.autoregressive._autoregressive.LearnModel:43 of
+msgid "a positive real number"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:33
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:18 of
+msgid "**hn_beta**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:36 of
+msgid "**p_m**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:39 of
+msgid "**p_lambda**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:42 of
+msgid "**p_nu**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`calc_pred_dist "
+"<bayesml.autoregressive.LearnModel.calc_pred_dist>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.calc_pred_dist:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Calculate the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.autoregressive.LearnModel.estimate_params>`\\ \\(\\[loss\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+"Estimate the parameter of the stochastic data generative model under the "
+"given criterion."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.autoregressive.LearnModel.get_constants>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_constants:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Get constants of LearnModel."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`get_h0_params "
+"<bayesml.autoregressive.LearnModel.get_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+"Get the initial values of the hyperparameters of the posterior "
+"distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`get_hn_params "
+"<bayesml.autoregressive.LearnModel.get_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_hn_params:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Get the hyperparameters of the posterior distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`get_p_params <bayesml.autoregressive.LearnModel.get_p_params>`\\"
+" \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_p_params:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Get the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h0_params "
+"<bayesml.autoregressive.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Load the hyperparameters to h0_params."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`load_hn_params "
+"<bayesml.autoregressive.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Load the hyperparameters to hn_params."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.autoregressive.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Predict a new data point under the given criterion."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.autoregressive.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.autoregressive.LearnModel.pred_and_update>`\\ \\(x\\[\\, "
+"loss\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Predict a new data point and update the posterior sequentially."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`predict_interval "
+"<bayesml.autoregressive.LearnModel.predict_interval>`\\ "
+"\\(\\[credibility\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Credible interval of the prediction."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.autoregressive.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h0_params "
+"<bayesml.autoregressive.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`save_hn_params "
+"<bayesml.autoregressive.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`set_h0_params "
+"<bayesml.autoregressive.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_mu\\_vec\\, h0\\_lambda\\_mat\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Set initial values of the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`set_hn_params "
+"<bayesml.autoregressive.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_mu\\_vec\\, hn\\_lambda\\_mat\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Set updated values of the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.autoregressive.LearnModel.update_posterior>`\\ \\(x\\[\\, "
+"padding\\]\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+"Update the hyperparameters of the posterior distribution using traning "
+"data."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.autoregressive.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.visualize_posterior:2
+#: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
+msgid "Visualize the posterior distribution for the parameter."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:4 of
+msgid ""
+"Note that the parameters of the predictive distribution are also "
+"calculated from  ``self.h0_mu_vec``, ``slef.h0_lambda_mat``, "
+"``self.h0_alpha`` and ``self.h0_beta``."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params:10 of
+msgid "**h0_params**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params:11 of
+msgid "``\"h0_mu_vec\"`` : The value of ``self.h0_mu_vec``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params:12 of
+msgid "``\"h0_lambda_mat\"`` : The value of ``self.h0_lambda_mat``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params:13 of
+msgid "``\"h0_alpha\"`` : The value of ``self.h0_alpha``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params:14 of
+msgid "``\"h0_beta\"`` : The value of ``self.h0_beta``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_hn_params:10 of
+msgid "**hn_params**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_hn_params:11 of
+msgid "``\"hn_mu_vec\"`` : The value of ``self.hn_mu_vec``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_hn_params:12 of
+msgid "``\"hn_lambda_mat\"`` : The value of ``self.hn_lambda_mat``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_hn_params:13 of
+msgid "``\"hn_alpha\"`` : The value of ``self.hn_alpha``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_hn_params:14 of
+msgid "``\"hn_beta\"`` : The value of ``self.hn_beta``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:4 of
+msgid ""
+"Note that the parameters of the predictive distribution are also "
+"calculated from  ``self.hn_mu_vec``, ``slef.hn_lambda_mat``, "
+"``self.hn_alpha`` and ``self.hn_beta``."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:8 of
+msgid "1 dimensional float array"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:10 of
+msgid "**padding**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:-1 of
+msgid "str, optional"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:11 of
+msgid ""
+"Padding option for data values at negative time points. Default is "
+"``None``, in which case the first ``self.c_degree`` values of ``X`` are "
+"used as initial values. If \"zeros\" is given, the zero vector is used as"
+" a initial value."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:4 of
+msgid ""
+"Note that the criterion is applied to estimating ``theta_vec`` and "
+"``tau`` independently. Therefore, a tuple of the student's t-distribution"
+" and the gamma distribution will be returned when loss=\"KL\""
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:9
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:7
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:12 of
+msgid "**loss**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:10
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:8
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:13 of
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:17 of
+msgid "**Estimates**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:-1 of
+#, python-brace-format
+msgid "tuple of {numpy ndarray, float, None, or rv_frozen}"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:18 of
+msgid "``theta_vec_hat`` : the estimate for theta_vec"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:19 of
+msgid "``tau_hat`` : the estimate for tau"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:20 of
+msgid ""
+"The estimated values under the given loss function. If it is not exist, "
+"`None` will be returned. If the loss function is \"KL\", the posterior "
+"distribution itself will be returned as rv_frozen object of scipy.stats."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:33
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:29 of
+msgid ":obj:`scipy.stats.rv_continuous`"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:35
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:31 of
+msgid ":obj:`scipy.stats.rv_discrete`"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_p_params:10 of
+msgid "**p_params**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_p_params:-1 of
+#, python-brace-format
+msgid "dict of {str: float}"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_p_params:11 of
+msgid "``\"p_m\"`` : The value of ``self.p_m``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_p_params:12 of
+msgid "``\"p_lambda\"`` : The value of ``self.p_lambda``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.get_p_params:13 of
+msgid "``\"p_nu\"`` : The value of ``self.p_nu``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.calc_pred_dist:8 of
+msgid "1 dimensional float array whose size is ``self.c_degree``"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:15
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:20 of
+msgid "**Predicted_value**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:-1
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:-1 of
+#, python-brace-format
+msgid "{float, rv_frozen}"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:16
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:21 of
+msgid ""
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the predictive distribution itself will be returned as "
+"rv_frozen object of scipy.stats."
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:7 of
+msgid "**credibility**"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:8 of
+msgid ""
+"A posterior probability that the interval conitans the paramter, by "
+"default 0.95"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:14 of
+msgid "lower, upper: float"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:15 of
+msgid "The lower and the upper bound of the interval"
+msgstr ""
+
+#: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:8 of
+msgid ""
+"1 dimensional float array whose size is ``self.c_degree + 1``, which "
+"consists of the ``self.c_degree`` number of past values and the current "
+"value."
+msgstr ""
+

@@ -1,0 +1,489 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"PO-Revision-Date: 2025-05-22 01:15+0900\n"
+"Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
+"Language-Team: ja <LL@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: Babel 2.17.0\n"
+"X-Generator: Poedit 3.6\n"
+
+#: ../../index.rst:12
+msgid "Your First Library for Bayesian Machine Learning"
+msgstr ""
+
+#: ../../index.rst:14
+msgid ""
+"BayesML contributes to wide society thourgh promoting education, research, and "
+"application of machine learning based on Bayesian statistics and Bayesian "
+"decision theory."
+msgstr ""
+"BayesMLは，ベイズ統計学やベイズ決定理論に基づく機械学習の教育，研究，活用を促進"
+"し，社会に広く貢献することを目的としたライブラリです．"
+
+#: ../../index.rst:17
+msgid "Characteristics"
+msgstr ""
+
+#: ../../index.rst:19
+msgid "**Easy-to-use:**"
+msgstr ""
+
+#: ../../index.rst:21
+msgid ""
+"You can use pre-defined Bayesian statistical models by simply importing it. You "
+"don't need to define models yourself like PyMC or Stan."
+msgstr ""
+
+#: ../../index.rst:23
+msgid "**Bayesian Decision Theoretic API:**"
+msgstr ""
+
+#: ../../index.rst:25
+msgid ""
+"BayesML's API corresponds to the structure of decision-making based on Bayesian "
+"decision theory. Bayesian decision theory is a unified framework for handling "
+"various decision-making processes, such as parameter estimation and prediction "
+"of new data. Therefore, BayesML enables intuitive operations for a wider range "
+"of decision-making compared to the fit-predict type API adopted in libraries "
+"like scikit-learn. Moreover, many of our models also implement fit-predict "
+"functions."
+msgstr ""
+
+#: ../../index.rst:27
+msgid "**Model Visuialization Functions:**"
+msgstr ""
+
+#: ../../index.rst:29
+msgid ""
+"All packages have methods to visualize the probabilistic data generative model, "
+"generated data from that model, and the posterior distribution learned from the "
+"data in 2~3 dimensional space. Thus, you can effectively understand the "
+"characteristics of probabilistic data generative models and algorithms through "
+"the generation of synthetic data and learning from them."
+msgstr ""
+
+#: ../../index.rst:31
+msgid "**Fast Algorithms Using Conjugate Prior Distributions:**"
+msgstr ""
+
+#: ../../index.rst:33
+msgid ""
+"Many of our learning algorithms adopt exact calculation methods or variational "
+"Bayesian methods that effectively use the conjugacy between probabilistic data "
+"generative models and prior distributions. Therefore, they are much faster than "
+"general-purpose MCMC methods and are also suitable for online learning. "
+"Although some algorithms adopt MCMC methods, but they use MCMC methods "
+"specialized for each model, taking advantage of conjugacy."
+msgstr ""
+
+#: ../../index.rst:36
+msgid "News"
+msgstr ""
+
+#: ../../index.rst:38
+msgid ""
+"Our algorithm for the meta-tree model has been accepted to AISTATS 2025! For "
+"more details, please see the links below."
+msgstr ""
+
+#: ../../index.rst:40
+msgid "`Paper <https://proceedings.mlr.press/v258/nakahara25a.html>`__"
+msgstr ""
+
+#: ../../index.rst:41
+msgid ""
+"`Code Example <https://bayesml.github.io/BayesML/examples/"
+"metatree_prediction_interval.html>`__"
+msgstr ""
+
+#: ../../index.rst:44
+msgid "Installation"
+msgstr ""
+
+#: ../../index.rst:46
+msgid "Please use the following command to install BayesML."
+msgstr ""
+
+#: ../../index.rst:52
+msgid "The following are required."
+msgstr ""
+
+#: ../../index.rst:54
+msgid "Python (>= 3.7)"
+msgstr ""
+
+#: ../../index.rst:55
+msgid "NumPy (>= 1.20)"
+msgstr ""
+
+#: ../../index.rst:56
+msgid "SciPy (>= 1.7)"
+msgstr ""
+
+#: ../../index.rst:57
+msgid "MatplotLib (>= 3.5)"
+msgstr ""
+
+#: ../../index.rst:58
+msgid "Scikit-learn (>= 1.1)"
+msgstr ""
+
+#: ../../index.rst:61
+msgid "Tutorial"
+msgstr ""
+
+#: ../../index.rst:63
+msgid ""
+"Each model in BayesML has two classes. One is ``GenModel``, which can be used "
+"for parameter generation from prior or posterior distributions, and data "
+"generation. The other is ``LearnModel``, which can be used for estimating "
+"posterior distributions from data and calculating predictive distributions. "
+"Each has an API that aligns with Bayesian decision theory. Let's look at how to "
+"use each with the ``linearregression`` model as an example."
+msgstr ""
+
+#: ../../index.rst:66
+msgid "Synthetic Data Generation with ``GenModel``"
+msgstr ""
+
+#: ../../index.rst:68
+msgid "First, let's import the library."
+msgstr ""
+
+#: ../../index.rst:75
+msgid ""
+"Next, we create an instance of the probabilistic data generative model. Here, "
+"we specify the dimension of the regression coefficients (including the constant "
+"term) as ``c_degree=2`` as a constant of the model, and we specify the "
+"regression coefficients as ``theta_vec = np.array([1,1])`` and the precision "
+"(inverse of variance) of the noise term as ``tau = 10`` as parameters."
+msgstr ""
+
+#: ../../index.rst:85
+msgid ""
+"You can visualize the characteristics of the created model by the following "
+"method."
+msgstr ""
+
+#: ../../index.rst:91 ../../index.rst:133 ../../index.rst:149 ../../index.rst:162
+#: ../../index.rst:173 ../../index.rst:196 ../../index.rst:214 ../../index.rst:236
+#: ../../index.rst:248
+msgid "Output:"
+msgstr ""
+
+#: ../../index.rst
+msgid "theta_vec:"
+msgstr ""
+
+#: ../../index.rst
+msgid "[1. 1.]"
+msgstr ""
+
+#: ../../index.rst
+msgid "tau:"
+msgstr ""
+
+#: ../../index.rst
+msgid "10.0"
+msgstr ""
+
+#: ../../index.rst:100
+msgid ""
+"To generate a sample and save it to variables ``x`` and ``y``, we use the "
+"following method:"
+msgstr ""
+
+#: ../../index.rst:106
+msgid "Let's also generate test data for later use."
+msgstr ""
+
+#: ../../index.rst:113
+msgid "Learning and Decision Making with ``LearnModel``"
+msgstr ""
+
+#: ../../index.rst:115
+msgid "Let's use ``LearnModel`` to learn a model from the data we just generated."
+msgstr ""
+
+#: ../../index.rst:117
+msgid ""
+"Of course, the data that can be used with ``LearnModel`` is not limited to data "
+"generated from ``GenModel``. You can analyze various real-world data."
+msgstr ""
+
+#: ../../index.rst:119
+msgid ""
+"First, let's create an instance of the learning model. Here, we only specify "
+"the degree ``c_degree = 2`` as a constant of the model, but you can also "
+"specify hyperparameters for the prior distribution."
+msgstr ""
+
+#: ../../index.rst:127
+msgid ""
+"A method for visualizing the posterior distribution of parameters is "
+"implemented in ``LearnModel``. If you visualize the posterior distribution at "
+"this point, the prior distribution will be displayed since learning from data "
+"has not yet been performed."
+msgstr ""
+
+#: ../../index.rst:137
+msgid ""
+"To update the posterior distribution through learning from data, we use the "
+"following method."
+msgstr ""
+
+#: ../../index.rst:143
+msgid ""
+"If you visualize the updated posterior distribution, you can see that the "
+"density of the posterior distribution has moved closer to the true parameters "
+"used to generate ``x`` and ``y``."
+msgstr ""
+
+#: ../../index.rst:153
+msgid ""
+"To make decisions such as parameter estimation and prediction of new data based "
+"on the learned model, we proceed as follows."
+msgstr ""
+
+#: ../../index.rst:155
+msgid ""
+"For parameter estimation, we use the ``estimate_params`` method. By specifying "
+"the ``loss`` option as ``squared``, you can obtain an estimate that minimizes "
+"the Bayes risk function based on the squared error loss function. The resulting "
+"value is the expected value of the posterior distribution."
+msgstr ""
+
+#: ../../index.rst
+#, python-brace-format
+msgid "{'theta_vec': array([0.99846525, 0.96263024]), 'tau': 6.9036925167513195}"
+msgstr ""
+
+#: ../../index.rst:166
+msgid ""
+"If you specify the ``loss`` option as ``abs``, you can obtain an estimate that "
+"minimizes the Bayes risk function based on the absolute error loss function. "
+"The resulting value is the median of the posterior distribution, which is why "
+"the estimated value of ``tau`` differs from the previous one."
+msgstr ""
+
+#: ../../index.rst
+#, python-brace-format
+msgid "{'theta_vec': array([0.99846525, 0.96263024]), 'tau': 6.858623148933392}"
+msgstr ""
+
+#: ../../index.rst:177
+msgid ""
+"To predict new data, we first use the following method to calculate the "
+"predictive distribution for new explanatory variables."
+msgstr ""
+
+#: ../../index.rst:183
+msgid ""
+"Next, we use the ``make_prediction`` method to obtain predicted values. Similar "
+"to parameter estimation, you can specify the loss function using the ``loss`` "
+"option. (In this example, the same predicted values will be returned whether "
+"you assume squared error loss or absolute error loss since the posterior "
+"predictive distribution is symmetrical.)"
+msgstr ""
+
+#: ../../index.rst:189
+msgid "Let's calculate the mean squared error."
+msgstr ""
+
+#: ../../index.rst
+msgid "MSE: 0.09020880284291456"
+msgstr ""
+
+#: ../../index.rst:200
+msgid ""
+"Taking into account that the precision (inverse of variance) of the noise term "
+"used for data generation was 10, we can see that the predictions are achieved "
+"with sufficient accuracy."
+msgstr ""
+
+#: ../../index.rst:203
+msgid "Sampling from Posterior Distribution Using ``GenModel``"
+msgstr ""
+
+#: ../../index.rst:205
+msgid ""
+"``GenModel`` can also be used to sample parameters from the posterior "
+"distribution learned by ``LearnModel``, or to sample new data from the "
+"posterior predictive distribution."
+msgstr ""
+
+#: ../../index.rst:207
+msgid ""
+"First, the hyperparameters of the posterior distribution learned by "
+"``LearnModel`` can be obtained as follows."
+msgstr ""
+
+#: ../../index.rst
+#, python-brace-format
+msgid ""
+"{'hn_mu_vec': array([0.99846525, 0.96263024]), 'hn_lambda_mat': "
+"array([[ 99.87503339,   5.96145913], [  5.96145913, 101.        ]]), "
+"'hn_alpha': 51.0, 'hn_beta': 7.387351026461872}"
+msgstr ""
+
+#: ../../index.rst:218
+msgid ""
+"By passing these to ``GenModel``, you can sample parameters from the posterior "
+"distribution."
+msgstr ""
+
+#: ../../index.rst:220
+msgid ""
+"We create a new ``GenModel`` instance for parameter sampling and pass the "
+"hyperparameters through the ``set_h_params`` method. (In the example below, we "
+"are unpacking the values of the dictionary ``hn_params`` using ``*`` for "
+"``hn_params.values()``. This is a Python feature, not a BayesML functionality.)"
+msgstr ""
+
+#: ../../index.rst:229
+msgid ""
+"We use the ``gen_params`` method to generate parameters and the ``get_params`` "
+"method to retrieve the generated parameters. If you want to perform multiple "
+"samplings, please repeat the following in a ``for`` loop."
+msgstr ""
+
+#: ../../index.rst
+#, python-brace-format
+msgid "{'theta_vec': array([1.00935782, 0.93804208]), 'tau': 5.50775630793475}"
+msgstr ""
+
+#: ../../index.rst:240
+msgid ""
+"To sample new data from the posterior predictive distribution, we generate data "
+"after sampling parameters. When we generated the synthetic data, we did not "
+"provide explanatory variables as arguments to ``gen_sample`` (see [here]"
+"(#synthetic-data-generation-with-genmodel)), but you can also specify them "
+"explicitly as follows."
+msgstr ""
+
+#: ../../index.rst
+msgid ""
+"y_new: [-0.49532975  2.03473075  1.13758759 -0.46735058 -0.71902336 -0.09288005 "
+"0.89463227  2.07886012  2.81211771  1.60020635]"
+msgstr ""
+
+#: ../../index.rst:253
+msgid "Package list"
+msgstr ""
+
+#: ../../index.rst:255
+msgid ""
+"The following packages are currently available. In this library, a "
+"probabilistic data generative model, prior distribution, posterior distribution "
+"(or approximate posterior distribution), and predictive distribution (or "
+"approximate predictive distribution) are collectively called a model."
+msgstr ""
+
+#: ../../index.rst:257
+msgid ":doc:`bayesml`"
+msgstr ""
+
+#: ../../index.rst:258
+msgid ":doc:`bayesml.autoregressive`"
+msgstr ""
+
+#: ../../index.rst:259
+msgid ":doc:`bayesml.bernoulli`"
+msgstr ""
+
+#: ../../index.rst:260
+msgid ":doc:`bayesml.categorical`"
+msgstr ""
+
+#: ../../index.rst:261
+msgid ":doc:`bayesml.contexttree`"
+msgstr ""
+
+#: ../../index.rst:262
+msgid ":doc:`bayesml.exponential`"
+msgstr ""
+
+#: ../../index.rst:263
+msgid ":doc:`bayesml.gaussianmixture`"
+msgstr ""
+
+#: ../../index.rst:264
+msgid ":doc:`bayesml.hiddenmarkovnormal`"
+msgstr ""
+
+#: ../../index.rst:265
+msgid ":doc:`bayesml.linearregression`"
+msgstr ""
+
+#: ../../index.rst:266
+msgid ":doc:`bayesml.metatree`"
+msgstr ""
+
+#: ../../index.rst:267
+msgid ":doc:`bayesml.multivariate_normal`"
+msgstr ""
+
+#: ../../index.rst:268
+msgid ":doc:`bayesml.normal`"
+msgstr ""
+
+#: ../../index.rst:269
+msgid ":doc:`bayesml.poisson`"
+msgstr ""
+
+#: ../../index.rst:271
+msgid ""
+"In the future, we will add packages to deal with more complicated hierarchical "
+"models."
+msgstr ""
+
+#: ../../index.rst:274
+msgid "Citation"
+msgstr ""
+
+#: ../../index.rst:276
+msgid ""
+"When you use BayesML for your academic work, please provide the following "
+"bibliographic reference."
+msgstr ""
+
+#: ../../index.rst:278
+msgid "Plain text"
+msgstr ""
+
+#: ../../index.rst:287
+msgid "BibTeX"
+msgstr ""
+
+#: ../../index.rst:302
+msgid "Contents"
+msgstr ""
+
+#: ../../index.rst:312
+msgid "Indices"
+msgstr ""
+
+#: ../../index.rst:314
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../index.rst:315
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../index.rst:316
+msgid ":ref:`search`"
+msgstr ""

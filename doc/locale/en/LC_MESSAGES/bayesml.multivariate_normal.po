@@ -1,0 +1,1417 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../bayesml.multivariate_normal.rst:2
+msgid "bayesml.multivariate\\_normal package"
+msgstr ""
+
+#: ../../bayesml.multivariate_normal.rst:7
+msgid "Module contents"
+msgstr ""
+
+#: bayesml.multivariate_normal:1 of
+msgid ""
+"The multivariate normal distribution with normal-wishart prior "
+"distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal:3 of
+msgid "The stochastic data generative model is as follows:"
+msgstr ""
+
+#: bayesml.multivariate_normal:5 of
+#, python-brace-format
+msgid ":math:`D \\in \\mathbb{N}`: a dimension of data"
+msgstr ""
+
+#: bayesml.multivariate_normal:6 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{x} \\in \\mathbb{R}^D`: a data point"
+msgstr ""
+
+#: bayesml.multivariate_normal:7 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{\\mu} \\in \\mathbb{R}^D`: a parameter"
+msgstr ""
+
+#: bayesml.multivariate_normal:8 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\Lambda} \\in \\mathbb{R}^{D\\times D}` : a "
+"parameter (a positive definite matrix)"
+msgstr ""
+
+#: bayesml.multivariate_normal:9 of
+#, python-brace-format
+msgid ""
+":math:`| \\boldsymbol{\\Lambda} | \\in \\mathbb{R}`: the determinant of "
+":math:`\\boldsymbol{\\Lambda}`"
+msgstr ""
+
+#: bayesml.multivariate_normal:11 of
+msgid ""
+"p(\\boldsymbol{x} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}) &= "
+"\\mathcal{N}(\\boldsymbol{x}|\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}^{-1})"
+" \\\\\n"
+"&= \\frac{| \\boldsymbol{\\Lambda} |^{1/2}}{(2\\pi)^{D/2}} \\exp "
+"\\left\\{ -\\frac{1}{2}(\\boldsymbol{x}-\\boldsymbol{\\mu})^\\top "
+"\\boldsymbol{\\Lambda} (\\boldsymbol{x}-\\boldsymbol{\\mu}) \\right\\},\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:15 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E} [\\boldsymbol{x} | \\boldsymbol{\\mu}, "
+"\\boldsymbol{\\Lambda}] &= \\boldsymbol{\\mu}, \\\\\n"
+"\\mathrm{Cov} [\\boldsymbol{x} | \\boldsymbol{\\mu}, "
+"\\boldsymbol{\\Lambda}] &= \\boldsymbol{\\Lambda}^{-1}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:19 of
+msgid "The prior distribution is as follows:"
+msgstr ""
+
+#: bayesml.multivariate_normal:21 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{m}_0 \\in \\mathbb{R}^{D}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.multivariate_normal:22 of
+#, python-brace-format
+msgid ":math:`\\kappa_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.multivariate_normal:23 of
+#, python-brace-format
+msgid ":math:`\\nu_0 \\in \\mathbb{R}`: a hyperparameter (:math:`\\nu_0 > D-1`)"
+msgstr ""
+
+#: bayesml.multivariate_normal:24 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{W}_0 \\in \\mathbb{R}^{D\\times D}`: a hyperparameter"
+" (a positive definite matrix)"
+msgstr ""
+
+#: bayesml.multivariate_normal:25 of
+#, python-brace-format
+msgid ":math:`\\mathrm{Tr} \\{ \\cdot \\}`: a trace of a matrix"
+msgstr ""
+
+#: bayesml.multivariate_normal:26 of
+msgid ":math:`\\Gamma (\\cdot)`: the gamma function"
+msgstr ""
+
+#: bayesml.multivariate_normal:28 of
+msgid ""
+"p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}) &= "
+"\\mathcal{N}(\\boldsymbol{\\mu}|\\boldsymbol{m}_0,(\\kappa_0 "
+"\\boldsymbol{\\Lambda})^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}|\\boldsymbol{W}_0,"
+" \\nu_0) \\\\\n"
+"&= \\left( \\frac{\\kappa_0}{2\\pi} \\right)^{D/2} "
+"|\\boldsymbol{\\Lambda}|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_0}{2}(\\boldsymbol{\\mu}-\\boldsymbol{m}_0)^\\top "
+"\\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-\\boldsymbol{m}_0) \\right\\} "
+"\\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_0, \\nu_0) | \\boldsymbol{\\Lambda} "
+"|^{(\\nu_0 - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ "
+"\\boldsymbol{W}_0^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\\\\\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:33 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[\\boldsymbol{\\mu}] &= \\boldsymbol{m}_0 & (\\nu_n > D), \\\\"
+"\n"
+"\\mathrm{Cov}[\\boldsymbol{\\mu}] &= \\frac{1}{\\kappa_0 (\\nu_0 - D - "
+"1)} \\boldsymbol{W}_0^{-1} & (\\nu_n > D + 1), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{\\Lambda}] &= \\nu_0 \\boldsymbol{W}_0,\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:38 of
+#, python-brace-format
+msgid "where :math:`B(\\boldsymbol{W}_0, \\nu_0)` is defined as follows:"
+msgstr ""
+
+#: bayesml.multivariate_normal:40 of
+#, python-brace-format
+msgid ""
+"B(\\boldsymbol{W}_0, \\nu_0) = | \\boldsymbol{W}_0 |^{-\\nu_0 / 2} "
+"\\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma \\left( "
+"\\frac{\\nu_0 + 1 - i}{2} \\right) \\right)^{-1}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:43 of
+msgid "The posterior distribution is as follows:"
+msgstr ""
+
+#: bayesml.multivariate_normal:45 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
+", \\boldsymbol{x}_n) \\in \\mathbb{R}^{D\\times n}`: given data"
+msgstr ""
+
+#: bayesml.multivariate_normal:46 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{m}_n \\in \\mathbb{R}^{D}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.multivariate_normal:47 of
+#, python-brace-format
+msgid ":math:`\\kappa_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.multivariate_normal:48 of
+#, python-brace-format
+msgid ":math:`\\nu_n \\in \\mathbb{R}`: a hyperparameter :math:`(\\nu_n > D-1)`"
+msgstr ""
+
+#: bayesml.multivariate_normal:49 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{W}_n \\in \\mathbb{R}^{D\\times D}`: a hyperparameter"
+" (a positive definite matrix)"
+msgstr ""
+
+#: bayesml.multivariate_normal:51 of
+msgid ""
+"p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda} | \\boldsymbol{x}^n) &= "
+"\\mathcal{N}(\\boldsymbol{\\mu}|\\boldsymbol{m}_n,(\\kappa_n "
+"\\boldsymbol{\\Lambda})^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}|\\boldsymbol{W}_n,"
+" \\nu_n) \\\\\n"
+"&= \\left( \\frac{\\kappa_n}{2\\pi} \\right)^{D/2} "
+"|\\boldsymbol{\\Lambda}|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_n}{2}(\\boldsymbol{\\mu}-\\boldsymbol{m}_n)^\\top "
+"\\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-\\boldsymbol{m}_n) \\right\\} "
+"\\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_n, \\nu_n) | \\boldsymbol{\\Lambda} "
+"|^{(\\nu_n - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ "
+"\\boldsymbol{W}_n^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:56 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= \\boldsymbol{m}_n "
+"& (\\nu_n > D), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= "
+"\\frac{1}{\\kappa_n (\\nu_n - D - 1)} \\boldsymbol{W}_n^{-1} & (\\nu_n > "
+"D + 1), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{\\Lambda} | \\boldsymbol{x}^n] &= \\nu_n "
+"\\boldsymbol{W}_n,\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:61 of
+msgid "where the updating rule of the hyperparameters is"
+msgstr ""
+
+#: bayesml.multivariate_normal:63 of
+msgid ""
+"\\bar{\\boldsymbol{x}} &= \\frac{1}{n} \\sum_{i=1}^n \\boldsymbol{x}_i, "
+"\\\\\n"
+"\\boldsymbol{m}_n &= "
+"\\frac{\\kappa_0\\boldsymbol{\\mu}_0+n\\bar{\\boldsymbol{x}}}{\\kappa_0+n},"
+" \\\\\n"
+"\\kappa_n &= \\kappa_0 + n, \\\\\n"
+"\\boldsymbol{W}_n^{-1} &= \\boldsymbol{W}_0^{-1} + "
+"\\sum_{i=1}^{n}(\\boldsymbol{x}_i-\\bar{\\boldsymbol{x}})(\\boldsymbol{x}_i-\\bar{\\boldsymbol{x}})^\\top"
+" + \\frac{\\kappa_0 "
+"n}{\\kappa_0+n}(\\bar{\\boldsymbol{x}}-\\boldsymbol{\\mu}_0)(\\bar{\\boldsymbol{x}}-\\boldsymbol{\\mu}_0)^\\top,"
+" \\\\\n"
+"\\nu_n &= \\nu_0 + n.\\\\\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:70 of
+msgid "The predictive distribution is as follows:"
+msgstr ""
+
+#: bayesml.multivariate_normal:72 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{x}_{n+1} \\in \\mathbb{R}^D`: a new data point"
+msgstr ""
+
+#: bayesml.multivariate_normal:73 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\mu}_\\mathrm{p} \\in \\mathbb{R}^D`: the "
+"hyperparameter of the predictive distribution"
+msgstr ""
+
+#: bayesml.multivariate_normal:74 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\Lambda}_\\mathrm{p} \\in \\mathbb{R}^{D \\times "
+"D}`: the hyperparameter of the predictive distribution (a positive "
+"definite matrix)"
+msgstr ""
+
+#: bayesml.multivariate_normal:75 of
+#, python-brace-format
+msgid ""
+":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of the"
+" predictive distribution"
+msgstr ""
+
+#: bayesml.multivariate_normal:77 of
+msgid ""
+"&p(x_{n+1}|x^n) \\\\\n"
+"&= "
+"\\mathrm{St}(x_{n+1}|\\boldsymbol{\\mu}_\\mathrm{p},\\boldsymbol{\\Lambda}_\\mathrm{p},"
+" \\nu_\\mathrm{p}) \\\\\n"
+"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + D / 2)}{\\Gamma "
+"(\\nu_\\mathrm{p} / 2)} "
+"\\frac{|\\boldsymbol{\\Lambda}_\\mathrm{p}|^{1/2}}{(\\nu_\\mathrm{p} "
+"\\pi)^{D/2}} \\left( 1 + \\frac{1}{\\nu_\\mathrm{p}} "
+"(\\boldsymbol{x}_{n+1} - \\boldsymbol{\\mu}_\\mathrm{p})^\\top "
+"\\boldsymbol{\\Lambda}_\\mathrm{p} (\\boldsymbol{x}_{n+1} - "
+"\\boldsymbol{\\mu}_\\mathrm{p}) \\right)^{-\\nu_\\mathrm{p}/2 - D/2},\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:82 of
+msgid ""
+"\\mathbb{E}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= "
+"\\boldsymbol{\\mu}_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= "
+"\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} "
+"\\boldsymbol{\\Lambda}_\\mathrm{p}^{-1} & (\\nu_\\mathrm{p} > 2),\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal:86 of
+msgid ""
+"where the parameters are obtained from the hyperparameters of the "
+"posterior distribution as follows:"
+msgstr ""
+
+#: bayesml.multivariate_normal:88 of
+#, python-brace-format
+msgid ""
+"\\boldsymbol{\\mu}_\\mathrm{p} &= \\boldsymbol{m}_n, \\\\\n"
+"\\boldsymbol{\\Lambda}_\\mathrm{p} &= \\frac{\\kappa_n (\\nu_n - D + "
+"1)}{\\kappa_n + 1} \\boldsymbol{W}_n, \\\\\n"
+"\\nu_\\mathrm{p} &= \\nu_n - D + 1.\n"
+"\n"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:2 of
+msgid "The stochastic data generative model and the prior distribution"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_params
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.update_posterior
+#: of
+msgid "Parameters"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:7
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:7 of
+msgid "**c_degree**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:-1
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample:-1
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:-1 of
+msgid "int"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:8
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:8 of
+msgid "a positive integer."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:10
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_params:7 of
+msgid "**mu_vec**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:-1
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:-1
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_params:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:-1
+#: of
+msgid "numpy.ndarray, optional"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:11
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:17
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:11 of
+msgid "a vector of real numbers, by default [0.0, 0.0, ... , 0.0]"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:13
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_params:10 of
+msgid "**lambda_mat**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:14
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:26
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:20 of
+msgid "a positive definite symetric matrix, by default the identity matrix"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:16
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:7 of
+msgid "**h_m_vec**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:19
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:10 of
+msgid "**h_kappa**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:-1
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:-1
+#: of
+msgid "float, optional"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:20
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:14 of
+msgid "a positive real number, by default 1.0"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:22
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:13 of
+msgid "**h_nu**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:23
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:17 of
+msgid "a real number > c_degree-1, by default the value of ``c_degree``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:25
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:16 of
+msgid "**h_w_mat**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:28 of
+msgid "**seed**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:-1 of
+#, python-brace-format
+msgid "{None, int}, optional"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:29 of
+msgid "A seed to initialize numpy.random.default_rng(), by default None"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:34
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:55 of
+msgid "Methods"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`gen_params <bayesml.multivariate_normal.GenModel.gen_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_params:2
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Generate the parameter from the prior distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`gen_sample <bayesml.multivariate_normal.GenModel.gen_sample>`\\ "
+"\\(sample\\_size\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample:2
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Generate a sample from the stochastic data generative model."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.multivariate_normal.GenModel.get_constants>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_constants:2
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Get constants of GenModel."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_h_params "
+"<bayesml.multivariate_normal.GenModel.get_h_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_h_params:2
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Get the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_params <bayesml.multivariate_normal.GenModel.get_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_params:2
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Get the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_h_params "
+"<bayesml.multivariate_normal.GenModel.load_h_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Load the hyperparameters to h_params."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_params "
+"<bayesml.multivariate_normal.GenModel.load_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Load the parameters saved by ``save_params``."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_h_params "
+"<bayesml.multivariate_normal.GenModel.save_h_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Save the hyperparameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_params "
+"<bayesml.multivariate_normal.GenModel.save_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Save the parameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_sample "
+"<bayesml.multivariate_normal.GenModel.save_sample>`\\ \\(filename\\, "
+"sample\\_size\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:2
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Save the generated sample as NumPy ``.npz`` format."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_h_params "
+"<bayesml.multivariate_normal.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_m\\_vec\\, h\\_kappa\\, h\\_nu\\, h\\_w\\_mat\\]\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:2
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Set the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_params <bayesml.multivariate_normal.GenModel.set_params>`\\ "
+"\\(\\[mu\\_vec\\, lambda\\_mat\\]\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_params:2
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Set the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`visualize_model "
+"<bayesml.multivariate_normal.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_size\\]\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:2
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
+#: of
+msgid "Visualize the stochastic data generative model and generated samples."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_constants
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_h_params
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_params
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_constants
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_h0_params
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_hn_params
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict of
+msgid "Returns"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_constants:10
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_constants:10
+#: of
+msgid "**constants**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_constants:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_constants:-1
+#: of
+#, python-brace-format
+msgid "dict of {str: int}"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_constants:11
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_constants:11
+#: of
+msgid "``\"c_degree\"`` : the value of ``self.c_degree``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:8
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_params:8
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:8
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:8
+#: of
+msgid "a vector of real numbers, by default None"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:11
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:11
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:11
+#: of
+msgid "a positive real number, by default None"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:14
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:14
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:14
+#: of
+msgid "a real number > c_degree-1, by default None"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:17
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.set_params:11
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:17
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:17
+#: of
+msgid "a positive definite symetric matrix, by default None"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_h_params:10 of
+msgid "**h_params**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_h_params:-1 of
+#, python-brace-format
+msgid "{str:float, np.ndarray}"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_h_params:11 of
+msgid "``\"h_m_vec\"`` : The value of ``self.h_mu_vec``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_h_params:12 of
+msgid "``\"h_kappa\"`` : The value of ``self.h_kappa``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_h_params:13 of
+msgid "``\"h_nu\"`` : The value of ``self.h_nu``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_h_params:14 of
+msgid "``\"h_w_mat\"`` : The value of ``self.h_lambda_mat``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_params:4 of
+msgid "The generated vaule is set at ``self.mu_vec`` and ``self.lambda_mat``."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_params:10 of
+msgid "**params**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_params:-1 of
+#, python-brace-format
+msgid "{str:float, numpy.ndarray}"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_params:11 of
+msgid "``\"mu_vec\"`` : The value of ``self.mu_vec``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.get_params:12 of
+msgid "``\"lambda_mat\"`` : The value of ``self.lambda_mat``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample:7
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:12
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:7
+#: of
+msgid "**sample_size**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample:8
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:13 of
+msgid "A positive integer"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample:14
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit:12
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:7
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.update_posterior:7
+#: of
+msgid "**x**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample:-1 of
+msgid "numpy ndarray"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample:15 of
+msgid ""
+"2-dimensional array whose shape is ``(sammple_size,c_degree)`` and its "
+"elements are real number."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:4 of
+msgid "It is saved as a NpzFile with keyword: \"x\"."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:8 of
+msgid "**filename**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:-1 of
+msgid "str"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:9 of
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:27 of
+msgid ":obj:`numpy.savez_compressed`"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:-1
+#: of
+msgid "int, optional"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:8
+#: of
+msgid "A positive integer, by default 1"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:23
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.visualize_posterior:19
+#: of
+msgid "Examples"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:2 of
+msgid "The posterior distribution and the predictive distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:10
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:7
+#: of
+msgid "**h0_m_vec**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:13
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:10
+#: of
+msgid "**h0_kappa**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:16
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:13
+#: of
+msgid "**h0_nu**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:19
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:16
+#: of
+msgid "**h0_w_mat**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel of
+msgid "Attributes"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:24 of
+msgid "**h0_w_mat_inv**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.update_posterior:-1
+#: of
+msgid "numpy.ndarray"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:25 of
+msgid "the inverse matrix of h0_w_mat"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:27
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:7
+#: of
+msgid "**hn_m_vec**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:28
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:43 of
+msgid "a vector of real numbers"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:30
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:10
+#: of
+msgid "**hn_kappa**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:-1 of
+msgid "float"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:31
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:46 of
+msgid "a positive real number"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:33
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:13
+#: of
+msgid "**hn_nu**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:34 of
+msgid "a real number"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:36
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:16
+#: of
+msgid "**hn_w_mat**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:37
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:49 of
+msgid "a positive definite symetric matrix"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:39 of
+msgid "**hn_w_mat_inv**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:40 of
+msgid "the inverse matrix of hn_w_mat"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:42 of
+msgid "**p_m_vec**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:45 of
+msgid "**p_nu**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:48 of
+msgid "**p_v_mat**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:51 of
+msgid "**p_v_mat_inv**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:52 of
+msgid "the inverse matrix of p_v_mat"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`calc_pred_dist "
+"<bayesml.multivariate_normal.LearnModel.calc_pred_dist>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.calc_pred_dist:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Calculate the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.multivariate_normal.LearnModel.estimate_params>`\\ \\(\\[loss\\,"
+" dict\\_out\\]\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+"Estimate the parameter of the stochastic data generative model under the "
+"given criterion."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ":py:obj:`fit <bayesml.multivariate_normal.LearnModel.fit>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Fit the model to the data."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.multivariate_normal.LearnModel.get_constants>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_constants:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Get constants of LearnModel."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_h0_params "
+"<bayesml.multivariate_normal.LearnModel.get_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_h0_params:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+"Get the initial values of the hyperparameters of the posterior "
+"distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_hn_params "
+"<bayesml.multivariate_normal.LearnModel.get_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_hn_params:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Get the hyperparameters of the posterior distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_p_params "
+"<bayesml.multivariate_normal.LearnModel.get_p_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Get the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_h0_params "
+"<bayesml.multivariate_normal.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Load the hyperparameters to h0_params."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_hn_params "
+"<bayesml.multivariate_normal.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Load the hyperparameters to hn_params."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.multivariate_normal.LearnModel.make_prediction>`\\ "
+"\\(\\[loss\\]\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Predict a new data point under the given criterion."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.multivariate_normal.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.multivariate_normal.LearnModel.pred_and_update>`\\ \\(x\\[\\, "
+"loss\\]\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Predict a new data point and update the posterior sequentially."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`predict <bayesml.multivariate_normal.LearnModel.predict>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Predict the next data point."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.multivariate_normal.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_h0_params "
+"<bayesml.multivariate_normal.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_hn_params "
+"<bayesml.multivariate_normal.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_h0_params "
+"<bayesml.multivariate_normal.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_m\\_vec\\, h0\\_kappa\\, h0\\_nu\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_hn_params "
+"<bayesml.multivariate_normal.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_m\\_vec\\, hn\\_kappa\\, hn\\_nu\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Set updated values of the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.multivariate_normal.LearnModel.update_posterior>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.update_posterior:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+"Update the hyperparameters of the posterior distribution using traning "
+"data."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.multivariate_normal.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.visualize_posterior:2
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
+#: of
+msgid "Visualize the posterior distribution for the parameter."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_h0_params:10
+#: of
+msgid "**h0_params**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_h0_params:-1
+#: of
+#, python-brace-format
+msgid "dict of {str: float, numpy.ndarray}"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_h0_params:11
+#: of
+msgid "``\"h0_m_vec\"`` : The value of ``self.h0_m_vec``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_h0_params:12
+#: of
+msgid "``\"h0_kappa\"`` : The value of ``self.h0_kappa``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_h0_params:13
+#: of
+msgid "``\"h0_nu\"`` : The value of ``self.h0_nu``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_h0_params:14
+#: of
+msgid "``\"h0_w_mat\"`` : The value of ``self.h0_w_mat``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_hn_params:10
+#: of
+msgid "**hn_params**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_hn_params:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:-1
+#: of
+#, python-brace-format
+msgid "dict of {str: numpy.ndarray}"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_hn_params:11
+#: of
+msgid "``\"hn_m_vec\"`` : The value of ``self.hn_m_vec``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_hn_params:12
+#: of
+msgid "``\"hn_kappa\"`` : The value of ``self.hn_kappa``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_hn_params:13
+#: of
+msgid "``\"hn_nu\"`` : The value of ``self.hn_nu``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_hn_params:14
+#: of
+msgid "``\"hn_w_mat\"`` : The value of ``self.hn_w_mat``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit:13
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.update_posterior:8
+#: of
+msgid "All the elements must be real numbers."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:4
+#: of
+msgid ""
+"Note that the criterion is applied to estimating ``mu_vec`` and "
+"``lambda_mat`` independently. Therefore, a tuple of the student's "
+"t-distribution and the wishart distribution will be returned when "
+"loss=\"KL\""
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:9
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:7
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:10
+#: of
+msgid "**loss**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:-1
+#: of
+msgid "str, optional"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:10
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:8
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:11
+#: of
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\", \"0-1\", and \"KL\"."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:13
+#: of
+msgid "**dict_out**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:-1
+#: of
+msgid "bool, optional"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:14
+#: of
+msgid "If ``True``, output will be a dict, by default ``False``."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:20
+#: of
+msgid "**estimates**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:-1
+#: of
+#, python-brace-format
+msgid "tuple of {numpy ndarray, float, None, or rv_frozen}"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:21
+#: of
+msgid "``mu_vec_hat`` : the estimate for mu_vec"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:22
+#: of
+msgid "``lambda_mat_hat`` : the estimate for lambda_mat"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:23
+#: of
+msgid ""
+"The estimated values under the given loss function. If it is not exist, "
+"`None` will be returned. If the loss function is \"KL\", the posterior "
+"distribution itself will be returned as rv_frozen object of scipy.stats."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:36
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:29
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:32
+#: of
+msgid ":obj:`scipy.stats.rv_continuous`"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:38
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:31
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:34
+#: of
+msgid ":obj:`scipy.stats.rv_discrete`"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:10
+#: of
+msgid "**p_params**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:11
+#: of
+msgid "``\"p_m_vec\"`` : The value of ``self.p_m_vec``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:12
+#: of
+msgid "``\"p_nu\"`` : The value of ``self.p_nu``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:13
+#: of
+msgid "``\"p_v_mat\"`` : The value of ``self.p_v_mat``"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:15
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:18
+#: of
+msgid "**Predicted_value**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:-1
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:-1
+#: of
+#, python-brace-format
+msgid "{numpy.ndarray, rv_frozen}"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:16
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:19
+#: of
+msgid ""
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the posterior distribution itself will be returned as "
+"rv_frozen object of scipy.stats."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:8
+#: of
+msgid "It must be a c_degree-dimensional vector"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit:4
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict:4 of
+msgid "This function is a wrapper of the following functions:"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit:19 of
+msgid "**self**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit:-1 of
+msgid "LearnModel"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.fit:20 of
+msgid "The fitted model."
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict:14 of
+msgid "**predicted_value**"
+msgstr ""
+
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict:15 of
+msgid "The predicted value under the squared loss function."
+msgstr ""
+

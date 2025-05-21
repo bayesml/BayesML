@@ -1,0 +1,1369 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../bayesml.linearregression.rst:2
+msgid "bayesml.linearregression package"
+msgstr ""
+
+#: ../../bayesml.linearregression.rst:7
+msgid "Module contents"
+msgstr ""
+
+#: bayesml.linearregression:1 of
+msgid "The  Baysian Linear Regression."
+msgstr ""
+
+#: bayesml.linearregression:3 of
+msgid "The stochastic data generative model is as follows:"
+msgstr ""
+
+#: bayesml.linearregression:5 of
+msgid ":math:`d \\in \\mathbb N`: a dimension"
+msgstr ""
+
+#: bayesml.linearregression:6 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{x} = [x_1, x_2, \\dots , x_d] \\in \\mathbb{R}^d`: an"
+" explanatory variable. If you consider an intercept term, it should be "
+"included as one of the elements of :math:`\\boldsymbol{x}`."
+msgstr ""
+
+#: bayesml.linearregression:7 of
+#, python-brace-format
+msgid ":math:`y\\in\\mathbb{R}`: an objective variable"
+msgstr ""
+
+#: bayesml.linearregression:8 of
+#, python-brace-format
+msgid ":math:`\\tau \\in\\mathbb{R}_{>0}`: a parameter"
+msgstr ""
+
+#: bayesml.linearregression:9 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{\\theta}\\in\\mathbb{R}^{d}`: a parameter"
+msgstr ""
+
+#: bayesml.linearregression:11 of
+msgid ""
+"p(y|\\boldsymbol{x},\\boldsymbol{\\theta},\\tau) &= \\mathcal N (y| "
+"\\boldsymbol{\\theta}^{\\top} \\boldsymbol{x},\\tau^{-1}) \\\\\n"
+"&= \\sqrt{\\frac{\\tau}{2 \\pi}} \\exp \\left\\{ -\\frac{\\tau}{2} (y - "
+"\\boldsymbol{\\theta}^\\top \\boldsymbol{x})^2 \\right\\}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression:16 of
+#, python-brace-format
+msgid ""
+"&\\mathbb{E}[ y | \\boldsymbol{x},\\boldsymbol{\\theta},\\tau] = "
+"\\boldsymbol{\\theta}^{\\top} \\boldsymbol{x}, \\\\\n"
+"&\\mathbb{V}[ y | \\boldsymbol{x},\\boldsymbol{\\theta},\\tau ] = "
+"\\tau^{-1}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression:20 of
+msgid "The prior distribution is as follows:"
+msgstr ""
+
+#: bayesml.linearregression:22 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{\\mu_0} \\in \\mathbb{R}^d`: a hyperparameter"
+msgstr ""
+
+#: bayesml.linearregression:23 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\Lambda_0} \\in \\mathbb{R}^{d\\times d}`: a "
+"hyperparameter (a positive definite matrix)"
+msgstr ""
+
+#: bayesml.linearregression:24 of
+#, python-brace-format
+msgid ":math:`\\alpha_0\\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.linearregression:25 of
+#, python-brace-format
+msgid ":math:`\\beta_0\\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.linearregression:27 of
+msgid ""
+"p(\\boldsymbol{\\theta}, \\tau) &= "
+"\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_0, (\\tau "
+"\\boldsymbol{\\Lambda}_0)^{-1}) "
+"\\mathrm{Gam}(\\tau|\\alpha_0,\\beta_0)\\\\\n"
+"&= \\frac{|\\tau \\boldsymbol{\\Lambda}_0|^{1/2}}{(2 \\pi)^{d/2}} \\exp "
+"\\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - "
+"\\boldsymbol{\\mu}_0)^\\top \\boldsymbol{\\Lambda}_0 "
+"(\\boldsymbol{\\theta} - \\boldsymbol{\\mu}_0) \\right\\} "
+"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\tau^{\\alpha_0 - 1} "
+"\\exp \\{ -\\beta_0 \\tau \\} .\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression:31 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[\\boldsymbol{\\theta}] &= \\boldsymbol{\\mu}_0 & \\left( "
+"\\alpha_0 > \\frac{1}{2} \\right), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{\\theta}] &= \\frac{\\beta_0}{\\alpha_0 - 1} "
+"\\boldsymbol{\\Lambda}_0^{-1} & (\\alpha_0 > 1), \\\\\n"
+"\\mathbb{E}[\\tau] &= \\frac{\\alpha_0}{\\beta_0}, \\\\\n"
+"\\mathbb{V}[\\tau] &= \\frac{\\alpha_0}{\\beta_0^2}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression:38 of
+msgid "The posterior distribution is as follows:"
+msgstr ""
+
+#: bayesml.linearregression:40 of
+msgid ":math:`n \\in \\mathbb N`: a sample size"
+msgstr ""
+
+#: bayesml.linearregression:41 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{X} = [\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots , "
+"\\boldsymbol{x}_n]^\\top \\in \\mathbb{R}^{n \\times d}`"
+msgstr ""
+
+#: bayesml.linearregression:42 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{y} = [y_1, y_2, \\dots , y_n]^\\top \\in "
+"\\mathbb{R}^n`"
+msgstr ""
+
+#: bayesml.linearregression:43 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{\\mu}_n\\in \\mathbb{R}^d`: a hyperparameter"
+msgstr ""
+
+#: bayesml.linearregression:44 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\Lambda_n} \\in \\mathbb{R}^{d\\times d}`: a "
+"hyperparameter (a positive definite matrix)"
+msgstr ""
+
+#: bayesml.linearregression:45 of
+#, python-brace-format
+msgid ":math:`\\alpha_n\\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.linearregression:46 of
+#, python-brace-format
+msgid ":math:`\\beta_n\\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.linearregression:48 of
+msgid ""
+"p(\\boldsymbol{\\theta}, \\tau | \\boldsymbol{X}, \\boldsymbol{y}) &= "
+"\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_n, (\\tau "
+"\\boldsymbol{\\Lambda}_n)^{-1}) "
+"\\mathrm{Gam}(\\tau|\\alpha_n,\\beta_n)\\\\\n"
+"&= \\frac{|\\tau \\boldsymbol{\\Lambda}_n|^{1/2}}{(2 \\pi)^{d/2}} \\exp "
+"\\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - "
+"\\boldsymbol{\\mu}_n)^\\top \\boldsymbol{\\Lambda}_n "
+"(\\boldsymbol{\\theta} - \\boldsymbol{\\mu}_n) \\right\\} "
+"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\tau^{\\alpha_n - 1} "
+"\\exp \\{ -\\beta_n \\tau \\} .\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression:52 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[\\boldsymbol{\\theta} | \\boldsymbol{X}, \\boldsymbol{y}] &= "
+"\\boldsymbol{\\mu}_n & \\left( \\alpha_n > \\frac{1}{2} \\right), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{\\theta} | \\boldsymbol{X}, \\boldsymbol{y}] "
+"&= \\frac{\\beta_n}{\\alpha_n - 1} \\boldsymbol{\\Lambda}_n^{-1} & "
+"(\\alpha_n > 1), \\\\\n"
+"\\mathbb{E}[\\tau | \\boldsymbol{X}, \\boldsymbol{y}] &= "
+"\\frac{\\alpha_n}{\\beta_n}, \\\\\n"
+"\\mathbb{V}[\\tau | \\boldsymbol{X}, \\boldsymbol{y}] &= "
+"\\frac{\\alpha_n}{\\beta_n^2},\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression:58 of
+msgid "where the updating rules of the hyperparameters are"
+msgstr ""
+
+#: bayesml.linearregression:60 of
+#, python-brace-format
+msgid ""
+"\\boldsymbol{\\Lambda}_n &= \\boldsymbol{\\Lambda}_0 + "
+"\\boldsymbol{X}^\\top \\boldsymbol{X},\\\\\n"
+"\\boldsymbol{\\mu}_n &= \\boldsymbol{\\Lambda}_n^{-1} "
+"(\\boldsymbol{\\Lambda}_0 \\boldsymbol{\\mu}_0 + \\boldsymbol{X}^\\top "
+"\\boldsymbol{y}),\\\\\n"
+"\\alpha_n &= \\alpha_0 + \\frac{n}{2},\\\\\n"
+"\\beta_n &= \\beta_0 + \\frac{1}{2} \\left( -\\boldsymbol{\\mu}_n^\\top "
+"\\boldsymbol{\\Lambda}_n \\boldsymbol{\\mu}_n + \\boldsymbol{y}^\\top "
+"\\boldsymbol{y} + \\boldsymbol{\\mu}_0^\\top \\boldsymbol{\\Lambda}_0 "
+"\\boldsymbol{\\mu}_0 \\right).\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression:66 of
+msgid "The predictive distribution is as follows:"
+msgstr ""
+
+#: bayesml.linearregression:68 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{x}_{n+1}\\in \\mathbb{R}^d`: a new data point"
+msgstr ""
+
+#: bayesml.linearregression:69 of
+#, python-brace-format
+msgid ":math:`y_{n+1}\\in \\mathbb{R}`: a new objective variable"
+msgstr ""
+
+#: bayesml.linearregression:70 of
+#, python-brace-format
+msgid ":math:`m_\\mathrm{p}\\in \\mathbb{R}`: a parameter"
+msgstr ""
+
+#: bayesml.linearregression:71 of
+#, python-brace-format
+msgid ":math:`\\lambda_\\mathrm{p}\\in \\mathbb{R}`: a parameter"
+msgstr ""
+
+#: bayesml.linearregression:72 of
+#, python-brace-format
+msgid ":math:`\\nu_\\mathrm{p}\\in \\mathbb{R}`: a parameter"
+msgstr ""
+
+#: bayesml.linearregression:74 of
+msgid ""
+"p(y_{n+1} | \\boldsymbol{X}, \\boldsymbol{y}, \\boldsymbol{x}_{n+1} ) &= "
+"\\mathrm{St}\\left(y_{n+1} \\mid m_\\mathrm{p}, \\lambda_\\mathrm{p}, "
+"\\nu_\\mathrm{p}\\right) \\\\\n"
+"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + 1/2 )}{\\Gamma "
+"(\\nu_\\mathrm{p} / 2)} \\left( \\frac{\\lambda_\\mathrm{p}}{\\pi "
+"\\nu_\\mathrm{p}} \\right)^{1/2} \\left( 1 + \\frac{\\lambda_\\mathrm{p} "
+"(y_{n+1} - m_\\mathrm{p})^2}{\\nu_\\mathrm{p}} "
+"\\right)^{-\\nu_\\mathrm{p}/2 - 1/2},\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression:78 of
+msgid ""
+"\\mathbb{E}[y_{n+1} | \\boldsymbol{X}, \\boldsymbol{y}, "
+"\\boldsymbol{x}_{n+1}] &= m_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
+"\\mathbb{V}[y_{n+1} | \\boldsymbol{X}, \\boldsymbol{y}, "
+"\\boldsymbol{x}_{n+1}] &= \\frac{1}{\\lambda_\\mathrm{p}} "
+"\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} & (\\nu_\\mathrm{p} > 2),\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression:82 of
+msgid ""
+"where the parameters are obtained from the hyperparameters of the "
+"posterior distribution as follows."
+msgstr ""
+
+#: bayesml.linearregression:84 of
+msgid ""
+"m_\\mathrm{p} &= \\boldsymbol{x}_{n+1}^{\\top} \\boldsymbol{\\mu}_{n}, "
+"\\\\\n"
+"\\lambda_\\mathrm{p} &= "
+"\\frac{\\alpha_{n}}{\\beta_{n}}\\left(1+\\boldsymbol{x}_{n+1}^{\\top} "
+"\\boldsymbol{\\Lambda}_{n} \\boldsymbol{x}_{n+1}\\right)^{-1}, \\\\\n"
+"\\nu_\\mathrm{p} &= 2 \\alpha_{n}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:2 of
+msgid "The stochastic data generative model and the prior distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel
+#: bayesml.linearregression._linearregression.GenModel.gen_sample
+#: bayesml.linearregression._linearregression.GenModel.save_sample
+#: bayesml.linearregression._linearregression.GenModel.set_h_params
+#: bayesml.linearregression._linearregression.GenModel.set_params
+#: bayesml.linearregression._linearregression.GenModel.visualize_model
+#: bayesml.linearregression._linearregression.LearnModel
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_dist
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params
+#: bayesml.linearregression._linearregression.LearnModel.fit
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update
+#: bayesml.linearregression._linearregression.LearnModel.predict
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params
+#: bayesml.linearregression._linearregression.LearnModel.update_posterior of
+msgid "Parameters"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:7
+#: bayesml.linearregression._linearregression.LearnModel:7 of
+msgid "**c_degree**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:-1
+#: bayesml.linearregression._linearregression.LearnModel:-1 of
+msgid "int"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:8
+#: bayesml.linearregression._linearregression.LearnModel:8 of
+msgid "a positive integer."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:10
+#: bayesml.linearregression._linearregression.GenModel.set_params:7 of
+msgid "**theta_vec**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:-1
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:-1
+#: bayesml.linearregression._linearregression.GenModel.save_sample:-1
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:-1
+#: bayesml.linearregression._linearregression.GenModel.set_params:-1
+#: bayesml.linearregression._linearregression.LearnModel:-1
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:-1
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:-1 of
+msgid "numpy ndarray, optional"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:11
+#: bayesml.linearregression._linearregression.GenModel:17
+#: bayesml.linearregression._linearregression.LearnModel:11 of
+msgid "a vector of real numbers, by default [0.0, 0.0, ... , 0.0]"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:13
+#: bayesml.linearregression._linearregression.GenModel.set_params:10 of
+msgid "**tau**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:-1
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:-1
+#: bayesml.linearregression._linearregression.LearnModel:-1
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:-1
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:-1 of
+msgid "float, optional"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:14
+#: bayesml.linearregression._linearregression.GenModel:23
+#: bayesml.linearregression._linearregression.GenModel:26
+#: bayesml.linearregression._linearregression.LearnModel:17
+#: bayesml.linearregression._linearregression.LearnModel:20 of
+msgid "a positive real number, by default 1.0"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:16
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:7 of
+msgid "**h_mu_vec**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:19
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:10 of
+msgid "**h_lambda_mat**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:20
+#: bayesml.linearregression._linearregression.LearnModel:14 of
+msgid "a positive definate matrix, by default the identity matrix"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:22
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:13 of
+msgid "**h_alpha**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:25
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:16 of
+msgid "**h_beta**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:28 of
+msgid "**seed**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:-1 of
+#, python-brace-format
+msgid "{None, int}, optional"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:29 of
+msgid "A seed to initialize numpy.random.default_rng(), by default None"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:34
+#: bayesml.linearregression._linearregression.LearnModel:46 of
+msgid "Methods"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`gen_params <bayesml.linearregression.GenModel.gen_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_params:2
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Generate the parameter from the prior distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`gen_sample <bayesml.linearregression.GenModel.gen_sample>`\\ "
+"\\(\\[sample\\_size\\, x\\, constant\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:2
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Generate a sample from the stochastic data generative model."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.linearregression.GenModel.get_constants>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_constants:2
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Get constants of GenModel."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`get_h_params <bayesml.linearregression.GenModel.get_h_params>`\\"
+" \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_h_params:2
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Get the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`get_params <bayesml.linearregression.GenModel.get_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_params:2
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Get the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h_params "
+"<bayesml.linearregression.GenModel.load_h_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Load the hyperparameters to h_params."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`load_params <bayesml.linearregression.GenModel.load_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Load the parameters saved by ``save_params``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h_params "
+"<bayesml.linearregression.GenModel.save_h_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Save the hyperparameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`save_params <bayesml.linearregression.GenModel.save_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Save the parameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`save_sample <bayesml.linearregression.GenModel.save_sample>`\\ "
+"\\(filename\\[\\, sample\\_size\\, x\\, constant\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.save_sample:2
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Save the generated sample as NumPy ``.npz`` format."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`set_h_params <bayesml.linearregression.GenModel.set_h_params>`\\"
+" \\(\\[h\\_mu\\_vec\\, h\\_lambda\\_mat\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:2
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Set the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`set_params <bayesml.linearregression.GenModel.set_params>`\\ "
+"\\(\\[theta\\_vec\\, tau\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.set_params:2
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Set the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid ""
+":py:obj:`visualize_model "
+"<bayesml.linearregression.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_size\\, constant\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.visualize_model:2
+#: bayesml.linearregression._linearregression.GenModel:62:<autosummary>:1 of
+msgid "Visualize the stochastic data generative model and generated samples."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample
+#: bayesml.linearregression._linearregression.GenModel.get_constants
+#: bayesml.linearregression._linearregression.GenModel.get_h_params
+#: bayesml.linearregression._linearregression.GenModel.get_params
+#: bayesml.linearregression._linearregression.LearnModel.calc_log_marginal_likelihood
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_var
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params
+#: bayesml.linearregression._linearregression.LearnModel.fit
+#: bayesml.linearregression._linearregression.LearnModel.get_constants
+#: bayesml.linearregression._linearregression.LearnModel.get_h0_params
+#: bayesml.linearregression._linearregression.LearnModel.get_hn_params
+#: bayesml.linearregression._linearregression.LearnModel.get_p_params
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update
+#: bayesml.linearregression._linearregression.LearnModel.predict of
+msgid "Returns"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_constants:10
+#: bayesml.linearregression._linearregression.LearnModel.get_constants:10 of
+msgid "**constants**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_constants:-1
+#: bayesml.linearregression._linearregression.LearnModel.get_constants:-1 of
+#, python-brace-format
+msgid "dict of {str: int}"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_constants:11
+#: bayesml.linearregression._linearregression.LearnModel.get_constants:11 of
+msgid "``\"c_degree\"`` : the value of ``self.c_degree``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:8
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:10
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:10 of
+msgid "a vector of real numbers, by default None."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:11
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:13
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:13 of
+msgid "a positive definate matrix, by default None."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:14
+#: bayesml.linearregression._linearregression.GenModel.set_h_params:17
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:16
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:19
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:16
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:19 of
+msgid "a positive real number, by default None."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_h_params:10 of
+msgid "**h_params**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_h_params:-1
+#: bayesml.linearregression._linearregression.GenModel.get_params:-1
+#: bayesml.linearregression._linearregression.LearnModel.get_h0_params:-1
+#: bayesml.linearregression._linearregression.LearnModel.get_hn_params:-1 of
+#, python-brace-format
+msgid "dict of {str: float or numpy ndarray}"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_h_params:11 of
+msgid "``\"h_mu_vec\"`` : The value of ``self.h_mu_vec``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_h_params:12 of
+msgid "``\"h_lambda_mat\"`` : The value of ``self.h_lambda_mat``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_h_params:13 of
+msgid "``\"h_alpha\"`` : The value of ``self.h_alpha``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_h_params:14 of
+msgid "``\"h_beta\"`` : The value of ``self.h_beta``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_params:4 of
+msgid "The generated vaule is set at ``self.theta_vec`` and ``self.tau."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.set_params:8 of
+msgid "a vector of real numbers, by default None"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.set_params:-1 of
+msgid "float, optional, optional"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.set_params:11 of
+msgid "a positive real number, by default None"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_params:10 of
+msgid "**params**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_params:11 of
+msgid "``\"theta_vec\"`` : The value of ``self.theta_vec``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.get_params:12 of
+msgid "``\"tau\"`` : The value of ``self.tau``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:4
+#: bayesml.linearregression._linearregression.GenModel.save_sample:4 of
+msgid ""
+"If x is given, it will be used for explanatory variables as it is  "
+"(independent of the other options: sample_size and constant)."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:7
+#: bayesml.linearregression._linearregression.GenModel.save_sample:7 of
+msgid ""
+"If x is not given, it will be generated from i.i.d. standard normal "
+"distribution. The size of the generated sample is defined by sample_size."
+" If constant is True, the last element of the generated explanatory "
+"variables will be overwritten by 1.0."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:13
+#: bayesml.linearregression._linearregression.GenModel.save_sample:22
+#: bayesml.linearregression._linearregression.GenModel.visualize_model:7 of
+msgid "**sample_size**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:-1
+#: bayesml.linearregression._linearregression.GenModel.save_sample:-1
+#: bayesml.linearregression._linearregression.GenModel.visualize_model:-1 of
+msgid "int, optional"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:14
+#: bayesml.linearregression._linearregression.GenModel.save_sample:23 of
+msgid "A positive integer, by default ``None``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:16
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:26
+#: bayesml.linearregression._linearregression.GenModel.save_sample:19
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_dist:7
+#: bayesml.linearregression._linearregression.LearnModel.fit:12
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:7
+#: bayesml.linearregression._linearregression.LearnModel.predict:11
+#: bayesml.linearregression._linearregression.LearnModel.update_posterior:7 of
+msgid "**x**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:17
+#: bayesml.linearregression._linearregression.GenModel.save_sample:20 of
+msgid ""
+"float array whose shape is ``(sammple_length,c_degree)``, by default "
+"``None``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:19
+#: bayesml.linearregression._linearregression.GenModel.save_sample:25
+#: bayesml.linearregression._linearregression.GenModel.visualize_model:10 of
+msgid "**constant**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:-1
+#: bayesml.linearregression._linearregression.GenModel.save_sample:-1
+#: bayesml.linearregression._linearregression.GenModel.visualize_model:-1
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:-1 of
+msgid "bool, optional"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:20
+#: bayesml.linearregression._linearregression.GenModel.save_sample:26 of
+msgid "A boolean value, by default ``True``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:-1
+#: bayesml.linearregression._linearregression.LearnModel:-1
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_dist:-1
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_var:-1
+#: bayesml.linearregression._linearregression.LearnModel.fit:-1
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:-1
+#: bayesml.linearregression._linearregression.LearnModel.predict:-1
+#: bayesml.linearregression._linearregression.LearnModel.update_posterior:-1 of
+msgid "numpy ndarray"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:27 of
+msgid "float array whose shape is ``(sammple_length,c_degree)``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:29
+#: bayesml.linearregression._linearregression.LearnModel.fit:16
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:11
+#: bayesml.linearregression._linearregression.LearnModel.update_posterior:11 of
+msgid "**y**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.gen_sample:30 of
+msgid "1 dimensional float array whose size is ``sammple_length``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.save_sample:11 of
+msgid "The generated sample is saved as a NpzFile with keyword: \"x\", \"y\"."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.save_sample:15 of
+msgid "**filename**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.save_sample:-1 of
+msgid "str"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.save_sample:16 of
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.save_sample:40 of
+msgid ":obj:`numpy.savez_compressed`"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.visualize_model:8 of
+msgid "A positive integer, by default 50"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel.visualize_model:26
+#: bayesml.linearregression._linearregression.LearnModel.visualize_posterior:19
+#: of
+msgid "Examples"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:2 of
+msgid "The posterior distribution and the predictive distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:10
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:9 of
+msgid "**h0_mu_vec**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:13
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:12 of
+msgid "**h0_lambda_mat**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:16
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:15 of
+msgid "**h0_alpha**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:19
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:18 of
+msgid "**h0_beta**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel of
+msgid "Attributes"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:24
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:9 of
+msgid "**hn_mu_vec**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:25 of
+msgid "a vector of real numbers"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:27
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:12 of
+msgid "**hn_lambda_mat**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:28 of
+msgid "a positive definate matrix"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:30
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:15 of
+msgid "**hn_alpha**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:-1
+#: bayesml.linearregression._linearregression.LearnModel.calc_log_marginal_likelihood:-1
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:-1 of
+msgid "float"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:31
+#: bayesml.linearregression._linearregression.LearnModel:34 of
+msgid "a positive real number"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:33
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:18 of
+msgid "**hn_beta**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:36 of
+msgid "**p_ms**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:37
+#: bayesml.linearregression._linearregression.LearnModel:40
+#: bayesml.linearregression._linearregression.LearnModel:43 of
+msgid "positive real numbers"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:39 of
+msgid "**p_lambdas**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:42 of
+msgid "**p_nus**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`calc_log_marginal_likelihood "
+"<bayesml.linearregression.LearnModel.calc_log_marginal_likelihood>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.calc_log_marginal_likelihood:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Calculate log marginal likelihood"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`calc_pred_dist "
+"<bayesml.linearregression.LearnModel.calc_pred_dist>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_dist:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Calculate the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`calc_pred_var "
+"<bayesml.linearregression.LearnModel.calc_pred_var>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_var:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Calculate the variance of the predictive distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.linearregression.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
+"dict\\_out\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+"Estimate the parameter of the stochastic data generative model under the "
+"given criterion."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ":py:obj:`fit <bayesml.linearregression.LearnModel.fit>`\\ \\(x\\, y\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.fit:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Fit the model to the data."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.linearregression.LearnModel.get_constants>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_constants:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Get constants of LearnModel."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`get_h0_params "
+"<bayesml.linearregression.LearnModel.get_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_h0_params:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+"Get the initial values of the hyperparameters of the posterior "
+"distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`get_hn_params "
+"<bayesml.linearregression.LearnModel.get_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_hn_params:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Get the hyperparameters of the posterior distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`get_p_params "
+"<bayesml.linearregression.LearnModel.get_p_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_p_params:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Get the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h0_params "
+"<bayesml.linearregression.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Load the hyperparameters to h0_params."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`load_hn_params "
+"<bayesml.linearregression.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Load the hyperparameters to hn_params."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.linearregression.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Predict a new data point under the given criterion."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.linearregression.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.linearregression.LearnModel.pred_and_update>`\\ \\(x\\, y\\[\\, "
+"loss\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Predict a new data and update the posterior sequentially."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ":py:obj:`predict <bayesml.linearregression.LearnModel.predict>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.predict:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Predict the data."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.linearregression.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h0_params "
+"<bayesml.linearregression.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`save_hn_params "
+"<bayesml.linearregression.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`set_h0_params "
+"<bayesml.linearregression.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_mu\\_vec\\, h0\\_lambda\\_mat\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Set initial values of the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`set_hn_params "
+"<bayesml.linearregression.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_mu\\_vec\\, hn\\_lambda\\_mat\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Set updated values of the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.linearregression.LearnModel.update_posterior>`\\ \\(x\\, y\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.update_posterior:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+"Update the hyperparameters of the posterior distribution using traning "
+"data."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.linearregression.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.visualize_posterior:2
+#: bayesml.linearregression._linearregression.LearnModel:83:<autosummary>:1 of
+msgid "Visualize the posterior distribution for the parameter."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.set_h0_params:4 of
+msgid ""
+"Note that the parameters of the predictive distribution are also "
+"calculated from  ``self.h0_mu_vec``, ``slef.h0_lambda_mat``, "
+"``self.h0_alpha`` and ``self.h0_beta``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_h0_params:10 of
+msgid "**h0_params**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_h0_params:11 of
+msgid "``\"h0_mu_vec\"`` : The value of ``self.h0_mu_vec``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_h0_params:12 of
+msgid "``\"h0_lambda_mat\"`` : The value of ``self.h0_lambda_mat``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_h0_params:13 of
+msgid "``\"h0_alpha\"`` : The value of ``self.h0_alpha``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_h0_params:14 of
+msgid "``\"h0_beta\"`` : The value of ``self.h0_beta``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.set_hn_params:4 of
+msgid ""
+"Note that the parameters of the predictive distribution are also "
+"calculated from  ``self.hn_mu_vec``, ``slef.hn_lambda_mat``, "
+"``self.hn_alpha`` and ``self.hn_beta``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_hn_params:10 of
+msgid "**hn_params**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_hn_params:11 of
+msgid "``\"hn_mu_vec\"`` : The value of ``self.hn_mu_vec``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_hn_params:12 of
+msgid "``\"hn_lambda_mat\"`` : The value of ``self.hn_lambda_mat``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_hn_params:13 of
+msgid "``\"hn_alpha\"`` : The value of ``self.hn_alpha``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_hn_params:14 of
+msgid "``\"hn_beta\"`` : The value of ``self.hn_beta``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_dist:8
+#: bayesml.linearregression._linearregression.LearnModel.fit:13
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:8
+#: bayesml.linearregression._linearregression.LearnModel.predict:12
+#: bayesml.linearregression._linearregression.LearnModel.update_posterior:8 of
+msgid ""
+"float array. The size along the last dimension must conincides with the "
+"c_degree. If you want to use a constant term, it should be included in x."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.fit:17
+#: bayesml.linearregression._linearregression.LearnModel.update_posterior:12 of
+msgid "float array."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:4 of
+msgid ""
+"Note that the criterion is applied to estimating ``theta_vec`` and "
+"``tau`` independently. Therefore, a tuple of the student's t-distribution"
+" and the gamma distribution will be returned when loss=\"KL\""
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:9
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction:7
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:14 of
+msgid "**loss**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:-1
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction:-1
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:-1 of
+msgid "str, optional"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:10
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction:8
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:15 of
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:13 of
+msgid "**dict_out**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:14 of
+msgid "If ``True``, output will be a dict, by default ``False``."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:20 of
+msgid "**estimates**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:-1 of
+#, python-brace-format
+msgid "tuple of {numpy ndarray, float, None, or rv_frozen}"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:21 of
+msgid "``theta_vec`` : the estimate for w"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:22 of
+msgid "``tau_hat`` : the estimate for tau"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:23 of
+msgid ""
+"The estimated values under the given loss function. If it is not exist, "
+"`None` will be returned. If the loss function is \"KL\", the posterior "
+"distribution itself will be returned as rv_frozen object of scipy.stats."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:36
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction:30
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:37 of
+msgid ":obj:`scipy.stats.rv_continuous`"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.estimate_params:38
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction:32
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:39 of
+msgid ":obj:`scipy.stats.rv_discrete`"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_p_params:10 of
+msgid "**p_params**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_p_params:-1 of
+#, python-brace-format
+msgid "dict of {str: numpy ndarray}"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_p_params:11 of
+msgid "``\"p_ms\"`` : The value of ``self.p_ms``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_p_params:12 of
+msgid "``\"p_lambdas\"`` : The value of ``self.p_lambdas``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.get_p_params:13 of
+msgid "``\"p_nus\"`` : The value of ``self.p_nus``"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction:15
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:22
+#: bayesml.linearregression._linearregression.LearnModel.predict:19 of
+msgid "**Predicted_values**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction:-1
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:-1 of
+#, python-brace-format
+msgid "{numpy ndarray, rv_frozen}"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.make_prediction:16 of
+msgid ""
+"The predicted values under the given loss function.  The size of the "
+"predicted values is the same as the sample size of x when you called "
+"calc_pred_dist(x). If the loss function is \"KL\", the predictive "
+"distribution itself will be returned as rv_frozen object of scipy.stats. "
+"The rv_frozen object supports broadcasting."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.pred_and_update:23 of
+msgid ""
+"The predicted values under the given loss function.  The size of the "
+"predicted values is the same as the sample size of x when you called "
+"calc_pred_dist(x). If the loss function is \"KL\", the predictive "
+"distribution itself will be returned as rv_frozen object of scipy.stats."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.calc_log_marginal_likelihood:10
+#: of
+msgid "**log_marginal_likelihood**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.calc_log_marginal_likelihood:11
+#: of
+msgid "The log marginal likelihood."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_var:10 of
+msgid "**vars**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.calc_pred_var:11 of
+msgid ""
+"The variances of the predictive distribution.  The size of the vars is "
+"the same as the sample size of x when you called calc_pred_dist(x)."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.fit:4
+#: bayesml.linearregression._linearregression.LearnModel.predict:4 of
+msgid "This function is a wrapper of the following functions:"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.fit:23 of
+msgid "**self**"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.fit:-1 of
+msgid "LearnModel"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.fit:24 of
+msgid "The fitted model."
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel.predict:20 of
+msgid ""
+"The predicted values under the squared loss function.  The size of the "
+"predicted values is the same as the sample size of x."
+msgstr ""
+

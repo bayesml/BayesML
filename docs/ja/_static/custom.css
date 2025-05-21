@@ -1,0 +1,22 @@
+aside.bd-header-announcement {
+    background-color: #DAAE37;
+}
+
+.bd-header-announcement__content {
+    color: black;
+}
+
+.bd-header-announcement__content a {
+    color: #8E1728;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.language-link {
+  text-decoration: none;
+}
+
+.language-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+}

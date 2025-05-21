@@ -1,0 +1,1068 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../bayesml.bernoulli.rst:2
+msgid "bayesml.bernoulli package"
+msgstr ""
+
+#: ../../bayesml.bernoulli.rst:7
+msgid "Module contents"
+msgstr ""
+
+#: bayesml.bernoulli:1 of
+msgid "The Bernoulli distribution with the beta prior distribution."
+msgstr ""
+
+#: bayesml.bernoulli:3 of
+msgid "The stochastic data generative model is as follows:"
+msgstr ""
+
+#: bayesml.bernoulli:5 of
+#, python-brace-format
+msgid ":math:`x \\in \\{ 0, 1\\}`: a data point"
+msgstr ""
+
+#: bayesml.bernoulli:6 of
+msgid ":math:`\\theta \\in [0, 1]`: a parameter"
+msgstr ""
+
+#: bayesml.bernoulli:8 of
+#, python-brace-format
+msgid ""
+"p(x | \\theta) = \\mathrm{Bern}(x|\\theta) = \\theta^x (1-\\theta)^{1-x}."
+"\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli:11 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[x | \\theta] &= \\theta, \\\\\n"
+"\\mathbb{V}[x | \\theta] &= \\theta (1 - \\theta).\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli:15 of
+msgid "The prior distribution is as follows:"
+msgstr ""
+
+#: bayesml.bernoulli:17 of
+#, python-brace-format
+msgid ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.bernoulli:18 of
+#, python-brace-format
+msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.bernoulli:19 of
+#, python-brace-format
+msgid ""
+":math:`B(\\cdot,\\cdot): \\mathbb{R}_{>0} \\times \\mathbb{R}_{>0} \\to "
+"\\mathbb{R}_{>0}`: the Beta function"
+msgstr ""
+
+#: bayesml.bernoulli:21 of
+#, python-brace-format
+msgid ""
+"p(\\theta) = \\mathrm{Beta}(\\theta|\\alpha_0,\\beta_0) = "
+"\\frac{1}{B(\\alpha_0, \\beta_0)} \\theta^{\\alpha_0 - 1} "
+"(1-\\theta)^{\\beta_0 - 1}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli:24 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[\\theta] &= \\frac{\\alpha_0}{\\alpha_0 + \\beta_0}, \\\\\n"
+"\\mathbb{V}[\\theta] &= \\frac{\\alpha_0 \\beta_0}{(\\alpha_0 + "
+"\\beta_0)^2 (\\alpha_0 + \\beta_0 + 1)}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli:28 of
+msgid "The posterior distribution is as follows:"
+msgstr ""
+
+#: bayesml.bernoulli:30 of
+#, python-brace-format
+msgid ":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\{ 0, 1\\}^n`: given data"
+msgstr ""
+
+#: bayesml.bernoulli:31 of
+#, python-brace-format
+msgid ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.bernoulli:32 of
+#, python-brace-format
+msgid ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.bernoulli:34 of
+#, python-brace-format
+msgid ""
+"p(\\theta | x^n) = \\mathrm{Beta}(\\theta|\\alpha_n,\\beta_n) = "
+"\\frac{1}{B(\\alpha_n, \\beta_n)} \\theta^{\\alpha_n - 1} "
+"(1-\\theta)^{\\beta_n - 1},\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli:37 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[\\theta | x^n] &= \\frac{\\alpha_n}{\\alpha_n + \\beta_n}, "
+"\\\\\n"
+"\\mathbb{V}[\\theta | x^n] &= \\frac{\\alpha_n \\beta_n}{(\\alpha_n + "
+"\\beta_n)^2 (\\alpha_n + \\beta_n + 1)},\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli:41 of
+msgid "where the updating rule of the hyperparameters is"
+msgstr ""
+
+#: bayesml.bernoulli:43 of
+#, python-brace-format
+msgid ""
+"\\alpha_n = \\alpha_0 + \\sum_{i=1}^n I \\{ x_i = 1 \\},\\\\\n"
+"\\beta_n = \\beta_0 + \\sum_{i=1}^n I \\{ x_i = 0 \\}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli:47 of
+msgid "The predictive distribution is as follows:"
+msgstr ""
+
+#: bayesml.bernoulli:49 of
+#, python-brace-format
+msgid ":math:`x_{n+1} \\in \\{ 0, 1\\}`: a new data point"
+msgstr ""
+
+#: bayesml.bernoulli:50 of
+#, python-brace-format
+msgid ":math:`\\alpha_\\mathrm{p} \\in \\mathbb{R}_{>0}`: a parameter"
+msgstr ""
+
+#: bayesml.bernoulli:51 of
+#, python-brace-format
+msgid ":math:`\\beta_\\mathrm{p} \\in \\mathbb{R}_{>0}`: a parameter"
+msgstr ""
+
+#: bayesml.bernoulli:52 of
+#, python-brace-format
+msgid ":math:`\\theta_\\mathrm{p} \\in [0,1]`: a parameter"
+msgstr ""
+
+#: bayesml.bernoulli:54 of
+msgid ""
+"p(x_{n+1} | x^n) = \\mathrm{Bern}(x_{n+1}|\\theta_\\mathrm{p}) "
+"=\\theta_\\mathrm{p}^{x_{n+1}}(1-\\theta_\\mathrm{p})^{1-x_{n+1}},\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli:57 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[x_{n+1} | x^n] &= \\theta_\\mathrm{p}, \\\\\n"
+"\\mathbb{V}[x_{n+1} | x^n] &= \\theta_\\mathrm{p} (1 - "
+"\\theta_\\mathrm{p}),\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli:61 of
+msgid ""
+"where the parameters are obtained from the hyperparameters of the "
+"posterior distribution as follows."
+msgstr ""
+
+#: bayesml.bernoulli:63 of
+#, python-brace-format
+msgid ""
+"\\theta_\\mathrm{p} = \\frac{\\alpha_n}{\\alpha_n + \\beta_n}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:2 of
+msgid "The stochastic data generative model and the prior distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel
+#: bayesml.bernoulli._bernoulli.GenModel.gen_sample
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample
+#: bayesml.bernoulli._bernoulli.GenModel.set_h_params
+#: bayesml.bernoulli._bernoulli.GenModel.set_params
+#: bayesml.bernoulli._bernoulli.GenModel.visualize_model
+#: bayesml.bernoulli._bernoulli.LearnModel
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_interval
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params
+#: bayesml.bernoulli._bernoulli.LearnModel.fit
+#: bayesml.bernoulli._bernoulli.LearnModel.make_prediction
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update
+#: bayesml.bernoulli._bernoulli.LearnModel.set_h0_params
+#: bayesml.bernoulli._bernoulli.LearnModel.set_hn_params
+#: bayesml.bernoulli._bernoulli.LearnModel.update_posterior of
+msgid "Parameters"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:7
+#: bayesml.bernoulli._bernoulli.GenModel.set_params:7 of
+msgid "**theta**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:-1
+#: bayesml.bernoulli._bernoulli.GenModel.set_h_params:-1
+#: bayesml.bernoulli._bernoulli.GenModel.set_params:-1
+#: bayesml.bernoulli._bernoulli.LearnModel:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_interval:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.set_h0_params:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.set_hn_params:-1 of
+msgid "float, optional"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:8 of
+msgid "a real number in :math:`[0, 1]`, by default 0.5."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:10
+#: bayesml.bernoulli._bernoulli.GenModel.set_h_params:7 of
+msgid "**h_alpha**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:11
+#: bayesml.bernoulli._bernoulli.GenModel:14
+#: bayesml.bernoulli._bernoulli.LearnModel:8
+#: bayesml.bernoulli._bernoulli.LearnModel:11 of
+msgid "a positive real number, by default 0.5."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:13
+#: bayesml.bernoulli._bernoulli.GenModel.set_h_params:10 of
+msgid "**h_beta**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:16 of
+msgid "**seed**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:-1 of
+#, python-brace-format
+msgid "{None, int}, optional"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:17 of
+msgid "A seed to initialize numpy.random.default_rng(), by default None."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:22
+#: bayesml.bernoulli._bernoulli.LearnModel:25 of
+msgid "Methods"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ":py:obj:`gen_params <bayesml.bernoulli.GenModel.gen_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_params:2
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Generate the parameter from the prior distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`gen_sample <bayesml.bernoulli.GenModel.gen_sample>`\\ "
+"\\(sample\\_size\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_sample:2
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Generate a sample from the stochastic data generative model."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`get_constants <bayesml.bernoulli.GenModel.get_constants>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_constants:2
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Get constants of GenModel."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ":py:obj:`get_h_params <bayesml.bernoulli.GenModel.get_h_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_h_params:2
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Get the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ":py:obj:`get_params <bayesml.bernoulli.GenModel.get_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_params:2
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Get the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h_params <bayesml.bernoulli.GenModel.load_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Load the hyperparameters to h_params."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`load_params <bayesml.bernoulli.GenModel.load_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Load the parameters saved by ``save_params``."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h_params <bayesml.bernoulli.GenModel.save_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Save the hyperparameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`save_params <bayesml.bernoulli.GenModel.save_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Save the parameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`save_sample <bayesml.bernoulli.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_size\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample:2
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Save the generated sample as NumPy ``.npz`` format."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`set_h_params <bayesml.bernoulli.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_alpha\\, h\\_beta\\]\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.set_h_params:2
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Set the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`set_params <bayesml.bernoulli.GenModel.set_params>`\\ "
+"\\(\\[theta\\]\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.set_params:2
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Set the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid ""
+":py:obj:`visualize_model <bayesml.bernoulli.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_size\\, sample\\_num\\]\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.visualize_model:2
+#: bayesml.bernoulli._bernoulli.GenModel:50:<autosummary>:1 of
+msgid "Visualize the stochastic data generative model and generated samples."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_constants:4
+#: bayesml.bernoulli._bernoulli.LearnModel.get_constants:4 of
+#, python-brace-format
+msgid ""
+"This model does not have any constants.  Therefore, this function returns"
+" an emtpy dict ``{}``."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_sample
+#: bayesml.bernoulli._bernoulli.GenModel.get_constants
+#: bayesml.bernoulli._bernoulli.GenModel.get_h_params
+#: bayesml.bernoulli._bernoulli.GenModel.get_params
+#: bayesml.bernoulli._bernoulli.LearnModel.calc_log_marginal_likelihood
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_interval
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params
+#: bayesml.bernoulli._bernoulli.LearnModel.fit
+#: bayesml.bernoulli._bernoulli.LearnModel.get_constants
+#: bayesml.bernoulli._bernoulli.LearnModel.get_h0_params
+#: bayesml.bernoulli._bernoulli.LearnModel.get_hn_params
+#: bayesml.bernoulli._bernoulli.LearnModel.get_p_params
+#: bayesml.bernoulli._bernoulli.LearnModel.make_prediction
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update
+#: bayesml.bernoulli._bernoulli.LearnModel.predict
+#: bayesml.bernoulli._bernoulli.LearnModel.predict_proba of
+msgid "Returns"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_constants:12
+#: bayesml.bernoulli._bernoulli.LearnModel.get_constants:12 of
+msgid "**constants**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_constants:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.get_constants:-1 of
+msgid "an empty dict"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.set_h_params:8
+#: bayesml.bernoulli._bernoulli.GenModel.set_h_params:11
+#: bayesml.bernoulli._bernoulli.LearnModel.set_h0_params:8
+#: bayesml.bernoulli._bernoulli.LearnModel.set_h0_params:11
+#: bayesml.bernoulli._bernoulli.LearnModel.set_hn_params:8
+#: bayesml.bernoulli._bernoulli.LearnModel.set_hn_params:11 of
+msgid "a positive real number, by default None."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_h_params:10 of
+msgid "**h_params**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_h_params:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.get_h0_params:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.get_hn_params:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.get_p_params:-1 of
+#, python-brace-format
+msgid "dict of {str: float}"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_h_params:11 of
+msgid "``\"h_alpha\"`` : The value of ``self.h_alpha``"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_h_params:12 of
+msgid "``\"h_beta\"`` : The value of ``self.h_beta``"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_params:4 of
+msgid "The generated vaule is set at ``self.theta``."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.set_params:8 of
+msgid "a real number :math:`       heta \\in [0, 1]`, by default None."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_params:10 of
+msgid "**params**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_params:-1 of
+#, python-brace-format
+msgid "dict of {str:float}"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.get_params:11 of
+msgid "``\"theta\"`` : The value of ``self.theta``."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_sample:7
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample:12
+#: bayesml.bernoulli._bernoulli.GenModel.visualize_model:7 of
+msgid "**sample_size**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_sample:-1
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.predict:-1 of
+msgid "int"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_sample:8
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample:13 of
+msgid "A positive integer"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_sample:14
+#: bayesml.bernoulli._bernoulli.LearnModel.fit:12
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:7
+#: bayesml.bernoulli._bernoulli.LearnModel.update_posterior:7 of
+msgid "**x**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_sample:-1 of
+msgid "numpy ndarray"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.gen_sample:15 of
+msgid ""
+"1 dimensional array whose size is ``sammple_size`` and elements are 0 or "
+"1."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample:4 of
+msgid "It is saved as a NpzFile with keyword: \"x\"."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample:8 of
+msgid "**filename**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample:-1 of
+msgid "str"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample:9 of
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.save_sample:27 of
+msgid ":obj:`numpy.savez_compressed`"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.visualize_model:-1 of
+msgid "int, optional"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.visualize_model:8 of
+msgid "A positive integer, by default 20."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.visualize_model:10 of
+msgid "**sample_num**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.visualize_model:11 of
+msgid "A positive integer, by default 5."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel.visualize_model:26
+#: bayesml.bernoulli._bernoulli.LearnModel.visualize_posterior:19 of
+msgid "Examples"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:2 of
+msgid "The posterior distribution and the predictive distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:7
+#: bayesml.bernoulli._bernoulli.LearnModel.set_h0_params:7 of
+msgid "**h0_alpha**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:10
+#: bayesml.bernoulli._bernoulli.LearnModel.set_h0_params:10 of
+msgid "**h0_beta**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel of
+msgid "Attributes"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:15
+#: bayesml.bernoulli._bernoulli.LearnModel.set_hn_params:7 of
+msgid "**hn_alpha**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.calc_log_marginal_likelihood:-1 of
+msgid "float"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:16
+#: bayesml.bernoulli._bernoulli.LearnModel:19 of
+msgid "a positive real number"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:18
+#: bayesml.bernoulli._bernoulli.LearnModel.set_hn_params:10 of
+msgid "**hn_beta**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:21 of
+msgid "**p_theta**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:22 of
+#, python-brace-format
+msgid "a real number :math:`   heta_\\mathrm{p} \\in [0, 1]`"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`calc_log_marginal_likelihood "
+"<bayesml.bernoulli.LearnModel.calc_log_marginal_likelihood>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.calc_log_marginal_likelihood:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Calculate log marginal likelihood"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`calc_pred_dist <bayesml.bernoulli.LearnModel.calc_pred_dist>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.calc_pred_dist:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Calculate the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`estimate_interval "
+"<bayesml.bernoulli.LearnModel.estimate_interval>`\\ "
+"\\(\\[credibility\\]\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_interval:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Credible interval of the parameter."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.bernoulli.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
+"dict\\_out\\]\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+"Estimate the parameter of the stochastic data generative model under the "
+"given criterion."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ":py:obj:`fit <bayesml.bernoulli.LearnModel.fit>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.fit:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Fit the model to the data."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`get_constants <bayesml.bernoulli.LearnModel.get_constants>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_constants:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Get constants of LearnModel."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`get_h0_params <bayesml.bernoulli.LearnModel.get_h0_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_h0_params:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+"Get the initial values of the hyperparameters of the posterior "
+"distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`get_hn_params <bayesml.bernoulli.LearnModel.get_hn_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_hn_params:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Get the hyperparameters of the posterior distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`get_p_params <bayesml.bernoulli.LearnModel.get_p_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_p_params:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Get the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h0_params <bayesml.bernoulli.LearnModel.load_h0_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Load the hyperparameters to h0_params."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`load_hn_params <bayesml.bernoulli.LearnModel.load_hn_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Load the hyperparameters to hn_params."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.bernoulli.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.make_prediction:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Predict a new data point under the given criterion."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.bernoulli.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.bernoulli.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Predict a new data point and update the posterior sequentially."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ":py:obj:`predict <bayesml.bernoulli.LearnModel.predict>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.predict:2
+#: bayesml.bernoulli._bernoulli.LearnModel.predict_proba:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Predict the next data point."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`predict_proba <bayesml.bernoulli.LearnModel.predict_proba>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.bernoulli.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h0_params <bayesml.bernoulli.LearnModel.save_h0_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`save_hn_params <bayesml.bernoulli.LearnModel.save_hn_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`set_h0_params <bayesml.bernoulli.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_alpha\\, h0\\_beta\\]\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.set_h0_params:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Set initial values of the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`set_hn_params <bayesml.bernoulli.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_alpha\\, hn\\_beta\\]\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.set_hn_params:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Set updated values of the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.bernoulli.LearnModel.update_posterior>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.update_posterior:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+"Update the hyperparameters of the posterior distribution using traning "
+"data."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.bernoulli.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.visualize_posterior:2
+#: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
+msgid "Visualize the posterior distribution for the parameter."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.set_h0_params:-1 of
+msgid "float, optionanl"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_h0_params:10 of
+msgid "**h0_params**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_h0_params:11 of
+msgid "``\"h0_alpha\"`` : The value of ``self.h0_alpha``"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_h0_params:12 of
+msgid "``\"h0_beta\"`` : The value of ``self.h0_beta``"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_hn_params:10 of
+msgid "**hn_params**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_hn_params:11 of
+msgid "``\"hn_alpha\"`` : The value of ``self.hn_alpha``"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_hn_params:12 of
+msgid "``\"hn_beta\"`` : The value of ``self.hn_beta``"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.fit:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.predict_proba:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.update_posterior:-1 of
+msgid "numpy.ndarray"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.fit:13
+#: bayesml.bernoulli._bernoulli.LearnModel.update_posterior:8 of
+msgid "All the elements must be 0 or 1."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:7
+#: bayesml.bernoulli._bernoulli.LearnModel.make_prediction:7
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:10 of
+msgid "**loss**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.make_prediction:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:-1 of
+msgid "str, optional"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:8
+#: bayesml.bernoulli._bernoulli.LearnModel.make_prediction:8
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:11 of
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:11 of
+msgid "**dict_out**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:-1 of
+msgid "bool, optional"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:12 of
+msgid "If ``True``, output will be a dict, by default ``False``."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:18 of
+msgid "**estimator**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:-1 of
+msgid "{float, None, rv_frozen} or dict of {str"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:-1 of
+msgid "float, None}"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:19 of
+msgid ""
+"The estimated values under the given loss function. If it is not exist, "
+"`None` will be returned. If the loss function is \"KL\", the posterior "
+"distribution itself will be returned as rv_frozen object of scipy.stats."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:32 of
+msgid ":obj:`scipy.stats.rv_continuous`"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_params:34 of
+msgid ":obj:`scipy.stats.rv_discrete`"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_interval:7 of
+msgid "**credibility**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_interval:8 of
+msgid ""
+"A posterior probability that the interval conitans the paramter, by "
+"default 0.95."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_interval:14 of
+msgid "lower, upper: float"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.estimate_interval:15 of
+msgid "The lower and the upper bound of the interval"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_p_params:10 of
+msgid "**p_params**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.get_p_params:11 of
+msgid "``\"p_theta\"`` : The value of ``self.p_theta``"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.make_prediction:15
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:18 of
+msgid "**Predicted_value**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.make_prediction:-1
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:-1 of
+#, python-brace-format
+msgid "{int, numpy.ndarray}"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.make_prediction:16
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:19 of
+msgid ""
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the predictive distribution itself will be returned as "
+"numpy.ndarray."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.pred_and_update:8 of
+msgid "It must be 0 or 1"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.calc_log_marginal_likelihood:10 of
+msgid "**log_marginal_likelihood**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.calc_log_marginal_likelihood:11 of
+msgid "The log marginal likelihood."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.fit:4
+#: bayesml.bernoulli._bernoulli.LearnModel.predict:4
+#: bayesml.bernoulli._bernoulli.LearnModel.predict_proba:4 of
+msgid "This function is a wrapper of the following functions:"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.fit:19 of
+msgid "**self**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.fit:-1 of
+msgid "LearnModel"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.fit:20 of
+msgid "The fitted model."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.predict:14 of
+msgid "**predicted_value**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.predict:15 of
+msgid "The predicted value under the 0-1 loss function."
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.predict_proba:14 of
+msgid "**predicted_distribution**"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.LearnModel.predict_proba:15 of
+msgid "The predicted distribution under the KL loss function."
+msgstr ""
+

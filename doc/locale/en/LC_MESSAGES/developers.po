@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../developers.rst:3
+msgid "BayesML Developers"
+msgstr ""
+
+#: ../../developers.rst:6
+msgid "Code Author"
+msgstr ""
+
+#: ../../developers.rst:8 ../../developers.rst:26 ../../developers.rst:50
+msgid "`Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University"
+msgstr ""
+
+#: ../../developers.rst:9
+msgid "Nishikawa Jun"
+msgstr ""
+
+#: ../../developers.rst:10 ../../developers.rst:30
+msgid "Yasushi Esaki"
+msgstr ""
+
+#: ../../developers.rst:11 ../../developers.rst:32
+msgid "Naoki Ichijo, Waseda University (Ph.D. Student)"
+msgstr ""
+
+#: ../../developers.rst:12 ../../developers.rst:31
+msgid "Koshi Shimada, Waseda University (Ph.D. Student)"
+msgstr ""
+
+#: ../../developers.rst:13 ../../developers.rst:33
+msgid "Kairi-SUZUKI-8"
+msgstr ""
+
+#: ../../developers.rst:14
+msgid "Mikio.U"
+msgstr ""
+
+#: ../../developers.rst:15 ../../developers.rst:35
+msgid "Keito Tajima"
+msgstr ""
+
+#: ../../developers.rst:16 ../../developers.rst:36
+msgid "Kohei Horinouchi, Waseda University (Ph.D. Student)"
+msgstr ""
+
+#: ../../developers.rst:17
+msgid "Luyu Ruan"
+msgstr ""
+
+#: ../../developers.rst:18 ../../developers.rst:37
+msgid "Noboru Namegaya"
+msgstr ""
+
+#: ../../developers.rst:19 ../../developers.rst:38
+msgid "Ryota Maniwa"
+msgstr ""
+
+#: ../../developers.rst:20 ../../developers.rst:39
+msgid "Taisuke Ishiwatari"
+msgstr ""
+
+#: ../../developers.rst:21 ../../developers.rst:40
+msgid "Wenbin Yu"
+msgstr ""
+
+#: ../../developers.rst:22 ../../developers.rst:41
+msgid "Yuji Iikubo"
+msgstr ""
+
+#: ../../developers.rst:25
+msgid "Document Author"
+msgstr ""
+
+#: ../../developers.rst:27
+msgid "`Shota Saito <https://researchmap.jp/wa-shota?lang=en>`_, Gunma University"
+msgstr ""
+
+#: ../../developers.rst:28
+msgid ""
+"`Koki Kazama <https://researchmap.jp/KokiKAZAMA?lang=en>`_, Shonan "
+"Institute of Technology"
+msgstr ""
+
+#: ../../developers.rst:29
+msgid "RyoheiO"
+msgstr ""
+
+#: ../../developers.rst:34
+msgid "Haruka Murayama"
+msgstr ""
+
+#: ../../developers.rst:44
+msgid "Supervisor"
+msgstr ""
+
+#: ../../developers.rst:45
+msgid "Toshiyasu Matsushima, Waseda University"
+msgstr ""
+
+#: ../../developers.rst:48
+msgid "Logo Designer"
+msgstr ""
+
+#: ../../developers.rst:49
+msgid "Akiyo Arakawa"
+msgstr ""
+
+#: ../../developers.rst:53
+msgid "Citation"
+msgstr ""
+
+#: ../../developers.rst:55
+msgid ""
+"When you use BayesML for your academic work, please provide the following"
+" bibliographic reference."
+msgstr ""
+
+#: ../../developers.rst:57
+msgid "Plain text"
+msgstr ""
+
+#: ../../developers.rst:66
+msgid "BibTeX"
+msgstr ""
+

@@ -1,0 +1,1363 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>索引 &#8212; BayesML</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ad100702" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=ba1e48b6"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/translations.js?v=4755f45a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="icon" href="_static/BayesML_favicon.ico"/>
+    <link rel="index" title="索引" href="#" />
+    <link rel="search" title="検索" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html'>here</a>!</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BayesML_logo.png" class="logo__image only-light" alt="BayesML - Home"/>
+    <script>document.write(`<img src="_static/BayesML_logo.png" class="logo__image only-dark" alt="BayesML - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><div style="text-align:center">
+  <span><i class="fas fa-globe"></i> Language:</span>
+  <a href="../en/genindex.html" class="language-link" lang="en">English</a> / 
+  <a href="../ja/genindex.html" class="language-link active" lang="ja">日本語</a>
+</div></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="bayesml.html">Bayesml packages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.bernoulli.html">bayesml.bernoulli package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.categorical.html">bayesml.categorical package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.contexttree.html">bayesml.contexttree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.exponential.html">bayesml.exponential package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.poisson.html">bayesml.poisson package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html">Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML Developers</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/bayesml/BayesML" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="ソースリポジトリ"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">索引</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ 
+</div>
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    bayesml.autoregressive
+
+      <ul>
+        <li><a href="bayesml.autoregressive.html#module-bayesml.autoregressive">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.base
+
+      <ul>
+        <li><a href="bayesml.html#module-bayesml.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.bernoulli
+
+      <ul>
+        <li><a href="bayesml.bernoulli.html#module-bayesml.bernoulli">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.categorical
+
+      <ul>
+        <li><a href="bayesml.categorical.html#module-bayesml.categorical">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.contexttree
+
+      <ul>
+        <li><a href="bayesml.contexttree.html#module-bayesml.contexttree">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.exponential
+
+      <ul>
+        <li><a href="bayesml.exponential.html#module-bayesml.exponential">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.gaussianmixture
+
+      <ul>
+        <li><a href="bayesml.gaussianmixture.html#module-bayesml.gaussianmixture">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    bayesml.hiddenmarkovnormal
+
+      <ul>
+        <li><a href="bayesml.hiddenmarkovnormal.html#module-bayesml.hiddenmarkovnormal">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.linearregression
+
+      <ul>
+        <li><a href="bayesml.linearregression.html#module-bayesml.linearregression">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.metatree
+
+      <ul>
+        <li><a href="bayesml.metatree.html#module-bayesml.metatree">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.multivariate_normal
+
+      <ul>
+        <li><a href="bayesml.multivariate_normal.html#module-bayesml.multivariate_normal">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.normal
+
+      <ul>
+        <li><a href="bayesml.normal.html#module-bayesml.normal">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.poisson
+
+      <ul>
+        <li><a href="bayesml.poisson.html#module-bayesml.poisson">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.calc_feature_importances">calc_feature_importances() (bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+      <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.calc_log_marginal_likelihood">calc_log_marginal_likelihood() (bayesml.bernoulli.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.calc_log_marginal_likelihood">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.calc_log_marginal_likelihood">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.calc_log_marginal_likelihood">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.calc_log_marginal_likelihood">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.calc_log_marginal_likelihood">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.calc_pred_density">calc_pred_density() (bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.calc_pred_dist">calc_pred_dist() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.PredictiveMixin.calc_pred_dist">(bayesml.base.PredictiveMixin のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.calc_pred_dist">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.calc_pred_dist">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.calc_pred_dist">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.calc_pred_dist">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.calc_pred_dist">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.calc_pred_dist">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.calc_pred_dist">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.calc_pred_dist">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.calc_pred_dist">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.calc_pred_dist">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.calc_pred_dist">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.calc_pred_var">calc_pred_var() (bayesml.linearregression.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.calc_pred_var">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.calc_pred_var">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.estimate_interval">estimate_interval() (bayesml.bernoulli.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.estimate_interval">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.estimate_interval">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.estimate_interval">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.estimate_latent_vars">estimate_latent_vars() (bayesml.gaussianmixture.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.estimate_latent_vars_and_update">estimate_latent_vars_and_update() (bayesml.gaussianmixture.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.estimate_params">estimate_params() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Posterior.estimate_params">(bayesml.base.Posterior のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.estimate_params">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.estimate_params">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.estimate_params">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.estimate_params">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.estimate_params">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.estimate_params">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.estimate_params">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.estimate_params">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.estimate_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.estimate_params">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.estimate_params">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.fit">fit() (bayesml.bernoulli.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.fit">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.fit">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.fit">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.fit">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.fit">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.fit">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.fit">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel.gen_params">gen_params() (bayesml.autoregressive.GenModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Generative.gen_params">(bayesml.base.Generative のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel.gen_params">(bayesml.bernoulli.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel.gen_params">(bayesml.categorical.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel.gen_params">(bayesml.contexttree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel.gen_params">(bayesml.exponential.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel.gen_params">(bayesml.gaussianmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.gen_params">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.gen_params">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.gen_params">(bayesml.metatree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.gen_params">(bayesml.multivariate_normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel.gen_params">(bayesml.normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel.gen_params">(bayesml.poisson.GenModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel.gen_sample">gen_sample() (bayesml.autoregressive.GenModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Generative.gen_sample">(bayesml.base.Generative のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel.gen_sample">(bayesml.bernoulli.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel.gen_sample">(bayesml.categorical.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel.gen_sample">(bayesml.contexttree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel.gen_sample">(bayesml.exponential.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel.gen_sample">(bayesml.gaussianmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.gen_sample">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.gen_sample">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.gen_sample">(bayesml.metatree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.gen_sample">(bayesml.multivariate_normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel.gen_sample">(bayesml.normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel.gen_sample">(bayesml.poisson.GenModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.html#bayesml.base.Generative">Generative (bayesml.base のクラス)</a>
+</li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel">GenModel (bayesml.autoregressive のクラス)</a>
+
+      <ul>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel">(bayesml.bernoulli のクラス)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel">(bayesml.categorical のクラス)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel">(bayesml.contexttree のクラス)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel">(bayesml.exponential のクラス)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel">(bayesml.gaussianmixture のクラス)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel">(bayesml.hiddenmarkovnormal のクラス)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel">(bayesml.linearregression のクラス)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel">(bayesml.metatree のクラス)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel">(bayesml.multivariate_normal のクラス)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel">(bayesml.normal のクラス)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel">(bayesml.poisson のクラス)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel.get_constants">get_constants() (bayesml.autoregressive.GenModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.get_constants">(bayesml.autoregressive.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel.get_constants">(bayesml.bernoulli.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.get_constants">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel.get_constants">(bayesml.categorical.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.get_constants">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel.get_constants">(bayesml.contexttree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.get_constants">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel.get_constants">(bayesml.exponential.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.get_constants">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel.get_constants">(bayesml.gaussianmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.get_constants">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.get_constants">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.get_constants">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.get_constants">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.get_constants">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.get_constants">(bayesml.metatree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.get_constants">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.get_constants">(bayesml.multivariate_normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.get_constants">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel.get_constants">(bayesml.normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.get_constants">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel.get_constants">(bayesml.poisson.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.get_constants">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.get_h0_params">get_h0_params() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Posterior.get_h0_params">(bayesml.base.Posterior のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.get_h0_params">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.get_h0_params">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.get_h0_params">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.get_h0_params">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.get_h0_params">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.get_h0_params">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.get_h0_params">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.get_h0_params">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.get_h0_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.get_h0_params">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.get_h0_params">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel.get_h_params">get_h_params() (bayesml.autoregressive.GenModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Generative.get_h_params">(bayesml.base.Generative のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel.get_h_params">(bayesml.bernoulli.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel.get_h_params">(bayesml.categorical.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel.get_h_params">(bayesml.contexttree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel.get_h_params">(bayesml.exponential.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel.get_h_params">(bayesml.gaussianmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.get_h_params">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.get_h_params">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.get_h_params">(bayesml.metatree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.get_h_params">(bayesml.multivariate_normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel.get_h_params">(bayesml.normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel.get_h_params">(bayesml.poisson.GenModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.get_hn_params">get_hn_params() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Posterior.get_hn_params">(bayesml.base.Posterior のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.get_hn_params">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.get_hn_params">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.get_hn_params">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.get_hn_params">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.get_hn_params">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.get_hn_params">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.get_hn_params">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.get_hn_params">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.get_hn_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.get_hn_params">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.get_hn_params">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.get_p_params">get_p_params() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.PredictiveMixin.get_p_params">(bayesml.base.PredictiveMixin のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.get_p_params">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.get_p_params">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.get_p_params">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.get_p_params">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.get_p_params">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.get_p_params">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.get_p_params">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.get_p_params">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.get_p_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.get_p_params">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.get_p_params">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel.get_params">get_params() (bayesml.autoregressive.GenModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Generative.get_params">(bayesml.base.Generative のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel.get_params">(bayesml.bernoulli.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel.get_params">(bayesml.categorical.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel.get_params">(bayesml.contexttree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel.get_params">(bayesml.exponential.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel.get_params">(bayesml.gaussianmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.get_params">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.get_params">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.get_params">(bayesml.metatree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.get_params">(bayesml.multivariate_normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel.get_params">(bayesml.normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel.get_params">(bayesml.poisson.GenModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel">LearnModel (bayesml.autoregressive のクラス)</a>
+
+      <ul>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel">(bayesml.bernoulli のクラス)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel">(bayesml.categorical のクラス)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel">(bayesml.contexttree のクラス)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel">(bayesml.exponential のクラス)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel">(bayesml.gaussianmixture のクラス)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel">(bayesml.hiddenmarkovnormal のクラス)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel">(bayesml.linearregression のクラス)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel">(bayesml.metatree のクラス)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel">(bayesml.multivariate_normal のクラス)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel">(bayesml.normal のクラス)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel">(bayesml.poisson のクラス)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.html#bayesml.base.Posterior.load_h0_params">load_h0_params() (bayesml.base.Posterior のメソッド)</a>
+</li>
+      <li><a href="bayesml.html#bayesml.base.Generative.load_h_params">load_h_params() (bayesml.base.Generative のメソッド)</a>
+</li>
+      <li><a href="bayesml.html#bayesml.base.Posterior.load_hn_params">load_hn_params() (bayesml.base.Posterior のメソッド)</a>
+</li>
+      <li><a href="bayesml.html#bayesml.base.Generative.load_params">load_params() (bayesml.base.Generative のメソッド)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.make_prediction">make_prediction() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.PredictiveMixin.make_prediction">(bayesml.base.PredictiveMixin のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.make_prediction">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.make_prediction">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.make_prediction">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.make_prediction">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.make_prediction">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.make_prediction">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.make_prediction">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.make_prediction">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.make_prediction">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.make_prediction">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.make_prediction">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    module
+
+      <ul>
+        <li><a href="bayesml.autoregressive.html#module-bayesml.autoregressive">bayesml.autoregressive</a>
+</li>
+        <li><a href="bayesml.html#module-bayesml.base">bayesml.base</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#module-bayesml.bernoulli">bayesml.bernoulli</a>
+</li>
+        <li><a href="bayesml.categorical.html#module-bayesml.categorical">bayesml.categorical</a>
+</li>
+        <li><a href="bayesml.contexttree.html#module-bayesml.contexttree">bayesml.contexttree</a>
+</li>
+        <li><a href="bayesml.exponential.html#module-bayesml.exponential">bayesml.exponential</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#module-bayesml.gaussianmixture">bayesml.gaussianmixture</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#module-bayesml.hiddenmarkovnormal">bayesml.hiddenmarkovnormal</a>
+</li>
+        <li><a href="bayesml.linearregression.html#module-bayesml.linearregression">bayesml.linearregression</a>
+</li>
+        <li><a href="bayesml.metatree.html#module-bayesml.metatree">bayesml.metatree</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#module-bayesml.multivariate_normal">bayesml.multivariate_normal</a>
+</li>
+        <li><a href="bayesml.normal.html#module-bayesml.normal">bayesml.normal</a>
+</li>
+        <li><a href="bayesml.poisson.html#module-bayesml.poisson">bayesml.poisson</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.html#bayesml.base.Posterior.overwrite_h0_params">overwrite_h0_params() (bayesml.base.Posterior のメソッド)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.html#bayesml.base.Posterior">Posterior (bayesml.base のクラス)</a>
+</li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.pred_and_update">pred_and_update() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.PredictiveMixin.pred_and_update">(bayesml.base.PredictiveMixin のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.pred_and_update">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.pred_and_update">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.pred_and_update">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.pred_and_update">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.pred_and_update">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.pred_and_update">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.pred_and_update">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.pred_and_update">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.pred_and_update">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.pred_and_update">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.pred_and_update">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.predict">predict() (bayesml.bernoulli.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.predict">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.predict">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.predict">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.predict">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.predict">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.predict">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.predict">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.predict_interval">predict_interval() (bayesml.autoregressive.LearnModel のメソッド)</a>
+</li>
+      <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.predict_proba">predict_proba() (bayesml.bernoulli.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.predict_proba">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.predict_proba">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.html#bayesml.base.PredictiveMixin">PredictiveMixin (bayesml.base のクラス)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.html#bayesml.base.Posterior.reset_hn_params">reset_hn_params() (bayesml.base.Posterior のメソッド)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.html#bayesml.base.Posterior.save_h0_params">save_h0_params() (bayesml.base.Posterior のメソッド)</a>
+</li>
+      <li><a href="bayesml.html#bayesml.base.Generative.save_h_params">save_h_params() (bayesml.base.Generative のメソッド)</a>
+</li>
+      <li><a href="bayesml.html#bayesml.base.Posterior.save_hn_params">save_hn_params() (bayesml.base.Posterior のメソッド)</a>
+</li>
+      <li><a href="bayesml.html#bayesml.base.Generative.save_params">save_params() (bayesml.base.Generative のメソッド)</a>
+</li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel.save_sample">save_sample() (bayesml.autoregressive.GenModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Generative.save_sample">(bayesml.base.Generative のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel.save_sample">(bayesml.bernoulli.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel.save_sample">(bayesml.categorical.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel.save_sample">(bayesml.contexttree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel.save_sample">(bayesml.exponential.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel.save_sample">(bayesml.gaussianmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.save_sample">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.save_sample">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.save_sample">(bayesml.metatree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.save_sample">(bayesml.multivariate_normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel.save_sample">(bayesml.normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel.save_sample">(bayesml.poisson.GenModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.set_h0_params">set_h0_params() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Posterior.set_h0_params">(bayesml.base.Posterior のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.set_h0_params">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.set_h0_params">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.set_h0_params">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.set_h0_params">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.set_h0_params">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.set_h0_params">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.set_h0_params">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.set_h0_params">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.set_h0_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.set_h0_params">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.set_h0_params">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel.set_h_params">set_h_params() (bayesml.autoregressive.GenModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Generative.set_h_params">(bayesml.base.Generative のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel.set_h_params">(bayesml.bernoulli.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel.set_h_params">(bayesml.categorical.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel.set_h_params">(bayesml.contexttree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel.set_h_params">(bayesml.exponential.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel.set_h_params">(bayesml.gaussianmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.set_h_params">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.set_h_params">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.set_h_params">(bayesml.metatree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.set_h_params">(bayesml.multivariate_normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel.set_h_params">(bayesml.normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel.set_h_params">(bayesml.poisson.GenModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.set_hn_params">set_hn_params() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Posterior.set_hn_params">(bayesml.base.Posterior のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.set_hn_params">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.set_hn_params">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.set_hn_params">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.set_hn_params">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.set_hn_params">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.set_hn_params">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.set_hn_params">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.set_hn_params">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.set_hn_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.set_hn_params">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.set_hn_params">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel.set_params">set_params() (bayesml.autoregressive.GenModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Generative.set_params">(bayesml.base.Generative のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel.set_params">(bayesml.bernoulli.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel.set_params">(bayesml.categorical.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel.set_params">(bayesml.contexttree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel.set_params">(bayesml.exponential.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel.set_params">(bayesml.gaussianmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.set_params">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.set_params">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.set_params">(bayesml.metatree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.set_params">(bayesml.multivariate_normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel.set_params">(bayesml.normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel.set_params">(bayesml.poisson.GenModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.update_posterior">update_posterior() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Posterior.update_posterior">(bayesml.base.Posterior のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.update_posterior">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.update_posterior">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.update_posterior">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.update_posterior">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.update_posterior">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.update_posterior">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.update_posterior">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.update_posterior">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.update_posterior">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.update_posterior">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.update_posterior">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.GenModel.visualize_model">visualize_model() (bayesml.autoregressive.GenModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Generative.visualize_model">(bayesml.base.Generative のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.GenModel.visualize_model">(bayesml.bernoulli.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.GenModel.visualize_model">(bayesml.categorical.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.GenModel.visualize_model">(bayesml.contexttree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.GenModel.visualize_model">(bayesml.exponential.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.GenModel.visualize_model">(bayesml.gaussianmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.visualize_model">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.visualize_model">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.visualize_model">(bayesml.metatree.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.visualize_model">(bayesml.multivariate_normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.GenModel.visualize_model">(bayesml.normal.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.GenModel.visualize_model">(bayesml.poisson.GenModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.visualize_posterior">visualize_posterior() (bayesml.autoregressive.LearnModel のメソッド)</a>
+
+      <ul>
+        <li><a href="bayesml.html#bayesml.base.Posterior.visualize_posterior">(bayesml.base.Posterior のメソッド)</a>
+</li>
+        <li><a href="bayesml.bernoulli.html#bayesml.bernoulli.LearnModel.visualize_posterior">(bayesml.bernoulli.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.visualize_posterior">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.contexttree.html#bayesml.contexttree.LearnModel.visualize_posterior">(bayesml.contexttree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.visualize_posterior">(bayesml.exponential.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.visualize_posterior">(bayesml.gaussianmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.visualize_posterior">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.visualize_posterior">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.visualize_posterior">(bayesml.metatree.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.visualize_posterior">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.normal.html#bayesml.normal.LearnModel.visualize_posterior">(bayesml.normal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.poisson.html#bayesml.poisson.LearnModel.visualize_posterior">(bayesml.poisson.LearnModel のメソッド)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 BayesML Developers
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, BayesML Developers.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

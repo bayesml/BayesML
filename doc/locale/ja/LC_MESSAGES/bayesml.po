@@ -1,0 +1,348 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../bayesml.rst:2
+msgid "Bayesml packages"
+msgstr ""
+
+#: ../../bayesml.rst:5
+msgid "Subpackages"
+msgstr ""
+
+#: ../../bayesml.rst:24
+msgid "Submodules"
+msgstr ""
+
+#: ../../bayesml.rst:27
+msgid "bayesml.base module"
+msgstr ""
+
+#: bayesml.base.Generative:1 bayesml.base.Posterior:1
+#: bayesml.base.PredictiveMixin:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: bayesml.base.Generative:7 bayesml.base.Posterior:7
+#: bayesml.base.PredictiveMixin:9 of
+msgid "Methods"
+msgstr ""
+
+#: bayesml.base.Generative:16:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h_params <bayesml.base.Generative.load_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.base.Generative.load_h_params:2
+#: bayesml.base.Generative:16:<autosummary>:1 of
+msgid "Load the hyperparameters to h_params."
+msgstr ""
+
+#: bayesml.base.Generative:16:<autosummary>:1 of
+msgid ""
+":py:obj:`load_params <bayesml.base.Generative.load_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.base.Generative.load_params:2
+#: bayesml.base.Generative:16:<autosummary>:1 of
+msgid "Load the parameters saved by ``save_params``."
+msgstr ""
+
+#: bayesml.base.Generative:16:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h_params <bayesml.base.Generative.save_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.base.Generative.save_h_params:2
+#: bayesml.base.Generative:16:<autosummary>:1
+#: bayesml.base.Posterior.save_h0_params:2
+#: bayesml.base.Posterior.save_hn_params:2
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid "Save the hyperparameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.base.Generative:16:<autosummary>:1 of
+msgid ""
+":py:obj:`save_params <bayesml.base.Generative.save_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.base.Generative.save_params:2
+#: bayesml.base.Generative:16:<autosummary>:1 of
+msgid "Save the parameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.base.Generative:18 of
+msgid "**gen_params**"
+msgstr ""
+
+#: bayesml.base.Generative:19 of
+msgid "**gen_sample**"
+msgstr ""
+
+#: bayesml.base.Generative:20 of
+msgid "**get_h_params**"
+msgstr ""
+
+#: bayesml.base.Generative:21 of
+msgid "**get_params**"
+msgstr ""
+
+#: bayesml.base.Generative:22 of
+msgid "**save_sample**"
+msgstr ""
+
+#: bayesml.base.Generative:23 of
+msgid "**set_h_params**"
+msgstr ""
+
+#: bayesml.base.Generative:24 of
+msgid "**set_params**"
+msgstr ""
+
+#: bayesml.base.Generative:25 of
+msgid "**visualize_model**"
+msgstr ""
+
+#: bayesml.base.Generative.save_h_params:4 of
+msgid ""
+"They are saved as a python dictionary obtained by "
+"``GenModel.get_h_params()``."
+msgstr ""
+
+#: bayesml.base.Generative.load_h_params bayesml.base.Generative.load_params
+#: bayesml.base.Generative.save_h_params bayesml.base.Generative.save_params
+#: bayesml.base.Posterior.load_h0_params bayesml.base.Posterior.load_hn_params
+#: bayesml.base.Posterior.save_h0_params bayesml.base.Posterior.save_hn_params
+#: of
+msgid "Parameters"
+msgstr ""
+
+#: bayesml.base.Generative.load_h_params:7
+#: bayesml.base.Generative.load_params:7
+#: bayesml.base.Generative.save_h_params:8
+#: bayesml.base.Generative.save_params:8
+#: bayesml.base.Posterior.load_h0_params:7
+#: bayesml.base.Posterior.load_hn_params:7
+#: bayesml.base.Posterior.save_h0_params:8
+#: bayesml.base.Posterior.save_hn_params:8 of
+msgid "**filename**"
+msgstr ""
+
+#: bayesml.base.Generative.load_h_params:-1
+#: bayesml.base.Generative.load_params:-1
+#: bayesml.base.Generative.save_h_params:-1
+#: bayesml.base.Generative.save_params:-1
+#: bayesml.base.Posterior.load_h0_params:-1
+#: bayesml.base.Posterior.load_hn_params:-1
+#: bayesml.base.Posterior.save_h0_params:-1
+#: bayesml.base.Posterior.save_hn_params:-1 of
+msgid "str"
+msgstr ""
+
+#: bayesml.base.Generative.save_h_params:9
+#: bayesml.base.Posterior.save_h0_params:9
+#: bayesml.base.Posterior.save_hn_params:9 of
+msgid ""
+"The filename (including a extention like .pkl) to which the "
+"hyperparameters are saved."
+msgstr ""
+
+#: bayesml.base.Generative.load_h_params:23
+#: bayesml.base.Generative.load_params:21
+#: bayesml.base.Generative.save_h_params:21
+#: bayesml.base.Generative.save_params:21
+#: bayesml.base.Posterior.load_h0_params:23
+#: bayesml.base.Posterior.load_hn_params:23
+#: bayesml.base.Posterior.save_h0_params:21
+#: bayesml.base.Posterior.save_hn_params:21 of
+msgid "The ``pickle`` module is not secure. Only unpickle data you trust."
+msgstr ""
+
+#: bayesml.base.Generative.load_h_params:28
+#: bayesml.base.Generative.load_params:26
+#: bayesml.base.Generative.save_h_params:26
+#: bayesml.base.Generative.save_params:26
+#: bayesml.base.Posterior.load_h0_params:28
+#: bayesml.base.Posterior.load_hn_params:28
+#: bayesml.base.Posterior.save_h0_params:26
+#: bayesml.base.Posterior.save_hn_params:26 of
+msgid ":obj:`pickle`"
+msgstr ""
+
+#: bayesml.base.Generative.load_h_params:8
+#: bayesml.base.Posterior.load_h0_params:8
+#: bayesml.base.Posterior.load_hn_params:8 of
+msgid ""
+"The filename (including a extention like .pkl) to be loaded. It must be a"
+" pickled python dictionary obtained by ``GenModel.save_h_params()``, "
+"``LearnModel.save_h0_params()``  or ``LearnModel.save_hn_params()``."
+msgstr ""
+
+#: bayesml.base.Generative.save_params:4 of
+msgid ""
+"They are saved as a pickled python dictionary obtained by "
+"``GenModel.get_params()``."
+msgstr ""
+
+#: bayesml.base.Generative.save_params:9 of
+msgid ""
+"The filename (including a extention like .pkl) to which the parameters "
+"are saved."
+msgstr ""
+
+#: bayesml.base.Generative.load_params:8 of
+msgid ""
+"The filename (including a extention like .pkl) to be loaded. It must be a"
+" pickled python dictionary obtained by ``GenModel.save_params()``."
+msgstr ""
+
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid ""
+":py:obj:`load_h0_params <bayesml.base.Posterior.load_h0_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.base.Posterior.load_h0_params:2
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid "Load the hyperparameters to h0_params."
+msgstr ""
+
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid ""
+":py:obj:`load_hn_params <bayesml.base.Posterior.load_hn_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.base.Posterior.load_hn_params:2
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid "Load the hyperparameters to hn_params."
+msgstr ""
+
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.base.Posterior.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.base.Posterior.overwrite_h0_params:2
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
+msgstr ""
+
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid ""
+":py:obj:`reset_hn_params <bayesml.base.Posterior.reset_hn_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.base.Posterior.reset_hn_params:2
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
+msgstr ""
+
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid ""
+":py:obj:`save_h0_params <bayesml.base.Posterior.save_h0_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.base.Posterior:18:<autosummary>:1 of
+msgid ""
+":py:obj:`save_hn_params <bayesml.base.Posterior.save_hn_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.base.Posterior:20 of
+msgid "**estimate_params**"
+msgstr ""
+
+#: bayesml.base.Posterior:21 of
+msgid "**get_h0_params**"
+msgstr ""
+
+#: bayesml.base.Posterior:22 of
+msgid "**get_hn_params**"
+msgstr ""
+
+#: bayesml.base.Posterior:23 of
+msgid "**set_h0_params**"
+msgstr ""
+
+#: bayesml.base.Posterior:24 of
+msgid "**set_hn_params**"
+msgstr ""
+
+#: bayesml.base.Posterior:25 of
+msgid "**update_posterior**"
+msgstr ""
+
+#: bayesml.base.Posterior:26 of
+msgid "**visualize_posterior**"
+msgstr ""
+
+#: bayesml.base.Posterior.save_h0_params:4 of
+msgid ""
+"They are saved as a pickled python dictionary obtained by "
+"``LearnModel.get_h0_params()``."
+msgstr ""
+
+#: bayesml.base.Posterior.save_hn_params:4 of
+msgid ""
+"They are saved as a pickled python dictionary obtained by "
+"``LearnModel.get_hn_params()``."
+msgstr ""
+
+#: bayesml.base.Posterior.reset_hn_params:4 of
+msgid ""
+"They are reset to the output of `self.get_h0_params()`. Note that the "
+"parameters of the predictive distribution are also calculated from them."
+msgstr ""
+
+#: bayesml.base.Posterior.overwrite_h0_params:4 of
+msgid ""
+"They are overwitten by the output of `self.get_hn_params()`. Note that "
+"the parameters of the predictive distribution are also calculated from "
+"them."
+msgstr ""
+
+#: bayesml.base.PredictiveMixin:11 of
+msgid "**calc_pred_dist**"
+msgstr ""
+
+#: bayesml.base.PredictiveMixin:12 of
+msgid "**get_p_params**"
+msgstr ""
+
+#: bayesml.base.PredictiveMixin:13 of
+msgid "**make_prediction**"
+msgstr ""
+
+#: bayesml.base.PredictiveMixin:14 of
+msgid "**pred_and_update**"
+msgstr ""
+
