@@ -11,3 +11,12 @@ aside.bd-header-announcement {
     text-decoration: underline;
     font-weight: bold;
 }
+
+.language-link {
+  text-decoration: none;
+}
+
+.language-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+}

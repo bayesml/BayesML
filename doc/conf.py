@@ -22,7 +22,7 @@ copyright = '2025, BayesML Developers'
 author = 'BayesML Developers'
 
 # The full version, including alpha/beta/rc tags
-release = '0.3.0'
+release = '0.3.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -95,3 +95,14 @@ intersphinx_mapping = {'python': ('https://docs.python.org/3', None),
 }
 
 html_favicon = 'logos/BayesML_favicon.ico'
+
+locale_dirs = ['locale/']   # path is example but recommended.
+gettext_compact = False     # optional.
+
+html_sidebars = {
+    '**': ['navbar-logo.html',
+           'icon-links.html',
+           'language-switcher.html',
+           'search-button-field.html',
+           'sbt-sidebar-nav.html']
+}
