@@ -73,7 +73,7 @@ myst_enable_extensions = ["dollarmath", "amsmath","html_image"]
 html_theme_options = {
   "repository_url": "https://github.com/bayesml/BayesML/",
   "use_repository_button": True,
-  "announcement": "Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html'>here</a>!",
+  "announcement": "Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html'>here</a>!",
 }
 
 napoleon_use_rtype = False
