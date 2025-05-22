@@ -15,7 +15,7 @@ help:
 .PHONY: help Makefile
 
 html_%:
-	@$(SPHINXBUILD) -D language="$*" -b html "$(SOURCEDIR)" "../docs/$*" $(O)
+	@SPHINX_LANGUAGE="$*" $(SPHINXBUILD) -D language="$*" -b html "$(SOURCEDIR)" "../docs/$*" $(O)
 
 # orverride default html target
 html: html_ja html_en
