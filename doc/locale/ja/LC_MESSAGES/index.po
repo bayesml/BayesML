@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 23:58+0900\n"
-"PO-Revision-Date: 2025-05-22 01:15+0900\n"
+"PO-Revision-Date: 2025-07-11 10:25+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../../index.rst:12
 msgid "Your First Library for Bayesian Machine Learning"
-msgstr ""
+msgstr "Your First Library for Bayesian Machine Learning"
 
 #: ../../index.rst:14
 msgid ""
@@ -30,26 +30,28 @@ msgid ""
 "application of machine learning based on Bayesian statistics and Bayesian "
 "decision theory."
 msgstr ""
-"BayesMLは，ベイズ統計学やベイズ決定理論に基づく機械学習の教育，研究，活用を促進"
-"し，社会に広く貢献することを目的としたライブラリです．"
+"BayesMLは、ベイズ統計学やベイズ決定理論に基づく機械学習の教育、研究、活用を促進"
+"し、社会に広く貢献することを目的としたライブラリです。"
 
 #: ../../index.rst:17
 msgid "Characteristics"
-msgstr ""
+msgstr "特徴"
 
 #: ../../index.rst:19
 msgid "**Easy-to-use:**"
-msgstr ""
+msgstr "**使いやすい**"
 
 #: ../../index.rst:21
 msgid ""
 "You can use pre-defined Bayesian statistical models by simply importing it. You "
 "don't need to define models yourself like PyMC or Stan."
 msgstr ""
+"ライブラリをインポートするだけで実装済みのベイズ統計モデルを使用できます。PyMCや"
+"Stanのように自分でモデルを定義する必要はありません。"
 
 #: ../../index.rst:23
 msgid "**Bayesian Decision Theoretic API:**"
-msgstr ""
+msgstr "**ベイズ決定理論に基づくAPI**"
 
 #: ../../index.rst:25
 msgid ""
@@ -61,10 +63,16 @@ msgid ""
 "like scikit-learn. Moreover, many of our models also implement fit-predict "
 "functions."
 msgstr ""
+"BayesMLのAPIは、ベイズ決定理論に基づく意思決定の構造に対応しています。ベイズ決定"
+"理論は、パラメータ推定や新しいデータの予測など、様々な意思決定のプロセスを扱うた"
+"めの統一的なフレームワークです。そのためBayesMLでは、scikit-learnなどのライブラ"
+"リで採用されているfit-predict型のAPIと比較して、より幅広い意思決定に対して直感的"
+"な操作が可能です。さらに、BayesMLのモデルの多くもfit-predict関数を実装していま"
+"す。"
 
 #: ../../index.rst:27
 msgid "**Model Visuialization Functions:**"
-msgstr ""
+msgstr "**モデル可視化機能**"
 
 #: ../../index.rst:29
 msgid ""
@@ -74,10 +82,14 @@ msgid ""
 "characteristics of probabilistic data generative models and algorithms through "
 "the generation of synthetic data and learning from them."
 msgstr ""
+"すべてのパッケージは、確率的データ生成モデル、そのモデルから生成されたデータ、そ"
+"のデータから学習された事後分布を2～3次元空間で可視化するメソッドを持っています。"
+"このように、人工データの生成とそのデータからの学習を通して、確率的データ生成モデ"
+"ルやアルゴリズムの特徴を効果的に理解することができます。"
 
 #: ../../index.rst:31
 msgid "**Fast Algorithms Using Conjugate Prior Distributions:**"
-msgstr ""
+msgstr "**共役事前分布を用いた高速アルゴリズム**"
 
 #: ../../index.rst:33
 msgid ""
@@ -88,62 +100,70 @@ msgid ""
 "Although some algorithms adopt MCMC methods, but they use MCMC methods "
 "specialized for each model, taking advantage of conjugacy."
 msgstr ""
+"BayesMLの学習アルゴリズムの多くは、確率的データ生成モデルと事前分布の共役性を効"
+"果的に利用する厳密計算法や変分ベイズ法を採用しています。そのため、汎用のMCMC法よ"
+"りもはるかに高速であり、オンライン学習にも適しています。MCMC法を採用したアルゴリ"
+"ズムもありますが、共役性を利用してモデルごとに特化したMCMC法を用いています。"
 
 #: ../../index.rst:36
 msgid "News"
-msgstr ""
+msgstr "ニュース"
 
 #: ../../index.rst:38
 msgid ""
 "Our algorithm for the meta-tree model has been accepted to AISTATS 2025! For "
 "more details, please see the links below."
 msgstr ""
+"メタツリーモデルに対する我々のアルゴリズムがAISTATS2025に採択されました！詳細は"
+"以下のリンクをご覧ください。"
 
 #: ../../index.rst:40
 msgid "`Paper <https://proceedings.mlr.press/v258/nakahara25a.html>`__"
-msgstr ""
+msgstr "`論文 <https://proceedings.mlr.press/v258/nakahara25a.html>`__"
 
 #: ../../index.rst:41
 msgid ""
 "`Code Example <https://bayesml.github.io/BayesML/examples/"
 "metatree_prediction_interval.html>`__"
 msgstr ""
+"`具体例 <https://bayesml.github.io/BayesML/examples/"
+"metatree_prediction_interval.html>`__"
 
 #: ../../index.rst:44
 msgid "Installation"
-msgstr ""
+msgstr "インストール手順"
 
 #: ../../index.rst:46
 msgid "Please use the following command to install BayesML."
-msgstr ""
+msgstr "BayesMLをインストールするには、以下のコマンドを使用してください。"
 
 #: ../../index.rst:52
 msgid "The following are required."
-msgstr ""
+msgstr "以下が必要です。"
 
 #: ../../index.rst:54
 msgid "Python (>= 3.7)"
-msgstr ""
+msgstr "Python (>= 3.7)"
 
 #: ../../index.rst:55
 msgid "NumPy (>= 1.20)"
-msgstr ""
+msgstr "NumPy (>= 1.20)"
 
 #: ../../index.rst:56
 msgid "SciPy (>= 1.7)"
-msgstr ""
+msgstr "SciPy (>= 1.7)"
 
 #: ../../index.rst:57
 msgid "MatplotLib (>= 3.5)"
-msgstr ""
+msgstr "MatplotLib (>= 3.5)"
 
 #: ../../index.rst:58
 msgid "Scikit-learn (>= 1.1)"
-msgstr ""
+msgstr "Scikit-learn (>= 1.1)"
 
 #: ../../index.rst:61
 msgid "Tutorial"
-msgstr ""
+msgstr "チュートリアル"
 
 #: ../../index.rst:63
 msgid ""
@@ -154,14 +174,19 @@ msgid ""
 "Each has an API that aligns with Bayesian decision theory. Let's look at how to "
 "use each with the ``linearregression`` model as an example."
 msgstr ""
+"BayesMLの各モデルには2つのクラスがあります。一つは ``GenModel`` で、事前分布や事"
+"後分布からパラメータを生成したり、データを生成したりします。もう一つは "
+"``LearnModel`` であり、データから事後分布を推定したり、予測分布を計算したりする"
+"ことができます。それぞれベイズ決定理論に沿ったAPIを持っています。ここでは "
+"``linearregression`` モデルを例に、それぞれの使い方を紹介します。"
 
 #: ../../index.rst:66
 msgid "Synthetic Data Generation with ``GenModel``"
-msgstr ""
+msgstr "``GenModel`` による人工データ生成"
 
 #: ../../index.rst:68
 msgid "First, let's import the library."
-msgstr ""
+msgstr "まず、以下のライブラリをインポートします。"
 
 #: ../../index.rst:75
 msgid ""
@@ -171,58 +196,67 @@ msgid ""
 "regression coefficients as ``theta_vec = np.array([1,1])`` and the precision "
 "(inverse of variance) of the noise term as ``tau = 10`` as parameters."
 msgstr ""
+"次に、確率的データ生成モデルのインスタンスを作成します。ここでは、モデルの定数と"
+"して回帰係数（定数項を含む）の次元を ``c_degree=2`` と指定し、パラメータとして回"
+"帰係数を ``theta_vec = np.array([1,1])`` と指定します。また、ノイズ項にはガウス"
+"分布（正規分布）を仮定し、平均を0、精度（分散の逆数）を ``tau = 10`` とします。"
 
 #: ../../index.rst:85
 msgid ""
 "You can visualize the characteristics of the created model by the following "
 "method."
-msgstr ""
+msgstr "作成したモデルの特徴は、以下の方法で可視化できます。"
 
 #: ../../index.rst:91 ../../index.rst:133 ../../index.rst:149 ../../index.rst:162
 #: ../../index.rst:173 ../../index.rst:196 ../../index.rst:214 ../../index.rst:236
 #: ../../index.rst:248
 msgid "Output:"
-msgstr ""
+msgstr "出力"
 
 #: ../../index.rst
 msgid "theta_vec:"
-msgstr ""
+msgstr "theta_vec："
 
 #: ../../index.rst
 msgid "[1. 1.]"
-msgstr ""
+msgstr "[1. 1.]"
 
 #: ../../index.rst
 msgid "tau:"
-msgstr ""
+msgstr "tau:"
 
 #: ../../index.rst
 msgid "10.0"
-msgstr ""
+msgstr "10.0"
 
 #: ../../index.rst:100
 msgid ""
 "To generate a sample and save it to variables ``x`` and ``y``, we use the "
 "following method:"
 msgstr ""
+"サンプルを生成して変数 ``x`` と ``y`` に保存するには、以下のメソッドを使います。"
 
 #: ../../index.rst:106
 msgid "Let's also generate test data for later use."
-msgstr ""
+msgstr "また、後で使用するためのテストデータも生成しておきましょう。"
 
 #: ../../index.rst:113
 msgid "Learning and Decision Making with ``LearnModel``"
-msgstr ""
+msgstr "``LearnModel`` による学習と意思決定"
 
 #: ../../index.rst:115
 msgid "Let's use ``LearnModel`` to learn a model from the data we just generated."
 msgstr ""
+"それでは ``LearnModel`` を使って、先ほど生成したデータからモデルを学習してみま"
+"しょう。"
 
 #: ../../index.rst:117
 msgid ""
 "Of course, the data that can be used with ``LearnModel`` is not limited to data "
 "generated from ``GenModel``. You can analyze various real-world data."
 msgstr ""
+"もちろん、``LearnModel`` で使用できるデータは ``GenModel`` から生成されたデータ"
+"に限りません。実世界の様々なデータを分析することができます。"
 
 #: ../../index.rst:119
 msgid ""
@@ -230,6 +264,9 @@ msgid ""
 "the degree ``c_degree = 2`` as a constant of the model, but you can also "
 "specify hyperparameters for the prior distribution."
 msgstr ""
+"まず、学習モデルのインスタンスを作成しましょう。ここではモデルの定数として次数 "
+"``c_degree = 2`` だけを指定していますが、事前分布のハイパーパラメータを指定する"
+"こともできます。"
 
 #: ../../index.rst:127
 msgid ""
@@ -238,12 +275,15 @@ msgid ""
 "this point, the prior distribution will be displayed since learning from data "
 "has not yet been performed."
 msgstr ""
+"パラメータの事後分布を可視化するメソッドは ``LearnModel`` に実装されています。こ"
+"の時点で事後分布を可視化すると、データからの学習がまだ行われていないため、事前分"
+"布が表示されます。"
 
 #: ../../index.rst:137
 msgid ""
 "To update the posterior distribution through learning from data, we use the "
 "following method."
-msgstr ""
+msgstr "データから学習して事後分布を更新するには、以下のメソッドを使います。"
 
 #: ../../index.rst:143
 msgid ""
@@ -251,12 +291,16 @@ msgid ""
 "density of the posterior distribution has moved closer to the true parameters "
 "used to generate ``x`` and ``y``."
 msgstr ""
+"更新された事後分布を可視化すると、事後分布の確率密度が ``x`` と ``y`` の生成に使"
+"われた真のパラメータに近づいていることがわかります。"
 
 #: ../../index.rst:153
 msgid ""
 "To make decisions such as parameter estimation and prediction of new data based "
 "on the learned model, we proceed as follows."
 msgstr ""
+"学習したモデルに基づいてパラメータ推定や新しいデータの予測などの判断を行う手順"
+"は、以下の通りです。"
 
 #: ../../index.rst:155
 msgid ""
@@ -265,11 +309,16 @@ msgid ""
 "the Bayes risk function based on the squared error loss function. The resulting "
 "value is the expected value of the posterior distribution."
 msgstr ""
+"パラメータ推定には ``estimate_params`` メソッドを使用します。 ``loss`` オプショ"
+"ンに ``squared`` を指定することで、二乗誤差損失関数に基づくベイズリスク関数を最"
+"小化する推定値を得ることができます。結果の値は事後分布の期待値（平均）となりま"
+"す。"
 
 #: ../../index.rst
 #, python-brace-format
 msgid "{'theta_vec': array([0.99846525, 0.96263024]), 'tau': 6.9036925167513195}"
 msgstr ""
+"{'theta_vec': array([0.99846525, 0.96263024]), 'tau'： 6.9036925167513195}"
 
 #: ../../index.rst:166
 msgid ""
@@ -278,17 +327,22 @@ msgid ""
 "The resulting value is the median of the posterior distribution, which is why "
 "the estimated value of ``tau`` differs from the previous one."
 msgstr ""
+"``loss`` オプションに ``abs`` を指定すると、絶対誤差損失関数に基づくベイズリスク"
+"関数を最小化する推定値を得ることができます。その結果得られる値は事後分布の中央値"
+"（メジアン）となり、そのため ``tau`` の推定値は先ほどとは異なります。"
 
 #: ../../index.rst
 #, python-brace-format
 msgid "{'theta_vec': array([0.99846525, 0.96263024]), 'tau': 6.858623148933392}"
-msgstr ""
+msgstr "{'theta_vec': array([0.99846525, 0.96263024]), 'tau'： 6.858623148933392}"
 
 #: ../../index.rst:177
 msgid ""
 "To predict new data, we first use the following method to calculate the "
 "predictive distribution for new explanatory variables."
 msgstr ""
+"新しいデータを予測するために、まず新しい説明変数の予測分布を計算するための以下の"
+"メソッドを使います。"
 
 #: ../../index.rst:183
 msgid ""
@@ -298,14 +352,18 @@ msgid ""
 "you assume squared error loss or absolute error loss since the posterior "
 "predictive distribution is symmetrical.)"
 msgstr ""
+"次に ``make_prediction`` メソッドを使って予測値を求めます。パラメータ推定と同様"
+"に、 ``loss`` オプションで損失関数を指定することができます（この例では、事後予測"
+"分布が対称的であるため、二乗誤差損失を仮定しても、絶対誤差損失を仮定しても、同じ"
+"予測値が返されます）。"
 
 #: ../../index.rst:189
 msgid "Let's calculate the mean squared error."
-msgstr ""
+msgstr "平均二乗誤差を計算してみましょう。"
 
 #: ../../index.rst
 msgid "MSE: 0.09020880284291456"
-msgstr ""
+msgstr "MSE: 0.09020880284291456"
 
 #: ../../index.rst:200
 msgid ""
@@ -313,10 +371,12 @@ msgid ""
 "used for data generation was 10, we can see that the predictions are achieved "
 "with sufficient accuracy."
 msgstr ""
+"データ生成に使用したノイズ項の精度（分散の逆数）が10であることを考慮すると、十分"
+"な精度で予測が達成されていることがわかります。"
 
 #: ../../index.rst:203
 msgid "Sampling from Posterior Distribution Using ``GenModel``"
-msgstr ""
+msgstr "``GenModel`` を用いた事後分布からのサンプリング"
 
 #: ../../index.rst:205
 msgid ""
@@ -324,12 +384,17 @@ msgid ""
 "distribution learned by ``LearnModel``, or to sample new data from the "
 "posterior predictive distribution."
 msgstr ""
+"``GenModel`` は ``LearnModel`` によって学習された事後分布からパラメータをサンプ"
+"リングしたり、事後予測分布から新しいデータをサンプリングするために使用することが"
+"できます。"
 
 #: ../../index.rst:207
 msgid ""
 "First, the hyperparameters of the posterior distribution learned by "
 "``LearnModel`` can be obtained as follows."
 msgstr ""
+"まず、``LearnModel`` によって学習された事後分布のハイパーパラメータは以下のよう"
+"に求めることができます。"
 
 #: ../../index.rst
 #, python-brace-format
@@ -338,12 +403,17 @@ msgid ""
 "array([[ 99.87503339,   5.96145913], [  5.96145913, 101.        ]]), "
 "'hn_alpha': 51.0, 'hn_beta': 7.387351026461872}"
 msgstr ""
+"{'hn_mu_vec': array([0.99846525, 0.96263024]), 'hn_lambda_mat': "
+"array([ [ 99.87503339, 5.96145913], [ 5.96145913, 101. ]]), 'hn_alpha': 51.0, "
+"'hn_beta': 7.387351026461872}"
 
 #: ../../index.rst:218
 msgid ""
 "By passing these to ``GenModel``, you can sample parameters from the posterior "
 "distribution."
 msgstr ""
+"これらを ``GenModel`` に渡すことで、事後分布からパラメータをサンプリングすること"
+"ができます。"
 
 #: ../../index.rst:220
 msgid ""
@@ -352,6 +422,10 @@ msgid ""
 "are unpacking the values of the dictionary ``hn_params`` using ``*`` for "
 "``hn_params.values()``. This is a Python feature, not a BayesML functionality.)"
 msgstr ""
+"パラメータサンプリングのために新しい ``GenModel`` インスタンスを作成し、 "
+"``set_h_params`` メソッドを通してハイパーパラメータを渡します。(以下の例では、"
+"``hn_params.values()`` に ``*`` を用いて辞書 ``hn_params`` の値を展開(アンパッ"
+"ク)しています。これは Python の機能であり、BayesML の機能ではありません)。"
 
 #: ../../index.rst:229
 msgid ""
@@ -359,11 +433,14 @@ msgid ""
 "method to retrieve the generated parameters. If you want to perform multiple "
 "samplings, please repeat the following in a ``for`` loop."
 msgstr ""
+"パラメータの生成には ``gen_params`` メソッドを使用し、生成されたパラメータを取得"
+"するには ``get_params`` メソッドを使用します。複数のサンプリングを行いたい場合"
+"は、 ``for`` ループの中で以下を繰り返してください。"
 
 #: ../../index.rst
 #, python-brace-format
 msgid "{'theta_vec': array([1.00935782, 0.93804208]), 'tau': 5.50775630793475}"
-msgstr ""
+msgstr "{'theta_vec': array([1.00935782, 0.93804208]), 'tau'： 5.50775630793475}"
 
 #: ../../index.rst:240
 msgid ""
@@ -373,16 +450,21 @@ msgid ""
 "(#synthetic-data-generation-with-genmodel)), but you can also specify them "
 "explicitly as follows."
 msgstr ""
+"事後予測分布から新しいデータをサンプリングするために、パラメータをサンプリングし"
+"た後にデータを生成します。人工データを生成する際、``gen_sample`` の引数に説明変"
+"数を指定しませんでしたが、以下のように明示的に指定することもできます。"
 
 #: ../../index.rst
 msgid ""
 "y_new: [-0.49532975  2.03473075  1.13758759 -0.46735058 -0.71902336 -0.09288005 "
 "0.89463227  2.07886012  2.81211771  1.60020635]"
 msgstr ""
+"y_new: [-0.49532975 2.03473075 1.13758759 -0.46735058 -0.71902336 -0.09288005 "
+"0.89463227 2.07886012 2.81211771 1.60020635]"
 
 #: ../../index.rst:253
 msgid "Package list"
-msgstr ""
+msgstr "パッケージリスト"
 
 #: ../../index.rst:255
 msgid ""
@@ -391,99 +473,103 @@ msgid ""
 "(or approximate posterior distribution), and predictive distribution (or "
 "approximate predictive distribution) are collectively called a model."
 msgstr ""
+"現在、以下のパッケージが利用可能です。本ライブラリでは、確率的データ生成モデル、"
+"事前分布、事後分布（または近似事後分布）、 予測分布（または近似予測分布）を総称"
+"してモデルと呼びます。"
 
 #: ../../index.rst:257
 msgid ":doc:`bayesml`"
-msgstr ""
+msgstr ":doc:`bayesml`"
 
 #: ../../index.rst:258
 msgid ":doc:`bayesml.autoregressive`"
-msgstr ""
+msgstr ":doc:`bayesml.autoregressive`"
 
 #: ../../index.rst:259
 msgid ":doc:`bayesml.bernoulli`"
-msgstr ""
+msgstr ":doc:`bayesml.bernoulli`"
 
 #: ../../index.rst:260
 msgid ":doc:`bayesml.categorical`"
-msgstr ""
+msgstr ":doc:`bayesml.categorical`"
 
 #: ../../index.rst:261
 msgid ":doc:`bayesml.contexttree`"
-msgstr ""
+msgstr ":doc:`bayesml.contexttree`"
 
 #: ../../index.rst:262
 msgid ":doc:`bayesml.exponential`"
-msgstr ""
+msgstr ":doc:`bayesml.exponential`"
 
 #: ../../index.rst:263
 msgid ":doc:`bayesml.gaussianmixture`"
-msgstr ""
+msgstr ":doc:`bayesml.gaussianmixture`"
 
 #: ../../index.rst:264
 msgid ":doc:`bayesml.hiddenmarkovnormal`"
-msgstr ""
+msgstr ":doc:`bayesml.hiddenmarkovnormal`"
 
 #: ../../index.rst:265
 msgid ":doc:`bayesml.linearregression`"
-msgstr ""
+msgstr ":doc:`bayesml.linearregression`"
 
 #: ../../index.rst:266
 msgid ":doc:`bayesml.metatree`"
-msgstr ""
+msgstr ":doc:`bayesml.metatree`"
 
 #: ../../index.rst:267
 msgid ":doc:`bayesml.multivariate_normal`"
-msgstr ""
+msgstr ":doc:`bayesml.multivariate_normal`"
 
 #: ../../index.rst:268
 msgid ":doc:`bayesml.normal`"
-msgstr ""
+msgstr ":doc:`bayesml.normal`"
 
 #: ../../index.rst:269
 msgid ":doc:`bayesml.poisson`"
-msgstr ""
+msgstr ":doc:`bayesml.poisson`"
 
 #: ../../index.rst:271
 msgid ""
 "In the future, we will add packages to deal with more complicated hierarchical "
 "models."
 msgstr ""
+"将来的には、より複雑な階層モデルを扱うためのパッケージを追加する予定です。"
 
 #: ../../index.rst:274
 msgid "Citation"
-msgstr ""
+msgstr "引用"
 
 #: ../../index.rst:276
 msgid ""
 "When you use BayesML for your academic work, please provide the following "
 "bibliographic reference."
-msgstr ""
+msgstr "BayesMLを学術研究に利用する場合は、以下のとおり引用をお願いいたします。"
 
 #: ../../index.rst:278
 msgid "Plain text"
-msgstr ""
+msgstr "Plain text"
 
 #: ../../index.rst:287
 msgid "BibTeX"
-msgstr ""
+msgstr "BibTeX"
 
 #: ../../index.rst:302
 msgid "Contents"
-msgstr ""
+msgstr "コンテンツ"
 
 #: ../../index.rst:312
 msgid "Indices"
-msgstr ""
+msgstr "Indices"
 
 #: ../../index.rst:314
 msgid ":ref:`genindex`"
-msgstr ""
+msgstr ":ref:`genindex`"
 
 #: ../../index.rst:315
 msgid ":ref:`modindex`"
-msgstr ""
+msgstr ":ref:`modindex`"
 
 #: ../../index.rst:316
 msgid ":ref:`search`"
-msgstr ""
+msgstr ":ref:`search`"
