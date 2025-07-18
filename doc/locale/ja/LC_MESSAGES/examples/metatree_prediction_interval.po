@@ -6,34 +6,38 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: BayesML \n"
+"Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-22 03:31+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2025-07-06 14:10+0900\n"
+"Last-Translator: \n"
 "Language-Team: ja <LL@li.org>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
+"X-Generator: Poedit 3.6\n"
 
 #: ../../examples/metatree_prediction_interval.ipynb:9
 msgid ""
 "Prediction interval calculation by ``bayesml.metatree`` (accepted at "
 "AISTATS 2025)"
 msgstr ""
+"``bayesml.metatree`` に基づく予測区間の導出（AISTATS 2025でアクセプト済）"
 
 #: ../../examples/metatree_prediction_interval.ipynb:11
 msgid ""
 "For details of the API of ``bayesml.metatree``, please see `this page "
 "<../bayesml.metatree.html>`__."
 msgstr ""
+"``bayesml.metatree`` のAPIについて、詳細は `こちら <../"
+"bayesml.metatree.html>`__."
 
 #: ../../examples/metatree_prediction_interval.ipynb:13
 msgid "For theoretical details, please see the following paper."
-msgstr ""
+msgstr "理論的な背景については、こちらの文献を参照してください。"
 
 #: ../../examples/metatree_prediction_interval.ipynb:15
 msgid ""
@@ -41,51 +45,58 @@ msgid ""
 "Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and "
 "Interpretability. *Proceedings of The 28th International Conference on "
 "Artificial Intelligence and Statistics*, in *Proceedings of Machine "
-"Learning Research* 258:1045-1053 Available from "
-"https://proceedings.mlr.press/v258/nakahara25a.html."
+"Learning Research* 258:1045-1053 Available from https://"
+"proceedings.mlr.press/v258/nakahara25a.html."
 msgstr ""
 
 #: ../../examples/metatree_prediction_interval.ipynb:27
 msgid "Installation of BayesML"
-msgstr ""
+msgstr "BayesMLのインストール"
 
 #: ../../examples/metatree_prediction_interval.ipynb:49
 msgid "Load dataset"
-msgstr ""
+msgstr "データセット読み込み"
 
 #: ../../examples/metatree_prediction_interval.ipynb:260
 msgid "Preprocessing"
-msgstr ""
+msgstr "前処理"
 
 #: ../../examples/metatree_prediction_interval.ipynb:301
 msgid "Create model instance"
-msgstr ""
+msgstr "モデルのインスタンスを作成"
 
 #: ../../examples/metatree_prediction_interval.ipynb:303
 msgid "First, calculate model constants."
-msgstr ""
+msgstr "まず、モデルに必要な定数を設定します。"
 
 #: ../../examples/metatree_prediction_interval.ipynb:337
 msgid ""
 "Then, create a model instance based on the model constants. For details "
-"of the parameters of ``LearnModel``, please see `this page "
-"<https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel>`__."
+"of the parameters of ``LearnModel``, please see `this page <https://"
+"bayesml.github.io/BayesML/"
+"bayesml.metatree.html#bayesml.metatree.LearnModel>`__."
 msgstr ""
+"次に、設定した定数に基づいてモデルを生成します。 ``LearnModel`` のパラ"
+"メータについて詳細を知りたい場合は `こちら <https://bayesml.github.io/"
+"BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel>`__."
 
 #: ../../examples/metatree_prediction_interval.ipynb:375
 msgid "Calculate posterior distribution"
-msgstr ""
+msgstr "事後確率分布の計算"
 
 #: ../../examples/metatree_prediction_interval.ipynb:377
 msgid ""
 "For details of the parameters of ``update_posterior``, please see `this "
-"page "
-"<https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel.update_posterior>`__."
+"page <https://bayesml.github.io/BayesML/"
+"bayesml.metatree.html#bayesml.metatree.LearnModel.update_posterior>`__."
 msgstr ""
+"各パラメータの ``update_posterior`` について詳細を知りたい場合は `こちら "
+"<https://bayesml.github.io/BayesML/"
+"bayesml.metatree.html#bayesml.metatree.LearnModel.update_posterior>`__."
 
 #: ../../examples/metatree_prediction_interval.ipynb:469
 msgid "Calculate prediction interval"
-msgstr ""
+msgstr "予測区間の導出"
 
 #: ../../examples/metatree_prediction_interval.ipynb:471
 msgid ""
@@ -93,6 +104,8 @@ msgid ""
 "interval from the values of the probability density function of the "
 "predictive distribution."
 msgstr ""
+"はじめに、予測分布の確率密度関数が返す値から ``100(1-alpha)``\\ %の予測区"
+"間を計算するサブルーチンを定義します。"
 
 #: ../../examples/metatree_prediction_interval.ipynb:509
 msgid ""
@@ -100,40 +113,42 @@ msgid ""
 "predictive distribution in the range determined by the mean and the "
 "variance of the predictive distribution."
 msgstr ""
+"次に、予測分布の平均・分散から求まる予測区間において、予測分布の確率密度"
+"関数の値を計算します。"
 
 #: ../../examples/metatree_prediction_interval.ipynb:574
 msgid "Calculate prediction interval by using the above subroutines."
-msgstr ""
+msgstr "上記のサブルーチンを組み合わせて、予測区間を計算します。"
 
 #: ../../examples/metatree_prediction_interval.ipynb:599
 msgid "Evaluation"
-msgstr ""
+msgstr "評価"
 
 #: ../../examples/metatree_prediction_interval.ipynb:601
 msgid "First, define subroutines for evaluation."
-msgstr ""
+msgstr "まず、評価のためのサブルーチンを定義します。"
 
 #: ../../examples/metatree_prediction_interval.ipynb:639
 msgid ""
 "Evaluate the results. Note that frequency close to ``100(1-alpha)``\\ % "
 "(here, 0.95) and short length are desireble."
 msgstr ""
+"次に結果を評価します。ただし、頻度が ``100(1-alpha)``\\ %（ここでは0.95）"
+"に近く、区間の長さは短い方が望ましい。"
 
 #: ../../examples/metatree_prediction_interval.ipynb:689
 msgid "Calculate prediction interval by sampling"
-msgstr ""
+msgstr "サンプリングによって予測区間を導出"
 
 #: ../../examples/metatree_prediction_interval.ipynb:691
 msgid ""
 "Using metatree.GenModel, prediction intervals can be calculated from a "
 "sample from the posterior predictive distribution. For details of the "
-"parameters of ``GenModel``, please see `this page "
-"<https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.GenModel>`__."
+"parameters of ``GenModel``, please see `this page <https://"
+"bayesml.github.io/BayesML/"
+"bayesml.metatree.html#bayesml.metatree.GenModel>`__."
 msgstr ""
-
-#~ msgid ""
-#~ "For details of the API of "
-#~ "``bayesml.metatree``, please see `this page"
-#~ " <https://bayesml.github.io/BayesML/bayesml.metatree.html>`__."
-#~ msgstr ""
-
+"metatree.GenModelを使用すれば、事後確率分布からサンプリングしたサンプルを"
+"用いて予測区間を導出できます。この ``GenModel`` のパラメータについて、詳"
+"細は `こちら <https://bayesml.github.io/BayesML/"
+"bayesml.metatree.html#bayesml.metatree.GenModel>`__."
