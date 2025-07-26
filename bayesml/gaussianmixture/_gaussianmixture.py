@@ -1,7 +1,7 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import multivariate_normal as ss_multivariate_normal
@@ -556,7 +556,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             self.h0_w_mats[:] = h0_w_mats
             self.h0_w_mats_inv[:] = np.linalg.inv(self.h0_w_mats)
 
-        self._calc_prior_char()
+        self._calc_prior_features()
         self.reset_hn_params()
         return self
 
@@ -634,8 +634,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             self.hn_w_mats[:] = hn_w_mats
             self.hn_w_mats_inv[:] = np.linalg.inv(self.hn_w_mats)
 
-        self._calc_q_pi_char()
-        self._calc_q_lambda_char()
+        self._calc_q_pi_features()
+        self._calc_q_lambda_features()
 
         self.calc_pred_dist()
         return self
@@ -658,7 +658,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 "hn_nus":self.hn_nus,
                 "hn_w_mats":self.hn_w_mats}
         
-    def _calc_prior_char(self):
+    def _calc_prior_features(self):
         self._ln_c_h0_alpha = gammaln(self.h0_alpha_vec.sum()) - gammaln(self.h0_alpha_vec).sum()
         self._ln_b_h0_w_nus = (
             - self.h0_nus*np.linalg.slogdet(self.h0_w_mats)[1]
@@ -700,13 +700,13 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             - np.sum(self.h0_w_mats_inv * self._e_lambda_mats,axis=(1,2))
             ) / 2.0
 
-        # E[ln q(Z|pi)]
+        # -E[ln q(Z|pi)]
         self._vl_q_z = -np.sum(xlogy(self.r_vecs,self.r_vecs))
 
-        # E[ln q(pi)]
+        # -E[ln q(pi)]
         self._vl_q_pi = ss_dirichlet.entropy(self.hn_alpha_vec)
 
-        # E[ln q(mu,Lambda)]
+        # -E[ln q(mu,Lambda)]
         self._vl_q_mu_lambda =  np.sum(
             + self.c_degree * (1.0 + np.log(2.0*np.pi) - np.log(self.hn_kappas))
             - self._ln_b_hn_w_nus * 2.0
@@ -724,32 +724,25 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
     def _calc_n_x_bar_s(self,x):
         self.ns[:] = self.r_vecs.sum(axis=0)
-        indices = self.ns.astype(bool)
-        if np.all(indices):
-            self.x_bar_vecs[:] = (self.r_vecs[:,:,np.newaxis] * x[:,np.newaxis,:]).sum(axis=0) / self.ns[:,np.newaxis]
-            self.s_mats[:] = np.sum(self.r_vecs[:,:,np.newaxis,np.newaxis]
-                                    * ((x[:,np.newaxis,:] - self.x_bar_vecs)[:,:,:,np.newaxis]
-                                    @ (x[:,np.newaxis,:] - self.x_bar_vecs)[:,:,np.newaxis,:]),
-                                    axis=0) / self.ns[:,np.newaxis,np.newaxis]
-        else:
-            self.x_bar_vecs[indices] = (self.r_vecs[:,indices,np.newaxis] * x[:,np.newaxis,:]).sum(axis=0) / self.ns[indices,np.newaxis]
-            self.s_mats[indices] = np.sum(self.r_vecs[:,indices,np.newaxis,np.newaxis]
-                                    * ((x[:,np.newaxis,:] - self.x_bar_vecs[indices])[:,:,:,np.newaxis]
-                                    @ (x[:,np.newaxis,:] - self.x_bar_vecs[indices])[:,:,np.newaxis,:]),
-                                    axis=0) / self.ns[indices,np.newaxis,np.newaxis]
+        self.x_bar_vecs[:] = self.r_vecs.T @ x
+        for k in range(self.c_num_classes):
+            if self.ns[k] > 0:
+                self.x_bar_vecs[k] /= self.ns[k]
+                diff = x - self.x_bar_vecs[k]
+                self.s_mats[k] = ((self.r_vecs[:,k]*diff.T) @ diff) / self.ns[k]
 
     def _init_random_responsibility(self,x):
         self.r_vecs[:] = self.rng.dirichlet(np.ones(self.c_num_classes),self.r_vecs.shape[0])
         self._calc_n_x_bar_s(x)
 
-    def _calc_q_pi_char(self):
+    def _calc_q_pi_features(self):
         self._e_ln_pi_vec[:] = digamma(self.hn_alpha_vec) - digamma(self.hn_alpha_vec.sum())
 
     def _update_q_pi(self):
         self.hn_alpha_vec[:] = self.h0_alpha_vec + self.ns
-        self._calc_q_pi_char()
+        self._calc_q_pi_features()
 
-    def _calc_q_lambda_char(self):
+    def _calc_q_lambda_features(self):
         self._e_lambda_mats[:] = self.hn_nus[:,np.newaxis,np.newaxis] * self.hn_w_mats
         self._e_ln_lambda_dets[:] = (np.sum(digamma((self.hn_nus[:,np.newaxis]-np.arange(self.c_degree)) / 2.0),axis=1)
                             + self.c_degree*np.log(2.0)
@@ -774,19 +767,18 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                                       @ (self.x_bar_vecs - self.h0_m_vecs)[:,np.newaxis,:])
                                  )
         self.hn_w_mats[:] = np.linalg.inv(self.hn_w_mats_inv)
-        self._calc_q_lambda_char()
+        self._calc_q_lambda_features()
 
     def _update_q_z(self,x):
         self._ln_rho[:] = (self._e_ln_pi_vec
-                          + (self._e_ln_lambda_dets
-                             - self.c_degree * np.log(2*np.pi)
-                             - self.c_degree / self.hn_kappas
-                             - ((x[:,np.newaxis,:]-self.hn_m_vecs)[:,:,np.newaxis,:]
-                                @ self._e_lambda_mats
-                                @ (x[:,np.newaxis,:]-self.hn_m_vecs)[:,:,:,np.newaxis]
-                                )[:,:,0,0]
-                             ) / 2.0
-                          )
+                           + (self._e_ln_lambda_dets
+                              - self.c_degree * np.log(2*np.pi)
+                              - self.c_degree / self.hn_kappas
+                              ) / 2.0
+                           )
+        for k in range(self.c_num_classes):
+            diff = x-self.hn_m_vecs[k]
+            self._ln_rho[:,k] -= np.sum((diff @ self._e_lambda_mats[k]) * diff,axis=1) / 2.0
         self.r_vecs[:] = np.exp(self._ln_rho - self._ln_rho.max(axis=1,keepdims=True))
         self.r_vecs[:] /= self.r_vecs.sum(axis=1,keepdims=True)
         self._calc_n_x_bar_s(x)
@@ -801,7 +793,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                                  / _size * self.hn_nus[k]
                                  + np.eye(self.c_degree) * 1.0E-5) # avoid singular matrix
             self.hn_w_mats[k] = np.linalg.inv(self.hn_w_mats_inv[k])
-        self._calc_q_lambda_char()
+        self._calc_q_lambda_features()
 
     def _init_rho_r(self):
         self._ln_rho[:] = 0.0
@@ -820,6 +812,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x : numpy.ndarray
+            (sample_size,c_degree)-dimensional ndarray.
             All the elements must be real number.
         max_itr : int, optional
             maximum number of iterations, by default 100
@@ -897,8 +890,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_nus[:] = tmp_nus
         self.hn_w_mats[:] = tmp_w_mats
         self.hn_w_mats_inv[:] = tmp_w_mats_inv
-        self._calc_q_pi_char()
-        self._calc_q_lambda_char()
+        self._calc_q_pi_features()
+        self._calc_q_lambda_features()
         self._update_q_z(x)
         return self
 
@@ -1168,6 +1161,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Parameters
         ----------
+        x : numpy.ndarray
+            (sample_size,c_degree)-dimensional ndarray.
+            All the elements must be real number.
         loss : str, optional
             Loss function underlying the Bayes risk function, by default \"0-1\".
             This function supports \"squared\", \"0-1\", and \"KL\".

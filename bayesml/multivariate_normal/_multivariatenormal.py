@@ -1,11 +1,11 @@
 # Code Author
 # Keito Tajima <wool812@akane.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Keito Tajima <wool812@akane.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import multivariate_normal as ss_multivariate_normal
@@ -504,15 +504,17 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x : numpy.ndarray
-            All the elements must be real number.
+            All the elements must be real numbers.
         """
         x = self._check_sample(x)
 
         n = x.shape[0]
         x_bar = x.sum(axis=0)/n
+        diff1 = x-x_bar
+        diff2 = x_bar-self.hn_m_vec
 
-        self.hn_w_mat_inv[:] = (self.hn_w_mat_inv + (x-x_bar).T @ (x-x_bar)
-                                + (x_bar - self.hn_m_vec)[:,np.newaxis] @ (x_bar - self.hn_m_vec)[np.newaxis,:]
+        self.hn_w_mat_inv[:] = (self.hn_w_mat_inv + diff1.T @ diff1
+                                + diff2[:,np.newaxis] @ diff2[np.newaxis,:]
                                   * self.hn_kappa * n / (self.hn_kappa + n))
         self.hn_m_vec[:] = (self.hn_kappa*self.hn_m_vec + n*x_bar) / (self.hn_kappa+n)
         self.hn_kappa += n
@@ -707,7 +709,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {float, numpy.ndarray}
+        Predicted_value : {numpy.ndarray, rv_frozen}
             The predicted value under the given loss function. 
             If the loss function is \"KL\", the posterior distribution itself will be returned
             as rv_frozen object of scipy.stats.
@@ -740,8 +742,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {float, numpy.ndarray}
+        Predicted_value : {numpy.ndarray, rv_frozen}
             The predicted value under the given loss function. 
+            If the loss function is \"KL\", the posterior distribution itself will be returned
+            as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         _check.float_vec(x,'x',DataFormatError)
         if x.shape != (self.c_degree,):
@@ -750,3 +759,42 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         prediction = self.make_prediction(loss=loss)
         self.update_posterior(x[np.newaxis,:])
         return prediction
+
+    def fit(self,x):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            All the elements must be real numbers.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x)
+        return self
+
+    def predict(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="squared")
+
+        Returns
+        -------
+        predicted_value : numpy.ndarray
+            The predicted value under the squared loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="squared")

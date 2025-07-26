@@ -1,8 +1,8 @@
 # Document Author
 # Kohei Horinouchi <horinochi_18@toki.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
-# Koki Kazama <kokikazama@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
+# Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
 The categorical distribution with the dirichlet prior distribution
 

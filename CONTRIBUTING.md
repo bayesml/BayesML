@@ -1,6 +1,6 @@
 <!--
 Document Author
-Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+Yuta Nakahara <y.nakahara@waseda.jp>
 Shota Saito <shota.s@gunma-u.ac.jp>
 -->
 # How to contribute

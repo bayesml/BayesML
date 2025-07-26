@@ -1,7 +1,7 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import beta as ss_beta
@@ -173,15 +173,18 @@ class GenModel(base.Generative):
         print(f"theta:{self.theta}")
         fig, ax = plt.subplots(2,1,figsize=(5, sample_num+1),gridspec_kw={'height_ratios': [1,sample_num]})
         ax[0].set_title("True distribution")
-        ax[0].barh(0,self.theta,label=1,color="C0")
-        ax[0].barh(0,1.0-self.theta,left=self.theta,label=0,color="C1")
+        ax[0].barh(0,self.theta,label='1',color="C0")
+        ax[0].barh(0,1.0-self.theta,left=self.theta,label='0',color="C1")
+        ax[0].tick_params(labelleft=False)
+        ax[0].tick_params(left=False)
+        ax[0].legend()
         ax[1].set_title("Generated sample")
         for i in range(sample_num):
             x = self.gen_sample(sample_size)
             print(f"x{i}:{x}")
             if i == 0:
-                ax[1].barh(i,x.sum(),label=1,color="C0")
-                ax[1].barh(i,sample_size-x.sum(),left=x.sum(),label=0,color="C1")
+                ax[1].barh(i,x.sum(),label='1',color="C0")
+                ax[1].barh(i,sample_size-x.sum(),left=x.sum(),label='0',color="C1")
             else:
                 ax[1].barh(i,x.sum(),color="C0")
                 ax[1].barh(i,sample_size-x.sum(),left=x.sum(),color="C1")
@@ -428,10 +431,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         return self
 
     def _calc_pred_density(self,x):
-        if x:
-            return self.p_theta
-        else:
-            return 1.0-self.p_theta
+        return np.where(x==1,self.p_theta,1.0-self.p_theta)
 
     def make_prediction(self,loss="squared"):
         """Predict a new data point under the given criterion.
@@ -501,3 +501,58 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 -gammaln(self.hn_alpha+self.hn_beta)
                 +gammaln(self.hn_alpha)
                 +gammaln(self.hn_beta))
+
+    def fit(self,x):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            All the elements must be 0 or 1.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x)
+        return self
+
+    def predict(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="0-1")
+
+        Returns
+        -------
+        predicted_value : int
+            The predicted value under the 0-1 loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="0-1")
+    
+    def predict_proba(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="KL")
+
+        Returns
+        -------
+        predicted_distribution : numpy.ndarray
+            The predicted distribution under the KL loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="KL")

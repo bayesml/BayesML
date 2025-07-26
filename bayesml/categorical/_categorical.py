@@ -1,11 +1,11 @@
 # Code Author
 # Kohei Horinouchi <horinochi_18@toki.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Kohei Horinouchi <horinochi_18@toki.waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import dirichlet as ss_dirichlet
@@ -199,6 +199,8 @@ class GenModel(base.Generative):
         ax[0].set_title("True distribution")
         for j in range(self.c_degree):
             ax[0].barh(0,self.theta_vec[j],left=self.theta_vec[:j].sum(),color=cmap(j / self.c_degree))
+        ax[0].tick_params(labelleft=False)
+        ax[0].tick_params(left=False)
         ax[1].set_title("Generated sample")
         for i in range(sample_num):
             x = self.gen_sample(sample_size)
@@ -211,7 +213,7 @@ class GenModel(base.Generative):
                         i,
                         count,
                         left=tmp_sum,
-                        label=j,
+                        label=f'{j}',
                         color=cmap(j / self.c_degree),
                     )
                     tmp_sum += count
@@ -567,3 +569,71 @@ class LearnModel(base.Posterior, base.PredictiveMixin):
                 -gammaln(self.h0_alpha_vec).sum()
                 -gammaln(self.hn_alpha_vec.sum())
                 +gammaln(self.hn_alpha_vec).sum())
+    
+    def fit(self,x,onehot=True):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x,onehot)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            A non-negative int array. If onehot option is True, 
+            its shape must be ``(sample_size,c_degree)`` and 
+            each row must be a one-hot vector. If onehot option is False, 
+            its shape must be ``(sample_size,)`` and each element must be 
+            smaller than ``self.c_degree``.
+        onehot : bool, optional
+            If True, the input sample must be one-hot encoded, 
+            by default True.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x,onehot)
+        return self
+
+    def predict(self,onehot=True):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="0-1",onehot=onehot)
+
+        Parameters
+        ----------
+        onehot : bool, optional
+            If True, predected value will be one-hot encoded, 
+            by default True.
+        
+        Returns
+        -------
+        predicted_value : {int, numpy.ndarray}
+            The predicted value under the 0-1 loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="0-1",onehot=onehot)
+    
+    def predict_proba(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="KL")
+
+        Returns
+        -------
+        predicted_distribution : numpy.ndarray
+            The predicted distribution under the KL loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="KL")
