@@ -8,6 +8,7 @@ from scipy.stats import multivariate_normal as ss_multivariate_normal
 from scipy.stats import wishart as ss_wishart
 from scipy.stats import multivariate_t as ss_multivariate_t
 from scipy.stats import dirichlet as ss_dirichlet
+from scipy.stats import gamma as ss_gamma
 from scipy.special import gammaln, digamma, xlogy, logsumexp
 import matplotlib.pyplot as plt
 from matplotlib.colors import rgb2hex
@@ -29,6 +30,8 @@ _TAB_COLOR_LIST = [
     'tab:olive',
     'tab:cyan',
 ]
+
+_LOG_2PI = np.log(2.0*np.pi)
 
 class GenModel(base.Generative):
     """The stochastic data generative model and the prior distribution
@@ -529,12 +532,41 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.h0_alphas = np.ones(self.c_num_classes)
         self.h0_betas = np.ones(self.c_num_classes)
 
+        self._ln_c_h0_gamma = 0.0
+        self._ln_det_h0_lambda_mats = np.empty((self.c_num_classes))
+        self._h0_lambda_mu_vecs = np.empty((self.c_num_classes,self.c_degree))
+        self._gammaln_h0_alphas = np.empty(self.c_num_classes)
+        self._ln_h0_betas = np.empty(self.c_num_classes)
+
         # hn_params
         self.hn_gamma_vec = np.empty(self.c_num_classes)
         self.hn_mu_vecs = np.empty([self.c_num_classes,self.c_degree])
         self.hn_lambda_mats = np.empty([self.c_num_classes,self.c_degree,self.c_degree])
+        self.hn_lambda_mats_inv = np.empty([self.c_num_classes,self.c_degree,self.c_degree])
         self.hn_alphas = np.empty(self.c_num_classes)
         self.hn_betas = np.empty(self.c_num_classes)
+
+        self._ln_rho = None
+        self.r_vecs = None
+        self._e_ln_pi_vec = np.empty(self.c_num_classes)
+        self._e_taus = np.empty(self.c_num_classes)
+        self._e_ln_taus = np.empty(self.c_num_classes)
+
+        # statistics
+        self.x_r_x_mats = np.empty([self.c_num_classes,self.c_degree,self.c_degree])
+        self.x_r_y_vecs = np.empty([self.c_num_classes,self.c_degree])
+        self.y_r_ys = np.empty([self.c_num_classes])
+        self.ns = np.empty(self.c_num_classes)
+
+        # variational lower bound
+        self.vl = 0.0
+        self._vl_p_y = 0.0
+        self._vl_p_z = 0.0
+        self._vl_p_pi = 0.0
+        self._vl_p_theta_tau = 0.0
+        self._vl_q_z = 0.0
+        self._vl_q_pi = 0.0
+        self._vl_q_theta_tau = 0.0
 
         # p_params
         self.p_pi_vec = np.empty(self.c_num_classes)
@@ -619,6 +651,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             _check.pos_floats(h0_betas,'h0_betas',ParameterFormatError)
             self.h0_betas[:] = h0_betas
 
+        self._calc_prior_features()
         self.reset_hn_params()
 
     def get_h0_params(self):
@@ -688,6 +721,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 ParameterFormatError
                 )
             self.hn_lambda_mats[:] = hn_lambda_mats
+            self.hn_lambda_mats_inv[:] = np.linalg.inv(self.hn_lambda_mats)
 
         if hn_alphas is not None:
             _check.pos_floats(hn_alphas,'hn_alphas',ParameterFormatError)
@@ -697,6 +731,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             _check.pos_floats(hn_betas,'hn_betas',ParameterFormatError)
             self.hn_betas[:] = hn_betas
 
+        self._calc_q_theta_tau_features()
+        self._calc_q_pi_features()
         self.calc_pred_dist()
 
     def get_hn_params(self):
@@ -716,9 +752,116 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 'hn_lambda_mats':self.hn_lambda_mats,
                 'hn_alphas':self.hn_alphas,
                 'hn_betas':self.hn_betas}
+
+    def _check_sample_x(self,x):
+        _check.float_vecs(x,'x',DataFormatError)
+        if x.shape[-1] != self.c_degree:
+            raise(DataFormatError(f"x.shape[-1] must be c_degree:{self.c_degree}"))
+        return x.reshape(-1,self.c_degree)
     
-    def update_posterior():
-        pass
+    def _check_sample_y(self,y):
+        return _check.floats(y,'y',DataFormatError)
+
+    def _check_sample(self,x,y):
+        self._check_sample_x(x)
+        self._check_sample_y(y)
+        if type(y) is np.ndarray:
+            if x.shape[:-1] != y.shape: 
+                raise(DataFormatError(f"x.shape[:-1] and y.shape must be same."))
+        elif x.shape[:-1] != ():
+            raise(DataFormatError(f"If y is a scaler, x.shape[:-1] must be the empty tuple ()."))
+        return x.reshape(-1,self.c_degree), np.ravel(y)
+
+    def update_posterior(
+            self,
+            x,
+            y,
+            max_itr=100,
+            num_init=10,
+            tolerance=1.0E-8,
+            init_type='subsampling',
+            ):
+        """Update the hyperparameters of the posterior distribution using traning data.
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        max_itr : int, optional
+            maximum number of iterations, by default 100
+        num_init : int, optional
+            number of initializations, by default 10
+        tolerance : float, optional
+            convergence croterion of variational lower bound, by default 1.0E-8
+        init_type : str, optional
+            * ``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``.
+              and use its mean and covariance matrix as an initial values of ``hn_m_vecs`` and ``hn_lambda_mats``.
+            * ``'random_responsibility'``: randomly assign responsibility to ``r_vecs``
+            Type of initialization, by default ``'subsampling'``
+        """
+        x,y = self._check_sample(x,y)
+        self._ln_rho = np.empty([x.shape[0],self.c_num_classes])
+        self.r_vecs = np.empty([x.shape[0],self.c_num_classes])
+
+        tmp_vl = 0.0
+        tmp_gamma_vec = np.array(self.hn_gamma_vec)
+        tmp_mu_vecs = np.array(self.hn_mu_vecs)
+        tmp_lambda_mats = np.array(self.hn_lambda_mats)
+        tmp_alphas = np.array(self.hn_alphas)
+        tmp_betas = np.array(self.hn_betas)
+
+        convergence_flag = True
+        for i in range(num_init):
+            self.reset_hn_params()
+            self._init_rho_r()
+            if init_type == 'subsampling':
+                self._init_subsampling(x,y)
+                self._update_q_z(x,y)
+            elif init_type == 'random_responsibility':
+                self._init_random_responsibility(x,y)
+            else:
+                raise(ValueError(
+                    f'init_type={init_type} is unsupported. '
+                    + 'This function supports only '
+                    + '"subsampling" and "random_responsibility"'))
+            self._calc_vl(x,y)
+            print(f'\r{i}. VL: {self.vl}',end='')
+            for t in range(max_itr):
+                vl_before = self.vl
+                self._update_q_theta_tau()
+                self._update_q_pi()
+                self._update_q_z(x,y)
+                self._calc_vl(x,y)
+                print(f'\r{i}. VL: {self.vl} t={t} ',end='')
+                if np.abs((self.vl-vl_before)/vl_before) < tolerance:
+                    convergence_flag = False
+                    print(f'(converged)',end='')
+                    break
+            if i==0 or self.vl > tmp_vl:
+                print('*')
+                tmp_vl = self.vl
+                tmp_gamma_vec[:] = self.hn_gamma_vec
+                tmp_mu_vecs[:] = self.hn_mu_vecs
+                tmp_lambda_mats[:] = self.hn_lambda_mats
+                tmp_alphas[:] = self.hn_alphas
+                tmp_betas[:] = self.hn_betas
+            else:
+                print('')
+        if convergence_flag:
+            warnings.warn("Algorithm has not converged even once.",ResultWarning)
+        
+        self.hn_gamma_vec[:] = tmp_gamma_vec
+        self.hn_mu_vecs[:] = tmp_mu_vecs
+        self.hn_lambda_mats[:] = tmp_lambda_mats
+        self.hn_alphas[:] = tmp_alphas
+        self.hn_betas[:] = tmp_betas
+        self._calc_q_pi_features()
+        self._calc_q_theta_tau_features()
+        self._update_q_z(x,y)
+        return self
 
     def estimate_params(self,loss="squared"):
         pass
@@ -750,3 +893,148 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
     def pred_and_update(self,x,loss="squared"):
         pass
+
+    def _calc_prior_features(self):
+        self._ln_c_h0_gamma = gammaln(self.h0_gamma_vec.sum()) - gammaln(self.h0_gamma_vec).sum()
+        self._ln_det_h0_lambda_mats[:] = np.linalg.slogdet(self.h0_lambda_mats)[1]
+        self._h0_lambda_mu_vecs[:] = np.einsum('kij,kj->ki',self.h0_lambda_mats,self.h0_mu_vecs)
+        self._gammaln_h0_alphas[:] = gammaln(self.h0_alphas)
+        self._ln_h0_betas[:] = np.log(self.h0_betas)
+
+    def _init_rho_r(self):
+        self._ln_rho[:] = 0.0
+        self.r_vecs[:] = 1/self.c_num_classes
+
+    def _calc_q_theta_tau_features(self):
+        self._e_taus[:] = self.hn_alphas / self.hn_betas
+        self._e_ln_taus[:] = digamma(self.hn_alphas) - np.log(self.hn_betas)
+
+    def _calc_q_pi_features(self):
+        self._e_ln_pi_vec[:] = digamma(self.hn_gamma_vec) - digamma(self.hn_gamma_vec.sum())
+    
+    def _calc_statistics_with_r(self,x,y):
+        self.ns[:] = self.r_vecs.sum(axis=0)
+        for k in range(self.c_num_classes):
+            self.x_r_x_mats[k] =  (self.r_vecs[:,k] * x.T) @ x
+            self.x_r_y_vecs[k] = x.T @ (self.r_vecs[:,k] * y)
+            self.y_r_ys[k] = y @ (self.r_vecs[:,k] * y)
+    
+    def _calc_vl(self,x,y):
+        # E[ln p(y|x,z,theta,tau)]
+        self._vl_p_y = (
+            - x.shape[0] * _LOG_2PI
+            + self.ns @ self._e_ln_taus
+            - self._e_taus @ (
+                self.y_r_ys
+                - 2.0 * (self.hn_mu_vecs * self.x_r_y_vecs).sum(axis=1)
+                + np.einsum('ki,kij,kj->k', self.hn_mu_vecs, self.x_r_x_mats, self.hn_mu_vecs)
+            )
+            - (self.hn_lambda_mats_inv * self.x_r_x_mats).sum()
+        ) / 2.0
+
+        # E[ln p(z|pi)]
+        self._vl_p_z = self.ns @ self._e_ln_pi_vec
+
+        # E[ln p(pi)]
+        self._vl_p_pi = self._ln_c_h0_gamma + ((self.h0_gamma_vec - 1.0) * self._e_ln_pi_vec).sum()
+
+        # E[ln p(theta,tau)]
+        diffs = self.hn_mu_vecs - self.h0_mu_vecs
+        self._vl_p_theta_tau = (
+            (self.c_degree * (-_LOG_2PI + self._e_ln_taus)
+                + self._ln_det_h0_lambda_mats
+                - self._e_taus * np.einsum('ki,kij,kj->k',diffs,self.h0_lambda_mats,diffs)
+                - np.einsum('kij,kij->k',self.h0_lambda_mats,self.hn_lambda_mats_inv)
+                ) / 2
+            + self.h0_alphas * self._ln_h0_betas - self._gammaln_h0_alphas
+            + (self.h0_alphas - 1.0) * self._e_ln_taus - self.h0_betas * self._e_taus
+        ).sum()
+
+        # -E[ln q(z)]
+        self._vl_q_z = -xlogy(self.r_vecs,self.r_vecs).sum()
+
+        # -E[ln q(pi)]
+        self._vl_q_pi = ss_dirichlet.entropy(self.hn_gamma_vec)
+
+        # -E[ln q(theta,tau)]
+        self._vl_q_theta_tau =  (
+            (self.c_degree * (_LOG_2PI - self._e_ln_taus - 1) / 2
+             - np.linalg.slogdet(self.hn_lambda_mats)[1] / 2
+             + ss_gamma.entropy(self.hn_alphas,scale=1.0/self.hn_betas)).sum()
+        )
+
+        self.vl = (
+            self._vl_p_y
+            + self._vl_p_z
+            + self._vl_p_pi
+            + self._vl_p_theta_tau
+            + self._vl_q_z
+            + self._vl_q_pi
+            + self._vl_q_theta_tau
+        )
+
+    def _init_random_responsibility(self,x,y):
+        self.r_vecs[:] = self.rng.dirichlet(np.ones(self.c_num_classes),self.r_vecs.shape[0])
+        self._calc_statistics_with_r(x,y)
+
+    def _update_q_theta_tau(self):
+        # q(theta,tau)
+        self.hn_lambda_mats[:] = (
+            self.h0_lambda_mats + self.x_r_x_mats
+        )
+        self.hn_lambda_mats_inv[:] = np.linalg.inv(self.hn_lambda_mats)
+        self.hn_mu_vecs[:] = np.linalg.solve(
+            self.hn_lambda_mats,
+            self._h0_lambda_mu_vecs + self.x_r_y_vecs
+        )
+        self.hn_alphas[:] = (
+            self.h0_alphas + self.ns/2.0
+        )
+        self.hn_betas[:] = self.h0_betas + (
+            np.einsum('ki,kij,kj->k',self.h0_mu_vecs,self.h0_lambda_mats,self.h0_mu_vecs)
+            + self.y_r_ys
+            - np.einsum('ki,kij,kj->k',self.hn_mu_vecs,self.hn_lambda_mats,self.hn_mu_vecs)
+        ) / 2.0
+        self._calc_q_theta_tau_features()
+    
+    def _update_q_pi(self):
+        self.hn_gamma_vec[:] = self.h0_gamma_vec + self.ns
+        self._calc_q_pi_features()
+    
+    def _update_q_z(self,x,y):
+        for k in range(self.c_num_classes):
+            diff = y - x @ self.hn_mu_vecs[k]
+            self._ln_rho[:,k] = self._e_ln_pi_vec[k] + (
+                - _LOG_2PI
+                + self._e_ln_taus[k]
+                - self._e_taus[k] * diff * diff
+                + ((x @ self.hn_lambda_mats_inv[k]) * x).sum(axis=1)
+            ) / 2.0
+        self.r_vecs[:] = np.exp(self._ln_rho - self._ln_rho.max(axis=1,keepdims=True))
+        self.r_vecs[:] /= self.r_vecs.sum(axis=1,keepdims=True)
+        self._calc_statistics_with_r(x,y)
+
+    def _init_subsampling(self,x,y):
+        n = x.shape[0]
+        size = int(np.sqrt(n))
+        for k in range(self.c_num_classes):
+            indices = self.rng.choice(n,size=size,replace=False,axis=0,shuffle=False)
+            x_subsample = x[indices]
+            y_subsample = y[indices]
+            self.hn_lambda_mats[k] = (
+                self.h0_lambda_mats[k] + x_subsample.T @ x_subsample
+            )
+            self.hn_lambda_mats_inv[k] = np.linalg.inv(self.hn_lambda_mats[k])
+            self.hn_mu_vecs[k] = np.linalg.solve(
+                self.hn_lambda_mats[k],
+                self._h0_lambda_mu_vecs[k] + x_subsample.T @ y_subsample
+            )
+            self.hn_alphas[k] = (
+                self.h0_alphas[k] + size/2.0
+            )
+            self.hn_betas[k] = self.h0_betas[k] + (
+                self.h0_mu_vecs[k] @ self.h0_lambda_mats[k] @ self.h0_mu_vecs[k]
+                + y_subsample @ y_subsample
+                - self.hn_mu_vecs[k] @ self.hn_lambda_mats[k] @ self.hn_mu_vecs[k]
+            ) / 2.0
+        self._calc_q_theta_tau_features()
