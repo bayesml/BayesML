@@ -4,8 +4,7 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
-from scipy.stats import multivariate_normal as ss_multivariate_normal
-from scipy.stats import wishart as ss_wishart
+from scipy.stats import t as ss_t
 from scipy.stats import multivariate_t as ss_multivariate_t
 from scipy.stats import dirichlet as ss_dirichlet
 from scipy.stats import gamma as ss_gamma
@@ -569,7 +568,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self._vl_q_theta_tau = 0.0
 
         # p_params
-        self.p_pi_vec = np.empty(self.c_num_classes)
+        self.p_pi_vecs = np.empty(self.c_num_classes)
         self.p_ms = np.empty(self.c_num_classes)        
         self.p_lambdas = np.empty(self.c_num_classes)
         self.p_nus = np.empty(self.c_num_classes)
@@ -733,7 +732,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         self._calc_q_theta_tau_features()
         self._calc_q_pi_features()
-        self.calc_pred_dist()
+        self.calc_pred_dist(np.zeros(self.c_degree))
 
     def get_hn_params(self):
         """Get the hyperparameters of the posterior distribution.
@@ -779,7 +778,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             max_itr=100,
             num_init=10,
             tolerance=1.0E-8,
-            init_type='subsampling',
+            init_type='random_responsibility',
             ):
         """Update the hyperparameters of the posterior distribution using traning data.
 
@@ -795,12 +794,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         num_init : int, optional
             number of initializations, by default 10
         tolerance : float, optional
-            convergence croterion of variational lower bound, by default 1.0E-8
+            convergence criterion of variational lower bound, by default 1.0E-8
         init_type : str, optional
-            * ``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``.
-              and use its mean and covariance matrix as an initial values of ``hn_m_vecs`` and ``hn_lambda_mats``.
             * ``'random_responsibility'``: randomly assign responsibility to ``r_vecs``
-            Type of initialization, by default ``'subsampling'``
+            * ``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``.
+              and use it to update q(theta_k,tau_k).
+            Type of initialization, by default ``'random_responsibility'``
         """
         x,y = self._check_sample(x,y)
         self._ln_rho = np.empty([x.shape[0],self.c_num_classes])
@@ -856,6 +855,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_gamma_vec[:] = tmp_gamma_vec
         self.hn_mu_vecs[:] = tmp_mu_vecs
         self.hn_lambda_mats[:] = tmp_lambda_mats
+        self.hn_lambda_mats_inv[:] = np.linalg.inv(self.hn_lambda_mats)
         self.hn_alphas[:] = tmp_alphas
         self.hn_betas[:] = tmp_betas
         self._calc_q_pi_features()
@@ -864,7 +864,65 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         return self
 
     def estimate_params(self,loss="squared"):
-        pass
+        """Estimate the parameter of the stochastic data generative model under the given criterion.
+
+        Note that the criterion is applied to estimating 
+        ``pi_vec``, ``theta_vecs`` and ``taus`` independently.
+        Therefore, a tuple of the dirichlet distribution, 
+        the student's t-distributions and 
+        the wishart distributions will be returned when loss=\"KL\"
+
+        Parameters
+        ----------
+        loss : str, optional
+            Loss function underlying the Bayes risk function, by default \"squared\".
+            This function supports \"squared\", \"0-1\", and \"KL\".
+
+        Returns
+        -------
+        Estimates : a tuple of {numpy ndarray, float, None, or rv_frozen}
+            * ``pi_vec_hat`` : the estimate for pi_vec
+            * ``theta_vecs_hat`` : the estimate for theta_vecs
+            * ``taus_hat`` : the estimate for taus
+            The estimated values under the given loss function. 
+            If it is not exist, `np.nan` will be returned.
+            If the loss function is \"KL\", the posterior distribution itself 
+            will be returned as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
+        """
+
+        if loss == "squared":
+            return self.hn_gamma_vec/self.hn_gamma_vec.sum(), self.hn_mu_vecs, self._e_taus
+        elif loss == "0-1":
+            pi_vec_hat = np.empty(self.c_num_classes)
+            if np.all(self.hn_gamma_vec > 1):
+                pi_vec_hat[:] = (self.hn_gamma_vec - 1) / (np.sum(self.hn_gamma_vec) - self.c_degree)
+            else:
+                warnings.warn("MAP estimate of pi_vec doesn't exist for the current hn_gamma_vec.",ResultWarning)
+                pi_vec_hat[:] = np.nan
+
+            taus_hat = np.zeros(self.c_num_classes)
+            indices = self.hn_alphas >= 1.0
+            taus_hat[indices] = (self.hn_alphas[indices] - 1) / self.hn_betas[indices]
+            return pi_vec_hat, self.hn_mu_vecs, taus_hat
+        elif loss == "KL":
+            theta_vecs_pdf = []
+            taus_pdf = []
+            for k in range(self.c_num_classes):
+                theta_vecs_pdf.append(ss_multivariate_t(loc=self.hn_mu_vecs[k],
+                                        shape=np.linalg.inv(self.hn_alphas[k] / self.hn_betas[k] * self.hn_lambda_mats[k]),
+                                        df=2.0*self.hn_alphas[k]))
+                taus_pdf.append(ss_gamma(a=self.hn_alphas[k],scale=1.0/self.hn_betas[k]))
+            return (ss_dirichlet(self.hn_gamma_vec),
+                    theta_vecs_pdf,
+                    taus_pdf)
+        else:
+            raise(CriteriaError(f"loss={loss} is unsupported. "
+                                +"This function supports \"squared\", \"0-1\", and \"KL\"."))
 
     def visualize_posterior(self):
         pass
@@ -875,24 +933,113 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Returns
         -------
         p_params : dict of {str: numpy.ndarray}
-            * ``"p_pi_vec"`` : the value of ``self.p_pi_vec``
+            * ``"p_pi_vecs"`` : the value of ``self.p_pi_vecs``
             * ``"p_ms"`` : the value of ``self.p_ms``
             * ``"p_lambdas"`` : the value of ``self.p_lambdas``
             * ``"p_nus"`` : the value of ``self.p_nus``
         """
-        return {'p_pi_vec':self.p_pi_vec,
+        return {'p_pi_vecs':self.p_pi_vecs,
                 'p_ms':self.p_ms,
                 'p_lambdas':self.p_lambdas,
                 'p_nus':self.p_nus}
 
-    def calc_pred_dist(self):
-        pass
+    def calc_pred_dist(self,x):
+        """Calculate the parameters of the predictive distribution.
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        """
+        x = self._check_sample_x(x)
+        self.p_pi_vecs = np.ones((x.shape[0],self.c_num_classes)) * self.hn_gamma_vec / self.hn_gamma_vec.sum()
+        self.p_ms = x @ self.hn_mu_vecs.T
+        self.p_lambdas = self.hn_alphas / self.hn_betas / (1.0 + np.einsum('ij,kjl,il->ik', x, self.hn_lambda_mats_inv, x))
+        self.p_nus = np.ones((x.shape[0],self.c_num_classes)) * 2.0 * self.hn_alphas
+        return self
 
     def make_prediction(self,loss="squared"):
-        pass
+        """Predict a new data point under the given criterion.
 
-    def pred_and_update(self,x,loss="squared"):
-        pass
+        Parameters
+        ----------
+        loss : str, optional
+            Loss function underlying the Bayes risk function, by default \"squared\".
+            This function supports \"squared\" and \"0-1\".
+
+        Returns
+        -------
+        predicted_value : numpy.ndarray
+            The predicted value under the given loss function. 
+            The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
+        """
+        if loss == "squared":
+            return (self.p_pi_vecs * self.p_ms).sum(axis=1)
+        elif loss == "0-1":
+            val = self.p_pi_vecs * ss_t.pdf(
+                    x=self.p_ms,
+                    loc=self.p_ms,
+                    scale=1.0/np.sqrt(self.p_lambdas),
+                    df=self.p_nus)
+            indices = np.argmax(val,axis=1)
+            return self.p_ms[np.arange(self.p_ms.shape[0]),indices]
+        else:
+            raise(CriteriaError(f"loss={loss} is unsupported. "
+                                +"This function supports \"squared\" and \"0-1\"."))
+
+    def pred_and_update(
+            self,
+            x,
+            y,
+            loss="squared",
+            max_itr=100,
+            num_init=10,
+            tolerance=1.0E-8,
+            init_type='random_responsibility',
+            ):
+        """Update the hyperparameters of the posterior distribution using traning data.
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        loss : str, optional
+            Loss function underlying the Bayes risk function, by default \"squared\".
+            This function supports \"squared\" and \"0-1\".
+        max_itr : int, optional
+            maximum number of iterations, by default 100
+        num_init : int, optional
+            number of initializations, by default 10
+        tolerance : float, optional
+            convergence criterion of variational lower bound, by default 1.0E-8
+        init_type : str, optional
+            * ``'random_responsibility'``: randomly assign responsibility to ``r_vecs``
+            * ``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``.
+              and use it to update q(theta_k,tau_k).
+            Type of initialization, by default ``'random_responsibility'``
+        
+        Returns
+        -------
+        predicted_value : numpy.ndarray
+            The predicted value under the given loss function. 
+            The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
+        """
+        self.calc_pred_dist(x)
+        prediction = self.make_prediction(loss=loss)
+        self.overwrite_h0_params()
+        self.update_posterior(
+            x,
+            y,
+            max_itr=max_itr,
+            num_init=num_init,
+            tolerance=tolerance,
+            init_type=init_type
+            )
+        return prediction
 
     def _calc_prior_features(self):
         self._ln_c_h0_gamma = gammaln(self.h0_gamma_vec.sum()) - gammaln(self.h0_gamma_vec).sum()
