@@ -910,22 +910,129 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             taus_hat[indices] = (self.hn_alphas[indices] - 1) / self.hn_betas[indices]
             return pi_vec_hat, self.hn_mu_vecs, taus_hat
         elif loss == "KL":
-            theta_vecs_pdf = []
-            taus_pdf = []
+            theta_vec_pdfs = []
+            tau_pdfs = []
             for k in range(self.c_num_classes):
-                theta_vecs_pdf.append(ss_multivariate_t(loc=self.hn_mu_vecs[k],
+                theta_vec_pdfs.append(ss_multivariate_t(loc=self.hn_mu_vecs[k],
                                         shape=np.linalg.inv(self.hn_alphas[k] / self.hn_betas[k] * self.hn_lambda_mats[k]),
                                         df=2.0*self.hn_alphas[k]))
-                taus_pdf.append(ss_gamma(a=self.hn_alphas[k],scale=1.0/self.hn_betas[k]))
+                tau_pdfs.append(ss_gamma(a=self.hn_alphas[k],scale=1.0/self.hn_betas[k]))
             return (ss_dirichlet(self.hn_gamma_vec),
-                    theta_vecs_pdf,
-                    taus_pdf)
+                    theta_vec_pdfs,
+                    tau_pdfs)
         else:
             raise(CriteriaError(f"loss={loss} is unsupported. "
                                 +"This function supports \"squared\", \"0-1\", and \"KL\"."))
 
     def visualize_posterior(self):
-        pass
+        """Visualize the posterior distribution for the parameter.
+        
+        Examples
+        --------
+        >>> import numpy as np
+        >>> from bayesml import linearregressionmixture
+        >>> gen_model = linearregressionmixture.GenModel(
+        >>>     c_num_classes=2,
+        >>>     c_degree=2,
+        >>>     theta_vecs=np.array([[1,3],[-1,-3]]),
+        >>>     taus=np.array([0.5,1.0]),
+        >>>     )
+        >>> x,z,y = gen_model.gen_sample(100)
+        >>> learn_model = linearregressionmixture.LearnModel(
+        >>>     c_num_classes=2,
+        >>>     c_degree=2,
+        >>>     )
+        >>> learn_model.update_posterior(x,y)
+        >>> learn_model.visualize_posterior()
+        hn_gamma_vec:
+        [53.46589867 47.53410133]
+        E[pi_vec]:
+        [0.52936533 0.47063467]
+        hn_mu_vecs:
+        [[-1.12057057 -3.14175971]
+        [ 1.15046197  2.72935847]]
+        hn_lambda_mats:
+        [[[ 73.28683786  -1.18874056]
+        [ -1.18874056  53.96589867]]
+
+        [[ 39.13313893 -10.37075427]
+        [-10.37075427  48.03410133]]]
+        hn_alphas:
+        [27.48294934 24.51705066]
+        hn_betas:
+        [27.13542998 43.09024752]
+        E[taus]:
+        [1.01280685 0.56896983]
+
+        .. image:: ./images/linearregressionmixture_posterior.png
+        """
+        print("hn_gamma_vec:")
+        print(f"{self.hn_gamma_vec}")
+        print("E[pi_vec]:")
+        print(f"{self.hn_gamma_vec / self.hn_gamma_vec.sum()}")
+        print("hn_mu_vecs:")
+        print(f"{self.hn_mu_vecs}")
+        print("hn_lambda_mats:")
+        print(f"{self.hn_lambda_mats}")
+        print("hn_alphas:")
+        print(f"{self.hn_alphas}")
+        print("hn_betas:")
+        print(f"{self.hn_betas}")
+        print("E[taus]:")
+        print(f"{self.hn_alphas / self.hn_betas}")
+        _, theta_vec_pdfs, tau_pdfs = self.estimate_params(loss="KL")
+        if self.c_degree == 1:
+            fig, axes = plt.subplots(1,2)
+            axes[0].set_xlabel("theta_vecs")
+            axes[0].set_ylabel("Density")
+            axes[1].set_xlabel("taus")
+            axes[1].set_ylabel("Density")
+            for k in range(self.c_num_classes):
+                # for theta_vecs
+                x = np.linspace(self.hn_mu_vecs[k,0]-4.0*np.sqrt((self.hn_lambda_mats_inv[k] / self.hn_alphas[k] * self.hn_betas[k])[0,0]),
+                                self.hn_mu_vecs[k,0]+4.0*np.sqrt((self.hn_lambda_mats_inv[k] / self.hn_alphas[k] * self.hn_betas[k])[0,0]),
+                                100)
+                axes[0].plot(x,theta_vec_pdfs[k].pdf(x))
+                # for taus
+                x = np.linspace(max(1.0e-8,self.hn_alphas[k]/self.hn_betas[k]-4.0*np.sqrt(self.hn_alphas[k]/self.hn_betas[k]**2)),
+                                self.hn_alphas[k]/self.hn_betas[k]+4.0*np.sqrt(self.hn_alphas[k]/self.hn_betas[k]**2),
+                                500)
+                axes[1].plot(x,tau_pdfs[k].pdf(x))
+
+            fig.tight_layout()
+            plt.show()
+
+        elif self.c_degree == 2:
+            fig, axes = plt.subplots(1,2)
+            axes[0].set_xlabel("theta_vec[0]")
+            axes[0].set_ylabel("theta_vec[1]")
+            axes[1].set_xlabel("taus")
+            axes[1].set_ylabel("Density")
+            for k in range(self.c_num_classes):
+                # for theta_vecs
+                x = np.linspace(self.hn_mu_vecs[k,0]-3.0*np.sqrt((self.hn_lambda_mats_inv[k] / self.hn_alphas[k] * self.hn_betas[k])[0,0]),
+                                self.hn_mu_vecs[k,0]+3.0*np.sqrt((self.hn_lambda_mats_inv[k] / self.hn_alphas[k] * self.hn_betas[k])[0,0]),
+                                100)
+                y = np.linspace(self.hn_mu_vecs[k,1]-3.0*np.sqrt((self.hn_lambda_mats_inv[k] / self.hn_alphas[k] * self.hn_betas[k])[1,1]),
+                                self.hn_mu_vecs[k,1]+3.0*np.sqrt((self.hn_lambda_mats_inv[k] / self.hn_alphas[k] * self.hn_betas[k])[1,1]),
+                                100)
+                xx, yy = np.meshgrid(x,y)
+                grid = np.empty((100,100,2))
+                grid[:,:,0] = xx
+                grid[:,:,1] = yy
+                axes[0].contour(xx,yy,theta_vec_pdfs[k].pdf(grid),cmap='Blues',alpha=self.hn_gamma_vec[k]/self.hn_gamma_vec.sum())
+                axes[0].plot(self.hn_mu_vecs[k,0],self.hn_mu_vecs[k,1],marker="x",color='red')
+                # for taus
+                x = np.linspace(max(1.0e-8,self.hn_alphas[k]/self.hn_betas[k]-4.0*np.sqrt(self.hn_alphas[k]/self.hn_betas[k]**2)),
+                                self.hn_alphas[k]/self.hn_betas[k]+4.0*np.sqrt(self.hn_alphas[k]/self.hn_betas[k]**2),
+                                500)
+                axes[1].plot(x,tau_pdfs[k].pdf(x))
+            
+            fig.tight_layout()
+            plt.show()
+
+        else:
+            raise(ParameterFormatError("if c_degree > 2, it is impossible to visualize the model by this function."))
         
     def get_p_params(self):
         """Get the parameters of the predictive distribution.
