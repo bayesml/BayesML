@@ -1,14 +1,15 @@
 # Code Author
 # Taisuke Ishiwatari <taisuke.ishiwatari@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
 # Taisuke Ishiwatari <taisuke.ishiwatari@fuji.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import gamma as ss_gamma
 from scipy.stats import multivariate_t as ss_multivariate_t
 from scipy.stats import t as ss_t
+from scipy.special import gammaln
 import matplotlib.pyplot as plt
 
 from .. import base
@@ -20,27 +21,27 @@ class GenModel(base.Generative):
 
     Parameters
     ----------
-    degree : int, optional
-        a positive integer. Default is None, in which case 
-        a value consistent with ``theta_vec``, ``h_mu_vec``, 
-        and ``h_lambda_mat`` is used. If all of them are not given,
-        degree is assumed to be 1.
+    c_degree : int
+        a positive integer.
+    theta_vec : numpy ndarray, optional
+        a vector of real numbers, by default [0.0, 0.0, ... , 0.0]
+    tau : float, optional
+        a positive real number, by default 1.0
     h_mu_vec : numpy ndarray, optional
         a vector of real numbers, by default [0.0, 0.0, ... , 0.0]
     h_lambda_mat : numpy ndarray, optional
-        a positibe definate matrix, by default the identity matrix
+        a positive definate matrix, by default the identity matrix
     h_alpha : float, optional
         a positive real number, by default 1.0
     h_beta : float, optional
-        a positibe real number, by default 1.0
+        a positive real number, by default 1.0
     seed : {None, int}, optional
         A seed to initialize numpy.random.default_rng(),
         by default None
     """
     def __init__(
         self, 
-        *, 
-        degree = None, 
+        c_degree, 
         theta_vec = None, 
         tau = 1.0,
         h_mu_vec = None, 
@@ -48,97 +49,71 @@ class GenModel(base.Generative):
         h_alpha = 1.0, 
         h_beta = 1.0, 
         seed = None):
-        if degree is not None:
-            self.degree = _check.pos_int(degree,'degree',ParameterFormatError)
-            if theta_vec is None:
-                self.theta_vec = np.zeros(self.degree)
-            else:
-                self.theta_vec = _check.float_vec(theta_vec,'theta_vec',ParameterFormatError)
-
-            if h_mu_vec is None:
-                self.h_mu_vec = np.zeros(self.degree)
-            else:
-                self.h_mu_vec = _check.float_vec(h_mu_vec,'h_mu_vec',ParameterFormatError)
-
-            if h_lambda_mat is None:
-                self.h_lambda_mat = np.identity(self.degree)
-            else:
-                self.h_lambda_mat = _check.pos_def_sym_mat(h_lambda_mat,'h_lambda_mat',ParameterFormatError)
-
-        elif theta_vec is not None:
-            self.theta_vec = _check.float_vec(theta_vec,'theta_vec',ParameterFormatError)
-            self.degree = self.theta_vec.shape[0]
-            if h_mu_vec is None:
-                self.h_mu_vec = np.zeros(self.degree)
-            else:
-                self.h_mu_vec = _check.float_vec(h_mu_vec,'h_mu_vec',ParameterFormatError)
-
-            if h_lambda_mat is None:
-                self.h_lambda_mat= np.identity(self.degree)
-            else:
-                self.h_lambda_mat = _check.pos_def_sym_mat(h_lambda_mat,'h_lambda_mat',ParameterFormatError)
-    
-        elif h_mu_vec is not None:
-            self.h_mu_vec = _check.float_vec(h_mu_vec,'h_mu_vec',ParameterFormatError)
-            self.degree = self.h_mu_vec.shape[0]
-            self.theta_vec = np.zeros(self.degree)
-            if  h_lambda_mat is None:
-                self.h_lambda_mat = np.identity(self.degree)
-            else:
-                self.h_lambda_mat = _check.pos_def_sym_mat(h_lambda_mat,'h_lambda_mat',ParameterFormatError)
-
-        elif h_lambda_mat is not None:
-            self.h_lambda_mat = _check.pos_def_sym_mat(h_lambda_mat,'h_lambda_mat',ParameterFormatError)
-            self.degree = self.h_lambda_mat.shape[0]
-            self.theta_vec = np.zeros(self.degree)
-            self.h_mu_vec = np.zeros(self.degree)
-        
-        else:
-            self.degree = 2
-            self.theta_vec = np.zeros(self.degree)
-            self.h_mu_vec = np.zeros(self.degree)
-            self.h_lambda_mat = np.identity(self.degree)
-
-        if (self.degree != self.theta_vec.shape[0]
-            or self.degree != self.h_mu_vec.shape[0]
-            or self.degree != self.h_lambda_mat.shape[0]):
-                raise(ParameterFormatError(
-                    "degree and dimensions of h_mu_vec,"
-                    +" and h_lambda_mat must be the same,"
-                    +" if two or more of them are specified."))
-
-        self.tau = _check.pos_float(tau,'tau',ParameterFormatError)
-        self.h_alpha = _check.pos_float(h_alpha,'h_alpha',ParameterFormatError)
-        self.h_beta = _check.pos_float(h_beta,'h_beta',ParameterFormatError)
+        # constants
+        self.c_degree = _check.pos_int(c_degree,'c_degree',ParameterFormatError)
         self.rng = np.random.default_rng(seed)
 
-    def set_h_params(self,h_mu_vec,h_lambda_mat,h_alpha,h_beta):
+        # params
+        self.theta_vec = np.zeros(self.c_degree)
+        self.tau = 1.0
+
+        # h_params
+        self.h_mu_vec = np.zeros(self.c_degree)
+        self.h_lambda_mat = np.eye(self.c_degree)
+        self.h_alpha = 1.0
+        self.h_beta = 1.0
+
+        self.set_params(theta_vec,tau)
+        self.set_h_params(h_mu_vec,h_lambda_mat,h_alpha,h_beta)
+
+    def get_constants(self):
+        """Get constants of GenModel.
+
+        Returns
+        -------
+        constants : dict of {str: int}
+            * ``"c_degree"`` : the value of ``self.c_degree``
+        """
+        return {'c_degree':self.c_degree}
+
+    def set_h_params(self,h_mu_vec=None,h_lambda_mat=None,h_alpha=None,h_beta=None):
         """Set the hyperparameters of the prior distribution.
 
         Parameters
         ----------
-        h_mu_vec : numpy ndarray
-            a vector of real numbers
-        h_lambda_mat : numpy ndarray
-            a positibe definate matrix
-        h_alpha : float
-            a positive real number
-        h_beta : float
-            a positibe real number
+        h_mu_vec : numpy ndarray, optional
+            a vector of real numbers, by default None.
+        h_lambda_mat : numpy ndarray, optional
+            a positive definate matrix, by default None.
+        h_alpha : float, optional
+            a positive real number, by default None.
+        h_beta : float, optional
+            a positive real number, by default None.
         """
-        self.h_mu_vec = _check.float_vec(h_mu_vec,'h_mu_vec',ParameterFormatError)
-        self.h_lambda_mat = _check.pos_def_sym_mat(h_lambda_mat,'h_lambda_mat',ParameterFormatError)
-        self.h_alpha = _check.pos_float(h_alpha,'h_alpha',ParameterFormatError)
-        self.h_beta = _check.pos_float(h_beta,'h_beta',ParameterFormatError)
+        if h_mu_vec is not None:
+            _check.float_vec(h_mu_vec,'h_mu_vec',ParameterFormatError)
+            _check.shape_consistency(
+                h_mu_vec.shape[0],'h_mu_vec.shape[0]',
+                self.c_degree,'self.c_degree',
+                ParameterFormatError
+            )
+            self.h_mu_vec[:] = h_mu_vec
 
-        if (self.h_mu_vec.shape[0] != self.h_lambda_mat.shape[0]):
-                raise(ParameterFormatError(
-                    "dimensions of h_mu_vec and h_lambda_mat must be the same."))
+        if h_lambda_mat is not None:
+            _check.pos_def_sym_mat(h_lambda_mat,'h_lambda_mat',ParameterFormatError)
+            _check.shape_consistency(
+                h_lambda_mat.shape[0],'h_lambda_mat.shape[0] and h_lambda_mat.shape[1]',
+                self.c_degree,'self.c_degree',
+                ParameterFormatError
+            )
+            self.h_lambda_mat[:] = h_lambda_mat
 
-        self.degree = self.h_mu_vec.shape[0]
-        if self.degree != self.theta_vec.shape[0]:
-            self.theta_vec = np.zeros(self.degree)
-            warnings.warn("theta_vec is reinitialized to [0.0, 0.0, ..., 0.0] because dimension of theta_vec and h_parms are mismatched.", ParameterFormatWarning)
+        if h_alpha is not None:
+            self.h_alpha = _check.pos_float(h_alpha,'h_alpha',ParameterFormatError)
+        if h_beta is not None:
+            self.h_beta = _check.pos_float(h_beta,'h_beta',ParameterFormatError)
+
+        return self
 
     def get_h_params(self):
         """Get the hyperparameters of the prior distribution.
@@ -160,28 +135,32 @@ class GenModel(base.Generative):
         """
         self.tau =  self.rng.gamma(shape=self.h_alpha, scale=1.0/self.h_beta)
         self.theta_vec = self.rng.multivariate_normal(mean=self.h_mu_vec,cov=np.linalg.inv(self.tau*self.h_lambda_mat))
+        return self
 
-    def set_params(self,theta_vec,tau):
+    def set_params(self,theta_vec=None,tau=None):
         """Set the parameter of the sthocastic data generative model.
 
         Parameters
         ----------
         theta_vec : numpy ndarray, optional
-            a vector of real numbers, by default [0.0, 0.0, ... , 0.0]
-        tau : float, optional
-            a positive real number, by default 1.0
+            a vector of real numbers, by default None
+        tau : float, optional, optional
+            a positive real number, by default None
         """
-        self.theta_vec = _check.float_vec(theta_vec,'theta_vec',ParameterFormatError)
-        self.tau = _check.pos_float(tau,'tau',ParameterFormatError)
+        if theta_vec is not None:
+            _check.float_vec(theta_vec,'theta_vec',ParameterFormatError)
+            _check.shape_consistency(
+                theta_vec.shape[0],'theta_vec.shape[0]',
+                self.c_degree,'self.c_degree',
+                ParameterFormatError
+            )
+            self.theta_vec[:] = theta_vec
 
-        self.degree = self.theta_vec.shape[0]
-        if self.degree != self.h_mu_vec.shape[0]:
-            self.h_mu_vec = np.zeros(self.degree)
-            warnings.warn("h_mu_vec is reinitialized to [0.0, 0.0, ..., 0.0] because dimension of h_mu_vec and theta are mismatched.", ParameterFormatWarning)
-        if self.degree != self.h_lambda_mat.shape[0]:
-            self.h_lambda_mat = np.identity(self.degree)
-            warnings.warn("h_lambda_mat is reinitialized to the identity matrix because dimension of h_lambda_mat and theta are mismatched.", ParameterFormatWarning)
-    
+        if tau is not None:
+            self.tau = _check.pos_float(tau,'tau',ParameterFormatError)
+
+        return self
+
     def get_params(self):
         """Get the parameter of the sthocastic data generative model.
 
@@ -193,7 +172,7 @@ class GenModel(base.Generative):
         """
         return {"theta_vec":self.theta_vec, "tau":self.tau}
 
-    def gen_sample(self,*,x=None,sample_size=None,constant=True):
+    def gen_sample(self,sample_size=None,x=None,constant=True):
         """Generate a sample from the stochastic data generative model.
 
         If x is given, it will be used for explanatory variables as it is 
@@ -205,30 +184,31 @@ class GenModel(base.Generative):
 
         Parameters
         ----------
-        x : numpy ndarray, optional
-            float array whose shape is ``(sammple_length,degree)``, by default ``None``.
         sample_size : int, optional
             A positive integer, by default ``None``.
+        x : numpy ndarray, optional
+            float array whose shape is ``(sample_size,c_degree)``, by default ``None``.
         constant : bool, optional
             A boolean value, by default ``True``.
 
         Returns
         -------
         x : numpy ndarray
-            float array whose shape is ``(sammple_length,degree)``.
+            float array whose shape is ``(sample_size,c_degree)``.
         y : numpy ndarray
-            1 dimensional float array whose size is ``sammple_length``.
+            1 dimensional float array whose size is ``sample_size``.
         """
         if x is not None:
             _check.float_vecs(x,'x',DataFormatError)
+            x = x.reshape([-1,self.c_degree])
             sample_size = x.shape[0]
         elif sample_size is not None:
             _check.pos_int(sample_size,'sample_size',DataFormatError)
-            x = self.rng.multivariate_normal(np.zeros(self.degree),np.identity(self.degree), size=sample_size)
+            x = self.rng.multivariate_normal(np.zeros(self.c_degree),np.eye(self.c_degree), size=sample_size)
             if constant:
                 x[:,-1] = 1.0
         else:
-            raise(DataFormatError("Either of the sample_size and the x must be given as a input."))
+            raise(DataFormatError("Either of the sample_size and the x must be given as an input."))
         
         y = np.empty(sample_size)
         for i in range(sample_size):
@@ -236,7 +216,7 @@ class GenModel(base.Generative):
 
         return x, y
 
-    def save_sample(self,filename,x=None,sample_size=None,constant=True):
+    def save_sample(self,filename,sample_size=None,x=None,constant=True):
         """Save the generated sample as NumPy ``.npz`` format.
 
         If x is given, it will be used for explanatory variables as it is 
@@ -253,10 +233,10 @@ class GenModel(base.Generative):
         filename : str
             The filename to which the sample is saved.
             ``.npz`` will be appended if it isn't there.
-        x : numpy ndarray, optional
-            float array whose shape is ``(sammple_length,degree)``, by default ``None``.
         sample_size : int, optional
             A positive integer, by default ``None``.
+        x : numpy ndarray, optional
+            float array whose shape is ``(sample_size,c_degree)``, by default ``None``.
         constant : bool, optional
             A boolean value, by default ``True``.
         
@@ -264,7 +244,7 @@ class GenModel(base.Generative):
         --------
         numpy.savez_compressed
         """
-        x, y = self.gen_sample(x,sample_size,constant)
+        x, y = self.gen_sample(sample_size,x,constant)
         np.savez_compressed(filename, x=x, y=y)
 
     def visualize_model(self,sample_size=100,constant=True):
@@ -273,21 +253,21 @@ class GenModel(base.Generative):
         Parameters
         ----------
         sample_size : int, optional
-            A positive integer, by default 50
+            A positive integer, by default 100
         constant : bool, optional
 
         Examples
         --------
         >>> import numpy as np
         >>> from bayesml import linearregression
-        >>> model = linearregression.GenModel(theta_vec=np.array([2,1]))
+        >>> model = linearregression.GenModel(c_degree=2,theta_vec=np.array([2,1]))
         >>> model.visualize_model()
 
         .. image:: ./images/linearregression_example.png
         """
-        if self.degree == 2 and constant==True:
-            print(f"theta_vec:\n{self.theta_vec}")
-            print(f"tau:\n{self.tau}")
+        print(f"theta_vec:\n{self.theta_vec}")
+        print(f"tau:\n{self.tau}")
+        if self.c_degree == 2 and constant==True:
             _check.pos_int(sample_size,'sample_size',DataFormatError)
             sample_x, sample_y = self.gen_sample(sample_size=sample_size,constant=True)
             fig, ax = plt.subplots()
@@ -301,7 +281,7 @@ class GenModel(base.Generative):
             ax.set_ylabel("y")
             ax.legend()
             plt.show()
-        elif self.degree == 1 and constant==False:
+        elif self.c_degree == 1 and constant==False:
             _check.pos_int(sample_size,'sample_size',DataFormatError)
             sample_x, sample_y = self.gen_sample(sample_size=sample_size,constant=False)
             fig, ax = plt.subplots()
@@ -316,7 +296,7 @@ class GenModel(base.Generative):
             ax.legend()
             plt.show()
         else:
-            raise(ParameterFormatError("This function supports only the following cases: degree = 2 and constant = True; degree = 1 and constant = False."))
+            raise(ParameterFormatError("This function supports only the following cases: c_degree = 2 and constant = True; c_degree = 1 and constant = False."))
 
 
 
@@ -325,97 +305,89 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
     Parameters
     ----------
-    degree : int, optional
-        a positive integer. Default is None, in which case 
-        a value consistent with ``w``, ``h_mu_vec``, 
-        and ``h_Lambda`` is used. If all of them are not given,
-        degree is assumed to be 1.
+    c_degree : int
+        a positive integer.
     h0_mu_vec : numpy ndarray, optional
         a vector of real numbers, by default [0.0, 0.0, ... , 0.0]
     h0_lambda_mat : numpy ndarray, optional
-        a positibe definate matrix, by default the identity matrix
+        a positive definate matrix, by default the identity matrix
     h0_alpha : float, optional
         a positive real number, by default 1.0
     h0_beta : float, optional
-        a positibe real number, by default 1.0
+        a positive real number, by default 1.0
 
     Attributes
     ----------
     hn_mu_vec : numpy ndarray
         a vector of real numbers
     hn_lambda_mat : numpy ndarray
-        a positibe definate matrix
+        a positive definate matrix
     hn_alpha : float
         a positive real number
     hn_beta : float
-        a positibe real number
-    p_m : float
         a positive real number
-    p_lambda : float
-        a positibe real number
-    p_nu : float
-        a positibe real number
+    p_ms : numpy ndarray
+        positive real numbers
+    p_lambdas : numpy ndarray
+        positive real numbers
+    p_nus : numpy ndarray
+        positive real numbers
     """
     def __init__(
             self,
-            *,
-            degree = None,
+            c_degree,
             h0_mu_vec = None, 
             h0_lambda_mat = None, 
             h0_alpha = 1.0, 
             h0_beta = 1.0, 
             ):
-        if degree is not None:
-            self.degree = _check.pos_int(degree,'degree',ParameterFormatError)
-            if h0_mu_vec is None:
-                self.h0_mu_vec = np.zeros(self.degree)
-            else:
-                self.h0_mu_vec = _check.float_vec(h0_mu_vec,'h0_mu_vec',ParameterFormatError)
+        # constants
+        self.c_degree = _check.pos_int(c_degree,'c_degree',ParameterFormatError)
 
-            if h0_lambda_mat is None:
-                self.h0_lambda_mat = np.identity(self.degree)
-            else:
-                self.h0_lambda_mat = _check.pos_def_sym_mat(h0_lambda_mat,'h0_lambda_mat',ParameterFormatError)
+        # h0_params
+        self.h0_mu_vec = np.zeros(self.c_degree)
+        self.h0_lambda_mat = np.eye(self.c_degree)
+        self.h0_alpha = 1.0
+        self.h0_beta = 1.0
 
-        elif h0_mu_vec is not None:
-            self.h0_mu_vec = _check.float_vec(h0_mu_vec,'h0_mu_vec',ParameterFormatError)
-            self.degree = self.h0_mu_vec.shape[0]
-            if h0_lambda_mat is None:
-                self.h0_lambda_mat = np.identity(self.degree)
-            else:
-                self.h0_lambda_mat = _check.pos_def_sym_mat(h0_lambda_mat,'h0_lambda_mat',ParameterFormatError)
-        
-        elif h0_lambda_mat is not None:
-            self.h0_lambda_mat = _check.pos_def_sym_mat(h0_lambda_mat,'h0_lambda_mat',ParameterFormatError)
-            self.degree = self.h0_lambda_mat.shape[0]
-            self.h0_mu_vec = np.zeros(self.degree)
-        
-        else:
-            self.degree = 2
-            self.h0_mu_vec = np.zeros(self.degree)
-            self.h0_lambda_mat = np.identity(self.degree)
-        
-        if (self.degree != self.h0_mu_vec.shape[0]
-            or self.degree != self.h0_lambda_mat.shape[0]):
-                raise(ParameterFormatError(
-                    "degree and dimensions of h0_mu_vec"
-                    +" and h0_lambda_mat must be the same,"
-                    +" if two or more of them are specified."))
+        # hn_params
+        self.hn_mu_vec = np.zeros(self.c_degree)
+        self.hn_lambda_mat = np.eye(self.c_degree)
+        self.hn_alpha = 1.0
+        self.hn_beta = 1.0
 
-        self.h0_alpha = _check.pos_float(h0_alpha,'h0_alpha',ParameterFormatError)
-        self.h0_beta = _check.pos_float(h0_beta,'h0_beta',ParameterFormatError)
+        # p_params
+        self.p_ms = 0.0
+        self.p_lambdas =  1.0
+        self.p_nus = 2.0
 
-        self.hn_mu_vec = np.copy(self.h0_mu_vec)
-        self.hn_lambda_mat = np.copy(self.h0_lambda_mat)
-        self.hn_alpha = self.h0_alpha
-        self.hn_beta = self.h0_beta
+        # sample size
+        self._n = 0
 
-        _explanatory_vec = np.ones(self.degree)
-        self.p_m = self.hn_mu_vec @ _explanatory_vec
-        self.p_lambda = self.hn_alpha / self.hn_beta / (1.0 + _explanatory_vec @ np.linalg.solve(self.hn_lambda_mat,_explanatory_vec))
-        self.p_nu = 2.0 * self.hn_alpha
+        self.set_h0_params(
+            h0_mu_vec,
+            h0_lambda_mat,
+            h0_alpha,
+            h0_beta,
+        )
 
-    def set_h0_params(self,h0_mu_vec,h0_lambda_mat,h0_alpha,h0_beta):
+    def get_constants(self):
+        """Get constants of LearnModel.
+
+        Returns
+        -------
+        constants : dict of {str: int}
+            * ``"c_degree"`` : the value of ``self.c_degree``
+        """
+        return {'c_degree':self.c_degree}
+
+    def set_h0_params(
+            self,
+            h0_mu_vec=None,
+            h0_lambda_mat=None,
+            h0_alpha=None,
+            h0_beta=None
+            ):
         """Set initial values of the hyperparameter of the posterior distribution.
 
         Note that the parameters of the predictive distribution are also calculated from 
@@ -423,26 +395,40 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Parameters
         ----------
-        h0_mu_vec : numpy ndarray
-            a vector of real numbers
-        h0_lambda_mat : numpy ndarray
-            a positibe definate matrix
-        h0_alpha : float
-            a positive real number
-        h0_beta : float
-            a positibe real number
+        h0_mu_vec : numpy ndarray, optional
+            a vector of real numbers, by default None.
+        h0_lambda_mat : numpy ndarray, optional
+            a positive definate matrix, by default None.
+        h0_alpha : float, optional
+            a positive real number, by default None.
+        h0_beta : float, optional
+            a positive real number, by default None.
         """
-        self.h0_mu_vec = _check.float_vec(h0_mu_vec,'h0_mu_vec',ParameterFormatError)
-        self.h0_lambda_mat = _check.pos_def_sym_mat(h0_lambda_mat,'h0_lambda_mat',ParameterFormatError)
-        self.h0_alpha = _check.pos_float(h0_alpha,'h0_alpha',ParameterFormatError)
-        self.h0_beta = _check.pos_float(h0_beta,'h0_beta',ParameterFormatError)
+        if h0_mu_vec is not None:
+            _check.float_vec(h0_mu_vec,'h0_mu_vec',ParameterFormatError)
+            _check.shape_consistency(
+                h0_mu_vec.shape[0],'h0_mu_vec.shape[0]',
+                self.c_degree,'self.c_degree',
+                ParameterFormatError
+            )
+            self.h0_mu_vec[:] = h0_mu_vec
 
-        self.degree = self.h0_mu_vec.shape[0]
-        if (self.h0_mu_vec.shape[0] != self.h0_lambda_mat.shape[0]):
-                raise(ParameterFormatError(
-                    "dimensions of h0_mu_vec and h0_lambda_mat must be the same"))
+        if h0_lambda_mat is not None:
+            _check.pos_def_sym_mat(h0_lambda_mat,'h0_lambda_mat',ParameterFormatError)
+            _check.shape_consistency(
+                h0_lambda_mat.shape[0],'h0_lambda_mat.shape[0] and h0_lambda_mat.shape[1]',
+                self.c_degree,'self.c_degree',
+                ParameterFormatError
+            )
+            self.h0_lambda_mat[:] = h0_lambda_mat
+
+        if h0_alpha is not None:
+            self.h0_alpha = _check.pos_float(h0_alpha,'h0_alpha',ParameterFormatError)
+        if h0_beta is not None:
+            self.h0_beta = _check.pos_float(h0_beta,'h0_beta',ParameterFormatError)
 
         self.reset_hn_params()
+        return self
 
     def get_h0_params(self):
         """Get the initial values of the hyperparameters of the posterior distribution.
@@ -457,7 +443,13 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """
         return {"h0_mu_vec":self.h0_mu_vec, "h0_lambda_mat":self.h0_lambda_mat, "h0_alpha":self.h0_alpha, "h0_beta":self.h0_beta}
     
-    def set_hn_params(self,hn_mu_vec,hn_lambda_mat,hn_alpha,hn_beta):
+    def set_hn_params(
+            self,
+            hn_mu_vec=None,
+            hn_lambda_mat=None,
+            hn_alpha=None,
+            hn_beta=None
+            ):
         """Set updated values of the hyperparameter of the posterior distribution.
 
         Note that the parameters of the predictive distribution are also calculated from 
@@ -465,25 +457,41 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Parameters
         ----------
-        hn_mu_vec : numpy ndarray
-            a vector of real numbers
-        hn_lambda_mat : numpy ndarray
-            a positibe definate matrix
-        hn_alpha : float
-            a positive real number
-        hn_beta : float
-            a positibe real number
+        hn_mu_vec : numpy ndarray, optional
+            a vector of real numbers, by default None.
+        hn_lambda_mat : numpy ndarray, optional
+            a positive definate matrix, by default None.
+        hn_alpha : float, optional
+            a positive real number, by default None.
+        hn_beta : float, optional
+            a positive real number, by default None.
         """
-        self.hn_mu_vec = _check.float_vec(hn_mu_vec,'hn_mu_vec',ParameterFormatError)
-        self.hn_lambda_mat = _check.pos_def_sym_mat(hn_lambda_mat,'hn_lambda_mat',ParameterFormatError)
-        self.hn_alpha = _check.pos_float(hn_alpha,'hn_alpha',ParameterFormatError)
-        self.hn_beta = _check.pos_float(hn_beta,'hn_beta',ParameterFormatError)
+        self._n = 0
+        if hn_mu_vec is not None:
+            _check.float_vec(hn_mu_vec,'hn_mu_vec',ParameterFormatError)
+            _check.shape_consistency(
+                hn_mu_vec.shape[0],'hn_mu_vec.shape[0]',
+                self.c_degree,'self.c_degree',
+                ParameterFormatError
+            )
+            self.hn_mu_vec[:] = hn_mu_vec
 
-        self.degree = self.hn_mu_vec.shape[0]
-        if (self.hn_mu_vec.shape[0] != self.hn_lambda_mat.shape[0]):
-                raise(ParameterFormatError(
-                    "dimensions of hn_mu_vec and hn_lambda_mat must be the same"))
-        self.calc_pred_dist(np.zeros(self.degree))
+        if hn_lambda_mat is not None:
+            _check.pos_def_sym_mat(hn_lambda_mat,'hn_lambda_mat',ParameterFormatError)
+            _check.shape_consistency(
+                hn_lambda_mat.shape[0],'hn_lambda_mat.shape[0] and hn_lambda_mat.shape[1]',
+                self.c_degree,'self.c_degree',
+                ParameterFormatError
+            )
+            self.hn_lambda_mat[:] = hn_lambda_mat
+
+        if hn_alpha is not None:
+            self.hn_alpha = _check.pos_float(hn_alpha,'hn_alpha',ParameterFormatError)
+        if hn_beta is not None:
+            self.hn_beta = _check.pos_float(hn_beta,'hn_beta',ParameterFormatError)
+
+        self.calc_pred_dist(np.zeros(self.c_degree))
+        return self
 
     def get_hn_params(self):
         """Get the hyperparameters of the posterior distribution.
@@ -498,33 +506,24 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """
         return {"hn_mu_vec":self.hn_mu_vec, "hn_lambda_mat":self.hn_lambda_mat, "hn_alpha":self.hn_alpha, "hn_beta":self.hn_beta}
     
-    def reset_hn_params(self):
-        """Reset the hyperparameters of the posterior distribution to their initial values.
-        
-        They are reset to ``self.h0_mu_vec``, ``slef.h0_lambda_mat``, ``self.h0_alpha`` and ``self.h0_beta``.
-        Note that the parameters of the predictive distribution are also calculated 
-        from ``self.h0_m``, ``slef.h0_lambda_mat``, ``self.h0_alpha`` and ``self.h0_beta``.
-        """
-        self.hn_lambda_mat = np.copy(self.h0_lambda_mat)
-        self.hn_mu_vec = np.copy(self.h0_mu_vec)
-        self.hn_alpha = self.h0_alpha
-        self.hn_beta = self.h0_beta
+    def _check_sample_x(self,x):
+        _check.float_vecs(x,'x',DataFormatError)
+        if x.shape[-1] != self.c_degree:
+            raise(DataFormatError(f"x.shape[-1] must be c_degree:{self.c_degree}"))
+        return x.reshape(-1,self.c_degree)
+    
+    def _check_sample_y(self,y):
+        return _check.floats(y,'y',DataFormatError)
 
-        self.calc_pred_dist(np.ones(self.degree))
-
-    def overwrite_h0_params(self):
-        """Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values.
-        
-        They are overwritten by ``self.hn_mu_vec``, ``slef.hn_lambda_mat``, ``self.hn_alpha`` and ``self.hn_beta``.
-        Note that the parameters of the predictive distribution are also calculated 
-        from ``self.hn_mu_vec``, ``slef.hn_lambda_mat``, ``self.hn_alpha`` and ``self.hn_beta``.
-        """
-        self.h0_mu_vec = np.copy(self.hn_mu_vec)
-        self.h0_lambda_mat = np.copy(self.hn_lambda_mat)
-        self.h0_alpha = self.hn_alpha
-        self.h0_beta = self.hn_beta
-
-        self.calc_pred_dist(np.zeros(self.degree))
+    def _check_sample(self,x,y):
+        self._check_sample_x(x)
+        self._check_sample_y(y)
+        if type(y) is np.ndarray:
+            if x.shape[:-1] != y.shape: 
+                raise(DataFormatError(f"x.shape[:-1] and y.shape must be same."))
+        elif x.shape[:-1] != ():
+            raise(DataFormatError(f"If y is a scaler, x.shape[:-1] must be the empty tuple ()."))
+        return x.reshape(-1,self.c_degree), np.ravel(y)
 
     def update_posterior(self, x, y):
         """Update the hyperparameters of the posterior distribution using traning data.
@@ -532,33 +531,38 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x : numpy ndarray
-            float array. The size along the last dimension must conincides with the degree.
+            float array. The size along the last dimension must conincides with the c_degree.
             If you want to use a constant term, it should be included in x.
         y : numpy ndarray
             float array.
         """
-        _check.float_vecs(x,'x',DataFormatError)
-        if self.degree > 1 and x.shape[-1] != self.degree:
-            raise(DataFormatError(f"x.shape[-1] must be degree:{self.degree}"))
-        _check.floats(y,'y',DataFormatError)
-        if type(y) is np.ndarray:
-            if x.shape[:-1] != y.shape: 
-                raise(DataFormatError(f"x.shape[:-1] and y.shape must be same."))
-        elif x.shape[:-1] != ():
-            raise(DataFormatError(f"If y is a scaler, x.shape[:-1] must be the empty tuple ()."))
-            
-        x = x.reshape(-1,self.degree)
-        y = np.ravel(y)
+        x,y = self._check_sample(x,y)            
+        n = x.shape[0]
         
-        hn1_Lambda = np.copy(self.hn_lambda_mat)
-        hn1_mu = np.copy(self.hn_mu_vec)
+        hn1_Lambda = np.array(self.hn_lambda_mat)
+        hn1_mu = np.array(self.hn_mu_vec)
         self.hn_lambda_mat +=  x.T @ x
-        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y[:,np.newaxis]  + hn1_Lambda @ hn1_mu[:,np.newaxis])[:,0]
-        self.hn_alpha +=   x.shape[0]/2.0
-        self.hn_beta += (-self.hn_mu_vec[np.newaxis,:] @ self.hn_lambda_mat @ self.hn_mu_vec[:,np.newaxis]
-                         + y @ y + hn1_mu[np.newaxis,:] @ hn1_Lambda @ hn1_mu[:,np.newaxis])[0,0] /2.0
+        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y + hn1_Lambda @ hn1_mu)
+        self.hn_alpha += n/2.0
+        self.hn_beta += (-self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec
+                         + y @ y + hn1_mu @ hn1_Lambda @ hn1_mu) /2.0
+        self._n += n
+        return self
 
-    def estimate_params(self,loss="squared"):
+    def _update_posterior(self, x, y):
+        """Update opsterior without input check."""
+        n = x.shape[0]
+        hn1_Lambda = np.array(self.hn_lambda_mat)
+        hn1_mu = np.array(self.hn_mu_vec)
+        self.hn_lambda_mat +=  x.T @ x
+        self.hn_mu_vec[:] = np.linalg.solve(self.hn_lambda_mat, x.T @ y + hn1_Lambda @ hn1_mu)
+        self.hn_alpha += n/2.0
+        self.hn_beta += (-self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec
+                         + y @ y + hn1_mu @ hn1_Lambda @ hn1_mu) /2.0
+        self._n += n
+        return self
+
+    def estimate_params(self,loss="squared",dict_out=False):
         """Estimate the parameter of the stochastic data generative model under the given criterion.
 
         Note that the criterion is applied to estimating ``theta_vec`` and ``tau`` independently.
@@ -569,10 +573,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         loss : str, optional
             Loss function underlying the Bayes risk function, by default \"squared\".
             This function supports \"squared\", \"0-1\", \"abs\", and \"KL\".
+        dict_out : bool, optional
+            If ``True``, output will be a dict, by default ``False``.
 
         Returns
         -------
-        Estimates : tuple of {numpy ndarray, float, None, or rv_frozen}
+        estimates : tuple of {numpy ndarray, float, None, or rv_frozen}
             * ``theta_vec`` : the estimate for w
             * ``tau_hat`` : the estimate for tau
             The estimated values under the given loss function. If it is not exist, `None` will be returned.
@@ -584,15 +590,27 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         scipy.stats.rv_continuous
         scipy.stats.rv_discrete
         """
-        if loss == "squared": 
-            return  self.hn_mu_vec, self.hn_alpha/self.hn_beta
+        if loss == "squared":
+            if dict_out:
+                return {'theta_vec':self.hn_mu_vec,'tau':self.hn_alpha/self.hn_beta}
+            else:
+                return  self.hn_mu_vec, self.hn_alpha/self.hn_beta
         elif loss == "0-1":
             if self.hn_alpha >= 1.0:
-                return self.hn_mu_vec, (self.hn_alpha - 1.0) / self.hn_beta
+                if dict_out:
+                    return {'theta_vec':self.hn_mu_vec,'tau':(self.hn_alpha - 1.0) / self.hn_beta}
+                else:
+                    return self.hn_mu_vec, (self.hn_alpha - 1.0) / self.hn_beta
             else:
-                return self.hn_mu_vec, 0
+                if dict_out:
+                    return {'theta_vec':self.hn_mu_vec,'tau':0.0}
+                else:
+                    return self.hn_mu_vec, 0.0
         elif loss == "abs":
-            return self.hn_mu_vec, ss_gamma.median(a=self.hn_alpha,scale=1.0/self.hn_beta)
+            if dict_out:
+                return {'theta_vec':self.hn_mu_vec,'tau':ss_gamma.median(a=self.hn_alpha,scale=1.0/self.hn_beta)}
+            else:
+                return self.hn_mu_vec, ss_gamma.median(a=self.hn_alpha,scale=1.0/self.hn_beta)
         elif loss == "KL":
             return (ss_multivariate_t(loc=self.hn_mu_vec,
                                         shape=np.linalg.inv(self.hn_alpha / self.hn_beta * self.hn_lambda_mat),
@@ -608,7 +626,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Examples
         --------
         >>> from bayesml import linearregression
-        >>> gen_model = linearregression.GenModel(theta_vec=np.array([1,1]),tau=1.0)
+        >>> gen_model = linearregression.GenModel(c_degree=2,theta_vec=np.array([1,1]),tau=1.0)
         >>> x,y = gen_model.gen_sample(sample_size=50)
         >>> learn_model = linearregression.LearnModel()
         >>> learn_model.update_posterior(x,y)
@@ -617,7 +635,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         .. image:: ./images/linearregression_posterior.png
         """
         theta_vec_pdf, tau_pdf = self.estimate_params(loss="KL")
-        if self.degree == 1:
+        if self.c_degree == 1:
             hn_lambda_inv = np.linalg.inv(self.hn_lambda_mat)
             fig, axes = plt.subplots(1,2)
 
@@ -639,7 +657,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
             fig.tight_layout()
             plt.show()
-        elif self.degree == 2:
+        elif self.c_degree == 2:
             hn_lambda_inv = np.linalg.inv(self.hn_lambda_mat)
             fig, axes = plt.subplots(1,2)
             
@@ -671,7 +689,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             plt.show()
         
         else:
-            raise(ParameterFormatError("if self.degree > 2, it is impossible to visualize posterior by this function."))
+            raise(ParameterFormatError("if self.c_degree > 2, it is impossible to visualize posterior by this function."))
 
     
     def get_p_params(self):
@@ -679,12 +697,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        p_params : dict of {str: float}
-            * ``"p_m"`` : The value of ``self.p_m``
-            * ``"p_lambda"`` : The value of ``self.p_lambda``
-            * ``"p_nu"`` : The value of ``self.p_nu``
+        p_params : dict of {str: numpy ndarray}
+            * ``"p_ms"`` : The value of ``self.p_ms``
+            * ``"p_lambdas"`` : The value of ``self.p_lambdas``
+            * ``"p_nus"`` : The value of ``self.p_nus``
         """
-        return {"p_m":self.p_m, "p_lambda":self.p_lambda, "p_nu":self.p_nu}
+        return {"p_ms":self.p_ms, "p_lambdas":self.p_lambdas, "p_nus":self.p_nus}
     
     def calc_pred_dist(self, x):
         """Calculate the parameters of the predictive distribution.
@@ -692,15 +710,25 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x : numpy ndarray
-            1 dimensional float array whose size is ``self.degree``
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
         """
-        _check.float_vec(x,'x',DataFormatError)
-        if x.shape != (self.degree,):
-            raise(DataFormatError("x must be a 1 dimensional float array whose size coincide with ``self.degree``"))
-        self.p_m = x @ self.hn_mu_vec
-        self.p_lambda = self.hn_alpha / self.hn_beta / (1.0 + x @ np.linalg.solve(self.hn_lambda_mat,x))
-        self.p_nu = 2.0 * self.hn_alpha
+        x = self._check_sample_x(x)
+        self.p_ms = x @ self.hn_mu_vec
+        self.p_lambdas = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
+        self.p_nus = np.ones(x.shape[0]) * 2.0 * self.hn_alpha
+        return self
 
+    def _calc_pred_dist(self, x):
+        """Calculate predictive distribution without check."""
+        self.p_ms = x @ self.hn_mu_vec
+        self.p_lambdas = self.hn_alpha / self.hn_beta / (1.0 + np.sum(x.T * np.linalg.solve(self.hn_lambda_mat,x.T),axis=0))
+        self.p_nus = np.ones(x.shape[0]) * 2.0 * self.hn_alpha
+        return self
+
+    def _calc_pred_density(self,y):
+        return ss_t.pdf(y,loc=self.p_ms, scale=1.0/np.sqrt(self.p_lambdas), df=self.p_nus)
+    
     def make_prediction(self,loss="squared"):
         """Predict a new data point under the given criterion.
 
@@ -712,10 +740,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {float, rv_frozen}
-            The predicted value under the given loss function. 
+        Predicted_values : {numpy ndarray, rv_frozen}
+            The predicted values under the given loss function. 
+            The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
             If the loss function is \"KL\", the predictive distribution itself will be returned
-            as rv_frozen object of scipy.stats.
+            as rv_frozen object of scipy.stats. The rv_frozen object supports broadcasting.
 
         See Also
         --------
@@ -723,9 +752,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         scipy.stats.rv_discrete
         """
         if loss == "squared" or loss == "0-1" or loss == "abs":
-            return self.p_m
+            return self.p_ms
         elif loss == "KL":
-            return ss_t(loc=self.p_m, scale=1.0/np.sqrt(self.p_lambda), df=self.p_nu)
+            return ss_t(loc=self.p_ms, scale=1.0/np.sqrt(self.p_lambdas), df=self.p_nus)
         else:
             raise(CriteriaError("Unsupported loss function! "
                                 "This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."))
@@ -736,7 +765,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         x : numpy ndarray
-            1 dimensional float array whose size is ``self.degree``.
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
         y : float
 
         loss : str, optional
@@ -745,12 +775,102 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        Predicted_value : {float, rv_frozen}
-            The predicted value under the given loss function. 
+        Predicted_values : {numpy ndarray, rv_frozen}
+            The predicted values under the given loss function. 
+            The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
             If the loss function is \"KL\", the predictive distribution itself will be returned
             as rv_frozen object of scipy.stats.
+
+        See Also
+        --------
+        scipy.stats.rv_continuous
+        scipy.stats.rv_discrete
         """
         self.calc_pred_dist(x)
         prediction = self.make_prediction(loss=loss)
         self.update_posterior(x,y)
         return prediction
+
+    def calc_log_marginal_likelihood(self):
+        """Calculate log marginal likelihood
+
+        Returns
+        -------
+        log_marginal_likelihood : float
+            The log marginal likelihood.
+        """
+        return (
+            self.h0_alpha * np.log(self.h0_beta)
+            - self.hn_alpha * np.log(self.hn_beta)
+            + gammaln(self.hn_alpha)
+            - gammaln(self.h0_alpha)
+            + 0.5 * (
+                np.linalg.slogdet(self.h0_lambda_mat)[1]
+                - np.linalg.slogdet(self.hn_lambda_mat)[1]
+                - self._n * np.log(2*np.pi)
+            )
+        )
+    
+    def calc_pred_var(self):
+        """Calculate the variance of the predictive distribution.
+        
+        Returns
+        -------
+        vars : numpy ndarray
+            The variances of the predictive distribution. 
+            The size of the vars is the same as the sample size of x when you called calc_pred_dist(x).
+        """
+        indices = self.p_nus > 2
+        var = np.empty(self.p_nus.shape[0])
+        var[indices] = self.p_nus[indices] / self.p_lambdas[indices] / (self.p_nus[indices]-2)
+        var[~indices] = np.nan
+        return var
+    
+    def fit(self,x,y):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x,y)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x,y)
+        return self
+    
+    def predict(self,x):
+        """Predict the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.calc_pred_dist(x)
+        >>> return self.make_prediction(loss="squared")
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        
+        Returns
+        -------
+        Predicted_values : numpy ndarray
+            The predicted values under the squared loss function. 
+            The size of the predicted values is the same as the sample size of x.
+        """
+        self.calc_pred_dist(x)
+        return self.make_prediction(loss="squared")

@@ -1,6 +1,6 @@
 # Document Author
-# Koki Kazama <kokikazama@aoni.waseda.jp>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Koki Kazama <kazama@info.shonan-it.ac.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 r"""
 The exponential distribution with the gamma prior distribution.
 
@@ -54,30 +54,30 @@ where the updating rule of the hyperparameters is
 The predictive distribution is as follows:
 
 * :math:`x_{n+1} \in \mathbb{R}_{\geq 0}`: a new data point
-* :math:`\alpha_\mathrm{p} \in \mathbb{R}_{>0}`: the hyperparameter of the posterior
-* :math:`\eta_\mathrm{p} \in \mathbb{R}_{>0}`: the hyperparameter of the posterior
+* :math:`\kappa_\mathrm{p} \in \mathbb{R}_{>0}`: the hyperparameter of the posterior
+* :math:`\lambda_\mathrm{p} \in \mathbb{R}_{>0}`: the hyperparameter of the posterior
 
 .. math::
-    p(x_{n+1}|x^n)=\mathrm{Lomax}(x_{n+1}|\alpha_\mathrm{p},\eta_\mathrm{p}) = \frac{\alpha_\mathrm{p}}{\eta_\mathrm{p}}\left(1+\frac{x_{n+1}}{\eta_\mathrm{p}}\right)^{-(\alpha_\mathrm{p}+1)},
+    p(x_{n+1}|x^n)=\mathrm{Lomax}(x_{n+1}|\kappa_\mathrm{p},\lambda_\mathrm{p}) = \frac{\kappa_\mathrm{p}}{\lambda_\mathrm{p}}\left(1+\frac{x_{n+1}}{\lambda_\mathrm{p}}\right)^{-(\kappa_\mathrm{p}+1)},
 
 .. math::
     \mathbb{E}[x_{n+1} | x^n] &=
     \begin{cases}
-    \frac{\eta_\mathrm{p}}{\alpha_\mathrm{p}-1}, & \alpha_\mathrm{p}>1,\\
+    \frac{\lambda_\mathrm{p}}{\kappa_\mathrm{p}-1}, & \kappa_\mathrm{p}>1,\\
     \mathrm{undefined}, & \text{otherwise},
     \end{cases}\\
     \mathbb{V}[x_{n+1} | x^n] &=
     \begin{cases}
-    \frac{\eta_\mathrm{p}^2 \alpha_\mathrm{p}}{(\alpha_\mathrm{p}-1)^2(\alpha_\mathrm{p}-2)}, & \alpha_\mathrm{p}>2,\\
-    \infty, & 1<\alpha_\mathrm{p}\leq 2,\\
+    \frac{\lambda_\mathrm{p}^2 \kappa_\mathrm{p}}{(\kappa_\mathrm{p}-1)^2(\kappa_\mathrm{p}-2)}, & \kappa_\mathrm{p}>2,\\
+    \infty, & 1<\kappa_\mathrm{p}\leq 2,\\
     \mathrm{undefined}, & \text{otherwise},
     \end{cases}
 
 where the parameters are obtained from the hyperparameters of the posterior distribution as follows:
 
 .. math::
-    &\alpha_\mathrm{p} = \alpha_n, \\
-    &\eta_\mathrm{p} = \beta_n.
+    &\kappa_\mathrm{p} = \alpha_n, \\
+    &\lambda_\mathrm{p} = \beta_n.
 """
 from ._exponential import GenModel
 from ._exponential import LearnModel

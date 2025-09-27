@@ -1,8 +1,8 @@
 # Document Author
 # Noboru Namegaya <n.noboru20180403@toki.waseda.jp>
 # Koshi Shimada <shimada.koshi.re@gmail.com>
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
-# Koki Kazama <kokikazama@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
+# Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
 The normal distribution with the normaml-gamma prior distribution.
 
@@ -36,7 +36,7 @@ The prior distribution is as follows:
 
 .. math::
     \mathbb{E}[\mu] &= m_0 & \left( \alpha_0 > \frac{1}{2} \right), \\
-    \mathbb{V}[\mu] &= \frac{\beta_0 \alpha_0}{\alpha_0 (\alpha_0 - 1)} & (\alpha_0 > 1), \\
+    \mathbb{V}[\mu] &= \frac{\beta_0}{\kappa_0 (\alpha_0 - 1)} & (\alpha_0 > 1), \\
     \mathbb{E}[\tau] &= \frac{\alpha_0}{\beta_0}, \\
     \mathbb{V}[\tau] &= \frac{\alpha_0}{\beta_0^2}.
 
@@ -55,7 +55,7 @@ The posterior distribution is as follows:
 
 .. math::
     \mathbb{E}[\mu | x^n] &= m_n & \left( \alpha_n > \frac{1}{2} \right), \\
-    \mathbb{V}[\mu | x^n] &= \frac{\beta_n \alpha_n}{\alpha_n (\alpha_n - 1)} & (\alpha_n > 1), \\
+    \mathbb{V}[\mu | x^n] &= \frac{\beta_n}{\kappa_n (\alpha_n - 1)} & (\alpha_n > 1), \\
     \mathbb{E}[\tau | x^n] &= \frac{\alpha_n}{\beta_n}, \\
     \mathbb{V}[\tau | x^n] &= \frac{\alpha_n}{\beta_n^2},
 
@@ -66,7 +66,7 @@ where the updating rule of the hyperparameters is
     m_n &= \frac{\kappa_0 m_0 + n \bar{x}}{\kappa_0 + n}, \\
     \kappa_n &= \kappa_0 + n, \\
     \alpha_n &= \alpha_0 + \frac{n}{2}, \\
-    \beta_n &=  \beta_0 + \frac{1}{2} \left( \sum_{i=1}^n (x_i - \bar{x})^2 + \frac{\kappa_0 n}{\kappa_n + n} (\bar{x} - m_0)^2 \right).
+    \beta_n &=  \beta_0 + \frac{1}{2} \left( \sum_{i=1}^n (x_i - \bar{x})^2 + \frac{\kappa_0 n}{\kappa_0 + n} (\bar{x} - m_0)^2 \right).
 
 The predictive distribution is as follows:
 

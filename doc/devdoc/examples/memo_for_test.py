@@ -155,18 +155,18 @@ if __name__ == '__main__':
     # # learn_model.visualize_posterior()
 
 if __name__ == '__main__':
-    gen_model = GenModel()
+    gen_model = GenModel(2)
     h_params = gen_model.get_h_params()
     params = gen_model.get_params()
-    learn_model = LearnModel()
+    learn_model = LearnModel(2)
     h0_params = learn_model.get_h0_params()
     hn_params = learn_model.get_hn_params()
 
-    learn_model.set_h0_params(**h_params)
+    learn_model.set_h0_params(*h_params.values())
     print('ok1')
-    learn_model.set_h0_params(**h0_params)
+    learn_model.set_h0_params(*h0_params.values())
     print('ok2')
-    learn_model.set_h0_params(**hn_params)
+    learn_model.set_h0_params(*hn_params.values())
     print('ok3')
     try:
         learn_model.set_h0_params(**params)
@@ -174,11 +174,11 @@ if __name__ == '__main__':
     except:
         print('ok4')
 
-    learn_model.set_hn_params(**h_params)
+    learn_model.set_hn_params(*h_params.values())
     print('ok5')
-    learn_model.set_hn_params(**h0_params)
+    learn_model.set_hn_params(*h0_params.values())
     print('ok6')
-    learn_model.set_hn_params(**hn_params)
+    learn_model.set_hn_params(*hn_params.values())
     print('ok7')
     try:
         learn_model.set_hn_params(**params)
@@ -186,11 +186,11 @@ if __name__ == '__main__':
     except:
         print('ok8')
 
-    gen_model.set_h_params(**h_params)
+    gen_model.set_h_params(*h_params.values())
     print('ok9')
-    gen_model.set_h_params(**h0_params)
+    gen_model.set_h_params(*h0_params.values())
     print('ok10')
-    gen_model.set_h_params(**hn_params)
+    gen_model.set_h_params(*hn_params.values())
     print('ok11')
     try:
         gen_model.set_h_params(**params)
@@ -201,15 +201,15 @@ if __name__ == '__main__':
     gen_model.set_params(**params)
     print('ok13')
     try:
-        gen_model.set_params(**h_params)
+        gen_model.set_params(*h_params.values())
         print('!!!!!!!!!!!NG!!!!!!!!!!!!')
     except:
         print('ok14')
 
     import copy
-    gen_model = GenModel()
+    gen_model = GenModel(2)
     x = gen_model.gen_sample(100)
-    learn_model = LearnModel()
+    learn_model = LearnModel(2)
     h0_params = copy.deepcopy(learn_model.get_h0_params())
     hn_params = copy.deepcopy(learn_model.get_hn_params())
     learn_model.update_posterior(x)
