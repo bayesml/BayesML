@@ -1,5 +1,5 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Yuji Iikubo <yuji-iikubo.8@fuji.waseda.jp>
 # Yasushi Esaki <esakiful@gmail.com>
 # Jun Nishikawa <jun.b.nishikawa@gmail.com>

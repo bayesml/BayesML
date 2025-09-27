@@ -168,10 +168,10 @@ $$
         # E[ln p(eta)]
         self._vl_p_eta = 
 
-        # E[ln p(theta)]
-        self._vl_p_theta = 
+        # -E[ln q(theta)]
+        self._vl_q_theta = 
 
-        # E[ln q(eta)]
+        # -E[ln q(eta)]
         self._vl_q_eta = 
 
         self.vl = (self._vl_p_x

@@ -1,5 +1,5 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Jun Nishikawa <jun.b.nishikawa@gmail.com>
 from email import message
 import warnings
@@ -694,7 +694,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         
         self.h0_w_mats_inv[:] = np.linalg.inv(self.h0_w_mats)
 
-        self._calc_prior_char()
+        self._calc_prior_features()
         self.reset_hn_params()
         return self
 
@@ -796,9 +796,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         
         self.hn_w_mats_inv[:] = np.linalg.inv(self.hn_w_mats)
 
-        self._calc_q_pi_char()
-        self._calc_q_a_char()
-        self._calc_q_lambda_char()
+        self._calc_q_pi_features()
+        self._calc_q_a_features()
+        self._calc_q_lambda_features()
 
         self.calc_pred_dist()
         return self
@@ -823,7 +823,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 'hn_nus':self.hn_nus,
                 'hn_w_mats':self.hn_w_mats}
     
-    def _calc_prior_char(self):
+    def _calc_prior_features(self):
         self._ln_c_h0_eta_vec = gammaln(self.h0_eta_vec.sum()) - gammaln(self.h0_eta_vec).sum()
         self._ln_c_h0_zeta_vecs_sum = np.sum(gammaln(self.h0_zeta_vecs.sum(axis=1)) - gammaln(self.h0_zeta_vecs).sum(axis=1))
         self._ln_b_h0_w_nus = (
@@ -837,30 +837,23 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
     def _calc_n_m_x_bar_s(self,x):
         self.ns[:] = self.gamma_vecs.sum(axis=0)
         self.ms[:] = self.xi_mats.sum(axis=0) # xi must be initialized as a zero matrix
-        indices = self.ns.astype(bool)
-        if np.all(indices):
-            self.x_bar_vecs[:] = (self.gamma_vecs[:,:,np.newaxis] * x[:,np.newaxis,:]).sum(axis=0) / self.ns[:,np.newaxis]
-            self.s_mats[:] = np.sum(self.gamma_vecs[:,:,np.newaxis,np.newaxis]
-                                    * ((x[:,np.newaxis,:] - self.x_bar_vecs)[:,:,:,np.newaxis]
-                                       @ (x[:,np.newaxis,:] - self.x_bar_vecs)[:,:,np.newaxis,:]),
-                                    axis=0) / self.ns[:,np.newaxis,np.newaxis]
-        else:
-            self.x_bar_vecs[indices] = (self.gamma_vecs[:,indices,np.newaxis] * x[:,np.newaxis,:]).sum(axis=0) / self.ns[indices,np.newaxis]
-            self.s_mats[indices] = np.sum(self.gamma_vecs[:,indices,np.newaxis,np.newaxis]
-                                    * ((x[:,np.newaxis,:] - self.x_bar_vecs[indices])[:,:,:,np.newaxis]
-                                       @ (x[:,np.newaxis,:] - self.x_bar_vecs[indices])[:,:,np.newaxis,:]),
-                                    axis=0) / self.ns[indices,np.newaxis,np.newaxis]
+        self.x_bar_vecs[:] = self.gamma_vecs.T @ x
+        for k in range(self.c_num_classes):
+            if self.ns[k] > 0:
+                self.x_bar_vecs[k] /= self.ns[k]
+                diff = x - self.x_bar_vecs[k]
+                self.s_mats[k] = ((self.gamma_vecs[:,k]*diff.T) @ diff) / self.ns[k]
 
-    def _calc_q_pi_char(self):
+    def _calc_q_pi_features(self):
         self._ln_pi_tilde_vec[:] = digamma(self.hn_eta_vec) - digamma(self.hn_eta_vec.sum())
         self._pi_tilde_vec[:] = np.exp(self._ln_pi_tilde_vec - self._ln_pi_tilde_vec.max())
 
-    def _calc_q_a_char(self):
+    def _calc_q_a_features(self):
         self._ln_a_tilde_mat[:] = digamma(self.hn_zeta_vecs) - digamma(self.hn_zeta_vecs.sum(axis=1,keepdims=True))
         self._a_tilde_mat[:] = np.exp(self._ln_a_tilde_mat - self._ln_a_tilde_mat.max())
         self._ln_c_hn_zeta_vecs_sum = np.sum(gammaln(self.hn_zeta_vecs.sum(axis=1)) - gammaln(self.hn_zeta_vecs).sum(axis=1))
 
-    def _calc_q_lambda_char(self):
+    def _calc_q_lambda_features(self):
         self._e_lambda_mats[:] = self.hn_nus[:,np.newaxis,np.newaxis] * self.hn_w_mats
         self._e_ln_lambda_dets[:] = (np.sum(digamma((self.hn_nus[:,np.newaxis]-np.arange(self.c_degree)) / 2.0),axis=1)
                             + self.c_degree*np.log(2.0)
@@ -908,19 +901,19 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             - np.sum(self.h0_w_mats_inv * self._e_lambda_mats,axis=(1,2))
             ) / 2.0
 
-        # E[ln q(Z|pi)]
+        # -E[ln q(Z|pi)]
         self._vl_q_z = (-(self.gamma_vecs * self._ln_rho).sum()
                         -(self.ms * (self._ln_a_tilde_mat - self._ln_a_tilde_mat.max())).sum()
                         -(self.gamma_vecs[0] * (self._ln_pi_tilde_vec - self._ln_pi_tilde_vec.max())).sum()
                         +np.log(self._cs).sum())
 
-        # E[ln q(pi)]
+        # -E[ln q(pi)]
         self._vl_q_pi = ss_dirichlet.entropy(self.hn_eta_vec)
 
-        # E[ln p(A)]
+        # -E[ln p(A)]
         self._vl_q_a = -self._ln_c_hn_zeta_vecs_sum - ((self.hn_zeta_vecs - 1) * self._ln_a_tilde_mat).sum()
 
-        # E[ln q(mu,Lambda)]
+        # -E[ln q(mu,Lambda)]
         self._vl_q_mu_lambda =  np.sum(
             + self.c_degree * (1.0 + np.log(2.0*np.pi) - np.log(self.hn_kappas))
             - self._ln_b_hn_w_nus * 2.0
@@ -968,7 +961,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                                  / _size * self.hn_nus[k]
                                  + np.eye(self.c_degree) * 1.0E-5) # avoid singular matrix
             self.hn_w_mats[k] = np.linalg.inv(self.hn_w_mats_inv[k])
-        self._calc_q_lambda_char()
+        self._calc_q_lambda_features()
 
     def _update_q_mu_lambda(self):
         self.hn_kappas[:] = self.h0_kappas + self.ns
@@ -982,26 +975,25 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                                       @ (self.x_bar_vecs - self.h0_m_vecs)[:,np.newaxis,:])
                                  )
         self.hn_w_mats[:] = np.linalg.inv(self.hn_w_mats_inv)
-        self._calc_q_lambda_char()
+        self._calc_q_lambda_features()
 
     def _update_q_pi(self):
         self.hn_eta_vec[:] = self.h0_eta_vec + self.ns
-        self._calc_q_pi_char()
+        self._calc_q_pi_features()
 
     def _update_q_a(self):
         self.hn_zeta_vecs[:] = self.h0_zeta_vecs + self.ms
-        self._calc_q_a_char()
+        self._calc_q_a_features()
 
     def _calc_rho(self,x):
         self._ln_rho[:] = ((self._e_ln_lambda_dets
                             - self.c_degree * np.log(2*np.pi)
                             - self.c_degree / self.hn_kappas
-                            - ((x[:,np.newaxis,:]-self.hn_m_vecs)[:,:,np.newaxis,:]
-                               @ self._e_lambda_mats
-                               @ (x[:,np.newaxis,:]-self.hn_m_vecs)[:,:,:,np.newaxis]
-                               )[:,:,0,0]
                             ) / 2.0
                           )
+        for k in range(self.c_num_classes):
+            diff = x-self.hn_m_vecs[k]
+            self._ln_rho[:,k] -= np.sum((diff @ self._e_lambda_mats[k]) * diff,axis=1) / 2.0
         self._rho[:] = np.exp(self._ln_rho)
 
     def _forward(self):
@@ -1135,9 +1127,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_nus[:] = tmp_nus
         self.hn_w_mats[:] = tmp_w_mats
         self.hn_w_mats_inv[:] = tmp_w_mats_inv
-        self._calc_q_pi_char()
-        self._calc_q_a_char()
-        self._calc_q_lambda_char()
+        self._calc_q_pi_features()
+        self._calc_q_a_features()
+        self._calc_q_lambda_features()
         self._update_q_z(x)
         return self
 
