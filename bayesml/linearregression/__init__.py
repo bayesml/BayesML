@@ -73,8 +73,8 @@ The predictive distribution is as follows:
 * :math:`\boldsymbol{x}_{n+1}\in \mathbb{R}^d`: a new data point
 * :math:`y_{n+1}\in \mathbb{R}`: a new objective variable
 * :math:`m_\mathrm{p}\in \mathbb{R}`: a parameter
-* :math:`\lambda_\mathrm{p}\in \mathbb{R}`: a parameter
-* :math:`\nu_\mathrm{p}\in \mathbb{R}`: a parameter
+* :math:`\lambda_\mathrm{p}\in \mathbb{R}_{>0}`: a parameter
+* :math:`\nu_\mathrm{p}\in \mathbb{R}_{>0}`: a parameter
 
 .. math::
     p(y_{n+1} | \boldsymbol{X}, \boldsymbol{y}, \boldsymbol{x}_{n+1} ) &= \mathrm{St}\left(y_{n+1} \mid m_\mathrm{p}, \lambda_\mathrm{p}, \nu_\mathrm{p}\right) \\

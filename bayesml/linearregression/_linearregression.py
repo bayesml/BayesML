@@ -187,16 +187,16 @@ class GenModel(base.Generative):
         sample_size : int, optional
             A positive integer, by default ``None``.
         x : numpy ndarray, optional
-            float array whose shape is ``(sammple_length,c_degree)``, by default ``None``.
+            float array whose shape is ``(sample_size,c_degree)``, by default ``None``.
         constant : bool, optional
             A boolean value, by default ``True``.
 
         Returns
         -------
         x : numpy ndarray
-            float array whose shape is ``(sammple_length,c_degree)``.
+            float array whose shape is ``(sample_size,c_degree)``.
         y : numpy ndarray
-            1 dimensional float array whose size is ``sammple_length``.
+            1 dimensional float array whose size is ``sample_size``.
         """
         if x is not None:
             _check.float_vecs(x,'x',DataFormatError)
@@ -233,10 +233,10 @@ class GenModel(base.Generative):
         filename : str
             The filename to which the sample is saved.
             ``.npz`` will be appended if it isn't there.
-        x : numpy ndarray, optional
-            float array whose shape is ``(sammple_length,c_degree)``, by default ``None``.
         sample_size : int, optional
             A positive integer, by default ``None``.
+        x : numpy ndarray, optional
+            float array whose shape is ``(sample_size,c_degree)``, by default ``None``.
         constant : bool, optional
             A boolean value, by default ``True``.
         
@@ -253,7 +253,7 @@ class GenModel(base.Generative):
         Parameters
         ----------
         sample_size : int, optional
-            A positive integer, by default 50
+            A positive integer, by default 100
         constant : bool, optional
 
         Examples
@@ -265,9 +265,9 @@ class GenModel(base.Generative):
 
         .. image:: ./images/linearregression_example.png
         """
+        print(f"theta_vec:\n{self.theta_vec}")
+        print(f"tau:\n{self.tau}")
         if self.c_degree == 2 and constant==True:
-            print(f"theta_vec:\n{self.theta_vec}")
-            print(f"tau:\n{self.tau}")
             _check.pos_int(sample_size,'sample_size',DataFormatError)
             sample_x, sample_y = self.gen_sample(sample_size=sample_size,constant=True)
             fig, ax = plt.subplots()
