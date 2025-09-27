@@ -1,6 +1,6 @@
 <img src="../logos/BayesML_logo.png" width="200">
 
-# 例外処理の原則 ver.3
+# 例外処理の原則 ver.4
 <div style="text-align:right">
 作成：中原
 </div>
@@ -25,4 +25,5 @@
 * 基本的に例外が起きたら停止させたいので，try except文は使わず，例外をraiseしっぱなしでよい．
 * 例外に関するコメントとして，自明なものは避ける
   * 例，set_paramで発生した例外に対して，"Parameter setting error!"などと書くのではなく，"p must be a positive number"などとパラメータの満たすべき条件を具体的に書く．
-* 入力値を判定する関数で，よく使うものは`bayesml/_check.py`に書いておき，1変数の値の妥当性はこれでチェックする．2変数以上の関係性によって定まる妥当性（h_paramsとparamsの次元が一致するか等）は個別のモデル上でチェックする．
+* 入力値を判定する関数で，よく使うものは`bayesml/_check.py`に書いておき，1変数の値の妥当性はこれでチェックする．
+* 2つ以上の変数の次元の整合性はは`bayesml/_check/shape_consistency`関数を使う．それ以上複雑な入力値チェックは個別のモデル上で実装する．

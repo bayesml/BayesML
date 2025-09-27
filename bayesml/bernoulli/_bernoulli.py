@@ -1,11 +1,11 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 # Document Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 import warnings
 import numpy as np
 from scipy.stats import beta as ss_beta
-# from scipy.stats import betabino as ss_betabinom
+from scipy.special import gammaln
 import matplotlib.pyplot as plt
 
 from .. import base
@@ -18,33 +18,55 @@ class GenModel(base.Generative):
     Parameters
     ----------
     theta : float, optional
-        a real number in :math:`[0, 1]`, by default 0.5
+        a real number in :math:`[0, 1]`, by default 0.5.
     h_alpha : float, optional
-        a positive real number, by default 0.5
+        a positive real number, by default 0.5.
     h_beta : float, optional
-        a positibe real number, by default 0.5
+        a positive real number, by default 0.5.
     seed : {None, int}, optional
         A seed to initialize numpy.random.default_rng(),
-        by default None
+        by default None.
     """
-    def __init__(self,*,theta=0.5,h_alpha=0.5,h_beta=0.5,seed=None):
-        self.theta = _check.float_in_closed01(theta,'theta',ParameterFormatError)
-        self.h_alpha = _check.pos_float(h_alpha,'h_alpha',ParameterFormatError)
-        self.h_beta = _check.pos_float(h_beta,'h_beta',ParameterFormatError)
+    def __init__(self,theta=0.5,h_alpha=0.5,h_beta=0.5,seed=None):
         self.rng = np.random.default_rng(seed)
 
-    def set_h_params(self,h_alpha,h_beta):
+        # params
+        self.theta = 0.5
+
+        # h_params
+        self.h_alpha = 0.5
+        self.h_beta = 0.5
+
+        self.set_params(theta)
+        self.set_h_params(h_alpha,h_beta)
+
+    def get_constants(self):
+        """Get constants of GenModel.
+
+        This model does not have any constants. 
+        Therefore, this function returns an emtpy dict ``{}``.
+        
+        Returns
+        -------
+        constants : an empty dict
+        """
+        return {}
+
+    def set_h_params(self,h_alpha=None,h_beta=None):
         """Set the hyperparameters of the prior distribution.
         
         Parameters
         ----------
-        h_alpha : float
-            a positive real number
+        h_alpha : float, optional
+            a positive real number, by default None.
         h_beta : float, optional
-            a positibe real number
+            a positive real number, by default None.
         """
-        self.h_alpha = _check.pos_float(h_alpha,'h_alpha',ParameterFormatError)
-        self.h_beta = _check.pos_float(h_beta,'h_beta',ParameterFormatError)
+        if h_alpha is not None:
+            self.h_alpha = _check.pos_float(h_alpha,'h_alpha',ParameterFormatError)
+        if h_beta is not None:
+            self.h_beta = _check.pos_float(h_beta,'h_beta',ParameterFormatError)
+        return self
 
     def get_h_params(self):
         """Get the hyperparameters of the prior distribution.
@@ -63,16 +85,19 @@ class GenModel(base.Generative):
         The generated vaule is set at ``self.theta``.
         """
         self.theta = self.rng.beta(self.h_alpha,self.h_beta)
-        
-    def set_params(self,theta):
+        return self
+
+    def set_params(self,theta=None):
         """Set the parameter of the sthocastic data generative model.
 
         Parameters
         ----------
-        theta : float
-            a real number :math:`\theta \in [0, 1]`
+        theta : float, optional
+            a real number :math:`\theta \in [0, 1]`, by default None.
         """
-        self.theta = _check.float_in_closed01(theta,'theta',ParameterFormatError)
+        if theta is not None:
+            self.theta = _check.float_in_closed01(theta,'theta',ParameterFormatError)
+        return self
 
     def get_params(self):
         """Get the parameter of the sthocastic data generative model.
@@ -125,9 +150,9 @@ class GenModel(base.Generative):
         Parameters
         ----------
         sample_size : int, optional
-            A positive integer, by default 20
+            A positive integer, by default 20.
         sample_num : int, optional
-            A positive integer, by default 5
+            A positive integer, by default 5.
         
         Examples
         --------
@@ -148,15 +173,18 @@ class GenModel(base.Generative):
         print(f"theta:{self.theta}")
         fig, ax = plt.subplots(2,1,figsize=(5, sample_num+1),gridspec_kw={'height_ratios': [1,sample_num]})
         ax[0].set_title("True distribution")
-        ax[0].barh(0,self.theta,label=1,color="C0")
-        ax[0].barh(0,1.0-self.theta,left=self.theta,label=0,color="C1")
+        ax[0].barh(0,self.theta,label='1',color="C0")
+        ax[0].barh(0,1.0-self.theta,left=self.theta,label='0',color="C1")
+        ax[0].tick_params(labelleft=False)
+        ax[0].tick_params(left=False)
+        ax[0].legend()
         ax[1].set_title("Generated sample")
         for i in range(sample_num):
             x = self.gen_sample(sample_size)
             print(f"x{i}:{x}")
             if i == 0:
-                ax[1].barh(i,x.sum(),label=1,color="C0")
-                ax[1].barh(i,sample_size-x.sum(),left=x.sum(),label=0,color="C1")
+                ax[1].barh(i,x.sum(),label='1',color="C0")
+                ax[1].barh(i,sample_size-x.sum(),left=x.sum(),label='0',color="C1")
             else:
                 ax[1].barh(i,x.sum(),color="C0")
                 ax[1].barh(i,sample_size-x.sum(),left=x.sum(),color="C1")
@@ -170,39 +198,61 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
     Parameters
     ----------
     h0_alpha : float, optional
-        a positive real number, by default 0.5
+        a positive real number, by default 0.5.
     h0_beta : float, optional
-        a positibe real number, by default 0.5
+        a positive real number, by default 0.5.
     
     Attributes
     ----------
     hn_alpha : float
         a positive real number
     hn_beta : float
-        a positibe real number
+        a positive real number
     p_theta : float
         a real number :math:`\theta_\mathrm{p} \in [0, 1]`
     """
     def __init__(self,h0_alpha=0.5,h0_beta=0.5):
-        self.h0_alpha = _check.pos_float(h0_alpha,'h0_alpha',ParameterFormatError)
-        self.h0_beta = _check.pos_float(h0_beta,'h0_beta',ParameterFormatError)
-        self.hn_alpha = self.h0_alpha
-        self.hn_beta = self.h0_beta
-        self.p_theta = self.hn_alpha / (self.hn_alpha + self.hn_beta)
+        # h0_params
+        self.h0_alpha = 0.5
+        self.h0_beta = 0.5
+
+        # hn_params
+        self.hn_alpha = 0.5
+        self.hn_beta = 0.5
+
+        # p_params
+        self.p_theta = 0.5
+
+        self.set_h0_params(h0_alpha,h0_beta)
     
-    def set_h0_params(self,h0_alpha,h0_beta):
+    def get_constants(self):
+        """Get constants of LearnModel.
+
+        This model does not have any constants. 
+        Therefore, this function returns an emtpy dict ``{}``.
+        
+        Returns
+        -------
+        constants : an empty dict
+        """
+        return {}
+
+    def set_h0_params(self,h0_alpha=None,h0_beta=None):
         """Set initial values of the hyperparameter of the posterior distribution.
         
         Parameters
         ----------
-        h0_alpha : float
-            a positive real number
-        h0_beta : float
-            a positibe real number
+        h0_alpha : float, optional
+            a positive real number, by default None.
+        h0_beta : float, optionanl
+            a positive real number, by default None.
         """
-        self.h0_alpha = _check.pos_float(h0_alpha,'h0_alpha',ParameterFormatError)
-        self.h0_beta = _check.pos_float(h0_beta,'h0_beta',ParameterFormatError)
+        if h0_alpha is not None:
+            self.h0_alpha = _check.pos_float(h0_alpha,'h0_alpha',ParameterFormatError)
+        if h0_beta is not None:
+            self.h0_beta = _check.pos_float(h0_beta,'h0_beta',ParameterFormatError)
         self.reset_hn_params()
+        return self
 
     def get_h0_params(self):
         """Get the initial values of the hyperparameters of the posterior distribution.
@@ -215,19 +265,22 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """
         return {"h0_alpha":self.h0_alpha, "h0_beta":self.h0_beta}
     
-    def set_hn_params(self,hn_alpha,hn_beta):
+    def set_hn_params(self,hn_alpha=None,hn_beta=None):
         """Set updated values of the hyperparameter of the posterior distribution.
         
         Parameters
         ----------
-        hn_alpha : float
-            a positive real number
-        hn_beta : float
-            a positibe real number
+        hn_alpha : float, optional
+            a positive real number, by default None.
+        hn_beta : float, optional
+            a positive real number, by default None.
         """
-        self.hn_alpha = _check.pos_float(hn_alpha,'hn_alpha',ParameterFormatError)
-        self.hn_beta = _check.pos_float(hn_beta,'hn_beta',ParameterFormatError)
+        if hn_alpha is not None:
+            self.hn_alpha = _check.pos_float(hn_alpha,'hn_alpha',ParameterFormatError)
+        if hn_beta is not None:
+            self.hn_beta = _check.pos_float(hn_beta,'hn_beta',ParameterFormatError)
         self.calc_pred_dist()
+        return self
 
     def get_hn_params(self):
         """Get the hyperparameters of the posterior distribution.
@@ -240,25 +293,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """
         return {"hn_alpha":self.hn_alpha, "hn_beta":self.hn_beta}
     
-    def reset_hn_params(self):
-        """Reset the hyperparameters of the posterior distribution to their initial values.
-        
-        They are reset to `self.h0_alpha` and `self.h0_beta`.
-        Note that the parameters of the predictive distribution are also calculated from `self.h0_alpha` and `self.h0_beta`.
-        """
-        self.hn_alpha = self.h0_alpha
-        self.hn_beta = self.h0_beta
-        self.calc_pred_dist()
-
-    def overwrite_h0_params(self):
-        """Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values.
-        
-        They are overwritten by `self.hn_alpha` and `self.hn_beta`.
-        Note that the parameters of the predictive distribution are also calculated from `self.hn_alpha` and `self.hn_beta`.
-        """
-        self.h0_alpha = self.hn_alpha
-        self.h0_beta = self.hn_beta
-        self.calc_pred_dist()
+    def _check_sample(self,x):
+        return _check.ints_of_01(x,'x',DataFormatError)
 
     def update_posterior(self,x):
         """Update the hyperparameters of the posterior distribution using traning data.
@@ -268,11 +304,18 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         x : numpy.ndarray
             All the elements must be 0 or 1.
         """
-        _check.ints_of_01(x,'x',DataFormatError)
-        self.hn_alpha += np.sum(x==1)
-        self.hn_beta += np.sum(x==0)
+        x = self._check_sample(x)
+        self.hn_alpha += np.count_nonzero(x==1)
+        self.hn_beta += np.count_nonzero(x==0)
+        return self
 
-    def estimate_params(self,loss="squared"):
+    def _update_posterior(self,x):
+        """Update opsterior without input check."""
+        self.hn_alpha += np.count_nonzero(x==1)
+        self.hn_beta += np.count_nonzero(x==0)
+        return self
+
+    def estimate_params(self,loss="squared",dict_out=False):
         """Estimate the parameter of the stochastic data generative model under the given criterion.
 
         Parameters
@@ -280,10 +323,12 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         loss : str, optional
             Loss function underlying the Bayes risk function, by default \"squared\".
             This function supports \"squared\", \"0-1\", \"abs\", and \"KL\".
+        dict_out : bool, optional
+            If ``True``, output will be a dict, by default ``False``.
 
         Returns
         -------
-        Estimator : {float, None, rv_frozen}
+        estimator : {float, None, rv_frozen} or dict of {str : float, None}
             The estimated values under the given loss function. If it is not exist, `None` will be returned.
             If the loss function is \"KL\", the posterior distribution itself will be returned
             as rv_frozen object of scipy.stats.
@@ -294,19 +339,37 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         scipy.stats.rv_discrete
         """
         if loss == "squared":
-            return self.hn_alpha / (self.hn_alpha + self.hn_beta)
+            if dict_out:
+                return {'theta':self.hn_alpha / (self.hn_alpha + self.hn_beta)}
+            else:
+                return self.hn_alpha / (self.hn_alpha + self.hn_beta)
         elif loss == "0-1":
             if self.hn_alpha > 1.0 and self.hn_beta > 1.0:
-                return (self.hn_alpha - 1.0) / (self.hn_alpha + self.hn_beta - 2.0)
+                if dict_out:
+                    return {'theta':(self.hn_alpha - 1.0) / (self.hn_alpha + self.hn_beta - 2.0)}
+                else:
+                    return (self.hn_alpha - 1.0) / (self.hn_alpha + self.hn_beta - 2.0)
             elif self.hn_alpha > 1.0:
-                return 1.0
+                if dict_out:
+                    return {'theta':1.0}
+                else:
+                    return 1.0
             elif self.hn_beta > 1.0:
-                return 0.0
+                if dict_out:
+                    return {'theta':0.0}
+                else:
+                    return 0.0
             else:
                 warnings.warn("MAP estimate doesn't exist for the current hn_alpha and hn_beta.",ResultWarning)
-                return None
+                if dict_out:
+                    return {'theta':None}
+                else:
+                    return None
         elif loss == "abs":
-            return ss_beta.median(self.hn_alpha,self.hn_beta)
+            if dict_out:
+                return {'theta':ss_beta.median(self.hn_alpha,self.hn_beta)}
+            else:
+                return ss_beta.median(self.hn_alpha,self.hn_beta)
         elif loss == "KL":
             return ss_beta(self.hn_alpha,self.hn_beta)
         else:
@@ -319,7 +382,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Parameters
         ----------
         credibility : float, optional
-            A posterior probability that the interval conitans the paramter, by default 0.95
+            A posterior probability that the interval conitans the paramter, by default 0.95.
 
         Returns
         -------
@@ -348,7 +411,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         p_range = np.linspace(0,1,100,endpoint=False)
         fig, ax = plt.subplots()
         ax.plot(p_range,self.estimate_params(loss="KL").pdf(p_range))
-        ax.set_xlabel("p_theta")
+        ax.set_xlabel("theta")
         ax.set_ylabel("posterior")
         plt.show()
     
@@ -365,6 +428,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
     def calc_pred_dist(self):
         """Calculate the parameters of the predictive distribution."""
         self.p_theta = self.hn_alpha / (self.hn_alpha + self.hn_beta)
+        return self
+
+    def _calc_pred_density(self,x):
+        return np.where(x==1,self.p_theta,1.0-self.p_theta)
 
     def make_prediction(self,loss="squared"):
         """Predict a new data point under the given criterion.
@@ -419,3 +486,73 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         prediction = self.make_prediction(loss=loss)
         self.update_posterior(x)
         return prediction
+
+    def calc_log_marginal_likelihood(self):
+        """Calculate log marginal likelihood
+
+        Returns
+        -------
+        log_marginal_likelihood : float
+            The log marginal likelihood.
+        """
+        return (gammaln(self.h0_alpha+self.h0_beta)
+                -gammaln(self.h0_alpha)
+                -gammaln(self.h0_beta)
+                -gammaln(self.hn_alpha+self.hn_beta)
+                +gammaln(self.hn_alpha)
+                +gammaln(self.hn_beta))
+
+    def fit(self,x):
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            All the elements must be 0 or 1.
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x)
+        return self
+
+    def predict(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="0-1")
+
+        Returns
+        -------
+        predicted_value : int
+            The predicted value under the 0-1 loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="0-1")
+    
+    def predict_proba(self):
+        """Predict the next data point.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.calc_pred_dist()
+        >>> return self.make_prediction(loss="KL")
+
+        Returns
+        -------
+        predicted_distribution : numpy.ndarray
+            The predicted distribution under the KL loss function. 
+        """
+        self.calc_pred_dist()
+        return self.make_prediction(loss="KL")

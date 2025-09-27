@@ -1,5 +1,5 @@
 # Code Author
-# Yuta Nakahara <yuta.nakahara@aoni.waseda.jp>
+# Yuta Nakahara <y.nakahara@waseda.jp>
 
 from abc import ABCMeta, abstractmethod
 import pickle
@@ -58,7 +58,7 @@ class Generative(metaclass=ABCMeta):
             tmp_h_params = pickle.load(f)
         if type(tmp_h_params) is dict:
             self.set_h_params(*tmp_h_params.values())
-            return
+            return self
         
         raise(ParameterFormatError(
             filename+" must be a pickled python dictionary obtained by "
@@ -120,7 +120,7 @@ class Generative(metaclass=ABCMeta):
             params = pickle.load(f)
         if type(params) is dict:
             self.set_params(*params.values())
-            return
+            return self
         
         raise(ParameterFormatError(filename+" must be a pickled python dictionary obtained by ``GenModel.save_params()``"))
 
@@ -189,7 +189,7 @@ class Posterior(metaclass=ABCMeta):
             tmp_h_params = pickle.load(f)
         if type(tmp_h_params) is dict:
             self.set_h0_params(*tmp_h_params.values())
-            return
+            return self
         
         raise(ParameterFormatError(
             filename+" must be a pickled python dictionary obtained by "
@@ -249,7 +249,7 @@ class Posterior(metaclass=ABCMeta):
             tmp_h_params = pickle.load(f)
         if type(tmp_h_params) is dict:
             self.set_hn_params(*tmp_h_params.values())
-            return
+            return self
         
         raise(ParameterFormatError(
             filename+" must be a pickled python dictionary obtained by "
@@ -257,13 +257,23 @@ class Posterior(metaclass=ABCMeta):
             +'or ``LearnModel.save_hn_params()``.')
             )
 
-    @abstractmethod
     def reset_hn_params(self):
-        pass
-
-    @abstractmethod
+        """Reset the hyperparameters of the posterior distribution to their initial values.
+        
+        They are reset to the output of `self.get_h0_params()`.
+        Note that the parameters of the predictive distribution are also calculated from them.
+        """
+        self.set_hn_params(*self.get_h0_params().values())
+        return self
+    
     def overwrite_h0_params(self):
-        pass
+        """Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values.
+        
+        They are overwitten by the output of `self.get_hn_params()`.
+        Note that the parameters of the predictive distribution are also calculated from them.
+        """
+        self.set_h0_params(*self.get_hn_params().values())
+        return self
 
     @abstractmethod
     def update_posterior(self):
