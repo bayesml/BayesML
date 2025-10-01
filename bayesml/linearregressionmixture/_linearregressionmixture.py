@@ -1212,7 +1212,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         # -E[ln q(theta,tau)]
         self._vl_q_theta_tau =  (
-            (self.c_degree * (_LOG_2PI - self._e_ln_taus - 1) / 2
+            (self.c_degree * (_LOG_2PI - self._e_ln_taus + 1) / 2
              - np.linalg.slogdet(self.hn_lambda_mats)[1] / 2
              + ss_gamma.entropy(self.hn_alphas,scale=1.0/self.hn_betas)).sum()
         )
