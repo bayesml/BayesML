@@ -255,6 +255,7 @@ class GenModel(base.Generative):
         sample_size : int, optional
             A positive integer, by default 100
         constant : bool, optional
+            A boolean value, by default ``True``.
 
         Examples
         --------
