@@ -346,10 +346,38 @@ class GenModel(base.Generative):
             ax.set_ylabel("x[1]")
             plt.show()
         else:
-            raise(ParameterFormatError("This function supports only the following cases: c_degree = 2 and constant = True; c_degree = 1 and constant = False; c_degree = 3 and constant = True; c_degree = 2 and constant = False."))
-
+            raise(ParameterFormatError(
+                "This function supports only the following cases: "
+                + "c_degree = 2 and constant = True; "
+                + "c_degree = 1 and constant = False; "
+                + "c_degree = 3 and constant = True; "
+                + "c_degree = 2 and constant = False."))
 
 class LearnModel(base.Posterior,base.PredictiveMixin):
+    """The posterior distribution and the predictive distribution.
+
+    Parameters
+    ----------
+    c_degree : int
+        a positive integer.
+    h0_mu_vec : numpy ndarray, optional
+        a vector of real numbers, by default [0.0, 0.0, ... , 0.0]
+    h0_lambda_mat : numpy ndarray, optional
+        a positive definate matrix, by default the identity matrix
+
+    Attributes
+    ----------
+    hn_mu_vec : numpy ndarray
+        a vector of real numbers
+    hn_lambda_mat : numpy ndarray
+        a positive definate matrix
+    xis : numpy ndarray
+        real numbers
+    p_sigmas_sq : numpy ndarray
+        positive real numbers
+    p_mus : numpy ndarray
+        real numbers
+    """
     def __init__(
             self,
             c_degree,
@@ -371,19 +399,41 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_lambda_mat = np.empty([self.c_degree,self.c_degree])
 
         # p_params
-        self.p_sigma_squared = 0.0
-        self.p_mu = 0.0
+        self.p_sigmas_sq = 0.0
+        self.p_mus = 0.0
         
         self.set_h0_params(
             h0_mu_vec,
             h0_lambda_mat,
         )
 
+    def get_constants(self):
+        """Get constants of LearnModel.
+
+        Returns
+        -------
+        constants : dict of {str: int}
+            * ``"c_degree"`` : the value of ``self.c_degree``
+        """
+        return {'c_degree':self.c_degree}
+
     def set_h0_params(
             self,
             h0_mu_vec=None,
             h0_lambda_mat=None,
             ):
+        """Set initial values of the hyperparameter of the posterior distribution.
+
+        Note that the parameters of the predictive distribution are also calculated from 
+        ``self.h0_mu_vec`` and ``self.h0_lambda_mat``.
+
+        Parameters
+        ----------
+        h0_mu_vec : numpy ndarray, optional
+            a vector of real numbers, by default None.
+        h0_lambda_mat : numpy ndarray, optional
+            a positive definate matrix, by default None.
+        """
         if h0_mu_vec is not None:
             _check.float_vec(h0_mu_vec,'h0_mu_vec',ParameterFormatError)
             _check.shape_consistency(
@@ -405,6 +455,14 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.reset_hn_params()
 
     def get_h0_params(self):
+        """Get the initial values of the hyperparameters of the posterior distribution.
+
+        Returns
+        -------
+        h0_params : dict of {str: float or numpy ndarray}
+            * ``"h0_mu_vec"`` : The value of ``self.h0_mu_vec``
+            * ``"h0_lambda_mat"`` : The value of ``self.h0_lambda_mat``
+        """
         return {'h0_mu_vec':self.h0_mu_vec,'h0_lambda_mat':self.h0_lambda_mat}
     
     def set_hn_params(
@@ -412,6 +470,18 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             hn_mu_vec=None,
             hn_lambda_mat=None,
             ):
+        """Set updated values of the hyperparameter of the posterior distribution.
+
+        Note that the parameters of the predictive distribution are also calculated from 
+        ``self.hn_mu_vec`` and ``self.hn_lambda_mat``.
+
+        Parameters
+        ----------
+        hn_mu_vec : numpy ndarray, optional
+            a vector of real numbers, by default None.
+        hn_lambda_mat : numpy ndarray, optional
+            a positive definate matrix, by default None.
+        """
         if hn_mu_vec is not None:
             _check.float_vec(hn_mu_vec,'hn_mu_vec',ParameterFormatError)
             _check.shape_consistency(
@@ -430,9 +500,17 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 )
             self.hn_lambda_mat[:] = hn_lambda_mat
 
-        self.calc_pred_dist()
+        self.calc_pred_dist(np.zeros(self.c_degree))
 
     def get_hn_params(self):
+        """Get the hyperparameters of the posterior distribution.
+
+        Returns
+        -------
+        hn_params : dict of {str: float or numpy ndarray}
+            * ``"hn_mu_vec"`` : The value of ``self.hn_mu_vec``
+            * ``"hn_lambda_mat"`` : The value of ``self.hn_lambda_mat``
+        """
         return {'hn_mu_vec':self.hn_mu_vec,'hn_lambda_mat':self.hn_lambda_mat}
     
     def update_posterior():
@@ -445,7 +523,15 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         pass
         
     def get_p_params(self):
-        return {'p_sigma_squared':self.p_sigma_squared,'p_mu':self.p_mu}
+        """Get the parameters of the predictive distribution.
+
+        Returns
+        -------
+        p_params : dict of {str: numpy ndarray}
+            * ``"p_sigmas_sq"`` : The value of ``self.p_sigmas_sq``
+            * ``"p_mus"`` : The value of ``self.p_mus``
+        """
+        return {'p_sigmas_sq':self.p_sigmas_sq,'p_mus':self.p_mus}
 
     def calc_pred_dist(self):
         pass
