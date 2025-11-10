@@ -803,7 +803,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         # This bound is tight but valid only right after updating q(w).
         self.vl = (
             0.5 * (
-                np.linalg.slogdet(self.hn_lambda_mat_inv)[1]
+                -np.linalg.slogdet(self.hn_lambda_mat)[1]
                 + self._ln_det_h0_lambda_mat
                 + self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec
                 - self._h0_mu_lambda_mu
