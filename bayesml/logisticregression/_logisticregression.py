@@ -233,6 +233,8 @@ class GenModel(base.Generative):
         >>> from bayesml import logisticregression
         >>> model = logisticregression.GenModel(c_degree=2,w_vec=np.array([7,3]))
         >>> model.visualize_model()
+        w_vec:
+        [7. 3.]
 
         .. image:: ./images/logisticregression_example.png
         """
@@ -638,13 +640,22 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         --------
         >>> from bayesml import logisticregression
         >>> gen_model = logisticregression.GenModel(c_degree=2,w_vec=np.array([7,3]))
-        >>> x,y = gen_model.gen_sample(sample_size=50)
-        >>> learn_model = logisticregression.LearnModel()
+        >>> x,y = gen_model.gen_sample(sample_size=200)
+        >>> learn_model = logisticregression.LearnModel(c_degree=2)
         >>> learn_model.update_posterior(x,y)
         >>> learn_model.visualize_posterior()
+        hn_mu_vec:
+        [4.0979368  1.64361963]
+        hn_lambda_mat:
+        [[18.12098962 -4.70969658]
+        [-4.70969658 32.42845112]]
 
         .. image:: ./images/logisticregression_posterior.png
         """
+        print("hn_mu_vec:")
+        print(f"{self.hn_mu_vec}")
+        print("hn_lambda_mat:")
+        print(f"{self.hn_lambda_mat}")
         w_vec_pdf = self.estimate_params(loss="KL")
         if self.c_degree == 1:
             hn_lambda_inv = np.linalg.inv(self.hn_lambda_mat)
