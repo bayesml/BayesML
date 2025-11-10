@@ -255,6 +255,7 @@ class GenModel(base.Generative):
         sample_size : int, optional
             A positive integer, by default 100
         constant : bool, optional
+            A boolean value, by default ``True``.
 
         Examples
         --------
@@ -391,7 +392,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """Set initial values of the hyperparameter of the posterior distribution.
 
         Note that the parameters of the predictive distribution are also calculated from 
-        ``self.h0_mu_vec``, ``slef.h0_lambda_mat``, ``self.h0_alpha`` and ``self.h0_beta``.
+        ``self.h0_mu_vec``, ``self.h0_lambda_mat``, ``self.h0_alpha`` and ``self.h0_beta``.
 
         Parameters
         ----------
@@ -453,7 +454,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         """Set updated values of the hyperparameter of the posterior distribution.
 
         Note that the parameters of the predictive distribution are also calculated from 
-        ``self.hn_mu_vec``, ``slef.hn_lambda_mat``, ``self.hn_alpha`` and ``self.hn_beta``.
+        ``self.hn_mu_vec``, ``self.hn_lambda_mat``, ``self.hn_alpha`` and ``self.hn_beta``.
 
         Parameters
         ----------

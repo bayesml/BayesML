@@ -408,6 +408,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         positive real numbers
     s_mats : numpy.ndarray
         positive difinite symmetric matrices
+    vl : float
+        real number
     p_pi_vecs : numpy.ndarray
         A vector of real numbers in :math:`[0, 1]`. 
         Sum of its elements must be 1.0.
