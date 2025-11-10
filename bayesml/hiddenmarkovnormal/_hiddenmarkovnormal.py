@@ -503,6 +503,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Positive definite symetric matrices.
     hn_w_mats_inv : numpy.ndarray
         the inverse matrices of hn_w_mats
+    vl : float
+        real number
     p_mu_vecs : numpy.ndarray
         vectors of real numbers
     p_nus : numpy.ndarray
