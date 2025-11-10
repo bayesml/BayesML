@@ -395,6 +395,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.h0_mu_vec = np.zeros([self.c_degree])
         self.h0_lambda_mat = np.identity(self.c_degree)
 
+        self._ln_det_h0_lambda_mat = 0.0
+        self._h0_lambda_mu_vec = np.empty(self.c_degree)
+        self._h0_mu_lambda_mu = 0.0
+
         # hn_params
         self.hn_mu_vec = np.empty(self.c_degree)
         self.hn_lambda_mat = np.empty([self.c_degree,self.c_degree])
@@ -466,6 +470,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 )
             self.h0_lambda_mat[:] = h0_lambda_mat
         
+        self._calc_prior_features()
         self.reset_hn_params()
 
     def get_h0_params(self):
@@ -776,6 +781,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             )
         return prediction
 
+    def _calc_prior_features(self):
+        self._ln_det_h0_lambda_mat = np.linalg.slogdet(self.h0_lambda_mat)[1]
+        self._h0_lambda_mu_vec[:] = self.h0_lambda_mat @ self.h0_mu_vec
+        self._h0_mu_lambda_mu = self.h0_mu_vec @ self._h0_lambda_mu_vec
+
     def _init_xi(self,x):
         n = x.shape[0]
         self.xis = np.ones(n)
@@ -794,9 +804,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.vl = (
             0.5 * (
                 np.linalg.slogdet(self.hn_lambda_mat_inv)[1]
-                + np.linalg.slogdet(self.h0_lambda_mat)[1]
+                + self._ln_det_h0_lambda_mat
                 + self.hn_mu_vec @ self.hn_lambda_mat @ self.hn_mu_vec
-                - self.h0_mu_vec @ self.h0_lambda_mat @ self.h0_mu_vec
+                - self._h0_mu_lambda_mu
             ) + (
                 np.log(self._sigma_xis)
                 - 0.5 * self.xis
@@ -823,7 +833,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         diff = self.hn_mu_vec - self.h0_mu_vec
         _vl_p_w = (
             -self.c_degree*np.log(2*np.pi)
-            + np.linalg.slogdet(self.h0_lambda_mat)[1]
+            + self._ln_det_h0_lambda_mat
             - diff @ self.h0_lambda_mat @ diff
             - (self.h0_lambda_mat * self.hn_lambda_mat_inv).sum()
         ) / 2.0
@@ -840,14 +850,13 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_lambda_mat_inv[:] = np.linalg.inv(self.hn_lambda_mat)
         self.hn_mu_vec[:] = np.linalg.solve(
             self.hn_lambda_mat,
-            self.h0_lambda_mat @ self.h0_mu_vec + self._y_x_vec
+            self._h0_lambda_mu_vec + self._y_x_vec
         )
 
     def _update_xi(self,x):
         self._xis_sq[:] = np.einsum(
             'ij,jk,ik->i',
             x,
-            # self.hn_lambda_mat_inv + self.hn_mu_vec[:,np.newaxis] @ self.hn_mu_vec[np.newaxis,:],
             self.hn_lambda_mat_inv + np.outer(self.hn_mu_vec,self.hn_mu_vec),
             x,
         )
