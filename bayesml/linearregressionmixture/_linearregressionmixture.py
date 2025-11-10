@@ -489,6 +489,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         Vectors of real numbers.
     hn_lambda_mats : numpy.ndarray
         Positive definite symetric matrices. 
+    hn_lambda_mats_inv : numpy.ndarray
+        Positive definite symetric matrices. 
     hn_alphas : float or numpy.ndarray
         Positive real numbers. 
     hn_betas : float or numpy.ndarray
@@ -497,6 +499,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         vectors of real numbers. The sum of its elenemts is 1.
     ns : numpy.ndarray
         positive real numbers
+    vl : float
+        real number
     p_pi_vecs : numpy.ndarray
         A vector of real numbers in :math:`[0, 1]`. 
         Sum of its elements must be 1.0.
@@ -1212,7 +1216,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         # -E[ln q(theta,tau)]
         self._vl_q_theta_tau =  (
-            (self.c_degree * (_LOG_2PI - self._e_ln_taus - 1) / 2
+            (self.c_degree * (_LOG_2PI - self._e_ln_taus + 1) / 2
              - np.linalg.slogdet(self.hn_lambda_mats)[1] / 2
              + ss_gamma.entropy(self.hn_alphas,scale=1.0/self.hn_betas)).sum()
         )
