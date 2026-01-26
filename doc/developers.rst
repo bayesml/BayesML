@@ -6,39 +6,20 @@ Code Author
 ===========
 
 * `Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University
-* Nishikawa Jun
 * Yasushi Esaki
 * Naoki Ichijo, Waseda University (Ph.D. Student)
-* Koshi Shimada, Waseda University (Ph.D. Student)
-* Kairi-SUZUKI-8
-* Mikio.U
-* Keito Tajima
+* `Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>_`, Waseda University
 * Kohei Horinouchi, Waseda University (Ph.D. Student)
-* Luyu Ruan
-* Noboru Namegaya
-* Ryota Maniwa
-* Taisuke Ishiwatari
-* Wenbin Yu
-* Yuji Iikubo
 
 Document Author
 ===============
 * `Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University
 * `Shota Saito <https://researchmap.jp/wa-shota?lang=en>`_, Gunma University
 * `Koki Kazama <https://researchmap.jp/KokiKAZAMA?lang=en>`_, Shonan Institute of Technology
-* RyoheiO
 * Yasushi Esaki
-* Koshi Shimada, Waseda University (Ph.D. Student)
+* `Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>_`, Waseda University
 * Naoki Ichijo, Waseda University (Ph.D. Student)
-* Kairi-SUZUKI-8
-* Haruka Murayama
-* Keito Tajima
 * Kohei Horinouchi, Waseda University (Ph.D. Student)
-* Noboru Namegaya
-* Ryota Maniwa
-* Taisuke Ishiwatari
-* Wenbin Yu
-* Yuji Iikubo
 
 Supervisor
 ==========
@@ -48,6 +29,21 @@ Logo Designer
 =============
 * Akiyo Arakawa
 * `Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University
+
+Past Contributors
+=================
+* Haruka Murayama
+* Kairi-SUZUKI-8
+* Keito Tajima
+* Luyu Ruan
+* Mikio.U
+* Nishikawa Jun
+* Noboru Namegaya
+* RyoheiO
+* Ryota Maniwa
+* Taisuke Ishiwatari
+* Wenbin Yu
+* Yuji Iikubo
 
 Citation
 --------
