@@ -1303,6 +1303,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             x,
             y,
             max_itr=1000,
+            num_init=10,
             tolerance=1.0E-8,
             init_type='random_responsibility',
             ):            
@@ -1323,6 +1324,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             float array.
         max_itr : int, optional
             maximum number of iterations, by default 1000
+        num_init : int, optional
+            number of initializations, by default 10
         tolerance : float, optional
             convergence criterion of variational lower bound, by default 1.0E-8
         init_type : str, optional
@@ -1337,7 +1340,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             The fitted model.
         """
         self.reset_hn_params()
-        self.update_posterior(x,y,max_itr,tolerance,init_type)
+        self.update_posterior(x,y,max_itr,num_init,tolerance,init_type)
         return self
 
     def predict(self,x):

@@ -580,7 +580,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         # initialization
         self.reset_hn_params()
         self._init_xi(x)
-        self._update_q_w()
+        self._update_q_w(x)
         self._calc_vl()
         print(f'VL: {self.vl}',end='')
 
@@ -588,7 +588,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         for t in range(max_itr):
             vl_before = self.vl
             self._update_xi(x)
-            self._update_q_w()
+            self._update_q_w(x)
             self._calc_vl()
             print(f'\rVL: {self.vl} t={t} ',end='')
             if np.abs((self.vl-vl_before)/vl_before) < tolerance:
