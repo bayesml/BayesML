@@ -1112,6 +1112,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             ):
         """Update the hyperparameters of the posterior distribution using traning data.
 
+        h0_params will be overwritten by current hn_params 
+        before updating hn_params by x
+
         Parameters
         ----------
         x : numpy ndarray
@@ -1403,3 +1406,59 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         else:
             raise(CriteriaError(f"loss={loss} is unsupported. "
                                 +"This function supports \"squared\", \"0-1\", and \"KL\"."))
+
+    def estimate_latent_vars_and_update(
+            self,
+            x,
+            y,
+            loss="0-1",
+            max_itr=100,
+            num_init=10,
+            tolerance=1.0E-8,
+            init_type='random_responsibility',
+            ):
+        """Estimate latent variables and update the posterior sequentially.
+
+        h0_params will be overwritten by current hn_params 
+        before updating hn_params by x
+        
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        loss : str, optional
+            Loss function underlying the Bayes risk function, by default \"0-1\".
+            This function supports \"squared\" and \"0-1\".
+        max_itr : int, optional
+            maximum number of iterations, by default 100
+        num_init : int, optional
+            number of initializations, by default 10
+        tolerance : float, optional
+            convergence croterion of variational lower bound, by default 1.0E-8
+        init_type : str, optional
+            * ``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``.
+              and use its mean and covariance matrix as an initial values of ``hn_m_vecs`` and ``hn_lambda_mats``.
+            * ``'random_responsibility'``: randomly assign responsibility to ``r_vecs``
+            Type of initialization, by default ``'subsampling'``
+
+        Returns
+        -------
+        estimates : numpy.ndarray
+            The estimated values under the given loss function. 
+            If the loss function is \"KL\", the posterior distribution will be returned 
+            as a numpy.ndarray whose elements consist of occurence probabilities.
+        """
+        z_hat = self.estimate_latent_vars(x,y,loss=loss)
+        self.overwrite_h0_params()
+        self.update_posterior(
+            x,
+            y,
+            max_itr=max_itr,
+            num_init=num_init,
+            tolerance=tolerance,
+            init_type=init_type
+            )
+        return z_hat
