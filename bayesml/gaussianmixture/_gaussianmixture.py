@@ -1232,8 +1232,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        predicted_value : numpy.ndarray
+        estimates : numpy.ndarray
             The estimated values under the given loss function. 
+            If the loss function is \"KL\", the posterior distribution will be returned 
+            as a numpy.ndarray whose elements consist of occurence probabilities.
         """
         z_hat = self.estimate_latent_vars(x,loss=loss)
         self.overwrite_h0_params()

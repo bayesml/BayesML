@@ -241,6 +241,8 @@ The following packages are currently available. In this library, a probabilistic
 * [Exponential model](https://bayesml.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
 * [Gaussian mixture model](https://bayesml.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
 * [Linear regression model](https://bayesml.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
+* [Logistic regression model](https://bayesml.github.io/BayesML/bayesml.logisticregression.html "BayesML Logistic Regression Model")
+* [Linear regression mixture model](https://bayesml.github.io/BayesML/bayesml.linearregressionmixture.html "BayesML Lenear Regression Mixture Model")
 * [Meta-tree model](https://bayesml.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
 * [Autoregressive model](https://bayesml.github.io/BayesML/bayesml.autoregressive.html "BayesML Autoregressive Model")
 * [Hidden Markov normal model](https://bayesml.github.io/BayesML/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
@@ -261,7 +263,7 @@ Plain text
 ```text
 Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
 S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
-Python package version 0.3.1, 
+Python package version 0.4.0, 2026.
 [Online] https://github.com/bayesml/BayesML
 ```
 
@@ -273,8 +275,8 @@ BibTeX
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
   title = {{BayesML}},
-  howpublished = {Python package version 0.3.1},
+  howpublished = {Python package version 0.4.0},
   note = {\url{https://github.com/bayesml/BayesML}},
-  year = {2025}
+  year = {2026}
 }
 ```

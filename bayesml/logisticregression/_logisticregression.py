@@ -412,7 +412,6 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self._lambda_xis = None
 
         # statistics
-        self._lambda_xi_x_x_mat = np.empty([self.c_degree,self.c_degree])
         self._y_x_vec = np.empty(self.c_degree)
 
         # p_params
@@ -581,7 +580,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         # initialization
         self.reset_hn_params()
         self._init_xi(x)
-        self._update_q_w()
+        self._update_q_w(x)
         self._calc_vl()
         print(f'VL: {self.vl}',end='')
 
@@ -589,7 +588,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         for t in range(max_itr):
             vl_before = self.vl
             self._update_xi(x)
-            self._update_q_w()
+            self._update_q_w(x)
             self._calc_vl()
             print(f'\rVL: {self.vl} t={t} ',end='')
             if np.abs((self.vl-vl_before)/vl_before) < tolerance:
@@ -803,12 +802,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self._xis_sq = np.ones(n)
         self._sigma_xis = expit(self.xis)
         self._lambda_xis = (self._sigma_xis - 0.5) / (2.0 * self.xis)
-        self._lambda_xi_x_x_mat[:] = (self._lambda_xis * x.T) @ x
 
-    def _calc_xi_features(self,x):
+    def _calc_xi_features(self):
         self._sigma_xis[:] = expit(self.xis)
         self._lambda_xis[:] = (self._sigma_xis - 0.5) / (2.0 * self.xis)
-        self._lambda_xi_x_x_mat[:] = (self._lambda_xis * x.T) @ x
 
     def _calc_vl(self):
         # This bound is tight but valid only right after updating q(w).
@@ -856,8 +853,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         self.vl = _vl_h_w_xi + _vl_p_w + _vl_q_w
 
-    def _update_q_w(self):
-        self.hn_lambda_mat[:] = self.h0_lambda_mat + 2.0 * self._lambda_xi_x_x_mat
+    def _update_q_w(self,x):
+        self.hn_lambda_mat[:] = self.h0_lambda_mat + 2.0 * (self._lambda_xis * x.T) @ x
         self.hn_lambda_mat_inv[:] = np.linalg.inv(self.hn_lambda_mat)
         self.hn_mu_vec[:] = np.linalg.solve(
             self.hn_lambda_mat,
@@ -872,7 +869,7 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             x,
         )
         self.xis[:] = np.sqrt(self._xis_sq)
-        self._calc_xi_features(x)
+        self._calc_xi_features()
 
     def fit(
             self,

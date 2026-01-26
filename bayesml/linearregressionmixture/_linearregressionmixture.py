@@ -383,6 +383,8 @@ class GenModel(base.Generative):
         >>> )
         >>> model.visualize_model()
 
+        pi_vec:
+        [0.5 0.5]
         theta_vecs:
         [[ 1.  3.]
          [-1. -3.]]
@@ -391,6 +393,7 @@ class GenModel(base.Generative):
         
         .. image:: ./images/linearregressionmixture_example.png
         """
+        print(f"pi_vec:\n{self.pi_vec}")
         print(f"theta_vecs:\n{self.theta_vecs}")
         print(f"taus:\n{self.taus}")
         if self.c_degree == 2 and constant==True:
@@ -1111,6 +1114,9 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
             ):
         """Update the hyperparameters of the posterior distribution using traning data.
 
+        h0_params will be overwritten by current hn_params 
+        before updating hn_params by x
+
         Parameters
         ----------
         x : numpy ndarray
@@ -1243,8 +1249,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_lambda_mats_inv[:] = np.linalg.inv(self.hn_lambda_mats)
         self.hn_mu_vecs[:] = np.linalg.solve(
             self.hn_lambda_mats,
-            self._h0_lambda_mu_vecs + self.x_r_y_vecs
-        )
+            (self._h0_lambda_mu_vecs + self.x_r_y_vecs)[:,:,np.newaxis]
+        )[:,:,0]
         self.hn_alphas[:] = (
             self.h0_alphas + self.ns/2.0
         )
@@ -1296,3 +1302,165 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 - self.hn_mu_vecs[k] @ self.hn_lambda_mats[k] @ self.hn_mu_vecs[k]
             ) / 2.0
         self._calc_q_theta_tau_features()
+    
+    def fit(
+            self,
+            x,
+            y,
+            max_itr=1000,
+            num_init=10,
+            tolerance=1.0E-8,
+            init_type='random_responsibility',
+            ):            
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x,y,max_itr,tolerance,init_type)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        max_itr : int, optional
+            maximum number of iterations, by default 1000
+        num_init : int, optional
+            number of initializations, by default 10
+        tolerance : float, optional
+            convergence criterion of variational lower bound, by default 1.0E-8
+        init_type : str, optional
+            * ``'random_responsibility'``: randomly assign responsibility to ``r_vecs``
+            * ``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``.
+              and use it to update q(theta_k,tau_k).
+            Type of initialization, by default ``'random_responsibility'``
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x,y,max_itr,num_init,tolerance,init_type)
+        return self
+
+    def predict(self,x):
+        """Predict the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.calc_pred_dist(x)
+        >>> return self.make_prediction(loss="squared")
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        
+        Returns
+        -------
+        Predicted_values : numpy ndarray
+            The predicted values under the squared loss function. 
+            The size of the predicted values is the same as the sample size of x.
+        """
+        self.calc_pred_dist(x)
+        return self.make_prediction(loss="squared")
+
+    def estimate_latent_vars(self,x,y,loss="0-1"):
+        """Estimate latent variables corresponding to `x` under the given criterion.
+
+        Note that the criterion is independently applied to each data point.
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        loss : str, optional
+            Loss function underlying the Bayes risk function, by default \"0-1\".
+            This function supports \"squared\", \"0-1\", and \"KL\".
+
+        Returns
+        -------
+        estimates : numpy.ndarray
+            The estimated values under the given loss function. 
+            If the loss function is \"KL\", the posterior distribution will be returned 
+            as a numpy.ndarray whose elements consist of occurence probabilities.
+        """
+        x,y = self._check_sample(x,y)
+        self._ln_rho = np.empty([x.shape[0],self.c_num_classes])
+        self.r_vecs = np.empty([x.shape[0],self.c_num_classes])
+        self._update_q_z(x,y)
+
+        if loss == "squared":
+            return self.r_vecs
+        elif loss == "0-1":
+            return np.eye(self.c_num_classes,dtype=int)[np.argmax(self.r_vecs,axis=1)]
+        elif loss == "KL":
+            return self.r_vecs
+        else:
+            raise(CriteriaError(f"loss={loss} is unsupported. "
+                                +"This function supports \"squared\", \"0-1\", and \"KL\"."))
+
+    def estimate_latent_vars_and_update(
+            self,
+            x,
+            y,
+            loss="0-1",
+            max_itr=100,
+            num_init=10,
+            tolerance=1.0E-8,
+            init_type='random_responsibility',
+            ):
+        """Estimate latent variables and update the posterior sequentially.
+
+        h0_params will be overwritten by current hn_params 
+        before updating hn_params by x
+        
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        loss : str, optional
+            Loss function underlying the Bayes risk function, by default \"0-1\".
+            This function supports \"squared\" and \"0-1\".
+        max_itr : int, optional
+            maximum number of iterations, by default 100
+        num_init : int, optional
+            number of initializations, by default 10
+        tolerance : float, optional
+            convergence croterion of variational lower bound, by default 1.0E-8
+        init_type : str, optional
+            * ``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``.
+              and use its mean and covariance matrix as an initial values of ``hn_m_vecs`` and ``hn_lambda_mats``.
+            * ``'random_responsibility'``: randomly assign responsibility to ``r_vecs``
+            Type of initialization, by default ``'subsampling'``
+
+        Returns
+        -------
+        estimates : numpy.ndarray
+            The estimated values under the given loss function. 
+            If the loss function is \"KL\", the posterior distribution will be returned 
+            as a numpy.ndarray whose elements consist of occurence probabilities.
+        """
+        z_hat = self.estimate_latent_vars(x,y,loss=loss)
+        self.overwrite_h0_params()
+        self.update_posterior(
+            x,
+            y,
+            max_itr=max_itr,
+            num_init=num_init,
+            tolerance=tolerance,
+            init_type=init_type
+            )
+        return z_hat

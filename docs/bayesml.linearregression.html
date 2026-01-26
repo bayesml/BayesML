@@ -48,7 +48,7 @@
     <link rel="icon" href="_static/BayesML_favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="bayesml.metatree package" href="bayesml.metatree.html" />
+    <link rel="next" title="bayesml.linearregressionmixture package" href="bayesml.linearregressionmixture.html" />
     <link rel="prev" title="bayesml.hiddenmarkovnormal package" href="bayesml.hiddenmarkovnormal.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -172,6 +172,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
@@ -455,8 +457,8 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\boldsymbol{x}_{n+1}\in \mathbb{R}^d\)</span>: a new data point</p></li>
 <li><p><span class="math notranslate nohighlight">\(y_{n+1}\in \mathbb{R}\)</span>: a new objective variable</p></li>
 <li><p><span class="math notranslate nohighlight">\(m_\mathrm{p}\in \mathbb{R}\)</span>: a parameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\lambda_\mathrm{p}\in \mathbb{R}\)</span>: a parameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\nu_\mathrm{p}\in \mathbb{R}\)</span>: a parameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda_\mathrm{p}\in \mathbb{R}_{&gt;0}\)</span>: a parameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\nu_\mathrm{p}\in \mathbb{R}_{&gt;0}\)</span>: a parameter</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}p(y_{n+1} | \boldsymbol{X}, \boldsymbol{y}, \boldsymbol{x}_{n+1} ) &amp;= \mathrm{St}\left(y_{n+1} \mid m_\mathrm{p}, \lambda_\mathrm{p}, \nu_\mathrm{p}\right) \\
@@ -651,7 +653,7 @@ If constant is True, the last element of the generated explanatory variables wil
 <dd class="field-odd"><dl class="simple">
 <dt><strong>sample_size</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
-<dt><strong>x</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sammple_length,c_degree)</span></code>, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dt><strong>x</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sample_size,c_degree)</span></code>, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
 <dt><strong>constant</strong><span class="classifier">bool, optional</span></dt><dd><p>A boolean value, by default <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 </dd>
@@ -659,9 +661,9 @@ If constant is True, the last element of the generated explanatory variables wil
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sammple_length,c_degree)</span></code>.</p>
+<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sample_size,c_degree)</span></code>.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">numpy ndarray</span></dt><dd><p>1 dimensional float array whose size is <code class="docutils literal notranslate"><span class="pre">sammple_length</span></code>.</p>
+<dt><strong>y</strong><span class="classifier">numpy ndarray</span></dt><dd><p>1 dimensional float array whose size is <code class="docutils literal notranslate"><span class="pre">sample_size</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -684,9 +686,9 @@ If constant is True, the last element of the generated explanatory variables wil
 <dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename to which the sample is saved.
 <code class="docutils literal notranslate"><span class="pre">.npz</span></code> will be appended if it isn’t there.</p>
 </dd>
-<dt><strong>x</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sammple_length,c_degree)</span></code>, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-</dd>
 <dt><strong>sample_size</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>x</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sample_size,c_degree)</span></code>, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
 <dt><strong>constant</strong><span class="classifier">bool, optional</span></dt><dd><p>A boolean value, by default <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 </dd>
@@ -696,7 +698,7 @@ If constant is True, the last element of the generated explanatory variables wil
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -708,9 +710,10 @@ If constant is True, the last element of the generated explanatory variables wil
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>sample_size</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default 50</p>
+<dt><strong>sample_size</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default 100</p>
 </dd>
-<dt><strong>constant</strong><span class="classifier">bool, optional</span></dt><dd></dd>
+<dt><strong>constant</strong><span class="classifier">bool, optional</span></dt><dd><p>A boolean value, by default <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -858,7 +861,7 @@ If constant is True, the last element of the generated explanatory variables wil
 <span class="sig-name descname"><span class="pre">set_h0_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h0_mu_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_lambda_mat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.linearregression.LearnModel.set_h0_params" title="Link to this definition">#</a></dt>
 <dd><p>Set initial values of the hyperparameter of the posterior distribution.</p>
 <p>Note that the parameters of the predictive distribution are also calculated from 
-<code class="docutils literal notranslate"><span class="pre">self.h0_mu_vec</span></code>, <code class="docutils literal notranslate"><span class="pre">slef.h0_lambda_mat</span></code>, <code class="docutils literal notranslate"><span class="pre">self.h0_alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">self.h0_beta</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">self.h0_mu_vec</span></code>, <code class="docutils literal notranslate"><span class="pre">self.h0_lambda_mat</span></code>, <code class="docutils literal notranslate"><span class="pre">self.h0_alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">self.h0_beta</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -899,7 +902,7 @@ If constant is True, the last element of the generated explanatory variables wil
 <span class="sig-name descname"><span class="pre">set_hn_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hn_mu_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_lambda_mat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.linearregression.LearnModel.set_hn_params" title="Link to this definition">#</a></dt>
 <dd><p>Set updated values of the hyperparameter of the posterior distribution.</p>
 <p>Note that the parameters of the predictive distribution are also calculated from 
-<code class="docutils literal notranslate"><span class="pre">self.hn_mu_vec</span></code>, <code class="docutils literal notranslate"><span class="pre">slef.hn_lambda_mat</span></code>, <code class="docutils literal notranslate"><span class="pre">self.hn_alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">self.hn_beta</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">self.hn_mu_vec</span></code>, <code class="docutils literal notranslate"><span class="pre">self.hn_lambda_mat</span></code>, <code class="docutils literal notranslate"><span class="pre">self.hn_alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">self.hn_beta</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -984,8 +987,8 @@ as rv_frozen object of scipy.stats.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.15.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.15.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -1064,8 +1067,8 @@ as rv_frozen object of scipy.stats. The rv_frozen object supports broadcasting.<
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.15.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.15.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -1099,8 +1102,8 @@ as rv_frozen object of scipy.stats.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.15.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.15.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -1216,11 +1219,11 @@ The size of the predicted values is the same as the sample size of x.</p>
       </div>
     </a>
     <a class="right-next"
-       href="bayesml.metatree.html"
+       href="bayesml.linearregressionmixture.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">bayesml.metatree package</p>
+        <p class="prev-next-title">bayesml.linearregressionmixture package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
