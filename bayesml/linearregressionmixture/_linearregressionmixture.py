@@ -383,6 +383,8 @@ class GenModel(base.Generative):
         >>> )
         >>> model.visualize_model()
 
+        pi_vec:
+        [0.5 0.5]
         theta_vecs:
         [[ 1.  3.]
          [-1. -3.]]

@@ -24,7 +24,7 @@ Characteristics
 
   * BayesML's API corresponds to the structure of decision-making based on Bayesian decision theory. Bayesian decision theory is a unified framework for handling various decision-making processes, such as parameter estimation and prediction of new data. Therefore, BayesML enables intuitive operations for a wider range of decision-making compared to the fit-predict type API adopted in libraries like scikit-learn. Moreover, many of our models also implement fit-predict functions.
 
-* **Model Visuialization Functions:**
+* **Model Visualization Functions:**
 
   * All packages have methods to visualize the probabilistic data generative model, generated data from that model, and the posterior distribution learned from the data in 2~3 dimensional space. Thus, you can effectively understand the characteristics of probabilistic data generative models and algorithms through the generation of synthetic data and learning from them.
 
@@ -283,7 +283,7 @@ Plain text
 
    Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
    S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
-   Python package version 0.4.0, 
+   Python package version 0.4.0, 2026.
    [Online] https://github.com/bayesml/BayesML
 
 BibTeX
@@ -297,7 +297,7 @@ BibTeX
    title = {{BayesML}},
    howpublished = {Python package version 0.4.0},
    note = {\url{https://github.com/bayesml/BayesML}},
-   year = {2025}
+   year = {2026}
    }
 
 Contents
