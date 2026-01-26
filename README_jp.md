@@ -240,6 +240,8 @@ print(f"y_new: {y_new}")
 * [指数モデル](https://bayesml.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
 * [混合正規モデル](https://bayesml.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
 * [線形回帰モデル](https://bayesml.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
+* [ロジスティック回帰モデル](https://bayesml.github.io/BayesML/bayesml.logisticregression.html "BayesML Logistic Regression Model")
+* [混合線形回帰モデル](https://bayesml.github.io/BayesML/bayesml.linearregressionmixture.html "BayesML Lenear Regression Mixture Model")
 * [メタツリーモデル](https://bayesml.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
 * [自己回帰モデル](https://bayesml.github.io/BayesML/bayesml.autoregressive.html "BayesML Autoregressive Model")
 * [隠れマルコフモデル](https://bayesml.github.io/BayesML/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
@@ -260,7 +262,7 @@ BayesMLへのコントリビューションを考えてくださってありが�
 ```text
 Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
 S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
-Python package version 0.3.1, 
+Python package version 0.4.0, 2026.
 [Online] https://github.com/bayesml/BayesML
 ```
 
@@ -272,8 +274,8 @@ BibTeX
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
   title = {{BayesML}},
-  howpublished = {Python package version 0.3.1},
+  howpublished = {Python package version 0.4.0},
   note = {\url{https://github.com/bayesml/BayesML}},
-  year = {2025}
+  year = {2026}
 }
 ```

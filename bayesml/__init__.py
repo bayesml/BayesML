@@ -10,6 +10,8 @@ from . import metatree
 from . import contexttree
 from . import gaussianmixture
 from . import hiddenmarkovnormal
+from . import logisticregression
+from . import linearregressionmixture
 
 __all__ = ['bernoulli',
            'categorical',
@@ -23,4 +25,6 @@ __all__ = ['bernoulli',
            'contexttree',
            'gaussianmixture',
            'hiddenmarkovnormal',
+           'logisticregression',
+           'linearregressionmixture',
            ]

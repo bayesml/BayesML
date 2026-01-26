@@ -194,11 +194,11 @@ class GenModel(base.Generative):
 
         Parameters
         ----------
-        pi_vec : numpy.ndarray
+        pi_vec : numpy.ndarray, optional
             a real vector in :math:`[0, 1]^K`. The sum of its elements must be 1.
-        mu_vecs : numpy.ndarray
+        mu_vecs : numpy.ndarray, optional
             vectors of real numbers
-        lambda_mats : numpy.ndarray
+        lambda_mats : numpy.ndarray, optional
             positive definite symetric matrices
         """
         if pi_vec is not None:
@@ -297,7 +297,7 @@ class GenModel(base.Generative):
         >>> import numpy as np
         >>> model = gaussianmixture.GenModel(
         >>>             c_num_classes=3,
-        >>>             c_degree=1
+        >>>             c_degree=1,
         >>>             pi_vec=np.array([0.444,0.444,0.112]),
         >>>             mu_vecs=np.array([[-2.8],[-0.8],[2]]),
         >>>             lambda_mats=np.array([[[6.25]],[[6.25]],[[100]]])
@@ -316,10 +316,10 @@ class GenModel(base.Generative):
         
         .. image:: ./images/gaussianmixture_example.png
         """
+        print(f"pi_vec:\n {self.pi_vec}")
+        print(f"mu_vecs:\n {self.mu_vecs}")
+        print(f"lambda_mats:\n {self.lambda_mats}")
         if self.c_degree == 1:
-            print(f"pi_vec:\n {self.pi_vec}")
-            print(f"mu_vecs:\n {self.mu_vecs}")
-            print(f"lambda_mats:\n {self.lambda_mats}")
             _lambda_mats_inv = np.linalg.inv(self.lambda_mats)
             fig, axes = plt.subplots()
             sample, _ = self.gen_sample(sample_size)
@@ -336,9 +336,6 @@ class GenModel(base.Generative):
             plt.show()
 
         elif self.c_degree == 2:
-            print(f"pi_vec:\n {self.pi_vec}")
-            print(f"mu_vecs:\n {self.mu_vecs}")
-            print(f"lambda_mats:\n {self.lambda_mats}")
             _lambda_mats_inv = np.linalg.inv(self.lambda_mats)
             fig, axes = plt.subplots()
             sample, _ = self.gen_sample(sample_size)
@@ -411,6 +408,11 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         positive real numbers
     s_mats : numpy.ndarray
         positive difinite symmetric matrices
+    vl : float
+        real number
+    p_pi_vecs : numpy.ndarray
+        A vector of real numbers in :math:`[0, 1]`. 
+        Sum of its elements must be 1.0.
     p_mu_vecs : numpy.ndarray
         vectors of real numbers
     p_nus : numpy.ndarray
@@ -1230,8 +1232,10 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
 
         Returns
         -------
-        predicted_value : numpy.ndarray
+        estimates : numpy.ndarray
             The estimated values under the given loss function. 
+            If the loss function is \"KL\", the posterior distribution will be returned 
+            as a numpy.ndarray whose elements consist of occurence probabilities.
         """
         z_hat = self.estimate_latent_vars(x,loss=loss)
         self.overwrite_h0_params()
