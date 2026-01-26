@@ -39,7 +39,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='bayesml',
-    version='0.3.1',
+    version='0.4.0',
     packages=find_packages(),
     author='Yuta Nakahara et al.',
     author_email='y.nakahara@waseda.jp',

@@ -260,7 +260,7 @@ BayesMLへのコントリビューションを考えてくださってありが�
 ```text
 Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
 S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
-Python package version 0.3.1, 
+Python package version 0.4.0, 
 [Online] https://github.com/bayesml/BayesML
 ```
 
@@ -272,7 +272,7 @@ BibTeX
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
   title = {{BayesML}},
-  howpublished = {Python package version 0.3.1},
+  howpublished = {Python package version 0.4.0},
   note = {\url{https://github.com/bayesml/BayesML}},
   year = {2025}
 }
