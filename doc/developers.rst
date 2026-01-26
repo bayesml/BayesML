@@ -8,7 +8,7 @@ Code Author
 * `Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University
 * Yasushi Esaki
 * Naoki Ichijo, Waseda University (Ph.D. Student)
-* `Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>_`, Waseda University
+* `Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>`_, Waseda University
 * Kohei Horinouchi, Waseda University (Ph.D. Student)
 
 Document Author
@@ -17,7 +17,7 @@ Document Author
 * `Shota Saito <https://researchmap.jp/wa-shota?lang=en>`_, Gunma University
 * `Koki Kazama <https://researchmap.jp/KokiKAZAMA?lang=en>`_, Shonan Institute of Technology
 * Yasushi Esaki
-* `Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>_`, Waseda University
+* `Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>`_, Waseda University
 * Naoki Ichijo, Waseda University (Ph.D. Student)
 * Kohei Horinouchi, Waseda University (Ph.D. Student)
 
