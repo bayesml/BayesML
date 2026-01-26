@@ -263,6 +263,8 @@ The following packages are currently available. In this library, a probabilistic
 * :doc:`bayesml.gaussianmixture`
 * :doc:`bayesml.hiddenmarkovnormal`
 * :doc:`bayesml.linearregression`
+* :doc:`bayesml.logisticregression`
+* :doc:`bayesml.linearregressionmixture`
 * :doc:`bayesml.metatree`
 * :doc:`bayesml.multivariate_normal`
 * :doc:`bayesml.normal`
