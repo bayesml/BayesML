@@ -39,13 +39,13 @@ The prior distribution is as follows:
 where :math:`C(\boldsymbol{\gamma}_0)` are defined as follows:
 
 .. math::
-    C(\boldsymbol{\gamma}_0) &= \frac{\Gamma(\sum_{k=1}^K \gamma_{0,k})}{\Gamma(\gamma_{0,1})\cdots\Gamma(\gamma_{0,K})}.
+    C(\boldsymbol{\gamma}_0) = \frac{\Gamma(\sum_{k=1}^K \gamma_{0,k})}{\Gamma(\gamma_{0,1})\cdots\Gamma(\gamma_{0,K})}.
 
-The apporoximate posterior distribution in the :math:`t`th iteration of a variational Bayesian method is as follows:
+The apporoximate posterior distribution in the :math:`t`-th iteration of a variational Bayesian method is as follows:
 
 * :math:`\boldsymbol{X} = [\boldsymbol{x}_1, \boldsymbol{x}_2, \dots , \boldsymbol{x}_n]^\top \in \mathbb{R}^{n \times D}`: given explanatory variables
 * :math:`\boldsymbol{z}^n = (\boldsymbol{z}_1, \boldsymbol{z}_2, \dots , \boldsymbol{z}_n) \in \{ 0, 1 \}^{K \times n}`: latent classes of given data
-* :math:`\boldsymbol{r}_i^{(t)} = (r_{i,1}^{(t)}, r_{i,2}^{(t)}, \dots , r_{i,K}^{(t)}) \in [0,1]^K`: a parameter for :math:`i`th latent class (:math:`\sum_{k=1}^K r_{i,k}^{(t)} = 1`)
+* :math:`\boldsymbol{r}_i^{(t)} = (r_{i,1}^{(t)}, r_{i,2}^{(t)}, \dots , r_{i,K}^{(t)}) \in [0,1]^K`: a parameter for :math:`i`-th latent class (:math:`\sum_{k=1}^K r_{i,k}^{(t)} = 1`)
 * :math:`\boldsymbol{y} = [y_1, y_2, \dots , y_n]^\top \in \mathbb{R}^n`: given objective variables
 * :math:`\boldsymbol{\mu}_{n,k}^{(t)} \in \mathbb{R}^{D}`: a hyperparameter
 * :math:`\boldsymbol{\Lambda}_{n,k}^{(t)} \in \mathbb{R}^{D\times D}`: a hyperparameter (a positive definite matrix)

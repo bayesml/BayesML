@@ -10,12 +10,13 @@ The stochastic data generative model is as follows:
 * :math:`y\in\{ 0, 1\}`: an objective variable
 * :math:`\boldsymbol{w}\in\mathbb{R}^{d}`: a parameter
 
-.. math::    p(y|\boldsymbol{x},\boldsymbol{w}) &= \sigma( \boldsymbol{w}^\top \boldsymbol{x} )^y \left\{ 1 - \sigma( \boldsymbol{w}^\top \boldsymbol{x} ) \right\}^{1 - y},
+.. math::
+    p(y|\boldsymbol{x},\boldsymbol{w}) = \sigma( \boldsymbol{w}^\top \boldsymbol{x} )^y \left\{ 1 - \sigma( \boldsymbol{w}^\top \boldsymbol{x} ) \right\}^{1 - y},
 
 where :math:`\sigma(\cdot)` is defined as follows (called a sigmoid function):
 
 .. math::
-    \sigma(a) &= \frac{1}{1+\exp(-a)}.
+    \sigma(a) = \frac{1}{1+\exp(-a)}.
 
 The prior distribution is as follows:
 
@@ -50,7 +51,7 @@ where the updating rules of the hyperparameters are as follows:
 where :math:`\lambda(\cdot)` is defined as follows:
 
 .. math::
-    \lambda(\xi) &= \frac{1}{2\xi} \left\{ \sigma(\xi) - \frac{1}{2} \right\}.
+    \lambda(\xi) = \frac{1}{2\xi} \left\{ \sigma(\xi) - \frac{1}{2} \right\}.
 
 The approximate predictive distribution is as follows:
 
@@ -58,7 +59,7 @@ The approximate predictive distribution is as follows:
 * :math:`y_{n+1}\in \{ 0, 1\}`: a new objective variable
 
 .. math::
-    p(y_{n+1} | \boldsymbol{x}^n, \boldsymbol{y}^n, \boldsymbol{x}_{n+1} ) &= \sigma \left( \kappa(\sigma_\mathrm{p}^2) \mu_\mathrm{p} \right)^y \left\{ 1 - \sigma \left( \kappa(\sigma_\mathrm{p}^2) \mu_\mathrm{p} \right) \right\}^{1 - y},
+    p(y_{n+1} | \boldsymbol{x}^n, \boldsymbol{y}^n, \boldsymbol{x}_{n+1} ) = \sigma \left( \kappa(\sigma_\mathrm{p}^2) \mu_\mathrm{p} \right)^y \left\{ 1 - \sigma \left( \kappa(\sigma_\mathrm{p}^2) \mu_\mathrm{p} \right) \right\}^{1 - y},
 
 where :math:`\sigma_\mathrm{p}^2`, :math:`\mu_\mathrm{p}` are obtained from the hyperparameters of the approximate posterior distribution as follows:
 
@@ -69,7 +70,7 @@ where :math:`\sigma_\mathrm{p}^2`, :math:`\mu_\mathrm{p}` are obtained from the 
 and :math:`\kappa(\cdot)` is defined as 
 
 .. math::
-    \kappa(\sigma^2) &= (1 + \pi \sigma^2 / 8)^{-1/2}.
+    \kappa(\sigma^2) = (1 + \pi \sigma^2 / 8)^{-1/2}.
 """
 
 from ._logisticregression import GenModel
