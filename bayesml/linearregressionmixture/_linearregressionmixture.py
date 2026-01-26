@@ -1249,8 +1249,8 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
         self.hn_lambda_mats_inv[:] = np.linalg.inv(self.hn_lambda_mats)
         self.hn_mu_vecs[:] = np.linalg.solve(
             self.hn_lambda_mats,
-            self._h0_lambda_mu_vecs + self.x_r_y_vecs
-        )
+            (self._h0_lambda_mu_vecs + self.x_r_y_vecs)[:,:,np.newaxis]
+        )[:,:,0]
         self.hn_alphas[:] = (
             self.h0_alphas + self.ns/2.0
         )
