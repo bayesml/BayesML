@@ -391,6 +391,7 @@ class GenModel(base.Generative):
         
         .. image:: ./images/linearregressionmixture_example.png
         """
+        print(f"pi_vec:\n{self.pi_vec}")
         print(f"theta_vecs:\n{self.theta_vecs}")
         print(f"taus:\n{self.taus}")
         if self.c_degree == 2 and constant==True:
@@ -1296,3 +1297,106 @@ class LearnModel(base.Posterior,base.PredictiveMixin):
                 - self.hn_mu_vecs[k] @ self.hn_lambda_mats[k] @ self.hn_mu_vecs[k]
             ) / 2.0
         self._calc_q_theta_tau_features()
+    
+    def fit(
+            self,
+            x,
+            y,
+            max_itr=1000,
+            tolerance=1.0E-8,
+            init_type='random_responsibility',
+            ):            
+        """Fit the model to the data.
+
+        This function is a wrapper of the following functions:
+
+        >>> self.reset_hn_params()
+        >>> self.update_posterior(x,y,max_itr,tolerance,init_type)
+        >>> return self
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        max_itr : int, optional
+            maximum number of iterations, by default 1000
+        tolerance : float, optional
+            convergence criterion of variational lower bound, by default 1.0E-8
+        init_type : str, optional
+            * ``'random_responsibility'``: randomly assign responsibility to ``r_vecs``
+            * ``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``.
+              and use it to update q(theta_k,tau_k).
+            Type of initialization, by default ``'random_responsibility'``
+        
+        Returns
+        -------
+        self : LearnModel
+            The fitted model.
+        """
+        self.reset_hn_params()
+        self.update_posterior(x,y,max_itr,tolerance,init_type)
+        return self
+
+    def predict(self,x):
+        """Predict the data.
+
+        This function is a wrapper of the following functions:
+        
+        >>> self.calc_pred_dist(x)
+        >>> return self.make_prediction(loss="squared")
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        
+        Returns
+        -------
+        Predicted_values : numpy ndarray
+            The predicted values under the squared loss function. 
+            The size of the predicted values is the same as the sample size of x.
+        """
+        self.calc_pred_dist(x)
+        return self.make_prediction(loss="squared")
+
+    def estimate_latent_vars(self,x,y,loss="0-1"):
+        """Estimate latent variables corresponding to `x` under the given criterion.
+
+        Note that the criterion is independently applied to each data point.
+
+        Parameters
+        ----------
+        x : numpy ndarray
+            float array. The size along the last dimension must conincides with the c_degree.
+            If you want to use a constant term, it should be included in x.
+        y : numpy ndarray
+            float array.
+        loss : str, optional
+            Loss function underlying the Bayes risk function, by default \"0-1\".
+            This function supports \"squared\", \"0-1\", and \"KL\".
+
+        Returns
+        -------
+        estimates : numpy.ndarray
+            The estimated values under the given loss function. 
+            If the loss function is \"KL\", the posterior distribution will be returned 
+            as a numpy.ndarray whose elements consist of occurence probabilities.
+        """
+        x,y = self._check_sample(x,y)
+        self._ln_rho = np.empty([x.shape[0],self.c_num_classes])
+        self.r_vecs = np.empty([x.shape[0],self.c_num_classes])
+        self._update_q_z(x,y)
+
+        if loss == "squared":
+            return self.r_vecs
+        elif loss == "0-1":
+            return np.eye(self.c_num_classes,dtype=int)[np.argmax(self.r_vecs,axis=1)]
+        elif loss == "KL":
+            return self.r_vecs
+        else:
+            raise(CriteriaError(f"loss={loss} is unsupported. "
+                                +"This function supports \"squared\", \"0-1\", and \"KL\"."))
