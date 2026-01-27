@@ -263,7 +263,7 @@ Plain text
 ```text
 Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
 S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
-Python package version 0.4.0, 2026.
+Python package version 0.4.1, 2026.
 [Online] https://github.com/bayesml/BayesML
 ```
 
@@ -275,7 +275,7 @@ BibTeX
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
   title = {{BayesML}},
-  howpublished = {Python package version 0.4.0},
+  howpublished = {Python package version 0.4.1},
   note = {\url{https://github.com/bayesml/BayesML}},
   year = {2026}
 }
