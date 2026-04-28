@@ -39,9 +39,9 @@ def test_batch_p_params(lr_sample_data):
     p_params_seq = []
     for i in range(10):
         learn_model.calc_pred_dist(x[i])
-        assert np.isclose(learn_model.get_p_params()['p_m'], p_params_batch['p_m'][i], atol=1e-10)
-        assert np.isclose(learn_model.get_p_params()['p_lambda'], p_params_batch['p_lambda'][i], atol=1e-10)
-        assert np.isclose(learn_model.get_p_params()['p_nu'], p_params_batch['p_nu'][i], atol=1e-10)
+        assert np.isclose(learn_model.get_p_params()['p_ms'], p_params_batch['p_ms'][i], atol=1e-10)
+        assert np.isclose(learn_model.get_p_params()['p_lambdas'], p_params_batch['p_lambdas'][i], atol=1e-10)
+        assert np.isclose(learn_model.get_p_params()['p_nus'], p_params_batch['p_nus'][i], atol=1e-10)
 
 if __name__ == "__main__":
     pytest.main()
