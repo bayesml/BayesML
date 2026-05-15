@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"POT-Creation-Date: 2026-02-11 09:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -318,10 +318,6 @@ msgid ""
 "\\boldsymbol{x}'_n)^{-1},\\\\\n"
 "\\nu_\\mathrm{p} &= 2 \\alpha_n.\n"
 "\n"
-msgstr ""
-
-#: bayesml.autoregressive._autoregressive.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
 msgstr ""
 
 #: bayesml.autoregressive._autoregressive.GenModel:2 of
@@ -786,12 +782,6 @@ msgstr ""
 #: bayesml.autoregressive._autoregressive.GenModel.visualize_model:30
 #: bayesml.autoregressive._autoregressive.LearnModel.visualize_posterior:19 of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.autoregressive._autoregressive.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.autoregressive._autoregressive.LearnModel:2 of
@@ -1284,4 +1274,12 @@ msgid ""
 "consists of the ``self.c_degree`` number of past values and the current "
 "value."
 msgstr ""
+
+#~ msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Bases: :py:class:`~bayesml.base.Posterior`, "
+#~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
 

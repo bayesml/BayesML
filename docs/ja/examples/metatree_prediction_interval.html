@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Prediction interval calculation by bayesml.metatree (accepted at AISTATS 2025) &#8212; BayesML</title>
+    <title>bayesml.metatree に基づく予測区間の導出（AISTATS 2025でアクセプト済） &#8212; BayesML</title>
   
   
   
@@ -39,19 +39,20 @@
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=ba1e48b6"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/translations.js?v=4755f45a"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/metatree_prediction_interval';</script>
     <link rel="icon" href="../_static/BayesML_favicon.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="BayesML Developers" href="../developers.html" />
-    <link rel="prev" title="Examples" href="../examples.html" />
+    <link rel="prev" title="使用例" href="../examples.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -172,7 +173,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bayesml.html">Bayesml packages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bayesml.bernoulli.html">bayesml.bernoulli package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bayesml.bernoulli.html">bayesml.bernoulli パッケージ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bayesml.categorical.html">bayesml.categorical package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bayesml.contexttree.html">bayesml.contexttree package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bayesml.exponential.html">bayesml.exponential package</a></li>
@@ -185,8 +186,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../bayesml.poisson.html">bayesml.poisson package</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../examples.html">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../examples.html">使用例</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> に基づく予測区間の導出（AISTATS 2025でアクセプト済）</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../developers.html">BayesML Developers</a></li>
@@ -343,7 +344,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Prediction interval calculation by bayesml.metatree (accepted at AISTATS 2025)</h1>
+    <h1>bayesml.metatree に基づく予測区間の導出（AISTATS 2025でアクセプト済）</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -353,14 +354,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Installation-of-BayesML">Installation of BayesML</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Load-dataset">Load dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Preprocessing">Preprocessing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Create-model-instance">Create model instance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Calculate-posterior-distribution">Calculate posterior distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Calculate-prediction-interval">Calculate prediction interval</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Evaluation">Evaluation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Calculate-prediction-interval-by-sampling">Calculate prediction interval by sampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#BayesMLのインストール">BayesMLのインストール</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#データセット読み込み">データセット読み込み</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#前処理">前処理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#モデルのインスタンスを作成">モデルのインスタンスを作成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#事後確率分布の計算">事後確率分布の計算</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#予測区間の導出">予測区間の導出</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#評価">評価</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#サンプリングによって予測区間を導出">サンプリングによって予測区間を導出</a></li>
 </ul>
             </nav>
         </div>
@@ -372,13 +373,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="Prediction-interval-calculation-by-bayesml.metatree-(accepted-at-AISTATS-2025)">
-<h1>Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)<a class="headerlink" href="#Prediction-interval-calculation-by-bayesml.metatree-(accepted-at-AISTATS-2025)" title="Link to this heading">#</a></h1>
-<p>For details of the API of <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code>, please see <a class="reference external" href="../bayesml.metatree.html">this page</a>.</p>
-<p>For theoretical details, please see the following paper.</p>
+  <section id="bayesml.metatree-に基づく予測区間の導出（AISTATS-2025でアクセプト済）">
+<h1><code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> に基づく予測区間の導出（AISTATS 2025でアクセプト済）<a class="headerlink" href="#bayesml.metatree-に基づく予測区間の導出（AISTATS-2025でアクセプト済）" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> のAPIについて、詳細は <a class="reference external" href="../bayesml.metatree.html">こちら</a>.</p>
+<p>理論的な背景については、こちらの文献を参照してください。</p>
 <p>Nakahara, Y., Saito, S., Ichijo, N., Kazama, K. &amp; Matsushima, T. (2025). Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. <em>Proceedings of The 28th International Conference on Artificial Intelligence and Statistics</em>, in <em>Proceedings of Machine Learning Research</em> 258:1045-1053 Available from <a class="reference external" href="https://proceedings.mlr.press/v258/nakahara25a.html">https://proceedings.mlr.press/v258/nakahara25a.html</a>.</p>
-<section id="Installation-of-BayesML">
-<h2>Installation of BayesML<a class="headerlink" href="#Installation-of-BayesML" title="Link to this heading">#</a></h2>
+<section id="BayesMLのインストール">
+<h2>BayesMLのインストール<a class="headerlink" href="#BayesMLのインストール" title="Link to this heading">#</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -388,8 +389,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="Load-dataset">
-<h2>Load dataset<a class="headerlink" href="#Load-dataset" title="Link to this heading">#</a></h2>
+<section id="データセット読み込み">
+<h2>データセット読み込み<a class="headerlink" href="#データセット読み込み" title="Link to this heading">#</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -521,8 +522,8 @@ document.write(`
 </div></div>
 </div>
 </section>
-<section id="Preprocessing">
-<h2>Preprocessing<a class="headerlink" href="#Preprocessing" title="Link to this heading">#</a></h2>
+<section id="前処理">
+<h2>前処理<a class="headerlink" href="#前処理" title="Link to this heading">#</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -551,9 +552,9 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="Create-model-instance">
-<h2>Create model instance<a class="headerlink" href="#Create-model-instance" title="Link to this heading">#</a></h2>
-<p>First, calculate model constants.</p>
+<section id="モデルのインスタンスを作成">
+<h2>モデルのインスタンスを作成<a class="headerlink" href="#モデルのインスタンスを作成" title="Link to this heading">#</a></h2>
+<p>まず、モデルに必要な定数を設定します。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -575,7 +576,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<p>Then, create a model instance based on the model constants. For details of the parameters of <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code>, please see <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel">this page</a>.</p>
+<p>次に、設定した定数に基づいてモデルを生成します。 <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> のパラメータについて詳細を知りたい場合は <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel">こちら</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -601,9 +602,9 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="Calculate-posterior-distribution">
-<h2>Calculate posterior distribution<a class="headerlink" href="#Calculate-posterior-distribution" title="Link to this heading">#</a></h2>
-<p>For details of the parameters of <code class="docutils literal notranslate"><span class="pre">update_posterior</span></code>, please see <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel.update_posterior">this page</a>.</p>
+<section id="事後確率分布の計算">
+<h2>事後確率分布の計算<a class="headerlink" href="#事後確率分布の計算" title="Link to this heading">#</a></h2>
+<p>各パラメータの <code class="docutils literal notranslate"><span class="pre">update_posterior</span></code> について詳細を知りたい場合は <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.LearnModel.update_posterior">こちら</a>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -644,9 +645,9 @@ num_metatrees: 500
 </pre></div></div>
 </div>
 </section>
-<section id="Calculate-prediction-interval">
-<h2>Calculate prediction interval<a class="headerlink" href="#Calculate-prediction-interval" title="Link to this heading">#</a></h2>
-<p>First, define subroutines to calculate <code class="docutils literal notranslate"><span class="pre">100(1-alpha)</span></code>% prediction interval from the values of the probability density function of the predictive distribution.</p>
+<section id="予測区間の導出">
+<h2>予測区間の導出<a class="headerlink" href="#予測区間の導出" title="Link to this heading">#</a></h2>
+<p>はじめに、予測分布の確率密度関数が返す値から <code class="docutils literal notranslate"><span class="pre">100(1-alpha)</span></code>%の予測区間を計算するサブルーチンを定義します。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -672,7 +673,7 @@ num_metatrees: 500
 </pre></div>
 </div>
 </div>
-<p>Calculate the values of the probability density function of the predictive distribution in the range determined by the mean and the variance of the predictive distribution.</p>
+<p>次に、予測分布の平均・分散から求まる予測区間において、予測分布の確率密度関数の値を計算します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -707,7 +708,7 @@ y.shape: (1000, 221)
 p_y.shape: (1000, 221)
 </pre></div></div>
 </div>
-<p>Calculate prediction interval by using the above subroutines.</p>
+<p>上記のサブルーチンを組み合わせて、予測区間を計算します。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -720,9 +721,9 @@ p_y.shape: (1000, 221)
 </div>
 </div>
 </section>
-<section id="Evaluation">
-<h2>Evaluation<a class="headerlink" href="#Evaluation" title="Link to this heading">#</a></h2>
-<p>First, define subroutines for evaluation.</p>
+<section id="評価">
+<h2>評価<a class="headerlink" href="#評価" title="Link to this heading">#</a></h2>
+<p>まず、評価のためのサブルーチンを定義します。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -748,7 +749,7 @@ p_y.shape: (1000, 221)
 </pre></div>
 </div>
 </div>
-<p>Evaluate the results. Note that frequency close to <code class="docutils literal notranslate"><span class="pre">100(1-alpha)</span></code>% (here, 0.95) and short length are desireble.</p>
+<p>次に結果を評価します。ただし、頻度が <code class="docutils literal notranslate"><span class="pre">100(1-alpha)</span></code>%（ここでは0.95）に近く、区間の長さは短い方が望ましい。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -768,9 +769,9 @@ Avg. length: 2.700041007869358
 </pre></div></div>
 </div>
 </section>
-<section id="Calculate-prediction-interval-by-sampling">
-<h2>Calculate prediction interval by sampling<a class="headerlink" href="#Calculate-prediction-interval-by-sampling" title="Link to this heading">#</a></h2>
-<p>Using metatree.GenModel, prediction intervals can be calculated from a sample from the posterior predictive distribution. For details of the parameters of <code class="docutils literal notranslate"><span class="pre">GenModel</span></code>, please see <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.GenModel">this page</a>.</p>
+<section id="サンプリングによって予測区間を導出">
+<h2>サンプリングによって予測区間を導出<a class="headerlink" href="#サンプリングによって予測区間を導出" title="Link to this heading">#</a></h2>
+<p>metatree.GenModelを使用すれば、事後確率分布からサンプリングしたサンプルを用いて予測区間を導出できます。この <code class="docutils literal notranslate"><span class="pre">GenModel</span></code> のパラメータについて、詳細は <a class="reference external" href="https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.GenModel">こちら</a>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -873,7 +874,7 @@ Avg. length: 2.8353479432222652
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">前へ</p>
-        <p class="prev-next-title">Examples</p>
+        <p class="prev-next-title">使用例</p>
       </div>
     </a>
     <a class="right-next"
@@ -901,14 +902,14 @@ Avg. length: 2.8353479432222652
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Installation-of-BayesML">Installation of BayesML</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Load-dataset">Load dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Preprocessing">Preprocessing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Create-model-instance">Create model instance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Calculate-posterior-distribution">Calculate posterior distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Calculate-prediction-interval">Calculate prediction interval</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Evaluation">Evaluation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Calculate-prediction-interval-by-sampling">Calculate prediction interval by sampling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#BayesMLのインストール">BayesMLのインストール</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#データセット読み込み">データセット読み込み</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#前処理">前処理</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#モデルのインスタンスを作成">モデルのインスタンスを作成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#事後確率分布の計算">事後確率分布の計算</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#予測区間の導出">予測区間の導出</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#評価">評価</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#サンプリングによって予測区間を導出">サンプリングによって予測区間を導出</a></li>
 </ul>
   </nav></div>
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Bayesml packages &#8212; BayesML</title>
+    <title>Bayesml パッケージ &#8212; BayesML</title>
   
   
   
@@ -38,13 +38,11 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=ba1e48b6"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/translations.js?v=4755f45a"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bayesml';</script>
     <link rel="icon" href="_static/BayesML_favicon.ico"/>
     <link rel="index" title="索引" href="genindex.html" />
@@ -169,7 +167,7 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Bayesml packages</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Bayesml パッケージ</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.bernoulli.html">bayesml.bernoulli package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.categorical.html">bayesml.categorical package</a></li>
@@ -184,11 +182,11 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.poisson.html">bayesml.poisson package</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html">Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">使用例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html"><code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> に基づく予測区間の導出（AISTATS 2025でアクセプト済）</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML 開発者</a></li>
 </ul>
 
     </div>
@@ -342,7 +340,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bayesml packages</h1>
+    <h1>Bayesml パッケージ</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -352,9 +350,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.base">bayesml.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">サブパッケージ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">サブモジュール</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.base">bayesml.base モジュール</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.base.Generative"><code class="docutils literal notranslate"><span class="pre">Generative</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.base.Generative.set_h_params"><code class="docutils literal notranslate"><span class="pre">Generative.set_h_params()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.base.Generative.get_h_params"><code class="docutils literal notranslate"><span class="pre">Generative.get_h_params()</span></code></a></li>
@@ -407,9 +405,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="bayesml-packages">
-<h1>Bayesml packages<a class="headerlink" href="#bayesml-packages" title="Link to this heading">#</a></h1>
+<h1>Bayesml パッケージ<a class="headerlink" href="#bayesml-packages" title="Link to this heading">#</a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<h2>サブパッケージ<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
@@ -428,28 +426,28 @@ document.write(`
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+<h2>サブモジュール<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-bayesml.base">
-<span id="bayesml-base-module"></span><h2>bayesml.base module<a class="headerlink" href="#module-bayesml.base" title="Link to this heading">#</a></h2>
+<span id="bayesml-base-module"></span><h2>bayesml.base モジュール<a class="headerlink" href="#module-bayesml.base" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.base.Generative">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.base.</span></span><span class="sig-name descname"><span class="pre">Generative</span></span><a class="headerlink" href="#bayesml.base.Generative" title="Link to this definition">#</a></dt>
-<dd><p>ベースクラス: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bayesml.base.</span></span><span class="sig-name descname"><span class="pre">Generative</span></span><a class="headerlink" href="#bayesml.base.Generative" title="Link to this definition">#</a></dt>
+<dd><p>ベースクラス: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p class="rubric">メソッド</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.base.Generative.load_h_params" title="bayesml.base.Generative.load_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h_params</span></code></a>(filename)</p></td>
-<td><p>Load the hyperparameters to h_params.</p></td>
+<td><p>h_paramsにハイパーパラメータをロードします。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.base.Generative.load_params" title="bayesml.base.Generative.load_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_params</span></code></a>(filename)</p></td>
-<td><p>Load the parameters saved by <code class="docutils literal notranslate"><span class="pre">save_params</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">save_params</span></code> に保存されたパラメータをロードします。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.base.Generative.save_h_params" title="bayesml.base.Generative.save_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h_params</span></code></a>(filename)</p></td>
-<td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.base.Generative.save_params" title="bayesml.base.Generative.save_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_params</span></code></a>(filename)</p></td>
-<td><p>Save the parameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+<td><p>python の <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってパラメータを保存します。</p></td>
 </tr>
 </tbody>
 </table>
@@ -485,35 +483,35 @@ document.write(`
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.set_h_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_h_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.set_h_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">set_h_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.set_h_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.get_h_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_h_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.get_h_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_h_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.get_h_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.save_h_params">
 <span class="sig-name descname"><span class="pre">save_h_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.save_h_params" title="Link to this definition">#</a></dt>
-<dd><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p>
-<p>They are saved as a python dictionary obtained by <code class="docutils literal notranslate"><span class="pre">GenModel.get_h_params()</span></code>.</p>
+<dd><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p>
+<p>これらは、<code class="docutils literal notranslate"><span class="pre">GenModel.get_h_params()</span></code> によって取得される Python の辞書として保存されます。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename (including a extention like .pkl) to which the hyperparameters are saved.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>ハイパーパラメータが保存されるファイル名（.pkl などの拡張子を含む）です。</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module is not secure. Only unpickle data you trust.</p>
+<p>「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleしてください。</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -521,66 +519,63 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.load_h_params">
 <span class="sig-name descname"><span class="pre">load_h_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.load_h_params" title="Link to this definition">#</a></dt>
-<dd><p>Load the hyperparameters to h_params.</p>
+<dd><p>h_paramsにハイパーパラメータをロードします。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename (including a extention like .pkl) to be loaded.
-It must be a pickled python dictionary obtained by
-<code class="docutils literal notranslate"><span class="pre">GenModel.save_h_params()</span></code>, <code class="docutils literal notranslate"><span class="pre">LearnModel.save_h0_params()</span></code> 
-or <code class="docutils literal notranslate"><span class="pre">LearnModel.save_hn_params()</span></code>.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>読み込むファイル名（.pkl などの拡張子を含む）です。これは、<code class="docutils literal notranslate"><span class="pre">GenModel.save_h_params()</span></code>、<code class="docutils literal notranslate"><span class="pre">LearnModel.save_h0_params()</span></code>、または <code class="docutils literal notranslate"><span class="pre">LearnModel.save_hn_params()</span></code> によって生成された、pickle形式のPython辞書でなければなりません。</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module is not secure. Only unpickle data you trust.</p>
+<p>「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleしてください。</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.gen_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gen_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.gen_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">gen_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.gen_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.set_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.set_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.set_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.get_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.get_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.get_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.save_params">
 <span class="sig-name descname"><span class="pre">save_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.save_params" title="Link to this definition">#</a></dt>
-<dd><p>Save the parameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p>
-<p>They are saved as a pickled python dictionary obtained by <code class="docutils literal notranslate"><span class="pre">GenModel.get_params()</span></code>.</p>
+<dd><p>python の <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってパラメータを保存します。</p>
+<p>これらは、<code class="docutils literal notranslate"><span class="pre">GenModel.get_params()</span></code> で取得されるpickled Python辞書として保存されます。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename (including a extention like .pkl) to which the parameters are saved.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>パラメータが保存されるファイル名（.pkl などの拡張子を含む）です。</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module is not secure. Only unpickle data you trust.</p>
+<p>「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleしてください。</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -588,69 +583,68 @@ or <code class="docutils literal notranslate"><span class="pre">LearnModel.save_
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.load_params">
 <span class="sig-name descname"><span class="pre">load_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.load_params" title="Link to this definition">#</a></dt>
-<dd><p>Load the parameters saved by <code class="docutils literal notranslate"><span class="pre">save_params</span></code>.</p>
+<dd><p><code class="docutils literal notranslate"><span class="pre">save_params</span></code> に保存されたパラメータをロードします。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename (including a extention like .pkl) to be loaded.
-It must be a pickled python dictionary obtained by <code class="docutils literal notranslate"><span class="pre">GenModel.save_params()</span></code>.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>読み込むファイル名（.pkl などの拡張子を含む）です。これは、<code class="docutils literal notranslate"><span class="pre">GenModel.save_params()</span></code> によって取得された、pickle形式のPython辞書でなければなりません。</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module is not secure. Only unpickle data you trust.</p>
+<p>「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleしてください。</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.gen_sample">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gen_sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.gen_sample" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">gen_sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.gen_sample" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.save_sample">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.save_sample" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">save_sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.save_sample" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Generative.visualize_model">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">visualize_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.visualize_model" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">visualize_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Generative.visualize_model" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.base.Posterior">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.base.</span></span><span class="sig-name descname"><span class="pre">Posterior</span></span><a class="headerlink" href="#bayesml.base.Posterior" title="Link to this definition">#</a></dt>
-<dd><p>ベースクラス: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bayesml.base.</span></span><span class="sig-name descname"><span class="pre">Posterior</span></span><a class="headerlink" href="#bayesml.base.Posterior" title="Link to this definition">#</a></dt>
+<dd><p>ベースクラス: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p class="rubric">メソッド</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.base.Posterior.load_h0_params" title="bayesml.base.Posterior.load_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h0_params</span></code></a>(filename)</p></td>
-<td><p>Load the hyperparameters to h0_params.</p></td>
+<td><p>h0_paramsにハイパーパラメータをロードします。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.base.Posterior.load_hn_params" title="bayesml.base.Posterior.load_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_hn_params</span></code></a>(filename)</p></td>
-<td><p>Load the hyperparameters to hn_params.</p></td>
+<td><p>hn_paramsにハイパーパラメータをロードします。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.base.Posterior.overwrite_h0_params" title="bayesml.base.Posterior.overwrite_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwrite_h0_params</span></code></a>()</p></td>
-<td><p>Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values.</p></td>
+<td><p>事後分布のハイパーパラメータの初期値を学習した値で上書きします。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.base.Posterior.reset_hn_params" title="bayesml.base.Posterior.reset_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_hn_params</span></code></a>()</p></td>
-<td><p>Reset the hyperparameters of the posterior distribution to their initial values.</p></td>
+<td><p>事後分布のハイパーパラメータを初期値に戻します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.base.Posterior.save_h0_params" title="bayesml.base.Posterior.save_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h0_params</span></code></a>(filename)</p></td>
-<td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.base.Posterior.save_hn_params" title="bayesml.base.Posterior.save_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_hn_params</span></code></a>(filename)</p></td>
-<td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
 </tr>
 </tbody>
 </table>
@@ -683,35 +677,35 @@ It must be a pickled python dictionary obtained by <code class="docutils literal
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.set_h0_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.set_h0_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">set_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.set_h0_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.get_h0_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.get_h0_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.get_h0_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.save_h0_params">
 <span class="sig-name descname"><span class="pre">save_h0_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.save_h0_params" title="Link to this definition">#</a></dt>
-<dd><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p>
-<p>They are saved as a pickled python dictionary obtained by <code class="docutils literal notranslate"><span class="pre">LearnModel.get_h0_params()</span></code>.</p>
+<dd><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p>
+<p>これらは、<code class="docutils literal notranslate"><span class="pre">LearnModel.get_h0_params()</span></code> で取得したpickled Python辞書として保存されます。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename (including a extention like .pkl) to which the hyperparameters are saved.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>ハイパーパラメータが保存されるファイル名（.pkl などの拡張子を含む）です。</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module is not secure. Only unpickle data you trust.</p>
+<p>「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleしてください。</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -719,61 +713,58 @@ It must be a pickled python dictionary obtained by <code class="docutils literal
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.load_h0_params">
 <span class="sig-name descname"><span class="pre">load_h0_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.load_h0_params" title="Link to this definition">#</a></dt>
-<dd><p>Load the hyperparameters to h0_params.</p>
+<dd><p>h0_paramsにハイパーパラメータをロードします。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename (including a extention like .pkl) to be loaded.
-It must be a pickled python dictionary obtained by
-<code class="docutils literal notranslate"><span class="pre">GenModel.save_h_params()</span></code>, <code class="docutils literal notranslate"><span class="pre">LearnModel.save_h0_params()</span></code> 
-or <code class="docutils literal notranslate"><span class="pre">LearnModel.save_hn_params()</span></code>.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>読み込むファイル名（.pkl などの拡張子を含む）です。これは、<code class="docutils literal notranslate"><span class="pre">GenModel.save_h_params()</span></code>、<code class="docutils literal notranslate"><span class="pre">LearnModel.save_h0_params()</span></code>、または <code class="docutils literal notranslate"><span class="pre">LearnModel.save_hn_params()</span></code> によって生成された、pickle形式のPython辞書でなければなりません。</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module is not secure. Only unpickle data you trust.</p>
+<p>「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleしてください。</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.set_hn_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.set_hn_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">set_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.set_hn_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.get_hn_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.get_hn_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.get_hn_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.save_hn_params">
 <span class="sig-name descname"><span class="pre">save_hn_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.save_hn_params" title="Link to this definition">#</a></dt>
-<dd><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p>
-<p>They are saved as a pickled python dictionary obtained by <code class="docutils literal notranslate"><span class="pre">LearnModel.get_hn_params()</span></code>.</p>
+<dd><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p>
+<p>これらは、<code class="docutils literal notranslate"><span class="pre">LearnModel.get_hn_params()</span></code> で取得されるpickled Python辞書として保存されます。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename (including a extention like .pkl) to which the hyperparameters are saved.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>ハイパーパラメータが保存されるファイル名（.pkl などの拡張子を含む）です。</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module is not secure. Only unpickle data you trust.</p>
+<p>「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleしてください。</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -781,26 +772,23 @@ or <code class="docutils literal notranslate"><span class="pre">LearnModel.save_
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.load_hn_params">
 <span class="sig-name descname"><span class="pre">load_hn_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.load_hn_params" title="Link to this definition">#</a></dt>
-<dd><p>Load the hyperparameters to hn_params.</p>
+<dd><p>hn_paramsにハイパーパラメータをロードします。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename (including a extention like .pkl) to be loaded.
-It must be a pickled python dictionary obtained by
-<code class="docutils literal notranslate"><span class="pre">GenModel.save_h_params()</span></code>, <code class="docutils literal notranslate"><span class="pre">LearnModel.save_h0_params()</span></code> 
-or <code class="docutils literal notranslate"><span class="pre">LearnModel.save_hn_params()</span></code>.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>読み込むファイル名（.pkl などの拡張子を含む）です。これは、<code class="docutils literal notranslate"><span class="pre">GenModel.save_h_params()</span></code>、<code class="docutils literal notranslate"><span class="pre">LearnModel.save_h0_params()</span></code>、または <code class="docutils literal notranslate"><span class="pre">LearnModel.save_hn_params()</span></code> によって生成された、pickle形式のPython辞書でなければなりません。</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module is not secure. Only unpickle data you trust.</p>
+<p>「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleしてください。</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickle</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -808,41 +796,39 @@ or <code class="docutils literal notranslate"><span class="pre">LearnModel.save_
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.reset_hn_params">
 <span class="sig-name descname"><span class="pre">reset_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.reset_hn_params" title="Link to this definition">#</a></dt>
-<dd><p>Reset the hyperparameters of the posterior distribution to their initial values.</p>
-<p>They are reset to the output of <cite>self.get_h0_params()</cite>.
-Note that the parameters of the predictive distribution are also calculated from them.</p>
+<dd><p>事後分布のハイパーパラメータを初期値に戻します。</p>
+<p>これらは <cite>self.get_h0_params()</cite> の出力値にリセットされます。なお、予測分布のパラメータもこれらから計算されることにご留意ください。</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.overwrite_h0_params">
 <span class="sig-name descname"><span class="pre">overwrite_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.overwrite_h0_params" title="Link to this definition">#</a></dt>
-<dd><p>Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values.</p>
-<p>They are overwitten by the output of <cite>self.get_hn_params()</cite>.
-Note that the parameters of the predictive distribution are also calculated from them.</p>
+<dd><p>事後分布のハイパーパラメータの初期値を学習した値で上書きします。</p>
+<p>これらは <cite>self.get_hn_params()</cite> の出力によって上書きされます。なお、予測分布のパラメータもこれらから計算されることにご留意ください。</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.update_posterior">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_posterior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.update_posterior" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">update_posterior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.update_posterior" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.estimate_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimate_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.estimate_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">estimate_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.estimate_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.Posterior.visualize_posterior">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">visualize_posterior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.visualize_posterior" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">visualize_posterior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.Posterior.visualize_posterior" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.base.PredictiveMixin">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.base.</span></span><span class="sig-name descname"><span class="pre">PredictiveMixin</span></span><a class="headerlink" href="#bayesml.base.PredictiveMixin" title="Link to this definition">#</a></dt>
-<dd><p>ベースクラス: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bayesml.base.</span></span><span class="sig-name descname"><span class="pre">PredictiveMixin</span></span><a class="headerlink" href="#bayesml.base.PredictiveMixin" title="Link to this definition">#</a></dt>
+<dd><p>ベースクラス: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p class="rubric">メソッド</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><strong>calc_pred_dist</strong></p></td>
@@ -862,22 +848,22 @@ Note that the parameters of the predictive distribution are also calculated from
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.PredictiveMixin.get_p_params">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_p_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.PredictiveMixin.get_p_params" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_p_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.PredictiveMixin.get_p_params" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.PredictiveMixin.calc_pred_dist">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_pred_dist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.PredictiveMixin.calc_pred_dist" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">calc_pred_dist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.PredictiveMixin.calc_pred_dist" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.PredictiveMixin.make_prediction">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">make_prediction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.PredictiveMixin.make_prediction" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">make_prediction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.PredictiveMixin.make_prediction" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.base.PredictiveMixin.pred_and_update">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pred_and_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.PredictiveMixin.pred_and_update" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">pred_and_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.base.PredictiveMixin.pred_and_update" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -930,9 +916,9 @@ Note that the parameters of the predictive distribution are also calculated from
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.base">bayesml.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">サブパッケージ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">サブモジュール</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.base">bayesml.base モジュール</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.base.Generative"><code class="docutils literal notranslate"><span class="pre">Generative</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.base.Generative.set_h_params"><code class="docutils literal notranslate"><span class="pre">Generative.set_h_params()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.base.Generative.get_h_params"><code class="docutils literal notranslate"><span class="pre">Generative.get_h_params()</span></code></a></li>

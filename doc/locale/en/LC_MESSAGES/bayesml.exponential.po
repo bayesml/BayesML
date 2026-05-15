@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"POT-Creation-Date: 2026-02-11 09:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -210,10 +210,6 @@ msgid ""
 "&\\kappa_\\mathrm{p} = \\alpha_n, \\\\\n"
 "&\\lambda_\\mathrm{p} = \\beta_n.\n"
 "\n"
-msgstr ""
-
-#: bayesml.exponential._exponential.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
 msgstr ""
 
 #: bayesml.exponential._exponential.GenModel:2 of
@@ -584,12 +580,6 @@ msgstr ""
 #: bayesml.exponential._exponential.GenModel.visualize_model:26
 #: bayesml.exponential._exponential.LearnModel.visualize_posterior:19 of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.exponential._exponential.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.exponential._exponential.LearnModel:2 of
@@ -1060,4 +1050,12 @@ msgstr ""
 #: bayesml.exponential._exponential.LearnModel.predict:15 of
 msgid "The predicted value under the squared loss function."
 msgstr ""
+
+#~ msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Bases: :py:class:`~bayesml.base.Posterior`, "
+#~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
 

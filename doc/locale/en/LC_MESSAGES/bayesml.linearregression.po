@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"POT-Creation-Date: 2026-02-11 09:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -295,10 +295,6 @@ msgid ""
 "\\boldsymbol{\\Lambda}_{n} \\boldsymbol{x}_{n+1}\\right)^{-1}, \\\\\n"
 "\\nu_\\mathrm{p} &= 2 \\alpha_{n}.\n"
 "\n"
-msgstr ""
-
-#: bayesml.linearregression._linearregression.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel:2 of
@@ -802,12 +798,6 @@ msgstr ""
 #: bayesml.linearregression._linearregression.LearnModel.visualize_posterior:19
 #: of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.linearregression._linearregression.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.LearnModel:2 of
@@ -1366,4 +1356,12 @@ msgid ""
 "The predicted values under the squared loss function.  The size of the "
 "predicted values is the same as the sample size of x."
 msgstr ""
+
+#~ msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Bases: :py:class:`~bayesml.base.Posterior`, "
+#~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
 

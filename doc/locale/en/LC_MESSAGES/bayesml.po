@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"POT-Creation-Date: 2026-02-11 09:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -33,11 +33,6 @@ msgstr ""
 
 #: ../../bayesml.rst:27
 msgid "bayesml.base module"
-msgstr ""
-
-#: bayesml.base.Generative:1 bayesml.base.Posterior:1
-#: bayesml.base.PredictiveMixin:1 of
-msgid "Bases: :py:class:`object`"
 msgstr ""
 
 #: bayesml.base.Generative:7 bayesml.base.Posterior:7
@@ -345,4 +340,7 @@ msgstr ""
 #: bayesml.base.PredictiveMixin:14 of
 msgid "**pred_and_update**"
 msgstr ""
+
+#~ msgid "Bases: :py:class:`object`"
+#~ msgstr ""
 

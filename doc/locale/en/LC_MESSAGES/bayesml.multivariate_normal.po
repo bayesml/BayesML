@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"POT-Creation-Date: 2026-02-11 09:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -319,10 +319,6 @@ msgid ""
 "1)}{\\kappa_n + 1} \\boldsymbol{W}_n, \\\\\n"
 "\\nu_\\mathrm{p} &= \\nu_n - D + 1.\n"
 "\n"
-msgstr ""
-
-#: bayesml.multivariate_normal._multivariatenormal.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
 msgstr ""
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:2 of
@@ -801,12 +797,6 @@ msgstr ""
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.visualize_posterior:19
 #: of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.multivariate_normal._multivariatenormal.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:2 of
@@ -1414,4 +1404,12 @@ msgstr ""
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict:15 of
 msgid "The predicted value under the squared loss function."
 msgstr ""
+
+#~ msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Bases: :py:class:`~bayesml.base.Posterior`, "
+#~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
 

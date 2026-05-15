@@ -38,13 +38,14 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=ba1e48b6"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/translations.js?v=4755f45a"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bayesml.normal';</script>
     <link rel="icon" href="_static/BayesML_favicon.ico"/>
     <link rel="index" title="索引" href="genindex.html" />
@@ -184,8 +185,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.poisson.html">bayesml.poisson package</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html">Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">使用例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html"><code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> に基づく予測区間の導出（AISTATS 2025でアクセプト済）</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML Developers</a></li>
@@ -352,7 +353,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.normal">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.normal">モジュール内容</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.normal.GenModel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.normal.GenModel.get_constants"><code class="docutils literal notranslate"><span class="pre">GenModel.get_constants()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.normal.GenModel.set_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_h_params()</span></code></a></li>
@@ -402,13 +403,13 @@ document.write(`
 <h1>bayesml.normal package<a class="headerlink" href="#bayesml-normal-package" title="Link to this heading">#</a></h1>
 <img alt="_images/normal_example.png" src="_images/normal_example.png" />
 <section id="module-bayesml.normal">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-bayesml.normal" title="Link to this heading">#</a></h2>
-<p>The normal distribution with the normaml-gamma prior distribution.</p>
-<p>The stochastic data generative model is as follows:</p>
+<span id="module-contents"></span><h2>モジュール内容<a class="headerlink" href="#module-bayesml.normal" title="Link to this heading">#</a></h2>
+<p>正規分布と、正規-ガンマ事前分布を用いたモデルです。</p>
+<p>確率的データ生成モデルは以下の通りです：</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>: a data point</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mu \in \mathbb{R}\)</span>: a mean parameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\tau \in \mathbb{R}_{&gt;0}\)</span>: a precision parameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>: データ点</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu \in \mathbb{R}\)</span>: 平均パラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau \in \mathbb{R}_{&gt;0}\)</span>: ノイズの精度パラメータ</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}p(x | \mu, \tau) &amp;= \mathcal{N}(x|\mu,\tau^{-1})\\
@@ -416,13 +417,13 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\begin{split}&amp;\mathbb{E}[x | \mu, \tau] = \mu, \\
 &amp;\mathbb{V}[x | \mu, \tau] = \tau^{-1}.\end{split}\]</div>
-<p>The prior distribution is as follows:</p>
+<p>事前分布は以下の通りです：</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(m_0 \in \mathbb{R}\)</span>: a hyperparameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\kappa_0 \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha_0 \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\beta_0 \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Gamma ( \cdot )\)</span>: the gamma function</p></li>
+<li><p><span class="math notranslate nohighlight">\(m_0 \in \mathbb{R}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\kappa_0 \in \mathbb{R}_{&gt;0}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha_0 \in \mathbb{R}_{&gt;0}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_0 \in \mathbb{R}_{&gt;0}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma (\cdot)\)</span>: ガンマ関数</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}p(\mu, \tau) &amp;= \mathcal{N}(\mu|m_0,(\kappa_0 \tau)^{-1}) \mathrm{Gam}(\tau | \alpha_0, \beta_0) \\
@@ -432,14 +433,14 @@ document.write(`
 \mathbb{V}[\mu] &amp;= \frac{\beta_0}{\kappa_0 (\alpha_0 - 1)} &amp; (\alpha_0 &gt; 1), \\
 \mathbb{E}[\tau] &amp;= \frac{\alpha_0}{\beta_0}, \\
 \mathbb{V}[\tau] &amp;= \frac{\alpha_0}{\beta_0^2}.\end{split}\]</div>
-<p>The posterior distribution is as follows:</p>
+<p>事後分布は以下の通りです：</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x^n = (x_1, x_2, \dots , x_n) \in \mathbb{R}^n\)</span>: given data</p></li>
-<li><p><span class="math notranslate nohighlight">\(m_n \in \mathbb{R}\)</span>: a hyperparameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\kappa_n \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha_n \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\beta_n \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Gamma ( \cdot )\)</span>: the gamma function</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^n = (x_1, x_2, \dots , x_n) \in \mathbb{R}^n\)</span>: 与えられたデータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(m_n \in \mathbb{R}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\kappa_n \in \mathbb{R}_{&gt;0}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha_n \in \mathbb{R}_{&gt;0}\)</span>:ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_n \in \mathbb{R}_{&gt;0}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma (\cdot)\)</span>: ガンマ関数</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}p(\mu, \tau | x^n) &amp;= \mathcal{N}(\mu|m_n,(\kappa_n \tau)^{-1}) \mathrm{Gam}(\tau | \alpha_n, \beta_n) \\
@@ -449,19 +450,19 @@ document.write(`
 \mathbb{V}[\mu | x^n] &amp;= \frac{\beta_n}{\kappa_n (\alpha_n - 1)} &amp; (\alpha_n &gt; 1), \\
 \mathbb{E}[\tau | x^n] &amp;= \frac{\alpha_n}{\beta_n}, \\
 \mathbb{V}[\tau | x^n] &amp;= \frac{\alpha_n}{\beta_n^2},\end{split}\]</div>
-<p>where the updating rule of the hyperparameters is</p>
+<p>ここでハイパーパラメータの更新式は以下で与えられます</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\bar{x} &amp;= \frac{1}{n} \sum_{i=1}^n x_i, \\
 m_n &amp;= \frac{\kappa_0 m_0 + n \bar{x}}{\kappa_0 + n}, \\
 \kappa_n &amp;= \kappa_0 + n, \\
 \alpha_n &amp;= \alpha_0 + \frac{n}{2}, \\
 \beta_n &amp;=  \beta_0 + \frac{1}{2} \left( \sum_{i=1}^n (x_i - \bar{x})^2 + \frac{\kappa_0 n}{\kappa_0 + n} (\bar{x} - m_0)^2 \right).\end{split}\]</div>
-<p>The predictive distribution is as follows:</p>
+<p>予測分布は以下の通りです：</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x_{n+1} \in \mathbb{R}\)</span>: a new data point</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mu_\mathrm{p} \in \mathbb{R}\)</span>: the hyperparameter of the predictive distribution</p></li>
-<li><p><span class="math notranslate nohighlight">\(\lambda_\mathrm{p} \in \mathbb{R}_{&gt;0}\)</span>: the hyperparameter of the predictive distribution</p></li>
-<li><p><span class="math notranslate nohighlight">\(\nu_\mathrm{p} \in \mathbb{R}_{&gt;0}\)</span>: the hyperparameter of the predictive distribution</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{n+1} \in \mathbb{R}\)</span>: 新たなデータ点</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu_\mathrm{p} \in \mathbb{R}\)</span>: 予測分布のハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda_\mathrm{p} \in \mathbb{R}_{&gt;0}\)</span>: 予測分布のハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\nu_\mathrm{p} \in \mathbb{R}_{&gt;0}\)</span>: 予測分布のハイパーパラメータ</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}p(x_{n+1} | x^{n} ) &amp;= \mathrm{St}(x_{n+1} | \mu_\mathrm{p}, \lambda_\mathrm{p}, \nu_\mathrm{p}) \\
@@ -469,78 +470,77 @@ m_n &amp;= \frac{\kappa_0 m_0 + n \bar{x}}{\kappa_0 + n}, \\
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbb{E}[x_{n+1} | x^n] &amp;= \mu_\mathrm{p} &amp; (\nu_\mathrm{p} &gt; 1), \\
 \mathbb{V}[x_{n+1} | x^n] &amp;= \frac{1}{\lambda_\mathrm{p}} \frac{\nu_\mathrm{p}}{\nu_\mathrm{p}-2} &amp; (\nu_\mathrm{p} &gt; 2),\end{split}\]</div>
-<p>where the parameters are obtained from the hyperparameters of the posterior distribution as follows:</p>
+<p>ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mu_\mathrm{p} &amp;= \mu_n, \\
 \lambda_\mathrm{p} &amp;= \frac{\kappa_n}{\kappa_n + 1} \frac{\alpha_n}{\beta_n}, \\
 \nu_\mathrm{p} &amp;= 2 \alpha_n.\end{split}\]</div>
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.normal.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bayesml.normal.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel" title="Link to this definition">#</a></dt>
 <dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Generative" title="bayesml.base.Generative"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generative</span></code></a></p>
-<p>The stochastic data generative model and the prior distribution</p>
+<p>確率的データ生成モデルと事前分布</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>mu</strong><span class="classifier">float, optional</span></dt><dd><p>a real number, by default 0.0</p>
+<dt><strong>mu</strong><span class="classifier">float, optional</span></dt><dd><p>実数。デフォルトは 0.0 です</p>
 </dd>
-<dt><strong>tau</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default 1.0</p>
+<dt><strong>tau</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトでは1.0です</p>
 </dd>
-<dt><strong>h_m</strong><span class="classifier">float, optional</span></dt><dd><p>a real number, by default 0.0</p>
+<dt><strong>h_m</strong><span class="classifier">float, optional</span></dt><dd><p>実数。デフォルトは 0.0 です</p>
 </dd>
-<dt><strong>h_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default 1.0</p>
+<dt><strong>h_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトでは1.0です</p>
 </dd>
-<dt><strong>h_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default 1.0</p>
+<dt><strong>h_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトでは1.0です</p>
 </dd>
-<dt><strong>h_beta</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default 1.0</p>
+<dt><strong>h_beta</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトでは1.0です</p>
 </dd>
-<dt><strong>seed</strong><span class="classifier">{None, int}, optional</span></dt><dd><p>A seed to initialize numpy.random.default_rng(),
-by default None</p>
-</dd>
-</dl>
+<dt><strong>seed</strong><span class="classifier">{None, int}, optional</span></dt><dd><p>numpy.random.default_rng() を初期化するシード値です。デフォルトでは None</p>
 </dd>
 </dl>
-<p class="rubric">Methods</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+</dd>
+</dl>
+<p class="rubric">メソッド</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.GenModel.gen_params" title="bayesml.normal.GenModel.gen_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_params</span></code></a>()</p></td>
-<td><p>Generate the parameter from the prior distribution.</p></td>
+<td><p>事前分布からパラメータを生成します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.GenModel.gen_sample" title="bayesml.normal.GenModel.gen_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_sample</span></code></a>(sample_size)</p></td>
-<td><p>Generate a sample from the stochastic data generative model.</p></td>
+<td><p>確率的データ生成モデルからサンプルを生成します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.GenModel.get_constants" title="bayesml.normal.GenModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
-<td><p>Get constants of GenModel.</p></td>
+<td><p>GenModel の定数を取得します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.GenModel.get_h_params" title="bayesml.normal.GenModel.get_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h_params</span></code></a>()</p></td>
-<td><p>Get the hyperparameters of the prior distribution.</p></td>
+<td><p>事前分布のハイパーパラメータを取得します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.GenModel.get_params" title="bayesml.normal.GenModel.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
-<td><p>Get the parameter of the sthocastic data generative model.</p></td>
+<td><p>確率的データ生成モデルのパラメータを取得します。</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h_params</span></code>(filename)</p></td>
-<td><p>Load the hyperparameters to h_params.</p></td>
+<td><p>h_paramsにハイパーパラメータをロードします。</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_params</span></code>(filename)</p></td>
 <td><p>Load the parameters saved by <code class="docutils literal notranslate"><span class="pre">save_params</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h_params</span></code>(filename)</p></td>
-<td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_params</span></code>(filename)</p></td>
-<td><p>Save the parameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+<td><p>python の <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってパラメータを保存します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.GenModel.save_sample" title="bayesml.normal.GenModel.save_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_sample</span></code></a>(filename, sample_size)</p></td>
-<td><p>Save the generated sample as NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> format.</p></td>
+<td><p>生成されたサンプルを NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> フォーマットで保存します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.GenModel.set_h_params" title="bayesml.normal.GenModel.set_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h_params</span></code></a>([h_m, h_kappa, h_alpha, h_beta])</p></td>
-<td><p>Set the hyperparameters of the prior distribution.</p></td>
+<td><p>事前分布のハイパーパラメータを設定します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.GenModel.set_params" title="bayesml.normal.GenModel.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>([mu, tau])</p></td>
-<td><p>Set the parameter of the sthocastic data generative model.</p></td>
+<td><p>確率的データ生成モデルのパラメータを設定します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.GenModel.visualize_model" title="bayesml.normal.GenModel.visualize_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_model</span></code></a>([sample_size, hist_bins])</p></td>
-<td><p>Visualize the stochastic data generative model and generated samples.</p></td>
+<td><p>確率的データ生成モデルと生成されたサンプルを可視化します。</p></td>
 </tr>
 </tbody>
 </table>
@@ -548,11 +548,10 @@ by default None</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel.get_constants">
 <span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel.get_constants" title="Link to this definition">#</a></dt>
-<dd><p>Get constants of GenModel.</p>
-<p>This model does not have any constants. 
-Therefore, this function returns an emtpy dict <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<dd><p>GenModel の定数を取得します。</p>
+<p>このモデルは定数を持ちません。  したがって、この関数は emtpy dict <code class="docutils literal notranslate"><span class="pre">{}</span></code> を返します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>constants</strong><span class="classifier">an empty dict</span></dt><dd></dd>
 </dl>
@@ -563,17 +562,17 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel.set_h_params">
 <span class="sig-name descname"><span class="pre">set_h_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel.set_h_params" title="Link to this definition">#</a></dt>
-<dd><p>Set the hyperparameters of the prior distribution.</p>
+<dd><p>事前分布のハイパーパラメータを設定します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>h_m</strong><span class="classifier">float, optional</span></dt><dd><p>a real number, by default None</p>
+<dt><strong>h_m</strong><span class="classifier">float, optional</span></dt><dd><p>実数。デフォルトは None です</p>
 </dd>
-<dt><strong>h_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None</p>
+<dt><strong>h_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
-<dt><strong>h_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None</p>
+<dt><strong>h_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
-<dt><strong>h_beta</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None</p>
+<dt><strong>h_beta</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
 </dl>
 </dd>
@@ -583,15 +582,15 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel.get_h_params">
 <span class="sig-name descname"><span class="pre">get_h_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel.get_h_params" title="Link to this definition">#</a></dt>
-<dd><p>Get the hyperparameters of the prior distribution.</p>
+<dd><p>事前分布のハイパーパラメータを取得します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>h_params</strong><span class="classifier">dict of {str: float}</span></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_m&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h_m</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_kappa&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h_kappa</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_alpha&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h_alpha</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_beta&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h_beta</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_m&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h_m``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_kappa&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h_kappa``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_alpha&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h_alpha</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_beta&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h_beta</span></code> の値</p></li>
 </ul>
 </dd>
 </dl>
@@ -602,20 +601,20 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel.gen_params">
 <span class="sig-name descname"><span class="pre">gen_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel.gen_params" title="Link to this definition">#</a></dt>
-<dd><p>Generate the parameter from the prior distribution.</p>
-<p>The generated vaule is set at <code class="docutils literal notranslate"><span class="pre">self.mu</span></code> and <code class="docutils literal notranslate"><span class="pre">self.tau</span></code>.</p>
+<dd><p>事前分布からパラメータを生成します。</p>
+<p>生成された値は、<code class="docutils literal notranslate"><span class="pre">self.mu</span></code> および <code class="docutils literal notranslate"><span class="pre">self.tau</span></code> に設定されます。</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel.set_params">
 <span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel.set_params" title="Link to this definition">#</a></dt>
-<dd><p>Set the parameter of the sthocastic data generative model.</p>
+<dd><p>確率的データ生成モデルのパラメータを設定します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>mu</strong><span class="classifier">float, optional</span></dt><dd><p>a real number <span class="math notranslate nohighlight">\(mu \in \mathbb{R}\)</span>, by default None.</p>
+<dt><strong>mu</strong><span class="classifier">float, optional</span></dt><dd><p>実数 <span class="math notranslate nohighlight">\(mu \in \mathbb{R}\)</span>。デフォルトはNoneです。</p>
 </dd>
-<dt><strong>tau</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None.</p>
+<dt><strong>tau</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
 </dl>
 </dd>
@@ -625,13 +624,13 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel.get_params">
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel.get_params" title="Link to this definition">#</a></dt>
-<dd><p>Get the parameter of the sthocastic data generative model.</p>
+<dd><p>確率的データ生成モデルのパラメータを取得します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict of {str:float}</span></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mu&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.mu</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;tau&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.tau</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mu&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.mu``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;tau&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.tau</span></code> の値</p></li>
 </ul>
 </dd>
 </dl>
@@ -642,17 +641,17 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel.gen_sample">
 <span class="sig-name descname"><span class="pre">gen_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel.gen_sample" title="Link to this definition">#</a></dt>
-<dd><p>Generate a sample from the stochastic data generative model.</p>
+<dd><p>確率的データ生成モデルからサンプルを生成します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>sample_size</strong><span class="classifier">int</span></dt><dd><p>A positive integer</p>
+<dt><strong>sample_size</strong><span class="classifier">int</span></dt><dd><p>正の整数</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>1 dimensional array whose size is <code class="docutils literal notranslate"><span class="pre">sammple_size</span></code>.</p>
+<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>サイズが「sammple_size」の1次元配列です。</p>
 </dd>
 </dl>
 </dd>
@@ -662,15 +661,14 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel.save_sample">
 <span class="sig-name descname"><span class="pre">save_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel.save_sample" title="Link to this definition">#</a></dt>
-<dd><p>Save the generated sample as NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> format.</p>
-<p>It is saved as a NpzFile with keyword: &quot;x&quot;.</p>
+<dd><p>生成されたサンプルを NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> フォーマットで保存します。</p>
+<p>キーワード &quot;x &quot;でNpzFileとして保存されます。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename to which the sample is saved.
-<code class="docutils literal notranslate"><span class="pre">.npz</span></code> will be appended if it isn't there.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>サンプルを保存するファイル名。ない場合は <code class="docutils literal notranslate"><span class="pre">.npz</span></code> が追加されます。</p>
 </dd>
-<dt><strong>sample_size</strong><span class="classifier">int</span></dt><dd><p>A positive integer</p>
+<dt><strong>sample_size</strong><span class="classifier">int</span></dt><dd><p>正の整数</p>
 </dd>
 </dl>
 </dd>
@@ -678,7 +676,7 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v2.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -686,18 +684,18 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.GenModel.visualize_model">
 <span class="sig-name descname"><span class="pre">visualize_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.GenModel.visualize_model" title="Link to this definition">#</a></dt>
-<dd><p>Visualize the stochastic data generative model and generated samples.</p>
+<dd><p>確率的データ生成モデルと生成されたサンプルを可視化します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>sample_size</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default 1000</p>
+<dt><strong>sample_size</strong><span class="classifier">int, オプション</span></dt><dd><p>正の整数（デフォルトは1000）</p>
 </dd>
-<dt><strong>hist_bins</strong><span class="classifier">float, optional</span></dt><dd><p>A positive float, by default 10</p>
-</dd>
-</dl>
+<dt><strong>hist_bins</strong><span class="classifier">float, optional</span></dt><dd><p>正の浮動小数点数、デフォルト値は10</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
+</dd>
+</dl>
+<p class="rubric">例</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">normal</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">GenModel</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">visualize_model</span><span class="p">()</span>
@@ -710,112 +708,112 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.normal.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h0_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bayesml.normal.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h0_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel" title="Link to this definition">#</a></dt>
 <dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Posterior" title="bayesml.base.Posterior"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posterior</span></code></a>, <a class="reference internal" href="bayesml.html#bayesml.base.PredictiveMixin" title="bayesml.base.PredictiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictiveMixin</span></code></a></p>
-<p>The posterior distribution and the predictive distribution.</p>
+<p>事後分布と予測分布</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>h0_m</strong><span class="classifier">float, optional</span></dt><dd><p>a real number, by default 0.0</p>
+<dt><strong>h0_m</strong><span class="classifier">float, optional</span></dt><dd><p>実数。デフォルトは 0.0 です</p>
 </dd>
-<dt><strong>h0_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default 1.0</p>
+<dt><strong>h0_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトでは1.0です</p>
 </dd>
-<dt><strong>h0_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default 1.0</p>
+<dt><strong>h0_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトでは1.0です</p>
 </dd>
-<dt><strong>h0_beta</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default 1.0</p>
+<dt><strong>h0_beta</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトでは1.0です</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dt class="field-even">属性<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>hn_m</strong><span class="classifier">float</span></dt><dd><p>a real number</p>
+<dt><strong>hn_m</strong><span class="classifier">float</span></dt><dd><p>実数</p>
 </dd>
-<dt><strong>hn_kappa</strong><span class="classifier">float</span></dt><dd><p>a positive real number</p>
+<dt><strong>hn_kappa</strong><span class="classifier">float</span></dt><dd><p>正の実数</p>
 </dd>
-<dt><strong>hn_alpha</strong><span class="classifier">float</span></dt><dd><p>a positive real number</p>
+<dt><strong>hn_alpha</strong><span class="classifier">float</span></dt><dd><p>正の実数</p>
 </dd>
-<dt><strong>hn_beta</strong><span class="classifier">float</span></dt><dd><p>a positive real number</p>
+<dt><strong>hn_beta</strong><span class="classifier">float</span></dt><dd><p>正の実数</p>
 </dd>
-<dt><strong>p_mu</strong><span class="classifier">float</span></dt><dd><p>a real number</p>
+<dt><strong>p_mu</strong><span class="classifier">float</span></dt><dd><p>実数</p>
 </dd>
-<dt><strong>p_lambda</strong><span class="classifier">float</span></dt><dd><p>a positive real number</p>
+<dt><strong>p_lambda</strong><span class="classifier">float</span></dt><dd><p>正の実数</p>
 </dd>
-<dt><strong>p_nu</strong><span class="classifier">float</span></dt><dd><p>a positive real number</p>
-</dd>
-</dl>
+<dt><strong>p_nu</strong><span class="classifier">float</span></dt><dd><p>正の実数</p>
 </dd>
 </dl>
-<p class="rubric">Methods</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+</dd>
+</dl>
+<p class="rubric">メソッド</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.calc_log_marginal_likelihood" title="bayesml.normal.LearnModel.calc_log_marginal_likelihood"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_log_marginal_likelihood</span></code></a>()</p></td>
-<td><p>Calculate log marginal likelihood</p></td>
+<td><p>対数周辺尤度の計算</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.calc_pred_dist" title="bayesml.normal.LearnModel.calc_pred_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_dist</span></code></a>()</p></td>
-<td><p>Calculate the parameters of the predictive distribution.</p></td>
+<td><p>予測分布のパラメータを計算します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.calc_pred_var" title="bayesml.normal.LearnModel.calc_pred_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_var</span></code></a>()</p></td>
-<td><p>Calculate the variance of the predictive distribution.</p></td>
+<td><p>予測分布の分散を計算</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.estimate_interval" title="bayesml.normal.LearnModel.estimate_interval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_interval</span></code></a>([credibility])</p></td>
-<td><p>Credible interval of the parameter.</p></td>
+<td><p>パラメータの信頼区間</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.estimate_params" title="bayesml.normal.LearnModel.estimate_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_params</span></code></a>([loss, dict_out])</p></td>
-<td><p>Estimate the parameter of the stochastic data generative model under the given criterion.</p></td>
+<td><p>与えられた基準の下で、確率的データ生成モデルのパラメータを推定します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.fit" title="bayesml.normal.LearnModel.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(x)</p></td>
-<td><p>Fit the model to the data.</p></td>
+<td><p>モデルをデータに当てはめます。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.get_constants" title="bayesml.normal.LearnModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
-<td><p>Get constants of LearnModel.</p></td>
+<td><p>LearnModel の定数を取得します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.get_h0_params" title="bayesml.normal.LearnModel.get_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h0_params</span></code></a>()</p></td>
-<td><p>Get the initial values of the hyperparameters of the posterior distribution.</p></td>
+<td><p>事後分布のハイパーパラメータの初期値を取得します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.get_hn_params" title="bayesml.normal.LearnModel.get_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hn_params</span></code></a>()</p></td>
-<td><p>Get the hyperparameters of the posterior distribution.</p></td>
+<td><p>事後分布のハイパーパラメータを取得します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.get_p_params" title="bayesml.normal.LearnModel.get_p_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_p_params</span></code></a>()</p></td>
-<td><p>Get the parameters of the predictive distribution.</p></td>
+<td><p>予測分布のパラメータを取得します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h0_params</span></code>(filename)</p></td>
-<td><p>Load the hyperparameters to h0_params.</p></td>
+<td><p>h0_paramsにハイパーパラメータをロードします。</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_hn_params</span></code>(filename)</p></td>
-<td><p>Load the hyperparameters to hn_params.</p></td>
+<td><p>hn_paramsにハイパーパラメータをロードします。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.make_prediction" title="bayesml.normal.LearnModel.make_prediction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_prediction</span></code></a>([loss])</p></td>
-<td><p>Predict a new data point under the given criterion.</p></td>
+<td><p>与えられた基準の下で、新しいデータ点を予測します。</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwrite_h0_params</span></code>()</p></td>
-<td><p>Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values.</p></td>
+<td><p>事後分布のハイパーパラメータの初期値を学習した値で上書きします。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.pred_and_update" title="bayesml.normal.LearnModel.pred_and_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pred_and_update</span></code></a>(x[, loss])</p></td>
-<td><p>Predict a new data point and update the posterior sequentially.</p></td>
+<td><p>逐次的に新しいデータ点を予測し、事後分布を更新します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.predict" title="bayesml.normal.LearnModel.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>()</p></td>
-<td><p>Predict the next data point.</p></td>
+<td><p>次のデータ点を予測します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_hn_params</span></code>()</p></td>
-<td><p>Reset the hyperparameters of the posterior distribution to their initial values.</p></td>
+<td><p>事後分布のハイパーパラメータを初期値に戻します。</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h0_params</span></code>(filename)</p></td>
-<td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_hn_params</span></code>(filename)</p></td>
-<td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.set_h0_params" title="bayesml.normal.LearnModel.set_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h0_params</span></code></a>([h0_m, h0_kappa, h0_alpha, ...])</p></td>
-<td><p>Set the hyperparameters of the prior distribution.</p></td>
+<td><p>事前分布のハイパーパラメータを設定します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.set_hn_params" title="bayesml.normal.LearnModel.set_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_hn_params</span></code></a>([hn_m, hn_kappa, hn_alpha, ...])</p></td>
-<td><p>Set updated values of the hyperparameter of the posterior distribution.</p></td>
+<td><p>事後分布のハイパーパラメータの更新値を設定します。</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.update_posterior" title="bayesml.normal.LearnModel.update_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_posterior</span></code></a>(x)</p></td>
-<td><p>Update the hyperparameters of the posterior distribution using traning data.</p></td>
+<td><p>訓練データを使って事後分布のハイパーパラメータを更新します。</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.normal.LearnModel.visualize_posterior" title="bayesml.normal.LearnModel.visualize_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_posterior</span></code></a>()</p></td>
-<td><p>Visualize the posterior distribution for the parameter.</p></td>
+<td><p>パラメータの事後分布を可視化します。</p></td>
 </tr>
 </tbody>
 </table>
@@ -823,11 +821,10 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.get_constants">
 <span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.get_constants" title="Link to this definition">#</a></dt>
-<dd><p>Get constants of LearnModel.</p>
-<p>This model does not have any constants. 
-Therefore, this function returns an emtpy dict <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<dd><p>LearnModel の定数を取得します。</p>
+<p>このモデルは定数を持ちません。  したがって、この関数は emtpy dict <code class="docutils literal notranslate"><span class="pre">{}</span></code> を返します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>constants</strong><span class="classifier">an empty dict</span></dt><dd></dd>
 </dl>
@@ -838,17 +835,17 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.set_h0_params">
 <span class="sig-name descname"><span class="pre">set_h0_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h0_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.set_h0_params" title="Link to this definition">#</a></dt>
-<dd><p>Set the hyperparameters of the prior distribution.</p>
+<dd><p>事前分布のハイパーパラメータを設定します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>h0_m</strong><span class="classifier">float, optional</span></dt><dd><p>a real number, by default None</p>
+<dt><strong>h0_m</strong><span class="classifier">float, optional</span></dt><dd><p>実数。デフォルトは None です</p>
 </dd>
-<dt><strong>h0_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None</p>
+<dt><strong>h0_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
-<dt><strong>h0_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None</p>
+<dt><strong>h0_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
-<dt><strong>h0_beta</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None</p>
+<dt><strong>h0_beta</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
 </dl>
 </dd>
@@ -858,15 +855,15 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.get_h0_params">
 <span class="sig-name descname"><span class="pre">get_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.get_h0_params" title="Link to this definition">#</a></dt>
-<dd><p>Get the initial values of the hyperparameters of the posterior distribution.</p>
+<dd><p>事後分布のハイパーパラメータの初期値を取得します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>h0_params</strong><span class="classifier">dict of {str: float}</span></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_m&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h0_m</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_kappa&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h0_kappa</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_alpha&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h0_alpha</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_beta&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h0_beta</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_m&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h0_m``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_kappa&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h0_kappa</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_alpha&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h0_alpha</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_beta&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h0_beta</span></code> の値</p></li>
 </ul>
 </dd>
 </dl>
@@ -877,17 +874,17 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.set_hn_params">
 <span class="sig-name descname"><span class="pre">set_hn_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hn_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.set_hn_params" title="Link to this definition">#</a></dt>
-<dd><p>Set updated values of the hyperparameter of the posterior distribution.</p>
+<dd><p>事後分布のハイパーパラメータの更新値を設定します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>hn_m</strong><span class="classifier">float, optional</span></dt><dd><p>a real number, by default None</p>
+<dt><strong>hn_m</strong><span class="classifier">float, optional</span></dt><dd><p>実数。デフォルトは None です</p>
 </dd>
-<dt><strong>hn_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None</p>
+<dt><strong>hn_kappa</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
-<dt><strong>hn_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None</p>
+<dt><strong>hn_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
-<dt><strong>hn_beta</strong><span class="classifier">float, optional</span></dt><dd><p>a positive real number, by default None</p>
+<dt><strong>hn_beta</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
 </dl>
 </dd>
@@ -897,15 +894,15 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.get_hn_params">
 <span class="sig-name descname"><span class="pre">get_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.get_hn_params" title="Link to this definition">#</a></dt>
-<dd><p>Get the hyperparameters of the posterior distribution.</p>
+<dd><p>事後分布のハイパーパラメータを取得します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>hn_params</strong><span class="classifier">dict of {str: float}</span></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_m&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_m</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_kappa&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_kappa</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_alpha&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_alpha</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_beta&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_beta</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_m&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.hn_m``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_kappa&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.hn_kappa``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_alpha&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.hn_alpha</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_beta&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.hn_beta</span></code> の値</p></li>
 </ul>
 </dd>
 </dl>
@@ -916,11 +913,11 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.update_posterior">
 <span class="sig-name descname"><span class="pre">update_posterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.update_posterior" title="Link to this definition">#</a></dt>
-<dd><p>Update the hyperparameters of the posterior distribution using traning data.</p>
+<dd><p>訓練データを使って事後分布のハイパーパラメータを更新します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Real numbers.</p>
+<dt><strong>x</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>実数</p>
 </dd>
 </dl>
 </dd>
@@ -930,28 +927,24 @@ Therefore, this function returns an emtpy dict <code class="docutils literal not
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.estimate_params">
 <span class="sig-name descname"><span class="pre">estimate_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'squared'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.estimate_params" title="Link to this definition">#</a></dt>
-<dd><p>Estimate the parameter of the stochastic data generative model under the given criterion.</p>
-<p>Note that the criterion is applied to estimating <code class="docutils literal notranslate"><span class="pre">mu</span></code> and <code class="docutils literal notranslate"><span class="pre">tau</span></code> independently.
-Therefore, a tuple of the student's t-distribution and the gamma distribution will be returned when loss=&quot;KL&quot;</p>
+<dd><p>与えられた基準の下で、確率的データ生成モデルのパラメータを推定します。</p>
+<p>この基準は、「μ」と「τ」を個別に推定する際に適用される点にご注意ください。したがって、loss=&quot;KL&quot; を指定した場合、スチューデントの t 分布とガンマ分布のタプルが返されます。</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default &quot;squared&quot;.
-This function supports &quot;squared&quot;, &quot;0-1&quot;, &quot;abs&quot;, and &quot;KL&quot;.</p>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数、デフォルトは &quot;squared&quot;。この関数は &quot;squared&quot;、&quot;0-1&quot;、&quot;abs&quot;、&quot;KL &quot;をサポートしています。</p>
 </dd>
 <dt><strong>dict_out</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, output will be a dict, by default <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
 <dt><strong>estimates</strong><span class="classifier">tuple of {float, None, or rv_frozen}</span></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mu_hat</span></code> : the estimate for mu</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tau_hat</span></code> : the estimate for tau</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mu_hat</span></code>：μの推定値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tau_hat</span></code> : tau の推定値</p></li>
 </ul>
-<p>The estimated values under the given loss function. If it is not exist, <cite>None</cite> will be returned.
-If the loss function is &quot;KL&quot;, the posterior distribution itself will be returned
-as rv_frozen object of scipy.stats.</p>
+<p>与えられた損失関数の下での推定値。存在しない場合は <cite>None</cite> が返されます。損失関数が &quot;KL&quot; の場合、事後分布そのものが scipy.stats の rv_frozen オブジェクトとして返されます。</p>
 </dd>
 </dl>
 </dd>
@@ -959,8 +952,8 @@ as rv_frozen object of scipy.stats.</p>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.15.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.15.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -968,17 +961,17 @@ as rv_frozen object of scipy.stats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.estimate_interval">
 <span class="sig-name descname"><span class="pre">estimate_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">credibility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.estimate_interval" title="Link to this definition">#</a></dt>
-<dd><p>Credible interval of the parameter.</p>
+<dd><p>パラメータの信頼区間</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>credibility</strong><span class="classifier">float, optional</span></dt><dd><p>A posterior probability that the interval conitans the paramter, by default 0.95</p>
+<dt><strong>credibility</strong><span class="classifier">float, optional</span></dt><dd><p>パラメータがその区間に含まれるという事後確率（デフォルト値：0.95）</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>(mu_lower, mu_upper),(tau_lower, tau_upper): float</dt><dd><p>The lower and the upper bounds of the intervals</p>
+<dt>(mu_lower, mu_upper),(tau_lower, tau_upper): float</dt><dd><p>区間の下端と上端</p>
 </dd>
 </dl>
 </dd>
@@ -988,8 +981,8 @@ as rv_frozen object of scipy.stats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.visualize_posterior">
 <span class="sig-name descname"><span class="pre">visualize_posterior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.visualize_posterior" title="Link to this definition">#</a></dt>
-<dd><p>Visualize the posterior distribution for the parameter.</p>
-<p class="rubric">Examples</p>
+<dd><p>パラメータの事後分布を可視化します。</p>
+<p class="rubric">例</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">normal</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gen_model</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">tau</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">LearnModel</span><span class="p">()</span>
@@ -1003,14 +996,14 @@ as rv_frozen object of scipy.stats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.get_p_params">
 <span class="sig-name descname"><span class="pre">get_p_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.get_p_params" title="Link to this definition">#</a></dt>
-<dd><p>Get the parameters of the predictive distribution.</p>
+<dd><p>予測分布のパラメータを取得します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>p_params</strong><span class="classifier">dict of {str: float}</span></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_mu&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.p_mu</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_lambda&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.p_lambda</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_nu&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.p_nu</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_mu&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.p_mu``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_lambda&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.p_lambda</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_nu&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.p_nu</span></code> の値</p></li>
 </ul>
 </dd>
 </dl>
@@ -1021,26 +1014,23 @@ as rv_frozen object of scipy.stats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.calc_pred_dist">
 <span class="sig-name descname"><span class="pre">calc_pred_dist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.calc_pred_dist" title="Link to this definition">#</a></dt>
-<dd><p>Calculate the parameters of the predictive distribution.</p>
+<dd><p>予測分布のパラメータを計算します。</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.make_prediction">
 <span class="sig-name descname"><span class="pre">make_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'squared'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.make_prediction" title="Link to this definition">#</a></dt>
-<dd><p>Predict a new data point under the given criterion.</p>
+<dd><p>与えられた基準の下で、新しいデータ点を予測します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default &quot;squared&quot;.
-This function supports &quot;squared&quot;, &quot;0-1&quot;, &quot;abs&quot;, and &quot;KL&quot;.</p>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数、デフォルトは &quot;squared&quot;。この関数は &quot;squared&quot;、&quot;0-1&quot;、&quot;abs&quot;、&quot;KL &quot;をサポートしています。</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>Predicted_value</strong><span class="classifier">{float, rv_frozen}</span></dt><dd><p>The predicted value under the given loss function. 
-If the loss function is &quot;KL&quot;, the posterior distribution itself will be returned
-as rv_frozen object of scipy.stats.</p>
+<dt><strong>Predicted_value</strong><span class="classifier">{float, rv_frozen}</span></dt><dd><p>指定された損失関数における予測値です。損失関数が「KL」の場合、事後分布そのものが scipy.stats の rv_frozen オブジェクトとして返されます。</p>
 </dd>
 </dl>
 </dd>
@@ -1048,8 +1038,8 @@ as rv_frozen object of scipy.stats.</p>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.15.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.15.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -1057,22 +1047,19 @@ as rv_frozen object of scipy.stats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.pred_and_update">
 <span class="sig-name descname"><span class="pre">pred_and_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'squared'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.pred_and_update" title="Link to this definition">#</a></dt>
-<dd><p>Predict a new data point and update the posterior sequentially.</p>
+<dd><p>逐次的に新しいデータ点を予測し、事後分布を更新します。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">float</span></dt><dd><p>A real number</p>
+<dt><strong>x</strong><span class="classifier">float</span></dt><dd><p>実数</p>
 </dd>
-<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default &quot;squared&quot;.
-This function supports &quot;squared&quot;, &quot;0-1&quot;, &quot;abs&quot;, and &quot;KL&quot;.</p>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数、デフォルトは &quot;squared&quot;。この関数は &quot;squared&quot;、&quot;0-1&quot;、&quot;abs&quot;、&quot;KL &quot;をサポートしています。</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>Predicted_value</strong><span class="classifier">{float, rv_frozen}</span></dt><dd><p>The predicted value under the given loss function. 
-If the loss function is &quot;KL&quot;, the posterior distribution itself will be returned
-as rv_frozen object of scipy.stats.</p>
+<dt><strong>Predicted_value</strong><span class="classifier">{float, rv_frozen}</span></dt><dd><p>指定された損失関数における予測値です。損失関数が「KL」の場合、事後分布そのものが scipy.stats の rv_frozen オブジェクトとして返されます。</p>
 </dd>
 </dl>
 </dd>
@@ -1080,8 +1067,8 @@ as rv_frozen object of scipy.stats.</p>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.15.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
-<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.15.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -1089,11 +1076,11 @@ as rv_frozen object of scipy.stats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.calc_log_marginal_likelihood">
 <span class="sig-name descname"><span class="pre">calc_log_marginal_likelihood</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.calc_log_marginal_likelihood" title="Link to this definition">#</a></dt>
-<dd><p>Calculate log marginal likelihood</p>
+<dd><p>対数周辺尤度の計算</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>log_marginal_likelihood</strong><span class="classifier">float</span></dt><dd><p>The log marginal likelihood.</p>
+<dt><strong>log_marginal_likelihood</strong><span class="classifier">float</span></dt><dd><p>対数周辺尤度</p>
 </dd>
 </dl>
 </dd>
@@ -1103,11 +1090,11 @@ as rv_frozen object of scipy.stats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.calc_pred_var">
 <span class="sig-name descname"><span class="pre">calc_pred_var</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.calc_pred_var" title="Link to this definition">#</a></dt>
-<dd><p>Calculate the variance of the predictive distribution.</p>
+<dd><p>予測分布の分散を計算</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>var</strong><span class="classifier">float</span></dt><dd><p>The variance of the predictive distribution.</p>
+<dt><strong>var</strong><span class="classifier">float</span></dt><dd><p>予測分布の分散</p>
 </dd>
 </dl>
 </dd>
@@ -1117,21 +1104,21 @@ as rv_frozen object of scipy.stats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.fit" title="Link to this definition">#</a></dt>
-<dd><p>Fit the model to the data.</p>
-<p>This function is a wrapper of the following functions:</p>
+<dd><p>モデルをデータに当てはめます。</p>
+<p>この関数は以下の関数のラッパーです：</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">reset_hn_params</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">update_posterior</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="bp">self</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>All the elements must be real numbers.</p>
+<dt><strong>x</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>すべての要素は実数でなければなりません。</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">LearnModel</span></dt><dd><p>The fitted model.</p>
 </dd>
@@ -1143,16 +1130,16 @@ as rv_frozen object of scipy.stats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesml.normal.LearnModel.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.normal.LearnModel.predict" title="Link to this definition">#</a></dt>
-<dd><p>Predict the next data point.</p>
-<p>This function is a wrapper of the following functions:</p>
+<dd><p>次のデータ点を予測します。</p>
+<p>この関数は以下の関数のラッパーです：</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_pred_dist</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_prediction</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;squared&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>predicted_value</strong><span class="classifier">float</span></dt><dd><p>The predicted value under the squared loss function.</p>
+<dt><strong>predicted_value</strong><span class="classifier">float</span></dt><dd><p>二乗誤差関数に基づく予測値。</p>
 </dd>
 </dl>
 </dd>
@@ -1209,7 +1196,7 @@ as rv_frozen object of scipy.stats.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.normal">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.normal">モジュール内容</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.normal.GenModel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.normal.GenModel.get_constants"><code class="docutils literal notranslate"><span class="pre">GenModel.get_constants()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.normal.GenModel.set_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_h_params()</span></code></a></li>
