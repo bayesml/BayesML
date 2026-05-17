@@ -43,6 +43,9 @@
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/translations.js?v=4755f45a"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bayesml.gaussianmixture';</script>
     <link rel="icon" href="_static/BayesML_favicon.ico"/>
     <link rel="index" title="索引" href="genindex.html" />
@@ -350,7 +353,38 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.gaussianmixture">モジュール内容</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.get_constants"><code class="docutils literal notranslate"><span class="pre">GenModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.set_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.get_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.gen_params"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.set_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.get_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.gen_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.save_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.save_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.visualize_model"><code class="docutils literal notranslate"><span class="pre">GenModel.visualize_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel"><code class="docutils literal notranslate"><span class="pre">LearnModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.get_constants"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.set_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.get_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.set_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.get_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.update_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.update_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.estimate_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.visualize_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.visualize_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.get_p_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_p_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.calc_pred_dist"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.make_prediction"><code class="docutils literal notranslate"><span class="pre">LearnModel.make_prediction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.pred_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.pred_and_update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.estimate_latent_vars"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_latent_vars()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.estimate_latent_vars_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_latent_vars_and_update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -365,8 +399,811 @@ document.write(`
   <section id="bayesml-gaussianmixture-package">
 <h1>bayesml.gaussianmixture package<a class="headerlink" href="#bayesml-gaussianmixture-package" title="Link to this heading">#</a></h1>
 <img alt="_images/gaussianmixture_example.png" src="_images/gaussianmixture_example.png" />
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<section id="module-bayesml.gaussianmixture">
+<span id="module-contents"></span><h2>モジュール内容<a class="headerlink" href="#module-bayesml.gaussianmixture" title="Link to this heading">#</a></h2>
+<p>ガウス・ウィシャート事前分布とディリクレ事前分布を用いたガウス混合モデルです。</p>
+<p>確率的データ生成モデルは以下の通りです：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K \in \mathbb{N}\)</span>: 潜在クラスの数</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{z} \in \{ 0, 1 \}^K\)</span>: 潜在クラス（潜在変数）を表すone-hotベクトル</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\pi} \in [0, 1]^K\)</span>：潜在クラスのパラメータ（<span class="math notranslate nohighlight">\(\sum_{k=1}^K \pi_k=1\)</span>）</p></li>
+<li><p><span class="math notranslate nohighlight">\(D \in \mathbb{N}\)</span>: データの次元</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{x} \in \mathbb{R}^D\)</span>: データ点</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\mu}_k \in \mathbb{R}^D\)</span>: パラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\mu} = \{ \boldsymbol{\mu}_k \}_{k=1}^K\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\Lambda}_k \in \mathbb{R}^{D\times D}\)</span> : パラメータ（正定値行列）</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\Lambda} = \{ \boldsymbol{\Lambda}_k \}_{k=1}^K\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(| \boldsymbol{\Lambda}_k | \in \mathbb{R}\)</span>: <span class="math notranslate nohighlight">\(\boldsymbol{\Lambda}_k\)</span> の行列式</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(\boldsymbol{z} | \boldsymbol{\pi}) &amp;= \mathrm{Cat}(\boldsymbol{z}|\boldsymbol{\pi}) = \prod_{k=1}^K \pi_k^{z_k},\\
+p(\boldsymbol{x} | \boldsymbol{\mu}, \boldsymbol{\Lambda}, \boldsymbol{z}) &amp;= \prod_{k=1}^K \mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}_k,\boldsymbol{\Lambda}_k^{-1})^{z_k} \\
+&amp;= \prod_{k=1}^K \left( \frac{| \boldsymbol{\Lambda}_k |^{1/2}}{(2\pi)^{D/2}} \exp \left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu}_k)^\top \boldsymbol{\Lambda}_k (\boldsymbol{x}-\boldsymbol{\mu}_k) \right\} \right)^{z_k}.\end{split}\]</div>
+<p>事前分布は以下の通りです：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{m}_0 \in \mathbb{R}^{D}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\kappa_0 \in \mathbb{R}_{&gt;0}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\nu_0 \in \mathbb{R}\)</span>: ハイパーパラメータ（<span class="math notranslate nohighlight">\(\nu_0 &gt; D-1\)</span>）</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{W}_0 \in \mathbb{R}^{D\times D}\)</span>: ハイパーパラメータ（正定値行列）</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\alpha}_0 \in \mathbb{R}_{&gt; 0}^K\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{Tr} \{ \cdot \}\)</span>: 行列のトレース</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma (\cdot)\)</span>: ガンマ関数</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(\boldsymbol{\mu},\boldsymbol{\Lambda},\boldsymbol{\pi}) &amp;= \left\{ \prod_{k=1}^K \mathcal{N}(\boldsymbol{\mu}_k|\boldsymbol{m}_0,(\kappa_0 \boldsymbol{\Lambda}_k)^{-1})\mathcal{W}(\boldsymbol{\Lambda}_k|\boldsymbol{W}_0, \nu_0) \right\} \mathrm{Dir}(\boldsymbol{\pi}|\boldsymbol{\alpha}_0) \\
+&amp;= \Biggl[\, \prod_{k=1}^K \left( \frac{\kappa_0}{2\pi} \right)^{D/2} |\boldsymbol{\Lambda}_k|^{1/2} \exp \left\{ -\frac{\kappa_0}{2}(\boldsymbol{\mu}_k -\boldsymbol{m}_0)^\top \boldsymbol{\Lambda}_k (\boldsymbol{\mu}_k - \boldsymbol{m}_0) \right\} \notag \\
+&amp;\qquad \times B(\boldsymbol{W}_0, \nu_0) | \boldsymbol{\Lambda}_k |^{(\nu_0 - D - 1) / 2} \exp \left\{ -\frac{1}{2} \mathrm{Tr} \{ \boldsymbol{W}_0^{-1} \boldsymbol{\Lambda}_k \} \right\} \Biggr] \notag \\
+&amp;\qquad \times C(\boldsymbol{\alpha}_0)\prod_{k=1}^K \pi_k^{\alpha_{0,k}-1},\\\end{split}\]</div>
+<p>ここで、<span class="math notranslate nohighlight">\(B(\boldsymbol{W}_0, \nu_0)\)</span> および <span class="math notranslate nohighlight">\(C(\boldsymbol{\alpha}_0)\)</span> は次のように定義されます：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}B(\boldsymbol{W}_0, \nu_0) &amp;= | \boldsymbol{W}_0 |^{-\nu_0 / 2} \left( 2^{\nu_0 D / 2} \pi^{D(D-1)/4} \prod_{i=1}^D \Gamma \left( \frac{\nu_0 + 1 - i}{2} \right) \right)^{-1}, \\
+C(\boldsymbol{\alpha}_0) &amp;= \frac{\Gamma(\sum_{k=1}^K \alpha_{0,k})}{\Gamma(\alpha_{0,1})\cdots\Gamma(\alpha_{0,K})}.\end{split}\]</div>
+<p>変分ベイズ法の <span class="math notranslate nohighlight">\(t\)</span> 回目の反復における近似事後分布は、以下の通りです：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{x}^n = (\boldsymbol{x}_1, \boldsymbol{x}_2, \dots , \boldsymbol{x}_n) \in \mathbb{R}^{D\times n}\)</span>: 与えられたデータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{z}^n = (\boldsymbol{z}_1, \boldsymbol{z}_2, \dots , \boldsymbol{z}_n) \in \{ 0, 1 \}^{K \times n}\)</span>: 与えられたデータの潜在クラス</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{r}_i^{(t)} = (r_{i,1}^{(t)}, r_{i,2}^{(t)}, \dots , r_{i,K}^{(t)}) \in [0, 1]^K\)</span>: <span class="math notranslate nohighlight">\(i`番目の潜在クラスに対するパラメータです。 (:math:\)</span>sum_{k=1}^K r_{i, k}^{(t)} = 1`)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{m}_{n,k}^{(t)} \in \mathbb{R}^{D}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\kappa_{n,k}^{(t)} \in \mathbb{R}_{&gt;0}\)</span>: ハイパーパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\nu_{n,k}^{(t)} \in \mathbb{R}\)</span>: ハイパーパラメータ <span class="math notranslate nohighlight">\((\nu_n &gt; D-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{W}_{n,k}^{(t)} \in \mathbb{R}^{D\times D}\)</span>: ハイパーパラメータ（正定値行列）</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\alpha}_n^{(t)} \in \mathbb{R}_{&gt; 0}^K\)</span>: ハイパーパラメータ</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}q(\boldsymbol{z}^n, \boldsymbol{\mu},\boldsymbol{\Lambda},\boldsymbol{\pi}) &amp;= \left\{ \prod_{i=1}^n \mathrm{Cat} (\boldsymbol{z}_i | \boldsymbol{r}_i^{(t)}) \right\} \left\{ \prod_{k=1}^K \mathcal{N}(\boldsymbol{\mu}_k|\boldsymbol{m}_{n,k}^{(t)},(\kappa_{n,k}^{(t)} \boldsymbol{\Lambda}_k)^{-1})\mathcal{W}(\boldsymbol{\Lambda}_k|\boldsymbol{W}_{n,k}^{(t)}, \nu_{n,k}^{(t)}) \right\} \mathrm{Dir}(\boldsymbol{\pi}|\boldsymbol{\alpha}_n^{(t)}) \\
+&amp;= \Biggl[\, \prod_{i=1}^n \prod_{k=1}^K (r_{i,k}^{(t)})^{z_{i,k}} \Biggr] \Biggl[\, \prod_{k=1}^K \left( \frac{\kappa_{n,k}^{(t)}}{2\pi} \right)^{D/2} |\boldsymbol{\Lambda}_k|^{1/2} \exp \left\{ -\frac{\kappa_{n,k}^{(t)}}{2}(\boldsymbol{\mu}_k -\boldsymbol{m}_{n,k}^{(t)})^\top \boldsymbol{\Lambda}_k (\boldsymbol{\mu}_k - \boldsymbol{m}_{n,k}^{(t)}) \right\} \\
+&amp;\qquad \times B(\boldsymbol{W}_{n,k}^{(t)}, \nu_{n,k}^{(t)}) | \boldsymbol{\Lambda}_k |^{(\nu_{n,k}^{(t)} - D - 1) / 2} \exp \left\{ -\frac{1}{2} \mathrm{Tr} \{ ( \boldsymbol{W}_{n,k}^{(t)} )^{-1} \boldsymbol{\Lambda}_k \} \right\} \Biggr] \\
+&amp;\qquad \times C(\boldsymbol{\alpha}_n^{(t)})\prod_{k=1}^K \pi_k^{\alpha_{n,k}^{(t)}-1},\\\end{split}\]</div>
+<p>ハイパーパラメータの更新ルールは以下の通りです。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}N_k^{(t)} &amp;= \sum_{i=1}^n r_{i,k}^{(t)}, \\
+\bar{\boldsymbol{x}}_k^{(t)} &amp;= \frac{1}{N_k^{(t)}} \sum_{i=1}^n r_{i,k}^{(t)} \boldsymbol{x}_i, \\
+\boldsymbol{m}_{n,k}^{(t+1)} &amp;= \frac{\kappa_0\boldsymbol{m}_0 + N_k^{(t)} \bar{\boldsymbol{x}}_k^{(t)}}{\kappa_0 + N_k^{(t)}}, \\
+\kappa_{n,k}^{(t+1)} &amp;= \kappa_0 + N_k^{(t)}, \\
+(\boldsymbol{W}_{n,k}^{(t+1)})^{-1} &amp;= \boldsymbol{W}_0^{-1} + \sum_{i=1}^{n} r_{i,k}^{(t)} (\boldsymbol{x}_i-\bar{\boldsymbol{x}}_k^{(t)})(\boldsymbol{x}_i-\bar{\boldsymbol{x}}_k^{(t)})^\top + \frac{\kappa_0 N_k^{(t)}}{\kappa_0 + N_k^{(t)}}(\bar{\boldsymbol{x}}_k^{(t)}-\boldsymbol{m}_0)(\bar{\boldsymbol{x}}_k^{(t)}-\boldsymbol{m}_0)^\top, \\
+\nu_{n,k}^{(t+1)} &amp;= \nu_0 + N_k^{(t)},\\
+\alpha_{n,k}^{(t+1)} &amp;= \alpha_{0,k} + N_k^{(t)}, \\
+\ln \rho_{i,k}^{(t+1)} &amp;= \psi (\alpha_{n,k}^{(t+1)}) - \psi ( {\textstyle \sum_{k=1}^K \alpha_{n,k}^{(t+1)}} ) \notag \\
+&amp;\qquad + \frac{1}{2} \Biggl[\, \sum_{d=1}^D \psi \left( \frac{\nu_{n,k}^{(t+1)} + 1 - d}{2} \right) + D \ln 2 + \ln | \boldsymbol{W}_{n,k}^{(t+1)} | \notag \\
+&amp;\qquad - D \ln (2 \pi ) - \frac{D}{\kappa_{n,k}^{(t+1)}} - \nu_{n,k}^{(t+1)} (\boldsymbol{x}_i - \boldsymbol{m}_{n,k}^{(t+1)})^\top \boldsymbol{W}_{n,k}^{(t+1)} (\boldsymbol{x}_i - \boldsymbol{m}_{n,k}^{(t+1)}) \Biggr], \\
+r_{i,k}^{(t+1)} &amp;= \frac{\rho_{i,k}^{(t+1)}}{\sum_{j=1}^K \rho_{i,j}^{(t+1)}}.\end{split}\]</div>
+<p>近似予測分布は以下の通りです：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{x}_{n+1}\in \mathbb{R}^d\)</span>: 新たなデータ点</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\mu}_{\mathrm{p},k} \in \mathbb{R}^D\)</span>: 予測分布のパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\Lambda}_{\mathrm{p},k} \in \mathbb{R}^{D \times D}\)</span>: 予測分布のパラメータ（正定値行列）</p></li>
+<li><p><span class="math notranslate nohighlight">\(\nu_{\mathrm{p},k} \in \mathbb{R}_{&gt;0}\)</span>: 予測分布のパラメータ</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;p(x_{n+1}|x^n) \\
+&amp;= \frac{1}{\sum_{k=1}^K \alpha_{n,k}^{(t)}} \sum_{k=1}^K \alpha_{n,k}^{(t)} \mathrm{St}(x_{n+1}|\boldsymbol{\mu}_{\mathrm{p},k},\boldsymbol{\Lambda}_{\mathrm{p},k}, \nu_{\mathrm{p},k}) \\
+&amp;= \frac{1}{\sum_{k=1}^K \alpha_{n,k}^{(t)}} \sum_{k=1}^K \alpha_{n,k}^{(t)} \Biggl[ \frac{\Gamma (\nu_{\mathrm{p},k} / 2 + D / 2)}{\Gamma (\nu_{\mathrm{p},k} / 2)} \frac{|\boldsymbol{\Lambda}_{\mathrm{p},k}|^{1/2}}{(\nu_{\mathrm{p},k} \pi)^{D/2}} \notag \\
+&amp;\qquad \qquad \qquad \qquad \qquad \times \left( 1 + \frac{1}{\nu_{\mathrm{p},k}} (\boldsymbol{x}_{n+1} - \boldsymbol{\mu}_{\mathrm{p},k})^\top \boldsymbol{\Lambda}_{\mathrm{p},k} (\boldsymbol{x}_{n+1} - \boldsymbol{\mu}_{\mathrm{p},k}) \right)^{-\nu_{\mathrm{p},k}/2 - D/2} \Biggr],\end{split}\]</div>
+<p>ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boldsymbol{\mu}_{\mathrm{p},k} &amp;= \boldsymbol{m}_{n,k}^{(t)}, \\
+\nu_{\mathrm{p},k} &amp;= \nu_{n,k}^{(t)} - D + 1,\\
+\boldsymbol{\Lambda}_{\mathrm{p},k} &amp;= \frac{\kappa_{n,k}^{(t)} \nu_{\mathrm{p},k}}{\kappa_{n,k}^{(t)} + 1} \boldsymbol{W}_{n,k}^{(t)}.\end{split}\]</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bayesml.gaussianmixture.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_num_classes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_degree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pi_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_vecs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_mats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_alpha_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_m_vecs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_kappas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_nus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_w_mats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel" title="Link to this definition">#</a></dt>
+<dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Generative" title="bayesml.base.Generative"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generative</span></code></a></p>
+<p>確率的データ生成モデルと事前分布</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>c_num_classes</strong><span class="classifier">int</span></dt><dd><p>正の整数</p>
+</dd>
+<dt><strong>c_degree</strong><span class="classifier">int</span></dt><dd><p>正の整数</p>
+</dd>
+<dt><strong>pi_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p><span class="math notranslate nohighlight">\([0, 1]^K\)</span> 内の実数ベクトル。デフォルトでは [1/K, 1/K, ..., 1/K] です。</p>
+</dd>
+<dt><strong>mu_vecs</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>実数のベクトルで、デフォルトではゼロベクトルです。</p>
+</dd>
+<dt><strong>lambda_mats</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正定値対称行列（デフォルトでは単位行列）</p>
+</dd>
+<dt><strong>h_alpha_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正の実数のベクトル。デフォルトでは [1/2, 1/2, ..., 1/2] です。</p>
+</dd>
+<dt><strong>h_m_vecs</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>実数のベクトル（デフォルトではゼロベクトル）</p>
+</dd>
+<dt><strong>h_kappas</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数。デフォルトでは [1.0, 1.0, ..., 1.0] です。</p>
+</dd>
+<dt><strong>h_nus</strong><span class="classifier">float, optional</span></dt><dd><p>c_degree-1 より大きい実数。デフォルトでは <code class="docutils literal notranslate"><span class="pre">c_degree</span></code> の値です</p>
+</dd>
+<dt><strong>h_w_mats</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正定値対称行列（デフォルトでは単位行列）</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">{None, int}, optional</span></dt><dd><p>numpy.random.default_rng() を初期化するシード値です。デフォルトでは None</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">メソッド</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.GenModel.gen_params" title="bayesml.gaussianmixture.GenModel.gen_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_params</span></code></a>()</p></td>
+<td><p>事前分布からパラメータを生成します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.GenModel.gen_sample" title="bayesml.gaussianmixture.GenModel.gen_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_sample</span></code></a>(sample_size)</p></td>
+<td><p>確率的データ生成モデルからサンプルを生成します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.GenModel.get_constants" title="bayesml.gaussianmixture.GenModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
+<td><p>GenModel の定数を取得します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.GenModel.get_h_params" title="bayesml.gaussianmixture.GenModel.get_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h_params</span></code></a>()</p></td>
+<td><p>事前分布のハイパーパラメータを取得します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.GenModel.get_params" title="bayesml.gaussianmixture.GenModel.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
+<td><p>確率的データ生成モデルのパラメータを取得します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h_params</span></code>(filename)</p></td>
+<td><p>h_paramsにハイパーパラメータをロードします。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_params</span></code>(filename)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">save_params</span></code> に保存されたパラメータをロードします。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h_params</span></code>(filename)</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_params</span></code>(filename)</p></td>
+<td><p>python の <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってパラメータを保存します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.GenModel.save_sample" title="bayesml.gaussianmixture.GenModel.save_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_sample</span></code></a>(filename, sample_size)</p></td>
+<td><p>生成されたサンプルを NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> フォーマットで保存します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.GenModel.set_h_params" title="bayesml.gaussianmixture.GenModel.set_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h_params</span></code></a>([h_alpha_vec, h_m_vecs, ...])</p></td>
+<td><p>事前分布のハイパーパラメータを設定します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.GenModel.set_params" title="bayesml.gaussianmixture.GenModel.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>([pi_vec, mu_vecs, lambda_mats])</p></td>
+<td><p>確率的データ生成モデルのパラメータを設定します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.GenModel.visualize_model" title="bayesml.gaussianmixture.GenModel.visualize_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_model</span></code></a>([sample_size])</p></td>
+<td><p>確率的データ生成モデルと生成されたサンプルを可視化します。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel.get_constants">
+<span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel.get_constants" title="Link to this definition">#</a></dt>
+<dd><p>GenModel の定数を取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>constants</strong><span class="classifier">dict of {str: int, numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_num_classes&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_num_classes``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_degree&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_degree``の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel.set_h_params">
+<span class="sig-name descname"><span class="pre">set_h_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h_alpha_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_m_vecs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_kappas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_nus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_w_mats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel.set_h_params" title="Link to this definition">#</a></dt>
+<dd><p>事前分布のハイパーパラメータを設定します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h_alpha_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正の実数のベクトル。デフォルトは <code class="docutils literal notranslate"><span class="pre">None</span></code> です</p>
+</dd>
+<dt><strong>h_m_vecs</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>実数のベクトル。デフォルトはNoneです</p>
+</dd>
+<dt><strong>h_kappas</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数。デフォルトはNoneです</p>
+</dd>
+<dt><strong>h_nus</strong><span class="classifier">float, optional</span></dt><dd><p>c_degree-1 より大きい実数。デフォルトは None です</p>
+</dd>
+<dt><strong>h_w_mats</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正定値対称行列。デフォルトでは None</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel.get_h_params">
+<span class="sig-name descname"><span class="pre">get_h_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel.get_h_params" title="Link to this definition">#</a></dt>
+<dd><p>事前分布のハイパーパラメータを取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h_params</strong><span class="classifier">{str:float, np.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_alpha_vec&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h_alpha_vec</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_m_vecs&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h_m_vecs</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_kappas&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h_kappas</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_nus&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h_nus</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_w_mats&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h_w_mats</span></code> の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel.gen_params">
+<span class="sig-name descname"><span class="pre">gen_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel.gen_params" title="Link to this definition">#</a></dt>
+<dd><p>事前分布からパラメータを生成します。</p>
+<p>生成された値は、<code class="docutils literal notranslate"><span class="pre">self.pi_vec</span></code>、<code class="docutils literal notranslate"><span class="pre">self.mu_vecs</span></code>、および``self.lambda_mats``に設定されます。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pi_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_vecs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_mats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel.set_params" title="Link to this definition">#</a></dt>
+<dd><p>確率的データ生成モデルのパラメータを設定します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pi_vec</strong><span class="classifier">numpy.ndarray</span></dt><dd><p><span class="math notranslate nohighlight">\([0, 1]^K\)</span> 内の実数ベクトルです。その要素の和は 1 でなければなりません。</p>
+</dd>
+<dt><strong>mu_vecs</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>実数のベクトル</p>
+</dd>
+<dt><strong>lambda_mats</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>正定値対称行列</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel.get_params" title="Link to this definition">#</a></dt>
+<dd><p>確率的データ生成モデルのパラメータを取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">{str:float, numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;pi_vec&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.pi_vec</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mu_vecs&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.mu_vecs</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;lambda_mats&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.lambda_mats</span></code> の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel.gen_sample">
+<span class="sig-name descname"><span class="pre">gen_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel.gen_sample" title="Link to this definition">#</a></dt>
+<dd><p>確率的データ生成モデルからサンプルを生成します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample_size</strong><span class="classifier">int</span></dt><dd><p>正の整数</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>形状が「(sammple_size,c_degree)」で、要素が実数である2次元配列です。</p>
+</dd>
+<dt><strong>z</strong><span class="classifier">numpy ndarray</span></dt><dd><p>形状が「(sample_size,c_num_classes)」で、各行がone-hotベクトルからなる2次元配列です。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel.save_sample">
+<span class="sig-name descname"><span class="pre">save_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel.save_sample" title="Link to this definition">#</a></dt>
+<dd><p>生成されたサンプルを NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> フォーマットで保存します。</p>
+<p>キーワード「x」、「z」を指定して、NpzFileとして保存されます。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>サンプルを保存するファイル名。ない場合は <code class="docutils literal notranslate"><span class="pre">.npz</span></code> が追加されます。</p>
+</dd>
+<dt><strong>sample_size</strong><span class="classifier">int</span></dt><dd><p>正の整数</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.GenModel.visualize_model">
+<span class="sig-name descname"><span class="pre">visualize_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.GenModel.visualize_model" title="Link to this definition">#</a></dt>
+<dd><p>確率的データ生成モデルと生成されたサンプルを可視化します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample_size</strong><span class="classifier">int, オプション</span></dt><dd><p>正の整数、デフォルトは100</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">gaussianmixture</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">gaussianmixture</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">c_num_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">c_degree</span><span class="o">=</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">pi_vec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.444</span><span class="p">,</span><span class="mf">0.444</span><span class="p">,</span><span class="mf">0.112</span><span class="p">]),</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">mu_vecs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">2.8</span><span class="p">],[</span><span class="o">-</span><span class="mf">0.8</span><span class="p">],[</span><span class="mi">2</span><span class="p">]]),</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">lambda_mats</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mf">6.25</span><span class="p">]],[[</span><span class="mf">6.25</span><span class="p">]],[[</span><span class="mi">100</span><span class="p">]]])</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">visualize_model</span><span class="p">()</span>
+<span class="go">pi_vec:</span>
+<span class="go"> [0.444 0.444 0.112]</span>
+<span class="go">mu_vecs:</span>
+<span class="go"> [[-2.8]</span>
+<span class="go"> [-0.8]</span>
+<span class="go"> [ 2. ]]</span>
+<span class="go">lambda_mats:</span>
+<span class="go"> [[[  6.25]]</span>
+<span class="go"> [[  6.25]]</span>
+<span class="go"> [[100.  ]]]</span>
+</pre></div>
+</div>
+<img alt="_images/gaussianmixture_example.png" src="_images/gaussianmixture_example.png" />
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bayesml.gaussianmixture.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_num_classes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_degree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_alpha_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_m_vecs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_kappas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_nus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_w_mats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel" title="Link to this definition">#</a></dt>
+<dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Posterior" title="bayesml.base.Posterior"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posterior</span></code></a>, <a class="reference internal" href="bayesml.html#bayesml.base.PredictiveMixin" title="bayesml.base.PredictiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictiveMixin</span></code></a></p>
+<p>事後分布と予測分布</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>c_num_classes</strong><span class="classifier">int</span></dt><dd><p>正の整数</p>
+</dd>
+<dt><strong>c_degree</strong><span class="classifier">int</span></dt><dd><p>正の整数</p>
+</dd>
+<dt><strong>h0_alpha_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正の実数のベクトル。デフォルトでは [1/2, 1/2, ..., 1/2] です。</p>
+</dd>
+<dt><strong>h0_m_vecs</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>実数のベクトル（デフォルトではゼロベクトル）</p>
+</dd>
+<dt><strong>h0_kappas</strong><span class="classifier">{float, numpy.ndarray}, optional</span></dt><dd><p>正の実数。デフォルトでは [1.0, 1.0, ..., 1.0] です。</p>
+</dd>
+<dt><strong>h0_nus</strong><span class="classifier">{float, numpy.ndarray}, optional</span></dt><dd><p>c_degree-1 より大きい実数。デフォルトでは <code class="docutils literal notranslate"><span class="pre">c_degree</span></code> の値です</p>
+</dd>
+<dt><strong>h0_w_mats</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正定値対称行列（デフォルトでは単位行列）</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">{None, int}, optional</span></dt><dd><p>numpy.random.default_rng() を初期化するシード値です。デフォルトでは None</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">属性<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>h0_w_mats_inv</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>h0_w_mats の逆行列</p>
+</dd>
+<dt><strong>hn_alpha_vec</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>正の実数のベクトル</p>
+</dd>
+<dt><strong>hn_m_vecs</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>実数のベクトル</p>
+</dd>
+<dt><strong>hn_kappas</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>正の実数</p>
+</dd>
+<dt><strong>hn_nus</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>c_degree-1 より大きい実数</p>
+</dd>
+<dt><strong>hn_w_mats</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>正定値対称行列</p>
+</dd>
+<dt><strong>hn_w_mats_inv</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>hn_w_mats の逆行列</p>
+</dd>
+<dt><strong>r_vecs</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>実数のベクトルです。その要素の和は1です。</p>
+</dd>
+<dt><strong>ns</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>正の実数</p>
+</dd>
+<dt><strong>s_mats</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>正定値対称行列</p>
+</dd>
+<dt><strong>p_mu_vecs</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>実数のベクトル</p>
+</dd>
+<dt><strong>p_nus</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>正の実数</p>
+</dd>
+<dt><strong>p_lambda_mats</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>正定値対称行列</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">メソッド</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.calc_pred_dist" title="bayesml.gaussianmixture.LearnModel.calc_pred_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_dist</span></code></a>()</p></td>
+<td><p>予測分布のパラメータを計算します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.estimate_latent_vars" title="bayesml.gaussianmixture.LearnModel.estimate_latent_vars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_latent_vars</span></code></a>(x[, loss])</p></td>
+<td><p>指定された基準の下で、<cite>x</cite> に対応する潜在変数を推定します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.estimate_latent_vars_and_update" title="bayesml.gaussianmixture.LearnModel.estimate_latent_vars_and_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_latent_vars_and_update</span></code></a>(x[, loss, ...])</p></td>
+<td><p>潜在変数を推定し、事後分布を逐次的に更新します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.estimate_params" title="bayesml.gaussianmixture.LearnModel.estimate_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_params</span></code></a>([loss])</p></td>
+<td><p>与えられた基準の下で、確率的データ生成モデルのパラメータを推定します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.get_constants" title="bayesml.gaussianmixture.LearnModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
+<td><p>LearnModel の定数を取得します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.get_h0_params" title="bayesml.gaussianmixture.LearnModel.get_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h0_params</span></code></a>()</p></td>
+<td><p>事後分布のハイパーパラメータの初期値を取得します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.get_hn_params" title="bayesml.gaussianmixture.LearnModel.get_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hn_params</span></code></a>()</p></td>
+<td><p>事後分布のハイパーパラメータを取得します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.get_p_params" title="bayesml.gaussianmixture.LearnModel.get_p_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_p_params</span></code></a>()</p></td>
+<td><p>予測分布のパラメータを取得します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h0_params</span></code>(filename)</p></td>
+<td><p>h0_paramsにハイパーパラメータをロードします。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_hn_params</span></code>(filename)</p></td>
+<td><p>hn_paramsにハイパーパラメータをロードします。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.make_prediction" title="bayesml.gaussianmixture.LearnModel.make_prediction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_prediction</span></code></a>([loss])</p></td>
+<td><p>与えられた基準の下で、新しいデータ点を予測します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwrite_h0_params</span></code>()</p></td>
+<td><p>事後分布のハイパーパラメータの初期値を学習した値で上書きします。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.pred_and_update" title="bayesml.gaussianmixture.LearnModel.pred_and_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pred_and_update</span></code></a>(x[, loss, max_itr, ...])</p></td>
+<td><p>逐次的に新しいデータ点を予測し、事後分布を更新します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_hn_params</span></code>()</p></td>
+<td><p>事後分布のハイパーパラメータを初期値に戻します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h0_params</span></code>(filename)</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_hn_params</span></code>(filename)</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.set_h0_params" title="bayesml.gaussianmixture.LearnModel.set_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h0_params</span></code></a>([h0_alpha_vec, h0_m_vecs, ...])</p></td>
+<td><p>事前分布のハイパーパラメータを設定します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.set_hn_params" title="bayesml.gaussianmixture.LearnModel.set_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_hn_params</span></code></a>([hn_alpha_vec, hn_m_vecs, ...])</p></td>
+<td><p>事後分布のハイパーパラメータの更新値を設定します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.update_posterior" title="bayesml.gaussianmixture.LearnModel.update_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_posterior</span></code></a>(x[, max_itr, num_init, ...])</p></td>
+<td><p>訓練データを使って事後分布のハイパーパラメータを更新します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.gaussianmixture.LearnModel.visualize_posterior" title="bayesml.gaussianmixture.LearnModel.visualize_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_posterior</span></code></a>()</p></td>
+<td><p>パラメータの事後分布を可視化します。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.get_constants">
+<span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.get_constants" title="Link to this definition">#</a></dt>
+<dd><p>LearnModel の定数を取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>constants</strong><span class="classifier">dict of {str: int, numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_num_classes&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_num_classes``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_degree&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_degree``の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.set_h0_params">
+<span class="sig-name descname"><span class="pre">set_h0_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h0_alpha_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_m_vecs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_kappas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_nus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_w_mats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.set_h0_params" title="Link to this definition">#</a></dt>
+<dd><p>事前分布のハイパーパラメータを設定します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h0_alpha_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正の実数のベクトル。デフォルトは <code class="docutils literal notranslate"><span class="pre">None</span></code> です</p>
+</dd>
+<dt><strong>h0_m_vecs</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>実数のベクトル。デフォルトはNoneです</p>
+</dd>
+<dt><strong>h0_kappas</strong><span class="classifier">{float, numpy.ndarray}, optional</span></dt><dd><p>正の実数。デフォルトはNoneです</p>
+</dd>
+<dt><strong>h0_nus</strong><span class="classifier">{float, numpy.ndarray}, optional</span></dt><dd><p>c_degree-1 より大きい実数。デフォルトは None です</p>
+</dd>
+<dt><strong>h0_w_mats</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正定値対称行列。デフォルトでは None</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.get_h0_params">
+<span class="sig-name descname"><span class="pre">get_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.get_h0_params" title="Link to this definition">#</a></dt>
+<dd><p>事後分布のハイパーパラメータの初期値を取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h0_params</strong><span class="classifier">dict of {str: numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_alpha_vec&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h0_alpha_vec</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_m_vecs&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h0_m_vecs</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_kappas&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h0_kappas</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_nus&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h0_nus</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_w_mats&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.h0_w_mats</span></code> の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.set_hn_params">
+<span class="sig-name descname"><span class="pre">set_hn_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hn_alpha_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_m_vecs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_kappas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_nus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_w_mats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.set_hn_params" title="Link to this definition">#</a></dt>
+<dd><p>事後分布のハイパーパラメータの更新値を設定します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hn_alpha_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正の実数のベクトル。デフォルトは <code class="docutils literal notranslate"><span class="pre">None</span></code> です</p>
+</dd>
+<dt><strong>hn_m_vecs</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>実数のベクトル。デフォルトはNoneです</p>
+</dd>
+<dt><strong>hn_kappas</strong><span class="classifier">{float, numpy.ndarray}, optional</span></dt><dd><p>正の実数。デフォルトはNoneです</p>
+</dd>
+<dt><strong>hn_nus</strong><span class="classifier">{float, numpy.ndarray}, optional</span></dt><dd><p>c_degree-1 より大きい実数。デフォルトは None です</p>
+</dd>
+<dt><strong>hn_w_mats</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>正定値対称行列。デフォルトでは None</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.get_hn_params">
+<span class="sig-name descname"><span class="pre">get_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.get_hn_params" title="Link to this definition">#</a></dt>
+<dd><p>事後分布のハイパーパラメータを取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hn_params</strong><span class="classifier">dict of {str: numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_alpha_vec&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_alpha_vec</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_m_vecs&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.hn_m_vecs</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_kappas&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.hn_kappas</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_nus&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.hn_nus</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_w_mats&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.hn_w_mats</span></code> の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.update_posterior">
+<span class="sig-name descname"><span class="pre">update_posterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'subsampling'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.update_posterior" title="Link to this definition">#</a></dt>
+<dd><p>訓練データを使って事後分布のハイパーパラメータを更新します。</p>
+<dl class="field-list">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>x</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>(sample_size, c_degree) 次元の ndarray です。すべての要素は実数でなければなりません。</p>
+</dd>
+<dt><strong>max_itr</strong><span class="classifier">int, オプション</span></dt><dd><p>反復回数の最大値（デフォルトは100）</p>
+</dd>
+<dt><strong>num_init</strong><span class="classifier">int, オプション</span></dt><dd><p>初期化の回数（デフォルトは10）</p>
+</dd>
+<dt><strong>tolerance</strong><span class="classifier">float, optional</span></dt><dd><p>変分下限の収束基準。デフォルトは 1.0E-8 です</p>
+</dd>
+<dt><strong>init_type</strong><span class="classifier">str, optional</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'サブサンプリング'</span></code>：各潜在クラスについて、サイズが <code class="docutils literal notranslate"><span class="pre">int(np.sqrt(x.shape[0]))</span></code> となる部分サンプルを抽出します。そして、その平均と共分散行列を <code class="docutils literal notranslate"><span class="pre">hn_m_vecs</span></code> および <code class="docutils literal notranslate"><span class="pre">hn_lambda_mats</span></code> の初期値として使用します。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'random_responsibility'</span></code>: <code class="docutils literal notranslate"><span class="pre">r_vecs</span></code> に負担率をランダムに割り当てます</p></li>
+</ul>
+<p>初期化の種類。デフォルトは <code class="docutils literal notranslate"><span class="pre">'subsampling'</span></code> です</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.estimate_params">
+<span class="sig-name descname"><span class="pre">estimate_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'squared'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.estimate_params" title="Link to this definition">#</a></dt>
+<dd><p>与えられた基準の下で、確率的データ生成モデルのパラメータを推定します。</p>
+<p>この基準は、<code class="docutils literal notranslate"><span class="pre">pi_vec</span></code>、<code class="docutils literal notranslate"><span class="pre">mu_vecs</span></code>、および``lambda_mats``の推定にそれぞれ個別に適用される点にご注意ください。したがって、loss=&quot;KL&quot;の場合、ディリクレ分布、スチューデントのt分布、およびウィシャートの分布のタプルが返されます。</p>
+<dl class="field-list">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数は、デフォルトで「二乗誤差損失」となります。この関数は「二乗誤差損失」、「0-1損失」、「KL」をサポートしております。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>Estimates</strong><span class="classifier">tuple of {numpy ndarray, float, None, or rv_frozen}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pi_vec_hat</span></code>：pi_vec の推定値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mu_vecs_hat</span></code>：mu_vecs の推定値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda_mats_hat</span></code>：lambda_mats の推定値</p></li>
+</ul>
+<p>指定された損失関数に基づく推定値です。存在しない場合は、<a href="#id1"><span class="problematic" id="id2">`</span></a>np.nan`が返されます。損失関数が「KL」の場合、事後分布そのものがscipy.statsのrv_frozenオブジェクトとして返されます。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.visualize_posterior">
+<span class="sig-name descname"><span class="pre">visualize_posterior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.visualize_posterior" title="Link to this definition">#</a></dt>
+<dd><p>パラメータの事後分布を可視化します。</p>
+<p class="rubric">例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">gaussianmixture</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gen_model</span> <span class="o">=</span> <span class="n">gaussianmixture</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_num_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_degree</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">mu_vecs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">]]),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">gen_model</span><span class="o">.</span><span class="n">gen_sample</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span> <span class="o">=</span> <span class="n">gaussianmixture</span><span class="o">.</span><span class="n">LearnModel</span><span class="p">(</span><span class="n">c_num_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c_degree</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span><span class="o">.</span><span class="n">update_posterior</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span><span class="o">.</span><span class="n">visualize_posterior</span><span class="p">()</span>
+<span class="go">hn_m_vecs:</span>
+<span class="go">[[ 2.09365933]</span>
+<span class="go">[-1.97862429]]</span>
+<span class="go">hn_kappas:</span>
+<span class="go">[47.68878373 54.31121627]</span>
+<span class="go">hn_nus:</span>
+<span class="go">[47.68878373 54.31121627]</span>
+<span class="go">hn_w_mats:</span>
+<span class="go">[[[0.02226992]]</span>
+<span class="go">[[0.01575793]]]</span>
+<span class="go">E[lambda_mats]=</span>
+<span class="go">[[[1.06202546]]</span>
+<span class="go">[[0.85583258]]]</span>
+</pre></div>
+</div>
+<img alt="_images/gaussianmixture_posterior.png" src="_images/gaussianmixture_posterior.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.get_p_params">
+<span class="sig-name descname"><span class="pre">get_p_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.get_p_params" title="Link to this definition">#</a></dt>
+<dd><p>予測分布のパラメータを取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>p_params</strong><span class="classifier">dict of {str: numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_mu_vecs&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.p_mu_vecs</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_nus&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.p_nus</span></code> の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_lambda_mats&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.p_lambda_mats</span></code> の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.calc_pred_dist">
+<span class="sig-name descname"><span class="pre">calc_pred_dist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.calc_pred_dist" title="Link to this definition">#</a></dt>
+<dd><p>予測分布のパラメータを計算します。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.make_prediction">
+<span class="sig-name descname"><span class="pre">make_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'squared'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.make_prediction" title="Link to this definition">#</a></dt>
+<dd><p>与えられた基準の下で、新しいデータ点を予測します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数で、デフォルトでは「squared」です。この関数は「squared」と「0-1」をサポートしています。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>predicted_value</strong><span class="classifier">{float, numpy.ndarray}</span></dt><dd><p>与えられた損失関数に基づく予測値です。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.pred_and_update">
+<span class="sig-name descname"><span class="pre">pred_and_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'squared'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'random_responsibility'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.pred_and_update" title="Link to this definition">#</a></dt>
+<dd><p>逐次的に新しいデータ点を予測し、事後分布を更新します。</p>
+<p>h0_params は、x によって hn_params を更新する前に、現在の hn_params で上書きされます</p>
+<dl class="field-list">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>x</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>それはc次元のベクトルでなければなりません</p>
+</dd>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数で、デフォルトでは「squared」です。この関数は「squared」と「0-1」をサポートしています。</p>
+</dd>
+<dt><strong>max_itr</strong><span class="classifier">int, オプション</span></dt><dd><p>反復回数の最大値（デフォルトは100）</p>
+</dd>
+<dt><strong>num_init</strong><span class="classifier">int, オプション</span></dt><dd><p>初期化の回数（デフォルトは10）</p>
+</dd>
+<dt><strong>tolerance</strong><span class="classifier">float, optional</span></dt><dd><p>変分下限の収束基準。デフォルトは 1.0E-8 です</p>
+</dd>
+<dt><strong>init_type</strong><span class="classifier">str, optional</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'random_responsibility'</span></code>: <code class="docutils literal notranslate"><span class="pre">r_vecs</span></code> に負担率をランダムに割り当てます</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'サブサンプリング'</span></code>：各潜在クラスについて、サイズが <code class="docutils literal notranslate"><span class="pre">int(np.sqrt(x.shape[0]))</span></code> となる部分サンプルを抽出します。そして、その平均と共分散行列を <code class="docutils literal notranslate"><span class="pre">hn_m_vecs</span></code> および <code class="docutils literal notranslate"><span class="pre">hn_lambda_mats</span></code> の初期値として使用します。</p></li>
+</ul>
+<p>初期化の種類。デフォルトは <code class="docutils literal notranslate"><span class="pre">'random_responsibility'</span></code> です</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>predicted_value</strong><span class="classifier">{float, numpy.ndarray}</span></dt><dd><p>与えられた損失関数に基づく予測値です。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.estimate_latent_vars">
+<span class="sig-name descname"><span class="pre">estimate_latent_vars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0-1'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.estimate_latent_vars" title="Link to this definition">#</a></dt>
+<dd><p>指定された基準の下で、<cite>x</cite> に対応する潜在変数を推定します。</p>
+<p>なお、この基準は各データ点に対して個別に適用される点にご注意ください。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>(sample_size, c_degree) 次元の ndarray です。すべての要素は実数でなければなりません。</p>
+</dd>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数で、デフォルトは「0-1」です。この関数では、「squared」、「0-1」、および「KL」がサポートされています。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>estimates</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>指定された損失関数に基づく推定値です。損失関数が「KL」の場合、事後分布は、各要素が出現確率で構成されるnumpy.ndarrayとして返されます。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.gaussianmixture.LearnModel.estimate_latent_vars_and_update">
+<span class="sig-name descname"><span class="pre">estimate_latent_vars_and_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0-1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'subsampling'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.gaussianmixture.LearnModel.estimate_latent_vars_and_update" title="Link to this definition">#</a></dt>
+<dd><p>潜在変数を推定し、事後分布を逐次的に更新します。</p>
+<p>h0_params は、x によって hn_params を更新する前に、現在の hn_params で上書きされます</p>
+<dl class="field-list">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>x</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>それはc次元のベクトルでなければなりません</p>
+</dd>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数で、デフォルトは「0-1」です。この関数では、「squared」および「0-1」がサポートされています。</p>
+</dd>
+<dt><strong>max_itr</strong><span class="classifier">int, オプション</span></dt><dd><p>反復回数の最大値（デフォルトは100）</p>
+</dd>
+<dt><strong>num_init</strong><span class="classifier">int, オプション</span></dt><dd><p>初期化の回数（デフォルトは10）</p>
+</dd>
+<dt><strong>tolerance</strong><span class="classifier">float, optional</span></dt><dd><p>変分下限の収束基準。デフォルトは 1.0E-8 です</p>
+</dd>
+<dt><strong>init_type</strong><span class="classifier">str, optional</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'サブサンプリング'</span></code>：各潜在クラスについて、サイズが <code class="docutils literal notranslate"><span class="pre">int(np.sqrt(x.shape[0]))</span></code> となる部分サンプルを抽出します。そして、その平均と共分散行列を <code class="docutils literal notranslate"><span class="pre">hn_m_vecs</span></code> および <code class="docutils literal notranslate"><span class="pre">hn_lambda_mats</span></code> の初期値として使用します。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'random_responsibility'</span></code>: <code class="docutils literal notranslate"><span class="pre">r_vecs</span></code> に負担率をランダムに割り当てます</p></li>
+</ul>
+<p>初期化の種類。デフォルトは <code class="docutils literal notranslate"><span class="pre">'subsampling'</span></code> です</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>predicted_value</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>与えられた損失関数に基づく推定値です。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -415,7 +1252,38 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.gaussianmixture">モジュール内容</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.get_constants"><code class="docutils literal notranslate"><span class="pre">GenModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.set_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.get_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.gen_params"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.set_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.get_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.gen_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.save_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.save_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.GenModel.visualize_model"><code class="docutils literal notranslate"><span class="pre">GenModel.visualize_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel"><code class="docutils literal notranslate"><span class="pre">LearnModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.get_constants"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.set_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.get_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.set_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.get_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.update_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.update_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.estimate_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.visualize_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.visualize_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.get_p_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_p_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.calc_pred_dist"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.make_prediction"><code class="docutils literal notranslate"><span class="pre">LearnModel.make_prediction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.pred_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.pred_and_update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.estimate_latent_vars"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_latent_vars()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.gaussianmixture.LearnModel.estimate_latent_vars_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_latent_vars_and_update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
