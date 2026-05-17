@@ -22,7 +22,7 @@ copyright = '2025, BayesML Developers'
 author = 'BayesML Developers'
 
 # The full version, including alpha/beta/rc tags
-release = '0.3.0'
+release = '0.3.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -70,10 +70,21 @@ html_logo = 'logos/BayesML_logo.png'
 
 myst_enable_extensions = ["dollarmath", "amsmath","html_image"]
 
+# get the language to build (Makefile is modified to create SPHINX_LANGUAGE variable)
+language = os.environ.get('SPHINX_LANGUAGE', 'en')
+if language == 'ja':
+  print("OK")
+  announcement_text = "メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href='https://bayesml.github.io/BayesML/ja/examples/metatree_prediction_interval.html'>こちら</a>！"
+else:
+  announcement_text = "Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html'>here</a>!"
+
 html_theme_options = {
   "repository_url": "https://github.com/bayesml/BayesML/",
   "use_repository_button": True,
-  "announcement": "Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html'>here</a>!",
+  "announcement": announcement_text,
+  "analytics": {
+      "google_analytics_id": "G-59F6KL8C5D",
+  },
 }
 
 napoleon_use_rtype = False
@@ -95,3 +106,14 @@ intersphinx_mapping = {'python': ('https://docs.python.org/3', None),
 }
 
 html_favicon = 'logos/BayesML_favicon.ico'
+
+locale_dirs = ['locale/']   # path is example but recommended.
+gettext_compact = False     # optional.
+
+html_sidebars = {
+    '**': ['navbar-logo.html',
+           'icon-links.html',
+           'language-switcher.html',
+           'search-button-field.html',
+           'sbt-sidebar-nav.html']
+}
