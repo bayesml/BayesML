@@ -40,10 +40,11 @@
       1. `make html`を実行するだけで英語と日本語両方のサイトがビルドされる
    3. ../docs/html/enに英語サイト，../docs/html/jaに日本語サイトのhtmlが生成される．
 5. Gitコミット
-   1. 以下は現時点では不要だが，今後gitの履歴をきれいに管理したくなったら作業手順に加えることにする．
-   2. `msgcat --no-location --output-file="PO fileへのパス" "PO fileへのパス"`
-   3. `msgcat --no-wrap --output-file="PO fileへのパス" "PO fileへのパス"`
-   4. poファイルから不要な情報や不要な改行が削除される．
+   1. GitHub Desktopの左下の入力欄にサマリーを入力し，Commit to ブランチ名をクリックする．
+   2. 以下は現時点では不要だが，今後gitの履歴をきれいに管理したくなったら作業手順に加えることにする．
+      1. `msgcat --no-location --output-file="PO fileへのパス" "PO fileへのパス"`
+      2. `msgcat --no-wrap --output-file="PO fileへのパス" "PO fileへのパス"`
+      3. poファイルから不要な情報や不要な改行が削除される．
 
 ## 新しいモデルを開発するとき
 

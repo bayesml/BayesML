@@ -82,6 +82,9 @@ html_theme_options = {
   "repository_url": "https://github.com/bayesml/BayesML/",
   "use_repository_button": True,
   "announcement": announcement_text,
+  "analytics": {
+      "google_analytics_id": "G-59F6KL8C5D",
+  },
 }
 
 napoleon_use_rtype = False
