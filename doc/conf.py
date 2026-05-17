@@ -22,7 +22,7 @@ copyright = '2025, BayesML Developers'
 author = 'BayesML Developers'
 
 # The full version, including alpha/beta/rc tags
-release = '0.3.1'
+release = '0.4.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -73,7 +73,6 @@ myst_enable_extensions = ["dollarmath", "amsmath","html_image"]
 # get the language to build (Makefile is modified to create SPHINX_LANGUAGE variable)
 language = os.environ.get('SPHINX_LANGUAGE', 'en')
 if language == 'ja':
-  print("OK")
   announcement_text = "メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href='https://bayesml.github.io/BayesML/ja/examples/metatree_prediction_interval.html'>こちら</a>！"
 else:
   announcement_text = "Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html'>here</a>!"
