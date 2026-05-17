@@ -188,6 +188,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
@@ -364,8 +366,9 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-author">コード作成者</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-author">ドキュメント作成者</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervisor">スーパーバイザー</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logo-designer">ロゴデザイナー</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adviser">アドバイザー</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logo-designer">ロゴデザイナー</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#past-contributors">過去の貢献者</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">引用</a></li>
 </ul>
 </li>
@@ -385,55 +388,53 @@ document.write(`
 <section id="code-author">
 <h2>コード作成者<a class="headerlink" href="#code-author" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://researchmap.jp/y-nak?lang=en">中原 悠太</a>、早稲田大学</p></li>
-<li><p>西川 潤</p></li>
+<li><p><a class="reference external" href="https://researchmap.jp/y-nak?lang=ja">中原 悠太</a>、早稲田大学</p></li>
 <li><p>江崎 泰志</p></li>
 <li><p>一條 尚希</p></li>
-<li><p>島田 航志</p></li>
-<li><p>鈴木 海里</p></li>
-<li><p>潮田 幹生</p></li>
-<li><p>田島 慶斗</p></li>
-<li><p>堀之内 康平</p></li>
-<li><p>Luyu Ruan</p></li>
-<li><p>行谷 昇</p></li>
-<li><p>馬庭 良太</p></li>
-<li><p>石渡 泰祐</p></li>
-<li><p>Wenbin Yu</p></li>
-<li><p>飯窪 祐二</p></li>
+<li><p><a class="reference external" href="https://researchmap.jp/shimada2k?lang=ja">島田 航志</a>、早稲田大学</p></li>
+<li><p><a class="reference external" href="https://researchmap.jp/Kohei_Horinouchi?lang=ja">堀之内 康平</a>、早稲田大学</p></li>
 </ul>
 </section>
 <section id="document-author">
 <h2>ドキュメント作成者<a class="headerlink" href="#document-author" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://researchmap.jp/y-nak?lang=en">中原 悠太</a>、早稲田大学</p></li>
-<li><p><a class="reference external" href="https://saito-lab.labby.jp/">齋藤翔太</a>、群馬大学</p></li>
-<li><p><a class="reference external" href="https://researchmap.jp/KokiKAZAMA?lang=en">風間 皐希</a>、湘南工科大学</p></li>
-<li><p>岡 凌平</p></li>
+<li><p><a class="reference external" href="https://researchmap.jp/y-nak?lang=ja">中原 悠太</a>、早稲田大学</p></li>
+<li><p><a class="reference external" href="https://saito-lab.labby.jp/">齋藤 翔太</a>、群馬大学</p></li>
+<li><p><a class="reference external" href="https://researchmap.jp/KokiKAZAMA?lang=ja">風間 皐希</a>、湘南工科大学</p></li>
 <li><p>江崎 泰志</p></li>
-<li><p>島田 航志</p></li>
+<li><p><a class="reference external" href="https://researchmap.jp/shimada2k?lang=ja">島田 航志</a>、早稲田大学</p></li>
 <li><p>一條 尚希</p></li>
-<li><p>鈴木 海里</p></li>
-<li><p>村山 春香</p></li>
-<li><p>田島 慶斗</p></li>
-<li><p>堀之内 康平</p></li>
-<li><p>行谷 昇</p></li>
-<li><p>馬庭 良太</p></li>
-<li><p>石渡 泰祐</p></li>
-<li><p>Wenbin Yu</p></li>
-<li><p>飯窪 祐二</p></li>
+<li><p><a class="reference external" href="https://researchmap.jp/Kohei_Horinouchi?lang=ja">堀之内 康平</a>、早稲田大学</p></li>
 </ul>
 </section>
-<section id="supervisor">
-<h2>スーパーバイザー<a class="headerlink" href="#supervisor" title="Link to this heading">#</a></h2>
+<section id="adviser">
+<h2>アドバイザー<a class="headerlink" href="#adviser" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>松嶋 敏泰</p></li>
+<li><p><a class="reference external" href="https://researchmap.jp/read0044887?lang=ja">松嶋 敏泰</a>、早稲田大学</p></li>
 </ul>
 </section>
 <section id="logo-designer">
 <h2>ロゴデザイナー<a class="headerlink" href="#logo-designer" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Akiyo Arakawa</p></li>
-<li><p><a class="reference external" href="https://researchmap.jp/y-nak?lang=en">中原 悠太</a>、早稲田大学</p></li>
+<li><p>荒川 暁世</p></li>
+<li><p><a class="reference external" href="https://researchmap.jp/y-nak?lang=ja">中原 悠太</a>、早稲田大学</p></li>
+</ul>
+</section>
+<section id="past-contributors">
+<h2>過去の貢献者<a class="headerlink" href="#past-contributors" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>村山 春香</p></li>
+<li><p>鈴木 海里</p></li>
+<li><p>田島 慶斗</p></li>
+<li><p>Luyu Ruan</p></li>
+<li><p>潮田 幹生</p></li>
+<li><p>西川 潤</p></li>
+<li><p>行谷 昇</p></li>
+<li><p>岡 凌平</p></li>
+<li><p>馬庭 良太</p></li>
+<li><p>石渡 泰祐</p></li>
+<li><p>Wenbin Yu</p></li>
+<li><p>飯窪 祐二</p></li>
 </ul>
 <section id="citation">
 <h3>引用<a class="headerlink" href="#citation" title="Link to this heading">#</a></h3>
@@ -441,7 +442,7 @@ document.write(`
 <p>Plain text</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo,
 S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,&#39;&#39;
-Python package version 0.3.1,
+Python package version 0.4.1, 2026.
 [Online] https://github.com/bayesml/BayesML
 </pre></div>
 </div>
@@ -451,9 +452,9 @@ Python package version 0.3.1,
 <span class="s">          Iikubo, Yuji and Saito, Shota and Kazama, Koki and</span>
 <span class="s">          Matsushima, Toshiyasu and {BayesML Developers}}</span><span class="p">,</span>
 <span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{BayesML}}</span><span class="p">,</span>
-<span class="na">howpublished</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Python package version 0.3.1}</span><span class="p">,</span>
+<span class="na">howpublished</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Python package version 0.4.1}</span><span class="p">,</span>
 <span class="na">note</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{\url{https://github.com/bayesml/BayesML}}</span><span class="p">,</span>
-<span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span>
+<span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -499,8 +500,9 @@ Python package version 0.3.1,
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-author">コード作成者</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-author">ドキュメント作成者</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervisor">スーパーバイザー</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logo-designer">ロゴデザイナー</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adviser">アドバイザー</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logo-designer">ロゴデザイナー</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#past-contributors">過去の貢献者</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">引用</a></li>
 </ul>
 </li>

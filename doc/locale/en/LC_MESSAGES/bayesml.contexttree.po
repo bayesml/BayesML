@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 16:37+0900\n"
+"POT-Creation-Date: 2025-05-29 18:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -337,6 +337,10 @@ msgid ""
 "Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability "
 "Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. "
 "https://doi.org/10.3390/e24030328"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
 msgstr ""
 
 #: bayesml.contexttree._contexttree.GenModel:2 of
@@ -832,6 +836,12 @@ msgstr ""
 #: bayesml.contexttree._contexttree.GenModel.visualize_model:34
 #: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:36 of
 msgid "Examples"
+msgstr ""
+
+#: bayesml.contexttree._contexttree.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.contexttree._contexttree.LearnModel:2 of

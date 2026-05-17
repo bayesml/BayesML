@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 16:37+0900\n"
+"POT-Creation-Date: 2025-05-29 18:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -497,6 +497,10 @@ msgid ""
 "Artificial Intelligence and Statistics*, in *Proceedings of Machine "
 "Learning Research* 2025, 258:1045-1053 Available from "
 "https://proceedings.mlr.press/v258/nakahara25a.html."
+msgstr ""
+
+#: bayesml.metatree._metatree.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
 msgstr ""
 
 #: bayesml.metatree._metatree.GenModel:2 of
@@ -1294,6 +1298,12 @@ msgstr ""
 #: bayesml.metatree._metatree.GenModel.visualize_model:44
 #: bayesml.metatree._metatree.LearnModel.visualize_posterior:39 of
 msgid "Examples"
+msgstr ""
+
+#: bayesml.metatree._metatree.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.metatree._metatree.LearnModel:2 of

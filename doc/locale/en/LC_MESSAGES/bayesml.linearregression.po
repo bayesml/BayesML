@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 09:23+0900\n"
+"POT-Creation-Date: 2026-05-17 22:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -249,12 +249,12 @@ msgstr ""
 
 #: bayesml.linearregression:71 of
 #, python-brace-format
-msgid ":math:`\\lambda_\\mathrm{p}\\in \\mathbb{R}`: a parameter"
+msgid ":math:`\\lambda_\\mathrm{p}\\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ""
 
 #: bayesml.linearregression:72 of
 #, python-brace-format
-msgid ":math:`\\nu_\\mathrm{p}\\in \\mathbb{R}`: a parameter"
+msgid ":math:`\\nu_\\mathrm{p}\\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ""
 
 #: bayesml.linearregression:74 of
@@ -295,6 +295,10 @@ msgid ""
 "\\boldsymbol{\\Lambda}_{n} \\boldsymbol{x}_{n+1}\\right)^{-1}, \\\\\n"
 "\\nu_\\mathrm{p} &= 2 \\alpha_{n}.\n"
 "\n"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel:2 of
@@ -690,7 +694,7 @@ msgid ""
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.gen_sample:13
-#: bayesml.linearregression._linearregression.GenModel.save_sample:22
+#: bayesml.linearregression._linearregression.GenModel.save_sample:19
 #: bayesml.linearregression._linearregression.GenModel.visualize_model:7 of
 msgid "**sample_size**"
 msgstr ""
@@ -702,13 +706,13 @@ msgid "int, optional"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.gen_sample:14
-#: bayesml.linearregression._linearregression.GenModel.save_sample:23 of
+#: bayesml.linearregression._linearregression.GenModel.save_sample:20 of
 msgid "A positive integer, by default ``None``."
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.gen_sample:16
 #: bayesml.linearregression._linearregression.GenModel.gen_sample:26
-#: bayesml.linearregression._linearregression.GenModel.save_sample:19
+#: bayesml.linearregression._linearregression.GenModel.save_sample:22
 #: bayesml.linearregression._linearregression.LearnModel.calc_pred_dist:7
 #: bayesml.linearregression._linearregression.LearnModel.fit:12
 #: bayesml.linearregression._linearregression.LearnModel.pred_and_update:7
@@ -718,9 +722,9 @@ msgid "**x**"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.gen_sample:17
-#: bayesml.linearregression._linearregression.GenModel.save_sample:20 of
+#: bayesml.linearregression._linearregression.GenModel.save_sample:23 of
 msgid ""
-"float array whose shape is ``(sammple_length,c_degree)``, by default "
+"float array whose shape is ``(sample_size,c_degree)``, by default "
 "``None``."
 msgstr ""
 
@@ -738,7 +742,8 @@ msgid "bool, optional"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.gen_sample:20
-#: bayesml.linearregression._linearregression.GenModel.save_sample:26 of
+#: bayesml.linearregression._linearregression.GenModel.save_sample:26
+#: bayesml.linearregression._linearregression.GenModel.visualize_model:11 of
 msgid "A boolean value, by default ``True``."
 msgstr ""
 
@@ -754,7 +759,7 @@ msgid "numpy ndarray"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.gen_sample:27 of
-msgid "float array whose shape is ``(sammple_length,c_degree)``."
+msgid "float array whose shape is ``(sample_size,c_degree)``."
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.gen_sample:29
@@ -765,7 +770,7 @@ msgid "**y**"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.gen_sample:30 of
-msgid "1 dimensional float array whose size is ``sammple_length``."
+msgid "1 dimensional float array whose size is ``sample_size``."
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.save_sample:11 of
@@ -791,13 +796,19 @@ msgid ":obj:`numpy.savez_compressed`"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.visualize_model:8 of
-msgid "A positive integer, by default 50"
+msgid "A positive integer, by default 100"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.GenModel.visualize_model:26
 #: bayesml.linearregression._linearregression.LearnModel.visualize_posterior:19
 #: of
 msgid "Examples"
+msgstr ""
+
+#: bayesml.linearregression._linearregression.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.linearregression._linearregression.LearnModel:2 of
@@ -1127,7 +1138,7 @@ msgstr ""
 #: bayesml.linearregression._linearregression.LearnModel.set_h0_params:4 of
 msgid ""
 "Note that the parameters of the predictive distribution are also "
-"calculated from  ``self.h0_mu_vec``, ``slef.h0_lambda_mat``, "
+"calculated from  ``self.h0_mu_vec``, ``self.h0_lambda_mat``, "
 "``self.h0_alpha`` and ``self.h0_beta``."
 msgstr ""
 
@@ -1154,7 +1165,7 @@ msgstr ""
 #: bayesml.linearregression._linearregression.LearnModel.set_hn_params:4 of
 msgid ""
 "Note that the parameters of the predictive distribution are also "
-"calculated from  ``self.hn_mu_vec``, ``slef.hn_lambda_mat``, "
+"calculated from  ``self.hn_mu_vec``, ``self.hn_lambda_mat``, "
 "``self.hn_alpha`` and ``self.hn_beta``."
 msgstr ""
 
@@ -1363,5 +1374,39 @@ msgstr ""
 #~ msgid ""
 #~ "Bases: :py:class:`~bayesml.base.Posterior`, "
 #~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
+
+#~ msgid ":math:`\\lambda_\\mathrm{p}\\in \\mathbb{R}`: a parameter"
+#~ msgstr ""
+
+#~ msgid ":math:`\\nu_\\mathrm{p}\\in \\mathbb{R}`: a parameter"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "float array whose shape is "
+#~ "``(sammple_length,c_degree)``, by default ``None``."
+#~ msgstr ""
+
+#~ msgid "float array whose shape is ``(sammple_length,c_degree)``."
+#~ msgstr ""
+
+#~ msgid "1 dimensional float array whose size is ``sammple_length``."
+#~ msgstr ""
+
+#~ msgid "A positive integer, by default 50"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Note that the parameters of the "
+#~ "predictive distribution are also calculated"
+#~ " from  ``self.h0_mu_vec``, ``slef.h0_lambda_mat``, "
+#~ "``self.h0_alpha`` and ``self.h0_beta``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Note that the parameters of the "
+#~ "predictive distribution are also calculated"
+#~ " from  ``self.hn_mu_vec``, ``slef.hn_lambda_mat``, "
+#~ "``self.hn_alpha`` and ``self.hn_beta``."
 #~ msgstr ""
 

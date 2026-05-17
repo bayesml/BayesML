@@ -6,19 +6,18 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: BayesML\n"
+"Project-Id-Version:  BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 09:23+0900\n"
+"POT-Creation-Date: 2025-05-29 18:24+0900\n"
 "PO-Revision-Date: 2026-03-01 14:32+0900\n"
 "Last-Translator: \n"
-"Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
-"X-Generator: Poedit 3.8\n"
 
 #: ../../bayesml.exponential.rst:2
 msgid "bayesml.exponential package"
@@ -49,10 +48,12 @@ msgstr ":math:`\\lambda \\in \\mathbb{R}_{>0}`: パラメータ"
 #: bayesml.exponential:8 of
 #, python-brace-format
 msgid ""
-"p(x | \\lambda) = \\mathrm{Exp}(x|\\lambda) = \\lambda\\exp(-\\lambda x).\n"
+"p(x | \\lambda) = \\mathrm{Exp}(x|\\lambda) = \\lambda\\exp(-\\lambda x)."
+"\n"
 "\n"
 msgstr ""
-"p(x | \\lambda) = \\mathrm{Exp}(x|\\lambda) = \\lambda\\exp(-\\lambda x).\n"
+"p(x | \\lambda) = \\mathrm{Exp}(x|\\lambda) = \\lambda\\exp(-\\lambda x)."
+"\n"
 "\n"
 
 #: bayesml.exponential:11 of
@@ -83,21 +84,20 @@ msgstr ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 #: bayesml.exponential:20 of
 #, python-brace-format
 msgid ""
-":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}`: the Gamma "
-"function"
-msgstr ""
-":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}`: ガンマ関数"
+":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}`: the "
+"Gamma function"
+msgstr ":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}`: ガンマ関数"
 
 #: bayesml.exponential:22 of
 msgid ""
 "p(\\lambda) = \\mathrm{Gam}(\\lambda|\\alpha_0,\\beta_0) = "
-"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\lambda^{\\alpha_0 - 1} "
-"\\exp \\{ -\\beta_0 \\lambda \\},\n"
+"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\lambda^{\\alpha_0 - "
+"1} \\exp \\{ -\\beta_0 \\lambda \\},\n"
 "\n"
 msgstr ""
 "p(\\lambda) = \\mathrm{Gam}(\\lambda|\\alpha_0,\\beta_0) = "
-"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\lambda^{\\alpha_0 - 1} "
-"\\exp \\{ -\\beta_0 \\lambda \\},\n"
+"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\lambda^{\\alpha_0 - "
+"1} \\exp \\{ -\\beta_0 \\lambda \\},\n"
 "\n"
 
 #: bayesml.exponential:25 of
@@ -118,11 +118,11 @@ msgstr "事後分布は以下の通りです："
 #: bayesml.exponential:32 of
 #, python-brace-format
 msgid ""
-":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{R}_{\\geq 0}^n`: given "
-"data"
+":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{R}_{\\geq 0}^n`: "
+"given data"
 msgstr ""
-":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{R}_{\\geq 0}^n`: 与えられ"
-"たデータ"
+":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{R}_{\\geq 0}^n`: "
+"与えられたデータ"
 
 #: bayesml.exponential:33 of
 #, python-brace-format
@@ -137,13 +137,13 @@ msgstr ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 #: bayesml.exponential:36 of
 msgid ""
 "p(\\lambda | x^n) = \\mathrm{Gam}(\\lambda|\\alpha_n,\\beta_n) = "
-"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\lambda^{\\alpha_n - 1} "
-"\\exp \\{ -\\beta_n \\lambda \\},\n"
+"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\lambda^{\\alpha_n - "
+"1} \\exp \\{ -\\beta_n \\lambda \\},\n"
 "\n"
 msgstr ""
 "p(\\lambda | x^n) = \\mathrm{Gam}(\\lambda|\\alpha_n,\\beta_n) = "
-"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\lambda^{\\alpha_n - 1} "
-"\\exp \\{ -\\beta_n \\lambda \\},\n"
+"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\lambda^{\\alpha_n - "
+"1} \\exp \\{ -\\beta_n \\lambda \\},\n"
 "\n"
 
 #: bayesml.exponential:39 of
@@ -184,48 +184,44 @@ msgstr ":math:`x_{n+1} \\in \\mathbb{R}_{\\geq 0}`: 新たなデータ点"
 #: bayesml.exponential:53 of
 #, python-brace-format
 msgid ""
-":math:`\\kappa_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of the "
-"posterior"
-msgstr ""
-":math:`\\kappa_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 事後分布のハイパーパラメー"
-"タ"
+":math:`\\kappa_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of "
+"the posterior"
+msgstr ":math:`\\kappa_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 事後分布のハイパーパラメータ"
 
 #: bayesml.exponential:54 of
 #, python-brace-format
 msgid ""
-":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of "
-"the posterior"
-msgstr ""
-":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 事後分布のハイパーパラ"
-"メータ"
+":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of"
+" the posterior"
+msgstr ":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 事後分布のハイパーパラメータ"
 
 #: bayesml.exponential:56 of
 msgid ""
-"p(x_{n+1}|x^n)=\\mathrm{Lomax}(x_{n+1}|\\kappa_\\mathrm{p},"
-"\\lambda_\\mathrm{p}) = \\frac{\\kappa_\\mathrm{p}}{\\lambda_\\mathrm{p}}"
-"\\left(1+\\frac{x_{n+1}}{\\lambda_\\mathrm{p}}\\right)^{-(\\kappa_\\mathrm{p}"
-"+1)},\n"
+"p(x_{n+1}|x^n)=\\mathrm{Lomax}(x_{n+1}|\\kappa_\\mathrm{p},\\lambda_\\mathrm{p})"
+" = "
+"\\frac{\\kappa_\\mathrm{p}}{\\lambda_\\mathrm{p}}\\left(1+\\frac{x_{n+1}}{\\lambda_\\mathrm{p}}\\right)^{-(\\kappa_\\mathrm{p}+1)},"
+"\n"
 "\n"
 msgstr ""
-"p(x_{n+1}|x^n)=\\mathrm{Lomax}(x_{n+1}|\\kappa_\\mathrm{p},"
-"\\lambda_\\mathrm{p}) = \\frac{\\kappa_\\mathrm{p}}{\\lambda_\\mathrm{p}}"
-"\\left(1+\\frac{x_{n+1}}{\\lambda_\\mathrm{p}}\\right)^{-(\\kappa_\\mathrm{p}"
-"+1)},\n"
+"p(x_{n+1}|x^n)=\\mathrm{Lomax}(x_{n+1}|\\kappa_\\mathrm{p},\\lambda_\\mathrm{p})"
+" = "
+"\\frac{\\kappa_\\mathrm{p}}{\\lambda_\\mathrm{p}}\\left(1+\\frac{x_{n+1}}{\\lambda_\\mathrm{p}}\\right)^{-(\\kappa_\\mathrm{p}+1)},"
+"\n"
 "\n"
 
 #: bayesml.exponential:59 of
 msgid ""
 "\\mathbb{E}[x_{n+1} | x^n] &=\n"
 "\\begin{cases}\n"
-"\\frac{\\lambda_\\mathrm{p}}{\\kappa_\\mathrm{p}-1}, & \\kappa_\\mathrm{p}"
-">1,\\\\\n"
+"\\frac{\\lambda_\\mathrm{p}}{\\kappa_\\mathrm{p}-1}, & "
+"\\kappa_\\mathrm{p}>1,\\\\\n"
 "\\mathrm{undefined}, & \\text{otherwise},\n"
 "\\end{cases}\\\\\n"
 "\\mathbb{V}[x_{n+1} | x^n] &=\n"
 "\\begin{cases}\n"
-"\\frac{\\lambda_\\mathrm{p}^2 \\kappa_\\mathrm{p}}"
-"{(\\kappa_\\mathrm{p}-1)^2(\\kappa_\\mathrm{p}-2)}, & \\kappa_\\mathrm{p}"
-">2,\\\\\n"
+"\\frac{\\lambda_\\mathrm{p}^2 "
+"\\kappa_\\mathrm{p}}{(\\kappa_\\mathrm{p}-1)^2(\\kappa_\\mathrm{p}-2)}, &"
+" \\kappa_\\mathrm{p}>2,\\\\\n"
 "\\infty, & 1<\\kappa_\\mathrm{p}\\leq 2,\\\\\n"
 "\\mathrm{undefined}, & \\text{otherwise},\n"
 "\\end{cases}\n"
@@ -233,15 +229,15 @@ msgid ""
 msgstr ""
 "\\mathbb{E}[x_{n+1} | x^n] &=\n"
 "\\begin{cases}\n"
-"\\frac{\\lambda_\\mathrm{p}}{\\kappa_\\mathrm{p}-1}, & \\kappa_\\mathrm{p}"
-">1,\\\\\n"
+"\\frac{\\lambda_\\mathrm{p}}{\\kappa_\\mathrm{p}-1}, & "
+"\\kappa_\\mathrm{p}>1,\\\\\n"
 "\\mathrm{undefined}, & \\text{otherwise},\n"
 "\\end{cases}\\\\\n"
 "\\mathbb{V}[x_{n+1} | x^n] &=\n"
 "\\begin{cases}\n"
-"\\frac{\\lambda_\\mathrm{p}^2 \\kappa_\\mathrm{p}}"
-"{(\\kappa_\\mathrm{p}-1)^2(\\kappa_\\mathrm{p}-2)}, & \\kappa_\\mathrm{p}"
-">2,\\\\\n"
+"\\frac{\\lambda_\\mathrm{p}^2 "
+"\\kappa_\\mathrm{p}}{(\\kappa_\\mathrm{p}-1)^2(\\kappa_\\mathrm{p}-2)}, &"
+" \\kappa_\\mathrm{p}>2,\\\\\n"
 "\\infty, & 1<\\kappa_\\mathrm{p}\\leq 2,\\\\\n"
 "\\mathrm{undefined}, & \\text{otherwise},\n"
 "\\end{cases}\n"
@@ -249,10 +245,9 @@ msgstr ""
 
 #: bayesml.exponential:72 of
 msgid ""
-"where the parameters are obtained from the hyperparameters of the posterior "
-"distribution as follows:"
-msgstr ""
-"ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:"
+"where the parameters are obtained from the hyperparameters of the "
+"posterior distribution as follows:"
+msgstr "ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:"
 
 #: bayesml.exponential:74 of
 #, python-brace-format
@@ -264,6 +259,10 @@ msgstr ""
 "&\\kappa_\\mathrm{p} = \\alpha_n, \\\\\n"
 "&\\lambda_\\mathrm{p} = \\beta_n.\n"
 "\n"
+
+#: bayesml.exponential._exponential.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
 
 #: bayesml.exponential._exponential.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution."
@@ -332,8 +331,7 @@ msgstr "{None, int}, optional"
 
 #: bayesml.exponential._exponential.GenModel:17 of
 msgid "A seed to initialize numpy.random.default_rng(), by default None"
-msgstr ""
-"numpy.random.default_rng() を初期化するシード値です。デフォルトでは None "
+msgstr "numpy.random.default_rng() を初期化するシード値です。デフォルトでは None "
 
 #: bayesml.exponential._exponential.GenModel:22
 #: bayesml.exponential._exponential.LearnModel:28 of
@@ -342,8 +340,7 @@ msgstr "メソッド"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ":py:obj:`gen_params <bayesml.exponential.GenModel.gen_params>`\\ \\(\\)"
-msgstr ""
-":py:obj:`gen_params <bayesml.exponential.GenModel.gen_params>`\\ \\(\\)"
+msgstr ":py:obj:`gen_params <bayesml.exponential.GenModel.gen_params>`\\ \\(\\)"
 
 #: bayesml.exponential._exponential.GenModel.gen_params:2
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
@@ -352,11 +349,11 @@ msgstr "事前分布からパラメータを生成します。"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`gen_sample <bayesml.exponential.GenModel.gen_sample>`\\ \\"
-"(sample\\_size\\)"
+":py:obj:`gen_sample <bayesml.exponential.GenModel.gen_sample>`\\ "
+"\\(sample\\_size\\)"
 msgstr ""
-":py:obj:`gen_sample <bayesml.exponential.GenModel.gen_sample>`\\ \\"
-"(sample\\_size\\)"
+":py:obj:`gen_sample <bayesml.exponential.GenModel.gen_sample>`\\ "
+"\\(sample\\_size\\)"
 
 #: bayesml.exponential._exponential.GenModel.gen_sample:2
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
@@ -365,9 +362,11 @@ msgstr "確率的データ生成モデルからサンプルを生成します。
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`get_constants <bayesml.exponential.GenModel.get_constants>`\\ \\(\\)"
+":py:obj:`get_constants <bayesml.exponential.GenModel.get_constants>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`get_constants <bayesml.exponential.GenModel.get_constants>`\\ \\(\\)"
+":py:obj:`get_constants <bayesml.exponential.GenModel.get_constants>`\\ "
+"\\(\\)"
 
 #: bayesml.exponential._exponential.GenModel.get_constants:2
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
@@ -376,9 +375,11 @@ msgstr "GenModel の定数を取得します。"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`get_h_params <bayesml.exponential.GenModel.get_h_params>`\\ \\(\\)"
+":py:obj:`get_h_params <bayesml.exponential.GenModel.get_h_params>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`get_h_params <bayesml.exponential.GenModel.get_h_params>`\\ \\(\\)"
+":py:obj:`get_h_params <bayesml.exponential.GenModel.get_h_params>`\\ "
+"\\(\\)"
 
 #: bayesml.exponential._exponential.GenModel.get_h_params:2
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
@@ -387,8 +388,7 @@ msgstr "事前分布のハイパーパラメータを取得します。"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ":py:obj:`get_params <bayesml.exponential.GenModel.get_params>`\\ \\(\\)"
-msgstr ""
-":py:obj:`get_params <bayesml.exponential.GenModel.get_params>`\\ \\(\\)"
+msgstr ":py:obj:`get_params <bayesml.exponential.GenModel.get_params>`\\ \\(\\)"
 
 #: bayesml.exponential._exponential.GenModel.get_params:2
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
@@ -397,11 +397,11 @@ msgstr "確率的データ生成モデルのパラメータを取得します。
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`load_h_params <bayesml.exponential.GenModel.load_h_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_h_params <bayesml.exponential.GenModel.load_h_params>`\\ "
+"\\(filename\\)"
 msgstr ""
-":py:obj:`load_h_params <bayesml.exponential.GenModel.load_h_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_h_params <bayesml.exponential.GenModel.load_h_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid "Load the hyperparameters to h_params."
@@ -409,11 +409,11 @@ msgstr "h_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`load_params <bayesml.exponential.GenModel.load_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_params <bayesml.exponential.GenModel.load_params>`\\ "
+"\\(filename\\)"
 msgstr ""
-":py:obj:`load_params <bayesml.exponential.GenModel.load_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_params <bayesml.exponential.GenModel.load_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid "Load the parameters saved by ``save_params``."
@@ -421,11 +421,11 @@ msgstr "Load the parameters saved by ``save_params``."
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`save_h_params <bayesml.exponential.GenModel.save_h_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_h_params <bayesml.exponential.GenModel.save_h_params>`\\ "
+"\\(filename\\)"
 msgstr ""
-":py:obj:`save_h_params <bayesml.exponential.GenModel.save_h_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_h_params <bayesml.exponential.GenModel.save_h_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -434,11 +434,11 @@ msgstr "python ``pickle`` モジュールを使ってハイパーパラメータ
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`save_params <bayesml.exponential.GenModel.save_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_params <bayesml.exponential.GenModel.save_params>`\\ "
+"\\(filename\\)"
 msgstr ""
-":py:obj:`save_params <bayesml.exponential.GenModel.save_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_params <bayesml.exponential.GenModel.save_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid "Save the parameters using python ``pickle`` module."
@@ -446,11 +446,11 @@ msgstr "python の ``pickle`` モジュールを使ってパラメータを保�
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`save_sample <bayesml.exponential.GenModel.save_sample>`\\ \\"
-"(filename\\, sample\\_size\\)"
+":py:obj:`save_sample <bayesml.exponential.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_size\\)"
 msgstr ""
-":py:obj:`save_sample <bayesml.exponential.GenModel.save_sample>`\\ \\"
-"(filename\\, sample\\_size\\)"
+":py:obj:`save_sample <bayesml.exponential.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_size\\)"
 
 #: bayesml.exponential._exponential.GenModel.save_sample:2
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
@@ -459,11 +459,11 @@ msgstr "生成されたサンプルを NumPy ``.npz`` フォーマットで保�
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`set_h_params <bayesml.exponential.GenModel.set_h_params>`\\ \\(\\"
-"[h\\_alpha\\, h\\_beta\\]\\)"
+":py:obj:`set_h_params <bayesml.exponential.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_alpha\\, h\\_beta\\]\\)"
 msgstr ""
-":py:obj:`set_h_params <bayesml.exponential.GenModel.set_h_params>`\\ \\(\\"
-"[h\\_alpha\\, h\\_beta\\]\\)"
+":py:obj:`set_h_params <bayesml.exponential.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_alpha\\, h\\_beta\\]\\)"
 
 #: bayesml.exponential._exponential.GenModel.set_h_params:2
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
@@ -472,11 +472,11 @@ msgstr "事前分布のハイパーパラメータを設定します。"
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`set_params <bayesml.exponential.GenModel.set_params>`\\ \\(\\"
-"[lambda\\_\\]\\)"
+":py:obj:`set_params <bayesml.exponential.GenModel.set_params>`\\ "
+"\\(\\[lambda\\_\\]\\)"
 msgstr ""
-":py:obj:`set_params <bayesml.exponential.GenModel.set_params>`\\ \\(\\"
-"[lambda\\_\\]\\)"
+":py:obj:`set_params <bayesml.exponential.GenModel.set_params>`\\ "
+"\\(\\[lambda\\_\\]\\)"
 
 #: bayesml.exponential._exponential.GenModel.set_params:2
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
@@ -485,11 +485,13 @@ msgstr "確率的データ生成モデルのパラメータを設定します。
 
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`visualize_model <bayesml.exponential.GenModel.visualize_model>`\\ \\"
-"(\\[sample\\_size\\, hist\\_bins\\]\\)"
+":py:obj:`visualize_model "
+"<bayesml.exponential.GenModel.visualize_model>`\\ \\(\\[sample\\_size\\, "
+"hist\\_bins\\]\\)"
 msgstr ""
-":py:obj:`visualize_model <bayesml.exponential.GenModel.visualize_model>`\\ \\"
-"(\\[sample\\_size\\, hist\\_bins\\]\\)"
+":py:obj:`visualize_model "
+"<bayesml.exponential.GenModel.visualize_model>`\\ \\(\\[sample\\_size\\, "
+"hist\\_bins\\]\\)"
 
 #: bayesml.exponential._exponential.GenModel.visualize_model:2
 #: bayesml.exponential._exponential.GenModel:50:<autosummary>:1 of
@@ -500,11 +502,9 @@ msgstr "確率的データ生成モデルと生成されたサンプルを可視
 #: bayesml.exponential._exponential.LearnModel.get_constants:4 of
 #, python-brace-format
 msgid ""
-"This model does not have any constants.  Therefore, this function returns an "
-"emtpy dict ``{}``."
-msgstr ""
-"このモデルは定数を持ちません。  したがって、この関数は emtpy dict ``{}`` を返"
-"します。"
+"This model does not have any constants.  Therefore, this function returns"
+" an emtpy dict ``{}``."
+msgstr "このモデルは定数を持ちません。  したがって、この関数は emtpy dict ``{}`` を返します。"
 
 #: bayesml.exponential._exponential.GenModel.gen_sample
 #: bayesml.exponential._exponential.GenModel.get_constants
@@ -610,8 +610,8 @@ msgstr "numpy ndarray"
 
 #: bayesml.exponential._exponential.GenModel.gen_sample:15 of
 msgid ""
-"1 dimensional array whose size is ``sammple_size`` and elements are positive "
-"real numbers."
+"1 dimensional array whose size is ``sammple_size`` and elements are "
+"positive real numbers."
 msgstr "サイズが「sammple_size」で、要素が正の実数である1次元配列です。"
 
 #: bayesml.exponential._exponential.GenModel.save_sample:4 of
@@ -628,8 +628,8 @@ msgstr "str"
 
 #: bayesml.exponential._exponential.GenModel.save_sample:9 of
 msgid ""
-"The filename to which the sample is saved. ``.npz`` will be appended if it "
-"isn't there."
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
 msgstr "サンプルを保存するファイル名。ない場合は ``.npz`` が追加されます。"
 
 #: bayesml.exponential._exponential.GenModel.save_sample:27 of
@@ -656,6 +656,12 @@ msgstr "正の浮動小数点数、デフォルト値は10"
 #: bayesml.exponential._exponential.LearnModel.visualize_posterior:19 of
 msgid "Examples"
 msgstr "例"
+
+#: bayesml.exponential._exponential.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
 
 #: bayesml.exponential._exponential.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
@@ -722,11 +728,11 @@ msgstr "対数周辺尤度の計算"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`calc_pred_dist <bayesml.exponential.LearnModel.calc_pred_dist>`\\ \\"
-"(\\)"
+":py:obj:`calc_pred_dist "
+"<bayesml.exponential.LearnModel.calc_pred_dist>`\\ \\(\\)"
 msgstr ""
-":py:obj:`calc_pred_dist <bayesml.exponential.LearnModel.calc_pred_dist>`\\ \\"
-"(\\)"
+":py:obj:`calc_pred_dist "
+"<bayesml.exponential.LearnModel.calc_pred_dist>`\\ \\(\\)"
 
 #: bayesml.exponential._exponential.LearnModel.calc_pred_dist:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -736,10 +742,12 @@ msgstr "予測分布のパラメータを計算します。"
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
 ":py:obj:`estimate_interval "
-"<bayesml.exponential.LearnModel.estimate_interval>`\\ \\(\\[credibility\\]\\)"
+"<bayesml.exponential.LearnModel.estimate_interval>`\\ "
+"\\(\\[credibility\\]\\)"
 msgstr ""
 ":py:obj:`estimate_interval "
-"<bayesml.exponential.LearnModel.estimate_interval>`\\ \\(\\[credibility\\]\\)"
+"<bayesml.exponential.LearnModel.estimate_interval>`\\ "
+"\\(\\[credibility\\]\\)"
 
 #: bayesml.exponential._exponential.LearnModel.estimate_interval:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -748,11 +756,13 @@ msgstr "パラメータの信頼区間"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`estimate_params <bayesml.exponential.LearnModel.estimate_params>`\\ "
-"\\(\\[loss\\, dict\\_out\\]\\)"
+":py:obj:`estimate_params "
+"<bayesml.exponential.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
+"dict\\_out\\]\\)"
 msgstr ""
-":py:obj:`estimate_params <bayesml.exponential.LearnModel.estimate_params>`\\ "
-"\\(\\[loss\\, dict\\_out\\]\\)"
+":py:obj:`estimate_params "
+"<bayesml.exponential.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
+"dict\\_out\\]\\)"
 
 #: bayesml.exponential._exponential.LearnModel.estimate_params:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -772,11 +782,11 @@ msgstr "モデルをデータに当てはめます。"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`get_constants <bayesml.exponential.LearnModel.get_constants>`\\ \\"
-"(\\)"
+":py:obj:`get_constants <bayesml.exponential.LearnModel.get_constants>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`get_constants <bayesml.exponential.LearnModel.get_constants>`\\ \\"
-"(\\)"
+":py:obj:`get_constants <bayesml.exponential.LearnModel.get_constants>`\\ "
+"\\(\\)"
 
 #: bayesml.exponential._exponential.LearnModel.get_constants:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -785,25 +795,26 @@ msgstr "LearnModel の定数を取得します。"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`get_h0_params <bayesml.exponential.LearnModel.get_h0_params>`\\ \\"
-"(\\)"
+":py:obj:`get_h0_params <bayesml.exponential.LearnModel.get_h0_params>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`get_h0_params <bayesml.exponential.LearnModel.get_h0_params>`\\ \\"
-"(\\)"
+":py:obj:`get_h0_params <bayesml.exponential.LearnModel.get_h0_params>`\\ "
+"\\(\\)"
 
 #: bayesml.exponential._exponential.LearnModel.get_h0_params:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-"Get the initial values of the hyperparameters of the posterior distribution."
+"Get the initial values of the hyperparameters of the posterior "
+"distribution."
 msgstr "事後分布のハイパーパラメータの初期値を取得します。"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`get_hn_params <bayesml.exponential.LearnModel.get_hn_params>`\\ \\"
-"(\\)"
+":py:obj:`get_hn_params <bayesml.exponential.LearnModel.get_hn_params>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`get_hn_params <bayesml.exponential.LearnModel.get_hn_params>`\\ \\"
-"(\\)"
+":py:obj:`get_hn_params <bayesml.exponential.LearnModel.get_hn_params>`\\ "
+"\\(\\)"
 
 #: bayesml.exponential._exponential.LearnModel.get_hn_params:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -812,9 +823,11 @@ msgstr "事後分布のハイパーパラメータを取得します。"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`get_p_params <bayesml.exponential.LearnModel.get_p_params>`\\ \\(\\)"
+":py:obj:`get_p_params <bayesml.exponential.LearnModel.get_p_params>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`get_p_params <bayesml.exponential.LearnModel.get_p_params>`\\ \\(\\)"
+":py:obj:`get_p_params <bayesml.exponential.LearnModel.get_p_params>`\\ "
+"\\(\\)"
 
 #: bayesml.exponential._exponential.LearnModel.get_p_params:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -823,11 +836,11 @@ msgstr "予測分布のパラメータを取得します。"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`load_h0_params <bayesml.exponential.LearnModel.load_h0_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_h0_params "
+"<bayesml.exponential.LearnModel.load_h0_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`load_h0_params <bayesml.exponential.LearnModel.load_h0_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_h0_params "
+"<bayesml.exponential.LearnModel.load_h0_params>`\\ \\(filename\\)"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid "Load the hyperparameters to h0_params."
@@ -835,11 +848,11 @@ msgstr "h0_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`load_hn_params <bayesml.exponential.LearnModel.load_hn_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_hn_params "
+"<bayesml.exponential.LearnModel.load_hn_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`load_hn_params <bayesml.exponential.LearnModel.load_hn_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_hn_params "
+"<bayesml.exponential.LearnModel.load_hn_params>`\\ \\(filename\\)"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid "Load the hyperparameters to hn_params."
@@ -847,11 +860,11 @@ msgstr "hn_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`make_prediction <bayesml.exponential.LearnModel.make_prediction>`\\ "
-"\\(\\[loss\\]\\)"
+":py:obj:`make_prediction "
+"<bayesml.exponential.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
 msgstr ""
-":py:obj:`make_prediction <bayesml.exponential.LearnModel.make_prediction>`\\ "
-"\\(\\[loss\\]\\)"
+":py:obj:`make_prediction "
+"<bayesml.exponential.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
 
 #: bayesml.exponential._exponential.LearnModel.make_prediction:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -874,11 +887,11 @@ msgstr "事後分布のハイパーパラメータの初期値を学習した値
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`pred_and_update <bayesml.exponential.LearnModel.pred_and_update>`\\ "
-"\\(x\\[\\, loss\\]\\)"
+":py:obj:`pred_and_update "
+"<bayesml.exponential.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]\\)"
 msgstr ""
-":py:obj:`pred_and_update <bayesml.exponential.LearnModel.pred_and_update>`\\ "
-"\\(x\\[\\, loss\\]\\)"
+":py:obj:`pred_and_update "
+"<bayesml.exponential.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]\\)"
 
 #: bayesml.exponential._exponential.LearnModel.pred_and_update:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -896,11 +909,11 @@ msgstr "次のデータ点を予測します。"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`reset_hn_params <bayesml.exponential.LearnModel.reset_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`reset_hn_params "
+"<bayesml.exponential.LearnModel.reset_hn_params>`\\ \\(\\)"
 msgstr ""
-":py:obj:`reset_hn_params <bayesml.exponential.LearnModel.reset_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`reset_hn_params "
+"<bayesml.exponential.LearnModel.reset_hn_params>`\\ \\(\\)"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
@@ -910,27 +923,27 @@ msgstr "事後分布のハイパーパラメータを初期値に戻します。
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`save_h0_params <bayesml.exponential.LearnModel.save_h0_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_h0_params "
+"<bayesml.exponential.LearnModel.save_h0_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`save_h0_params <bayesml.exponential.LearnModel.save_h0_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_h0_params "
+"<bayesml.exponential.LearnModel.save_h0_params>`\\ \\(filename\\)"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`save_hn_params <bayesml.exponential.LearnModel.save_hn_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_hn_params "
+"<bayesml.exponential.LearnModel.save_hn_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`save_hn_params <bayesml.exponential.LearnModel.save_hn_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_hn_params "
+"<bayesml.exponential.LearnModel.save_hn_params>`\\ \\(filename\\)"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`set_h0_params <bayesml.exponential.LearnModel.set_h0_params>`\\ \\"
-"(\\[h0\\_alpha\\, h0\\_beta\\]\\)"
+":py:obj:`set_h0_params <bayesml.exponential.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_alpha\\, h0\\_beta\\]\\)"
 msgstr ""
-":py:obj:`set_h0_params <bayesml.exponential.LearnModel.set_h0_params>`\\ \\"
-"(\\[h0\\_alpha\\, h0\\_beta\\]\\)"
+":py:obj:`set_h0_params <bayesml.exponential.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_alpha\\, h0\\_beta\\]\\)"
 
 #: bayesml.exponential._exponential.LearnModel.set_h0_params:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -939,11 +952,11 @@ msgstr "事後分布のハイパーパラメータの初期値を設定します
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`set_hn_params <bayesml.exponential.LearnModel.set_hn_params>`\\ \\"
-"(\\[hn\\_alpha\\, hn\\_beta\\]\\)"
+":py:obj:`set_hn_params <bayesml.exponential.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_alpha\\, hn\\_beta\\]\\)"
 msgstr ""
-":py:obj:`set_hn_params <bayesml.exponential.LearnModel.set_hn_params>`\\ \\"
-"(\\[hn\\_alpha\\, hn\\_beta\\]\\)"
+":py:obj:`set_hn_params <bayesml.exponential.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_alpha\\, hn\\_beta\\]\\)"
 
 #: bayesml.exponential._exponential.LearnModel.set_hn_params:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -961,7 +974,8 @@ msgstr ""
 #: bayesml.exponential._exponential.LearnModel.update_posterior:2
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
 msgid ""
-"Update the hyperparameters of the posterior distribution using traning data."
+"Update the hyperparameters of the posterior distribution using traning "
+"data."
 msgstr "訓練データを使って事後分布のハイパーパラメータを更新します。"
 
 #: bayesml.exponential._exponential.LearnModel:65:<autosummary>:1 of
@@ -1027,8 +1041,8 @@ msgstr "str, optional"
 #: bayesml.exponential._exponential.LearnModel.make_prediction:8
 #: bayesml.exponential._exponential.LearnModel.pred_and_update:11 of
 msgid ""
-"Loss function underlying the Bayes risk function, by default \"squared\". "
-"This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
 msgstr ""
 "ベイズリスク関数の基礎となる損失関数、デフォルトは \"squared\"。この関数は "
 "\"squared\"、\"0-1\"、\"abs\"、\"KL \"をサポートしています。"
@@ -1060,9 +1074,8 @@ msgid ""
 "`None` will be returned. If the loss function is \"KL\", the posterior "
 "distribution itself will be returned as rv_frozen object of scipy.stats."
 msgstr ""
-"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失"
-"関数が \"KL\" の場合、事後分布そのものが scipy.stats の rv_frozen オブジェク"
-"トとして返されます。"
+"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数が \"KL\" の場合、事後分布そのものが "
+"scipy.stats の rv_frozen オブジェクトとして返されます。"
 
 #: bayesml.exponential._exponential.LearnModel.estimate_params:32
 #: bayesml.exponential._exponential.LearnModel.make_prediction:29
@@ -1082,8 +1095,8 @@ msgstr "**credibility**"
 
 #: bayesml.exponential._exponential.LearnModel.estimate_interval:8 of
 msgid ""
-"A posterior probability that the interval conitans the paramter, by default "
-"0.95."
+"A posterior probability that the interval conitans the paramter, by "
+"default 0.95."
 msgstr "区間がパラメータを含む事後確率，デフォルトは0.95．"
 
 #: bayesml.exponential._exponential.LearnModel.estimate_interval:14 of
@@ -1120,12 +1133,12 @@ msgstr "{float,None,rv_frozen}"
 #: bayesml.exponential._exponential.LearnModel.make_prediction:16
 #: bayesml.exponential._exponential.LearnModel.pred_and_update:19 of
 msgid ""
-"The predicted value under the given loss function.  If the loss function is "
-"\"KL\", the posterior distribution itself will be returned as rv_frozen "
-"object of scipy.stats."
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the posterior distribution itself will be returned as "
+"rv_frozen object of scipy.stats."
 msgstr ""
-"指定された損失関数における予測値です。損失関数が「KL」の場合、事後分布そのも"
-"のが scipy.stats の rv_frozen オブジェクトとして返されます。"
+"指定された損失関数における予測値です。損失関数が「KL」の場合、事後分布そのものが scipy.stats の rv_frozen "
+"オブジェクトとして返されます。"
 
 #: bayesml.exponential._exponential.LearnModel.calc_log_marginal_likelihood:10
 #: of
@@ -1166,3 +1179,4 @@ msgstr "{float,None}"
 #: bayesml.exponential._exponential.LearnModel.predict:15 of
 msgid "The predicted value under the squared loss function."
 msgstr "二乗誤差関数に基づく予測値。"
+

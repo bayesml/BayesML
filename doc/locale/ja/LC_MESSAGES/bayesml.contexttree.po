@@ -3,23 +3,21 @@
 # This file is distributed under the same license as the BayesML package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
-
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: BayesML\n"
+"Project-Id-Version:  BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 16:37+0900\n"
+"POT-Creation-Date: 2025-05-29 18:24+0900\n"
 "PO-Revision-Date: 2026-05-16 19:00+0900\n"
 "Last-Translator: \n"
-"Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
-"X-Generator: Poedit 3.9\n"
 
 #: ../../bayesml.contexttree.rst:2
 msgid "bayesml.contexttree package"
@@ -40,18 +38,29 @@ msgstr ":math:`\\mathcal{X}=\\{1,2,\\ldots,K\\}` : 情報源シンボルの集�
 
 #: bayesml.contexttree:4 of
 #, python-brace-format
-msgid ":math:`x^n = x_1 x_2 \\cdots x_n \\in \\mathcal{X}^n~(n\\in\\mathbb{N})` : an source sequence"
-msgstr ":math:`x^n = x_1 x_2 \\cdots x_n \\in \\mathcal{X}^n~(n\\in\\mathbb{N})` : 情報源系列"
+msgid ""
+":math:`x^n = x_1 x_2 \\cdots x_n \\in \\mathcal{X}^n~(n\\in\\mathbb{N})` "
+": an source sequence"
+msgstr ""
+":math:`x^n = x_1 x_2 \\cdots x_n \\in \\mathcal{X}^n~(n\\in\\mathbb{N})` "
+": 情報源系列"
 
 #: bayesml.contexttree:5 of
 #, python-brace-format
-msgid ":math:`D_\\mathrm{max} \\in \\mathbb{N}` : the maximum depth of context tree models"
+msgid ""
+":math:`D_\\mathrm{max} \\in \\mathbb{N}` : the maximum depth of context "
+"tree models"
 msgstr ":math:`D_\\mathrm{max} \\in \\mathbb{N}` : 文脈木モデルの最大深さ"
 
 #: bayesml.contexttree:6 of
 #, python-brace-format
-msgid ":math:`T` : a context tree model, :math:`K`-ary regular tree whose depth is smaller than or equal to :math:`D_\\mathrm{max}`, where \"regular\" means that all inner nodes have :math:`K` child nodes"
-msgstr ":math:`T`：文脈木モデルであり、深さが :math:`D_\\mathrm{max}` 以下である正則 :math:`K` 分木です。ここで、「正則」とは、すべての内部ノードが :math:`K` 個の子ノードを持つことを意味します"
+msgid ""
+":math:`T` : a context tree model, :math:`K`-ary regular tree whose depth "
+"is smaller than or equal to :math:`D_\\mathrm{max}`, where \"regular\" "
+"means that all inner nodes have :math:`K` child nodes"
+msgstr ""
+":math:`T`：文脈木モデルであり、深さが :math:`D_\\mathrm{max}` 以下である正則 :math:`K` "
+"分木です。ここで、「正則」とは、すべての内部ノードが :math:`K` 個の子ノードを持つことを意味します"
 
 #: bayesml.contexttree:7 of
 #, python-brace-format
@@ -74,23 +83,39 @@ msgstr ":math:`\\mathcal{L}(T)` : :math:`T` の葉ノードの集合"
 
 #: bayesml.contexttree:11 of
 #, python-brace-format
-msgid ":math:`\\mathcal{S}(T)` : a set of all nodes of :math:`T`, i.e., :math:`\\mathcal{S}(T) = \\mathcal{I}(T) \\cup \\mathcal{L}(T)`"
-msgstr ":math:`\\mathcal{S}(T)`：:math:`T`のすべてのノードの集合、すなわち、:math:`\\mathcal{S}(T) = \\mathcal{I}(T) \\cup \\mathcal{L}(T)`"
+msgid ""
+":math:`\\mathcal{S}(T)` : a set of all nodes of :math:`T`, i.e., "
+":math:`\\mathcal{S}(T) = \\mathcal{I}(T) \\cup \\mathcal{L}(T)`"
+msgstr ""
+":math:`\\mathcal{S}(T)`：:math:`T`のすべてのノードの集合、すなわち、:math:`\\mathcal{S}(T) "
+"= \\mathcal{I}(T) \\cup \\mathcal{L}(T)`"
 
 #: bayesml.contexttree:12 of
 #, python-brace-format
-msgid ":math:`s_T(x^{n-1}) \\in \\mathcal{L}(T)` : a leaf node of :math:`T` corresponding to :math:`x^{n-1} = x_1 x_2\\cdots x_{n-1}`"
-msgstr ":math:`s_T(x^{n-1}) \\in \\mathcal{L}(T)`：:math:`x^{n-1} = x_1 x_2\\cdots x_{n-1}` に対応する :math:`T` の葉ノード"
+msgid ""
+":math:`s_T(x^{n-1}) \\in \\mathcal{L}(T)` : a leaf node of :math:`T` "
+"corresponding to :math:`x^{n-1} = x_1 x_2\\cdots x_{n-1}`"
+msgstr ""
+":math:`s_T(x^{n-1}) \\in \\mathcal{L}(T)`：:math:`x^{n-1} = x_1 x_2\\cdots"
+" x_{n-1}` に対応する :math:`T` の葉ノード"
 
 #: bayesml.contexttree:13 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{\\theta}_s = (\\theta_{1|s}, \\theta_{2|s}, \\ldots, \\theta_{K|s})` : a parameter on a leaf node, where :math:`\\theta_{k|s}` denotes the occurrence probability of :math:`k\\in\\mathcal{X}`"
-msgstr ":math:`\\boldsymbol{\\theta}_s = (\\theta_{1|s}, \\theta_{2|s}, \\ldots, \\theta_{K|s})`：葉ノード上のパラメータ。ただし :math:`\\theta_{k|s}` は :math:`k\\in\\mathcal{X}` の生起確率を表します。"
+msgid ""
+":math:`\\boldsymbol{\\theta}_s = (\\theta_{1|s}, \\theta_{2|s}, \\ldots, "
+"\\theta_{K|s})` : a parameter on a leaf node, where :math:`\\theta_{k|s}`"
+" denotes the occurrence probability of :math:`k\\in\\mathcal{X}`"
+msgstr ""
+":math:`\\boldsymbol{\\theta}_s = (\\theta_{1|s}, \\theta_{2|s}, \\ldots, "
+"\\theta_{K|s})`：葉ノード上のパラメータ。ただし :math:`\\theta_{k|s}` は "
+":math:`k\\in\\mathcal{X}` の生起確率を表します。"
 
 #: bayesml.contexttree:15 of
-msgid "p(x_n | x^{n-1}, \\boldsymbol{\\theta}_T, T)=\\theta_{x_n|s_T(x^{n-1})}.\n"
+msgid ""
+"p(x_n | x^{n-1}, \\boldsymbol{\\theta}_T, T)=\\theta_{x_n|s_T(x^{n-1})}.\n"
 "\n"
-msgstr "p(x_n | x^{n-1}, \\boldsymbol{\\theta}_T, T)=\\theta_{x_n|s_T(x^{n-1})}.\n"
+msgstr ""
+"p(x_n | x^{n-1}, \\boldsymbol{\\theta}_T, T)=\\theta_{x_n|s_T(x^{n-1})}.\n"
 "\n"
 
 #: bayesml.contexttree:18 of
@@ -99,33 +124,63 @@ msgstr "事前分布は以下の通りです："
 
 #: bayesml.contexttree:20 of
 #, python-brace-format
-msgid ":math:`g_{0,s} \\in [0,1]` : a hyperparameter assigned to :math:`s \\in \\mathcal{S}(T)`"
-msgstr ":math:`g_{0,s} \\in [0,1]`：:math:`s \\in \\mathcal{S}(T)` に割り当てられたハイパーパラメータ"
+msgid ""
+":math:`g_{0,s} \\in [0,1]` : a hyperparameter assigned to :math:`s \\in "
+"\\mathcal{S}(T)`"
+msgstr ""
+":math:`g_{0,s} \\in [0,1]`：:math:`s \\in \\mathcal{S}(T)` "
+"に割り当てられたハイパーパラメータ"
 
 #: bayesml.contexttree:21 of
 #, python-brace-format
-msgid ":math:`\\beta_0(k|s) \\in\\mathbb{R}_{>0}` : a hyperparameter of the Dirichlet distribution"
+msgid ""
+":math:`\\beta_0(k|s) \\in\\mathbb{R}_{>0}` : a hyperparameter of the "
+"Dirichlet distribution"
 msgstr ":math:`\\beta_0(k|s) \\in\\mathbb{R}_{>0}` : ディリクレ分布のハイパーパラメータ"
 
 #: bayesml.contexttree:22 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{\\beta}_0(s) = (\\beta_0(1|s), \\beta_0(2|s), \\ldots, \\beta_0(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
-msgstr ":math:`\\boldsymbol{\\beta}_0(s) = (\\beta_0(1|s), \\beta_0(2|s), \\ldots, \\beta_0(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
+msgid ""
+":math:`\\boldsymbol{\\beta}_0(s) = (\\beta_0(1|s), \\beta_0(2|s), "
+"\\ldots, \\beta_0(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
+msgstr ""
+":math:`\\boldsymbol{\\beta}_0(s) = (\\beta_0(1|s), \\beta_0(2|s), "
+"\\ldots, \\beta_0(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
 
 #: bayesml.contexttree:23 of
-msgid ":math:`C(\\boldsymbol{\\beta}_0(s)) = \\frac{\\Gamma\\left(\\sum_{k=1}^{K} \\beta_0(k|s)\\right)}{\\prod_{k=1}^{K} \\Gamma\\left(\\beta_0(k|s)\\right)}`"
-msgstr ":math:`C(\\boldsymbol{\\beta}_0(s)) = \\frac{\\Gamma\\left(\\sum_{k=1}^{K} \\beta_0(k|s)\\right)}{\\prod_{k=1}^{K} \\Gamma\\left(\\beta_0(k|s)\\right)}`"
+msgid ""
+":math:`C(\\boldsymbol{\\beta}_0(s)) = "
+"\\frac{\\Gamma\\left(\\sum_{k=1}^{K} "
+"\\beta_0(k|s)\\right)}{\\prod_{k=1}^{K} "
+"\\Gamma\\left(\\beta_0(k|s)\\right)}`"
+msgstr ""
+":math:`C(\\boldsymbol{\\beta}_0(s)) = "
+"\\frac{\\Gamma\\left(\\sum_{k=1}^{K} "
+"\\beta_0(k|s)\\right)}{\\prod_{k=1}^{K} "
+"\\Gamma\\left(\\beta_0(k|s)\\right)}`"
 
 #: bayesml.contexttree:25 of
 #, python-brace-format
-msgid "For :math:`\\boldsymbol{\\theta}_s` on :math:`s\\in\\mathcal{L}(T)`, the Dirichlet distribution is assumed as the prior distribution as follows:"
-msgstr ":math:`s\\in\\mathcal{L}(T)` における :math:`\\boldsymbol{\\theta}_s` について、事前分布としてディリクレ分布が次のように仮定されます："
+msgid ""
+"For :math:`\\boldsymbol{\\theta}_s` on :math:`s\\in\\mathcal{L}(T)`, the "
+"Dirichlet distribution is assumed as the prior distribution as follows:"
+msgstr ""
+":math:`s\\in\\mathcal{L}(T)` における :math:`\\boldsymbol{\\theta}_s` "
+"について、事前分布としてディリクレ分布が次のように仮定されます："
 
 #: bayesml.contexttree:27 of
 #, python-brace-format
-msgid "p(\\boldsymbol{\\theta}_s|T) = \\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_0(s)) = C(\\boldsymbol{\\beta}_0(s)) \\prod_{k=1}^{K} \\theta_{k|s}^{\\beta_0(k|s)-1}.\n"
+msgid ""
+"p(\\boldsymbol{\\theta}_s|T) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_0(s)) = "
+"C(\\boldsymbol{\\beta}_0(s)) \\prod_{k=1}^{K} "
+"\\theta_{k|s}^{\\beta_0(k|s)-1}.\n"
 "\n"
-msgstr "p(\\boldsymbol{\\theta}_s|T) = \\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_0(s)) = C(\\boldsymbol{\\beta}_0(s)) \\prod_{k=1}^{K} \\theta_{k|s}^{\\beta_0(k|s)-1}.\n"
+msgstr ""
+"p(\\boldsymbol{\\theta}_s|T) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_0(s)) = "
+"C(\\boldsymbol{\\beta}_0(s)) \\prod_{k=1}^{K} "
+"\\theta_{k|s}^{\\beta_0(k|s)-1}.\n"
 "\n"
 
 #: bayesml.contexttree:30 bayesml.contexttree:56 of
@@ -134,14 +189,20 @@ msgid "For :math:`T \\in \\mathcal{T}`,"
 msgstr ":math:`T \\in \\mathcal{T}` に対して"
 
 #: bayesml.contexttree:32 of
-msgid "p(T)=\\prod_{s \\in \\mathcal{I}(T)} g_{0,s} \\prod_{s' \\in \\mathcal{L}(T)} (1-g_{0,s'}),\n"
+msgid ""
+"p(T)=\\prod_{s \\in \\mathcal{I}(T)} g_{0,s} \\prod_{s' \\in "
+"\\mathcal{L}(T)} (1-g_{0,s'}),\n"
 "\n"
-msgstr "p(T)=\\prod_{s \\in \\mathcal{I}(T)} g_{0,s} \\prod_{s' \\in \\mathcal{L}(T)} (1-g_{0,s'}),\n"
+msgstr ""
+"p(T)=\\prod_{s \\in \\mathcal{I}(T)} g_{0,s} \\prod_{s' \\in "
+"\\mathcal{L}(T)} (1-g_{0,s'}),\n"
 "\n"
 
 #: bayesml.contexttree:35 of
 #, python-brace-format
-msgid "where :math:`g_{0,s}=0` if the depth of :math:`s` is :math:`D_\\mathrm{max}`."
+msgid ""
+"where :math:`g_{0,s}=0` if the depth of :math:`s` is "
+":math:`D_\\mathrm{max}`."
 msgstr "ここで、:math:`s` の深さが :math:`D_\\mathrm{max}` である場合、:math:`g_{0,s}=0` となります。"
 
 #: bayesml.contexttree:37 of
@@ -155,8 +216,12 @@ msgstr ":math:`g_{n,s} \\in [0,1]` : 更新されたハイパーパラメータ"
 
 #: bayesml.contexttree:40 of
 #, python-brace-format
-msgid ":math:`T_\\mathrm{max}` : a superposed context tree, :math:`K`-ary perfect tree whose depth is :math:`D_\\mathrm{max}`"
-msgstr ":math:`T_\\mathrm{max}`：重ね合わせ文脈木（すべての文脈木モデルを重ね合わせた深さが :math:`D_\\mathrm{max}` である :math:`K` 分完全木）"
+msgid ""
+":math:`T_\\mathrm{max}` : a superposed context tree, :math:`K`-ary "
+"perfect tree whose depth is :math:`D_\\mathrm{max}`"
+msgstr ""
+":math:`T_\\mathrm{max}`：重ね合わせ文脈木（すべての文脈木モデルを重ね合わせた深さが "
+":math:`D_\\mathrm{max}` である :math:`K` 分完全木）"
 
 #: bayesml.contexttree:41 of
 msgid ":math:`s_\\lambda` : the root node"
@@ -164,13 +229,19 @@ msgstr ":math:`s_\\lambda` : 根ノード"
 
 #: bayesml.contexttree:42 of
 #, python-brace-format
-msgid ":math:`\\beta_n(k|s) \\in\\mathbb{R}_{>0}` : a hyperparameter of the posterior Dirichlet distribution"
+msgid ""
+":math:`\\beta_n(k|s) \\in\\mathbb{R}_{>0}` : a hyperparameter of the "
+"posterior Dirichlet distribution"
 msgstr ":math:`\\beta_n(k|s) \\in\\mathbb{R}_{>0}`：事後ディリクレ分布のハイパーパラメータ"
 
 #: bayesml.contexttree:43 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{\\beta}_n(s) = (\\beta_n(1|s), \\beta_n(2|s), \\ldots, \\beta_n(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
-msgstr ":math:`\\boldsymbol{\\beta}_n(s) = (\\beta_n(1|s), \\beta_n(2|s), \\ldots, \\beta_n(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
+msgid ""
+":math:`\\boldsymbol{\\beta}_n(s) = (\\beta_n(1|s), \\beta_n(2|s), "
+"\\ldots, \\beta_n(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
+msgstr ""
+":math:`\\boldsymbol{\\beta}_n(s) = (\\beta_n(1|s), \\beta_n(2|s), "
+"\\ldots, \\beta_n(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
 
 #: bayesml.contexttree:44 of
 #, python-brace-format
@@ -184,9 +255,17 @@ msgstr ":math:`\\boldsymbol{\\theta}_s \\in\\mathcal{L}(T_\\mathrm{max})` に対
 
 #: bayesml.contexttree:48 of
 #, python-brace-format
-msgid "p(\\boldsymbol{\\theta}_s|x^n) = \\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_n(s)) = C(\\boldsymbol{\\beta}_n(s)) \\prod_{k=1}^{K} \\theta_{k|s}^{\\beta_n(k|s)-1},\n"
+msgid ""
+"p(\\boldsymbol{\\theta}_s|x^n) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_n(s)) = "
+"C(\\boldsymbol{\\beta}_n(s)) \\prod_{k=1}^{K} "
+"\\theta_{k|s}^{\\beta_n(k|s)-1},\n"
 "\n"
-msgstr "p(\\boldsymbol{\\theta}_s|x^n) = \\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_n(s)) = C(\\boldsymbol{\\beta}_n(s)) \\prod_{k=1}^{K} \\theta_{k|s}^{\\beta_n(k|s)-1},\n"
+msgstr ""
+"p(\\boldsymbol{\\theta}_s|x^n) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}_s|\\,\\boldsymbol{\\beta}_n(s)) = "
+"C(\\boldsymbol{\\beta}_n(s)) \\prod_{k=1}^{K} "
+"\\theta_{k|s}^{\\beta_n(k|s)-1},\n"
 "\n"
 
 #: bayesml.contexttree:51 of
@@ -194,15 +273,25 @@ msgid "where the updating rule of the hyperparameter is as follows:"
 msgstr "ハイパーパラメータの更新ルールは以下の通りです："
 
 #: bayesml.contexttree:53 of
-msgid "\\beta_n(k|s) = \\beta_0(k|s) + \\sum_{i=1}^n I \\left\\{ s \\ \\mathrm{is \\ the \\ ancestor \\ of} \\ s_{T_\\mathrm{max}}(x^{i-1}) \\ \\mathrm{and} \\ x_i=k \\right\\}.\n"
+msgid ""
+"\\beta_n(k|s) = \\beta_0(k|s) + \\sum_{i=1}^n I \\left\\{ s \\ "
+"\\mathrm{is \\ the \\ ancestor \\ of} \\ s_{T_\\mathrm{max}}(x^{i-1}) \\ "
+"\\mathrm{and} \\ x_i=k \\right\\}.\n"
 "\n"
-msgstr "\\beta_n(k|s) = \\beta_0(k|s) + \\sum_{i=1}^n I \\left\\{ s \\ \\mathrm{is \\ the \\ ancestor \\ of} \\ s_{T_\\mathrm{max}}(x^{i-1}) \\ \\mathrm{and} \\ x_i=k \\right\\}.\n"
+msgstr ""
+"\\beta_n(k|s) = \\beta_0(k|s) + \\sum_{i=1}^n I \\left\\{ s \\ "
+"\\mathrm{is \\ the \\ ancestor \\ of} \\ s_{T_\\mathrm{max}}(x^{i-1}) \\ "
+"\\mathrm{and} \\ x_i=k \\right\\}.\n"
 "\n"
 
 #: bayesml.contexttree:58 of
-msgid "p(T|x^{n-1})=\\prod_{s \\in \\mathcal{I}(T)} g_{n,s} \\prod_{s' \\in \\mathcal{L}(T)} (1-g_{n,s'}),\n"
+msgid ""
+"p(T|x^{n-1})=\\prod_{s \\in \\mathcal{I}(T)} g_{n,s} \\prod_{s' \\in "
+"\\mathcal{L}(T)} (1-g_{n,s'}),\n"
 "\n"
-msgstr "p(T|x^{n-1})=\\prod_{s \\in \\mathcal{I}(T)} g_{n,s} \\prod_{s' \\in \\mathcal{L}(T)} (1-g_{n,s'}),\n"
+msgstr ""
+"p(T|x^{n-1})=\\prod_{s \\in \\mathcal{I}(T)} g_{n,s} \\prod_{s' \\in "
+"\\mathcal{L}(T)} (1-g_{n,s'}),\n"
 "\n"
 
 #: bayesml.contexttree:61 of
@@ -210,14 +299,16 @@ msgid "where the updating rules of the hyperparameter are as follows:"
 msgstr "ハイパーパラメータの更新ルールは以下の通りです："
 
 #: bayesml.contexttree:63 of
-msgid "g_{n,s} =\n"
+msgid ""
+"g_{n,s} =\n"
 "\\begin{cases}\n"
 "    g_{0,s}, & n=0, \\\\\n"
 "    \\frac{ g_{n-1,s} \\tilde{q}_{s_{\\mathrm{child}}} (x_n|x^{n-1}) }\n"
 "    { \\tilde{q}_s(x_n|x^{n-1}) } & \\mathrm{otherwise},\n"
 "\\end{cases}\n"
 "\n"
-msgstr "g_{n,s} =\n"
+msgstr ""
+"g_{n,s} =\n"
 "\\begin{cases}\n"
 "    g_{0,s}, & n=0, \\\\\n"
 "    \\frac{ g_{n-1,s} \\tilde{q}_{s_{\\mathrm{child}}} (x_n|x^{n-1}) }\n"
@@ -226,20 +317,28 @@ msgstr "g_{n,s} =\n"
 "\n"
 
 #: bayesml.contexttree:71 of
-msgid "where :math:`s_{\\mathrm{child}}` is the child node of :math:`s` on the path from :math:`s_\\lambda` to :math:`s_{T_\\mathrm{max}}(x^n)` and"
-msgstr "ここで、:math:`s_{\\mathrm{child}}` は、:math:`s_\\lambda` から :math:`s_{T_\\mathrm{max}}(x^n)` への経路上の :math:`s` の子ノードであり"
+msgid ""
+"where :math:`s_{\\mathrm{child}}` is the child node of :math:`s` on the "
+"path from :math:`s_\\lambda` to :math:`s_{T_\\mathrm{max}}(x^n)` and"
+msgstr ""
+"ここで、:math:`s_{\\mathrm{child}}` は、:math:`s_\\lambda` から "
+":math:`s_{T_\\mathrm{max}}(x^n)` への経路上の :math:`s` の子ノードであり"
 
 #: bayesml.contexttree:73 of
-msgid "\\tilde{q}_s(x_n|x^{n-1}) =\n"
+msgid ""
+"\\tilde{q}_s(x_n|x^{n-1}) =\n"
 "\\begin{cases}\n"
 "    q_s(x_n|x^{n-1}) & s\\in\\mathcal{L}(T_\\mathrm{max}), \\\\\n"
-"    (1-g_{n-1,s}) q_s(x_n|x^{n-1}) + g_{n-1,s} \\tilde{q}_{s_{\\mathrm{child}}}(x_n|x^{n-1}) & \\mathrm{otherwise}.\n"
+"    (1-g_{n-1,s}) q_s(x_n|x^{n-1}) + g_{n-1,s} "
+"\\tilde{q}_{s_{\\mathrm{child}}}(x_n|x^{n-1}) & \\mathrm{otherwise}.\n"
 "\\end{cases}\n"
 "\n"
-msgstr "\\tilde{q}_s(x_n|x^{n-1}) =\n"
+msgstr ""
+"\\tilde{q}_s(x_n|x^{n-1}) =\n"
 "\\begin{cases}\n"
 "    q_s(x_n|x^{n-1}) & s\\in\\mathcal{L}(T_\\mathrm{max}), \\\\\n"
-"    (1-g_{n-1,s}) q_s(x_n|x^{n-1}) + g_{n-1,s} \\tilde{q}_{s_{\\mathrm{child}}}(x_n|x^{n-1}) & \\mathrm{otherwise}.\n"
+"    (1-g_{n-1,s}) q_s(x_n|x^{n-1}) + g_{n-1,s} "
+"\\tilde{q}_{s_{\\mathrm{child}}}(x_n|x^{n-1}) & \\mathrm{otherwise}.\n"
 "\\end{cases}\n"
 "\n"
 
@@ -248,10 +347,12 @@ msgid "Here,"
 msgstr "ただし"
 
 #: bayesml.contexttree:82 of
-msgid "q_s(x_n|x^{n-1}) = \\frac{ \\beta_{n-1}(x_n|s) }\n"
+msgid ""
+"q_s(x_n|x^{n-1}) = \\frac{ \\beta_{n-1}(x_n|s) }\n"
 "{\\sum_{k'=1}^{K} \\beta_{n-1}(k'|s)}.\n"
 "\n"
-msgstr "q_s(x_n|x^{n-1}) = \\frac{ \\beta_{n-1}(x_n|s) }\n"
+msgstr ""
+"q_s(x_n|x^{n-1}) = \\frac{ \\beta_{n-1}(x_n|s) }\n"
 "{\\sum_{k'=1}^{K} \\beta_{n-1}(k'|s)}.\n"
 "\n"
 
@@ -260,23 +361,37 @@ msgid "The predictive distribution is as follows:"
 msgstr "予測分布は以下の通りです："
 
 #: bayesml.contexttree:88 of
-msgid ":math:`\\boldsymbol{\\theta}_\\mathrm{p} = (\\theta_{\\mathrm{p},1}, \\theta_{\\mathrm{p},2}, \\ldots, \\theta_{\\mathrm{p},K})` : a parameter of the predictive distribution, where :math:`\\theta_{\\mathrm{p},k}` denotes the occurrence probability of :math:`k\\in\\mathcal{X}`."
-msgstr ":math:`\\boldsymbol{\\theta}_\\mathrm{p} = (\\theta_{\\mathrm{p},1}, \\theta_{\\mathrm{p},2}, \\ldots, \\theta_{\\mathrm{p},K})`：予測分布のパラメータであり、 :math:`\\theta_{\\mathrm{p},k}` は :math:`k\\in\\mathcal{X}` の生起確率を表します。"
+msgid ""
+":math:`\\boldsymbol{\\theta}_\\mathrm{p} = (\\theta_{\\mathrm{p},1}, "
+"\\theta_{\\mathrm{p},2}, \\ldots, \\theta_{\\mathrm{p},K})` : a parameter"
+" of the predictive distribution, where :math:`\\theta_{\\mathrm{p},k}` "
+"denotes the occurrence probability of :math:`k\\in\\mathcal{X}`."
+msgstr ""
+":math:`\\boldsymbol{\\theta}_\\mathrm{p} = (\\theta_{\\mathrm{p},1}, "
+"\\theta_{\\mathrm{p},2}, \\ldots, "
+"\\theta_{\\mathrm{p},K})`：予測分布のパラメータであり、 :math:`\\theta_{\\mathrm{p},k}` "
+"は :math:`k\\in\\mathcal{X}` の生起確率を表します。"
 
 #: bayesml.contexttree:90 of
-msgid "p(x_n|x^{n-1}) = \\theta_{\\mathrm{p},x_n},\n"
+msgid ""
+"p(x_n|x^{n-1}) = \\theta_{\\mathrm{p},x_n},\n"
 "\n"
-msgstr "p(x_n|x^{n-1}) = \\theta_{\\mathrm{p},x_n},\n"
+msgstr ""
+"p(x_n|x^{n-1}) = \\theta_{\\mathrm{p},x_n},\n"
 "\n"
 
 #: bayesml.contexttree:93 of
-msgid "where the updating rule of the parameters of the pridictive distribution is as follows."
+msgid ""
+"where the updating rule of the parameters of the pridictive distribution "
+"is as follows."
 msgstr "ここで、予測分布のパラメータの更新規則は以下の通りです。"
 
 #: bayesml.contexttree:95 of
-msgid "\\theta_{\\mathrm{p}, k} = \\tilde{q}_{s_\\lambda}(k|x^{n-1})\n"
+msgid ""
+"\\theta_{\\mathrm{p}, k} = \\tilde{q}_{s_\\lambda}(k|x^{n-1})\n"
 "\n"
-msgstr "\\theta_{\\mathrm{p}, k} = \\tilde{q}_{s_\\lambda}(k|x^{n-1})\n"
+msgstr ""
+"\\theta_{\\mathrm{p}, k} = \\tilde{q}_{s_\\lambda}(k|x^{n-1})\n"
 "\n"
 
 #: bayesml.contexttree:98 of
@@ -284,12 +399,30 @@ msgid "References"
 msgstr "参照"
 
 #: bayesml.contexttree:100 of
-msgid "Matsushima, T.; and Hirasawa, S. Reducing the space complexity of a Bayes coding algorithm using an expanded context tree, *2009 IEEE International Symposium on Information Theory*, 2009, pp. 719-723, https://doi.org/10.1109/ISIT.2009.5205677"
-msgstr "Matsushima, T.; and Hirasawa, S. Reducing the space complexity of a Bayes coding algorithm using an expanded context tree, *2009 IEEE International Symposium on Information Theory*, 2009, pp. 719-723, https://doi.org/10.1109/ISIT.2009.5205677"
+msgid ""
+"Matsushima, T.; and Hirasawa, S. Reducing the space complexity of a Bayes"
+" coding algorithm using an expanded context tree, *2009 IEEE "
+"International Symposium on Information Theory*, 2009, pp. 719-723, "
+"https://doi.org/10.1109/ISIT.2009.5205677"
+msgstr ""
+"Matsushima, T.; and Hirasawa, S. Reducing the space complexity of a Bayes"
+" coding algorithm using an expanded context tree, *2009 IEEE "
+"International Symposium on Information Theory*, 2009, pp. 719-723, "
+"https://doi.org/10.1109/ISIT.2009.5205677"
 
 #: bayesml.contexttree:101 of
-msgid "Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. https://doi.org/10.3390/e24030328"
-msgstr "Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. https://doi.org/10.3390/e24030328"
+msgid ""
+"Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability "
+"Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. "
+"https://doi.org/10.3390/e24030328"
+msgstr ""
+"Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability "
+"Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. "
+"https://doi.org/10.3390/e24030328"
+
+#: bayesml.contexttree._contexttree.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
 
 #: bayesml.contexttree._contexttree.GenModel:2 of
 msgid "The stochastice data generative model and the prior distribution"
@@ -365,7 +498,9 @@ msgid "contexttree._Node, optional"
 msgstr "contexttree._Node, optional"
 
 #: bayesml.contexttree._contexttree.GenModel:14 of
-msgid "A root node of a context tree,  by default a tree consists of only one node."
+msgid ""
+"A root node of a context tree,  by default a tree consists of only one "
+"node."
 msgstr "文脈木の根ノードです。デフォルトでは、木は1つのノードのみで構成されます。"
 
 #: bayesml.contexttree._contexttree.GenModel:17
@@ -401,8 +536,12 @@ msgstr "numpy.ndarray, optional"
 
 #: bayesml.contexttree._contexttree.GenModel:21
 #: bayesml.contexttree._contexttree.LearnModel:17 of
-msgid "A vector of positive real numbers,  by default [1/2, 1/2, ... , 1/2]. If a single real number is input, it will be broadcasted."
-msgstr "正の実数のベクトルであり、デフォルトでは [1/2, 1/2, ..., 1/2] となります。単一の実数が入力された場合、ブロードキャスト処理が行われます。"
+msgid ""
+"A vector of positive real numbers,  by default [1/2, 1/2, ... , 1/2]. If "
+"a single real number is input, it will be broadcasted."
+msgstr ""
+"正の実数のベクトルであり、デフォルトでは [1/2, 1/2, ..., 1/2] "
+"となります。単一の実数が入力された場合、ブロードキャスト処理が行われます。"
 
 #: bayesml.contexttree._contexttree.GenModel:25
 #: bayesml.contexttree._contexttree.GenModel.set_h_params:14 of
@@ -436,8 +575,12 @@ msgid "Methods"
 msgstr "メソッド"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`gen_params <bayesml.contexttree.GenModel.gen_params>`\\ \\(\\[tree\\_fix\\]\\)"
-msgstr ":py:obj:`gen_params <bayesml.contexttree.GenModel.gen_params>`\\ \\(\\[tree\\_fix\\]\\)"
+msgid ""
+":py:obj:`gen_params <bayesml.contexttree.GenModel.gen_params>`\\ "
+"\\(\\[tree\\_fix\\]\\)"
+msgstr ""
+":py:obj:`gen_params <bayesml.contexttree.GenModel.gen_params>`\\ "
+"\\(\\[tree\\_fix\\]\\)"
 
 #: bayesml.contexttree._contexttree.GenModel.gen_params:2
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
@@ -445,8 +588,12 @@ msgid "Generate the parameter from the prior distribution."
 msgstr "事前分布からパラメータを生成します。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`gen_sample <bayesml.contexttree.GenModel.gen_sample>`\\ \\(sample\\_length\\[\\, initial\\_values\\]\\)"
-msgstr ":py:obj:`gen_sample <bayesml.contexttree.GenModel.gen_sample>`\\ \\(sample\\_length\\[\\, initial\\_values\\]\\)"
+msgid ""
+":py:obj:`gen_sample <bayesml.contexttree.GenModel.gen_sample>`\\ "
+"\\(sample\\_length\\[\\, initial\\_values\\]\\)"
+msgstr ""
+":py:obj:`gen_sample <bayesml.contexttree.GenModel.gen_sample>`\\ "
+"\\(sample\\_length\\[\\, initial\\_values\\]\\)"
 
 #: bayesml.contexttree._contexttree.GenModel.gen_sample:2
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
@@ -454,8 +601,12 @@ msgid "Generate a sample from the stochastic data generative model."
 msgstr "確率的データ生成モデルからサンプルを生成します。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`get_constants <bayesml.contexttree.GenModel.get_constants>`\\ \\(\\)"
-msgstr ":py:obj:`get_constants <bayesml.contexttree.GenModel.get_constants>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_constants <bayesml.contexttree.GenModel.get_constants>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_constants <bayesml.contexttree.GenModel.get_constants>`\\ "
+"\\(\\)"
 
 #: bayesml.contexttree._contexttree.GenModel.get_constants:2
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
@@ -463,8 +614,12 @@ msgid "Get constants of GenModel."
 msgstr "GenModel の定数を取得します。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`get_h_params <bayesml.contexttree.GenModel.get_h_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_h_params <bayesml.contexttree.GenModel.get_h_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_h_params <bayesml.contexttree.GenModel.get_h_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_h_params <bayesml.contexttree.GenModel.get_h_params>`\\ "
+"\\(\\)"
 
 #: bayesml.contexttree._contexttree.GenModel.get_h_params:2
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1
@@ -483,24 +638,36 @@ msgid "Get the parameter of the sthocastic data generative model."
 msgstr "確率的データ生成モデルのパラメータを取得します。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`load_h_params <bayesml.contexttree.GenModel.load_h_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_h_params <bayesml.contexttree.GenModel.load_h_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_h_params <bayesml.contexttree.GenModel.load_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+":py:obj:`load_h_params <bayesml.contexttree.GenModel.load_h_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
 msgid "Load the hyperparameters to h_params."
 msgstr "h_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`load_params <bayesml.contexttree.GenModel.load_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_params <bayesml.contexttree.GenModel.load_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_params <bayesml.contexttree.GenModel.load_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+":py:obj:`load_params <bayesml.contexttree.GenModel.load_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
 msgid "Load the parameters saved by ``save_params``."
 msgstr "``save_params`` に保存されたパラメータをロードします。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`save_h_params <bayesml.contexttree.GenModel.save_h_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_h_params <bayesml.contexttree.GenModel.save_h_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_h_params <bayesml.contexttree.GenModel.save_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+":py:obj:`save_h_params <bayesml.contexttree.GenModel.save_h_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -508,16 +675,24 @@ msgid "Save the hyperparameters using python ``pickle`` module."
 msgstr "python ``pickle`` モジュールを使ってハイパーパラメータを保存します。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`save_params <bayesml.contexttree.GenModel.save_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_params <bayesml.contexttree.GenModel.save_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_params <bayesml.contexttree.GenModel.save_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+":py:obj:`save_params <bayesml.contexttree.GenModel.save_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
 msgid "Save the parameters using python ``pickle`` module."
 msgstr "python の ``pickle`` モジュールを使ってパラメータを保存します。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`save_sample <bayesml.contexttree.GenModel.save_sample>`\\ \\(filename\\, sample\\_length\\[\\, ...\\]\\)"
-msgstr ":py:obj:`save_sample <bayesml.contexttree.GenModel.save_sample>`\\ \\(filename\\, sample_length\\[\\, ...\\]\\)"
+msgid ""
+":py:obj:`save_sample <bayesml.contexttree.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_length\\[\\, ...\\]\\)"
+msgstr ""
+":py:obj:`save_sample <bayesml.contexttree.GenModel.save_sample>`\\ "
+"\\(filename\\, sample_length\\[\\, ...\\]\\)"
 
 #: bayesml.contexttree._contexttree.GenModel.save_sample:2
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
@@ -525,8 +700,12 @@ msgid "Save the generated sample as NumPy ``.npz`` format."
 msgstr "生成されたサンプルを NumPy ``.npz`` フォーマットで保存します。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`set_h_params <bayesml.contexttree.GenModel.set_h_params>`\\ \\(\\[h\\_g\\, h\\_beta\\_vec\\, h\\_root\\]\\)"
-msgstr ":py:obj:`set_h_params <bayesml.contexttree.GenModel.set_h_params>`\\ \\(\\[h\\_g\\, h\\_beta\\_vec\\, h\\_root\\]\\)"
+msgid ""
+":py:obj:`set_h_params <bayesml.contexttree.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_g\\, h\\_beta\\_vec\\, h\\_root\\]\\)"
+msgstr ""
+":py:obj:`set_h_params <bayesml.contexttree.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_g\\, h\\_beta\\_vec\\, h\\_root\\]\\)"
 
 #: bayesml.contexttree._contexttree.GenModel.set_h_params:2
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1
@@ -536,8 +715,12 @@ msgid "Set the hyperparameters of the prior distribution."
 msgstr "事前分布のハイパーパラメータを設定します。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`set_params <bayesml.contexttree.GenModel.set_params>`\\ \\(\\[root\\]\\)"
-msgstr ":py:obj:`set_params <bayesml.contexttree.GenModel.set_params>`\\ \\(\\[root\\]\\)"
+msgid ""
+":py:obj:`set_params <bayesml.contexttree.GenModel.set_params>`\\ "
+"\\(\\[root\\]\\)"
+msgstr ""
+":py:obj:`set_params <bayesml.contexttree.GenModel.set_params>`\\ "
+"\\(\\[root\\]\\)"
 
 #: bayesml.contexttree._contexttree.GenModel.set_params:2
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
@@ -545,8 +728,14 @@ msgid "Set the parameter of the sthocastic data generative model."
 msgstr "確率的データ生成モデルのパラメータを設定します。"
 
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
-msgid ":py:obj:`visualize_model <bayesml.contexttree.GenModel.visualize_model>`\\ \\(\\[filename\\, format\\, ...\\]\\)"
-msgstr ":py:obj:`visualize_model <bayesml.contexttree.GenModel.visualize_model>`\\ \\(\\[filename\\, format\\, ...\\]\\)"
+msgid ""
+":py:obj:`visualize_model "
+"<bayesml.contexttree.GenModel.visualize_model>`\\ \\(\\[filename\\, "
+"format\\, ...\\]\\)"
+msgstr ""
+":py:obj:`visualize_model "
+"<bayesml.contexttree.GenModel.visualize_model>`\\ \\(\\[filename\\, "
+"format\\, ...\\]\\)"
 
 #: bayesml.contexttree._contexttree.GenModel.visualize_model:2
 #: bayesml.contexttree._contexttree.GenModel:63:<autosummary>:1 of
@@ -673,8 +862,12 @@ msgstr "numpy ndarray, optional"
 
 #: bayesml.contexttree._contexttree.GenModel.gen_sample:11
 #: bayesml.contexttree._contexttree.GenModel.save_sample:16 of
-msgid "1 dimensional int array whose size coincide with ``self.c_d_max``, by default ``None``. Its elements must be in [0,c_k-1]"
-msgstr "「self.c_d_max」と同じサイズの1次元整数配列です。デフォルトは「None」です。その要素は [0, c_k-1] の範囲内である必要があります"
+msgid ""
+"1 dimensional int array whose size coincide with ``self.c_d_max``, by "
+"default ``None``. Its elements must be in [0,c_k-1]"
+msgstr ""
+"「self.c_d_max」と同じサイズの1次元整数配列です。デフォルトは「None」です。その要素は [0, c_k-1] "
+"の範囲内である必要があります"
 
 #: bayesml.contexttree._contexttree.GenModel.gen_sample:18
 #: bayesml.contexttree._contexttree.LearnModel.calc_pred_dist:7
@@ -709,7 +902,9 @@ msgid "str"
 msgstr "str"
 
 #: bayesml.contexttree._contexttree.GenModel.save_sample:9 of
-msgid "The filename to which the sample is saved. ``.npz`` will be appended if it isn't there."
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
 msgstr "サンプルを保存するファイル名。ない場合は ``.npz`` が追加されます。"
 
 #: bayesml.contexttree._contexttree.GenModel.save_sample:31 of
@@ -752,6 +947,12 @@ msgstr ":obj:`graphviz.Digraph`"
 #: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:36 of
 msgid "Examples"
 msgstr "例"
+
+#: bayesml.contexttree._contexttree.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
 
 #: bayesml.contexttree._contexttree.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
@@ -818,8 +1019,12 @@ msgid "A root node of a superposed tree for hyperparameters."
 msgstr "ハイパーパラメータ用の重ね合わせ木の根ノードです"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`calc_pred_dist <bayesml.contexttree.LearnModel.calc_pred_dist>`\\ \\(x\\)"
-msgstr ":py:obj:`calc_pred_dist <bayesml.contexttree.LearnModel.calc_pred_dist>`\\ \\(x\\)"
+msgid ""
+":py:obj:`calc_pred_dist "
+"<bayesml.contexttree.LearnModel.calc_pred_dist>`\\ \\(x\\)"
+msgstr ""
+":py:obj:`calc_pred_dist "
+"<bayesml.contexttree.LearnModel.calc_pred_dist>`\\ \\(x\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.calc_pred_dist:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -827,8 +1032,14 @@ msgid "Calculate the parameters of the predictive distribution."
 msgstr "予測分布のパラメータを計算します。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`estimate_params <bayesml.contexttree.LearnModel.estimate_params>`\\ \\(\\[loss\\, visualize\\, filename\\, ...\\]\\)"
-msgstr ":py:obj:`estimate_params <bayesml.contexttree.LearnModel.estimate_params>`\\ \\(\\[loss\\, visualize\\, filename\\, ...\\]\\)"
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.contexttree.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
+"visualize\\, filename\\, ...\\]\\)"
+msgstr ""
+":py:obj:`estimate_params "
+"<bayesml.contexttree.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
+"visualize\\, filename\\, ...\\]\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.estimate_params:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -836,8 +1047,12 @@ msgid "Estimate the parameter under the given criterion."
 msgstr "与えられた基準に基づいたパラメータ推定"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`get_constants <bayesml.contexttree.LearnModel.get_constants>`\\ \\(\\)"
-msgstr ":py:obj:`get_constants <bayesml.contexttree.LearnModel.get_constants>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_constants <bayesml.contexttree.LearnModel.get_constants>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_constants <bayesml.contexttree.LearnModel.get_constants>`\\ "
+"\\(\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.get_constants:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -845,12 +1060,20 @@ msgid "Get constants of LearnModel."
 msgstr "LearnModel の定数を取得します。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`get_h0_params <bayesml.contexttree.LearnModel.get_h0_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_h0_params <bayesml.contexttree.LearnModel.get_h0_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_h0_params <bayesml.contexttree.LearnModel.get_h0_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_h0_params <bayesml.contexttree.LearnModel.get_h0_params>`\\ "
+"\\(\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`get_hn_params <bayesml.contexttree.LearnModel.get_hn_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_hn_params <bayesml.contexttree.LearnModel.get_hn_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_hn_params <bayesml.contexttree.LearnModel.get_hn_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_hn_params <bayesml.contexttree.LearnModel.get_hn_params>`\\ "
+"\\(\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.get_hn_params:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -858,8 +1081,12 @@ msgid "Get the hyperparameters of the posterior distribution."
 msgstr "事後分布のハイパーパラメータを取得します。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`get_p_params <bayesml.contexttree.LearnModel.get_p_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_p_params <bayesml.contexttree.LearnModel.get_p_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_p_params <bayesml.contexttree.LearnModel.get_p_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_p_params <bayesml.contexttree.LearnModel.get_p_params>`\\ "
+"\\(\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.get_p_params:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -867,24 +1094,36 @@ msgid "Get the parameters of the predictive distribution."
 msgstr "予測分布のパラメータを取得します。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`load_h0_params <bayesml.contexttree.LearnModel.load_h0_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_h0_params <bayesml.contexttree.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_h0_params "
+"<bayesml.contexttree.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`load_h0_params "
+"<bayesml.contexttree.LearnModel.load_h0_params>`\\ \\(filename\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
 msgid "Load the hyperparameters to h0_params."
 msgstr "h0_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`load_hn_params <bayesml.contexttree.LearnModel.load_hn_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_hn_params <bayesml.contexttree.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_hn_params "
+"<bayesml.contexttree.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`load_hn_params "
+"<bayesml.contexttree.LearnModel.load_hn_params>`\\ \\(filename\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
 msgid "Load the hyperparameters to hn_params."
 msgstr "hn_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`make_prediction <bayesml.contexttree.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
-msgstr ":py:obj:`make_prediction <bayesml.contexttree.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.contexttree.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+msgstr ""
+":py:obj:`make_prediction "
+"<bayesml.contexttree.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.make_prediction:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -892,16 +1131,26 @@ msgid "Predict a new data point under the given criterion."
 msgstr "与えられた基準の下で、新しいデータ点を予測します。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`overwrite_h0_params <bayesml.contexttree.LearnModel.overwrite_h0_params>`\\ \\(\\)"
-msgstr ":py:obj:`overwrite_h0_params <bayesml.contexttree.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.contexttree.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.contexttree.LearnModel.overwrite_h0_params>`\\ \\(\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid "Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values."
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
 msgstr "事後分布のハイパーパラメータの初期値を学習した値で上書きします。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`pred_and_update <bayesml.contexttree.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]\\)"
-msgstr ":py:obj:`pred_and_update <bayesml.contexttree.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]\\)"
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.contexttree.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]\\)"
+msgstr ""
+":py:obj:`pred_and_update "
+"<bayesml.contexttree.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.pred_and_update:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -909,28 +1158,50 @@ msgid "Predict a new data point and update the posterior sequentially."
 msgstr "逐次的に新しいデータ点を予測し、事後分布を更新します。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`reset_hn_params <bayesml.contexttree.LearnModel.reset_hn_params>`\\ \\(\\)"
-msgstr ":py:obj:`reset_hn_params <bayesml.contexttree.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.contexttree.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`reset_hn_params "
+"<bayesml.contexttree.LearnModel.reset_hn_params>`\\ \\(\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid "Reset the hyperparameters of the posterior distribution to their initial values."
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
 msgstr "事後分布のハイパーパラメータを初期値に戻します。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`save_h0_params <bayesml.contexttree.LearnModel.save_h0_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_h0_params <bayesml.contexttree.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_h0_params "
+"<bayesml.contexttree.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`save_h0_params "
+"<bayesml.contexttree.LearnModel.save_h0_params>`\\ \\(filename\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`save_hn_params <bayesml.contexttree.LearnModel.save_hn_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_hn_params <bayesml.contexttree.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_hn_params "
+"<bayesml.contexttree.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`save_hn_params "
+"<bayesml.contexttree.LearnModel.save_hn_params>`\\ \\(filename\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`set_h0_params <bayesml.contexttree.LearnModel.set_h0_params>`\\ \\(\\[h0\\_g\\, h0\\_beta\\_vec\\, h0\\_root\\]\\)"
-msgstr ":py:obj:`set_h0_params <bayesml.contexttree.LearnModel.set_h0_params>`\\ \\(\\[h0\\_g\\, h0\\_beta\\_vec\\, h0\\_root\\]\\)"
+msgid ""
+":py:obj:`set_h0_params <bayesml.contexttree.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_g\\, h0\\_beta\\_vec\\, h0\\_root\\]\\)"
+msgstr ""
+":py:obj:`set_h0_params <bayesml.contexttree.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_g\\, h0\\_beta\\_vec\\, h0\\_root\\]\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`set_hn_params <bayesml.contexttree.LearnModel.set_hn_params>`\\ \\(\\[hn\\_g\\, hn\\_beta\\_vec\\, hn\\_root\\]\\)"
-msgstr ":py:obj:`set_hn_params <bayesml.contexttree.LearnModel.set_hn_params>`\\ \\(\\[hn\\_g\\, hn\\_beta\\_vec\\, hn\\_root\\]\\)"
+msgid ""
+":py:obj:`set_hn_params <bayesml.contexttree.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_g\\, hn\\_beta\\_vec\\, hn\\_root\\]\\)"
+msgstr ""
+":py:obj:`set_hn_params <bayesml.contexttree.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_g\\, hn\\_beta\\_vec\\, hn\\_root\\]\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.set_hn_params:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -938,8 +1209,12 @@ msgid "Set the hyperparameter of the posterior distribution."
 msgstr "事後分布のハイパーパラメータを設定します。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`update_posterior <bayesml.contexttree.LearnModel.update_posterior>`\\ \\(x\\)"
-msgstr ":py:obj:`update_posterior <bayesml.contexttree.LearnModel.update_posterior>`\\ \\(x\\)"
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.contexttree.LearnModel.update_posterior>`\\ \\(x\\)"
+msgstr ""
+":py:obj:`update_posterior "
+"<bayesml.contexttree.LearnModel.update_posterior>`\\ \\(x\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.update_posterior:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -947,8 +1222,14 @@ msgid "Update the hyperparameters using traning data."
 msgstr "訓練データを使用してハイパーパラメータを更新します。"
 
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
-msgid ":py:obj:`visualize_posterior <bayesml.contexttree.LearnModel.visualize_posterior>`\\ \\(\\[filename\\, format\\, h\\_params\\]\\)"
-msgstr ":py:obj:`visualize_posterior <bayesml.contexttree.LearnModel.visualize_posterior>`\\ \\(\\[filename\\, format\\, h\\_params\\]\\)"
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.contexttree.LearnModel.visualize_posterior>`\\ \\(\\[filename\\,"
+" format\\, h\\_params\\]\\)"
+msgstr ""
+":py:obj:`visualize_posterior "
+"<bayesml.contexttree.LearnModel.visualize_posterior>`\\ \\(\\[filename\\,"
+" format\\, h\\_params\\]\\)"
 
 #: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:2
 #: bayesml.contexttree._contexttree.LearnModel:70:<autosummary>:1 of
@@ -1006,7 +1287,9 @@ msgid "**loss**"
 msgstr "**loss**"
 
 #: bayesml.contexttree._contexttree.LearnModel.estimate_params:8 of
-msgid "Loss function underlying the Bayes risk function, by default ``\"0-1\"``. This function supports only ``\"0-1\"``."
+msgid ""
+"Loss function underlying the Bayes risk function, by default ``\"0-1\"``."
+" This function supports only ``\"0-1\"``."
 msgstr "ベイズリスク関数の基礎となる損失関数で、デフォルトでは ``\"0-1\"`` です。この関数は ``\"0-1\"`` のみをサポートしています。"
 
 #: bayesml.contexttree._contexttree.LearnModel.estimate_params:11 of
@@ -1019,7 +1302,9 @@ msgid "bool, optional"
 msgstr "bool, optional"
 
 #: bayesml.contexttree._contexttree.LearnModel.estimate_params:12 of
-msgid "If ``True``, the estimated context tree model will be visualized, by default ``True``. This visualization requires ``graphviz``."
+msgid ""
+"If ``True``, the estimated context tree model will be visualized, by "
+"default ``True``. This visualization requires ``graphviz``."
 msgstr "「True」の場合、推定された文脈木モデルが可視化されます。デフォルトでは「True」です。この可視化には「graphviz」が必要です。"
 
 #: bayesml.contexttree._contexttree.LearnModel.estimate_params:25 of
@@ -1027,7 +1312,9 @@ msgid "**map_root**"
 msgstr "**map_root**"
 
 #: bayesml.contexttree._contexttree.LearnModel.estimate_params:26 of
-msgid "The root node of the estimated context tree model  that also contains the estimated parameters in each node."
+msgid ""
+"The root node of the estimated context tree model  that also contains the"
+" estimated parameters in each node."
 msgstr "推定された文脈木モデルの根ノードであり、各ノードには推定されたパラメータも含まれています。"
 
 #: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:4 of
@@ -1035,7 +1322,9 @@ msgid "This method requires ``graphviz``."
 msgstr "この方法には「graphviz」が必要です。"
 
 #: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:15 of
-msgid "If ``True``, hyperparameters at each node will be visualized.  if ``False``, estimated parameters at each node will be visulaized."
+msgid ""
+"If ``True``, hyperparameters at each node will be visualized.  if "
+"``False``, estimated parameters at each node will be visulaized."
 msgstr "「True」の場合、各ノードのハイパーパラメータが表示されます。「False」の場合、各ノードの推定パラメータが表示されます。"
 
 #: bayesml.contexttree._contexttree.LearnModel.get_p_params:10 of
@@ -1052,7 +1341,9 @@ msgid "``\"p_theta_vec\"`` : the value of ``self.p_theta_vec``"
 msgstr "``\"p_theta_vec\"`` : ``self.p_theta_vec`` の値"
 
 #: bayesml.contexttree._contexttree.LearnModel.make_prediction:8 of
-msgid "Loss function underlying the Bayes risk function, by default \"KL\". This function supports \"KL\" and \"0-1\"."
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"KL\". This"
+" function supports \"KL\" and \"0-1\"."
 msgstr "ベイズリスク関数の基礎となる損失関数で、デフォルトは「KL」です。この関数は「KL」と「0-1」に対応しています。"
 
 #: bayesml.contexttree._contexttree.LearnModel.make_prediction:15
@@ -1067,11 +1358,16 @@ msgid "{float, numpy.ndarray}"
 msgstr "{float, numpy.ndarray}"
 
 #: bayesml.contexttree._contexttree.LearnModel.make_prediction:16 of
-msgid "The predicted value under the given loss function.  If the loss function is \"KL\", the predictive  distribution will be returned as a 1-dimensional  numpy.ndarray that consists of occurence probabilities."
+msgid ""
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the predictive  distribution will be returned as a "
+"1-dimensional  numpy.ndarray that consists of occurence probabilities."
 msgstr "指定された損失関数に基づく予測値です。損失関数が「KL」の場合、予測分布は出現確率からなる1次元のnumpy.ndarrayとして返されます。"
 
 #: bayesml.contexttree._contexttree.LearnModel.pred_and_update:11 of
-msgid "Loss function underlying the Bayes risk function, by default \"KL\". This function supports \"KL\", and \"0-1\"."
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"KL\". This"
+" function supports \"KL\", and \"0-1\"."
 msgstr "ベイズリスク関数の基礎となる損失関数で、デフォルトは「KL」です。この関数は「KL」および「0-1」をサポートしています。"
 
 #: bayesml.contexttree._contexttree.LearnModel.pred_and_update:19 of
@@ -1962,3 +2258,4 @@ msgstr "与えられた損失関数に基づく予測値です。"
 
 #~ msgid "The predicted value under the given loss function."
 #~ msgstr ""
+

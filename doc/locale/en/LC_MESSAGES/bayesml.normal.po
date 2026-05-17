@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 09:23+0900\n"
+"POT-Creation-Date: 2026-05-17 23:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -250,6 +250,10 @@ msgid ""
 "\\frac{\\alpha_n}{\\beta_n}, \\\\\n"
 "\\nu_\\mathrm{p} &= 2 \\alpha_n.\n"
 "\n"
+msgstr ""
+
+#: bayesml.normal._normal.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
 msgstr ""
 
 #: bayesml.normal._normal.GenModel:2 of
@@ -566,7 +570,7 @@ msgstr ""
 
 #: bayesml.normal._normal.GenModel.set_params:8 of
 #, python-brace-format
-msgid "a real number :math:`mu \\in \\mathbb{R}`, by default None."
+msgid "a real number :math:`\\mu \\in \\mathbb{R}`, by default None."
 msgstr ""
 
 #: bayesml.normal._normal.GenModel.set_params:11 of
@@ -662,6 +666,12 @@ msgstr ""
 #: bayesml.normal._normal.GenModel.visualize_model:26
 #: bayesml.normal._normal.LearnModel.visualize_posterior:19 of
 msgid "Examples"
+msgstr ""
+
+#: bayesml.normal._normal.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.normal._normal.LearnModel:2 of
@@ -1204,5 +1214,8 @@ msgstr ""
 #~ msgid ""
 #~ "Bases: :py:class:`~bayesml.base.Posterior`, "
 #~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
+
+#~ msgid "a real number :math:`mu \\in \\mathbb{R}`, by default None."
 #~ msgstr ""
 

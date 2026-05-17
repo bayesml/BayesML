@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 16:37+0900\n"
+"POT-Creation-Date: 2026-05-17 22:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -471,6 +471,10 @@ msgid ""
 "\n"
 msgstr ""
 
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
+
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution."
 msgstr ""
@@ -672,7 +676,7 @@ msgid "A seed to initialize numpy.random.default_rng(),  by default None"
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:70
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:83 of
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:86 of
 msgid "Methods"
 msgstr ""
 
@@ -725,7 +729,7 @@ msgstr ""
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.get_h_params:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.get_h0_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Get the hyperparameters of the prior distribution."
 msgstr ""
@@ -775,7 +779,7 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Save the hyperparameters using python ``pickle`` module."
 msgstr ""
@@ -816,7 +820,7 @@ msgstr ""
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_h_params:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_h0_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Set the hyperparameters of the prior distribution."
 msgstr ""
@@ -1031,6 +1035,12 @@ msgstr ""
 msgid "Examples"
 msgstr ""
 
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
 msgstr ""
@@ -1212,30 +1222,42 @@ msgid "the inverse matrices of hn_w_mats"
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:73 of
-msgid "**p_mu_vecs**"
+msgid "**vl**"
+msgstr ""
+
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:-1 of
+msgid "float"
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:74 of
-msgid "vectors of real numbers"
+msgid "real number"
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:76 of
-msgid "**p_nus**"
+msgid "**p_mu_vecs**"
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:77 of
-msgid "positive real numbers"
+msgid "vectors of real numbers"
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:79 of
-msgid "**p_lambda_mats**"
+msgid "**p_nus**"
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:80 of
+msgid "positive real numbers"
+msgstr ""
+
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:82 of
+msgid "**p_lambda_mats**"
+msgstr ""
+
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:83 of
 msgid "positive definite symetric matrices"
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`calc_pred_dist "
@@ -1243,12 +1265,12 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.calc_pred_dist:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Calculate the parameters of the predictive distribution."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`estimate_latent_vars "
@@ -1257,12 +1279,12 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Estimate latent variables under the given criterion."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`estimate_latent_vars_and_update "
@@ -1271,12 +1293,12 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Estimate latent variables and update the posterior sequentially."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`estimate_params "
@@ -1285,12 +1307,12 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Estimate the parameter under the given criterion."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`get_constants "
@@ -1298,19 +1320,19 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.get_constants:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Get constants of LearnModel."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`get_h0_params "
 "<bayesml.hiddenmarkovnormal.LearnModel.get_h0_params>`\\ \\(\\)"
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`get_hn_params "
@@ -1318,12 +1340,12 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.get_hn_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Get the hyperparameters of the posterior distribution."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`get_p_params "
@@ -1331,36 +1353,36 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.get_p_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Get the parameters of the predictive distribution."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`load_h0_params "
 "<bayesml.hiddenmarkovnormal.LearnModel.load_h0_params>`\\ \\(filename\\)"
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Load the hyperparameters to h0_params."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`load_hn_params "
 "<bayesml.hiddenmarkovnormal.LearnModel.load_hn_params>`\\ \\(filename\\)"
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Load the hyperparameters to hn_params."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`make_prediction "
@@ -1369,26 +1391,26 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.make_prediction:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Predict a new data point under the given criterion."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`overwrite_h0_params "
 "<bayesml.hiddenmarkovnormal.LearnModel.overwrite_h0_params>`\\ \\(\\)"
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 "Overwrite the initial values of the hyperparameters of the posterior "
 "distribution by the learned values."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`pred_and_update "
@@ -1397,40 +1419,40 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.pred_and_update:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Predict a new data point and update the posterior sequentially."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`reset_hn_params "
 "<bayesml.hiddenmarkovnormal.LearnModel.reset_hn_params>`\\ \\(\\)"
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 "Reset the hyperparameters of the posterior distribution to their initial "
 "values."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`save_h0_params "
 "<bayesml.hiddenmarkovnormal.LearnModel.save_h0_params>`\\ \\(filename\\)"
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`save_hn_params "
 "<bayesml.hiddenmarkovnormal.LearnModel.save_hn_params>`\\ \\(filename\\)"
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`set_h0_params "
@@ -1438,7 +1460,7 @@ msgid ""
 "\\(\\[h0\\_eta\\_vec\\, h0\\_zeta\\_vecs\\, ...\\]\\)"
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`set_hn_params "
@@ -1447,12 +1469,12 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_hn_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Set the hyperparameter of the posterior distribution."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`update_posterior "
@@ -1461,12 +1483,12 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.update_posterior:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Update the the posterior distribution using traning data."
 msgstr ""
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`visualize_posterior "
@@ -1474,7 +1496,7 @@ msgid ""
 msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.visualize_posterior:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Visualize the posterior distribution for the parameter."
 msgstr ""

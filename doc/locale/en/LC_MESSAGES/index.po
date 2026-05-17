@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"POT-Creation-Date: 2026-05-17 22:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -60,7 +60,7 @@ msgid ""
 msgstr ""
 
 #: ../../index.rst:27
-msgid "**Model Visuialization Functions:**"
+msgid "**Model Visualization Functions:**"
 msgstr ""
 
 #: ../../index.rst:29
@@ -436,62 +436,73 @@ msgid ":doc:`bayesml.linearregression`"
 msgstr ""
 
 #: ../../index.rst:266
-msgid ":doc:`bayesml.metatree`"
+msgid ":doc:`bayesml.logisticregression`"
 msgstr ""
 
 #: ../../index.rst:267
-msgid ":doc:`bayesml.multivariate_normal`"
+msgid ":doc:`bayesml.linearregressionmixture`"
 msgstr ""
 
 #: ../../index.rst:268
-msgid ":doc:`bayesml.normal`"
+msgid ":doc:`bayesml.metatree`"
 msgstr ""
 
 #: ../../index.rst:269
-msgid ":doc:`bayesml.poisson`"
+msgid ":doc:`bayesml.multivariate_normal`"
+msgstr ""
+
+#: ../../index.rst:270
+msgid ":doc:`bayesml.normal`"
 msgstr ""
 
 #: ../../index.rst:271
+msgid ":doc:`bayesml.poisson`"
+msgstr ""
+
+#: ../../index.rst:273
 msgid ""
 "In the future, we will add packages to deal with more complicated "
 "hierarchical models."
 msgstr ""
 
-#: ../../index.rst:274
+#: ../../index.rst:276
 msgid "Citation"
 msgstr ""
 
-#: ../../index.rst:276
+#: ../../index.rst:278
 msgid ""
 "When you use BayesML for your academic work, please provide the following"
 " bibliographic reference."
 msgstr ""
 
-#: ../../index.rst:278
+#: ../../index.rst:280
 msgid "Plain text"
 msgstr ""
 
-#: ../../index.rst:287
+#: ../../index.rst:289
 msgid "BibTeX"
 msgstr ""
 
-#: ../../index.rst:302
+#: ../../index.rst:304
 msgid "Contents"
 msgstr ""
 
-#: ../../index.rst:312
+#: ../../index.rst:314
 msgid "Indices"
 msgstr ""
 
-#: ../../index.rst:314
+#: ../../index.rst:316
 msgid ":ref:`genindex`"
 msgstr ""
 
-#: ../../index.rst:315
+#: ../../index.rst:317
 msgid ":ref:`modindex`"
 msgstr ""
 
-#: ../../index.rst:316
+#: ../../index.rst:318
 msgid ":ref:`search`"
 msgstr ""
+
+#~ msgid "**Model Visuialization Functions:**"
+#~ msgstr ""
 

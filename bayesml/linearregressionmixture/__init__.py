@@ -68,10 +68,10 @@ where the updating rules of the hyperparameters are as follows:
     \boldsymbol{R}_k^{(t)} &= \mathrm{diag} (r_{1,k}^{(t)}, r_{2,k}^{(t)}, \dots , r_{n,k}^{(t)}), \\
     \boldsymbol{\Lambda}_{n,k}^{(t+1)} &= \boldsymbol{\Lambda}_0 + \boldsymbol{X}^\top \boldsymbol{R}_k^{(t)} \boldsymbol{X}, \\
     \boldsymbol{\mu}_{n,k}^{(t+1)} &= \left( \boldsymbol{\Lambda}_{n,k}^{(t+1)} \right)^{-1} \left( \boldsymbol{\Lambda}_0 \boldsymbol{\mu}_0 + \boldsymbol{X}^\top \boldsymbol{R}_k^{(t)} \boldsymbol{y} \right), \\
-    a_{n,k}^{(t+1)} &= a_0 + \frac{1}{2} N_k^{(t)}, \\
-    b_{n,k}^{(t+1)} &= b_0 + \frac{1}{2} \left( -(\boldsymbol{\mu}_{n,k}^{(t+1)})^\top \boldsymbol{\Lambda}_{n,k}^{(t+1)} \boldsymbol{\mu}_{n,k}^{(t+1)} + \boldsymbol{y}^\top \boldsymbol{R}_k^{(t)} \boldsymbol{y} + \boldsymbol{\mu}_0^\top \boldsymbol{\Lambda}_0 \boldsymbol{\mu}_0 \right), \\
+    \alpha_{n,k}^{(t+1)} &= \alpha_0 + \frac{1}{2} N_k^{(t)}, \\
+    \beta_{n,k}^{(t+1)} &= \beta_0 + \frac{1}{2} \left( -(\boldsymbol{\mu}_{n,k}^{(t+1)})^\top \boldsymbol{\Lambda}_{n,k}^{(t+1)} \boldsymbol{\mu}_{n,k}^{(t+1)} + \boldsymbol{y}^\top \boldsymbol{R}_k^{(t)} \boldsymbol{y} + \boldsymbol{\mu}_0^\top \boldsymbol{\Lambda}_0 \boldsymbol{\mu}_0 \right), \\
     \gamma_{n,k}^{(t+1)} &= \gamma_0 + N_{k}^{(t)}, \\
-    \ln \rho_{i,k}^{(t)} &= \psi (\gamma_{n,k}^{(t+1)}) - \psi \left( {\textstyle \sum_{k=1}^K \gamma_{n,k}^{(t+1)}} \right) \nonumber \\
+    \ln \rho_{i,k}^{(t+1)} &= \psi (\gamma_{n,k}^{(t+1)}) - \psi \left( {\textstyle \sum_{k=1}^K \gamma_{n,k}^{(t+1)}} \right) \nonumber \\
     &\qquad - \frac{1}{2} \ln (2 \pi) - \frac{1}{2} \left( \psi (\alpha_{n,k}^{(t+1)}) - \ln \beta_{n,k}^{(t+1)} \right) \nonumber \\
     &\qquad -\frac{1}{2} \left( \frac{\alpha_{n,k}^{(t+1)}}{\beta_{n,k}^{(t+1)}} \left(y_i - (\boldsymbol{\mu}_{n,k}^{(t+1)})^\top \boldsymbol{x}_i \right)^2 + \boldsymbol{x}_i^\top \boldsymbol{\Lambda}_{n,k}^{(t+1)} \boldsymbol{x}_i \right), \\
     r_{i,k}^{(t+1)} &= \frac{\rho_{i,k}^{(t+1)}}{\sum_{k=1}^K \rho_{i,k}^{(t+1)}}.

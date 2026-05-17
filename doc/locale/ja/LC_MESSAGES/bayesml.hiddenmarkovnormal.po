@@ -3,23 +3,21 @@
 # This file is distributed under the same license as the BayesML package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
-
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: BayesML\n"
+"Project-Id-Version:  BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 16:37+0900\n"
+"POT-Creation-Date: 2026-05-17 22:32+0900\n"
 "PO-Revision-Date: 2026-05-17 09:46+0900\n"
 "Last-Translator: \n"
-"Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
-"X-Generator: Poedit 3.9\n"
 
 #: ../../bayesml.hiddenmarkovnormal.rst:2
 msgid "bayesml.hiddenmarkovnormal package"
@@ -30,7 +28,9 @@ msgid "Module contents"
 msgstr "モジュール内容"
 
 #: bayesml.hiddenmarkovnormal:1 of
-msgid "The hidden Markov model with the Gauss-Wishart prior distribution and the Dirichlet prior distribution."
+msgid ""
+"The hidden Markov model with the Gauss-Wishart prior distribution and the"
+" Dirichlet prior distribution."
 msgstr "ガウス・ウィシャート事前分布およびディリクレ事前分布を用いた隠れマルコフモデル。"
 
 #: bayesml.hiddenmarkovnormal:3 of
@@ -44,28 +44,45 @@ msgstr ":math:`K \\in \\mathbb{N}`: 潜在クラスの数"
 
 #: bayesml.hiddenmarkovnormal:6 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{z} \\in \\{ 0, 1 \\}^K`: a one-hot vector representing the latent class (latent variable)"
+msgid ""
+":math:`\\boldsymbol{z} \\in \\{ 0, 1 \\}^K`: a one-hot vector "
+"representing the latent class (latent variable)"
 msgstr ":math:`\\boldsymbol{z} \\in \\{ 0, 1 \\}^K`: 潜在クラス（潜在変数）を表すone-hotベクトル"
 
 #: bayesml.hiddenmarkovnormal:7 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{\\pi} \\in [0, 1]^K`: a parameter for latent classes, (:math:`\\sum_{k=1}^K \\pi_k=1`)"
-msgstr ":math:`\\boldsymbol{\\pi} \\in [0, 1]^K`：潜在クラスのパラメータ（:math:`\\sum_{k=1}^K \\pi_k=1`）"
+msgid ""
+":math:`\\boldsymbol{\\pi} \\in [0, 1]^K`: a parameter for latent classes,"
+" (:math:`\\sum_{k=1}^K \\pi_k=1`)"
+msgstr ""
+":math:`\\boldsymbol{\\pi} \\in [0, 1]^K`：潜在クラスのパラメータ（:math:`\\sum_{k=1}^K"
+" \\pi_k=1`）"
 
 #: bayesml.hiddenmarkovnormal:8 of
 #, python-brace-format
-msgid ":math:`a_{j,k} \\in [0,1]` : transition probability to latent state k under latent state j"
+msgid ""
+":math:`a_{j,k} \\in [0,1]` : transition probability to latent state k "
+"under latent state j"
 msgstr ":math:`a_{j,k} \\in [0,1]` : 潜在状態 j における潜在状態 k への遷移確率"
 
 #: bayesml.hiddenmarkovnormal:9 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{a}_j = [a_{j,1}, a_{j,2}, \\dots , a_{j,K}]\\in [0,1]^K`, a vector of the transition probability (:math:`\\sum_{k=1}^K a_{j,k}=1`)"
-msgstr ":math:`\\boldsymbol{a}_j = [a_{j,1}, a_{j,2}, \\dots , a_{j,K}]\\in [0,1]^K`、遷移確率のベクトル（:math:`\\sum_{k=1}^K a_{j,k}=1`）"
+msgid ""
+":math:`\\boldsymbol{a}_j = [a_{j,1}, a_{j,2}, \\dots , a_{j,K}]\\in "
+"[0,1]^K`, a vector of the transition probability (:math:`\\sum_{k=1}^K "
+"a_{j,k}=1`)"
+msgstr ""
+":math:`\\boldsymbol{a}_j = [a_{j,1}, a_{j,2}, \\dots , a_{j,K}]\\in "
+"[0,1]^K`、遷移確率のベクトル（:math:`\\sum_{k=1}^K a_{j,k}=1`）"
 
 #: bayesml.hiddenmarkovnormal:10 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{A}=(a_{j,k})_{1\\leq j,k\\leq K} \\in [0, 1]^{K\\times K}`: a matrix of the transition probability"
-msgstr ":math:`\\boldsymbol{A}=(a_{j,k})_{1\\leq j,k\\leq K} \\in [0, 1]^{K\\times K}`: 遷移確率行列"
+msgid ""
+":math:`\\boldsymbol{A}=(a_{j,k})_{1\\leq j,k\\leq K} \\in [0, "
+"1]^{K\\times K}`: a matrix of the transition probability"
+msgstr ""
+":math:`\\boldsymbol{A}=(a_{j,k})_{1\\leq j,k\\leq K} \\in [0, "
+"1]^{K\\times K}`: 遷移確率行列"
 
 #: bayesml.hiddenmarkovnormal:11 of
 #, python-brace-format
@@ -88,8 +105,12 @@ msgstr ":math:`\\boldsymbol{\\mu} = \\{ \\boldsymbol{\\mu}_k \\}_{k=1}^K`"
 
 #: bayesml.hiddenmarkovnormal:15 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{\\Lambda}_k \\in \\mathbb{R}^{D\\times D}` : a parameter (a positive definite matrix)"
-msgstr ":math:`\\boldsymbol{\\Lambda}_k \\in \\mathbb{R}^{D\\times D}` : パラメータ（正定値行列）"
+msgid ""
+":math:`\\boldsymbol{\\Lambda}_k \\in \\mathbb{R}^{D\\times D}` : a "
+"parameter (a positive definite matrix)"
+msgstr ""
+":math:`\\boldsymbol{\\Lambda}_k \\in \\mathbb{R}^{D\\times D}` : "
+"パラメータ（正定値行列）"
 
 #: bayesml.hiddenmarkovnormal:16 of
 msgid ":math:`\\boldsymbol{\\Lambda} = \\{ \\boldsymbol{\\Lambda}_k \\}_{k=1}^K`"
@@ -97,19 +118,45 @@ msgstr ":math:`\\boldsymbol{\\Lambda} = \\{ \\boldsymbol{\\Lambda}_k \\}_{k=1}^K
 
 #: bayesml.hiddenmarkovnormal:17 of
 #, python-brace-format
-msgid ":math:`| \\boldsymbol{\\Lambda}_k | \\in \\mathbb{R}`: the determinant of :math:`\\boldsymbol{\\Lambda}_k`"
-msgstr ":math:`| \\boldsymbol{\\Lambda}_k | \\in \\mathbb{R}`: :math:`\\boldsymbol{\\Lambda}_k` の行列式"
+msgid ""
+":math:`| \\boldsymbol{\\Lambda}_k | \\in \\mathbb{R}`: the determinant of"
+" :math:`\\boldsymbol{\\Lambda}_k`"
+msgstr ""
+":math:`| \\boldsymbol{\\Lambda}_k | \\in \\mathbb{R}`: "
+":math:`\\boldsymbol{\\Lambda}_k` の行列式"
 
 #: bayesml.hiddenmarkovnormal:19 of
-msgid "p(\\boldsymbol{z}_{1} | \\boldsymbol{\\pi}) &= \\mathrm{Cat}(\\boldsymbol{z}_{1}|\\boldsymbol{\\pi}) = \\prod_{k=1}^K \\pi_k^{z_{1,k}},\\\\\n"
-"p(\\boldsymbol{z}_{n} |\\boldsymbol{z}_{n-1} ,\\boldsymbol{A}) &= \\prod_{k=1}^K \\prod_{j=1}^K a_{j,k}^{z_{n-1,j}z_{n,k}},\\\\\n"
-"p(\\boldsymbol{x}_{n} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}, \\boldsymbol{z}_{n}) &= \\prod_{k=1}^K \\mathcal{N}(\\boldsymbol{x}|\\boldsymbol{\\mu}_k,\\boldsymbol{\\Lambda}_k^{-1})^{z_{n,k}} \\\\\n"
-"&= \\prod_{k=1}^K \\left( \\frac{| \\boldsymbol{\\Lambda}_{k} |^{1/2}}{(2\\pi)^{D/2}} \\exp \\left\\{ -\\frac{1}{2}(\\boldsymbol{x}-\\boldsymbol{\\mu}_{k})^\\top \\boldsymbol{\\Lambda}_{k} (\\boldsymbol{x}-\\boldsymbol{\\mu}_{k}) \\right\\} \\right)^{z_{n,k}},\n"
+msgid ""
+"p(\\boldsymbol{z}_{1} | \\boldsymbol{\\pi}) &= "
+"\\mathrm{Cat}(\\boldsymbol{z}_{1}|\\boldsymbol{\\pi}) = \\prod_{k=1}^K "
+"\\pi_k^{z_{1,k}},\\\\\n"
+"p(\\boldsymbol{z}_{n} |\\boldsymbol{z}_{n-1} ,\\boldsymbol{A}) &= "
+"\\prod_{k=1}^K \\prod_{j=1}^K a_{j,k}^{z_{n-1,j}z_{n,k}},\\\\\n"
+"p(\\boldsymbol{x}_{n} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}, "
+"\\boldsymbol{z}_{n}) &= \\prod_{k=1}^K "
+"\\mathcal{N}(\\boldsymbol{x}|\\boldsymbol{\\mu}_k,\\boldsymbol{\\Lambda}_k^{-1})^{z_{n,k}}"
+" \\\\\n"
+"&= \\prod_{k=1}^K \\left( \\frac{| \\boldsymbol{\\Lambda}_{k} "
+"|^{1/2}}{(2\\pi)^{D/2}} \\exp \\left\\{ "
+"-\\frac{1}{2}(\\boldsymbol{x}-\\boldsymbol{\\mu}_{k})^\\top "
+"\\boldsymbol{\\Lambda}_{k} (\\boldsymbol{x}-\\boldsymbol{\\mu}_{k}) "
+"\\right\\} \\right)^{z_{n,k}},\n"
 "\n"
-msgstr "p(\\boldsymbol{z}_{1} | \\boldsymbol{\\pi}) &= \\mathrm{Cat}(\\boldsymbol{z}_{1}|\\boldsymbol{\\pi}) = \\prod_{k=1}^K \\pi_k^{z_{1,k}},\\\\\n"
-"p(\\boldsymbol{z}_{n} |\\boldsymbol{z}_{n-1} ,\\boldsymbol{A}) &= \\prod_{k=1}^K \\prod_{j=1}^K a_{j,k}^{z_{n-1,j}z_{n,k}},\\\\\n"
-"p(\\boldsymbol{x}_{n} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}, \\boldsymbol{z}_{n}) &= \\prod_{k=1}^K \\mathcal{N}(\\boldsymbol{x}|\\boldsymbol{\\mu}_k,\\boldsymbol{\\Lambda}_k^{-1})^{z_{n,k}} \\\\\n"
-"&= \\prod_{k=1}^K \\left( \\frac{| \\boldsymbol{\\Lambda}_{k} |^{1/2}}{(2\\pi)^{D/2}} \\exp \\left\\{ -\\frac{1}{2}(\\boldsymbol{x}-\\boldsymbol{\\mu}_{k})^\\top \\boldsymbol{\\Lambda}_{k} (\\boldsymbol{x}-\\boldsymbol{\\mu}_{k}) \\right\\} \\right)^{z_{n,k}},\n"
+msgstr ""
+"p(\\boldsymbol{z}_{1} | \\boldsymbol{\\pi}) &= "
+"\\mathrm{Cat}(\\boldsymbol{z}_{1}|\\boldsymbol{\\pi}) = \\prod_{k=1}^K "
+"\\pi_k^{z_{1,k}},\\\\\n"
+"p(\\boldsymbol{z}_{n} |\\boldsymbol{z}_{n-1} ,\\boldsymbol{A}) &= "
+"\\prod_{k=1}^K \\prod_{j=1}^K a_{j,k}^{z_{n-1,j}z_{n,k}},\\\\\n"
+"p(\\boldsymbol{x}_{n} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}, "
+"\\boldsymbol{z}_{n}) &= \\prod_{k=1}^K "
+"\\mathcal{N}(\\boldsymbol{x}|\\boldsymbol{\\mu}_k,\\boldsymbol{\\Lambda}_k^{-1})^{z_{n,k}}"
+" \\\\\n"
+"&= \\prod_{k=1}^K \\left( \\frac{| \\boldsymbol{\\Lambda}_{k} "
+"|^{1/2}}{(2\\pi)^{D/2}} \\exp \\left\\{ "
+"-\\frac{1}{2}(\\boldsymbol{x}-\\boldsymbol{\\mu}_{k})^\\top "
+"\\boldsymbol{\\Lambda}_{k} (\\boldsymbol{x}-\\boldsymbol{\\mu}_{k}) "
+"\\right\\} \\right)^{z_{n,k}},\n"
 "\n"
 
 #: bayesml.hiddenmarkovnormal:25 of
@@ -133,7 +180,9 @@ msgstr ":math:`\\nu_0 \\in \\mathbb{R}`: ハイパーパラメータ（:math:`\\
 
 #: bayesml.hiddenmarkovnormal:30 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{W}_0 \\in \\mathbb{R}^{D\\times D}`: a hyperparameter (a positive definite matrix)"
+msgid ""
+":math:`\\boldsymbol{W}_0 \\in \\mathbb{R}^{D\\times D}`: a hyperparameter"
+" (a positive definite matrix)"
 msgstr ":math:`\\boldsymbol{W}_0 \\in \\mathbb{R}^{D\\times D}`: ハイパーパラメータ（正定値行列）"
 
 #: bayesml.hiddenmarkovnormal:31 of
@@ -143,7 +192,9 @@ msgstr ":math:`\\boldsymbol{\\eta}_0 \\in \\mathbb{R}_{> 0}^K`: ハイパーパ�
 
 #: bayesml.hiddenmarkovnormal:32 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{\\zeta}_{0,j} \\in \\mathbb{R}_{> 0}^K`: a hyperparameter"
+msgid ""
+":math:`\\boldsymbol{\\zeta}_{0,j} \\in \\mathbb{R}_{> 0}^K`: a "
+"hyperparameter"
 msgstr ":math:`\\boldsymbol{\\zeta}_{0,j} \\in \\mathbb{R}_{> 0}^K`: ハイパーパラメータ"
 
 #: bayesml.hiddenmarkovnormal:33 of
@@ -156,47 +207,112 @@ msgid ":math:`\\Gamma (\\cdot)`: the gamma function"
 msgstr ":math:`\\Gamma (\\cdot)`: ガンマ関数"
 
 #: bayesml.hiddenmarkovnormal:36 of
-msgid "p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi},\\boldsymbol{A}) &= \\left\\{ \\prod_{k=1}^K \\mathcal{N}(\\boldsymbol{\\mu}_k|\\boldsymbol{m}_0,(\\kappa_0 \\boldsymbol{\\Lambda}_k)^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}_k|\\boldsymbol{W}_0, \\nu_0) \\right\\} \\mathrm{Dir}(\\boldsymbol{\\pi}|\\boldsymbol{\\eta}_0) \\prod_{j=1}^{K}\\mathrm{Dir}(\\boldsymbol{a}_{j}|\\boldsymbol{\\zeta}_{0,j}), \\\\\n"
-"&= \\Biggl[ \\prod_{k=1}^K \\left( \\frac{\\kappa_0}{2\\pi} \\right)^{D/2} |\\boldsymbol{\\Lambda}_k|^{1/2} \\exp \\left\\{ -\\frac{\\kappa_0}{2}(\\boldsymbol{\\mu}_k -\\boldsymbol{m}_0)^\\top \\boldsymbol{\\Lambda}_k (\\boldsymbol{\\mu}_k - \\boldsymbol{m}_0) \\right\\} \\\\\n"
-"&\\qquad \\times B(\\boldsymbol{W}_0, \\nu_0) | \\boldsymbol{\\Lambda}_k |^{(\\nu_0 - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ \\boldsymbol{W}_0^{-1} \\boldsymbol{\\Lambda}_k \\} \\right\\}\\biggl] \\\\\n"
-"&\\qquad \\times \\Biggl[ \\prod_{k=1}^KC(\\boldsymbol{\\eta}_0)\\pi_k^{\\eta_{0,k}-1}\\biggl]\\\\\n"
-"&\\qquad \\times \\biggl[\\prod_{j=1}^KC(\\boldsymbol{\\zeta}_{0,j})\\prod_{k=1}^K a_{j,k}^{\\zeta_{0,j,k}-1}\\Biggr],\\\\\n"
+msgid ""
+"p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi},\\boldsymbol{A})"
+" &= \\left\\{ \\prod_{k=1}^K "
+"\\mathcal{N}(\\boldsymbol{\\mu}_k|\\boldsymbol{m}_0,(\\kappa_0 "
+"\\boldsymbol{\\Lambda}_k)^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}_k|\\boldsymbol{W}_0,"
+" \\nu_0) \\right\\} "
+"\\mathrm{Dir}(\\boldsymbol{\\pi}|\\boldsymbol{\\eta}_0) "
+"\\prod_{j=1}^{K}\\mathrm{Dir}(\\boldsymbol{a}_{j}|\\boldsymbol{\\zeta}_{0,j}),"
+" \\\\\n"
+"&= \\Biggl[ \\prod_{k=1}^K \\left( \\frac{\\kappa_0}{2\\pi} "
+"\\right)^{D/2} |\\boldsymbol{\\Lambda}_k|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_0}{2}(\\boldsymbol{\\mu}_k -\\boldsymbol{m}_0)^\\top "
+"\\boldsymbol{\\Lambda}_k (\\boldsymbol{\\mu}_k - \\boldsymbol{m}_0) "
+"\\right\\} \\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_0, \\nu_0) | \\boldsymbol{\\Lambda}_k "
+"|^{(\\nu_0 - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ "
+"\\boldsymbol{W}_0^{-1} \\boldsymbol{\\Lambda}_k \\} \\right\\}\\biggl] "
+"\\\\\n"
+"&\\qquad \\times \\Biggl[ "
+"\\prod_{k=1}^KC(\\boldsymbol{\\eta}_0)\\pi_k^{\\eta_{0,k}-1}\\biggl]\\\\"
 "\n"
-msgstr "p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi},\\boldsymbol{A}) &= \\left\\{ \\prod_{k=1}^K \\mathcal{N}(\\boldsymbol{\\mu}_k|\\boldsymbol{m}_0,(\\kappa_0 \\boldsymbol{\\Lambda}_k)^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}_k|\\boldsymbol{W}_0, \\nu_0) \\right\\} \\mathrm{Dir}(\\boldsymbol{\\pi}|\\boldsymbol{\\eta}_0) \\prod_{j=1}^{K}\\mathrm{Dir}(\\boldsymbol{a}_{j}|\\boldsymbol{\\zeta}_{0,j}), \\\\\n"
-"&= \\Biggl[ \\prod_{k=1}^K \\left( \\frac{\\kappa_0}{2\\pi} \\right)^{D/2} |\\boldsymbol{\\Lambda}_k|^{1/2} \\exp \\left\\{ -\\frac{\\kappa_0}{2}(\\boldsymbol{\\mu}_k -\\boldsymbol{m}_0)^\\top \\boldsymbol{\\Lambda}_k (\\boldsymbol{\\mu}_k - \\boldsymbol{m}_0) \\right\\} \\\\\n"
-"&\\qquad \\times B(\\boldsymbol{W}_0, \\nu_0) | \\boldsymbol{\\Lambda}_k |^{(\\nu_0 - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ \\boldsymbol{W}_0^{-1} \\boldsymbol{\\Lambda}_k \\} \\right\\}\\biggl] \\\\\n"
-"&\\qquad \\times \\Biggl[ \\prod_{k=1}^KC(\\boldsymbol{\\eta}_0)\\pi_k^{\\eta_{0,k}-1}\\biggl]\\\\\n"
-"&\\qquad \\times \\biggl[\\prod_{j=1}^KC(\\boldsymbol{\\zeta}_{0,j})\\prod_{k=1}^K a_{j,k}^{\\zeta_{0,j,k}-1}\\Biggr],\\\\\n"
+"&\\qquad \\times "
+"\\biggl[\\prod_{j=1}^KC(\\boldsymbol{\\zeta}_{0,j})\\prod_{k=1}^K "
+"a_{j,k}^{\\zeta_{0,j,k}-1}\\Biggr],\\\\\n"
+"\n"
+msgstr ""
+"p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi},\\boldsymbol{A})"
+" &= \\left\\{ \\prod_{k=1}^K "
+"\\mathcal{N}(\\boldsymbol{\\mu}_k|\\boldsymbol{m}_0,(\\kappa_0 "
+"\\boldsymbol{\\Lambda}_k)^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}_k|\\boldsymbol{W}_0,"
+" \\nu_0) \\right\\} "
+"\\mathrm{Dir}(\\boldsymbol{\\pi}|\\boldsymbol{\\eta}_0) "
+"\\prod_{j=1}^{K}\\mathrm{Dir}(\\boldsymbol{a}_{j}|\\boldsymbol{\\zeta}_{0,j}),"
+" \\\\\n"
+"&= \\Biggl[ \\prod_{k=1}^K \\left( \\frac{\\kappa_0}{2\\pi} "
+"\\right)^{D/2} |\\boldsymbol{\\Lambda}_k|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_0}{2}(\\boldsymbol{\\mu}_k -\\boldsymbol{m}_0)^\\top "
+"\\boldsymbol{\\Lambda}_k (\\boldsymbol{\\mu}_k - \\boldsymbol{m}_0) "
+"\\right\\} \\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_0, \\nu_0) | \\boldsymbol{\\Lambda}_k "
+"|^{(\\nu_0 - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ "
+"\\boldsymbol{W}_0^{-1} \\boldsymbol{\\Lambda}_k \\} \\right\\}\\biggl] "
+"\\\\\n"
+"&\\qquad \\times \\Biggl[ "
+"\\prod_{k=1}^KC(\\boldsymbol{\\eta}_0)\\pi_k^{\\eta_{0,k}-1}\\biggl]\\\\"
+"\n"
+"&\\qquad \\times "
+"\\biggl[\\prod_{j=1}^KC(\\boldsymbol{\\zeta}_{0,j})\\prod_{k=1}^K "
+"a_{j,k}^{\\zeta_{0,j,k}-1}\\Biggr],\\\\\n"
 "\n"
 
 #: bayesml.hiddenmarkovnormal:43 of
 #, python-brace-format
-msgid "where :math:`B(\\boldsymbol{W}_0, \\nu_0)` and :math:`C(\\boldsymbol{\\eta}_0)` are defined as follows:"
-msgstr "ここで、:math:`B(\\boldsymbol{W}_0, \\nu_0)` および :math:`C(\\boldsymbol{\\eta}_0)` は次のように定義されます："
+msgid ""
+"where :math:`B(\\boldsymbol{W}_0, \\nu_0)` and "
+":math:`C(\\boldsymbol{\\eta}_0)` are defined as follows:"
+msgstr ""
+"ここで、:math:`B(\\boldsymbol{W}_0, \\nu_0)` および "
+":math:`C(\\boldsymbol{\\eta}_0)` は次のように定義されます："
 
 #: bayesml.hiddenmarkovnormal:45 of
-msgid "B(\\boldsymbol{W}_0, \\nu_0) &= | \\boldsymbol{W}_0 |^{-\\nu_0 / 2} \\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma \\left( \\frac{\\nu_0 + 1 - i}{2} \\right) \\right)^{-1}, \\\\\n"
-"C(\\boldsymbol{\\eta}_0) &= \\frac{\\Gamma(\\sum_{k=1}^K \\eta_{0,k})}{\\Gamma(\\eta_{0,1})\\cdots\\Gamma(\\eta_{0,K})},\\\\\n"
-"C(\\boldsymbol{\\zeta}_{0,j}) &= \\frac{\\Gamma(\\sum_{k=1}^K \\zeta_{0,j,k})}{\\Gamma(\\zeta_{0,j,1})\\cdots\\Gamma(\\zeta_{0,j,K})}. \n"
+msgid ""
+"B(\\boldsymbol{W}_0, \\nu_0) &= | \\boldsymbol{W}_0 |^{-\\nu_0 / 2} "
+"\\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma \\left( "
+"\\frac{\\nu_0 + 1 - i}{2} \\right) \\right)^{-1}, \\\\\n"
+"C(\\boldsymbol{\\eta}_0) &= \\frac{\\Gamma(\\sum_{k=1}^K "
+"\\eta_{0,k})}{\\Gamma(\\eta_{0,1})\\cdots\\Gamma(\\eta_{0,K})},\\\\\n"
+"C(\\boldsymbol{\\zeta}_{0,j}) &= \\frac{\\Gamma(\\sum_{k=1}^K "
+"\\zeta_{0,j,k})}{\\Gamma(\\zeta_{0,j,1})\\cdots\\Gamma(\\zeta_{0,j,K})}."
+" \n"
 "\n"
-msgstr "B(\\boldsymbol{W}_0, \\nu_0) &= | \\boldsymbol{W}_0 |^{-\\nu_0 / 2} \\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma \\left( \\frac{\\nu_0 + 1 - i}{2} \\right) \\right)^{-1}, \\\\\n"
-"C(\\boldsymbol{\\eta}_0) &= \\frac{\\Gamma(\\sum_{k=1}^K \\eta_{0,k})}{\\Gamma(\\eta_{0,1})\\cdots\\Gamma(\\eta_{0,K})},\\\\\n"
-"C(\\boldsymbol{\\zeta}_{0,j}) &= \\frac{\\Gamma(\\sum_{k=1}^K \\zeta_{0,j,k})}{\\Gamma(\\zeta_{0,j,1})\\cdots\\Gamma(\\zeta_{0,j,K})}. \n"
+msgstr ""
+"B(\\boldsymbol{W}_0, \\nu_0) &= | \\boldsymbol{W}_0 |^{-\\nu_0 / 2} "
+"\\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma \\left( "
+"\\frac{\\nu_0 + 1 - i}{2} \\right) \\right)^{-1}, \\\\\n"
+"C(\\boldsymbol{\\eta}_0) &= \\frac{\\Gamma(\\sum_{k=1}^K "
+"\\eta_{0,k})}{\\Gamma(\\eta_{0,1})\\cdots\\Gamma(\\eta_{0,K})},\\\\\n"
+"C(\\boldsymbol{\\zeta}_{0,j}) &= \\frac{\\Gamma(\\sum_{k=1}^K "
+"\\zeta_{0,j,k})}{\\Gamma(\\zeta_{0,j,1})\\cdots\\Gamma(\\zeta_{0,j,K})}."
+" \n"
 "\n"
 
 #: bayesml.hiddenmarkovnormal:50 of
-msgid "The apporoximate posterior distribution in the :math:`t`-th iteration of a variational Bayesian method is as follows:"
+msgid ""
+"The apporoximate posterior distribution in the :math:`t`-th iteration of "
+"a variational Bayesian method is as follows:"
 msgstr "変分ベイズ法の :math:`t` 回目の反復における近似事後分布は、以下の通りです："
 
 #: bayesml.hiddenmarkovnormal:52 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots , \\boldsymbol{x}_n) \\in \\mathbb{R}^{D \\times n}`: given data"
-msgstr ":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots , \\boldsymbol{x}_n) \\in \\mathbb{R}^{D\\times n}`: 与えられたデータ"
+msgid ""
+":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
+", \\boldsymbol{x}_n) \\in \\mathbb{R}^{D \\times n}`: given data"
+msgstr ""
+":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
+", \\boldsymbol{x}_n) \\in \\mathbb{R}^{D\\times n}`: 与えられたデータ"
 
 #: bayesml.hiddenmarkovnormal:53 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{z}^n = (\\boldsymbol{z}_1, \\boldsymbol{z}_2, \\dots , \\boldsymbol{z}_n) \\in \\{ 0, 1 \\}^{K \\times n}`: latent classes of given data"
-msgstr ":math:`\\boldsymbol{z}^n = (\\boldsymbol{z}_1, \\boldsymbol{z}_2, \\dots , \\boldsymbol{z}_n) \\in \\{ 0, 1 \\}^{K \\times n}`: 与えられたデータの潜在クラス"
+msgid ""
+":math:`\\boldsymbol{z}^n = (\\boldsymbol{z}_1, \\boldsymbol{z}_2, \\dots "
+", \\boldsymbol{z}_n) \\in \\{ 0, 1 \\}^{K \\times n}`: latent classes of "
+"given data"
+msgstr ""
+":math:`\\boldsymbol{z}^n = (\\boldsymbol{z}_1, \\boldsymbol{z}_2, \\dots "
+", \\boldsymbol{z}_n) \\in \\{ 0, 1 \\}^{K \\times n}`: 与えられたデータの潜在クラス"
 
 #: bayesml.hiddenmarkovnormal:54 of
 #, python-brace-format
@@ -210,36 +326,90 @@ msgstr ":math:`\\kappa_{n,k}^{(t)} \\in \\mathbb{R}_{>0}`: ハイパーパラメ
 
 #: bayesml.hiddenmarkovnormal:56 of
 #, python-brace-format
-msgid ":math:`\\nu_{n,k}^{(t)} \\in \\mathbb{R}`: a hyperparameter :math:`(\\nu_n > D-1)`"
-msgstr ":math:`\\nu_{n,k}^{(t)} \\in \\mathbb{R}`: ハイパーパラメータ :math:`(\\nu_n > D-1)`"
+msgid ""
+":math:`\\nu_{n,k}^{(t)} \\in \\mathbb{R}`: a hyperparameter "
+":math:`(\\nu_n > D-1)`"
+msgstr ""
+":math:`\\nu_{n,k}^{(t)} \\in \\mathbb{R}`: ハイパーパラメータ :math:`(\\nu_n > "
+"D-1)`"
 
 #: bayesml.hiddenmarkovnormal:57 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{W}_{n,k}^{(t)} \\in \\mathbb{R}^{D\\times D}`: a hyperparameter (a positive definite matrix)"
-msgstr ":math:`\\boldsymbol{W}_{n,k}^{(t)} \\in \\mathbb{R}^{D\\times D}`: ハイパーパラメータ（正定値行列）"
+msgid ""
+":math:`\\boldsymbol{W}_{n,k}^{(t)} \\in \\mathbb{R}^{D\\times D}`: a "
+"hyperparameter (a positive definite matrix)"
+msgstr ""
+":math:`\\boldsymbol{W}_{n,k}^{(t)} \\in \\mathbb{R}^{D\\times D}`: "
+"ハイパーパラメータ（正定値行列）"
 
 #: bayesml.hiddenmarkovnormal:58 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{\\eta}_n^{(t)} \\in \\mathbb{R}_{> 0}^K`: a hyperparameter"
+msgid ""
+":math:`\\boldsymbol{\\eta}_n^{(t)} \\in \\mathbb{R}_{> 0}^K`: a "
+"hyperparameter"
 msgstr ":math:`\\boldsymbol{\\eta}_n^{(t)} \\in \\mathbb{R}_{> 0}^K`: ハイパーパラメータ"
 
 #: bayesml.hiddenmarkovnormal:59 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{\\zeta}_{n,j}^{(t)} \\in \\mathbb{R}_{> 0}^K`: a hyperparameter"
-msgstr ":math:`\\boldsymbol{\\zeta}_{n,j}^{(t)} \\in \\mathbb{R}_{> 0}^K`: ハイパーパラメータ"
+msgid ""
+":math:`\\boldsymbol{\\zeta}_{n,j}^{(t)} \\in \\mathbb{R}_{> 0}^K`: a "
+"hyperparameter"
+msgstr ""
+":math:`\\boldsymbol{\\zeta}_{n,j}^{(t)} \\in \\mathbb{R}_{> 0}^K`: "
+"ハイパーパラメータ"
 
 #: bayesml.hiddenmarkovnormal:61 of
-msgid "&q(\\boldsymbol{z}^n, \\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi},\\boldsymbol{A}) \\nonumber \\\\\n"
-"&= q^{(t)}(\\boldsymbol{z}^n) \\left\\{ \\prod_{k=1}^K \\mathcal{N}(\\boldsymbol{\\mu}_k|\\boldsymbol{m}_{n,k}^{(t)},(\\kappa_{n,k}^{(t)} \\boldsymbol{\\Lambda}_k)^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}_k|\\boldsymbol{W}_{n,k}^{(t)}, \\nu_{n,k}^{(t)}) \\right\\} \\mathrm{Dir}(\\boldsymbol{\\pi}|\\boldsymbol{\\eta}_n^{(t)})\\left\\{\\prod_{j=1}^K\\mathrm{Dir}(\\boldsymbol{a}_j|\\boldsymbol{\\zeta}_{n,j}^{(t)})\\right\\}, \\\\\n"
-"&= q^{(t)}(\\boldsymbol{z}^n) \\Biggl[ \\prod_{k=1}^K \\left( \\frac{\\kappa_{n,k}^{(t)}}{2\\pi} \\right)^{D/2} |\\boldsymbol{\\Lambda}_k|^{1/2} \\exp \\left\\{ -\\frac{\\kappa_{n,k}^{(t)}}{2}(\\boldsymbol{\\mu}_k -\\boldsymbol{m}_{n,k}^{(t)})^\\top \\boldsymbol{\\Lambda}_k (\\boldsymbol{\\mu}_k - \\boldsymbol{m}_{n,k}^{(t)}) \\right\\} \\\\\n"
-"&\\qquad \\times B(\\boldsymbol{W}_{n,k}^{(t)}, \\nu_{n,k}^{(t)}) | \\boldsymbol{\\Lambda}_k |^{(\\nu_{n,k}^{(t)} - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ ( \\boldsymbol{W}_{n,k}^{(t)} )^{-1} \\boldsymbol{\\Lambda}_k \\} \\right\\} \\Biggr] \\\\\n"
-"&\\qquad \\times C(\\boldsymbol{\\eta}_n^{(t)})\\prod_{k=1}^K \\pi_k^{\\eta_{n,k}^{(t)}-1}\\left[\\prod_{j=1}^K C(\\boldsymbol{\\zeta}_{n,j}^{(t)})\\prod_{k=1}^K a_{j,k}^{\\zeta_{n,j,k}^{(t)}-1}\\right],\\\\\n"
+msgid ""
+"&q(\\boldsymbol{z}^n, "
+"\\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi},\\boldsymbol{A})"
+" \\nonumber \\\\\n"
+"&= q^{(t)}(\\boldsymbol{z}^n) \\left\\{ \\prod_{k=1}^K "
+"\\mathcal{N}(\\boldsymbol{\\mu}_k|\\boldsymbol{m}_{n,k}^{(t)},(\\kappa_{n,k}^{(t)}"
+" "
+"\\boldsymbol{\\Lambda}_k)^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}_k|\\boldsymbol{W}_{n,k}^{(t)},"
+" \\nu_{n,k}^{(t)}) \\right\\} "
+"\\mathrm{Dir}(\\boldsymbol{\\pi}|\\boldsymbol{\\eta}_n^{(t)})\\left\\{\\prod_{j=1}^K\\mathrm{Dir}(\\boldsymbol{a}_j|\\boldsymbol{\\zeta}_{n,j}^{(t)})\\right\\},"
+" \\\\\n"
+"&= q^{(t)}(\\boldsymbol{z}^n) \\Biggl[ \\prod_{k=1}^K \\left( "
+"\\frac{\\kappa_{n,k}^{(t)}}{2\\pi} \\right)^{D/2} "
+"|\\boldsymbol{\\Lambda}_k|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_{n,k}^{(t)}}{2}(\\boldsymbol{\\mu}_k "
+"-\\boldsymbol{m}_{n,k}^{(t)})^\\top \\boldsymbol{\\Lambda}_k "
+"(\\boldsymbol{\\mu}_k - \\boldsymbol{m}_{n,k}^{(t)}) \\right\\} \\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_{n,k}^{(t)}, \\nu_{n,k}^{(t)}) | "
+"\\boldsymbol{\\Lambda}_k |^{(\\nu_{n,k}^{(t)} - D - 1) / 2} \\exp "
+"\\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ ( \\boldsymbol{W}_{n,k}^{(t)} "
+")^{-1} \\boldsymbol{\\Lambda}_k \\} \\right\\} \\Biggr] \\\\\n"
+"&\\qquad \\times C(\\boldsymbol{\\eta}_n^{(t)})\\prod_{k=1}^K "
+"\\pi_k^{\\eta_{n,k}^{(t)}-1}\\left[\\prod_{j=1}^K "
+"C(\\boldsymbol{\\zeta}_{n,j}^{(t)})\\prod_{k=1}^K "
+"a_{j,k}^{\\zeta_{n,j,k}^{(t)}-1}\\right],\\\\\n"
 "\n"
-msgstr "&q(\\boldsymbol{z}^n, \\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi},\\boldsymbol{A}) \\nonumber \\\\\n"
-"&= q^{(t)}(\\boldsymbol{z}^n) \\left\\{ \\prod_{k=1}^K \\mathcal{N}(\\boldsymbol{\\mu}_k|\\boldsymbol{m}_{n,k}^{(t)},(\\kappa_{n,k}^{(t)} \\boldsymbol{\\Lambda}_k)^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}_k|\\boldsymbol{W}_{n,k}^{(t)}, \\nu_{n,k}^{(t)}) \\right\\} \\mathrm{Dir}(\\boldsymbol{\\pi}|\\boldsymbol{\\eta}_n^{(t)})\\left\\{\\prod_{j=1}^K\\mathrm{Dir}(\\boldsymbol{a}_j|\\boldsymbol{\\zeta}_{n,j}^{(t)})\\right\\}, \\\\\n"
-"&= q^{(t)}(\\boldsymbol{z}^n) \\Biggl[ \\prod_{k=1}^K \\left( \\frac{\\kappa_{n,k}^{(t)}}{2\\pi} \\right)^{D/2} |\\boldsymbol{\\Lambda}_k|^{1/2} \\exp \\left\\{ -\\frac{\\kappa_{n,k}^{(t)}}{2}(\\boldsymbol{\\mu}_k -\\boldsymbol{m}_{n,k}^{(t)})^\\top \\boldsymbol{\\Lambda}_k (\\boldsymbol{\\mu}_k - \\boldsymbol{m}_{n,k}^{(t)}) \\right\\} \\\\\n"
-"&\\qquad \\times B(\\boldsymbol{W}_{n,k}^{(t)}, \\nu_{n,k}^{(t)}) | \\boldsymbol{\\Lambda}_k |^{(\\nu_{n,k}^{(t)} - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ ( \\boldsymbol{W}_{n,k}^{(t)} )^{-1} \\boldsymbol{\\Lambda}_k \\} \\right\\} \\Biggr] \\\\\n"
-"&\\qquad \\times C(\\boldsymbol{\\eta}_n^{(t)})\\prod_{k=1}^K \\pi_k^{\\eta_{n,k}^{(t)}-1}\\left[\\prod_{j=1}^K C(\\boldsymbol{\\zeta}_{n,j}^{(t)})\\prod_{k=1}^K a_{j,k}^{\\zeta_{n,j,k}^{(t)}-1}\\right],\\\\\n"
+msgstr ""
+"&q(\\boldsymbol{z}^n, "
+"\\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi},\\boldsymbol{A})"
+" \\nonumber \\\\\n"
+"&= q^{(t)}(\\boldsymbol{z}^n) \\left\\{ \\prod_{k=1}^K "
+"\\mathcal{N}(\\boldsymbol{\\mu}_k|\\boldsymbol{m}_{n,k}^{(t)},(\\kappa_{n,k}^{(t)}"
+" "
+"\\boldsymbol{\\Lambda}_k)^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}_k|\\boldsymbol{W}_{n,k}^{(t)},"
+" \\nu_{n,k}^{(t)}) \\right\\} "
+"\\mathrm{Dir}(\\boldsymbol{\\pi}|\\boldsymbol{\\eta}_n^{(t)})\\left\\{\\prod_{j=1}^K\\mathrm{Dir}(\\boldsymbol{a}_j|\\boldsymbol{\\zeta}_{n,j}^{(t)})\\right\\},"
+" \\\\\n"
+"&= q^{(t)}(\\boldsymbol{z}^n) \\Biggl[ \\prod_{k=1}^K \\left( "
+"\\frac{\\kappa_{n,k}^{(t)}}{2\\pi} \\right)^{D/2} "
+"|\\boldsymbol{\\Lambda}_k|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_{n,k}^{(t)}}{2}(\\boldsymbol{\\mu}_k "
+"-\\boldsymbol{m}_{n,k}^{(t)})^\\top \\boldsymbol{\\Lambda}_k "
+"(\\boldsymbol{\\mu}_k - \\boldsymbol{m}_{n,k}^{(t)}) \\right\\} \\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_{n,k}^{(t)}, \\nu_{n,k}^{(t)}) | "
+"\\boldsymbol{\\Lambda}_k |^{(\\nu_{n,k}^{(t)} - D - 1) / 2} \\exp "
+"\\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ ( \\boldsymbol{W}_{n,k}^{(t)} "
+")^{-1} \\boldsymbol{\\Lambda}_k \\} \\right\\} \\Biggr] \\\\\n"
+"&\\qquad \\times C(\\boldsymbol{\\eta}_n^{(t)})\\prod_{k=1}^K "
+"\\pi_k^{\\eta_{n,k}^{(t)}-1}\\left[\\prod_{j=1}^K "
+"C(\\boldsymbol{\\zeta}_{n,j}^{(t)})\\prod_{k=1}^K "
+"a_{j,k}^{\\zeta_{n,j,k}^{(t)}-1}\\right],\\\\\n"
 "\n"
 
 #: bayesml.hiddenmarkovnormal:68 of
@@ -247,24 +417,40 @@ msgid "where the updating rule of the hyperparameters is as follows."
 msgstr "ハイパーパラメータの更新ルールは以下の通りです。"
 
 #: bayesml.hiddenmarkovnormal:70 of
-msgid "N_k^{(t)} &= \\sum_{i=1}^n \\gamma^{(t)}_{i,k}, \\\\\n"
+msgid ""
+"N_k^{(t)} &= \\sum_{i=1}^n \\gamma^{(t)}_{i,k}, \\\\\n"
 "M_{j,k}^{(t)} &= \\sum_{i=2}^n \\xi^{(t)}_{i,j,k},\\\\\n"
-"\\bar{\\boldsymbol{x}}_k^{(t)} &= \\frac{1}{N_k^{(t)}} \\sum_{i=1}^n \\gamma^{(t)}_{i,k} \\boldsymbol{x}_i, \\\\\n"
-"S_k^{(t)} &= \\frac{1}{N_k^{(t)}}\\sum_{i=1}^n \\gamma^{(t)}_{i,k} (x_i-\\bar{\\boldsymbol{x}}_k^{(t)})(x_i-\\bar{\\boldsymbol{x}}_k^{(t)})^{\\top},\\\\\n"
-"\\boldsymbol{m}_{n,k}^{(t+1)} &= \\frac{\\kappa_0\\boldsymbol{\\mu}_0 + N_k^{(t)} \\bar{\\boldsymbol{x}}_k^{(t)}}{\\kappa_0 + N_k^{(t)}}, \\\\\n"
+"\\bar{\\boldsymbol{x}}_k^{(t)} &= \\frac{1}{N_k^{(t)}} \\sum_{i=1}^n "
+"\\gamma^{(t)}_{i,k} \\boldsymbol{x}_i, \\\\\n"
+"S_k^{(t)} &= \\frac{1}{N_k^{(t)}}\\sum_{i=1}^n \\gamma^{(t)}_{i,k} "
+"(x_i-\\bar{\\boldsymbol{x}}_k^{(t)})(x_i-\\bar{\\boldsymbol{x}}_k^{(t)})^{\\top},\\\\"
+"\n"
+"\\boldsymbol{m}_{n,k}^{(t+1)} &= \\frac{\\kappa_0\\boldsymbol{\\mu}_0 + "
+"N_k^{(t)} \\bar{\\boldsymbol{x}}_k^{(t)}}{\\kappa_0 + N_k^{(t)}}, \\\\\n"
 "\\kappa_{n,k}^{(t+1)} &= \\kappa_0 + N_k^{(t)}, \\\\\n"
-"(\\boldsymbol{W}_{n,k}^{(t+1)})^{-1} &= \\boldsymbol{W}_0^{-1} + N_k^{(t)}S_k^{(t)} + \\frac{\\kappa_0 N_k^{(t)}}{\\kappa_0 + N_k^{(t)}}(\\bar{\\boldsymbol{x}}_k^{(t)}-\\boldsymbol{\\mu}_0)(\\bar{\\boldsymbol{x}}_k^{(t)}-\\boldsymbol{\\mu}_0)^\\top, \\\\\n"
+"(\\boldsymbol{W}_{n,k}^{(t+1)})^{-1} &= \\boldsymbol{W}_0^{-1} + "
+"N_k^{(t)}S_k^{(t)} + \\frac{\\kappa_0 N_k^{(t)}}{\\kappa_0 + "
+"N_k^{(t)}}(\\bar{\\boldsymbol{x}}_k^{(t)}-\\boldsymbol{\\mu}_0)(\\bar{\\boldsymbol{x}}_k^{(t)}-\\boldsymbol{\\mu}_0)^\\top,"
+" \\\\\n"
 "\\nu_{n,k}^{(t+1)} &= \\nu_0 + N_k^{(t)},\\\\\n"
 "\\eta_{n,k}^{(t+1)} &= \\eta_{0,k} + \\gamma^{(t)}_{1,k}, \\\\\n"
 "\\zeta_{n,j,k}^{(t+1)} &= \\zeta_{0,j,k}+M_{j,k}^{(t)}.\n"
 "\n"
-msgstr "N_k^{(t)} &= \\sum_{i=1}^n \\gamma^{(t)}_{i,k}, \\\\\n"
+msgstr ""
+"N_k^{(t)} &= \\sum_{i=1}^n \\gamma^{(t)}_{i,k}, \\\\\n"
 "M_{j,k}^{(t)} &= \\sum_{i=2}^n \\xi^{(t)}_{i,j,k},\\\\\n"
-"\\bar{\\boldsymbol{x}}_k^{(t)} &= \\frac{1}{N_k^{(t)}} \\sum_{i=1}^n \\gamma^{(t)}_{i,k} \\boldsymbol{x}_i, \\\\\n"
-"S_k^{(t)} &= \\frac{1}{N_k^{(t)}}\\sum_{i=1}^n \\gamma^{(t)}_{i,k} (x_i-\\bar{\\boldsymbol{x}}_k^{(t)})(x_i-\\bar{\\boldsymbol{x}}_k^{(t)})^{\\top},\\\\\n"
-"\\boldsymbol{m}_{n,k}^{(t+1)} &= \\frac{\\kappa_0\\boldsymbol{\\mu}_0 + N_k^{(t)} \\bar{\\boldsymbol{x}}_k^{(t)}}{\\kappa_0 + N_k^{(t)}}, \\\\\n"
+"\\bar{\\boldsymbol{x}}_k^{(t)} &= \\frac{1}{N_k^{(t)}} \\sum_{i=1}^n "
+"\\gamma^{(t)}_{i,k} \\boldsymbol{x}_i, \\\\\n"
+"S_k^{(t)} &= \\frac{1}{N_k^{(t)}}\\sum_{i=1}^n \\gamma^{(t)}_{i,k} "
+"(x_i-\\bar{\\boldsymbol{x}}_k^{(t)})(x_i-\\bar{\\boldsymbol{x}}_k^{(t)})^{\\top},\\\\"
+"\n"
+"\\boldsymbol{m}_{n,k}^{(t+1)} &= \\frac{\\kappa_0\\boldsymbol{\\mu}_0 + "
+"N_k^{(t)} \\bar{\\boldsymbol{x}}_k^{(t)}}{\\kappa_0 + N_k^{(t)}}, \\\\\n"
 "\\kappa_{n,k}^{(t+1)} &= \\kappa_0 + N_k^{(t)}, \\\\\n"
-"(\\boldsymbol{W}_{n,k}^{(t+1)})^{-1} &= \\boldsymbol{W}_0^{-1} + N_k^{(t)}S_k^{(t)} + \\frac{\\kappa_0 N_k^{(t)}}{\\kappa_0 + N_k^{(t)}}(\\bar{\\boldsymbol{x}}_k^{(t)}-\\boldsymbol{\\mu}_0)(\\bar{\\boldsymbol{x}}_k^{(t)}-\\boldsymbol{\\mu}_0)^\\top, \\\\\n"
+"(\\boldsymbol{W}_{n,k}^{(t+1)})^{-1} &= \\boldsymbol{W}_0^{-1} + "
+"N_k^{(t)}S_k^{(t)} + \\frac{\\kappa_0 N_k^{(t)}}{\\kappa_0 + "
+"N_k^{(t)}}(\\bar{\\boldsymbol{x}}_k^{(t)}-\\boldsymbol{\\mu}_0)(\\bar{\\boldsymbol{x}}_k^{(t)}-\\boldsymbol{\\mu}_0)^\\top,"
+" \\\\\n"
 "\\nu_{n,k}^{(t+1)} &= \\nu_0 + N_k^{(t)},\\\\\n"
 "\\eta_{n,k}^{(t+1)} &= \\eta_{0,k} + \\gamma^{(t)}_{1,k}, \\\\\n"
 "\\zeta_{n,j,k}^{(t+1)} &= \\zeta_{0,j,k}+M_{j,k}^{(t)}.\n"
@@ -272,47 +458,98 @@ msgstr "N_k^{(t)} &= \\sum_{i=1}^n \\gamma^{(t)}_{i,k}, \\\\\n"
 
 #: bayesml.hiddenmarkovnormal:82 of
 #, python-brace-format
-msgid "The approximate posterior distribution of the latent variable :math:`q^{(t+1)}(z^n)` is calculated by the forward-backward algorithm as follows."
+msgid ""
+"The approximate posterior distribution of the latent variable "
+":math:`q^{(t+1)}(z^n)` is calculated by the forward-backward algorithm as"
+" follows."
 msgstr "潜在変数 :math:`q^{(t+1)}(z^n)` の近似事後分布は、フォワード・バックワードアルゴリズムによって次のように計算されます。"
 
 #: bayesml.hiddenmarkovnormal:84 of
-msgid "\\ln \\rho_{i,k}^{(t+1)} &= \\frac{1}{2} \\Biggl[\\, \\sum_{d=1}^D \\psi \\left( \\frac{\\nu_{n,k}^{(t+1)} + 1 - d}{2} \\right) + D \\ln 2 + \\ln | \\boldsymbol{W}_{n,k}^{(t+1)} | \\notag \\\\\n"
-"&\\qquad - D \\ln (2 \\pi ) - \\frac{D}{\\kappa_{n,k}^{(t+1)}} - \\nu_{n,k}^{(t+1)} (\\boldsymbol{x}_i - \\boldsymbol{m}_{n,k}^{(t+1)})^\\top \\boldsymbol{W}_{n,k}^{(t+1)} (\\boldsymbol{x}_i - \\boldsymbol{m}_{n,k}^{(t+1)}) \\Biggr], \\\\\n"
-"\\ln \\tilde{\\pi}_k^{(t+1)} &= \\psi (\\eta_{n,k}^{(t+1)}) - \\psi \\left( \\textstyle \\sum_{k=1}^K \\eta_{n,k}^{(t+1)} \\right) \\\\\n"
-"\\ln \\tilde{a}_{j,k}^{(t+1)} &= \\psi (\\zeta_{n,j,k}^{(t+1)}) - \\psi \\left( \\textstyle \\sum_{k=1}^K \\zeta_{n,j,k}^{(t+1)} \\right) \\\\\n"
+msgid ""
+"\\ln \\rho_{i,k}^{(t+1)} &= \\frac{1}{2} \\Biggl[\\, \\sum_{d=1}^D \\psi "
+"\\left( \\frac{\\nu_{n,k}^{(t+1)} + 1 - d}{2} \\right) + D \\ln 2 + \\ln "
+"| \\boldsymbol{W}_{n,k}^{(t+1)} | \\notag \\\\\n"
+"&\\qquad - D \\ln (2 \\pi ) - \\frac{D}{\\kappa_{n,k}^{(t+1)}} - "
+"\\nu_{n,k}^{(t+1)} (\\boldsymbol{x}_i - "
+"\\boldsymbol{m}_{n,k}^{(t+1)})^\\top \\boldsymbol{W}_{n,k}^{(t+1)} "
+"(\\boldsymbol{x}_i - \\boldsymbol{m}_{n,k}^{(t+1)}) \\Biggr], \\\\\n"
+"\\ln \\tilde{\\pi}_k^{(t+1)} &= \\psi (\\eta_{n,k}^{(t+1)}) - \\psi "
+"\\left( \\textstyle \\sum_{k=1}^K \\eta_{n,k}^{(t+1)} \\right) \\\\\n"
+"\\ln \\tilde{a}_{j,k}^{(t+1)} &= \\psi (\\zeta_{n,j,k}^{(t+1)}) - \\psi "
+"\\left( \\textstyle \\sum_{k=1}^K \\zeta_{n,j,k}^{(t+1)} \\right) \\\\\n"
 "\\alpha^{(t+1)} (\\boldsymbol{z}_i) &\\propto\n"
 "\\begin{cases}\n"
-"\\prod_{k=1}^{K} \\left( \\rho_{i,k}^{(t+1)}\\right)^{z_{i,k}} \\sum_{\\boldsymbol{z}_{i-1}} \\left[\\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i-1,j}z_{i,k}}\\alpha^{(t+1)}(\\boldsymbol{z}_{i-1})\\right] & (i>1)\\\\\n"
-"\\prod_{k=1}^{K}\\left( \\rho_{1,k}^{(t+1)} \\tilde{\\pi}_k^{(t+1)} \\right)^{z_{1,k}} & (i=1)\n"
+"\\prod_{k=1}^{K} \\left( \\rho_{i,k}^{(t+1)}\\right)^{z_{i,k}} "
+"\\sum_{\\boldsymbol{z}_{i-1}} "
+"\\left[\\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i-1,j}z_{i,k}}\\alpha^{(t+1)}(\\boldsymbol{z}_{i-1})\\right]"
+" & (i>1)\\\\\n"
+"\\prod_{k=1}^{K}\\left( \\rho_{1,k}^{(t+1)} \\tilde{\\pi}_k^{(t+1)} "
+"\\right)^{z_{1,k}} & (i=1)\n"
 "\\end{cases} \\\\\n"
 "\\beta^{(t+1)} (\\boldsymbol{z}_i) &\\propto\n"
 "\\begin{cases}\n"
-"\\sum_{\\boldsymbol{z}_{i+1}} \\left[ \\prod_{k=1}^{K} \\left( \\rho_{i+1,k}^{(t+1)}\\right)^{z_{i+1,k}} \\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i,j}z_{i+1,k}}\\beta^{(t+1)}(\\boldsymbol{z}_{i+1})\\right] & (i<n)\\\\\n"
+"\\sum_{\\boldsymbol{z}_{i+1}} \\left[ \\prod_{k=1}^{K} \\left( "
+"\\rho_{i+1,k}^{(t+1)}\\right)^{z_{i+1,k}} "
+"\\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i,j}z_{i+1,k}}\\beta^{(t+1)}(\\boldsymbol{z}_{i+1})\\right]"
+" & (i<n)\\\\\n"
 "1 & (i=n)\n"
 "\\end{cases} \\\\\n"
-"q^{(t+1)}(\\boldsymbol{z}_i) &\\propto \\alpha^{(t+1)}(\\boldsymbol{z}_i)\\beta^{(t+1)}(\\boldsymbol{z}_i) \\\\\n"
-"\\gamma^{(t+1)}_{i,k} &= \\sum_{\\boldsymbol{z}_i} q^{(t+1)}(\\boldsymbol{z}_i) z_{i,k}\\\\\n"
-"q^{(t+1)}(\\boldsymbol{z}_{i-1}, \\boldsymbol{z}_{i}) &\\propto \\alpha^{(t+1)}(\\boldsymbol{z}_{i-1}) \\prod_{k=1}^{K} \\left( \\rho_{i,k}^{(t+1)}\\right)^{z_{i,k}} \\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i-1,j}z_{i,k}} \\beta^{(t+1)}(\\boldsymbol{z}_i) \\\\\n"
-"\\xi^{(t+1)}_{i,j,k} &= \\sum_{\\boldsymbol{z}_{i-1}} \\sum_{\\boldsymbol{z}_i} q^{(t+1)}(\\boldsymbol{z}_{i-1}, \\boldsymbol{z}_{i}) z_{i-1,j} z_{i,k}\n"
+"q^{(t+1)}(\\boldsymbol{z}_i) &\\propto "
+"\\alpha^{(t+1)}(\\boldsymbol{z}_i)\\beta^{(t+1)}(\\boldsymbol{z}_i) \\\\"
 "\n"
-msgstr "\\ln \\rho_{i,k}^{(t+1)} &= \\frac{1}{2} \\Biggl[\\, \\sum_{d=1}^D \\psi \\left( \\frac{\\nu_{n,k}^{(t+1)} + 1 - d}{2} \\right) + D \\ln 2 + \\ln | \\boldsymbol{W}_{n,k}^{(t+1)} | \\notag \\\\\n"
-"&\\qquad - D \\ln (2 \\pi ) - \\frac{D}{\\kappa_{n,k}^{(t+1)}} - \\nu_{n,k}^{(t+1)} (\\boldsymbol{x}_i - \\boldsymbol{m}_{n,k}^{(t+1)})^\\top \\boldsymbol{W}_{n,k}^{(t+1)} (\\boldsymbol{x}_i - \\boldsymbol{m}_{n,k}^{(t+1)}) \\Biggr], \\\\\n"
-"\\ln \\tilde{\\pi}_k^{(t+1)} &= \\psi (\\eta_{n,k}^{(t+1)}) - \\psi \\left( \\textstyle \\sum_{k=1}^K \\eta_{n,k}^{(t+1)} \\right) \\\\\n"
-"\\ln \\tilde{a}_{j,k}^{(t+1)} &= \\psi (\\zeta_{n,j,k}^{(t+1)}) - \\psi \\left( \\textstyle \\sum_{k=1}^K \\zeta_{n,j,k}^{(t+1)} \\right) \\\\\n"
+"\\gamma^{(t+1)}_{i,k} &= \\sum_{\\boldsymbol{z}_i} "
+"q^{(t+1)}(\\boldsymbol{z}_i) z_{i,k}\\\\\n"
+"q^{(t+1)}(\\boldsymbol{z}_{i-1}, \\boldsymbol{z}_{i}) &\\propto "
+"\\alpha^{(t+1)}(\\boldsymbol{z}_{i-1}) \\prod_{k=1}^{K} \\left( "
+"\\rho_{i,k}^{(t+1)}\\right)^{z_{i,k}} "
+"\\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i-1,j}z_{i,k}}"
+" \\beta^{(t+1)}(\\boldsymbol{z}_i) \\\\\n"
+"\\xi^{(t+1)}_{i,j,k} &= \\sum_{\\boldsymbol{z}_{i-1}} "
+"\\sum_{\\boldsymbol{z}_i} q^{(t+1)}(\\boldsymbol{z}_{i-1}, "
+"\\boldsymbol{z}_{i}) z_{i-1,j} z_{i,k}\n"
+"\n"
+msgstr ""
+"\\ln \\rho_{i,k}^{(t+1)} &= \\frac{1}{2} \\Biggl[\\, \\sum_{d=1}^D \\psi "
+"\\left( \\frac{\\nu_{n,k}^{(t+1)} + 1 - d}{2} \\right) + D \\ln 2 + \\ln "
+"| \\boldsymbol{W}_{n,k}^{(t+1)} | \\notag \\\\\n"
+"&\\qquad - D \\ln (2 \\pi ) - \\frac{D}{\\kappa_{n,k}^{(t+1)}} - "
+"\\nu_{n,k}^{(t+1)} (\\boldsymbol{x}_i - "
+"\\boldsymbol{m}_{n,k}^{(t+1)})^\\top \\boldsymbol{W}_{n,k}^{(t+1)} "
+"(\\boldsymbol{x}_i - \\boldsymbol{m}_{n,k}^{(t+1)}) \\Biggr], \\\\\n"
+"\\ln \\tilde{\\pi}_k^{(t+1)} &= \\psi (\\eta_{n,k}^{(t+1)}) - \\psi "
+"\\left( \\textstyle \\sum_{k=1}^K \\eta_{n,k}^{(t+1)} \\right) \\\\\n"
+"\\ln \\tilde{a}_{j,k}^{(t+1)} &= \\psi (\\zeta_{n,j,k}^{(t+1)}) - \\psi "
+"\\left( \\textstyle \\sum_{k=1}^K \\zeta_{n,j,k}^{(t+1)} \\right) \\\\\n"
 "\\alpha^{(t+1)} (\\boldsymbol{z}_i) &\\propto\n"
 "\\begin{cases}\n"
-"\\prod_{k=1}^{K} \\left( \\rho_{i,k}^{(t+1)}\\right)^{z_{i,k}} \\sum_{\\boldsymbol{z}_{i-1}} \\left[\\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i-1,j}z_{i,k}}\\alpha^{(t+1)}(\\boldsymbol{z}_{i-1})\\right] & (i>1)\\\\\n"
-"\\prod_{k=1}^{K}\\left( \\rho_{1,k}^{(t+1)} \\tilde{\\pi}_k^{(t+1)} \\right)^{z_{1,k}} & (i=1)\n"
+"\\prod_{k=1}^{K} \\left( \\rho_{i,k}^{(t+1)}\\right)^{z_{i,k}} "
+"\\sum_{\\boldsymbol{z}_{i-1}} "
+"\\left[\\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i-1,j}z_{i,k}}\\alpha^{(t+1)}(\\boldsymbol{z}_{i-1})\\right]"
+" & (i>1)\\\\\n"
+"\\prod_{k=1}^{K}\\left( \\rho_{1,k}^{(t+1)} \\tilde{\\pi}_k^{(t+1)} "
+"\\right)^{z_{1,k}} & (i=1)\n"
 "\\end{cases} \\\\\n"
 "\\beta^{(t+1)} (\\boldsymbol{z}_i) &\\propto\n"
 "\\begin{cases}\n"
-"\\sum_{\\boldsymbol{z}_{i+1}} \\left[ \\prod_{k=1}^{K} \\left( \\rho_{i+1,k}^{(t+1)}\\right)^{z_{i+1,k}} \\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i,j}z_{i+1,k}}\\beta^{(t+1)}(\\boldsymbol{z}_{i+1})\\right] & (i<n)\\\\\n"
+"\\sum_{\\boldsymbol{z}_{i+1}} \\left[ \\prod_{k=1}^{K} \\left( "
+"\\rho_{i+1,k}^{(t+1)}\\right)^{z_{i+1,k}} "
+"\\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i,j}z_{i+1,k}}\\beta^{(t+1)}(\\boldsymbol{z}_{i+1})\\right]"
+" & (i<n)\\\\\n"
 "1 & (i=n)\n"
 "\\end{cases} \\\\\n"
-"q^{(t+1)}(\\boldsymbol{z}_i) &\\propto \\alpha^{(t+1)}(\\boldsymbol{z}_i)\\beta^{(t+1)}(\\boldsymbol{z}_i) \\\\\n"
-"\\gamma^{(t+1)}_{i,k} &= \\sum_{\\boldsymbol{z}_i} q^{(t+1)}(\\boldsymbol{z}_i) z_{i,k}\\\\\n"
-"q^{(t+1)}(\\boldsymbol{z}_{i-1}, \\boldsymbol{z}_{i}) &\\propto \\alpha^{(t+1)}(\\boldsymbol{z}_{i-1}) \\prod_{k=1}^{K} \\left( \\rho_{i,k}^{(t+1)}\\right)^{z_{i,k}} \\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i-1,j}z_{i,k}} \\beta^{(t+1)}(\\boldsymbol{z}_i) \\\\\n"
-"\\xi^{(t+1)}_{i,j,k} &= \\sum_{\\boldsymbol{z}_{i-1}} \\sum_{\\boldsymbol{z}_i} q^{(t+1)}(\\boldsymbol{z}_{i-1}, \\boldsymbol{z}_{i}) z_{i-1,j} z_{i,k}\n"
+"q^{(t+1)}(\\boldsymbol{z}_i) &\\propto "
+"\\alpha^{(t+1)}(\\boldsymbol{z}_i)\\beta^{(t+1)}(\\boldsymbol{z}_i) \\\\"
+"\n"
+"\\gamma^{(t+1)}_{i,k} &= \\sum_{\\boldsymbol{z}_i} "
+"q^{(t+1)}(\\boldsymbol{z}_i) z_{i,k}\\\\\n"
+"q^{(t+1)}(\\boldsymbol{z}_{i-1}, \\boldsymbol{z}_{i}) &\\propto "
+"\\alpha^{(t+1)}(\\boldsymbol{z}_{i-1}) \\prod_{k=1}^{K} \\left( "
+"\\rho_{i,k}^{(t+1)}\\right)^{z_{i,k}} "
+"\\prod_{k=1}^{K}\\prod_{j=1}^{K}\\left(\\tilde{a}^{(t+1)}_{j,k}\\right)^{z_{i-1,j}z_{i,k}}"
+" \\beta^{(t+1)}(\\boldsymbol{z}_i) \\\\\n"
+"\\xi^{(t+1)}_{i,j,k} &= \\sum_{\\boldsymbol{z}_{i-1}} "
+"\\sum_{\\boldsymbol{z}_i} q^{(t+1)}(\\boldsymbol{z}_{i-1}, "
+"\\boldsymbol{z}_{i}) z_{i-1,j} z_{i,k}\n"
 "\n"
 
 #: bayesml.hiddenmarkovnormal:104 of
@@ -325,48 +562,102 @@ msgid ":math:`\\boldsymbol{x}_{n+1} \\in \\mathbb{R}^D`: a new data point"
 msgstr ":math:`\\boldsymbol{x}_{n+1}\\in \\mathbb{R}^d`: 新たなデータ点"
 
 #: bayesml.hiddenmarkovnormal:107 of
-msgid ":math:`(a_{\\mathrm{p},j,k})_{1\\leq j,k\\leq K} \\in [0, 1]^{K\\times K}`: the parameters of the predictive transition probability of latent classes, (:math:`\\sum_{k=1}^K a_{\\mathrm{p},j,k}=1`)"
-msgstr ":math:`(a_{\\mathrm{p},j,k})_{1\\leq j,k\\leq K} \\in [0, 1]^{K\\times K}`: 潜在クラスの予測遷移確率のパラメータです（:math:`\\sum_{k=1}^K a_{\\mathrm{p},j,k}=1`）。"
+msgid ""
+":math:`(a_{\\mathrm{p},j,k})_{1\\leq j,k\\leq K} \\in [0, 1]^{K\\times "
+"K}`: the parameters of the predictive transition probability of latent "
+"classes, (:math:`\\sum_{k=1}^K a_{\\mathrm{p},j,k}=1`)"
+msgstr ""
+":math:`(a_{\\mathrm{p},j,k})_{1\\leq j,k\\leq K} \\in [0, 1]^{K\\times "
+"K}`: 潜在クラスの予測遷移確率のパラメータです（:math:`\\sum_{k=1}^K a_{\\mathrm{p},j,k}=1`）。"
 
 #: bayesml.hiddenmarkovnormal:108 of
-msgid ":math:`\\boldsymbol{\\mu}_{\\mathrm{p},k} \\in \\mathbb{R}^D`: the parameter of the predictive distribution"
+msgid ""
+":math:`\\boldsymbol{\\mu}_{\\mathrm{p},k} \\in \\mathbb{R}^D`: the "
+"parameter of the predictive distribution"
 msgstr ":math:`\\boldsymbol{\\mu}_{\\mathrm{p},k} \\in \\mathbb{R}^D`: 予測分布のパラメータ"
 
 #: bayesml.hiddenmarkovnormal:109 of
-msgid ":math:`\\boldsymbol{\\Lambda}_{\\mathrm{p},k} \\in \\mathbb{R}^{D \\times D}`: the parameter of the predictive distribution (a positive definite matrix)"
-msgstr ":math:`\\boldsymbol{\\Lambda}_{\\mathrm{p},k} \\in \\mathbb{R}^{D \\times D}`: 予測分布のパラメータ（正定値行列）"
+msgid ""
+":math:`\\boldsymbol{\\Lambda}_{\\mathrm{p},k} \\in \\mathbb{R}^{D \\times"
+" D}`: the parameter of the predictive distribution (a positive definite "
+"matrix)"
+msgstr ""
+":math:`\\boldsymbol{\\Lambda}_{\\mathrm{p},k} \\in \\mathbb{R}^{D \\times"
+" D}`: 予測分布のパラメータ（正定値行列）"
 
 #: bayesml.hiddenmarkovnormal:110 of
-msgid ":math:`\\nu_{\\mathrm{p},k} \\in \\mathbb{R}_{>0}`: the parameter of the predictive distribution"
+msgid ""
+":math:`\\nu_{\\mathrm{p},k} \\in \\mathbb{R}_{>0}`: the parameter of the "
+"predictive distribution"
 msgstr ":math:`\\nu_{\\mathrm{p},k} \\in \\mathbb{R}_{>0}`: 予測分布のパラメータ"
 
 #: bayesml.hiddenmarkovnormal:112 of
-msgid "&p(x_{n+1}|x^n) \\\\\n"
-"&\\approx \\sum_{k=1}^K \\left( \\sum_{j=1}^K \\gamma_{n,j}^{(t)} a_{\\mathrm{p},j,k} \\right) \\mathrm{St}(x_{n+1}|\\boldsymbol{\\mu}_{\\mathrm{p},k},\\boldsymbol{\\Lambda}_{\\mathrm{p},k}, \\nu_{\\mathrm{p},k}) \\\\\n"
-"&= \\sum_{k=1}^K \\left( \\sum_{j=1}^K \\gamma_{n,j}^{(t)} a_{\\mathrm{p},j,k} \\right)\\Biggl[ \\frac{\\Gamma (\\nu_{\\mathrm{p},k} / 2 + D / 2)}{\\Gamma (\\nu_{\\mathrm{p},k} / 2)} \\frac{|\\boldsymbol{\\Lambda}_{\\mathrm{p},k}|^{1/2}}{(\\nu_{\\mathrm{p},k} \\pi)^{D/2}} \\nonumber \\\\\n"
-"&\\qquad \\qquad \\qquad \\qquad \\qquad \\times \\left( 1 + \\frac{1}{\\nu_{\\mathrm{p},k}} (\\boldsymbol{x}_{n+1} - \\boldsymbol{\\mu}_{\\mathrm{p},k})^\\top \\boldsymbol{\\Lambda}_{\\mathrm{p},k} (\\boldsymbol{x}_{n+1} - \\boldsymbol{\\mu}_{\\mathrm{p},k}) \\right)^{-\\nu_{\\mathrm{p},k}/2 - D/2} \\Biggr],\n"
+msgid ""
+"&p(x_{n+1}|x^n) \\\\\n"
+"&\\approx \\sum_{k=1}^K \\left( \\sum_{j=1}^K \\gamma_{n,j}^{(t)} "
+"a_{\\mathrm{p},j,k} \\right) "
+"\\mathrm{St}(x_{n+1}|\\boldsymbol{\\mu}_{\\mathrm{p},k},\\boldsymbol{\\Lambda}_{\\mathrm{p},k},"
+" \\nu_{\\mathrm{p},k}) \\\\\n"
+"&= \\sum_{k=1}^K \\left( \\sum_{j=1}^K \\gamma_{n,j}^{(t)} "
+"a_{\\mathrm{p},j,k} \\right)\\Biggl[ \\frac{\\Gamma (\\nu_{\\mathrm{p},k}"
+" / 2 + D / 2)}{\\Gamma (\\nu_{\\mathrm{p},k} / 2)} "
+"\\frac{|\\boldsymbol{\\Lambda}_{\\mathrm{p},k}|^{1/2}}{(\\nu_{\\mathrm{p},k}"
+" \\pi)^{D/2}} \\nonumber \\\\\n"
+"&\\qquad \\qquad \\qquad \\qquad \\qquad \\times \\left( 1 + "
+"\\frac{1}{\\nu_{\\mathrm{p},k}} (\\boldsymbol{x}_{n+1} - "
+"\\boldsymbol{\\mu}_{\\mathrm{p},k})^\\top "
+"\\boldsymbol{\\Lambda}_{\\mathrm{p},k} (\\boldsymbol{x}_{n+1} - "
+"\\boldsymbol{\\mu}_{\\mathrm{p},k}) \\right)^{-\\nu_{\\mathrm{p},k}/2 - "
+"D/2} \\Biggr],\n"
 "\n"
-msgstr "&p(x_{n+1}|x^n) \\\\\n"
-"&\\approx \\sum_{k=1}^K \\left( \\sum_{j=1}^K \\gamma_{n,j}^{(t)} a_{\\mathrm{p},j,k} \\right) \\mathrm{St}(x_{n+1}|\\boldsymbol{\\mu}_{\\mathrm{p},k},\\boldsymbol{\\Lambda}_{\\mathrm{p},k}, \\nu_{\\mathrm{p},k}) \\\\\n"
-"&= \\sum_{k=1}^K \\left( \\sum_{j=1}^K \\gamma_{n,j}^{(t)} a_{\\mathrm{p},j,k} \\right)\\Biggl[ \\frac{\\Gamma (\\nu_{\\mathrm{p},k} / 2 + D / 2)}{\\Gamma (\\nu_{\\mathrm{p},k} / 2)} \\frac{|\\boldsymbol{\\Lambda}_{\\mathrm{p},k}|^{1/2}}{(\\nu_{\\mathrm{p},k} \\pi)^{D/2}} \\nonumber \\\\\n"
-"&\\qquad \\qquad \\qquad \\qquad \\qquad \\times \\left( 1 + \\frac{1}{\\nu_{\\mathrm{p},k}} (\\boldsymbol{x}_{n+1} - \\boldsymbol{\\mu}_{\\mathrm{p},k})^\\top \\boldsymbol{\\Lambda}_{\\mathrm{p},k} (\\boldsymbol{x}_{n+1} - \\boldsymbol{\\mu}_{\\mathrm{p},k}) \\right)^{-\\nu_{\\mathrm{p},k}/2 - D/2} \\Biggr],\n"
+msgstr ""
+"&p(x_{n+1}|x^n) \\\\\n"
+"&\\approx \\sum_{k=1}^K \\left( \\sum_{j=1}^K \\gamma_{n,j}^{(t)} "
+"a_{\\mathrm{p},j,k} \\right) "
+"\\mathrm{St}(x_{n+1}|\\boldsymbol{\\mu}_{\\mathrm{p},k},\\boldsymbol{\\Lambda}_{\\mathrm{p},k},"
+" \\nu_{\\mathrm{p},k}) \\\\\n"
+"&= \\sum_{k=1}^K \\left( \\sum_{j=1}^K \\gamma_{n,j}^{(t)} "
+"a_{\\mathrm{p},j,k} \\right)\\Biggl[ \\frac{\\Gamma (\\nu_{\\mathrm{p},k}"
+" / 2 + D / 2)}{\\Gamma (\\nu_{\\mathrm{p},k} / 2)} "
+"\\frac{|\\boldsymbol{\\Lambda}_{\\mathrm{p},k}|^{1/2}}{(\\nu_{\\mathrm{p},k}"
+" \\pi)^{D/2}} \\nonumber \\\\\n"
+"&\\qquad \\qquad \\qquad \\qquad \\qquad \\times \\left( 1 + "
+"\\frac{1}{\\nu_{\\mathrm{p},k}} (\\boldsymbol{x}_{n+1} - "
+"\\boldsymbol{\\mu}_{\\mathrm{p},k})^\\top "
+"\\boldsymbol{\\Lambda}_{\\mathrm{p},k} (\\boldsymbol{x}_{n+1} - "
+"\\boldsymbol{\\mu}_{\\mathrm{p},k}) \\right)^{-\\nu_{\\mathrm{p},k}/2 - "
+"D/2} \\Biggr],\n"
 "\n"
 
 #: bayesml.hiddenmarkovnormal:118 of
-msgid "where the parameters are obtained from the hyperparameters of the predictive distribution as follows:"
+msgid ""
+"where the parameters are obtained from the hyperparameters of the "
+"predictive distribution as follows:"
 msgstr "ここで、パラメータは予測分布のハイパーパラメータから次のように求められます："
 
 #: bayesml.hiddenmarkovnormal:120 of
-msgid "a_{\\mathrm{p},j,k} &= \\frac{\\zeta_{n,j,k}^{(t)}}{\\sum_{k=1}^K \\zeta_{n,j,k}^{(t)}}, \\\\\n"
+msgid ""
+"a_{\\mathrm{p},j,k} &= \\frac{\\zeta_{n,j,k}^{(t)}}{\\sum_{k=1}^K "
+"\\zeta_{n,j,k}^{(t)}}, \\\\\n"
 "\\boldsymbol{\\mu}_{\\mathrm{p},k} &= \\boldsymbol{m}_{n,k}^{(t)}, \\\\\n"
-"\\boldsymbol{\\Lambda}_{\\mathrm{p},k} &= \\frac{\\kappa_{n,k}^{(t)} (\\nu_{n,k}^{(t)} - D + 1)}{\\kappa_{n,k}^{(t)} + 1} \\boldsymbol{W}_{n,k}^{(t)}, \\\\\n"
+"\\boldsymbol{\\Lambda}_{\\mathrm{p},k} &= \\frac{\\kappa_{n,k}^{(t)} "
+"(\\nu_{n,k}^{(t)} - D + 1)}{\\kappa_{n,k}^{(t)} + 1} "
+"\\boldsymbol{W}_{n,k}^{(t)}, \\\\\n"
 "\\nu_{\\mathrm{p},k} &= \\nu_{n,k}^{(t)} - D + 1.\n"
 "\n"
-msgstr "a_{\\mathrm{p},j,k} &= \\frac{\\zeta_{n,j,k}^{(t)}}{\\sum_{k=1}^K \\zeta_{n,j,k}^{(t)}}, \\\\\n"
+msgstr ""
+"a_{\\mathrm{p},j,k} &= \\frac{\\zeta_{n,j,k}^{(t)}}{\\sum_{k=1}^K "
+"\\zeta_{n,j,k}^{(t)}}, \\\\\n"
 "\\boldsymbol{\\mu}_{\\mathrm{p},k} &= \\boldsymbol{m}_{n,k}^{(t)}, \\\\\n"
-"\\boldsymbol{\\Lambda}_{\\mathrm{p},k} &= \\frac{\\kappa_{n,k}^{(t)} (\\nu_{n,k}^{(t)} - D + 1)}{\\kappa_{n,k}^{(t)} + 1} \\boldsymbol{W}_{n,k}^{(t)}, \\\\\n"
+"\\boldsymbol{\\Lambda}_{\\mathrm{p},k} &= \\frac{\\kappa_{n,k}^{(t)} "
+"(\\nu_{n,k}^{(t)} - D + 1)}{\\kappa_{n,k}^{(t)} + 1} "
+"\\boldsymbol{W}_{n,k}^{(t)}, \\\\\n"
 "\\nu_{\\mathrm{p},k} &= \\nu_{n,k}^{(t)} - D + 1.\n"
 "\n"
+
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution."
@@ -430,8 +721,13 @@ msgstr "numpy.ndarray, optional"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:14
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_params:8 of
-msgid "A vector of real numbers in :math:`[0, 1]`,  by default [1/c_num_classes, 1/c_num_classes, ... , 1/c_num_classes]. Sum of its elements must be 1.0."
-msgstr ":math:`[0, 1]` の実数のベクトルで、デフォルトでは [1/c_num_classes, 1/c_num_classes, ..., 1/c_num_classes] となります。その要素の和は 1.0 でなければなりません。"
+msgid ""
+"A vector of real numbers in :math:`[0, 1]`,  by default [1/c_num_classes,"
+" 1/c_num_classes, ... , 1/c_num_classes]. Sum of its elements must be "
+"1.0."
+msgstr ""
+":math:`[0, 1]` の実数のベクトルで、デフォルトでは [1/c_num_classes, 1/c_num_classes, ..., "
+"1/c_num_classes] となります。その要素の和は 1.0 でなければなりません。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:18
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_params:12 of
@@ -440,8 +736,15 @@ msgstr "**a_mat**"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:19
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_params:13 of
-msgid "A matrix of real numbers in :math:`[0, 1]`,  by default a matrix obtained by stacking  [1/c_num_classes, 1/c_num_classes, ... , 1/c_num_classes]. Sum of the elements of each row vector must be 1.0. If a single vector is input, will be broadcasted."
-msgstr "実数の行列で、範囲は :math:`[0, 1]` です。デフォルトでは、[1/c_num_classes, 1/c_num_classes, ..., 1/c_num_classes] を積み重ねて得られる行列となります。各行ベクトルの要素の和は 1.0 でなければなりません。単一のベクトルが入力された場合、ブロードキャストされます。"
+msgid ""
+"A matrix of real numbers in :math:`[0, 1]`,  by default a matrix obtained"
+" by stacking  [1/c_num_classes, 1/c_num_classes, ... , 1/c_num_classes]. "
+"Sum of the elements of each row vector must be 1.0. If a single vector is"
+" input, will be broadcasted."
+msgstr ""
+"実数の行列で、範囲は :math:`[0, 1]` です。デフォルトでは、[1/c_num_classes, 1/c_num_classes, "
+"..., 1/c_num_classes] を積み重ねて得られる行列となります。各行ベクトルの要素の和は 1.0 "
+"でなければなりません。単一のベクトルが入力された場合、ブロードキャストされます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:25
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_params:19 of
@@ -450,7 +753,9 @@ msgstr "**mu_vecs**"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:26
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_params:20 of
-msgid "Vectors of real numbers,  by default zero vectors. If a single vector is input, will be broadcasted."
+msgid ""
+"Vectors of real numbers,  by default zero vectors. If a single vector is "
+"input, will be broadcasted."
 msgstr "実数のベクトルで、デフォルトではゼロベクトルです。単一のベクトルが入力された場合、ブロードキャストされます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:30
@@ -462,7 +767,9 @@ msgstr "**lambda_mats**"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:60
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_h_params:32
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_params:25 of
-msgid "Positive definite symetric matrices,  by default the identity matrices. If a single matrix is input, it will be broadcasted."
+msgid ""
+"Positive definite symetric matrices,  by default the identity matrices. "
+"If a single matrix is input, it will be broadcasted."
 msgstr "正定値対称行列。デフォルトでは単位行列です。単一の行列が入力された場合、ブロードキャスト処理が行われます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:35
@@ -482,7 +789,9 @@ msgstr "**h_zeta_vecs**"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:40
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_h_params:12 of
-msgid "Vectors of positive numbers,  by default vectors whose elements are all 1/2 If a single vector is input, will be broadcasted."
+msgid ""
+"Vectors of positive numbers,  by default vectors whose elements are all "
+"1/2 If a single vector is input, will be broadcasted."
 msgstr "正の数のベクトル。デフォルトでは、要素がすべて 1/2 であるベクトルです。単一のベクトルが入力された場合、ブロードキャストされます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:44
@@ -496,7 +805,9 @@ msgstr "**h_m_vecs**"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_h0_params:18
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_hn_params:18
 #: of
-msgid "Vectors of real numbers,  by default zero vectors If a single vector is input, will be broadcasted."
+msgid ""
+"Vectors of real numbers,  by default zero vectors If a single vector is "
+"input, will be broadcasted."
 msgstr "実数のベクトル。デフォルトではゼロベクトルです。単一のベクトルが入力された場合、ブロードキャストされます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:49
@@ -515,7 +826,9 @@ msgstr "float or numpy.ndarray, optional"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:50
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_h_params:22 of
-msgid "Positive real numbers,  by default [1.0, 1.0, ... , 1.0]. If a single real number is input, it will be broadcasted."
+msgid ""
+"Positive real numbers,  by default [1.0, 1.0, ... , 1.0]. If a single "
+"real number is input, it will be broadcasted."
 msgstr "正の実数。デフォルトでは [1.0, 1.0, ..., 1.0] です。単一の実数が入力された場合、それはブロードキャストされます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:54
@@ -525,8 +838,13 @@ msgstr "**h_nus**"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:55
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_h_params:27 of
-msgid "Real numbers greater than ``c_degree-1``,   by default [c_degree, c_degree, ... , c_degree] If a single real number is input, it will be broadcasted."
-msgstr "「c_degree-1」より大きい実数。デフォルトでは [c_degree, c_degree, ..., c_degree] です。単一の実数が入力された場合、ブロードキャストされます。"
+msgid ""
+"Real numbers greater than ``c_degree-1``,   by default [c_degree, "
+"c_degree, ... , c_degree] If a single real number is input, it will be "
+"broadcasted."
+msgstr ""
+"「c_degree-1」より大きい実数。デフォルトでは [c_degree, c_degree, ..., c_degree] "
+"です。単一の実数が入力された場合、ブロードキャストされます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:59
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_h_params:31 of
@@ -549,14 +867,18 @@ msgid "A seed to initialize numpy.random.default_rng(),  by default None"
 msgstr "numpy.random.default_rng() を初期化するシード値です。デフォルトでは None "
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:70
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:83 of
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:86 of
 msgid "Methods"
 msgstr "メソッド"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`gen_params <bayesml.hiddenmarkovnormal.GenModel.gen_params>`\\ \\(\\)"
-msgstr ":py:obj:`gen_params <bayesml.hiddenmarkovnormal.GenModel.gen_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`gen_params <bayesml.hiddenmarkovnormal.GenModel.gen_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`gen_params <bayesml.hiddenmarkovnormal.GenModel.gen_params>`\\ "
+"\\(\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.gen_params:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
@@ -566,8 +888,12 @@ msgstr "事前分布からパラメータを生成します。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`gen_sample <bayesml.hiddenmarkovnormal.GenModel.gen_sample>`\\ \\(sample\\_length\\)"
-msgstr ":py:obj:`gen_sample <bayesml.hiddenmarkovnormal.GenModel.gen_sample>`\\ \\(sample\\_length\\)"
+msgid ""
+":py:obj:`gen_sample <bayesml.hiddenmarkovnormal.GenModel.gen_sample>`\\ "
+"\\(sample\\_length\\)"
+msgstr ""
+":py:obj:`gen_sample <bayesml.hiddenmarkovnormal.GenModel.gen_sample>`\\ "
+"\\(sample\\_length\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.gen_sample:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
@@ -577,8 +903,12 @@ msgstr "確率的データ生成モデルからサンプルを生成します。
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`get_constants <bayesml.hiddenmarkovnormal.GenModel.get_constants>`\\ \\(\\)"
-msgstr ":py:obj:`get_constants <bayesml.hiddenmarkovnormal.GenModel.get_constants>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.hiddenmarkovnormal.GenModel.get_constants>`\\ \\(\\)"
+msgstr ""
+":py:obj:`get_constants "
+"<bayesml.hiddenmarkovnormal.GenModel.get_constants>`\\ \\(\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.get_constants:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
@@ -588,21 +918,29 @@ msgstr "GenModel の定数を取得します。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`get_h_params <bayesml.hiddenmarkovnormal.GenModel.get_h_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_h_params <bayesml.hiddenmarkovnormal.GenModel.get_h_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_h_params "
+"<bayesml.hiddenmarkovnormal.GenModel.get_h_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`get_h_params "
+"<bayesml.hiddenmarkovnormal.GenModel.get_h_params>`\\ \\(\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.get_h_params:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.get_h0_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Get the hyperparameters of the prior distribution."
 msgstr "事前分布のハイパーパラメータを取得します。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`get_params <bayesml.hiddenmarkovnormal.GenModel.get_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_params <bayesml.hiddenmarkovnormal.GenModel.get_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_params <bayesml.hiddenmarkovnormal.GenModel.get_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_params <bayesml.hiddenmarkovnormal.GenModel.get_params>`\\ "
+"\\(\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.get_params:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
@@ -612,8 +950,12 @@ msgstr "確率的データ生成モデルのパラメータを取得します。
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`load_h_params <bayesml.hiddenmarkovnormal.GenModel.load_h_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_h_params <bayesml.hiddenmarkovnormal.GenModel.load_h_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_h_params "
+"<bayesml.hiddenmarkovnormal.GenModel.load_h_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`load_h_params "
+"<bayesml.hiddenmarkovnormal.GenModel.load_h_params>`\\ \\(filename\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
@@ -622,8 +964,12 @@ msgstr "h_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`load_params <bayesml.hiddenmarkovnormal.GenModel.load_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_params <bayesml.hiddenmarkovnormal.GenModel.load_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_params <bayesml.hiddenmarkovnormal.GenModel.load_params>`\\"
+" \\(filename\\)"
+msgstr ""
+":py:obj:`load_params <bayesml.hiddenmarkovnormal.GenModel.load_params>`\\"
+" \\(filename\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
@@ -632,19 +978,27 @@ msgstr "``save_params`` に保存されたパラメータをロードします�
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`save_h_params <bayesml.hiddenmarkovnormal.GenModel.save_h_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_h_params <bayesml.hiddenmarkovnormal.GenModel.save_h_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_h_params "
+"<bayesml.hiddenmarkovnormal.GenModel.save_h_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`save_h_params "
+"<bayesml.hiddenmarkovnormal.GenModel.save_h_params>`\\ \\(filename\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Save the hyperparameters using python ``pickle`` module."
 msgstr "python ``pickle`` モジュールを使ってハイパーパラメータを保存します。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`save_params <bayesml.hiddenmarkovnormal.GenModel.save_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_params <bayesml.hiddenmarkovnormal.GenModel.save_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_params <bayesml.hiddenmarkovnormal.GenModel.save_params>`\\"
+" \\(filename\\)"
+msgstr ""
+":py:obj:`save_params <bayesml.hiddenmarkovnormal.GenModel.save_params>`\\"
+" \\(filename\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
@@ -653,8 +1007,12 @@ msgstr "python の ``pickle`` モジュールを使ってパラメータを保�
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`save_sample <bayesml.hiddenmarkovnormal.GenModel.save_sample>`\\ \\(filename\\, sample\\_length\\)"
-msgstr ":py:obj:`save_sample <bayesml.hiddenmarkovnormal.GenModel.save_sample>`\\ \\(filename\\, sample_length\\)"
+msgid ""
+":py:obj:`save_sample <bayesml.hiddenmarkovnormal.GenModel.save_sample>`\\"
+" \\(filename\\, sample\\_length\\)"
+msgstr ""
+":py:obj:`save_sample <bayesml.hiddenmarkovnormal.GenModel.save_sample>`\\"
+" \\(filename\\, sample_length\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.save_sample:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
@@ -664,21 +1022,31 @@ msgstr "生成されたサンプルを NumPy ``.npz`` フォーマットで保�
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`set_h_params <bayesml.hiddenmarkovnormal.GenModel.set_h_params>`\\ \\(\\[h\\_eta\\_vec\\, h\\_zeta\\_vecs\\, ...\\]\\)"
-msgstr ":py:obj:`set_h_params <bayesml.hiddenmarkovnormal.GenModel.set_h_params>`\\ \\(\\[h\\_eta\\_vec\\, h\\_zeta\\_vecs\\, ...\\]\\)"
+msgid ""
+":py:obj:`set_h_params "
+"<bayesml.hiddenmarkovnormal.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_eta\\_vec\\, h\\_zeta\\_vecs\\, ...\\]\\)"
+msgstr ""
+":py:obj:`set_h_params "
+"<bayesml.hiddenmarkovnormal.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_eta\\_vec\\, h\\_zeta\\_vecs\\, ...\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_h_params:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_h0_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Set the hyperparameters of the prior distribution."
 msgstr "事前分布のハイパーパラメータを設定します。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`set_params <bayesml.hiddenmarkovnormal.GenModel.set_params>`\\ \\(\\[pi\\_vec\\, a\\_mat\\, mu\\_vecs\\, lambda\\_mats\\]\\)"
-msgstr ":py:obj:`set_params <bayesml.hiddenmarkovnormal.GenModel.set_params>`\\ \\(\\[pi\\_vec\\, a\\_mat\\, mu\\_vecs\\, lambda\\_mats\\]\\)"
+msgid ""
+":py:obj:`set_params <bayesml.hiddenmarkovnormal.GenModel.set_params>`\\ "
+"\\(\\[pi\\_vec\\, a\\_mat\\, mu\\_vecs\\, lambda\\_mats\\]\\)"
+msgstr ""
+":py:obj:`set_params <bayesml.hiddenmarkovnormal.GenModel.set_params>`\\ "
+"\\(\\[pi\\_vec\\, a\\_mat\\, mu\\_vecs\\, lambda\\_mats\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.set_params:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
@@ -688,8 +1056,14 @@ msgstr "確率的データ生成モデルのパラメータを設定します。
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
 #: of
-msgid ":py:obj:`visualize_model <bayesml.hiddenmarkovnormal.GenModel.visualize_model>`\\ \\(\\[sample\\_length\\]\\)"
-msgstr ":py:obj:`visualize_model <bayesml.hiddenmarkovnormal.GenModel.visualize_model>`\\ \\(\\[sample\\_length\\]\\)"
+msgid ""
+":py:obj:`visualize_model "
+"<bayesml.hiddenmarkovnormal.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_length\\]\\)"
+msgstr ""
+":py:obj:`visualize_model "
+"<bayesml.hiddenmarkovnormal.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_length\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.visualize_model:2
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:98:<autosummary>:1
@@ -825,7 +1199,9 @@ msgid "numpy ndarray"
 msgstr "numpy ndarray"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.gen_sample:15 of
-msgid "2-dimensional array whose shape is  ``(sample_length,c_degree)`` . Its elements are real numbers."
+msgid ""
+"2-dimensional array whose shape is  ``(sample_length,c_degree)`` . Its "
+"elements are real numbers."
 msgstr "形状が ``(sample_length,c_degree)`` である2次元配列です。その要素は実数です。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.gen_sample:19 of
@@ -833,7 +1209,9 @@ msgid "**z**"
 msgstr "**z**"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.gen_sample:20 of
-msgid "2-dimensional array whose shape is  ``(sample_length,c_num_classes)``  whose rows are one-hot vectors."
+msgid ""
+"2-dimensional array whose shape is  ``(sample_length,c_num_classes)``  "
+"whose rows are one-hot vectors."
 msgstr "形状が ``(sample_length,c_num_classes)`` で、各行がone-hotベクトルからなる2次元配列です。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.save_sample:4 of
@@ -849,7 +1227,9 @@ msgid "str"
 msgstr "str"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.save_sample:9 of
-msgid "The filename to which the sample is saved. ``.npz`` will be appended if it isn't there."
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
 msgstr "サンプルを保存するファイル名。ない場合は ``.npz`` が追加されます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel.save_sample:27 of
@@ -874,6 +1254,12 @@ msgstr "正の整数、デフォルトは100"
 msgid "Examples"
 msgstr "例"
 
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
 msgstr "事後分布と予測分布"
@@ -891,7 +1277,9 @@ msgstr "**h0_eta_vec**"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:14
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_h0_params:8
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_hn_params:8 of
-msgid "A vector of positive real numbers,  by default [1/2, 1/2, ... , 1/2]. If a real number is input, it will be broadcasted."
+msgid ""
+"A vector of positive real numbers,  by default [1/2, 1/2, ... , 1/2]. If "
+"a real number is input, it will be broadcasted."
 msgstr "正の実数のベクトルで、デフォルトでは [1/2, 1/2, ..., 1/2] です。実数が入力された場合、ブロードキャスト処理が行われます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:18
@@ -904,8 +1292,12 @@ msgstr "**h0_zeta_vecs**"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_h0_params:13
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_hn_params:13
 #: of
-msgid "Vectors of positive numbers,  by default vectors whose elements are all 1.0 If a real number or a single vector is input, will be broadcasted."
-msgstr "正の数のベクトル。デフォルトでは、すべての要素が 1.0 であるベクトルです。実数または単一のベクトルが入力された場合、ブロードキャスト処理が行われます。"
+msgid ""
+"Vectors of positive numbers,  by default vectors whose elements are all "
+"1.0 If a real number or a single vector is input, will be broadcasted."
+msgstr ""
+"正の数のベクトル。デフォルトでは、すべての要素が 1.0 "
+"であるベクトルです。実数または単一のベクトルが入力された場合、ブロードキャスト処理が行われます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:23
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_h0_params:17
@@ -923,7 +1315,9 @@ msgstr "**h0_kappas**"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_h0_params:23
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_hn_params:23
 #: of
-msgid "Positive real numbers,  by default [1.0, 1.0, ... , 1.0] If a single real number is input, it will be broadcasted."
+msgid ""
+"Positive real numbers,  by default [1.0, 1.0, ... , 1.0] If a single real"
+" number is input, it will be broadcasted."
 msgstr "正の実数。デフォルトでは [1.0, 1.0, ..., 1.0] です。単一の実数が入力された場合、ブロードキャストされます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:33
@@ -936,7 +1330,9 @@ msgstr "**h0_nus**"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_h0_params:28
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_hn_params:28
 #: of
-msgid "Real numbers greater than c_degree-1,  by default c_degree. If a single real number is input, it will be broadcasted."
+msgid ""
+"Real numbers greater than c_degree-1,  by default c_degree. If a single "
+"real number is input, it will be broadcasted."
 msgstr "c_degree-1 より大きい実数（デフォルトは c_degree）。単一の実数が入力された場合、ブロードキャストされます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:38
@@ -949,7 +1345,9 @@ msgstr "**h0_w_mats**"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_h0_params:33
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_hn_params:33
 #: of
-msgid "Positive definite symetric matrices,  by default the identity matrices If a single matrix is input, it will be broadcasted."
+msgid ""
+"Positive definite symetric matrices,  by default the identity matrices If"
+" a single matrix is input, it will be broadcasted."
 msgstr "正定値対称行列。デフォルトでは単位行列となります。単一の行列が入力された場合、ブロードキャスト処理が行われます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:44 of
@@ -1045,217 +1443,331 @@ msgid "the inverse matrices of hn_w_mats"
 msgstr "hn_w_mats の逆行列"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:73 of
+#, fuzzy
+msgid "**vl**"
+msgstr "**z**"
+
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:-1 of
+msgid "float"
+msgstr ""
+
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:74 of
+#, fuzzy
+msgid "real number"
+msgstr "正の実数"
+
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:76 of
 msgid "**p_mu_vecs**"
 msgstr "**p_mu_vecs**"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:74 of
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:77 of
 msgid "vectors of real numbers"
 msgstr "実数のベクトル"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:76 of
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:79 of
 msgid "**p_nus**"
 msgstr "**p_nus**"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:77 of
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:80 of
 msgid "positive real numbers"
 msgstr "正の実数"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:79 of
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:82 of
 msgid "**p_lambda_mats**"
 msgstr "**p_lambda_mats**"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:80 of
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:83 of
 msgid "positive definite symetric matrices"
 msgstr "正定値対称行列"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`calc_pred_dist <bayesml.hiddenmarkovnormal.LearnModel.calc_pred_dist>`\\ \\(\\)"
-msgstr ":py:obj:`calc_pred_dist <bayesml.hiddenmarkovnormal.LearnModel.calc_pred_dist>`\\ \\(\\)"
+msgid ""
+":py:obj:`calc_pred_dist "
+"<bayesml.hiddenmarkovnormal.LearnModel.calc_pred_dist>`\\ \\(\\)"
+msgstr ""
+":py:obj:`calc_pred_dist "
+"<bayesml.hiddenmarkovnormal.LearnModel.calc_pred_dist>`\\ \\(\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.calc_pred_dist:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Calculate the parameters of the predictive distribution."
 msgstr "予測分布のパラメータを計算します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`estimate_latent_vars <bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars>`\\ \\(x\\[\\, loss\\, viterbi\\]\\)"
-msgstr ":py:obj:`estimate_latent_vars <bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars>`\\ \\(x\\[\\, loss\\, viterbi\\]\\)"
+msgid ""
+":py:obj:`estimate_latent_vars "
+"<bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars>`\\ "
+"\\(x\\[\\, loss\\, viterbi\\]\\)"
+msgstr ""
+":py:obj:`estimate_latent_vars "
+"<bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars>`\\ "
+"\\(x\\[\\, loss\\, viterbi\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Estimate latent variables under the given criterion."
 msgstr "指定された基準に基づいて潜在変数を推定します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`estimate_latent_vars_and_update <bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update>`\\ \\(x\\[\\, loss\\, ...\\]\\)"
-msgstr ":py:obj:`estimate_latent_vars_and_update <bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update>`\\ \\(x\\[\\, loss\\, ...\\]\\)"
+msgid ""
+":py:obj:`estimate_latent_vars_and_update "
+"<bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update>`\\"
+" \\(x\\[\\, loss\\, ...\\]\\)"
+msgstr ""
+":py:obj:`estimate_latent_vars_and_update "
+"<bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update>`\\"
+" \\(x\\[\\, loss\\, ...\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Estimate latent variables and update the posterior sequentially."
 msgstr "潜在変数を推定し、事後分布を逐次的に更新します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`estimate_params <bayesml.hiddenmarkovnormal.LearnModel.estimate_params>`\\ \\(\\[loss\\]\\)"
-msgstr ":py:obj:`estimate_params <bayesml.hiddenmarkovnormal.LearnModel.estimate_params>`\\ \\(\\[loss\\]\\)"
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.estimate_params>`\\ "
+"\\(\\[loss\\]\\)"
+msgstr ""
+":py:obj:`estimate_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.estimate_params>`\\ "
+"\\(\\[loss\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Estimate the parameter under the given criterion."
 msgstr "与えられた基準に基づいたパラメータ推定"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`get_constants <bayesml.hiddenmarkovnormal.LearnModel.get_constants>`\\ \\(\\)"
-msgstr ":py:obj:`get_constants <bayesml.hiddenmarkovnormal.LearnModel.get_constants>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.hiddenmarkovnormal.LearnModel.get_constants>`\\ \\(\\)"
+msgstr ""
+":py:obj:`get_constants "
+"<bayesml.hiddenmarkovnormal.LearnModel.get_constants>`\\ \\(\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.get_constants:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Get constants of LearnModel."
 msgstr "LearnModel の定数を取得します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`get_h0_params <bayesml.hiddenmarkovnormal.LearnModel.get_h0_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_h0_params <bayesml.hiddenmarkovnormal.LearnModel.get_h0_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.get_h0_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`get_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.get_h0_params>`\\ \\(\\)"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`get_hn_params <bayesml.hiddenmarkovnormal.LearnModel.get_hn_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_hn_params <bayesml.hiddenmarkovnormal.LearnModel.get_hn_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.get_hn_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`get_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.get_hn_params>`\\ \\(\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.get_hn_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Get the hyperparameters of the posterior distribution."
 msgstr "事後分布のハイパーパラメータを取得します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`get_p_params <bayesml.hiddenmarkovnormal.LearnModel.get_p_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_p_params <bayesml.hiddenmarkovnormal.LearnModel.get_p_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_p_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.get_p_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`get_p_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.get_p_params>`\\ \\(\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.get_p_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Get the parameters of the predictive distribution."
 msgstr "予測分布のパラメータを取得します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`load_h0_params <bayesml.hiddenmarkovnormal.LearnModel.load_h0_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_h0_params <bayesml.hiddenmarkovnormal.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`load_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.load_h0_params>`\\ \\(filename\\)"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Load the hyperparameters to h0_params."
 msgstr "h0_paramsにハイパーパラメータをロードします。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`load_hn_params <bayesml.hiddenmarkovnormal.LearnModel.load_hn_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_hn_params <bayesml.hiddenmarkovnormal.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`load_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.load_hn_params>`\\ \\(filename\\)"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Load the hyperparameters to hn_params."
 msgstr "hn_paramsにハイパーパラメータをロードします。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`make_prediction <bayesml.hiddenmarkovnormal.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
-msgstr ":py:obj:`make_prediction <bayesml.hiddenmarkovnormal.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.hiddenmarkovnormal.LearnModel.make_prediction>`\\ "
+"\\(\\[loss\\]\\)"
+msgstr ""
+":py:obj:`make_prediction "
+"<bayesml.hiddenmarkovnormal.LearnModel.make_prediction>`\\ "
+"\\(\\[loss\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.make_prediction:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Predict a new data point under the given criterion."
 msgstr "与えられた基準の下で、新しいデータ点を予測します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`overwrite_h0_params <bayesml.hiddenmarkovnormal.LearnModel.overwrite_h0_params>`\\ \\(\\)"
-msgstr ":py:obj:`overwrite_h0_params <bayesml.hiddenmarkovnormal.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.overwrite_h0_params>`\\ \\(\\)"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid "Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values."
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
 msgstr "事後分布のハイパーパラメータの初期値を学習した値で上書きします。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`pred_and_update <bayesml.hiddenmarkovnormal.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\, max\\_itr\\, ...\\]\\)"
-msgstr ":py:obj:`pred_and_update <bayesml.hiddenmarkovnormal.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\, max\\_itr\\, ...\\]\\)"
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.hiddenmarkovnormal.LearnModel.pred_and_update>`\\ \\(x\\[\\, "
+"loss\\, max\\_itr\\, ...\\]\\)"
+msgstr ""
+":py:obj:`pred_and_update "
+"<bayesml.hiddenmarkovnormal.LearnModel.pred_and_update>`\\ \\(x\\[\\, "
+"loss\\, max\\_itr\\, ...\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.pred_and_update:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Predict a new data point and update the posterior sequentially."
 msgstr "逐次的に新しいデータ点を予測し、事後分布を更新します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`reset_hn_params <bayesml.hiddenmarkovnormal.LearnModel.reset_hn_params>`\\ \\(\\)"
-msgstr ":py:obj:`reset_hn_params <bayesml.hiddenmarkovnormal.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`reset_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.reset_hn_params>`\\ \\(\\)"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid "Reset the hyperparameters of the posterior distribution to their initial values."
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
 msgstr "事後分布のハイパーパラメータを初期値に戻します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`save_h0_params <bayesml.hiddenmarkovnormal.LearnModel.save_h0_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_h0_params <bayesml.hiddenmarkovnormal.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`save_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.save_h0_params>`\\ \\(filename\\)"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`save_hn_params <bayesml.hiddenmarkovnormal.LearnModel.save_hn_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_hn_params <bayesml.hiddenmarkovnormal.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`save_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.save_hn_params>`\\ \\(filename\\)"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`set_h0_params <bayesml.hiddenmarkovnormal.LearnModel.set_h0_params>`\\ \\(\\[h0\\_eta\\_vec\\, h0\\_zeta\\_vecs\\, ...\\]\\)"
-msgstr ":py:obj:`set_h0_params <bayesml.hiddenmarkovnormal.LearnModel.set_h0_params>`\\ \\(\\[h0\\_eta\\_vec\\, h0\\_zeta\\_vecs\\, ...\\]\\)"
+msgid ""
+":py:obj:`set_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_eta\\_vec\\, h0\\_zeta\\_vecs\\, ...\\]\\)"
+msgstr ""
+":py:obj:`set_h0_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_eta\\_vec\\, h0\\_zeta\\_vecs\\, ...\\]\\)"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`set_hn_params <bayesml.hiddenmarkovnormal.LearnModel.set_hn_params>`\\ \\(\\[hn\\_eta\\_vec\\, hn\\_zeta\\_vecs\\, ...\\]\\)"
-msgstr ":py:obj:`set_hn_params <bayesml.hiddenmarkovnormal.LearnModel.set_hn_params>`\\ \\(\\[hn\\_eta\\_vec\\, hn\\_zeta\\_vecs\\, ...\\]\\)"
+msgid ""
+":py:obj:`set_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_eta\\_vec\\, hn\\_zeta\\_vecs\\, ...\\]\\)"
+msgstr ""
+":py:obj:`set_hn_params "
+"<bayesml.hiddenmarkovnormal.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_eta\\_vec\\, hn\\_zeta\\_vecs\\, ...\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.set_hn_params:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Set the hyperparameter of the posterior distribution."
 msgstr "事後分布のハイパーパラメータを設定します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`update_posterior <bayesml.hiddenmarkovnormal.LearnModel.update_posterior>`\\ \\(x\\[\\, max\\_itr\\, num\\_init\\, ...\\]\\)"
-msgstr ":py:obj:`update_posterior <bayesml.hiddenmarkovnormal.LearnModel.update_posterior>`\\ \\(x\\[\\, max\\_itr\\, num\\_init\\, ...\\]\\)"
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.hiddenmarkovnormal.LearnModel.update_posterior>`\\ \\(x\\[\\, "
+"max\\_itr\\, num\\_init\\, ...\\]\\)"
+msgstr ""
+":py:obj:`update_posterior "
+"<bayesml.hiddenmarkovnormal.LearnModel.update_posterior>`\\ \\(x\\[\\, "
+"max\\_itr\\, num\\_init\\, ...\\]\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.update_posterior:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Update the the posterior distribution using traning data."
 msgstr "訓練データを用いて事後分布を更新します。"
 
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
-msgid ":py:obj:`visualize_posterior <bayesml.hiddenmarkovnormal.LearnModel.visualize_posterior>`\\ \\(\\)"
-msgstr ":py:obj:`visualize_posterior <bayesml.hiddenmarkovnormal.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.hiddenmarkovnormal.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgstr ""
+":py:obj:`visualize_posterior "
+"<bayesml.hiddenmarkovnormal.LearnModel.visualize_posterior>`\\ \\(\\)"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.visualize_posterior:2
-#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:118:<autosummary>:1
+#: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel:121:<autosummary>:1
 #: of
 msgid "Visualize the posterior distribution for the parameter."
 msgstr "パラメータの事後分布を可視化します。"
@@ -1340,7 +1852,9 @@ msgstr "``\"hn_w_mats\"`` : ``self.hn_w_mats`` の値"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars:12
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.update_posterior:8
 #: of
-msgid "(sample_length,c_degree)-dimensional ndarray. All the elements must be real number."
+msgid ""
+"(sample_length,c_degree)-dimensional ndarray. All the elements must be "
+"real number."
 msgstr "(sample_length, c_degree) 次元の ndarray です。すべての要素は実数でなければなりません。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:20
@@ -1409,8 +1923,14 @@ msgstr "str, optional"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.update_posterior:21
 #: of
-msgid "``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``,  and use its mean and covariance matrix as an initial values of hn_m_vecs and hn_lambda_mats."
-msgstr "``'サブサンプリング'``：各潜在クラスについて、サイズが ``int(np.sqrt(x.shape[0]))`` となる部分サンプルを抽出します。そして、その平均と共分散行列を ``hn_m_vecs`` および ``hn_lambda_mats`` の初期値として使用します。"
+msgid ""
+"``'subsampling'``: for each latent class, extract a subsample whose size "
+"is ``int(np.sqrt(x.shape[0]))``,  and use its mean and covariance matrix "
+"as an initial values of hn_m_vecs and hn_lambda_mats."
+msgstr ""
+"``'サブサンプリング'``：各潜在クラスについて、サイズが ``int(np.sqrt(x.shape[0]))`` "
+"となる部分サンプルを抽出します。そして、その平均と共分散行列を ``hn_m_vecs`` および ``hn_lambda_mats`` "
+"の初期値として使用します。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.update_posterior:23
 #: of
@@ -1424,8 +1944,14 @@ msgstr "初期化の種類。デフォルトは ``'subsampling'`` です"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_params:4
 #: of
-msgid "Note that the criterion is applied to estimating  ``pi_vec``, ``a_mat`` ``mu_vecs`` and ``lambda_mats`` independently. Therefore, a tuple of the dirichlet distribution,  the student's t-distributions and  the wishart distributions will be returned when loss=\"KL\""
-msgstr "この基準は、``pi_vec``、``a_mat``、``mu_vecs``、および``lambda_mats``の推定にそれぞれ個別に適用される点にご注意ください。したがって、loss=\"KL\" を指定した場合、ディリクレ分布、スチューデントのt分布、およびウィシャートの分布のタプルが返されます。"
+msgid ""
+"Note that the criterion is applied to estimating  ``pi_vec``, ``a_mat`` "
+"``mu_vecs`` and ``lambda_mats`` independently. Therefore, a tuple of the "
+"dirichlet distribution,  the student's t-distributions and  the wishart "
+"distributions will be returned when loss=\"KL\""
+msgstr ""
+"この基準は、``pi_vec``、``a_mat``、``mu_vecs``、および``lambda_mats``の推定にそれぞれ個別に適用される点にご注意ください。したがって、loss=\"KL\""
+" を指定した場合、ディリクレ分布、スチューデントのt分布、およびウィシャートの分布のタプルが返されます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars:15
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:12
@@ -1438,7 +1964,9 @@ msgstr "**loss**"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_params:13
 #: of
-msgid "Loss function underlying the Bayes risk function, by default \"xxx\". This function supports \"squared\", \"0-1\", and \"KL\"."
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"xxx\". "
+"This function supports \"squared\", \"0-1\", and \"KL\"."
 msgstr "ベイズリスク関数の基礎となる損失関数で、デフォルトは「xxx」です。この関数では、「squared」、「0-1」、および「KL」がサポートされています。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_params:20
@@ -1474,7 +2002,10 @@ msgstr "``lambda_mats_hat``：lambda_mats の推定値"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_params:25
 #: of
-msgid "The estimated values under the given loss function.  If it is not exist, `np.nan` will be returned. If the loss function is \"KL\", the posterior distribution itself  will be returned as rv_frozen object of scipy.stats."
+msgid ""
+"The estimated values under the given loss function.  If it is not exist, "
+"`np.nan` will be returned. If the loss function is \"KL\", the posterior "
+"distribution itself  will be returned as rv_frozen object of scipy.stats."
 msgstr "指定された損失関数に基づく推定値です。存在しない場合は、`np.nan`が返されます。損失関数が「KL」の場合、事後分布そのものがscipy.statsのrv_frozenオブジェクトとして返されます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_params:39
@@ -1510,7 +2041,9 @@ msgstr "``\"p_lambda_mats\"`` : ``self.p_lambda_mats`` の値"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.make_prediction:8
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.pred_and_update:13
 #: of
-msgid "Loss function underlying the Bayes risk function, by default \"squared\". This function supports \"squared\" and \"0-1\"."
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\" and \"0-1\"."
 msgstr "ベイズリスク関数の基礎となる損失関数で、デフォルトでは「squared」です。この関数は「squared」と「0-1」をサポートしています。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.make_prediction:15
@@ -1533,7 +2066,9 @@ msgstr "与えられた損失関数に基づく予測値です。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.pred_and_update:4
 #: of
-msgid "h0_params will be overwritten by current hn_params  before updating hn_params by x."
+msgid ""
+"h0_params will be overwritten by current hn_params  before updating "
+"hn_params by x."
 msgstr "h0_params は、x によって hn_params を更新する前に、現在の hn_params で上書きされます"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:10
@@ -1551,13 +2086,21 @@ msgstr "変分下限の収束基準。デフォルトは 1.0E-8 です"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:30
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.pred_and_update:26
 #: of
-msgid "``'random_responsibility'``: randomly assign responsibility to ``xi_mats`` and ``gamma_vecs``"
+msgid ""
+"``'random_responsibility'``: randomly assign responsibility to "
+"``xi_mats`` and ``gamma_vecs``"
 msgstr "``'random_responsibility'``: ``xi_mats`` と ``gamma_vecs`` に負担率をランダムに割り当てます"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.pred_and_update:27
 #: of
-msgid "``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``.  and use its mean and covariance matrix as an initial values of hn_m_vecs and hn_lambda_mats."
-msgstr "``'サブサンプリング'``：各潜在クラスについて、サイズが ``int(np.sqrt(x.shape[0]))`` となる部分サンプルを抽出します。そして、その平均と共分散行列を ``hn_m_vecs`` および ``hn_lambda_mats`` の初期値として使用します。"
+msgid ""
+"``'subsampling'``: for each latent class, extract a subsample whose size "
+"is ``int(np.sqrt(x.shape[0]))``.  and use its mean and covariance matrix "
+"as an initial values of hn_m_vecs and hn_lambda_mats."
+msgstr ""
+"``'サブサンプリング'``：各潜在クラスについて、サイズが ``int(np.sqrt(x.shape[0]))`` "
+"となる部分サンプルを抽出します。そして、その平均と共分散行列を ``hn_m_vecs`` および ``hn_lambda_mats`` "
+"の初期値として使用します。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.pred_and_update:29
 #: of
@@ -1571,14 +2114,23 @@ msgstr "**predicted_value**"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars:4
 #: of
-msgid "If the ``viterbi`` option is ``True``, this function estimates  the latent variables maximizing the joint distribution.  If ``False``, this function independently estimates the latent  variables at each time point."
+msgid ""
+"If the ``viterbi`` option is ``True``, this function estimates  the "
+"latent variables maximizing the joint distribution.  If ``False``, this "
+"function independently estimates the latent  variables at each time "
+"point."
 msgstr "「viterbi」オプションが「True」の場合、この関数は、同時分布を最大化する潜在変数を推定します。「False」の場合、この関数は各時点において潜在変数を個別に推定します。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars:16
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:13
 #: of
-msgid "Loss function underlying the Bayes risk function, by default \"0-1\". If the ``viterbi`` option is ``True``, this function supports only \"0-1\".  Otherwise, \"0-1\", \"squared\", and \"KL\" are supported."
-msgstr "ベイズリスク関数の基礎となる損失関数で、デフォルトは「0-1」です。``viterbi`` オプションが ``True`` の場合、この関数は「0-1」のみをサポートします。それ以外の場合は、「0-1」、「squared」、および「KL」がサポートされます。"
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"0-1\". If "
+"the ``viterbi`` option is ``True``, this function supports only \"0-1\"."
+"  Otherwise, \"0-1\", \"squared\", and \"KL\" are supported."
+msgstr ""
+"ベイズリスク関数の基礎となる損失関数で、デフォルトは「0-1」です。``viterbi`` オプションが ``True`` "
+"の場合、この関数は「0-1」のみをサポートします。それ以外の場合は、「0-1」、「squared」、および「KL」がサポートされます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars:20
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:17
@@ -1607,18 +2159,32 @@ msgstr "**estimates**"
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars:28
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:40
 #: of
-msgid "The estimated values under the given loss function.  If the ``viterbi`` option is ``False`` and loss function is \"KL\",  a marginalized posterior distribution will be returned as  a numpy.ndarray whose elements consist of occurence  probabilities for each latent variabl."
-msgstr "指定された損失関数に基づく推定値です。``viterbi`` オプションが ``False`` で、損失関数が \"KL\" の場合、各潜在変数の出現確率からなる要素を持つ numpy.ndarray として、周辺化された事後分布が返されます。"
+msgid ""
+"The estimated values under the given loss function.  If the ``viterbi`` "
+"option is ``False`` and loss function is \"KL\",  a marginalized "
+"posterior distribution will be returned as  a numpy.ndarray whose "
+"elements consist of occurence  probabilities for each latent variabl."
+msgstr ""
+"指定された損失関数に基づく推定値です。``viterbi`` オプションが ``False`` で、損失関数が \"KL\" "
+"の場合、各潜在変数の出現確率からなる要素を持つ numpy.ndarray として、周辺化された事後分布が返されます。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:4
 #: of
-msgid "h0_params will be overwritten by current hn_params  before updating hn_params by x"
+msgid ""
+"h0_params will be overwritten by current hn_params  before updating "
+"hn_params by x"
 msgstr "h0_params は、x によって hn_params を更新する前に、現在の hn_params で上書きされます"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:31
 #: of
-msgid "``'subsampling'``: for each latent class, extract a subsample whose size is ``int(np.sqrt(x.shape[0]))``. and use its mean and covariance matrix as an initial values of hn_m_vecs and hn_lambda_mats."
-msgstr "``'サブサンプリング'``：各潜在クラスについて、サイズが ``int(np.sqrt(x.shape[0]))`` となる部分サンプルを抽出します。そして、その平均と共分散行列を ``hn_m_vecs`` および ``hn_lambda_mats`` の初期値として使用します。"
+msgid ""
+"``'subsampling'``: for each latent class, extract a subsample whose size "
+"is ``int(np.sqrt(x.shape[0]))``. and use its mean and covariance matrix "
+"as an initial values of hn_m_vecs and hn_lambda_mats."
+msgstr ""
+"``'サブサンプリング'``：各潜在クラスについて、サイズが ``int(np.sqrt(x.shape[0]))`` "
+"となる部分サンプルを抽出します。そして、その平均と共分散行列を ``hn_m_vecs`` および ``hn_lambda_mats`` "
+"の初期値として使用します。"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:33
 #: of
@@ -3003,3 +3569,4 @@ msgstr "初期化の種類。デフォルトは ``'random_responsibility'`` で�
 
 #~ msgid "Type of initialization, by default ``'random_responsibility'``"
 #~ msgstr ""
+

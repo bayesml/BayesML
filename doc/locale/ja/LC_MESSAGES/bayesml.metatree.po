@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 16:37+0900\n"
-"PO-Revision-Date: 2026-05-17 10:47+0900\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2025-05-29 18:24+0900\n"
+"PO-Revision-Date: 2026-05-17 23:38+0900\n"
+"Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -365,6 +365,10 @@ msgstr "Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability Distr
 #: bayesml.metatree:146 of
 msgid "Nakahara, Y.; Saito, S.; Ichijo, N.; Kazama, K.; Matsushima, T. Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. *Proceedings of The 28th International Conference on Artificial Intelligence and Statistics*, in *Proceedings of Machine Learning Research* 2025, 258:1045-1053 Available from https://proceedings.mlr.press/v258/nakahara25a.html."
 msgstr "Nakahara, Y.; Saito, S.; Ichijo, N.; Kazama, K.; Matsushima, T. Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. *Proceedings of The 28th International Conference on Artificial Intelligence and Statistics*, in *Proceedings of Machine Learning Research* 2025, 258:1045-1053 Available from https://proceedings.mlr.press/v258/nakahara25a.html."
+
+#: bayesml.metatree._metatree.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
 
 #: bayesml.metatree._metatree.GenModel:2 of
 msgid "The stochastice data generative model and the prior distribution"
@@ -1090,6 +1094,10 @@ msgstr ":obj:`graphviz.Digraph`"
 msgid "Examples"
 msgstr "例"
 
+#: bayesml.metatree._metatree.LearnModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Posterior`, :py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
 #: bayesml.metatree._metatree.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
 msgstr "事後分布と予測分布"
@@ -1476,15 +1484,15 @@ msgstr "アルゴリズムのオプションパラメータ。デフォルトは
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:25 of
 msgid "When ``alg_type='MTRF'``"
-msgstr "「alg_type='MTRF'」の場合"
+msgstr "``alg_type='MTRF'`` の場合"
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:27 of
 msgid "In MTRF[1], ``sklearn.ensemble.RandomForestClassifier`` or  ``sklearn.ensemble.RandomForestRegressor`` is called as a subroutine.  Arguments given as ``**kwargs`` are passed to these subroutines.  Therefore, if you want to specify options for these subroutines,  e.g., ``n_estimators`` or ``random_state``, etc., you can specify them here.  However, ``max_depth`` of these subroutines is set to the value of  ``self.c_max_depth``, so if you set it again, you will get an error."
-msgstr "MTRF[1]では、「sklearn.ensemble.RandomForestClassifier」または「sklearn.ensemble.RandomForestRegressor」がサブルーチンとして呼び出されます。「**kwargs」として指定された引数は、これらのサブルーチンに渡されます。  したがって、これらのサブルーチンに対して、例えば ``n_estimators`` や ``random_state`` などのオプションを指定したい場合は、ここで指定することができます。ただし、これらのサブルーチンの ``max_depth`` は ``self.c_max_depth`` の値に設定されているため、再度設定しようとするとエラーが発生します。"
+msgstr "MTRF[1]では、 ``sklearn.ensemble.RandomForestClassifier`` または ``sklearn.ensemble.RandomForestRegressor`` がサブルーチンとして呼び出されます。 ``**kwargs`` として指定された引数は、これらのサブルーチンに渡されます。  したがって、これらのサブルーチンに対して、例えば ``n_estimators`` や ``random_state`` などのオプションを指定したい場合は、ここで指定することができます。ただし、これらのサブルーチンの ``max_depth`` は ``self.c_max_depth`` の値に設定されているため、再度設定しようとするとエラーが発生します。"
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:35 of
 msgid "When ``alg_type='given_MT'``"
-msgstr "「alg_type='given_MT'」の場合"
+msgstr "``alg_type='given_MT’`` の場合"
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:37 of
 msgid "There are no optional parameters for ``'given_MT'``."
@@ -1492,7 +1500,7 @@ msgstr "``'given_MT'`` にはオプションのパラメータはありません
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:39 of
 msgid "When ``alg_type='MTMCMC'``"
-msgstr "「alg_type='MTMCMC'」の場合"
+msgstr "``alg_type='MTMCMC’`` の場合"
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:41
 #: bayesml.metatree._metatree.LearnModel.update_posterior:80 of
@@ -1546,7 +1554,7 @@ msgstr "p_obj : float"
 #: bayesml.metatree._metatree.LearnModel.update_posterior:65 of
 #, python-brace-format
 msgid "Parameter of Algorithm 1 in [2], by default 0.3.  ``p_obj`` corresponds to $r_\\\\mathrm{obj}$ in Algorithm 1 in [2]."
-msgstr "[2]のアルゴリズム1のパラメータで、デフォルト値は0.3です。 ``p_obj``は、[2]のアルゴリズム1における$r_\\mathrm{obj}$に対応します。"
+msgstr "[2]のアルゴリズム1のパラメータで、デフォルト値は0.3です。 ``p_obj`` は、[2]のアルゴリズム1における$r_\\\\mathrm{obj}$に対応します。"
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:68
 #: bayesml.metatree._metatree.LearnModel.update_posterior:116 of
@@ -1572,7 +1580,7 @@ msgstr "numpy.random.default_rng()を初期化するためのシード。デフ�
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:78 of
 msgid "When ``alg_type='REMTMCMC'``"
-msgstr "「alg_type='REMTMCMC'」の場合"
+msgstr "``alg_type='REMTMCMC’`` の場合"
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:88 of
 msgid "num_chains : int"
@@ -1593,7 +1601,7 @@ msgstr "beta_vec : {None, numpy.ndarray}"
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:102 of
 msgid "Temperature parameters for replica exchange Monte Carlo methods,  by default None. It must satisfy $0 \\\\leq \\\\beta_1 < \\\\beta_2 < \\\\cdots < \\\\beta_J = 1$. If None, $\\\\beta_j = j/J$. See also Appendix D in [2]."
-msgstr "レプリカ交換モンテカルロ法における温度パラメータ。デフォルトは None です。$0 \\leq \\beta_1 < \\beta_2 < \\cdots < \\beta_J = 1$ を満たす必要があります。None の場合、$\\beta_j = j/J$ となります。[2] の付録 D も参照してください。"
+msgstr "レプリカ交換モンテカルロ法における温度パラメータ。デフォルトは None です。$0 \\\\leq \\\\beta_1 < \\\\beta_2 < \\\\cdots < \\\\beta_J = 1$ を満たす必要があります。None の場合、$\\\\beta_j = j/J$ となります。[2] の付録 D も参照してください。"
 
 #: bayesml.metatree._metatree.LearnModel.update_posterior:106 of
 msgid "num_interval : int"
