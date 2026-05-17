@@ -7,23 +7,23 @@ Code Author
 
 * `Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University
 * Yasushi Esaki
-* Naoki Ichijo, Waseda University (Ph.D. Student)
+* Naoki Ichijo
 * `Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>`_, Waseda University
-* Kohei Horinouchi, Waseda University (Ph.D. Student)
+* `Kohei Horinouchi <https://researchmap.jp/Kohei_Horinouchi?lang=en>`_, Waseda University
 
 Document Author
 ===============
 * `Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University
-* `Shota Saito <https://researchmap.jp/wa-shota?lang=en>`_, Gunma University
+* `Shota Saito <https://saito-lab-en.labby.jp>`_, Gunma University
 * `Koki Kazama <https://researchmap.jp/KokiKAZAMA?lang=en>`_, Shonan Institute of Technology
 * Yasushi Esaki
 * `Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>`_, Waseda University
-* Naoki Ichijo, Waseda University (Ph.D. Student)
-* Kohei Horinouchi, Waseda University (Ph.D. Student)
+* Naoki Ichijo
+* `Kohei Horinouchi <https://researchmap.jp/Kohei_Horinouchi?lang=en>`_, Waseda University
 
-Supervisor
-==========
-* Toshiyasu Matsushima, Waseda University
+Adviser
+=======
+* `Toshiyasu Matsushima <https://researchmap.jp/read0044887?lang=en>`_, Waseda University
 
 Logo Designer
 =============

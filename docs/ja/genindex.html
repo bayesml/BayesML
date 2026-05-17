@@ -188,6 +188,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
@@ -387,8 +389,6 @@ document.write(`
         <li><a href="bayesml.gaussianmixture.html#module-bayesml.gaussianmixture">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     bayesml.hiddenmarkovnormal
 
@@ -396,11 +396,27 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#module-bayesml.hiddenmarkovnormal">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     bayesml.linearregression
 
       <ul>
         <li><a href="bayesml.linearregression.html#module-bayesml.linearregression">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.linearregressionmixture
+
+      <ul>
+        <li><a href="bayesml.linearregressionmixture.html#module-bayesml.linearregressionmixture">module</a>
+</li>
+      </ul></li>
+      <li>
+    bayesml.logisticregression
+
+      <ul>
+        <li><a href="bayesml.logisticregression.html#module-bayesml.logisticregression">module</a>
 </li>
       </ul></li>
       <li>
@@ -474,6 +490,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.calc_pred_dist">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.calc_pred_dist">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.calc_pred_dist">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.calc_pred_dist">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.calc_pred_dist">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
@@ -514,11 +534,15 @@ document.write(`
       <ul>
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.estimate_latent_vars">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
       </ul></li>
       <li><a href="bayesml.gaussianmixture.html#bayesml.gaussianmixture.LearnModel.estimate_latent_vars_and_update">estimate_latent_vars_and_update() (bayesml.gaussianmixture.LearnModel のメソッド)</a>
 
       <ul>
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.estimate_latent_vars_and_update">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
 </li>
       </ul></li>
       <li><a href="bayesml.autoregressive.html#bayesml.autoregressive.LearnModel.estimate_params">estimate_params() (bayesml.autoregressive.LearnModel のメソッド)</a>
@@ -539,6 +563,10 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.estimate_params">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.estimate_params">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.estimate_params">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.estimate_params">(bayesml.logisticregression.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.estimate_params">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
@@ -563,6 +591,10 @@ document.write(`
         <li><a href="bayesml.exponential.html#bayesml.exponential.LearnModel.fit">(bayesml.exponential.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.fit">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.fit">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.fit">(bayesml.logisticregression.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.fit">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
@@ -598,6 +630,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.gen_params">(bayesml.linearregression.GenModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel.gen_params">(bayesml.linearregressionmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel.gen_params">(bayesml.logisticregression.GenModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.gen_params">(bayesml.metatree.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.gen_params">(bayesml.multivariate_normal.GenModel のメソッド)</a>
@@ -626,6 +662,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.gen_sample">(bayesml.linearregression.GenModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel.gen_sample">(bayesml.linearregressionmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel.gen_sample">(bayesml.logisticregression.GenModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.gen_sample">(bayesml.metatree.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.gen_sample">(bayesml.multivariate_normal.GenModel のメソッド)</a>
@@ -653,6 +693,10 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel">(bayesml.hiddenmarkovnormal のクラス)</a>
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel">(bayesml.linearregression のクラス)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel">(bayesml.linearregressionmixture のクラス)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel">(bayesml.logisticregression のクラス)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel">(bayesml.metatree のクラス)</a>
 </li>
@@ -696,6 +740,14 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.get_constants">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel.get_constants">(bayesml.linearregressionmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.get_constants">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel.get_constants">(bayesml.logisticregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.get_constants">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.get_constants">(bayesml.metatree.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.get_constants">(bayesml.metatree.LearnModel のメソッド)</a>
@@ -732,6 +784,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.get_h0_params">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.get_h0_params">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.get_h0_params">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.get_h0_params">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.get_h0_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
@@ -762,6 +818,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.get_h_params">(bayesml.linearregression.GenModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel.get_h_params">(bayesml.linearregressionmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel.get_h_params">(bayesml.logisticregression.GenModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.get_h_params">(bayesml.metatree.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.get_h_params">(bayesml.multivariate_normal.GenModel のメソッド)</a>
@@ -789,6 +849,10 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.get_hn_params">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.get_hn_params">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.get_hn_params">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.get_hn_params">(bayesml.logisticregression.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.get_hn_params">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
@@ -818,6 +882,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.get_p_params">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.get_p_params">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.get_p_params">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.get_p_params">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.get_p_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
@@ -845,6 +913,10 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.get_params">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.get_params">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel.get_params">(bayesml.linearregressionmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel.get_params">(bayesml.logisticregression.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.get_params">(bayesml.metatree.GenModel のメソッド)</a>
 </li>
@@ -877,6 +949,10 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel">(bayesml.hiddenmarkovnormal のクラス)</a>
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel">(bayesml.linearregression のクラス)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel">(bayesml.linearregressionmixture のクラス)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel">(bayesml.logisticregression のクラス)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel">(bayesml.metatree のクラス)</a>
 </li>
@@ -922,6 +998,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.make_prediction">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.make_prediction">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.make_prediction">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.make_prediction">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.make_prediction">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
@@ -954,6 +1034,10 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#module-bayesml.hiddenmarkovnormal">bayesml.hiddenmarkovnormal</a>
 </li>
         <li><a href="bayesml.linearregression.html#module-bayesml.linearregression">bayesml.linearregression</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#module-bayesml.linearregressionmixture">bayesml.linearregressionmixture</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#module-bayesml.logisticregression">bayesml.logisticregression</a>
 </li>
         <li><a href="bayesml.metatree.html#module-bayesml.metatree">bayesml.metatree</a>
 </li>
@@ -999,6 +1083,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.pred_and_update">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.pred_and_update">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.pred_and_update">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.pred_and_update">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.pred_and_update">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
@@ -1019,6 +1107,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.predict">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.predict">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.predict">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.predict">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.predict">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
@@ -1034,6 +1126,8 @@ document.write(`
 
       <ul>
         <li><a href="bayesml.categorical.html#bayesml.categorical.LearnModel.predict_proba">(bayesml.categorical.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.predict_proba">(bayesml.logisticregression.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.predict_proba">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
@@ -1081,6 +1175,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.save_sample">(bayesml.linearregression.GenModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel.save_sample">(bayesml.linearregressionmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel.save_sample">(bayesml.logisticregression.GenModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.save_sample">(bayesml.metatree.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.save_sample">(bayesml.multivariate_normal.GenModel のメソッド)</a>
@@ -1109,6 +1207,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.set_h0_params">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.set_h0_params">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.set_h0_params">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.set_h0_params">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.set_h0_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
@@ -1136,6 +1238,10 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.set_h_params">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.set_h_params">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel.set_h_params">(bayesml.linearregressionmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel.set_h_params">(bayesml.logisticregression.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.set_h_params">(bayesml.metatree.GenModel のメソッド)</a>
 </li>
@@ -1167,6 +1273,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.set_hn_params">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.set_hn_params">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.set_hn_params">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.set_hn_params">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.set_hn_params">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
@@ -1194,6 +1304,10 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.GenModel.set_params">(bayesml.hiddenmarkovnormal.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.set_params">(bayesml.linearregression.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel.set_params">(bayesml.linearregressionmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel.set_params">(bayesml.logisticregression.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.set_params">(bayesml.metatree.GenModel のメソッド)</a>
 </li>
@@ -1229,6 +1343,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.update_posterior">(bayesml.linearregression.LearnModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.update_posterior">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.update_posterior">(bayesml.logisticregression.LearnModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.update_posterior">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.LearnModel.update_posterior">(bayesml.multivariate_normal.LearnModel のメソッド)</a>
@@ -1263,6 +1381,10 @@ document.write(`
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.GenModel.visualize_model">(bayesml.linearregression.GenModel のメソッド)</a>
 </li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.GenModel.visualize_model">(bayesml.linearregressionmixture.GenModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.GenModel.visualize_model">(bayesml.logisticregression.GenModel のメソッド)</a>
+</li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.GenModel.visualize_model">(bayesml.metatree.GenModel のメソッド)</a>
 </li>
         <li><a href="bayesml.multivariate_normal.html#bayesml.multivariate_normal.GenModel.visualize_model">(bayesml.multivariate_normal.GenModel のメソッド)</a>
@@ -1292,6 +1414,10 @@ document.write(`
         <li><a href="bayesml.hiddenmarkovnormal.html#bayesml.hiddenmarkovnormal.LearnModel.visualize_posterior">(bayesml.hiddenmarkovnormal.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.linearregression.html#bayesml.linearregression.LearnModel.visualize_posterior">(bayesml.linearregression.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.linearregressionmixture.html#bayesml.linearregressionmixture.LearnModel.visualize_posterior">(bayesml.linearregressionmixture.LearnModel のメソッド)</a>
+</li>
+        <li><a href="bayesml.logisticregression.html#bayesml.logisticregression.LearnModel.visualize_posterior">(bayesml.logisticregression.LearnModel のメソッド)</a>
 </li>
         <li><a href="bayesml.metatree.html#bayesml.metatree.LearnModel.visualize_posterior">(bayesml.metatree.LearnModel のメソッド)</a>
 </li>

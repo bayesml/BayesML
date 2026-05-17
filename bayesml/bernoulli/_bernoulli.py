@@ -88,7 +88,7 @@ class GenModel(base.Generative):
         return self
 
     def set_params(self,theta=None):
-        """Set the parameter of the sthocastic data generative model.
+        r"""Set the parameter of the sthocastic data generative model.
 
         Parameters
         ----------
@@ -193,7 +193,7 @@ class GenModel(base.Generative):
         plt.show()
 
 class LearnModel(base.Posterior,base.PredictiveMixin):
-    """The posterior distribution and the predictive distribution.
+    r"""The posterior distribution and the predictive distribution.
 
     Parameters
     ----------

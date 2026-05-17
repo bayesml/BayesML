@@ -1,0 +1,1306 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-17 22:32+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../bayesml.logisticregression.rst:2
+msgid "bayesml.logisticregression package"
+msgstr ""
+
+#: ../../bayesml.logisticregression.rst:7
+msgid "Module contents"
+msgstr ""
+
+#: bayesml.logisticregression:1 of
+msgid "The logistic regression model with the Gaussian prior distribution."
+msgstr ""
+
+#: bayesml.logisticregression:3 of
+msgid "The stochastic data generative model is as follows:"
+msgstr ""
+
+#: bayesml.logisticregression:5 of
+msgid ":math:`d \\in \\mathbb N`: a dimension"
+msgstr ""
+
+#: bayesml.logisticregression:6 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{x} \\in \\mathbb{R}^d`: an explanatory variable. If "
+"you consider an intercept term, it should be included as one of the "
+"elements of :math:`\\boldsymbol{x}`."
+msgstr ""
+
+#: bayesml.logisticregression:7 of
+#, python-brace-format
+msgid ":math:`y\\in\\{ 0, 1\\}`: an objective variable"
+msgstr ""
+
+#: bayesml.logisticregression:8 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{w}\\in\\mathbb{R}^{d}`: a parameter"
+msgstr ""
+
+#: bayesml.logisticregression:10 of
+msgid ""
+"p(y|\\boldsymbol{x},\\boldsymbol{w}) = \\sigma( \\boldsymbol{w}^\\top "
+"\\boldsymbol{x} )^y \\left\\{ 1 - \\sigma( \\boldsymbol{w}^\\top "
+"\\boldsymbol{x} ) \\right\\}^{1 - y},\n"
+"\n"
+msgstr ""
+
+#: bayesml.logisticregression:13 of
+msgid ""
+"where :math:`\\sigma(\\cdot)` is defined as follows (called a sigmoid "
+"function):"
+msgstr ""
+
+#: bayesml.logisticregression:15 of
+#, python-brace-format
+msgid ""
+"\\sigma(a) = \\frac{1}{1+\\exp(-a)}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.logisticregression:18 of
+msgid "The prior distribution is as follows:"
+msgstr ""
+
+#: bayesml.logisticregression:20 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{\\mu}_0 \\in \\mathbb{R}^d`: a hyperparameter"
+msgstr ""
+
+#: bayesml.logisticregression:21 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\Lambda}_0 \\in \\mathbb{R}^{d\\times d}`: a "
+"hyperparameter (a positive definite matrix)"
+msgstr ""
+
+#: bayesml.logisticregression:23 of
+msgid ""
+"p(\\boldsymbol{w}) &= \\mathcal{N}(\\boldsymbol{w}|\\boldsymbol{\\mu}_0, "
+"\\boldsymbol{\\Lambda}_0^{-1})\\\\\n"
+"&= \\frac{|\\boldsymbol{\\Lambda}_0|^{1/2}}{(2 \\pi)^{d/2}} \\exp "
+"\\left\\{ -\\frac{1}{2} (\\boldsymbol{w} - \\boldsymbol{\\mu}_0)^\\top "
+"\\boldsymbol{\\Lambda}_0 (\\boldsymbol{w} - \\boldsymbol{\\mu}_0) "
+"\\right\\}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.logisticregression:27 of
+msgid ""
+"The apporoximate posterior distribution in the :math:`t`-th iteration of "
+"a variational Bayesian method is as follows:"
+msgstr ""
+
+#: bayesml.logisticregression:29 of
+msgid ":math:`n \\in \\mathbb N`: a sample size"
+msgstr ""
+
+#: bayesml.logisticregression:30 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
+", \\boldsymbol{x}_n) \\in \\mathbb{R}^{n \\times d}`"
+msgstr ""
+
+#: bayesml.logisticregression:31 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{y}^n = (y_1, y_2, \\dots , y_n) \\in \\{0,1\\}^n`"
+msgstr ""
+
+#: bayesml.logisticregression:32 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{\\mu}_n^{(t)}\\in \\mathbb{R}^d`: a hyperparameter"
+msgstr ""
+
+#: bayesml.logisticregression:33 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\Lambda}_n^{(t)} \\in \\mathbb{R}^{d\\times d}`: a "
+"hyperparameter (a positive definite matrix)"
+msgstr ""
+
+#: bayesml.logisticregression:35 of
+msgid ""
+"q(\\boldsymbol{w}) &= "
+"\\mathcal{N}(\\boldsymbol{w}|\\boldsymbol{\\mu}_n^{(t)}, "
+"(\\boldsymbol{\\Lambda}_n^{(t)})^{-1})\\\\\n"
+"&= \\frac{|\\boldsymbol{\\Lambda}_n^{(t)}|^{1/2}}{(2 \\pi)^{d/2}} \\exp "
+"\\left\\{ -\\frac{1}{2} (\\boldsymbol{w} - "
+"\\boldsymbol{\\mu}_n^{(t)})^\\top \\boldsymbol{\\Lambda}_n^{(t)} "
+"(\\boldsymbol{w} - \\boldsymbol{\\mu}_n^{(t)}) \\right\\},\n"
+"\n"
+msgstr ""
+
+#: bayesml.logisticregression:39 of
+msgid "where the updating rules of the hyperparameters are as follows:"
+msgstr ""
+
+#: bayesml.logisticregression:41 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\xi}^{(t)} = (\\xi_{1}^{(t)}, \\xi_{2}^{(t)}, "
+"\\dots, \\xi_{n}^{(t)}) \\in \\mathbb{R}_{\\geq 0}^n`: a variational "
+"parameter"
+msgstr ""
+
+#: bayesml.logisticregression:43 of
+msgid ""
+"\\boldsymbol{\\Lambda}_n^{(t+1)} &= \\boldsymbol{\\Lambda}_0 + 2 "
+"\\sum_{i=1}^{n} \\lambda(\\xi_i^{(t)}) \\boldsymbol{x}_i "
+"\\boldsymbol{x}_i^\\top,\\\\\n"
+"\\boldsymbol{\\mu}_n^{(t+1)} &= "
+"\\left(\\boldsymbol{\\Lambda}_n^{(t+1)}\\right)^{-1} "
+"\\left(\\boldsymbol{\\Lambda}_0 \\boldsymbol{\\mu}_0 + \\sum_{i=1}^{n} "
+"(y_i - 1/2) \\boldsymbol{x}_{i} \\right),\\\\\n"
+"\\xi_i^{(t+1)} &= \\left[ \\boldsymbol{x}_{i}^\\top \\left\\{ "
+"\\left(\\boldsymbol{\\Lambda}_n^{(t+1)} \\right)^{-1} + "
+"\\boldsymbol{\\mu}_n^{(t+1)} \\boldsymbol{\\mu}_n^{(t+1)\\top} \\right\\}"
+" \\boldsymbol{x}_{i} \\right]^{1/2}, \n"
+"\n"
+msgstr ""
+
+#: bayesml.logisticregression:48 of
+msgid "where :math:`\\lambda(\\cdot)` is defined as follows:"
+msgstr ""
+
+#: bayesml.logisticregression:50 of
+msgid ""
+"\\lambda(\\xi) = \\frac{1}{2\\xi} \\left\\{ \\sigma(\\xi) - \\frac{1}{2} "
+"\\right\\}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.logisticregression:53 of
+msgid "The approximate predictive distribution is as follows:"
+msgstr ""
+
+#: bayesml.logisticregression:55 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{x}_{n+1}\\in \\mathbb{R}^d`: a new data point"
+msgstr ""
+
+#: bayesml.logisticregression:56 of
+#, python-brace-format
+msgid ":math:`y_{n+1}\\in \\{ 0, 1\\}`: a new objective variable"
+msgstr ""
+
+#: bayesml.logisticregression:58 of
+msgid ""
+"p(y_{n+1} | \\boldsymbol{x}^n, \\boldsymbol{y}^n, \\boldsymbol{x}_{n+1} )"
+" = \\sigma \\left( \\kappa(\\sigma_\\mathrm{p}^2) \\mu_\\mathrm{p} "
+"\\right)^y \\left\\{ 1 - \\sigma \\left( \\kappa(\\sigma_\\mathrm{p}^2) "
+"\\mu_\\mathrm{p} \\right) \\right\\}^{1 - y},\n"
+"\n"
+msgstr ""
+
+#: bayesml.logisticregression:61 of
+#, python-brace-format
+msgid ""
+"where :math:`\\sigma_\\mathrm{p}^2`, :math:`\\mu_\\mathrm{p}` are "
+"obtained from the hyperparameters of the approximate posterior "
+"distribution as follows:"
+msgstr ""
+
+#: bayesml.logisticregression:63 of
+#, python-brace-format
+msgid ""
+"\\sigma_\\mathrm{p}^2 &= \\boldsymbol{x}_{n+1}^\\top "
+"(\\boldsymbol{\\Lambda}_n^{(t)})^{-1} \\boldsymbol{x}_{n+1} , \\\\\n"
+"\\mu_\\mathrm{p} &= \\boldsymbol{x}_{n+1}^\\top "
+"\\boldsymbol{\\mu}_n^{(t)}, \n"
+"\n"
+msgstr ""
+
+#: bayesml.logisticregression:67 of
+msgid "and :math:`\\kappa(\\cdot)` is defined as"
+msgstr ""
+
+#: bayesml.logisticregression:69 of
+#, python-brace-format
+msgid ""
+"\\kappa(\\sigma^2) = (1 + \\pi \\sigma^2 / 8)^{-1/2}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:2 of
+msgid "The stochastic data generative model and the prior distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample
+#: bayesml.logisticregression._logisticregression.GenModel.set_h_params
+#: bayesml.logisticregression._logisticregression.GenModel.set_params
+#: bayesml.logisticregression._logisticregression.GenModel.visualize_model
+#: bayesml.logisticregression._logisticregression.LearnModel
+#: bayesml.logisticregression._logisticregression.LearnModel.calc_pred_dist
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params
+#: bayesml.logisticregression._logisticregression.LearnModel.fit
+#: bayesml.logisticregression._logisticregression.LearnModel.make_prediction
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update
+#: bayesml.logisticregression._logisticregression.LearnModel.predict
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba
+#: bayesml.logisticregression._logisticregression.LearnModel.set_h0_params
+#: bayesml.logisticregression._logisticregression.LearnModel.set_hn_params
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior
+#: of
+msgid "Parameters"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:7
+#: bayesml.logisticregression._logisticregression.LearnModel:7 of
+msgid "**c_degree**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:-1
+#: bayesml.logisticregression._logisticregression.LearnModel:-1 of
+msgid "int"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:8
+#: bayesml.logisticregression._logisticregression.LearnModel:8 of
+msgid "a positive integer."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:10
+#: bayesml.logisticregression._logisticregression.GenModel.set_params:7 of
+msgid "**w_vec**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:-1
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:-1
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:-1
+#: bayesml.logisticregression._logisticregression.GenModel.set_h_params:-1
+#: bayesml.logisticregression._logisticregression.GenModel.set_params:-1
+#: bayesml.logisticregression._logisticregression.LearnModel:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.set_h0_params:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.set_hn_params:-1
+#: of
+msgid "numpy ndarray, optional"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:11
+#: bayesml.logisticregression._logisticregression.GenModel:14
+#: bayesml.logisticregression._logisticregression.LearnModel:11 of
+msgid "a vector of real numbers, by default [0.0, 0.0, ... , 0.0]"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:13
+#: bayesml.logisticregression._logisticregression.GenModel.set_h_params:7 of
+msgid "**h_mu_vec**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:16
+#: bayesml.logisticregression._logisticregression.GenModel.set_h_params:10 of
+msgid "**h_lambda_mat**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:17
+#: bayesml.logisticregression._logisticregression.LearnModel:14 of
+msgid "a positive definate matrix, by default the identity matrix"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:19 of
+msgid "**seed**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:-1 of
+#, python-brace-format
+msgid "{None, int}, optional"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:20 of
+msgid "A seed to initialize numpy.random.default_rng(), by default None"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:25
+#: bayesml.logisticregression._logisticregression.LearnModel:40 of
+msgid "Methods"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`gen_params <bayesml.logisticregression.GenModel.gen_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_params:2
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Generate the parameter from the prior distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`gen_sample <bayesml.logisticregression.GenModel.gen_sample>`\\ "
+"\\(\\[sample\\_size\\, x\\, constant\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:2
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Generate a sample from the stochastic data generative model."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.logisticregression.GenModel.get_constants>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_constants:2
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Get constants of GenModel."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_h_params "
+"<bayesml.logisticregression.GenModel.get_h_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_h_params:2
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Get the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_params <bayesml.logisticregression.GenModel.get_params>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_params:2
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Get the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_h_params "
+"<bayesml.logisticregression.GenModel.load_h_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Load the hyperparameters to h_params."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_params <bayesml.logisticregression.GenModel.load_params>`\\"
+" \\(filename\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Load the parameters saved by ``save_params``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_h_params "
+"<bayesml.logisticregression.GenModel.save_h_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Save the hyperparameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_params <bayesml.logisticregression.GenModel.save_params>`\\"
+" \\(filename\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Save the parameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_sample <bayesml.logisticregression.GenModel.save_sample>`\\"
+" \\(filename\\[\\, sample\\_size\\, x\\, constant\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:2
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Save the generated sample as NumPy ``.npz`` format."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_h_params "
+"<bayesml.logisticregression.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_mu\\_vec\\, h\\_lambda\\_mat\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.set_h_params:2
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Set the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_params <bayesml.logisticregression.GenModel.set_params>`\\ "
+"\\(\\[w\\_vec\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.set_params:2
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Set the parameter of the sthocastic data generative model."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`visualize_model "
+"<bayesml.logisticregression.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_size\\, constant\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.visualize_model:2
+#: bayesml.logisticregression._logisticregression.GenModel:53:<autosummary>:1
+#: of
+msgid "Visualize the stochastic data generative model and generated samples."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample
+#: bayesml.logisticregression._logisticregression.GenModel.get_constants
+#: bayesml.logisticregression._logisticregression.GenModel.get_h_params
+#: bayesml.logisticregression._logisticregression.GenModel.get_params
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params
+#: bayesml.logisticregression._logisticregression.LearnModel.fit
+#: bayesml.logisticregression._logisticregression.LearnModel.get_constants
+#: bayesml.logisticregression._logisticregression.LearnModel.get_h0_params
+#: bayesml.logisticregression._logisticregression.LearnModel.get_hn_params
+#: bayesml.logisticregression._logisticregression.LearnModel.get_p_params
+#: bayesml.logisticregression._logisticregression.LearnModel.make_prediction
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update
+#: bayesml.logisticregression._logisticregression.LearnModel.predict
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba of
+msgid "Returns"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_constants:10
+#: bayesml.logisticregression._logisticregression.LearnModel.get_constants:10
+#: of
+msgid "**constants**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_constants:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.get_constants:-1
+#: of
+#, python-brace-format
+msgid "dict of {str: int}"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_constants:11
+#: bayesml.logisticregression._logisticregression.LearnModel.get_constants:11
+#: of
+msgid "``\"c_degree\"`` : the value of ``self.c_degree``"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.set_params:8 of
+msgid "a vector of real numbers, by default None"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.set_h_params:8
+#: bayesml.logisticregression._logisticregression.LearnModel.set_h0_params:10
+#: bayesml.logisticregression._logisticregression.LearnModel.set_hn_params:10
+#: of
+msgid "a vector of real numbers, by default None."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.set_h_params:11
+#: bayesml.logisticregression._logisticregression.LearnModel.set_h0_params:13
+#: bayesml.logisticregression._logisticregression.LearnModel.set_hn_params:13
+#: of
+msgid "a positive definate matrix, by default None."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_params:10 of
+msgid "**params**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_h_params:-1
+#: bayesml.logisticregression._logisticregression.GenModel.get_params:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.get_h0_params:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.get_hn_params:-1
+#: of
+#, python-brace-format
+msgid "dict of {str: float or numpy ndarray}"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_params:11 of
+msgid "``\"w_vec\"`` : The value of ``self.w_vec``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_h_params:10 of
+msgid "**h_params**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_h_params:11 of
+msgid "``\"h_mu_vec\"`` : The value of ``self.h_mu_vec``"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.get_h_params:12 of
+msgid "``\"h_lambda_mat\"`` : The value of ``self.h_lambda_mat``"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_params:4 of
+msgid "The generated vaule is set at ``self.w_vec``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:4
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:4 of
+msgid ""
+"If x is given, it will be used for explanatory variables as it is  "
+"(independent of the other options: sample_size and constant)."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:7
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:7 of
+msgid ""
+"If x is not given, it will be generated from i.i.d. standard normal "
+"distribution. The size of the generated sample is defined by sample_size."
+" If constant is True, the last element of the generated explanatory "
+"variables will be overwritten by 1.0."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:13
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:19
+#: bayesml.logisticregression._logisticregression.GenModel.visualize_model:7 of
+msgid "**sample_size**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:-1
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:-1
+#: bayesml.logisticregression._logisticregression.GenModel.visualize_model:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:-1
+#: of
+msgid "int, optional"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:14
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:20 of
+msgid "A positive integer, by default ``None``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:16
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:26
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:22
+#: bayesml.logisticregression._logisticregression.LearnModel.calc_pred_dist:7
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:12
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:7
+#: bayesml.logisticregression._logisticregression.LearnModel.predict:11
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba:11
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:7
+#: of
+msgid "**x**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:17
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:23 of
+msgid ""
+"float array whose shape is ``(sample_size,c_degree)``, by default "
+"``None``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:19
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:25
+#: bayesml.logisticregression._logisticregression.GenModel.visualize_model:10
+#: of
+msgid "**constant**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:-1
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:-1
+#: bayesml.logisticregression._logisticregression.GenModel.visualize_model:-1
+#: of
+msgid "bool, optional"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:20
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:26
+#: bayesml.logisticregression._logisticregression.GenModel.visualize_model:11
+#: of
+msgid "A boolean value, by default ``True``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:-1
+#: bayesml.logisticregression._logisticregression.LearnModel:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.calc_pred_dist:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.make_prediction:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.predict:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:-1
+#: of
+msgid "numpy ndarray"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:27 of
+msgid "float array whose shape is ``(sample_size,c_degree)``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:29
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:16
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:11
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:11
+#: of
+msgid "**y**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.gen_sample:30 of
+msgid "1 dimensional int array whose size is ``sample_size``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:11 of
+msgid "The generated sample is saved as a NpzFile with keyword: \"x\", \"y\"."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:15 of
+msgid "**filename**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:-1 of
+msgid "str"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:16 of
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.save_sample:40 of
+msgid ":obj:`numpy.savez_compressed`"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.visualize_model:8 of
+msgid "A positive integer, by default 100"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.GenModel.visualize_model:26
+#: bayesml.logisticregression._logisticregression.LearnModel.visualize_posterior:19
+#: of
+msgid "Examples"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:2 of
+msgid "The posterior distribution and the predictive distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:10
+#: bayesml.logisticregression._logisticregression.LearnModel.set_h0_params:9 of
+msgid "**h0_mu_vec**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:13
+#: bayesml.logisticregression._logisticregression.LearnModel.set_h0_params:12
+#: of
+msgid "**h0_lambda_mat**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel of
+msgid "Attributes"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:18
+#: bayesml.logisticregression._logisticregression.LearnModel.set_hn_params:9 of
+msgid "**hn_mu_vec**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:19 of
+msgid "a vector of real numbers"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:21
+#: bayesml.logisticregression._logisticregression.LearnModel.set_hn_params:12
+#: of
+msgid "**hn_lambda_mat**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:22
+#: bayesml.logisticregression._logisticregression.LearnModel:25 of
+msgid "a positive definate matrix"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:24 of
+msgid "**hn_lambda_mat_inv**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:27 of
+msgid "**xis**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:28
+#: bayesml.logisticregression._logisticregression.LearnModel:37 of
+msgid "real numbers"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:30 of
+msgid "**vl**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:-1 of
+msgid "float"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:31 of
+msgid "real number"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:33 of
+msgid "**p_sigmas_sq**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:34 of
+msgid "positive real numbers"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:36 of
+msgid "**p_mus**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`calc_pred_dist "
+"<bayesml.logisticregression.LearnModel.calc_pred_dist>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.calc_pred_dist:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Calculate the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.logisticregression.LearnModel.estimate_params>`\\ "
+"\\(\\[loss\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+"Estimate the parameter of the stochastic data generative model under the "
+"given criterion."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`fit <bayesml.logisticregression.LearnModel.fit>`\\ \\(x\\, "
+"y\\[\\, max\\_itr\\, tolerance\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Fit the model to the data."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.logisticregression.LearnModel.get_constants>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_constants:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Get constants of LearnModel."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_h0_params "
+"<bayesml.logisticregression.LearnModel.get_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_h0_params:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+"Get the initial values of the hyperparameters of the posterior "
+"distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_hn_params "
+"<bayesml.logisticregression.LearnModel.get_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_hn_params:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Get the hyperparameters of the posterior distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_p_params "
+"<bayesml.logisticregression.LearnModel.get_p_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_p_params:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Get the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_h0_params "
+"<bayesml.logisticregression.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Load the hyperparameters to h0_params."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_hn_params "
+"<bayesml.logisticregression.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Load the hyperparameters to hn_params."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.logisticregression.LearnModel.make_prediction>`\\ "
+"\\(\\[loss\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.make_prediction:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Predict a new data point under the given criterion."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.logisticregression.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.logisticregression.LearnModel.pred_and_update>`\\ \\(x\\, "
+"y\\[\\, loss\\, max\\_itr\\, tolerance\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:2
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+"Update the hyperparameters of the posterior distribution using traning "
+"data."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`predict <bayesml.logisticregression.LearnModel.predict>`\\ "
+"\\(x\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.predict:2
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Predict the data."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`predict_proba "
+"<bayesml.logisticregression.LearnModel.predict_proba>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.logisticregression.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_h0_params "
+"<bayesml.logisticregression.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_hn_params "
+"<bayesml.logisticregression.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_h0_params "
+"<bayesml.logisticregression.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_mu\\_vec\\, h0\\_lambda\\_mat\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.set_h0_params:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Set initial values of the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_hn_params "
+"<bayesml.logisticregression.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_mu\\_vec\\, hn\\_lambda\\_mat\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.set_hn_params:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Set updated values of the hyperparameter of the posterior distribution."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.logisticregression.LearnModel.update_posterior>`\\ \\(x\\, "
+"y\\[\\, max\\_itr\\, tolerance\\]\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.logisticregression.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.visualize_posterior:2
+#: bayesml.logisticregression._logisticregression.LearnModel:76:<autosummary>:1
+#: of
+msgid "Visualize the posterior distribution for the parameter."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.set_h0_params:4 of
+msgid ""
+"Note that the parameters of the predictive distribution are also "
+"calculated from  ``self.h0_mu_vec`` and ``self.h0_lambda_mat``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_h0_params:10
+#: of
+msgid "**h0_params**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_h0_params:11
+#: of
+msgid "``\"h0_mu_vec\"`` : The value of ``self.h0_mu_vec``"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_h0_params:12
+#: of
+msgid "``\"h0_lambda_mat\"`` : The value of ``self.h0_lambda_mat``"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.set_hn_params:4 of
+msgid ""
+"Note that the parameters of the predictive distribution are also "
+"calculated from  ``self.hn_mu_vec`` and ``self.hn_lambda_mat``."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_hn_params:10
+#: of
+msgid "**hn_params**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_hn_params:11
+#: of
+msgid "``\"hn_mu_vec\"`` : The value of ``self.hn_mu_vec``"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_hn_params:12
+#: of
+msgid "``\"hn_lambda_mat\"`` : The value of ``self.hn_lambda_mat``"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.calc_pred_dist:8
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:13
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:8
+#: bayesml.logisticregression._logisticregression.LearnModel.predict:12
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba:12
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:8
+#: of
+msgid ""
+"float array. The size along the last dimension must conincides with the "
+"c_degree. If you want to use a constant term, it should be included in x."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:17
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:12
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:12
+#: of
+msgid "float array."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:19
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:18
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:14
+#: of
+msgid "**max_itr**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:20
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:19
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:15
+#: of
+msgid "maximum number of iterations, by default 1000"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:22
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:21
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:17
+#: of
+msgid "**tolerance**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:-1
+#: of
+msgid "float, optional"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:23
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:22
+#: bayesml.logisticregression._logisticregression.LearnModel.update_posterior:18
+#: of
+msgid "convergence criterion of variational lower bound, by default 1.0E-8"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params:7
+#: bayesml.logisticregression._logisticregression.LearnModel.make_prediction:7
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:14
+#: of
+msgid "**loss**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.make_prediction:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:-1
+#: of
+msgid "str, optional"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params:8
+#: of
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params:15
+#: of
+msgid "**w_vec_hat**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params:-1
+#: of
+msgid "numpy ndarray or rv_frozen"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params:16
+#: of
+msgid ""
+"The estimated value under the given loss function. If it is not exist, "
+"`None` will be returned. If the loss function is \"KL\", the posterior "
+"distribution itself will be returned as rv_frozen object of scipy.stats."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params:29
+#: of
+msgid ":obj:`scipy.stats.rv_continuous`"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.estimate_params:31
+#: of
+msgid ":obj:`scipy.stats.rv_discrete`"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_p_params:10 of
+msgid "**p_params**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_p_params:-1 of
+#, python-brace-format
+msgid "dict of {str: numpy ndarray}"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_p_params:11 of
+msgid "``\"p_sigmas_sq\"`` : The value of ``self.p_sigmas_sq``"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.get_p_params:12 of
+msgid "``\"p_mus\"`` : The value of ``self.p_mus``"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.make_prediction:8
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:15
+#: of
+msgid ""
+"Loss function underlying the Bayes risk function, by default \"0-1\". "
+"This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.make_prediction:15
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:28
+#: of
+msgid "**Predicted_values**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.make_prediction:16
+#: bayesml.logisticregression._logisticregression.LearnModel.pred_and_update:29
+#: of
+msgid ""
+"The predicted values under the given loss function.  If the loss function"
+" is \"KL\", the predictive distribution itself will be returned as "
+"numpy.ndarray."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:4
+#: bayesml.logisticregression._logisticregression.LearnModel.predict:4
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba:4 of
+msgid "This function is a wrapper of the following functions:"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:29 of
+msgid "**self**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:-1 of
+msgid "LearnModel"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.fit:30 of
+msgid "The fitted model."
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.predict:19
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba:19
+#: of
+msgid "**predicted_values**"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.predict:-1
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba:-1
+#: of
+msgid "numpy.ndarray"
+msgstr ""
+
+#: bayesml.logisticregression._logisticregression.LearnModel.predict:20
+#: bayesml.logisticregression._logisticregression.LearnModel.predict_proba:20
+#: of
+msgid ""
+"The predicted values under the 0-1 loss function.  The size of the "
+"predicted values is the same as the sample size of x."
+msgstr ""
+

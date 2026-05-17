@@ -191,6 +191,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesml.normal package</a></li>
@@ -624,7 +626,7 @@ m_n &amp;= \frac{\kappa_0 m_0 + n \bar{x}}{\kappa_0 + n}, \\
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>mu</strong><span class="classifier">float, optional</span></dt><dd><p>実数 <span class="math notranslate nohighlight">\(mu \in \mathbb{R}\)</span>。デフォルトはNoneです。</p>
+<dt><strong>mu</strong><span class="classifier">float, optional</span></dt><dd><p>実数 <span class="math notranslate nohighlight">\(\mu \in \mathbb{R}\)</span>。デフォルトはNoneです。</p>
 </dd>
 <dt><strong>tau</strong><span class="classifier">float, optional</span></dt><dd><p>正の実数、デフォルトではNone</p>
 </dd>
@@ -641,7 +643,7 @@ m_n &amp;= \frac{\kappa_0 m_0 + n \bar{x}}{\kappa_0 + n}, \\
 <dt class="field-odd">返り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict of {str:float}</span></dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mu&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.mu``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mu&quot;</span></code>：<code class="docutils literal notranslate"><span class="pre">self.mu</span></code> の値</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;tau&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.tau</span></code> の値</p></li>
 </ul>
 </dd>

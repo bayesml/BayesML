@@ -6,19 +6,18 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: BayesML\n"
+"Project-Id-Version:  BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 09:23+0900\n"
+"POT-Creation-Date: 2025-05-29 18:24+0900\n"
 "PO-Revision-Date: 2026-03-29 09:23+0900\n"
 "Last-Translator: \n"
-"Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
-"X-Generator: Poedit 3.9\n"
 
 #: ../../bayesml.multivariate_normal.rst:2
 msgid "bayesml.multivariate\\_normal package"
@@ -30,7 +29,8 @@ msgstr "モジュール内容"
 
 #: bayesml.multivariate_normal:1 of
 msgid ""
-"The multivariate normal distribution with normal-wishart prior distribution."
+"The multivariate normal distribution with normal-wishart prior "
+"distribution."
 msgstr "正規・ウィシャート事前分布を持つ多変量正規分布。"
 
 #: bayesml.multivariate_normal:3 of
@@ -55,52 +55,52 @@ msgstr ":math:`\\boldsymbol{\\mu} \\in \\mathbb{R}^D`: パラメータ"
 #: bayesml.multivariate_normal:8 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{\\Lambda} \\in \\mathbb{R}^{D\\times D}` : a parameter (a "
-"positive definite matrix)"
+":math:`\\boldsymbol{\\Lambda} \\in \\mathbb{R}^{D\\times D}` : a "
+"parameter (a positive definite matrix)"
 msgstr ""
-":math:`\\boldsymbol{\\Lambda} \\in \\mathbb{R}^{D\\times D}` : パラメータ（正"
-"定値行列）"
+":math:`\\boldsymbol{\\Lambda} \\in \\mathbb{R}^{D\\times D}` : "
+"パラメータ（正定値行列）"
 
 #: bayesml.multivariate_normal:9 of
 #, python-brace-format
 msgid ""
-":math:`| \\boldsymbol{\\Lambda} | \\in \\mathbb{R}`: the determinant "
-"of :math:`\\boldsymbol{\\Lambda}`"
+":math:`| \\boldsymbol{\\Lambda} | \\in \\mathbb{R}`: the determinant of "
+":math:`\\boldsymbol{\\Lambda}`"
 msgstr ""
-":math:`| \\boldsymbol{\\Lambda} | \\in \\mathbb{R}"
-"`: :math:`\\boldsymbol{\\Lambda}`の行列式"
+":math:`| \\boldsymbol{\\Lambda} | \\in \\mathbb{R}`: "
+":math:`\\boldsymbol{\\Lambda}`の行列式"
 
 #: bayesml.multivariate_normal:11 of
 msgid ""
 "p(\\boldsymbol{x} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}) &= "
-"\\mathcal{N}(\\boldsymbol{x}|\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}^{-1}) "
-"\\\\\n"
-"&= \\frac{| \\boldsymbol{\\Lambda} |^{1/2}}{(2\\pi)^{D/2}} \\exp \\left\\{ -"
-"\\frac{1}{2}(\\boldsymbol{x}-\\boldsymbol{\\mu})^\\top \\boldsymbol{\\Lambda} "
-"(\\boldsymbol{x}-\\boldsymbol{\\mu}) \\right\\},\n"
+"\\mathcal{N}(\\boldsymbol{x}|\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}^{-1})"
+" \\\\\n"
+"&= \\frac{| \\boldsymbol{\\Lambda} |^{1/2}}{(2\\pi)^{D/2}} \\exp "
+"\\left\\{ -\\frac{1}{2}(\\boldsymbol{x}-\\boldsymbol{\\mu})^\\top "
+"\\boldsymbol{\\Lambda} (\\boldsymbol{x}-\\boldsymbol{\\mu}) \\right\\},\n"
 "\n"
 msgstr ""
 "p(\\boldsymbol{x} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}) &= "
-"\\mathcal{N}(\\boldsymbol{x}|\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}^{-1}) "
-"\\\\\n"
-"&= \\frac{| \\boldsymbol{\\Lambda} |^{1/2}}{(2\\pi)^{D/2}} \\exp \\left\\{ -"
-"\\frac{1}{2}(\\boldsymbol{x}-\\boldsymbol{\\mu})^\\top \\boldsymbol{\\Lambda} "
-"(\\boldsymbol{x}-\\boldsymbol{\\mu}) \\right\\},\n"
+"\\mathcal{N}(\\boldsymbol{x}|\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}^{-1})"
+" \\\\\n"
+"&= \\frac{| \\boldsymbol{\\Lambda} |^{1/2}}{(2\\pi)^{D/2}} \\exp "
+"\\left\\{ -\\frac{1}{2}(\\boldsymbol{x}-\\boldsymbol{\\mu})^\\top "
+"\\boldsymbol{\\Lambda} (\\boldsymbol{x}-\\boldsymbol{\\mu}) \\right\\},\n"
 "\n"
 
 #: bayesml.multivariate_normal:15 of
 #, python-brace-format
 msgid ""
-"\\mathbb{E} [\\boldsymbol{x} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}] &= "
-"\\boldsymbol{\\mu}, \\\\\n"
-"\\mathrm{Cov} [\\boldsymbol{x} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}] "
-"&= \\boldsymbol{\\Lambda}^{-1}.\n"
+"\\mathbb{E} [\\boldsymbol{x} | \\boldsymbol{\\mu}, "
+"\\boldsymbol{\\Lambda}] &= \\boldsymbol{\\mu}, \\\\\n"
+"\\mathrm{Cov} [\\boldsymbol{x} | \\boldsymbol{\\mu}, "
+"\\boldsymbol{\\Lambda}] &= \\boldsymbol{\\Lambda}^{-1}.\n"
 "\n"
 msgstr ""
-"\\mathbb{E} [\\boldsymbol{x} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}] &= "
-"\\boldsymbol{\\mu}, \\\\\n"
-"\\mathrm{Cov} [\\boldsymbol{x} | \\boldsymbol{\\mu}, \\boldsymbol{\\Lambda}] "
-"&= \\boldsymbol{\\Lambda}^{-1}.\n"
+"\\mathbb{E} [\\boldsymbol{x} | \\boldsymbol{\\mu}, "
+"\\boldsymbol{\\Lambda}] &= \\boldsymbol{\\mu}, \\\\\n"
+"\\mathrm{Cov} [\\boldsymbol{x} | \\boldsymbol{\\mu}, "
+"\\boldsymbol{\\Lambda}] &= \\boldsymbol{\\Lambda}^{-1}.\n"
 "\n"
 
 #: bayesml.multivariate_normal:19 of
@@ -120,17 +120,14 @@ msgstr ":math:`\\kappa_0 \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 #: bayesml.multivariate_normal:23 of
 #, python-brace-format
 msgid ":math:`\\nu_0 \\in \\mathbb{R}`: a hyperparameter (:math:`\\nu_0 > D-1`)"
-msgstr ""
-":math:`\\nu_0 \\in \\mathbb{R}`: ハイパーパラメータ（:math:`\\nu_0 > D-1`）"
+msgstr ":math:`\\nu_0 \\in \\mathbb{R}`: ハイパーパラメータ（:math:`\\nu_0 > D-1`）"
 
 #: bayesml.multivariate_normal:24 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{W}_0 \\in \\mathbb{R}^{D\\times D}`: a hyperparameter (a "
-"positive definite matrix)"
-msgstr ""
-":math:`\\boldsymbol{W}_0 \\in \\mathbb{R}^{D\\times D}`: ハイパーパラメータ"
-"（正定値行列）"
+":math:`\\boldsymbol{W}_0 \\in \\mathbb{R}^{D\\times D}`: a hyperparameter"
+" (a positive definite matrix)"
+msgstr ":math:`\\boldsymbol{W}_0 \\in \\mathbb{R}^{D\\times D}`: ハイパーパラメータ（正定値行列）"
 
 #: bayesml.multivariate_normal:25 of
 #, python-brace-format
@@ -143,42 +140,48 @@ msgstr ":math:`\\Gamma (\\cdot)`: ガンマ関数"
 
 #: bayesml.multivariate_normal:28 of
 msgid ""
-"p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}) &= \\mathcal{N}"
-"(\\boldsymbol{\\mu}|\\boldsymbol{m}_0,(\\kappa_0 \\boldsymbol{\\Lambda})^{-1})"
-"\\mathcal{W}(\\boldsymbol{\\Lambda}|\\boldsymbol{W}_0, \\nu_0) \\\\\n"
-"&= \\left( \\frac{\\kappa_0}{2\\pi} \\right)^{D/2} |\\boldsymbol{\\Lambda}|"
-"^{1/2} \\exp \\left\\{ -\\frac{\\kappa_0}{2}(\\boldsymbol{\\mu}-"
-"\\boldsymbol{m}_0)^\\top \\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-"
-"\\boldsymbol{m}_0) \\right\\} \\\\\n"
-"&\\qquad \\times B(\\boldsymbol{W}_0, \\nu_0) | \\boldsymbol{\\Lambda} |"
-"^{(\\nu_0 - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\"
-"{ \\boldsymbol{W}_0^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\\\\\n"
+"p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}) &= "
+"\\mathcal{N}(\\boldsymbol{\\mu}|\\boldsymbol{m}_0,(\\kappa_0 "
+"\\boldsymbol{\\Lambda})^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}|\\boldsymbol{W}_0,"
+" \\nu_0) \\\\\n"
+"&= \\left( \\frac{\\kappa_0}{2\\pi} \\right)^{D/2} "
+"|\\boldsymbol{\\Lambda}|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_0}{2}(\\boldsymbol{\\mu}-\\boldsymbol{m}_0)^\\top "
+"\\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-\\boldsymbol{m}_0) \\right\\} "
+"\\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_0, \\nu_0) | \\boldsymbol{\\Lambda} "
+"|^{(\\nu_0 - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ "
+"\\boldsymbol{W}_0^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\\\\\n"
 "\n"
 msgstr ""
-"p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}) &= \\mathcal{N}"
-"(\\boldsymbol{\\mu}|\\boldsymbol{m}_0,(\\kappa_0 \\boldsymbol{\\Lambda})^{-1})"
-"\\mathcal{W}(\\boldsymbol{\\Lambda}|\\boldsymbol{W}_0, \\nu_0) \\\\\n"
-"&= \\left( \\frac{\\kappa_0}{2\\pi} \\right)^{D/2} |\\boldsymbol{\\Lambda}|"
-"^{1/2} \\exp \\left\\{ -\\frac{\\kappa_0}{2}(\\boldsymbol{\\mu}-"
-"\\boldsymbol{m}_0)^\\top \\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-"
-"\\boldsymbol{m}_0) \\right\\} \\\\\n"
-"&\\qquad \\times B(\\boldsymbol{W}_0, \\nu_0) | \\boldsymbol{\\Lambda} |"
-"^{(\\nu_0 - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\"
-"{ \\boldsymbol{W}_0^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\\\\\n"
+"p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda}) &= "
+"\\mathcal{N}(\\boldsymbol{\\mu}|\\boldsymbol{m}_0,(\\kappa_0 "
+"\\boldsymbol{\\Lambda})^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}|\\boldsymbol{W}_0,"
+" \\nu_0) \\\\\n"
+"&= \\left( \\frac{\\kappa_0}{2\\pi} \\right)^{D/2} "
+"|\\boldsymbol{\\Lambda}|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_0}{2}(\\boldsymbol{\\mu}-\\boldsymbol{m}_0)^\\top "
+"\\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-\\boldsymbol{m}_0) \\right\\} "
+"\\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_0, \\nu_0) | \\boldsymbol{\\Lambda} "
+"|^{(\\nu_0 - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ "
+"\\boldsymbol{W}_0^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\\\\\n"
 "\n"
 
 #: bayesml.multivariate_normal:33 of
 #, python-brace-format
 msgid ""
-"\\mathbb{E}[\\boldsymbol{\\mu}] &= \\boldsymbol{m}_0 & (\\nu_n > D), \\\\\n"
-"\\mathrm{Cov}[\\boldsymbol{\\mu}] &= \\frac{1}{\\kappa_0 (\\nu_0 - D - 1)} "
-"\\boldsymbol{W}_0^{-1} & (\\nu_n > D + 1), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{\\mu}] &= \\boldsymbol{m}_0 & (\\nu_n > D), \\\\"
+"\n"
+"\\mathrm{Cov}[\\boldsymbol{\\mu}] &= \\frac{1}{\\kappa_0 (\\nu_0 - D - "
+"1)} \\boldsymbol{W}_0^{-1} & (\\nu_n > D + 1), \\\\\n"
 "\\mathbb{E}[\\boldsymbol{\\Lambda}] &= \\nu_0 \\boldsymbol{W}_0,\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[\\boldsymbol{\\mu}] &= \\boldsymbol{m}_0 & (\\nu_n > D), \\\\\n"
-"\\mathrm{Cov}[\\boldsymbol{\\mu}] &= \\frac{1}{\\kappa_0 (\\nu_0 - D - 1)} "
-"\\boldsymbol{W}_0^{-1} & (\\nu_n > D + 1), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{\\mu}] &= \\boldsymbol{m}_0 & (\\nu_n > D), \\\\"
+"\n"
+"\\mathrm{Cov}[\\boldsymbol{\\mu}] &= \\frac{1}{\\kappa_0 (\\nu_0 - D - "
+"1)} \\boldsymbol{W}_0^{-1} & (\\nu_n > D + 1), \\\\\n"
 "\\mathbb{E}[\\boldsymbol{\\Lambda}] &= \\nu_0 \\boldsymbol{W}_0,\n"
 "\n"
 
@@ -191,13 +194,13 @@ msgstr "ここで、:math:`B(\\boldsymbol{W}_0, \\nu_0)` は次のように定�
 #, python-brace-format
 msgid ""
 "B(\\boldsymbol{W}_0, \\nu_0) = | \\boldsymbol{W}_0 |^{-\\nu_0 / 2} "
-"\\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma "
-"\\left( \\frac{\\nu_0 + 1 - i}{2} \\right) \\right)^{-1}.\n"
+"\\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma \\left( "
+"\\frac{\\nu_0 + 1 - i}{2} \\right) \\right)^{-1}.\n"
 "\n"
 msgstr ""
 "B(\\boldsymbol{W}_0, \\nu_0) = | \\boldsymbol{W}_0 |^{-\\nu_0 / 2} "
-"\\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma "
-"\\left( \\frac{\\nu_0 + 1 - i}{2} \\right) \\right)^{-1}.\n"
+"\\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma \\left( "
+"\\frac{\\nu_0 + 1 - i}{2} \\right) \\right)^{-1}.\n"
 "\n"
 
 #: bayesml.multivariate_normal:43 of
@@ -207,11 +210,11 @@ msgstr "事後分布は以下の通りです："
 #: bayesml.multivariate_normal:45 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots , "
-"\\boldsymbol{x}_n) \\in \\mathbb{R}^{D\\times n}`: given data"
+":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
+", \\boldsymbol{x}_n) \\in \\mathbb{R}^{D\\times n}`: given data"
 msgstr ""
-":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots , "
-"\\boldsymbol{x}_n) \\in \\mathbb{R}^{D\\times n}`: 与えられたデータ"
+":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
+", \\boldsymbol{x}_n) \\in \\mathbb{R}^{D\\times n}`: 与えられたデータ"
 
 #: bayesml.multivariate_normal:46 of
 #, python-brace-format
@@ -226,61 +229,62 @@ msgstr ":math:`\\kappa_n \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 #: bayesml.multivariate_normal:48 of
 #, python-brace-format
 msgid ":math:`\\nu_n \\in \\mathbb{R}`: a hyperparameter :math:`(\\nu_n > D-1)`"
-msgstr ""
-":math:`\\nu_n \\in \\mathbb{R}`: ハイパーパラメータ :math:`(\\nu_n > D-1)`"
+msgstr ":math:`\\nu_n \\in \\mathbb{R}`: ハイパーパラメータ :math:`(\\nu_n > D-1)`"
 
 #: bayesml.multivariate_normal:49 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{W}_n \\in \\mathbb{R}^{D\\times D}`: a hyperparameter (a "
-"positive definite matrix)"
-msgstr ""
-":math:`\\boldsymbol{W}_n \\in \\mathbb{R}^{D\\times D}`: ハイパーパラメータ"
-"（正定値行列）"
+":math:`\\boldsymbol{W}_n \\in \\mathbb{R}^{D\\times D}`: a hyperparameter"
+" (a positive definite matrix)"
+msgstr ":math:`\\boldsymbol{W}_n \\in \\mathbb{R}^{D\\times D}`: ハイパーパラメータ（正定値行列）"
 
 #: bayesml.multivariate_normal:51 of
 msgid ""
 "p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda} | \\boldsymbol{x}^n) &= "
 "\\mathcal{N}(\\boldsymbol{\\mu}|\\boldsymbol{m}_n,(\\kappa_n "
-"\\boldsymbol{\\Lambda})^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}|"
-"\\boldsymbol{W}_n, \\nu_n) \\\\\n"
-"&= \\left( \\frac{\\kappa_n}{2\\pi} \\right)^{D/2} |\\boldsymbol{\\Lambda}|"
-"^{1/2} \\exp \\left\\{ -\\frac{\\kappa_n}{2}(\\boldsymbol{\\mu}-"
-"\\boldsymbol{m}_n)^\\top \\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-"
-"\\boldsymbol{m}_n) \\right\\} \\\\\n"
-"&\\qquad \\times B(\\boldsymbol{W}_n, \\nu_n) | \\boldsymbol{\\Lambda} |"
-"^{(\\nu_n - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\"
-"{ \\boldsymbol{W}_n^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\n"
+"\\boldsymbol{\\Lambda})^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}|\\boldsymbol{W}_n,"
+" \\nu_n) \\\\\n"
+"&= \\left( \\frac{\\kappa_n}{2\\pi} \\right)^{D/2} "
+"|\\boldsymbol{\\Lambda}|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_n}{2}(\\boldsymbol{\\mu}-\\boldsymbol{m}_n)^\\top "
+"\\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-\\boldsymbol{m}_n) \\right\\} "
+"\\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_n, \\nu_n) | \\boldsymbol{\\Lambda} "
+"|^{(\\nu_n - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ "
+"\\boldsymbol{W}_n^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\n"
 "\n"
 msgstr ""
 "p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda} | \\boldsymbol{x}^n) &= "
 "\\mathcal{N}(\\boldsymbol{\\mu}|\\boldsymbol{m}_n,(\\kappa_n "
-"\\boldsymbol{\\Lambda})^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}|"
-"\\boldsymbol{W}_n, \\nu_n) \\\\\n"
-"&= \\left( \\frac{\\kappa_n}{2\\pi} \\right)^{D/2} |\\boldsymbol{\\Lambda}|"
-"^{1/2} \\exp \\left\\{ -\\frac{\\kappa_n}{2}(\\boldsymbol{\\mu}-"
-"\\boldsymbol{m}_n)^\\top \\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-"
-"\\boldsymbol{m}_n) \\right\\} \\\\\n"
-"&\\qquad \\times B(\\boldsymbol{W}_n, \\nu_n) | \\boldsymbol{\\Lambda} |"
-"^{(\\nu_n - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\"
-"{ \\boldsymbol{W}_n^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\n"
+"\\boldsymbol{\\Lambda})^{-1})\\mathcal{W}(\\boldsymbol{\\Lambda}|\\boldsymbol{W}_n,"
+" \\nu_n) \\\\\n"
+"&= \\left( \\frac{\\kappa_n}{2\\pi} \\right)^{D/2} "
+"|\\boldsymbol{\\Lambda}|^{1/2} \\exp \\left\\{ "
+"-\\frac{\\kappa_n}{2}(\\boldsymbol{\\mu}-\\boldsymbol{m}_n)^\\top "
+"\\boldsymbol{\\Lambda} (\\boldsymbol{\\mu}-\\boldsymbol{m}_n) \\right\\} "
+"\\\\\n"
+"&\\qquad \\times B(\\boldsymbol{W}_n, \\nu_n) | \\boldsymbol{\\Lambda} "
+"|^{(\\nu_n - D - 1) / 2} \\exp \\left\\{ -\\frac{1}{2} \\mathrm{Tr} \\{ "
+"\\boldsymbol{W}_n^{-1} \\boldsymbol{\\Lambda} \\} \\right\\},\n"
 "\n"
 
 #: bayesml.multivariate_normal:56 of
 #, python-brace-format
 msgid ""
-"\\mathbb{E}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= \\boldsymbol{m}_n & "
-"(\\nu_n > D), \\\\\n"
-"\\mathrm{Cov}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= \\frac{1}{\\kappa_n "
-"(\\nu_n - D - 1)} \\boldsymbol{W}_n^{-1} & (\\nu_n > D + 1), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= \\boldsymbol{m}_n "
+"& (\\nu_n > D), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= "
+"\\frac{1}{\\kappa_n (\\nu_n - D - 1)} \\boldsymbol{W}_n^{-1} & (\\nu_n > "
+"D + 1), \\\\\n"
 "\\mathbb{E}[\\boldsymbol{\\Lambda} | \\boldsymbol{x}^n] &= \\nu_n "
 "\\boldsymbol{W}_n,\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= \\boldsymbol{m}_n & "
-"(\\nu_n > D), \\\\\n"
-"\\mathrm{Cov}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= \\frac{1}{\\kappa_n "
-"(\\nu_n - D - 1)} \\boldsymbol{W}_n^{-1} & (\\nu_n > D + 1), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= \\boldsymbol{m}_n "
+"& (\\nu_n > D), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{\\mu} | \\boldsymbol{x}^n] &= "
+"\\frac{1}{\\kappa_n (\\nu_n - D - 1)} \\boldsymbol{W}_n^{-1} & (\\nu_n > "
+"D + 1), \\\\\n"
 "\\mathbb{E}[\\boldsymbol{\\Lambda} | \\boldsymbol{x}^n] &= \\nu_n "
 "\\boldsymbol{W}_n,\n"
 "\n"
@@ -291,27 +295,31 @@ msgstr "ここでハイパーパラメータの更新式は以下で与えられ
 
 #: bayesml.multivariate_normal:63 of
 msgid ""
-"\\bar{\\boldsymbol{x}} &= \\frac{1}{n} \\sum_{i=1}^n \\boldsymbol{x}_i, \\\\\n"
-"\\boldsymbol{m}_n &= \\frac{\\kappa_0\\boldsymbol{\\mu}"
-"_0+n\\bar{\\boldsymbol{x}}}{\\kappa_0+n}, \\\\\n"
+"\\bar{\\boldsymbol{x}} &= \\frac{1}{n} \\sum_{i=1}^n \\boldsymbol{x}_i, "
+"\\\\\n"
+"\\boldsymbol{m}_n &= "
+"\\frac{\\kappa_0\\boldsymbol{\\mu}_0+n\\bar{\\boldsymbol{x}}}{\\kappa_0+n},"
+" \\\\\n"
 "\\kappa_n &= \\kappa_0 + n, \\\\\n"
-"\\boldsymbol{W}_n^{-1} &= \\boldsymbol{W}_0^{-1} + \\sum_{i=1}^{n}"
-"(\\boldsymbol{x}_i-\\bar{\\boldsymbol{x}})(\\boldsymbol{x}_i-"
-"\\bar{\\boldsymbol{x}})^\\top + \\frac{\\kappa_0 n}{\\kappa_0+n}"
-"(\\bar{\\boldsymbol{x}}-\\boldsymbol{\\mu}_0)(\\bar{\\boldsymbol{x}}-"
-"\\boldsymbol{\\mu}_0)^\\top, \\\\\n"
+"\\boldsymbol{W}_n^{-1} &= \\boldsymbol{W}_0^{-1} + "
+"\\sum_{i=1}^{n}(\\boldsymbol{x}_i-\\bar{\\boldsymbol{x}})(\\boldsymbol{x}_i-\\bar{\\boldsymbol{x}})^\\top"
+" + \\frac{\\kappa_0 "
+"n}{\\kappa_0+n}(\\bar{\\boldsymbol{x}}-\\boldsymbol{\\mu}_0)(\\bar{\\boldsymbol{x}}-\\boldsymbol{\\mu}_0)^\\top,"
+" \\\\\n"
 "\\nu_n &= \\nu_0 + n.\\\\\n"
 "\n"
 msgstr ""
-"\\bar{\\boldsymbol{x}} &= \\frac{1}{n} \\sum_{i=1}^n \\boldsymbol{x}_i, \\\\\n"
-"\\boldsymbol{m}_n &= \\frac{\\kappa_0\\boldsymbol{\\mu}"
-"_0+n\\bar{\\boldsymbol{x}}}{\\kappa_0+n}, \\\\\n"
+"\\bar{\\boldsymbol{x}} &= \\frac{1}{n} \\sum_{i=1}^n \\boldsymbol{x}_i, "
+"\\\\\n"
+"\\boldsymbol{m}_n &= "
+"\\frac{\\kappa_0\\boldsymbol{\\mu}_0+n\\bar{\\boldsymbol{x}}}{\\kappa_0+n},"
+" \\\\\n"
 "\\kappa_n &= \\kappa_0 + n, \\\\\n"
-"\\boldsymbol{W}_n^{-1} &= \\boldsymbol{W}_0^{-1} + \\sum_{i=1}^{n}"
-"(\\boldsymbol{x}_i-\\bar{\\boldsymbol{x}})(\\boldsymbol{x}_i-"
-"\\bar{\\boldsymbol{x}})^\\top + \\frac{\\kappa_0 n}{\\kappa_0+n}"
-"(\\bar{\\boldsymbol{x}}-\\boldsymbol{\\mu}_0)(\\bar{\\boldsymbol{x}}-"
-"\\boldsymbol{\\mu}_0)^\\top, \\\\\n"
+"\\boldsymbol{W}_n^{-1} &= \\boldsymbol{W}_0^{-1} + "
+"\\sum_{i=1}^{n}(\\boldsymbol{x}_i-\\bar{\\boldsymbol{x}})(\\boldsymbol{x}_i-\\bar{\\boldsymbol{x}})^\\top"
+" + \\frac{\\kappa_0 "
+"n}{\\kappa_0+n}(\\bar{\\boldsymbol{x}}-\\boldsymbol{\\mu}_0)(\\bar{\\boldsymbol{x}}-\\boldsymbol{\\mu}_0)^\\top,"
+" \\\\\n"
 "\\nu_n &= \\nu_0 + n.\\\\\n"
 "\n"
 
@@ -327,90 +335,95 @@ msgstr ":math:`\\boldsymbol{x}_{n+1}\\in \\mathbb{R}^d`: 新たなデータ点"
 #: bayesml.multivariate_normal:73 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{\\mu}_\\mathrm{p} \\in \\mathbb{R}^D`: the hyperparameter "
-"of the predictive distribution"
-msgstr ""
-":math:`\\boldsymbol{\\mu}_\\mathrm{p} \\in \\mathbb{R}^D`: 予測分布のハイパー"
-"パラメータ"
+":math:`\\boldsymbol{\\mu}_\\mathrm{p} \\in \\mathbb{R}^D`: the "
+"hyperparameter of the predictive distribution"
+msgstr ":math:`\\boldsymbol{\\mu}_\\mathrm{p} \\in \\mathbb{R}^D`: 予測分布のハイパーパラメータ"
 
 #: bayesml.multivariate_normal:74 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{\\Lambda}_\\mathrm{p} \\in \\mathbb{R}^{D \\times D}`: "
-"the hyperparameter of the predictive distribution (a positive definite matrix)"
+":math:`\\boldsymbol{\\Lambda}_\\mathrm{p} \\in \\mathbb{R}^{D \\times "
+"D}`: the hyperparameter of the predictive distribution (a positive "
+"definite matrix)"
 msgstr ""
-":math:`\\boldsymbol{\\Lambda}_\\mathrm{p} \\in \\mathbb{R}^{D \\times D}`: 予"
-"測分布のハイパーパラメータ（正定値行列）"
+":math:`\\boldsymbol{\\Lambda}_\\mathrm{p} \\in \\mathbb{R}^{D \\times "
+"D}`: 予測分布のハイパーパラメータ（正定値行列）"
 
 #: bayesml.multivariate_normal:75 of
 #, python-brace-format
 msgid ""
-":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of the "
-"predictive distribution"
-msgstr ""
-":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 予測分布のハイパーパラメータ"
+":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of the"
+" predictive distribution"
+msgstr ":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 予測分布のハイパーパラメータ"
 
 #: bayesml.multivariate_normal:77 of
 msgid ""
 "&p(x_{n+1}|x^n) \\\\\n"
-"&= \\mathrm{St}(x_{n+1}|\\boldsymbol{\\mu}_\\mathrm{p},\\boldsymbol{\\Lambda}"
-"_\\mathrm{p}, \\nu_\\mathrm{p}) \\\\\n"
-"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + D / 2)}{\\Gamma (\\nu_\\mathrm{p} / "
-"2)} \\frac{|\\boldsymbol{\\Lambda}_\\mathrm{p}|^{1/2}}{(\\nu_\\mathrm{p} "
-"\\pi)^{D/2}} \\left( 1 + \\frac{1}{\\nu_\\mathrm{p}} (\\boldsymbol{x}_{n+1} - "
-"\\boldsymbol{\\mu}_\\mathrm{p})^\\top \\boldsymbol{\\Lambda}_\\mathrm{p} "
-"(\\boldsymbol{x}_{n+1} - \\boldsymbol{\\mu}_\\mathrm{p}) \\right)^{-"
-"\\nu_\\mathrm{p}/2 - D/2},\n"
+"&= "
+"\\mathrm{St}(x_{n+1}|\\boldsymbol{\\mu}_\\mathrm{p},\\boldsymbol{\\Lambda}_\\mathrm{p},"
+" \\nu_\\mathrm{p}) \\\\\n"
+"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + D / 2)}{\\Gamma "
+"(\\nu_\\mathrm{p} / 2)} "
+"\\frac{|\\boldsymbol{\\Lambda}_\\mathrm{p}|^{1/2}}{(\\nu_\\mathrm{p} "
+"\\pi)^{D/2}} \\left( 1 + \\frac{1}{\\nu_\\mathrm{p}} "
+"(\\boldsymbol{x}_{n+1} - \\boldsymbol{\\mu}_\\mathrm{p})^\\top "
+"\\boldsymbol{\\Lambda}_\\mathrm{p} (\\boldsymbol{x}_{n+1} - "
+"\\boldsymbol{\\mu}_\\mathrm{p}) \\right)^{-\\nu_\\mathrm{p}/2 - D/2},\n"
 "\n"
 msgstr ""
 "&p(x_{n+1}|x^n) \\\\\n"
-"&= \\mathrm{St}(x_{n+1}|\\boldsymbol{\\mu}_\\mathrm{p},\\boldsymbol{\\Lambda}"
-"_\\mathrm{p}, \\nu_\\mathrm{p}) \\\\\n"
-"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + D / 2)}{\\Gamma (\\nu_\\mathrm{p} / "
-"2)} \\frac{|\\boldsymbol{\\Lambda}_\\mathrm{p}|^{1/2}}{(\\nu_\\mathrm{p} "
-"\\pi)^{D/2}} \\left( 1 + \\frac{1}{\\nu_\\mathrm{p}} (\\boldsymbol{x}_{n+1} - "
-"\\boldsymbol{\\mu}_\\mathrm{p})^\\top \\boldsymbol{\\Lambda}_\\mathrm{p} "
-"(\\boldsymbol{x}_{n+1} - \\boldsymbol{\\mu}_\\mathrm{p}) \\right)^{-"
-"\\nu_\\mathrm{p}/2 - D/2},\n"
+"&= "
+"\\mathrm{St}(x_{n+1}|\\boldsymbol{\\mu}_\\mathrm{p},\\boldsymbol{\\Lambda}_\\mathrm{p},"
+" \\nu_\\mathrm{p}) \\\\\n"
+"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + D / 2)}{\\Gamma "
+"(\\nu_\\mathrm{p} / 2)} "
+"\\frac{|\\boldsymbol{\\Lambda}_\\mathrm{p}|^{1/2}}{(\\nu_\\mathrm{p} "
+"\\pi)^{D/2}} \\left( 1 + \\frac{1}{\\nu_\\mathrm{p}} "
+"(\\boldsymbol{x}_{n+1} - \\boldsymbol{\\mu}_\\mathrm{p})^\\top "
+"\\boldsymbol{\\Lambda}_\\mathrm{p} (\\boldsymbol{x}_{n+1} - "
+"\\boldsymbol{\\mu}_\\mathrm{p}) \\right)^{-\\nu_\\mathrm{p}/2 - D/2},\n"
 "\n"
 
 #: bayesml.multivariate_normal:82 of
 msgid ""
-"\\mathbb{E}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= \\boldsymbol{\\mu}"
-"_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= "
+"\\boldsymbol{\\mu}_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
 "\\mathrm{Cov}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= "
-"\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} \\boldsymbol{\\Lambda}"
-"_\\mathrm{p}^{-1} & (\\nu_\\mathrm{p} > 2),\n"
+"\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} "
+"\\boldsymbol{\\Lambda}_\\mathrm{p}^{-1} & (\\nu_\\mathrm{p} > 2),\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= \\boldsymbol{\\mu}"
-"_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= "
+"\\boldsymbol{\\mu}_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
 "\\mathrm{Cov}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= "
-"\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} \\boldsymbol{\\Lambda}"
-"_\\mathrm{p}^{-1} & (\\nu_\\mathrm{p} > 2),\n"
+"\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} "
+"\\boldsymbol{\\Lambda}_\\mathrm{p}^{-1} & (\\nu_\\mathrm{p} > 2),\n"
 "\n"
 
 #: bayesml.multivariate_normal:86 of
 msgid ""
-"where the parameters are obtained from the hyperparameters of the posterior "
-"distribution as follows:"
-msgstr ""
-"ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:"
+"where the parameters are obtained from the hyperparameters of the "
+"posterior distribution as follows:"
+msgstr "ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:"
 
 #: bayesml.multivariate_normal:88 of
 #, python-brace-format
 msgid ""
 "\\boldsymbol{\\mu}_\\mathrm{p} &= \\boldsymbol{m}_n, \\\\\n"
-"\\boldsymbol{\\Lambda}_\\mathrm{p} &= \\frac{\\kappa_n (\\nu_n - D + 1)}"
-"{\\kappa_n + 1} \\boldsymbol{W}_n, \\\\\n"
+"\\boldsymbol{\\Lambda}_\\mathrm{p} &= \\frac{\\kappa_n (\\nu_n - D + "
+"1)}{\\kappa_n + 1} \\boldsymbol{W}_n, \\\\\n"
 "\\nu_\\mathrm{p} &= \\nu_n - D + 1.\n"
 "\n"
 msgstr ""
 "\\boldsymbol{\\mu}_\\mathrm{p} &= \\boldsymbol{m}_n, \\\\\n"
-"\\boldsymbol{\\Lambda}_\\mathrm{p} &= \\frac{\\kappa_n (\\nu_n - D + 1)}"
-"{\\kappa_n + 1} \\boldsymbol{W}_n, \\\\\n"
+"\\boldsymbol{\\Lambda}_\\mathrm{p} &= \\frac{\\kappa_n (\\nu_n - D + "
+"1)}{\\kappa_n + 1} \\boldsymbol{W}_n, \\\\\n"
 "\\nu_\\mathrm{p} &= \\nu_n - D + 1.\n"
 "\n"
+
+#: bayesml.multivariate_normal._multivariatenormal.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution"
@@ -533,8 +546,7 @@ msgstr "{None, int}, optional"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:29 of
 msgid "A seed to initialize numpy.random.default_rng(), by default None"
-msgstr ""
-"numpy.random.default_rng() を初期化するシード値です。デフォルトでは None "
+msgstr "numpy.random.default_rng() を初期化するシード値です。デフォルトでは None "
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:34
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:55 of
@@ -544,11 +556,11 @@ msgstr "メソッド"
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`gen_params <bayesml.multivariate_normal.GenModel.gen_params>`\\ \\"
-"(\\)"
+":py:obj:`gen_params <bayesml.multivariate_normal.GenModel.gen_params>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`gen_params <bayesml.multivariate_normal.GenModel.gen_params>`\\ \\"
-"(\\)"
+":py:obj:`gen_params <bayesml.multivariate_normal.GenModel.gen_params>`\\ "
+"\\(\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_params:2
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
@@ -559,11 +571,11 @@ msgstr "事前分布からパラメータを生成します。"
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`gen_sample <bayesml.multivariate_normal.GenModel.gen_sample>`\\ \\"
-"(sample\\_size\\)"
+":py:obj:`gen_sample <bayesml.multivariate_normal.GenModel.gen_sample>`\\ "
+"\\(sample\\_size\\)"
 msgstr ""
-":py:obj:`gen_sample <bayesml.multivariate_normal.GenModel.gen_sample>`\\ \\"
-"(sample\\_size\\)"
+":py:obj:`gen_sample <bayesml.multivariate_normal.GenModel.gen_sample>`\\ "
+"\\(sample\\_size\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample:2
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
@@ -589,11 +601,11 @@ msgstr "GenModel の定数を取得します。"
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`get_h_params <bayesml.multivariate_normal.GenModel.get_h_params>`\\ "
-"\\(\\)"
+":py:obj:`get_h_params "
+"<bayesml.multivariate_normal.GenModel.get_h_params>`\\ \\(\\)"
 msgstr ""
-":py:obj:`get_h_params <bayesml.multivariate_normal.GenModel.get_h_params>`\\ "
-"\\(\\)"
+":py:obj:`get_h_params "
+"<bayesml.multivariate_normal.GenModel.get_h_params>`\\ \\(\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.get_h_params:2
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
@@ -604,11 +616,11 @@ msgstr "事前分布のハイパーパラメータを取得します。"
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`get_params <bayesml.multivariate_normal.GenModel.get_params>`\\ \\"
-"(\\)"
+":py:obj:`get_params <bayesml.multivariate_normal.GenModel.get_params>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`get_params <bayesml.multivariate_normal.GenModel.get_params>`\\ \\"
-"(\\)"
+":py:obj:`get_params <bayesml.multivariate_normal.GenModel.get_params>`\\ "
+"\\(\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.get_params:2
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
@@ -633,11 +645,11 @@ msgstr "h_paramsにハイパーパラメータをロードします。"
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`load_params <bayesml.multivariate_normal.GenModel.load_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_params "
+"<bayesml.multivariate_normal.GenModel.load_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`load_params <bayesml.multivariate_normal.GenModel.load_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_params "
+"<bayesml.multivariate_normal.GenModel.load_params>`\\ \\(filename\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
@@ -662,11 +674,11 @@ msgstr "python ``pickle`` モジュールを使ってハイパーパラメータ
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`save_params <bayesml.multivariate_normal.GenModel.save_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_params "
+"<bayesml.multivariate_normal.GenModel.save_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`save_params <bayesml.multivariate_normal.GenModel.save_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_params "
+"<bayesml.multivariate_normal.GenModel.save_params>`\\ \\(filename\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
@@ -676,11 +688,13 @@ msgstr "python の ``pickle`` モジュールを使ってパラメータを保�
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`save_sample <bayesml.multivariate_normal.GenModel.save_sample>`\\ \\"
-"(filename\\, sample\\_size\\)"
+":py:obj:`save_sample "
+"<bayesml.multivariate_normal.GenModel.save_sample>`\\ \\(filename\\, "
+"sample\\_size\\)"
 msgstr ""
-":py:obj:`save_sample <bayesml.multivariate_normal.GenModel.save_sample>`\\ \\"
-"(filename\\, sample\\_size\\)"
+":py:obj:`save_sample "
+"<bayesml.multivariate_normal.GenModel.save_sample>`\\ \\(filename\\, "
+"sample\\_size\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:2
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
@@ -691,10 +705,12 @@ msgstr "生成されたサンプルを NumPy ``.npz`` フォーマットで保�
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`set_h_params <bayesml.multivariate_normal.GenModel.set_h_params>`\\ "
+":py:obj:`set_h_params "
+"<bayesml.multivariate_normal.GenModel.set_h_params>`\\ "
 "\\(\\[h\\_m\\_vec\\, h\\_kappa\\, h\\_nu\\, h\\_w\\_mat\\]\\)"
 msgstr ""
-":py:obj:`set_h_params <bayesml.multivariate_normal.GenModel.set_h_params>`\\ "
+":py:obj:`set_h_params "
+"<bayesml.multivariate_normal.GenModel.set_h_params>`\\ "
 "\\(\\[h\\_m\\_vec\\, h\\_kappa\\, h\\_nu\\, h\\_w\\_mat\\]\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:2
@@ -708,11 +724,11 @@ msgstr "事前分布のハイパーパラメータを設定します。"
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`set_params <bayesml.multivariate_normal.GenModel.set_params>`\\ \\(\\"
-"[mu\\_vec\\, lambda\\_mat\\]\\)"
+":py:obj:`set_params <bayesml.multivariate_normal.GenModel.set_params>`\\ "
+"\\(\\[mu\\_vec\\, lambda\\_mat\\]\\)"
 msgstr ""
-":py:obj:`set_params <bayesml.multivariate_normal.GenModel.set_params>`\\ \\(\\"
-"[mu\\_vec\\, lambda\\_mat\\]\\)"
+":py:obj:`set_params <bayesml.multivariate_normal.GenModel.set_params>`\\ "
+"\\(\\[mu\\_vec\\, lambda\\_mat\\]\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.set_params:2
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
@@ -724,12 +740,12 @@ msgstr "確率的データ生成モデルのパラメータを設定します。
 #: of
 msgid ""
 ":py:obj:`visualize_model "
-"<bayesml.multivariate_normal.GenModel.visualize_model>`\\ \\(\\"
-"[sample\\_size\\]\\)"
+"<bayesml.multivariate_normal.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_size\\]\\)"
 msgstr ""
 ":py:obj:`visualize_model "
-"<bayesml.multivariate_normal.GenModel.visualize_model>`\\ \\(\\"
-"[sample\\_size\\]\\)"
+"<bayesml.multivariate_normal.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_size\\]\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:2
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:62:<autosummary>:1
@@ -775,7 +791,8 @@ msgstr "``\"c_degree\"``：``self.c_degree``の値"
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.set_h_params:8
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.set_params:8
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:8
-#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:8 of
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:8
+#: of
 msgid "a vector of real numbers, by default None"
 msgstr "実数のベクトル、デフォルトではNone"
 
@@ -828,8 +845,7 @@ msgstr "``\"h_w_mat\"``：``self.h_lambda_mat``の値"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_params:4 of
 msgid "The generated vaule is set at ``self.mu_vec`` and ``self.lambda_mat``."
-msgstr ""
-"生成された値は、``self.mu_vec`` および ``self.lambda_mat`` に設定されます。"
+msgstr "生成された値は、``self.mu_vec`` および ``self.lambda_mat`` に設定されます。"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.get_params:10 of
 msgid "**params**"
@@ -850,7 +866,8 @@ msgstr "``\"lambda_mat\"``：``self.lambda_mat``の値"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.gen_sample:7
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:12
-#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:7 of
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:7
+#: of
 msgid "**sample_size**"
 msgstr "**sample_size**"
 
@@ -891,8 +908,8 @@ msgstr "str"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:9 of
 msgid ""
-"The filename to which the sample is saved. ``.npz`` will be appended if it "
-"isn't there."
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
 msgstr "サンプルを保存するファイル名。ない場合は ``.npz`` が追加されます。"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel.save_sample:27 of
@@ -904,7 +921,8 @@ msgstr ":obj:`numpy.savez_compressed`"
 msgid "int, optional"
 msgstr "int, オプション"
 
-#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:8 of
+#: bayesml.multivariate_normal._multivariatenormal.GenModel.visualize_model:8
+#: of
 msgid "A positive integer, by default 1"
 msgstr "正の整数（デフォルトは1）"
 
@@ -914,12 +932,19 @@ msgstr "正の整数（デフォルトは1）"
 msgid "Examples"
 msgstr "例"
 
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
 msgstr "事後分布と予測分布"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:10
-#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:7 of
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_h0_params:7
+#: of
 msgid "**h0_m_vec**"
 msgstr "**h0_m_vec**"
 
@@ -963,7 +988,8 @@ msgid "the inverse matrix of h0_w_mat"
 msgstr "h0_w_mat の逆行列"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:27
-#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:7 of
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:7
+#: of
 msgid "**hn_m_vec**"
 msgstr "**hn_m_vec**"
 
@@ -1055,12 +1081,12 @@ msgstr "予測分布のパラメータを計算します。"
 #: of
 msgid ""
 ":py:obj:`estimate_params "
-"<bayesml.multivariate_normal.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
-"dict\\_out\\]\\)"
+"<bayesml.multivariate_normal.LearnModel.estimate_params>`\\ \\(\\[loss\\,"
+" dict\\_out\\]\\)"
 msgstr ""
 ":py:obj:`estimate_params "
-"<bayesml.multivariate_normal.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
-"dict\\_out\\]\\)"
+"<bayesml.multivariate_normal.LearnModel.estimate_params>`\\ \\(\\[loss\\,"
+" dict\\_out\\]\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:2
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
@@ -1109,7 +1135,8 @@ msgstr ""
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
 #: of
 msgid ""
-"Get the initial values of the hyperparameters of the posterior distribution."
+"Get the initial values of the hyperparameters of the posterior "
+"distribution."
 msgstr "事後分布のハイパーパラメータの初期値を取得します。"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
@@ -1174,10 +1201,12 @@ msgstr "hn_paramsにハイパーパラメータをロードします。"
 #: of
 msgid ""
 ":py:obj:`make_prediction "
-"<bayesml.multivariate_normal.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+"<bayesml.multivariate_normal.LearnModel.make_prediction>`\\ "
+"\\(\\[loss\\]\\)"
 msgstr ""
 ":py:obj:`make_prediction "
-"<bayesml.multivariate_normal.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+"<bayesml.multivariate_normal.LearnModel.make_prediction>`\\ "
+"\\(\\[loss\\]\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:2
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
@@ -1205,12 +1234,12 @@ msgstr "事後分布のハイパーパラメータの初期値を学習した値
 #: of
 msgid ""
 ":py:obj:`pred_and_update "
-"<bayesml.multivariate_normal.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]"
-"\\)"
+"<bayesml.multivariate_normal.LearnModel.pred_and_update>`\\ \\(x\\[\\, "
+"loss\\]\\)"
 msgstr ""
 ":py:obj:`pred_and_update "
-"<bayesml.multivariate_normal.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]"
-"\\)"
+"<bayesml.multivariate_normal.LearnModel.pred_and_update>`\\ \\(x\\[\\, "
+"loss\\]\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:2
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
@@ -1221,9 +1250,11 @@ msgstr "逐次的に新しいデータ点を予測し、事後分布を更新し
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
 #: of
 msgid ""
-":py:obj:`predict <bayesml.multivariate_normal.LearnModel.predict>`\\ \\(\\)"
+":py:obj:`predict <bayesml.multivariate_normal.LearnModel.predict>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`predict <bayesml.multivariate_normal.LearnModel.predict>`\\ \\(\\)"
+":py:obj:`predict <bayesml.multivariate_normal.LearnModel.predict>`\\ "
+"\\(\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict:2
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
@@ -1269,23 +1300,23 @@ msgstr ""
 #: of
 msgid ""
 ":py:obj:`set_h0_params "
-"<bayesml.multivariate_normal.LearnModel.set_h0_params>`\\ \\(\\"
-"[h0\\_m\\_vec\\, h0\\_kappa\\, h0\\_nu\\, ...\\]\\)"
+"<bayesml.multivariate_normal.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_m\\_vec\\, h0\\_kappa\\, h0\\_nu\\, ...\\]\\)"
 msgstr ""
 ":py:obj:`set_h0_params "
-"<bayesml.multivariate_normal.LearnModel.set_h0_params>`\\ \\(\\"
-"[h0\\_m\\_vec\\, h0\\_kappa\\, h0\\_nu\\, ...\\]\\)"
+"<bayesml.multivariate_normal.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_m\\_vec\\, h0\\_kappa\\, h0\\_nu\\, ...\\]\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
 #: of
 msgid ""
 ":py:obj:`set_hn_params "
-"<bayesml.multivariate_normal.LearnModel.set_hn_params>`\\ \\(\\"
-"[hn\\_m\\_vec\\, hn\\_kappa\\, hn\\_nu\\, ...\\]\\)"
+"<bayesml.multivariate_normal.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_m\\_vec\\, hn\\_kappa\\, hn\\_nu\\, ...\\]\\)"
 msgstr ""
 ":py:obj:`set_hn_params "
-"<bayesml.multivariate_normal.LearnModel.set_hn_params>`\\ \\(\\"
-"[hn\\_m\\_vec\\, hn\\_kappa\\, hn\\_nu\\, ...\\]\\)"
+"<bayesml.multivariate_normal.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_m\\_vec\\, hn\\_kappa\\, hn\\_nu\\, ...\\]\\)"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.set_hn_params:2
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
@@ -1306,7 +1337,8 @@ msgstr ""
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
 #: of
 msgid ""
-"Update the hyperparameters of the posterior distribution using traning data."
+"Update the hyperparameters of the posterior distribution using traning "
+"data."
 msgstr "訓練データを使って事後分布のハイパーパラメータを更新します。"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel:90:<autosummary>:1
@@ -1361,7 +1393,8 @@ msgid "**hn_params**"
 msgstr "**hn_params**"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_hn_params:-1
-#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:-1 of
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:-1
+#: of
 #, python-brace-format
 msgid "dict of {str: numpy.ndarray}"
 msgstr "dict of {str: numpy.ndarray}"
@@ -1396,12 +1429,12 @@ msgstr "すべての要素は実数でなければなりません。"
 #: of
 msgid ""
 "Note that the criterion is applied to estimating ``mu_vec`` and "
-"``lambda_mat`` independently. Therefore, a tuple of the student's t-"
-"distribution and the wishart distribution will be returned when loss=\"KL\""
+"``lambda_mat`` independently. Therefore, a tuple of the student's "
+"t-distribution and the wishart distribution will be returned when "
+"loss=\"KL\""
 msgstr ""
-"この基準は、「mu_vec」と「lambda_mat」を個別に推定する際に適用される点にご注意"
-"ください。したがって、loss=\"KL\" の場合、スチューデントの t 分布とウィシャー"
-"トの分布のタプルが返されます。"
+"この基準は、「mu_vec」と「lambda_mat」を個別に推定する際に適用される点にご注意ください。したがって、loss=\"KL\" "
+"の場合、スチューデントの t 分布とウィシャートの分布のタプルが返されます。"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:9
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:7
@@ -1422,11 +1455,9 @@ msgstr "str, optional"
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:11
 #: of
 msgid ""
-"Loss function underlying the Bayes risk function, by default \"squared\". "
-"This function supports \"squared\", \"0-1\", and \"KL\"."
-msgstr ""
-"ベイズリスク関数の基礎となる損失関数は、デフォルトで「二乗誤差損失」となりま"
-"す。この関数は「二乗誤差損失」、「0-1損失」、「KL」をサポートしております。"
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\", \"0-1\", and \"KL\"."
+msgstr "ベイズリスク関数の基礎となる損失関数は、デフォルトで「二乗誤差損失」となります。この関数は「二乗誤差損失」、「0-1損失」、「KL」をサポートしております。"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:13
 #: of
@@ -1471,9 +1502,8 @@ msgid ""
 "`None` will be returned. If the loss function is \"KL\", the posterior "
 "distribution itself will be returned as rv_frozen object of scipy.stats."
 msgstr ""
-"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関"
-"数が \"KL\" の場合、事後分布そのものが scipy.stats の rv_frozen オブジェクトと"
-"して返されます。"
+"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数が \"KL\" の場合、事後分布そのものが "
+"scipy.stats の rv_frozen オブジェクトとして返されます。"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.estimate_params:36
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.make_prediction:29
@@ -1489,19 +1519,23 @@ msgstr ":obj:`scipy.stats.rv_continuous`"
 msgid ":obj:`scipy.stats.rv_discrete`"
 msgstr ":obj:`scipy.stats.rv_discrete`"
 
-#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:10 of
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:10
+#: of
 msgid "**p_params**"
 msgstr "**p_params**"
 
-#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:11 of
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:11
+#: of
 msgid "``\"p_m_vec\"`` : The value of ``self.p_m_vec``"
 msgstr "``\"p_m_vec\"``：``self.p_m_vec``の値"
 
-#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:12 of
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:12
+#: of
 msgid "``\"p_nu\"`` : The value of ``self.p_nu``"
 msgstr "``\"p_nu\"`` : ``self.p_nu`` の値"
 
-#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:13 of
+#: bayesml.multivariate_normal._multivariatenormal.LearnModel.get_p_params:13
+#: of
 msgid "``\"p_v_mat\"`` : The value of ``self.p_v_mat``"
 msgstr "``\"p_v_mat\"``：``self.p_v_mat``の値"
 
@@ -1522,12 +1556,12 @@ msgstr "{numpy.ndarray, rv_frozen}"
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:19
 #: of
 msgid ""
-"The predicted value under the given loss function.  If the loss function is "
-"\"KL\", the posterior distribution itself will be returned as rv_frozen "
-"object of scipy.stats."
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the posterior distribution itself will be returned as "
+"rv_frozen object of scipy.stats."
 msgstr ""
-"指定された損失関数における予測値です。損失関数が「KL」の場合、事後分布そのもの"
-"が scipy.stats の rv_frozen オブジェクトとして返されます。"
+"指定された損失関数における予測値です。損失関数が「KL」の場合、事後分布そのものが scipy.stats の rv_frozen "
+"オブジェクトとして返されます。"
 
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.pred_and_update:8
 #: of
@@ -1558,3 +1592,4 @@ msgstr "**predicted_value**"
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict:15 of
 msgid "The predicted value under the squared loss function."
 msgstr "二乗誤差関数に基づく予測値。"
+

@@ -63,7 +63,7 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="bayesml.multivariate_normal package" href="bayesml.multivariate_normal.html" />
-    <link rel="prev" title="bayesml.linearregression package" href="bayesml.linearregression.html" />
+    <link rel="prev" title="bayesml.logisticregression package" href="bayesml.logisticregression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -191,6 +191,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesml.metatree package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
@@ -543,7 +545,7 @@ p(T) &amp;= \prod_{s \in \mathcal{I}_T} g_s \prod_{s' \in \mathcal{L}_T} (1-g_{s
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.metatree.GenModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_prob_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'</span> <span class="pre">from</span> <span class="pre">'/Users/nakahara/Documents/GitHub/BayesML/bayesml/bernoulli/__init__.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_prob_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel" title="Link to this definition">#</a></dt>
 <dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Generative" title="bayesml.base.Generative"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generative</span></code></a></p>
 <p>確率的データ生成モデルと事前分布</p>
 <dl class="field-list simple">
@@ -846,7 +848,7 @@ p(T) &amp;= \prod_{s \in \mathcal{I}_T} g_s \prod_{s' \in \mathcal{L}_T} (1-g_{s
 
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.metatree.LearnModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h0_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_prob_vec=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'</span> <span class="pre">from</span> <span class="pre">'/Users/nakahara/Documents/GitHub/BayesML/bayesml/bernoulli/__init__.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h0_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_prob_vec=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel" title="Link to this definition">#</a></dt>
 <dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Posterior" title="bayesml.base.Posterior"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posterior</span></code></a>, <a class="reference internal" href="bayesml.html#bayesml.base.PredictiveMixin" title="bayesml.base.PredictiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictiveMixin</span></code></a></p>
 <p>事後分布と予測分布</p>
 <dl class="field-list simple">
@@ -1097,17 +1099,17 @@ p(T) &amp;= \prod_{s \in \mathcal{I}_T} g_s \prod_{s' \in \mathcal{L}_T} (1-g_{s
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>アルゴリズムのオプションパラメータ。デフォルトは {} です。</p>
 <ul>
-<li><p>「alg_type='MTRF'」の場合</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">alg_type='MTRF'</span></code> の場合</p>
 <ul class="simple">
-<li><p>MTRF[1]では、「sklearn.ensemble.RandomForestClassifier」または「sklearn.ensemble.RandomForestRegressor」がサブルーチンとして呼び出されます。「<a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs」として指定された引数は、これらのサブルーチンに渡されます。  したがって、これらのサブルーチンに対して、例えば <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> や <code class="docutils literal notranslate"><span class="pre">random_state</span></code> などのオプションを指定したい場合は、ここで指定することができます。ただし、これらのサブルーチンの <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> は <code class="docutils literal notranslate"><span class="pre">self.c_max_depth</span></code> の値に設定されているため、再度設定しようとするとエラーが発生します。</p></li>
+<li><p>MTRF[1]では、 <code class="docutils literal notranslate"><span class="pre">sklearn.ensemble.RandomForestClassifier</span></code> または <code class="docutils literal notranslate"><span class="pre">sklearn.ensemble.RandomForestRegressor</span></code> がサブルーチンとして呼び出されます。 <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> として指定された引数は、これらのサブルーチンに渡されます。  したがって、これらのサブルーチンに対して、例えば <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> や <code class="docutils literal notranslate"><span class="pre">random_state</span></code> などのオプションを指定したい場合は、ここで指定することができます。ただし、これらのサブルーチンの <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> は <code class="docutils literal notranslate"><span class="pre">self.c_max_depth</span></code> の値に設定されているため、再度設定しようとするとエラーが発生します。</p></li>
 </ul>
 </li>
-<li><p>「alg_type='given_MT'」の場合</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">alg_type='given_MT’</span></code> の場合</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">'given_MT'</span></code> にはオプションのパラメータはありません。</p></li>
 </ul>
 </li>
-<li><p>「alg_type='MTMCMC'」の場合</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">alg_type='MTMCMC’</span></code> の場合</p>
 <ul>
 <li><p>burn_in : int</p>
 <p>バーンイン段階の期間は、デフォルトで100です。</p>
@@ -1125,7 +1127,7 @@ p(T) &amp;= \prod_{s \in \mathcal{I}_T} g_s \prod_{s' \in \mathcal{L}_T} (1-g_{s
 <p>[2]のアルゴリズム1のパラメータで、デフォルト値は0.999です。</p>
 </li>
 <li><p>p_obj : float</p>
-<p>[2]のアルゴリズム1のパラメータで、デフォルト値は0.3です。 <a href="#id1"><span class="problematic" id="id2">``</span></a>p_obj``は、[2]のアルゴリズム1における$r_mathrm{obj}$に対応します。</p>
+<p>[2]のアルゴリズム1のパラメータで、デフォルト値は0.3です。 <code class="docutils literal notranslate"><span class="pre">p_obj</span></code> は、[2]のアルゴリズム1における$r_\mathrm{obj}$に対応します。</p>
 </li>
 <li><p>threshold_type : {'1d_kmeans', 'sample_midpoint'}</p>
 <p>連続説明変数の閾値を生成するルールで、デフォルトでは <code class="docutils literal notranslate"><span class="pre">'1d_kmeans'</span></code> です。[2] の付録 G も参照してください。</p>
@@ -1135,7 +1137,7 @@ p(T) &amp;= \prod_{s \in \mathcal{I}_T} g_s \prod_{s' \in \mathcal{L}_T} (1-g_{s
 </li>
 </ul>
 </li>
-<li><p>「alg_type='REMTMCMC'」の場合</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">alg_type='REMTMCMC’</span></code> の場合</p>
 <ul>
 <li><p>burn_in : int</p>
 <p>バーンイン段階の期間は、デフォルトで100です。</p>
@@ -1150,7 +1152,7 @@ p(T) &amp;= \prod_{s \in \mathcal{I}_T} g_s \prod_{s' \in \mathcal{L}_T} (1-g_{s
 <p>メトロポリス・ヘイスティングス法における提案分布のエントロピーを制御するパラメータで、デフォルト値は 0.9 です。MTMCMC とは異なり、バーンイン段階では <code class="docutils literal notranslate"><span class="pre">g_max</span></code> の調整は行われません。[2] の付録 B.4 も参照してください。</p>
 </li>
 <li><p>beta_vec : {None, numpy.ndarray}</p>
-<p>レプリカ交換モンテカルロ法における温度パラメータ。デフォルトは None です。$0 leq beta_1 &lt; beta_2 &lt; cdots &lt; beta_J = 1$ を満たす必要があります。None の場合、$beta_j = j/J$ となります。[2] の付録 D も参照してください。</p>
+<p>レプリカ交換モンテカルロ法における温度パラメータ。デフォルトは None です。$0 \leq \beta_1 &lt; \beta_2 &lt; \cdots &lt; \beta_J = 1$ を満たす必要があります。None の場合、$\beta_j = j/J$ となります。[2] の付録 D も参照してください。</p>
 </li>
 <li><p>num_interval : int</p>
 <p>レプリカ交換プロセス間の間隔の長さ。デフォルトは10です。[2]の付録Dも参照してください。</p>
@@ -1508,12 +1510,12 @@ Available from <a class="reference external" href="https://proceedings.mlr.press
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bayesml.linearregression.html"
+       href="bayesml.logisticregression.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">前へ</p>
-        <p class="prev-next-title">bayesml.linearregression package</p>
+        <p class="prev-next-title">bayesml.logisticregression package</p>
       </div>
     </a>
     <a class="right-next"

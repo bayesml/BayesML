@@ -192,6 +192,8 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
@@ -411,7 +413,7 @@ document.write(`
 <li><p>BayesMLのAPIは、ベイズ決定理論に基づく意思決定の構造に対応しています。ベイズ決定理論は、パラメータ推定や新しいデータの予測など、様々な意思決定のプロセスを扱うための統一的なフレームワークです。そのためBayesMLでは、scikit-learnなどのライブラリで採用されているfit-predict型のAPIと比較して、より幅広い意思決定に対して直感的な操作が可能です。さらに、BayesMLのモデルの多くもfit-predict関数を実装しています。</p></li>
 </ul>
 </li>
-<li><p><strong>モデル可視化機能</strong></p>
+<li><p><strong>Model Visualization Functions:</strong></p>
 <ul>
 <li><p>すべてのパッケージは、確率的データ生成モデル、そのモデルから生成されたデータ、そのデータから学習された事後分布を2～3次元空間で可視化するメソッドを持っています。このように、人工データの生成とそのデータからの学習を通して、確率的データ生成モデルやアルゴリズムの特徴を効果的に理解することができます。</p></li>
 </ul>
@@ -622,6 +624,8 @@ document.write(`
 <li><p><a class="reference internal" href="bayesml.gaussianmixture.html"><span class="doc">bayesml.gaussianmixture package</span></a></p></li>
 <li><p><a class="reference internal" href="bayesml.hiddenmarkovnormal.html"><span class="doc">bayesml.hiddenmarkovnormal package</span></a></p></li>
 <li><p><a class="reference internal" href="bayesml.linearregression.html"><span class="doc">bayesml.linearregression package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.logisticregression.html"><span class="doc">bayesml.logisticregression package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.linearregressionmixture.html"><span class="doc">bayesml.linearregressionmixture package</span></a></p></li>
 <li><p><a class="reference internal" href="bayesml.metatree.html"><span class="doc">bayesml.metatree package</span></a></p></li>
 <li><p><a class="reference internal" href="bayesml.multivariate_normal.html"><span class="doc">bayesml.multivariate_normal package</span></a></p></li>
 <li><p><a class="reference internal" href="bayesml.normal.html"><span class="doc">bayesml.normal package</span></a></p></li>
@@ -635,7 +639,7 @@ document.write(`
 <p>Plain text</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo,
 S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,&#39;&#39;
-Python package version 0.3.1,
+Python package version 0.4.1, 2026.
 [Online] https://github.com/bayesml/BayesML
 </pre></div>
 </div>
@@ -645,9 +649,9 @@ Python package version 0.3.1,
 <span class="s">          Iikubo, Yuji and Saito, Shota and Kazama, Koki and</span>
 <span class="s">          Matsushima, Toshiyasu and {BayesML Developers}}</span><span class="p">,</span>
 <span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{BayesML}}</span><span class="p">,</span>
-<span class="na">howpublished</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Python package version 0.3.1}</span><span class="p">,</span>
+<span class="na">howpublished</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Python package version 0.4.1}</span><span class="p">,</span>
 <span class="na">note</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{\url{https://github.com/bayesml/BayesML}}</span><span class="p">,</span>
-<span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span>
+<span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span>
 <span class="p">}</span>
 </pre></div>
 </div>

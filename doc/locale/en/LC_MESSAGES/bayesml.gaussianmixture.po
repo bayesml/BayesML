@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 16:37+0900\n"
+"POT-Creation-Date: 2026-05-17 22:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -375,6 +375,10 @@ msgid ""
 "\n"
 msgstr ""
 
+#: bayesml.gaussianmixture._gaussianmixture.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
+
 #: bayesml.gaussianmixture._gaussianmixture.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution"
 msgstr ""
@@ -428,6 +432,7 @@ msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.GenModel:-1
 #: bayesml.gaussianmixture._gaussianmixture.GenModel.set_h_params:-1
+#: bayesml.gaussianmixture._gaussianmixture.GenModel.set_params:-1
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:-1
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.set_h0_params:-1
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.set_hn_params:-1 of
@@ -528,7 +533,7 @@ msgid "A seed to initialize numpy.random.default_rng(), by default None"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.GenModel:43
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:74 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:81 of
 msgid "Methods"
 msgstr ""
 
@@ -614,7 +619,7 @@ msgid ""
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.GenModel:71:<autosummary>:1
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Save the hyperparameters using python ``pickle`` module."
 msgstr ""
 
@@ -648,7 +653,7 @@ msgstr ""
 #: bayesml.gaussianmixture._gaussianmixture.GenModel.set_h_params:2
 #: bayesml.gaussianmixture._gaussianmixture.GenModel:71:<autosummary>:1
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.set_h0_params:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Set the hyperparameters of the prior distribution."
 msgstr ""
 
@@ -777,28 +782,19 @@ msgid ""
 "``self.lambda_mats``."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.GenModel.set_params:-1
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:-1
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars:-1
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars_and_update:-1
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel.pred_and_update:-1
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel.update_posterior:-1 of
-msgid "numpy.ndarray"
-msgstr ""
-
 #: bayesml.gaussianmixture._gaussianmixture.GenModel.set_params:8 of
 msgid "a real vector in :math:`[0, 1]^K`. The sum of its elements must be 1."
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.GenModel.set_params:11
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:41
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:65 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:72 of
 msgid "vectors of real numbers"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.GenModel.set_params:14
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:50
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:71 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:78 of
 msgid "positive definite symetric matrices"
 msgstr ""
 
@@ -901,6 +897,12 @@ msgstr ""
 msgid "Examples"
 msgstr ""
 
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
 msgstr ""
@@ -945,6 +947,14 @@ msgstr ""
 msgid "**h0_w_mats_inv**"
 msgstr ""
 
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:-1
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars:-1
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars_and_update:-1
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel.pred_and_update:-1
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel.update_posterior:-1 of
+msgid "numpy.ndarray"
+msgstr ""
+
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:35 of
 msgid "the inverse matrices of h0_w_mats"
 msgstr ""
@@ -970,7 +980,7 @@ msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:44
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:59
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:68 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:75 of
 msgid "positive real numbers"
 msgstr ""
 
@@ -1017,29 +1027,51 @@ msgid "positive difinite symmetric matrices"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:64 of
-msgid "**p_mu_vecs**"
+msgid "**vl**"
+msgstr ""
+
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:-1 of
+msgid "float"
+msgstr ""
+
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:65 of
+msgid "real number"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:67 of
+msgid "**p_pi_vecs**"
+msgstr ""
+
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:68 of
+msgid ""
+"A vector of real numbers in :math:`[0, 1]`.  Sum of its elements must be "
+"1.0."
+msgstr ""
+
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:71 of
+msgid "**p_mu_vecs**"
+msgstr ""
+
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:74 of
 msgid "**p_nus**"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:70 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:77 of
 msgid "**p_lambda_mats**"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`calc_pred_dist "
 "<bayesml.gaussianmixture.LearnModel.calc_pred_dist>`\\ \\(\\)"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.calc_pred_dist:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Calculate the parameters of the predictive distribution."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`estimate_latent_vars "
 "<bayesml.gaussianmixture.LearnModel.estimate_latent_vars>`\\ \\(x\\[\\, "
@@ -1047,11 +1079,11 @@ msgid ""
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Estimate latent variables corresponding to `x` under the given criterion."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`estimate_latent_vars_and_update "
 "<bayesml.gaussianmixture.LearnModel.estimate_latent_vars_and_update>`\\ "
@@ -1059,113 +1091,113 @@ msgid ""
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars_and_update:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Estimate latent variables and update the posterior sequentially."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`estimate_params "
 "<bayesml.gaussianmixture.LearnModel.estimate_params>`\\ \\(\\[loss\\]\\)"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_params:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 "Estimate the parameter of the stochastic data generative model under the "
 "given criterion."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`get_constants "
 "<bayesml.gaussianmixture.LearnModel.get_constants>`\\ \\(\\)"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.get_constants:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Get constants of LearnModel."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`get_h0_params "
 "<bayesml.gaussianmixture.LearnModel.get_h0_params>`\\ \\(\\)"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.get_h0_params:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 "Get the initial values of the hyperparameters of the posterior "
 "distribution."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`get_hn_params "
 "<bayesml.gaussianmixture.LearnModel.get_hn_params>`\\ \\(\\)"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.get_hn_params:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Get the hyperparameters of the posterior distribution."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`get_p_params "
 "<bayesml.gaussianmixture.LearnModel.get_p_params>`\\ \\(\\)"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.get_p_params:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Get the parameters of the predictive distribution."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`load_h0_params "
 "<bayesml.gaussianmixture.LearnModel.load_h0_params>`\\ \\(filename\\)"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Load the hyperparameters to h0_params."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`load_hn_params "
 "<bayesml.gaussianmixture.LearnModel.load_hn_params>`\\ \\(filename\\)"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Load the hyperparameters to hn_params."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`make_prediction "
 "<bayesml.gaussianmixture.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.make_prediction:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Predict a new data point under the given criterion."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`overwrite_h0_params "
 "<bayesml.gaussianmixture.LearnModel.overwrite_h0_params>`\\ \\(\\)"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 "Overwrite the initial values of the hyperparameters of the posterior "
 "distribution by the learned values."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`pred_and_update "
 "<bayesml.gaussianmixture.LearnModel.pred_and_update>`\\ \\(x\\[\\, "
@@ -1173,42 +1205,42 @@ msgid ""
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.pred_and_update:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Predict a new data point and update the posterior sequentially."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`reset_hn_params "
 "<bayesml.gaussianmixture.LearnModel.reset_hn_params>`\\ \\(\\)"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 "Reset the hyperparameters of the posterior distribution to their initial "
 "values."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`save_h0_params "
 "<bayesml.gaussianmixture.LearnModel.save_h0_params>`\\ \\(filename\\)"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`save_hn_params "
 "<bayesml.gaussianmixture.LearnModel.save_hn_params>`\\ \\(filename\\)"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`set_h0_params "
 "<bayesml.gaussianmixture.LearnModel.set_h0_params>`\\ "
 "\\(\\[h0\\_alpha\\_vec\\, h0\\_m\\_vecs\\, ...\\]\\)"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`set_hn_params "
 "<bayesml.gaussianmixture.LearnModel.set_hn_params>`\\ "
@@ -1216,11 +1248,11 @@ msgid ""
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.set_hn_params:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Set updated values of the hyperparameter of the posterior distribution."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`update_posterior "
 "<bayesml.gaussianmixture.LearnModel.update_posterior>`\\ \\(x\\[\\, "
@@ -1228,20 +1260,20 @@ msgid ""
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.update_posterior:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 "Update the hyperparameters of the posterior distribution using traning "
 "data."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid ""
 ":py:obj:`visualize_posterior "
 "<bayesml.gaussianmixture.LearnModel.visualize_posterior>`\\ \\(\\)"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.visualize_posterior:2
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:109:<autosummary>:1 of
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel:116:<autosummary>:1 of
 msgid "Visualize the posterior distribution for the parameter."
 msgstr ""
 
@@ -1459,7 +1491,6 @@ msgid ""
 " This function supports \"squared\" and \"0-1\"."
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars_and_update:35
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.make_prediction:15
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.pred_and_update:35 of
 msgid "**predicted_value**"
@@ -1505,11 +1536,13 @@ msgid ""
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars:20
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars_and_update:35
 #: of
 msgid "**estimates**"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars:21
+#: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars_and_update:36
 #: of
 msgid ""
 "The estimated values under the given loss function.  If the loss function"
@@ -1522,11 +1555,6 @@ msgstr ""
 msgid ""
 "Loss function underlying the Bayes risk function, by default \"0-1\". "
 "This function supports \"squared\" and \"0-1\"."
-msgstr ""
-
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars_and_update:36
-#: of
-msgid "The estimated values under the given loss function."
 msgstr ""
 
 #~ msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 09:23+0900\n"
+"POT-Creation-Date: 2026-05-17 23:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -200,6 +200,10 @@ msgstr ""
 msgid ""
 "\\theta_\\mathrm{p} = \\frac{\\alpha_n}{\\alpha_n + \\beta_n}.\n"
 "\n"
+msgstr ""
+
+#: bayesml.bernoulli._bernoulli.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
 msgstr ""
 
 #: bayesml.bernoulli._bernoulli.GenModel:2 of
@@ -483,7 +487,7 @@ msgid "The generated vaule is set at ``self.theta``."
 msgstr ""
 
 #: bayesml.bernoulli._bernoulli.GenModel.set_params:8 of
-msgid "a real number :math:`       heta \\in [0, 1]`, by default None."
+msgid "a real number :math:`\\theta \\in [0, 1]`, by default None."
 msgstr ""
 
 #: bayesml.bernoulli._bernoulli.GenModel.get_params:10 of
@@ -577,6 +581,12 @@ msgstr ""
 msgid "Examples"
 msgstr ""
 
+#: bayesml.bernoulli._bernoulli.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
+
 #: bayesml.bernoulli._bernoulli.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
 msgstr ""
@@ -621,7 +631,7 @@ msgstr ""
 
 #: bayesml.bernoulli._bernoulli.LearnModel:22 of
 #, python-brace-format
-msgid "a real number :math:`   heta_\\mathrm{p} \\in [0, 1]`"
+msgid "a real number :math:`\\theta_\\mathrm{p} \\in [0, 1]`"
 msgstr ""
 
 #: bayesml.bernoulli._bernoulli.LearnModel:63:<autosummary>:1 of
@@ -1062,5 +1072,11 @@ msgstr ""
 #~ msgid ""
 #~ "Bases: :py:class:`~bayesml.base.Posterior`, "
 #~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
+
+#~ msgid "a real number :math:`       heta \\in [0, 1]`, by default None."
+#~ msgstr ""
+
+#~ msgid "a real number :math:`   heta_\\mathrm{p} \\in [0, 1]`"
 #~ msgstr ""
 

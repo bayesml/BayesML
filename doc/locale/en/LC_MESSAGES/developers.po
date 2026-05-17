@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 23:58+0900\n"
+"POT-Creation-Date: 2026-05-17 22:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -27,119 +27,149 @@ msgstr ""
 msgid "Code Author"
 msgstr ""
 
-#: ../../developers.rst:8 ../../developers.rst:26 ../../developers.rst:50
+#: ../../developers.rst:8 ../../developers.rst:16 ../../developers.rst:31
 msgid "`Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University"
 msgstr ""
 
-#: ../../developers.rst:9
-msgid "Nishikawa Jun"
-msgstr ""
-
-#: ../../developers.rst:10 ../../developers.rst:30
+#: ../../developers.rst:9 ../../developers.rst:19
 msgid "Yasushi Esaki"
 msgstr ""
 
-#: ../../developers.rst:11 ../../developers.rst:32
-msgid "Naoki Ichijo, Waseda University (Ph.D. Student)"
+#: ../../developers.rst:10 ../../developers.rst:21
+msgid "Naoki Ichijo"
 msgstr ""
 
-#: ../../developers.rst:12 ../../developers.rst:31
-msgid "Koshi Shimada, Waseda University (Ph.D. Student)"
+#: ../../developers.rst:11 ../../developers.rst:20
+msgid ""
+"`Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>`_, Waseda "
+"University"
 msgstr ""
 
-#: ../../developers.rst:13 ../../developers.rst:33
-msgid "Kairi-SUZUKI-8"
+#: ../../developers.rst:12 ../../developers.rst:22
+msgid ""
+"`Kohei Horinouchi <https://researchmap.jp/Kohei_Horinouchi?lang=en>`_, "
+"Waseda University"
 msgstr ""
 
-#: ../../developers.rst:14
-msgid "Mikio.U"
-msgstr ""
-
-#: ../../developers.rst:15 ../../developers.rst:35
-msgid "Keito Tajima"
-msgstr ""
-
-#: ../../developers.rst:16 ../../developers.rst:36
-msgid "Kohei Horinouchi, Waseda University (Ph.D. Student)"
-msgstr ""
-
-#: ../../developers.rst:17
-msgid "Luyu Ruan"
-msgstr ""
-
-#: ../../developers.rst:18 ../../developers.rst:37
-msgid "Noboru Namegaya"
-msgstr ""
-
-#: ../../developers.rst:19 ../../developers.rst:38
-msgid "Ryota Maniwa"
-msgstr ""
-
-#: ../../developers.rst:20 ../../developers.rst:39
-msgid "Taisuke Ishiwatari"
-msgstr ""
-
-#: ../../developers.rst:21 ../../developers.rst:40
-msgid "Wenbin Yu"
-msgstr ""
-
-#: ../../developers.rst:22 ../../developers.rst:41
-msgid "Yuji Iikubo"
-msgstr ""
-
-#: ../../developers.rst:25
+#: ../../developers.rst:15
 msgid "Document Author"
 msgstr ""
 
-#: ../../developers.rst:27
-msgid "`Shota Saito <https://researchmap.jp/wa-shota?lang=en>`_, Gunma University"
+#: ../../developers.rst:17
+msgid "`Shota Saito <https://saito-lab-en.labby.jp>`_, Gunma University"
 msgstr ""
 
-#: ../../developers.rst:28
+#: ../../developers.rst:18
 msgid ""
 "`Koki Kazama <https://researchmap.jp/KokiKAZAMA?lang=en>`_, Shonan "
 "Institute of Technology"
 msgstr ""
 
+#: ../../developers.rst:25
+msgid "Adviser"
+msgstr ""
+
+#: ../../developers.rst:26
+msgid ""
+"`Toshiyasu Matsushima <https://researchmap.jp/read0044887?lang=en>`_, "
+"Waseda University"
+msgstr ""
+
 #: ../../developers.rst:29
-msgid "RyoheiO"
-msgstr ""
-
-#: ../../developers.rst:34
-msgid "Haruka Murayama"
-msgstr ""
-
-#: ../../developers.rst:44
-msgid "Supervisor"
-msgstr ""
-
-#: ../../developers.rst:45
-msgid "Toshiyasu Matsushima, Waseda University"
-msgstr ""
-
-#: ../../developers.rst:48
 msgid "Logo Designer"
 msgstr ""
 
-#: ../../developers.rst:49
+#: ../../developers.rst:30
 msgid "Akiyo Arakawa"
 msgstr ""
 
-#: ../../developers.rst:53
+#: ../../developers.rst:34
+msgid "Past Contributors"
+msgstr ""
+
+#: ../../developers.rst:35
+msgid "Haruka Murayama"
+msgstr ""
+
+#: ../../developers.rst:36
+msgid "Kairi-SUZUKI-8"
+msgstr ""
+
+#: ../../developers.rst:37
+msgid "Keito Tajima"
+msgstr ""
+
+#: ../../developers.rst:38
+msgid "Luyu Ruan"
+msgstr ""
+
+#: ../../developers.rst:39
+msgid "Mikio.U"
+msgstr ""
+
+#: ../../developers.rst:40
+msgid "Nishikawa Jun"
+msgstr ""
+
+#: ../../developers.rst:41
+msgid "Noboru Namegaya"
+msgstr ""
+
+#: ../../developers.rst:42
+msgid "RyoheiO"
+msgstr ""
+
+#: ../../developers.rst:43
+msgid "Ryota Maniwa"
+msgstr ""
+
+#: ../../developers.rst:44
+msgid "Taisuke Ishiwatari"
+msgstr ""
+
+#: ../../developers.rst:45
+msgid "Wenbin Yu"
+msgstr ""
+
+#: ../../developers.rst:46
+msgid "Yuji Iikubo"
+msgstr ""
+
+#: ../../developers.rst:49
 msgid "Citation"
 msgstr ""
 
-#: ../../developers.rst:55
+#: ../../developers.rst:51
 msgid ""
 "When you use BayesML for your academic work, please provide the following"
 " bibliographic reference."
 msgstr ""
 
-#: ../../developers.rst:57
+#: ../../developers.rst:53
 msgid "Plain text"
 msgstr ""
 
-#: ../../developers.rst:66
+#: ../../developers.rst:62
 msgid "BibTeX"
 msgstr ""
+
+#~ msgid "Naoki Ichijo, Waseda University (Ph.D. Student)"
+#~ msgstr ""
+
+#~ msgid "Koshi Shimada, Waseda University (Ph.D. Student)"
+#~ msgstr ""
+
+#~ msgid "Kohei Horinouchi, Waseda University (Ph.D. Student)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Shota Saito <https://researchmap.jp/wa-"
+#~ "shota?lang=en>`_, Gunma University"
+#~ msgstr ""
+
+#~ msgid "Supervisor"
+#~ msgstr ""
+
+#~ msgid "Toshiyasu Matsushima, Waseda University"
+#~ msgstr ""
 

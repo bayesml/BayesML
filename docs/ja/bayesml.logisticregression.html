@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="ja" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -30,28 +30,42 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=622a0701" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ad100702" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=83a61292"></script>
+    <script src="_static/documentation_options.js?v=ba1e48b6"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/translations.js?v=4755f45a"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-59F6KL8C5D"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-59F6KL8C5D');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-59F6KL8C5D');
+            </script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bayesml.logisticregression';</script>
     <link rel="icon" href="_static/BayesML_favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="bayesml.metatree package" href="bayesml.metatree.html" />
     <link rel="prev" title="bayesml.linearregressionmixture package" href="bayesml.linearregressionmixture.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="ja"/>
   </head>
   
   
@@ -102,7 +116,7 @@
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 <aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html'>here</a>!</div>
+  <div class="bd-header-announcement__content">メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href='https://bayesml.github.io/BayesML/ja/examples/metatree_prediction_interval.html'>こちら</a>！</div>
 </aside>
 
   
@@ -149,13 +163,18 @@
   
   
 </a></div>
+        <div class="sidebar-primary-item"><div style="text-align:center">
+  <span><i class="fas fa-globe"></i> Language:</span>
+  <a href="../en/bayesml.logisticregression.html" class="language-link" lang="en">English</a> / 
+  <a href="../ja/bayesml.logisticregression.html" class="language-link active" lang="ja">日本語</a>
+</div></div>
         <div class="sidebar-primary-item">
 
  <script>
  document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
+    <span class="search-button__default-text">検索</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
    </button>
  `);
@@ -163,7 +182,7 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesml.html">Bayesml packages</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesml.html">Bayesml パッケージ</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.bernoulli.html">bayesml.bernoulli package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.categorical.html">bayesml.categorical package</a></li>
@@ -180,11 +199,11 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesml.poisson.html">bayesml.poisson package</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html">Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">使用例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html"><code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> に基づく予測区間の導出（AISTATS 2025でアクセプト済）</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML 開発者</a></li>
 </ul>
 
     </div>
@@ -230,7 +249,7 @@
 
 <a href="https://github.com/bayesml/BayesML" target="_blank"
    class="btn btn-sm btn-source-repository-button"
-   title="Source repository"
+   title="ソースリポジトリ"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -247,7 +266,7 @@
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -256,7 +275,7 @@
       
       <li><a href="_sources/bayesml.logisticregression.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
+   title="ソースファイルをダウンロード"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -274,7 +293,7 @@
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
+  title="PDFに印刷"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -294,7 +313,7 @@
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
+  title="全画面モード"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -320,7 +339,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -344,7 +363,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contents </h2>
+                <h2> 目次 </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -457,16 +476,16 @@ document.write(`
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.logisticregression.GenModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.logisticregression.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_degree</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_mu_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_lambda_mat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.logisticregression.GenModel" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="bayesml.html#bayesml.base.Generative" title="bayesml.base.Generative"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generative</span></code></a></p>
+<dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Generative" title="bayesml.base.Generative"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generative</span></code></a></p>
 <p>The stochastic data generative model and the prior distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>c_degree</strong><span class="classifier">int</span></dt><dd><p>a positive integer.</p>
 </dd>
-<dt><strong>w_vec</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>a vector of real numbers, by default [0.0, 0.0, … , 0.0]</p>
+<dt><strong>w_vec</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>a vector of real numbers, by default [0.0, 0.0, ... , 0.0]</p>
 </dd>
-<dt><strong>h_mu_vec</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>a vector of real numbers, by default [0.0, 0.0, … , 0.0]</p>
+<dt><strong>h_mu_vec</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>a vector of real numbers, by default [0.0, 0.0, ... , 0.0]</p>
 </dd>
 <dt><strong>h_lambda_mat</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>a positive definate matrix, by default the identity matrix</p>
 </dd>
@@ -647,12 +666,12 @@ If constant is True, the last element of the generated explanatory variables wil
 <p>If x is not given, it will be generated from i.i.d. standard normal distribution.
 The size of the generated sample is defined by sample_size.
 If constant is True, the last element of the generated explanatory variables will be overwritten by 1.0.</p>
-<p>The generated sample is saved as a NpzFile with keyword: “x”, “y”.</p>
+<p>The generated sample is saved as a NpzFile with keyword: &quot;x&quot;, &quot;y&quot;.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename to which the sample is saved.
-<code class="docutils literal notranslate"><span class="pre">.npz</span></code> will be appended if it isn’t there.</p>
+<code class="docutils literal notranslate"><span class="pre">.npz</span></code> will be appended if it isn't there.</p>
 </dd>
 <dt><strong>sample_size</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
@@ -664,7 +683,7 @@ If constant is True, the last element of the generated explanatory variables wil
 </dd>
 </dl>
 <div class="admonition seealso">
-<p class="admonition-title">See also</p>
+<p class="admonition-title">参考</p>
 <dl class="simple">
 <dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
 </dl>
@@ -702,14 +721,14 @@ If constant is True, the last element of the generated explanatory variables wil
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesml.logisticregression.LearnModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.logisticregression.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_degree</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_mu_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_lambda_mat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.logisticregression.LearnModel" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="bayesml.html#bayesml.base.Posterior" title="bayesml.base.Posterior"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posterior</span></code></a>, <a class="reference internal" href="bayesml.html#bayesml.base.PredictiveMixin" title="bayesml.base.PredictiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictiveMixin</span></code></a></p>
+<dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Posterior" title="bayesml.base.Posterior"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posterior</span></code></a>, <a class="reference internal" href="bayesml.html#bayesml.base.PredictiveMixin" title="bayesml.base.PredictiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictiveMixin</span></code></a></p>
 <p>The posterior distribution and the predictive distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>c_degree</strong><span class="classifier">int</span></dt><dd><p>a positive integer.</p>
 </dd>
-<dt><strong>h0_mu_vec</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>a vector of real numbers, by default [0.0, 0.0, … , 0.0]</p>
+<dt><strong>h0_mu_vec</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>a vector of real numbers, by default [0.0, 0.0, ... , 0.0]</p>
 </dd>
 <dt><strong>h0_lambda_mat</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>a positive definate matrix, by default the identity matrix</p>
 </dd>
@@ -917,22 +936,22 @@ If you want to use a constant term, it should be included in x.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default “squared”.
-This function supports “squared”, “0-1”, “abs”, and “KL”.</p>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default &quot;squared&quot;.
+This function supports &quot;squared&quot;, &quot;0-1&quot;, &quot;abs&quot;, and &quot;KL&quot;.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>w_vec_hat</strong><span class="classifier">numpy ndarray or rv_frozen</span></dt><dd><p>The estimated value under the given loss function. If it is not exist, <cite>None</cite> will be returned.
-If the loss function is “KL”, the posterior distribution itself will be returned
+If the loss function is &quot;KL&quot;, the posterior distribution itself will be returned
 as rv_frozen object of scipy.stats.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition seealso">
-<p class="admonition-title">See also</p>
+<p class="admonition-title">参考</p>
 <dl class="simple">
 <dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
 <dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_discrete</span></code></a></dt><dd></dd>
@@ -1000,15 +1019,15 @@ If you want to use a constant term, it should be included in x.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default “0-1”.
-This function supports “squared”, “0-1”, “abs”, and “KL”.</p>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default &quot;0-1&quot;.
+This function supports &quot;squared&quot;, &quot;0-1&quot;, &quot;abs&quot;, and &quot;KL&quot;.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>Predicted_values</strong><span class="classifier">numpy ndarray</span></dt><dd><p>The predicted values under the given loss function. 
-If the loss function is “KL”, the predictive distribution itself will be returned
+If the loss function is &quot;KL&quot;, the predictive distribution itself will be returned
 as numpy.ndarray.</p>
 </dd>
 </dl>
@@ -1028,8 +1047,8 @@ If you want to use a constant term, it should be included in x.</p>
 </dd>
 <dt><strong>y</strong><span class="classifier">numpy ndarray</span></dt><dd><p>float array.</p>
 </dd>
-<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default “0-1”.
-This function supports “squared”, “0-1”, “abs”, and “KL”.</p>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default &quot;0-1&quot;.
+This function supports &quot;squared&quot;, &quot;0-1&quot;, &quot;abs&quot;, and &quot;KL&quot;.</p>
 </dd>
 <dt><strong>max_itr</strong><span class="classifier">int, optional</span></dt><dd><p>maximum number of iterations, by default 1000</p>
 </dd>
@@ -1040,7 +1059,7 @@ This function supports “squared”, “0-1”, “abs”, and “KL”.</p>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>Predicted_values</strong><span class="classifier">numpy ndarray</span></dt><dd><p>The predicted values under the given loss function. 
-If the loss function is “KL”, the predictive distribution itself will be returned
+If the loss function is &quot;KL&quot;, the predictive distribution itself will be returned
 as numpy.ndarray.</p>
 </dd>
 </dl>
@@ -1156,7 +1175,7 @@ The size of the predicted values is the same as the sample size of x.</p>
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-subtitle">前へ</p>
         <p class="prev-next-title">bayesml.linearregressionmixture package</p>
       </div>
     </a>
@@ -1164,7 +1183,7 @@ The size of the predicted values is the same as the sample size of x.</p>
        href="bayesml.metatree.html"
        title="next page">
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title">bayesml.metatree package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
@@ -1181,7 +1200,7 @@ The size of the predicted values is the same as the sample size of x.</p>
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> 目次
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -1232,7 +1251,7 @@ The size of the predicted values is the same as the sample size of x.</p>
   <div class="footer-item">
     
 <p class="component-author">
-By BayesML Developers
+著者 BayesML Developers
 </p>
 
   </div>

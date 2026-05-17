@@ -30,18 +30,31 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=622a0701" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ad100702" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=83a61292"></script>
+    <script src="_static/documentation_options.js?v=385a908f"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-59F6KL8C5D"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-59F6KL8C5D');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-59F6KL8C5D');
+            </script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bayesml.linearregressionmixture';</script>
@@ -102,7 +115,7 @@
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 <aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html'>here</a>!</div>
+  <div class="bd-header-announcement__content">Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html'>here</a>!</div>
 </aside>
 
   
@@ -149,6 +162,11 @@
   
   
 </a></div>
+        <div class="sidebar-primary-item"><div style="text-align:center">
+  <span><i class="fas fa-globe"></i> Language:</span>
+  <a href="../en/bayesml.linearregressionmixture.html" class="language-link active" lang="en">English</a> / 
+  <a href="../ja/bayesml.linearregressionmixture.html" class="language-link" lang="ja">日本語</a>
+</div></div>
         <div class="sidebar-primary-item">
 
  <script>
@@ -457,10 +475,10 @@ p(y | \boldsymbol{x}, \boldsymbol{\theta}, \boldsymbol{\tau}, \boldsymbol{z}) &a
 \boldsymbol{R}_k^{(t)} &amp;= \mathrm{diag} (r_{1,k}^{(t)}, r_{2,k}^{(t)}, \dots , r_{n,k}^{(t)}), \\
 \boldsymbol{\Lambda}_{n,k}^{(t+1)} &amp;= \boldsymbol{\Lambda}_0 + \boldsymbol{X}^\top \boldsymbol{R}_k^{(t)} \boldsymbol{X}, \\
 \boldsymbol{\mu}_{n,k}^{(t+1)} &amp;= \left( \boldsymbol{\Lambda}_{n,k}^{(t+1)} \right)^{-1} \left( \boldsymbol{\Lambda}_0 \boldsymbol{\mu}_0 + \boldsymbol{X}^\top \boldsymbol{R}_k^{(t)} \boldsymbol{y} \right), \\
-a_{n,k}^{(t+1)} &amp;= a_0 + \frac{1}{2} N_k^{(t)}, \\
-b_{n,k}^{(t+1)} &amp;= b_0 + \frac{1}{2} \left( -(\boldsymbol{\mu}_{n,k}^{(t+1)})^\top \boldsymbol{\Lambda}_{n,k}^{(t+1)} \boldsymbol{\mu}_{n,k}^{(t+1)} + \boldsymbol{y}^\top \boldsymbol{R}_k^{(t)} \boldsymbol{y} + \boldsymbol{\mu}_0^\top \boldsymbol{\Lambda}_0 \boldsymbol{\mu}_0 \right), \\
+\alpha_{n,k}^{(t+1)} &amp;= \alpha_0 + \frac{1}{2} N_k^{(t)}, \\
+\beta_{n,k}^{(t+1)} &amp;= \beta_0 + \frac{1}{2} \left( -(\boldsymbol{\mu}_{n,k}^{(t+1)})^\top \boldsymbol{\Lambda}_{n,k}^{(t+1)} \boldsymbol{\mu}_{n,k}^{(t+1)} + \boldsymbol{y}^\top \boldsymbol{R}_k^{(t)} \boldsymbol{y} + \boldsymbol{\mu}_0^\top \boldsymbol{\Lambda}_0 \boldsymbol{\mu}_0 \right), \\
 \gamma_{n,k}^{(t+1)} &amp;= \gamma_0 + N_{k}^{(t)}, \\
-\ln \rho_{i,k}^{(t)} &amp;= \psi (\gamma_{n,k}^{(t+1)}) - \psi \left( {\textstyle \sum_{k=1}^K \gamma_{n,k}^{(t+1)}} \right) \nonumber \\
+\ln \rho_{i,k}^{(t+1)} &amp;= \psi (\gamma_{n,k}^{(t+1)}) - \psi \left( {\textstyle \sum_{k=1}^K \gamma_{n,k}^{(t+1)}} \right) \nonumber \\
 &amp;\qquad - \frac{1}{2} \ln (2 \pi) - \frac{1}{2} \left( \psi (\alpha_{n,k}^{(t+1)}) - \ln \beta_{n,k}^{(t+1)} \right) \nonumber \\
 &amp;\qquad -\frac{1}{2} \left( \frac{\alpha_{n,k}^{(t+1)}}{\beta_{n,k}^{(t+1)}} \left(y_i - (\boldsymbol{\mu}_{n,k}^{(t+1)})^\top \boldsymbol{x}_i \right)^2 + \boldsymbol{x}_i^\top \boldsymbol{\Lambda}_{n,k}^{(t+1)} \boldsymbol{x}_i \right), \\
 r_{i,k}^{(t+1)} &amp;= \frac{\rho_{i,k}^{(t+1)}}{\sum_{k=1}^K \rho_{i,k}^{(t+1)}}.\end{split}\]</div>

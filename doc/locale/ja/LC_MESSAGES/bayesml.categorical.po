@@ -6,19 +6,18 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: BayesML\n"
+"Project-Id-Version:  BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 09:23+0900\n"
+"POT-Creation-Date: 2025-05-29 18:24+0900\n"
 "PO-Revision-Date: 2026-02-15 09:23+0900\n"
 "Last-Translator: \n"
-"Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
-"X-Generator: Poedit 3.8\n"
 
 #: ../../bayesml.categorical.rst:2
 msgid "bayesml.categorical package"
@@ -43,36 +42,52 @@ msgstr ":math:`d\\in \\mathbb{Z}`: 次元 (:math:`d \\geq 2`)"
 
 #: bayesml.categorical:6 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{x} \\in \\{ 0, 1\\}^d`: a data point, (a one-hot vector, i.e., :math:`\\sum_{k=1}^d x_k=1`)"
-msgstr ":math:`\\boldsymbol{x} \\in \\{ 0, 1\\}^d`: データ点（one-hot ベクトル、すなわち :math:`\\sum_{k=1}^d x_k=1`）"
+msgid ""
+":math:`\\boldsymbol{x} \\in \\{ 0, 1\\}^d`: a data point, (a one-hot "
+"vector, i.e., :math:`\\sum_{k=1}^d x_k=1`)"
+msgstr ""
+":math:`\\boldsymbol{x} \\in \\{ 0, 1\\}^d`: データ点（one-hot ベクトル、すなわち "
+":math:`\\sum_{k=1}^d x_k=1`）"
 
 #: bayesml.categorical:7 of
 #, python-brace-format
-msgid ":math:`\\boldsymbol{\\theta} \\in [0, 1]^d`: a parameter, (:math:`\\sum_{k=1}^d \\theta_k=1`)"
-msgstr ":math:`\\boldsymbol{\\theta} \\in [0, 1]^d`: パラメータ, (:math:`\\sum_{k=1}^d \\theta_k=1`)"
+msgid ""
+":math:`\\boldsymbol{\\theta} \\in [0, 1]^d`: a parameter, "
+"(:math:`\\sum_{k=1}^d \\theta_k=1`)"
+msgstr ""
+":math:`\\boldsymbol{\\theta} \\in [0, 1]^d`: パラメータ, (:math:`\\sum_{k=1}^d"
+" \\theta_k=1`)"
 
 #: bayesml.categorical:9 of
 #, python-brace-format
 msgid ""
-"p(\\boldsymbol{x} | \\boldsymbol{\\theta}) = \\mathrm{Cat}(\\boldsymbol{x}|\\boldsymbol{\\theta}) = \\prod_{k=1}^d "
+"p(\\boldsymbol{x} | \\boldsymbol{\\theta}) = "
+"\\mathrm{Cat}(\\boldsymbol{x}|\\boldsymbol{\\theta}) = \\prod_{k=1}^d "
 "\\theta_k^{x_k},\n"
 "\n"
 msgstr ""
-"p(\\boldsymbol{x} | \\boldsymbol{\\theta}) = \\mathrm{Cat}(\\boldsymbol{x}|\\boldsymbol{\\theta}) = \\prod_{k=1}^d "
+"p(\\boldsymbol{x} | \\boldsymbol{\\theta}) = "
+"\\mathrm{Cat}(\\boldsymbol{x}|\\boldsymbol{\\theta}) = \\prod_{k=1}^d "
 "\\theta_k^{x_k},\n"
 "\n"
 
 #: bayesml.categorical:12 of
 #, python-brace-format
 msgid ""
-"\\mathbb{E}[\\boldsymbol{x} | \\boldsymbol{\\theta}] &= \\boldsymbol{\\theta}, \\\\\n"
-"\\mathbb{V}[x_k | \\boldsymbol{\\theta}] &= \\theta_k (1 - \\theta_k), \\\\\n"
-"\\mathrm{Cov}[x_k, x_{k'} | \\boldsymbol{\\theta}] &= -\\theta_k \\theta_{k'}.\n"
+"\\mathbb{E}[\\boldsymbol{x} | \\boldsymbol{\\theta}] &= "
+"\\boldsymbol{\\theta}, \\\\\n"
+"\\mathbb{V}[x_k | \\boldsymbol{\\theta}] &= \\theta_k (1 - \\theta_k), "
+"\\\\\n"
+"\\mathrm{Cov}[x_k, x_{k'} | \\boldsymbol{\\theta}] &= -\\theta_k "
+"\\theta_{k'}.\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[\\boldsymbol{x} | \\boldsymbol{\\theta}] &= \\boldsymbol{\\theta}, \\\\\n"
-"\\mathbb{V}[x_k | \\boldsymbol{\\theta}] &= \\theta_k (1 - \\theta_k), \\\\\n"
-"\\mathrm{Cov}[x_k, x_{k'} | \\boldsymbol{\\theta}] &= -\\theta_k \\theta_{k'}.\n"
+"\\mathbb{E}[\\boldsymbol{x} | \\boldsymbol{\\theta}] &= "
+"\\boldsymbol{\\theta}, \\\\\n"
+"\\mathbb{V}[x_k | \\boldsymbol{\\theta}] &= \\theta_k (1 - \\theta_k), "
+"\\\\\n"
+"\\mathrm{Cov}[x_k, x_{k'} | \\boldsymbol{\\theta}] &= -\\theta_k "
+"\\theta_{k'}.\n"
 "\n"
 
 #: bayesml.categorical:18 of
@@ -95,32 +110,39 @@ msgstr ":math:`\\tilde{\\alpha}_0 = \\sum_{k=1}^d \\alpha_{0,k}`"
 
 #: bayesml.categorical:23 of
 msgid ":math:`C(\\boldsymbol{\\alpha}_0)=\\frac{\\Gamma(\\tilde{\\alpha}_0)}{\\Gamma(\\alpha_{0,1})\\cdots\\Gamma(\\alpha_{0,d})}`"
-msgstr ""
-":math:`C(\\boldsymbol{\\alpha}_0)=\\frac{\\Gamma(\\tilde{\\alpha}_0)}{\\Gamma(\\alpha_{0,1})\\cdots\\Gamma(\\alpha_{0,d})}`"
+msgstr ":math:`C(\\boldsymbol{\\alpha}_0)=\\frac{\\Gamma(\\tilde{\\alpha}_0)}{\\Gamma(\\alpha_{0,1})\\cdots\\Gamma(\\alpha_{0,d})}`"
 
 #: bayesml.categorical:25 of
 msgid ""
-"p(\\boldsymbol{\\theta}) = \\mathrm{Dir}(\\boldsymbol{\\theta}|\\boldsymbol{\\alpha}_0) = C(\\boldsymbol{\\alpha}_0)\\prod_{k=1}"
-"^d\\theta_k^{\\alpha_{0,k}-1},\n"
+"p(\\boldsymbol{\\theta}) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}|\\boldsymbol{\\alpha}_0) = "
+"C(\\boldsymbol{\\alpha}_0)\\prod_{k=1}^d\\theta_k^{\\alpha_{0,k}-1},\n"
 "\n"
 msgstr ""
-"p(\\boldsymbol{\\theta}) = \\mathrm{Dir}(\\boldsymbol{\\theta}|\\boldsymbol{\\alpha}_0) = C(\\boldsymbol{\\alpha}_0)\\prod_{k=1}"
-"^d\\theta_k^{\\alpha_{0,k}-1},\n"
+"p(\\boldsymbol{\\theta}) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}|\\boldsymbol{\\alpha}_0) = "
+"C(\\boldsymbol{\\alpha}_0)\\prod_{k=1}^d\\theta_k^{\\alpha_{0,k}-1},\n"
 "\n"
 
 #: bayesml.categorical:28 of
 msgid ""
-"\\mathbb{E}[\\boldsymbol{\\theta}] &= \\frac{\\boldsymbol{\\alpha}_0}{\\tilde{\\alpha}_0}, \\\\\n"
-"\\mathbb{V}[\\theta_k] &= \\frac{1}{\\tilde{\\alpha}_0 + 1} \\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} \\left(1 - "
+"\\mathbb{E}[\\boldsymbol{\\theta}] &= "
+"\\frac{\\boldsymbol{\\alpha}_0}{\\tilde{\\alpha}_0}, \\\\\n"
+"\\mathbb{V}[\\theta_k] &= \\frac{1}{\\tilde{\\alpha}_0 + 1} "
+"\\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} \\left(1 - "
 "\\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} \\right), \\\\\n"
-"\\mathrm{Cov}[\\theta_k, \\theta_{k'}] &= - \\frac{1}{\\tilde{\\alpha}_0 + 1} \\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} "
+"\\mathrm{Cov}[\\theta_k, \\theta_{k'}] &= - \\frac{1}{\\tilde{\\alpha}_0 "
+"+ 1} \\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} "
 "\\frac{\\alpha_{0,k'}}{\\tilde{\\alpha}_0}.\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[\\boldsymbol{\\theta}] &= \\frac{\\boldsymbol{\\alpha}_0}{\\tilde{\\alpha}_0}, \\\\\n"
-"\\mathbb{V}[\\theta_k] &= \\frac{1}{\\tilde{\\alpha}_0 + 1} \\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} \\left(1 - "
+"\\mathbb{E}[\\boldsymbol{\\theta}] &= "
+"\\frac{\\boldsymbol{\\alpha}_0}{\\tilde{\\alpha}_0}, \\\\\n"
+"\\mathbb{V}[\\theta_k] &= \\frac{1}{\\tilde{\\alpha}_0 + 1} "
+"\\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} \\left(1 - "
 "\\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} \\right), \\\\\n"
-"\\mathrm{Cov}[\\theta_k, \\theta_{k'}] &= - \\frac{1}{\\tilde{\\alpha}_0 + 1} \\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} "
+"\\mathrm{Cov}[\\theta_k, \\theta_{k'}] &= - \\frac{1}{\\tilde{\\alpha}_0 "
+"+ 1} \\frac{\\alpha_{0,k}}{\\tilde{\\alpha}_0} "
 "\\frac{\\alpha_{0,k'}}{\\tilde{\\alpha}_0}.\n"
 "\n"
 
@@ -131,11 +153,11 @@ msgstr "事後分布は以下の通りです："
 #: bayesml.categorical:35 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots , \\boldsymbol{x}_n) \\in \\{ 0, 1\\}^{d\\times n}`: "
-"given data"
+":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
+", \\boldsymbol{x}_n) \\in \\{ 0, 1\\}^{d\\times n}`: given data"
 msgstr ""
-":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots , \\boldsymbol{x}_n) \\in \\{ 0, 1\\}^{d\\times n}`: 与"
-"えられたデータ"
+":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
+", \\boldsymbol{x}_n) \\in \\{ 0, 1\\}^{d\\times n}`: 与えられたデータ"
 
 #: bayesml.categorical:36 of
 #, python-brace-format
@@ -149,33 +171,44 @@ msgstr ":math:`\\tilde{\\alpha}_n = \\sum_{k=1}^d \\alpha_{n,k}`"
 
 #: bayesml.categorical:38 of
 msgid ":math:`C(\\boldsymbol{\\alpha}_n)=\\frac{\\Gamma(\\tilde{\\alpha}_n)}{\\Gamma(\\alpha_{n,1})\\cdots\\Gamma(\\alpha_{n,d})}`"
-msgstr ""
-":math:`C(\\boldsymbol{\\alpha}_n)=\\frac{\\Gamma(\\tilde{\\alpha}_n)}{\\Gamma(\\alpha_{n,1})\\cdots\\Gamma(\\alpha_{n,d})}`"
+msgstr ":math:`C(\\boldsymbol{\\alpha}_n)=\\frac{\\Gamma(\\tilde{\\alpha}_n)}{\\Gamma(\\alpha_{n,1})\\cdots\\Gamma(\\alpha_{n,d})}`"
 
 #: bayesml.categorical:40 of
 msgid ""
-"p(\\boldsymbol{\\theta} | \\boldsymbol{x}^n) = \\mathrm{Dir}(\\boldsymbol{\\theta}|\\boldsymbol{\\alpha}_n) = "
+"p(\\boldsymbol{\\theta} | \\boldsymbol{x}^n) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}|\\boldsymbol{\\alpha}_n) = "
 "C(\\boldsymbol{\\alpha}_n)\\prod_{k=1}^d\\theta_k^{\\alpha_{n,k}-1},\n"
 "\n"
 msgstr ""
-"p(\\boldsymbol{\\theta} | \\boldsymbol{x}^n) = \\mathrm{Dir}(\\boldsymbol{\\theta}|\\boldsymbol{\\alpha}_n) = "
+"p(\\boldsymbol{\\theta} | \\boldsymbol{x}^n) = "
+"\\mathrm{Dir}(\\boldsymbol{\\theta}|\\boldsymbol{\\alpha}_n) = "
 "C(\\boldsymbol{\\alpha}_n)\\prod_{k=1}^d\\theta_k^{\\alpha_{n,k}-1},\n"
 "\n"
 
 #: bayesml.categorical:43 of
 msgid ""
-"\\mathbb{E}[\\boldsymbol{\\theta} | \\boldsymbol{x}^n] &= \\frac{\\boldsymbol{\\alpha}_n}{\\tilde{\\alpha}_n}, \\\\\n"
-"\\mathbb{V}[\\theta_k | \\boldsymbol{x}^n] &= \\frac{1}{\\tilde{\\alpha}_n + 1} \\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} "
-"\\left(1 - \\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} \\right), \\\\\n"
-"\\mathrm{Cov}[\\theta_k, \\theta_{k'} | \\boldsymbol{x}^n] &= - \\frac{1}{\\tilde{\\alpha}_n + 1} \\frac{\\alpha_{n,k}}"
-"{\\tilde{\\alpha}_n} \\frac{\\alpha_{n,k'}}{\\tilde{\\alpha}_n},\n"
+"\\mathbb{E}[\\boldsymbol{\\theta} | \\boldsymbol{x}^n] &= "
+"\\frac{\\boldsymbol{\\alpha}_n}{\\tilde{\\alpha}_n}, \\\\\n"
+"\\mathbb{V}[\\theta_k | \\boldsymbol{x}^n] &= "
+"\\frac{1}{\\tilde{\\alpha}_n + 1} "
+"\\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} \\left(1 - "
+"\\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} \\right), \\\\\n"
+"\\mathrm{Cov}[\\theta_k, \\theta_{k'} | \\boldsymbol{x}^n] &= - "
+"\\frac{1}{\\tilde{\\alpha}_n + 1} "
+"\\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} "
+"\\frac{\\alpha_{n,k'}}{\\tilde{\\alpha}_n},\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[\\boldsymbol{\\theta} | \\boldsymbol{x}^n] &= \\frac{\\boldsymbol{\\alpha}_n}{\\tilde{\\alpha}_n}, \\\\\n"
-"\\mathbb{V}[\\theta_k | \\boldsymbol{x}^n] &= \\frac{1}{\\tilde{\\alpha}_n + 1} \\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} "
-"\\left(1 - \\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} \\right), \\\\\n"
-"\\mathrm{Cov}[\\theta_k, \\theta_{k'} | \\boldsymbol{x}^n] &= - \\frac{1}{\\tilde{\\alpha}_n + 1} \\frac{\\alpha_{n,k}}"
-"{\\tilde{\\alpha}_n} \\frac{\\alpha_{n,k'}}{\\tilde{\\alpha}_n},\n"
+"\\mathbb{E}[\\boldsymbol{\\theta} | \\boldsymbol{x}^n] &= "
+"\\frac{\\boldsymbol{\\alpha}_n}{\\tilde{\\alpha}_n}, \\\\\n"
+"\\mathbb{V}[\\theta_k | \\boldsymbol{x}^n] &= "
+"\\frac{1}{\\tilde{\\alpha}_n + 1} "
+"\\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} \\left(1 - "
+"\\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} \\right), \\\\\n"
+"\\mathrm{Cov}[\\theta_k, \\theta_{k'} | \\boldsymbol{x}^n] &= - "
+"\\frac{1}{\\tilde{\\alpha}_n + 1} "
+"\\frac{\\alpha_{n,k}}{\\tilde{\\alpha}_n} "
+"\\frac{\\alpha_{n,k'}}{\\tilde{\\alpha}_n},\n"
 "\n"
 
 #: bayesml.categorical:48 of
@@ -185,10 +218,12 @@ msgstr "ハイパーパラメータの更新ルールは以下の通りです。
 #: bayesml.categorical:50 of
 #, python-brace-format
 msgid ""
-"\\alpha_{n,k} = \\alpha_{0,k} + \\sum_{i=1}^n x_{i,k}, \\quad (k \\in \\{ 1, 2, \\dots , d \\}).\n"
+"\\alpha_{n,k} = \\alpha_{0,k} + \\sum_{i=1}^n x_{i,k}, \\quad (k \\in \\{"
+" 1, 2, \\dots , d \\}).\n"
 "\n"
 msgstr ""
-"\\alpha_{n,k} = \\alpha_{0,k} + \\sum_{i=1}^n x_{i,k}, \\quad (k \\in \\{ 1, 2, \\dots , d \\}).\n"
+"\\alpha_{n,k} = \\alpha_{0,k} + \\sum_{i=1}^n x_{i,k}, \\quad (k \\in \\{"
+" 1, 2, \\dots , d \\}).\n"
 "\n"
 
 #: bayesml.categorical:53 of
@@ -202,71 +237,99 @@ msgstr ":math:`\\boldsymbol{x}_{n+1} \\in \\{ 0, 1\\}^d`: 新たなデータ点"
 
 #: bayesml.categorical:56 of
 msgid ""
-":math:`\\boldsymbol{\\theta}_\\mathrm{p} \\in [0, 1]^d`: the hyperparameter of the posterior (:math:`\\sum_{k=1}^d "
+":math:`\\boldsymbol{\\theta}_\\mathrm{p} \\in [0, 1]^d`: the "
+"hyperparameter of the posterior (:math:`\\sum_{k=1}^d "
 "\\theta_{\\mathrm{p},k} = 1`)"
 msgstr ""
-":math:`\\boldsymbol{\\theta}_\\mathrm{p} \\in [0, 1]^d`: 事後分布のハイパーパラメータ (:math:`\\sum_{k=1}^d "
-"\\theta_{\\mathrm{p},k} = 1`)"
+":math:`\\boldsymbol{\\theta}_\\mathrm{p} \\in [0, 1]^d`: 事後分布のハイパーパラメータ "
+"(:math:`\\sum_{k=1}^d \\theta_{\\mathrm{p},k} = 1`)"
 
 #: bayesml.categorical:58 of
 msgid ""
-"p(\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n) = \\mathrm{Cat}(\\boldsymbol{x}_{n+1}|\\boldsymbol{\\theta}_\\mathrm{p}) = "
+"p(\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n) = "
+"\\mathrm{Cat}(\\boldsymbol{x}_{n+1}|\\boldsymbol{\\theta}_\\mathrm{p}) = "
 "\\prod_{k=1}^d \\theta_{\\mathrm{p},k}^{x_{n+1,k}},\n"
 "\n"
 msgstr ""
-"p(\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n) = \\mathrm{Cat}(\\boldsymbol{x}_{n+1}|\\boldsymbol{\\theta}_\\mathrm{p}) = "
+"p(\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n) = "
+"\\mathrm{Cat}(\\boldsymbol{x}_{n+1}|\\boldsymbol{\\theta}_\\mathrm{p}) = "
 "\\prod_{k=1}^d \\theta_{\\mathrm{p},k}^{x_{n+1,k}},\n"
 "\n"
 
 #: bayesml.categorical:61 of
 msgid ""
-"\\mathbb{E}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= \\boldsymbol{\\theta}_\\mathrm{p}, \\\\\n"
-"\\mathbb{V}[x_{n+1,k} | \\boldsymbol{x}^n] &= \\theta_{\\mathrm{p},k} (1 - \\theta_{\\mathrm{p},k}), \\\\\n"
-"\\mathrm{Cov}[x_{n+1,k}, x_{n+1,k'} | \\boldsymbol{x}^n] &= -\\theta_{\\mathrm{p},k} \\theta_{\\mathrm{p},k'},\n"
+"\\mathbb{E}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= "
+"\\boldsymbol{\\theta}_\\mathrm{p}, \\\\\n"
+"\\mathbb{V}[x_{n+1,k} | \\boldsymbol{x}^n] &= \\theta_{\\mathrm{p},k} (1 "
+"- \\theta_{\\mathrm{p},k}), \\\\\n"
+"\\mathrm{Cov}[x_{n+1,k}, x_{n+1,k'} | \\boldsymbol{x}^n] &= "
+"-\\theta_{\\mathrm{p},k} \\theta_{\\mathrm{p},k'},\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= \\boldsymbol{\\theta}_\\mathrm{p}, \\\\\n"
-"\\mathbb{V}[x_{n+1,k} | \\boldsymbol{x}^n] &= \\theta_{\\mathrm{p},k} (1 - \\theta_{\\mathrm{p},k}), \\\\\n"
-"\\mathrm{Cov}[x_{n+1,k}, x_{n+1,k'} | \\boldsymbol{x}^n] &= -\\theta_{\\mathrm{p},k} \\theta_{\\mathrm{p},k'},\n"
+"\\mathbb{E}[\\boldsymbol{x}_{n+1} | \\boldsymbol{x}^n] &= "
+"\\boldsymbol{\\theta}_\\mathrm{p}, \\\\\n"
+"\\mathbb{V}[x_{n+1,k} | \\boldsymbol{x}^n] &= \\theta_{\\mathrm{p},k} (1 "
+"- \\theta_{\\mathrm{p},k}), \\\\\n"
+"\\mathrm{Cov}[x_{n+1,k}, x_{n+1,k'} | \\boldsymbol{x}^n] &= "
+"-\\theta_{\\mathrm{p},k} \\theta_{\\mathrm{p},k'},\n"
 "\n"
 
 #: bayesml.categorical:66 of
-msgid "where the parameters are obtained from the hyperparameters of the posterior distribution as follows:"
+msgid ""
+"where the parameters are obtained from the hyperparameters of the "
+"posterior distribution as follows:"
 msgstr "ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:"
 
 #: bayesml.categorical:68 of
 msgid ""
-"\\theta_{\\mathrm{p},k} = \\frac{\\alpha_{n,k}}{\\sum_{k=1}^d \\alpha_{n,k}}, \\quad (k \\in \\{ 1, 2, \\dots , d \\}).\n"
+"\\theta_{\\mathrm{p},k} = \\frac{\\alpha_{n,k}}{\\sum_{k=1}^d "
+"\\alpha_{n,k}}, \\quad (k \\in \\{ 1, 2, \\dots , d \\}).\n"
 "\n"
 msgstr ""
-"\\theta_{\\mathrm{p},k} = \\frac{\\alpha_{n,k}}{\\sum_{k=1}^d \\alpha_{n,k}}, \\quad (k \\in \\{ 1, 2, \\dots , d \\}).\n"
+"\\theta_{\\mathrm{p},k} = \\frac{\\alpha_{n,k}}{\\sum_{k=1}^d "
+"\\alpha_{n,k}}, \\quad (k \\in \\{ 1, 2, \\dots , d \\}).\n"
 "\n"
+
+#: bayesml.categorical._categorical.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
 
 #: bayesml.categorical._categorical.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution"
 msgstr "確率的データ生成モデルと事前分布"
 
-#: bayesml.categorical._categorical.GenModel bayesml.categorical._categorical.GenModel.gen_sample
-#: bayesml.categorical._categorical.GenModel.save_sample bayesml.categorical._categorical.GenModel.set_h_params
-#: bayesml.categorical._categorical.GenModel.set_params bayesml.categorical._categorical.GenModel.visualize_model
-#: bayesml.categorical._categorical.LearnModel bayesml.categorical._categorical.LearnModel.estimate_params
-#: bayesml.categorical._categorical.LearnModel.fit bayesml.categorical._categorical.LearnModel.make_prediction
-#: bayesml.categorical._categorical.LearnModel.pred_and_update bayesml.categorical._categorical.LearnModel.predict
-#: bayesml.categorical._categorical.LearnModel.set_h0_params bayesml.categorical._categorical.LearnModel.set_hn_params
+#: bayesml.categorical._categorical.GenModel
+#: bayesml.categorical._categorical.GenModel.gen_sample
+#: bayesml.categorical._categorical.GenModel.save_sample
+#: bayesml.categorical._categorical.GenModel.set_h_params
+#: bayesml.categorical._categorical.GenModel.set_params
+#: bayesml.categorical._categorical.GenModel.visualize_model
+#: bayesml.categorical._categorical.LearnModel
+#: bayesml.categorical._categorical.LearnModel.estimate_params
+#: bayesml.categorical._categorical.LearnModel.fit
+#: bayesml.categorical._categorical.LearnModel.make_prediction
+#: bayesml.categorical._categorical.LearnModel.pred_and_update
+#: bayesml.categorical._categorical.LearnModel.predict
+#: bayesml.categorical._categorical.LearnModel.set_h0_params
+#: bayesml.categorical._categorical.LearnModel.set_hn_params
 #: bayesml.categorical._categorical.LearnModel.update_posterior of
 msgid "Parameters"
 msgstr "パラメータ"
 
-#: bayesml.categorical._categorical.GenModel:7 bayesml.categorical._categorical.LearnModel:7 of
+#: bayesml.categorical._categorical.GenModel:7
+#: bayesml.categorical._categorical.LearnModel:7 of
 msgid "**c_degree**"
 msgstr "**c_degree**"
 
-#: bayesml.categorical._categorical.GenModel:-1 bayesml.categorical._categorical.GenModel.gen_sample:-1
-#: bayesml.categorical._categorical.GenModel.save_sample:-1 bayesml.categorical._categorical.LearnModel:-1 of
+#: bayesml.categorical._categorical.GenModel:-1
+#: bayesml.categorical._categorical.GenModel.gen_sample:-1
+#: bayesml.categorical._categorical.GenModel.save_sample:-1
+#: bayesml.categorical._categorical.LearnModel:-1 of
 msgid "int"
 msgstr "int"
 
-#: bayesml.categorical._categorical.GenModel:8 bayesml.categorical._categorical.LearnModel:8 of
+#: bayesml.categorical._categorical.GenModel:8
+#: bayesml.categorical._categorical.LearnModel:8 of
 msgid "a positive integer."
 msgstr "正の整数。"
 
@@ -274,8 +337,10 @@ msgstr "正の整数。"
 msgid "**theta_vec**"
 msgstr "**theta_vec**"
 
-#: bayesml.categorical._categorical.GenModel:-1 bayesml.categorical._categorical.GenModel.set_h_params:-1
-#: bayesml.categorical._categorical.GenModel.set_params:-1 bayesml.categorical._categorical.LearnModel.set_h0_params:-1
+#: bayesml.categorical._categorical.GenModel:-1
+#: bayesml.categorical._categorical.GenModel.set_h_params:-1
+#: bayesml.categorical._categorical.GenModel.set_params:-1
+#: bayesml.categorical._categorical.LearnModel.set_h0_params:-1
 #: bayesml.categorical._categorical.LearnModel.set_hn_params:-1 of
 msgid "numpy ndarray, optional"
 msgstr "numpy ndarray, optional"
@@ -284,16 +349,19 @@ msgstr "numpy ndarray, optional"
 msgid "a real vector in :math:`[0, 1]^d`, by default [1/d, 1/d, ... , 1/d]"
 msgstr ":math:`[0, 1]^d` の範囲に属する実数ベクトル。デフォルトでは [1/d, 1/d, ..., 1/d] となります。"
 
-#: bayesml.categorical._categorical.GenModel:13 bayesml.categorical._categorical.GenModel.set_h_params:7 of
+#: bayesml.categorical._categorical.GenModel:13
+#: bayesml.categorical._categorical.GenModel.set_h_params:7 of
 msgid "**h_alpha_vec**"
 msgstr "**h_alpha_vec**"
 
-#: bayesml.categorical._categorical.GenModel:14 bayesml.categorical._categorical.LearnModel:11 of
+#: bayesml.categorical._categorical.GenModel:14
+#: bayesml.categorical._categorical.LearnModel:11 of
 msgid ""
-"a vector of positive real numbers, by default [1/2, 1/2, ... , 1/2].  If a single real number is input, it will be broadcasted."
+"a vector of positive real numbers, by default [1/2, 1/2, ... , 1/2].  If "
+"a single real number is input, it will be broadcasted."
 msgstr ""
-"正の実数のベクトルであり、デフォルトでは [1/2, 1/2, ..., 1/2] となります。単一の実数が入力された場合、ブロードキャスト処理が行わ"
-"れます。"
+"正の実数のベクトルであり、デフォルトでは [1/2, 1/2, ..., 1/2] "
+"となります。単一の実数が入力された場合、ブロードキャスト処理が行われます。"
 
 #: bayesml.categorical._categorical.GenModel:17 of
 msgid "**seed**"
@@ -308,7 +376,8 @@ msgstr "{None, int}, optional"
 msgid "A seed to initialize numpy.random.default_rng(), by default None"
 msgstr "numpy.random.default_rng() を初期化するシード値です。デフォルトでは None "
 
-#: bayesml.categorical._categorical.GenModel:23 bayesml.categorical._categorical.LearnModel:23 of
+#: bayesml.categorical._categorical.GenModel:23
+#: bayesml.categorical._categorical.LearnModel:23 of
 msgid "Methods"
 msgstr "メソッド"
 
@@ -316,31 +385,47 @@ msgstr "メソッド"
 msgid ":py:obj:`gen_params <bayesml.categorical.GenModel.gen_params>`\\ \\(\\)"
 msgstr ":py:obj:`gen_params <bayesml.categorical.GenModel.gen_params>`\\ \\(\\)"
 
-#: bayesml.categorical._categorical.GenModel.gen_params:2 bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel.gen_params:2
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Generate the parameter from the prior distribution."
 msgstr "事前分布からパラメータを生成します。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`gen_sample <bayesml.categorical.GenModel.gen_sample>`\\ \\(sample\\_size\\[\\, onehot\\]\\)"
-msgstr ":py:obj:`gen_sample <bayesml.categorical.GenModel.gen_sample>`\\ \\(sample\\_size\\[\\, onehot\\]\\)"
+msgid ""
+":py:obj:`gen_sample <bayesml.categorical.GenModel.gen_sample>`\\ "
+"\\(sample\\_size\\[\\, onehot\\]\\)"
+msgstr ""
+":py:obj:`gen_sample <bayesml.categorical.GenModel.gen_sample>`\\ "
+"\\(sample\\_size\\[\\, onehot\\]\\)"
 
-#: bayesml.categorical._categorical.GenModel.gen_sample:2 bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel.gen_sample:2
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Generate a sample from the stochastic data generative model."
 msgstr "確率的データ生成モデルからサンプルを生成します。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`get_constants <bayesml.categorical.GenModel.get_constants>`\\ \\(\\)"
-msgstr ":py:obj:`get_constants <bayesml.categorical.GenModel.get_constants>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_constants <bayesml.categorical.GenModel.get_constants>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_constants <bayesml.categorical.GenModel.get_constants>`\\ "
+"\\(\\)"
 
-#: bayesml.categorical._categorical.GenModel.get_constants:2 bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel.get_constants:2
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Get constants of GenModel."
 msgstr "GenModel の定数を取得します。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`get_h_params <bayesml.categorical.GenModel.get_h_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_h_params <bayesml.categorical.GenModel.get_h_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_h_params <bayesml.categorical.GenModel.get_h_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_h_params <bayesml.categorical.GenModel.get_h_params>`\\ "
+"\\(\\)"
 
-#: bayesml.categorical._categorical.GenModel.get_h_params:2 bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel.get_h_params:2
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Get the hyperparameters of the prior distribution."
 msgstr "事前分布のハイパーパラメータを取得します。"
 
@@ -348,109 +433,164 @@ msgstr "事前分布のハイパーパラメータを取得します。"
 msgid ":py:obj:`get_params <bayesml.categorical.GenModel.get_params>`\\ \\(\\)"
 msgstr ":py:obj:`get_params <bayesml.categorical.GenModel.get_params>`\\ \\(\\)"
 
-#: bayesml.categorical._categorical.GenModel.get_params:2 bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel.get_params:2
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Get the parameter of the sthocastic data generative model."
 msgstr "確率的データ生成モデルのパラメータを取得します。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`load_h_params <bayesml.categorical.GenModel.load_h_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_h_params <bayesml.categorical.GenModel.load_h_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_h_params <bayesml.categorical.GenModel.load_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+":py:obj:`load_h_params <bayesml.categorical.GenModel.load_h_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Load the hyperparameters to h_params."
 msgstr "h_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`load_params <bayesml.categorical.GenModel.load_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_params <bayesml.categorical.GenModel.load_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_params <bayesml.categorical.GenModel.load_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+":py:obj:`load_params <bayesml.categorical.GenModel.load_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Load the parameters saved by ``save_params``."
 msgstr "``save_paramsで保存したパラメータを読み込みます。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`save_h_params <bayesml.categorical.GenModel.save_h_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_h_params <bayesml.categorical.GenModel.save_h_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_h_params <bayesml.categorical.GenModel.save_h_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+":py:obj:`save_h_params <bayesml.categorical.GenModel.save_h_params>`\\ "
+"\\(filename\\)"
 
-#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Save the hyperparameters using python ``pickle`` module."
 msgstr "python ``pickle`` モジュールを使ってハイパーパラメータを保存します。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`save_params <bayesml.categorical.GenModel.save_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_params <bayesml.categorical.GenModel.save_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_params <bayesml.categorical.GenModel.save_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+":py:obj:`save_params <bayesml.categorical.GenModel.save_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Save the parameters using python ``pickle`` module."
 msgstr "python の ``pickle`` モジュールを使ってパラメータを保存します。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`save_sample <bayesml.categorical.GenModel.save_sample>`\\ \\(filename\\, sample\\_size\\[\\, onehot\\]\\)"
-msgstr ":py:obj:`save_sample <bayesml.categorical.GenModel.save_sample>`\\ \\(filename\\, sample\\_size\\[\\, onehot\\]\\)"
+msgid ""
+":py:obj:`save_sample <bayesml.categorical.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_size\\[\\, onehot\\]\\)"
+msgstr ""
+":py:obj:`save_sample <bayesml.categorical.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_size\\[\\, onehot\\]\\)"
 
-#: bayesml.categorical._categorical.GenModel.save_sample:2 bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel.save_sample:2
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Save the generated sample as NumPy ``.npz`` format."
 msgstr "生成されたサンプルを NumPy ``.npz`` フォーマットで保存します。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`set_h_params <bayesml.categorical.GenModel.set_h_params>`\\ \\(\\[h\\_alpha\\_vec\\]\\)"
-msgstr ":py:obj:`set_h_params <bayesml.categorical.GenModel.set_h_params>`\\ \\(\\[h\\_alpha\\_vec\\]\\)"
+msgid ""
+":py:obj:`set_h_params <bayesml.categorical.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_alpha\\_vec\\]\\)"
+msgstr ""
+":py:obj:`set_h_params <bayesml.categorical.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_alpha\\_vec\\]\\)"
 
-#: bayesml.categorical._categorical.GenModel.set_h_params:2 bayesml.categorical._categorical.GenModel:51:<autosummary>:1
-#: bayesml.categorical._categorical.LearnModel.set_h0_params:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel.set_h_params:2
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1
+#: bayesml.categorical._categorical.LearnModel.set_h0_params:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Set the hyperparameters of the prior distribution."
 msgstr "事前分布のハイパーパラメータを設定します。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`set_params <bayesml.categorical.GenModel.set_params>`\\ \\(\\[theta\\_vec\\]\\)"
-msgstr ":py:obj:`set_params <bayesml.categorical.GenModel.set_params>`\\ \\(\\[theta\\_vec\\]\\)"
+msgid ""
+":py:obj:`set_params <bayesml.categorical.GenModel.set_params>`\\ "
+"\\(\\[theta\\_vec\\]\\)"
+msgstr ""
+":py:obj:`set_params <bayesml.categorical.GenModel.set_params>`\\ "
+"\\(\\[theta\\_vec\\]\\)"
 
-#: bayesml.categorical._categorical.GenModel.set_params:2 bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel.set_params:2
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Set the parameter of the sthocastic data generative model."
 msgstr "確率的データ生成モデルのパラメータを設定します。"
 
 #: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
-msgid ":py:obj:`visualize_model <bayesml.categorical.GenModel.visualize_model>`\\ \\(\\[sample\\_size\\, sample\\_num\\]\\)"
-msgstr ":py:obj:`visualize_model <bayesml.categorical.GenModel.visualize_model>`\\ \\(\\[sample\\_size\\, sample\\_num\\]\\)"
+msgid ""
+":py:obj:`visualize_model "
+"<bayesml.categorical.GenModel.visualize_model>`\\ \\(\\[sample\\_size\\, "
+"sample\\_num\\]\\)"
+msgstr ""
+":py:obj:`visualize_model "
+"<bayesml.categorical.GenModel.visualize_model>`\\ \\(\\[sample\\_size\\, "
+"sample\\_num\\]\\)"
 
-#: bayesml.categorical._categorical.GenModel.visualize_model:2 bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
+#: bayesml.categorical._categorical.GenModel.visualize_model:2
+#: bayesml.categorical._categorical.GenModel:51:<autosummary>:1 of
 msgid "Visualize the stochastic data generative model and generated samples."
 msgstr "確率的データ生成モデルと生成されたサンプルを可視化します。"
 
-#: bayesml.categorical._categorical.GenModel.gen_sample bayesml.categorical._categorical.GenModel.get_constants
-#: bayesml.categorical._categorical.GenModel.get_h_params bayesml.categorical._categorical.GenModel.get_params
+#: bayesml.categorical._categorical.GenModel.gen_sample
+#: bayesml.categorical._categorical.GenModel.get_constants
+#: bayesml.categorical._categorical.GenModel.get_h_params
+#: bayesml.categorical._categorical.GenModel.get_params
 #: bayesml.categorical._categorical.LearnModel.calc_log_marginal_likelihood
-#: bayesml.categorical._categorical.LearnModel.estimate_params bayesml.categorical._categorical.LearnModel.fit
-#: bayesml.categorical._categorical.LearnModel.get_constants bayesml.categorical._categorical.LearnModel.get_h0_params
-#: bayesml.categorical._categorical.LearnModel.get_hn_params bayesml.categorical._categorical.LearnModel.get_p_params
-#: bayesml.categorical._categorical.LearnModel.make_prediction bayesml.categorical._categorical.LearnModel.pred_and_update
-#: bayesml.categorical._categorical.LearnModel.predict bayesml.categorical._categorical.LearnModel.predict_proba of
+#: bayesml.categorical._categorical.LearnModel.estimate_params
+#: bayesml.categorical._categorical.LearnModel.fit
+#: bayesml.categorical._categorical.LearnModel.get_constants
+#: bayesml.categorical._categorical.LearnModel.get_h0_params
+#: bayesml.categorical._categorical.LearnModel.get_hn_params
+#: bayesml.categorical._categorical.LearnModel.get_p_params
+#: bayesml.categorical._categorical.LearnModel.make_prediction
+#: bayesml.categorical._categorical.LearnModel.pred_and_update
+#: bayesml.categorical._categorical.LearnModel.predict
+#: bayesml.categorical._categorical.LearnModel.predict_proba of
 msgid "Returns"
 msgstr "返り値"
 
-#: bayesml.categorical._categorical.GenModel.get_constants:10 bayesml.categorical._categorical.LearnModel.get_constants:10 of
+#: bayesml.categorical._categorical.GenModel.get_constants:10
+#: bayesml.categorical._categorical.LearnModel.get_constants:10 of
 msgid "**constants**"
 msgstr "**constants**"
 
-#: bayesml.categorical._categorical.GenModel.get_constants:-1 bayesml.categorical._categorical.LearnModel.get_constants:-1 of
+#: bayesml.categorical._categorical.GenModel.get_constants:-1
+#: bayesml.categorical._categorical.LearnModel.get_constants:-1 of
 #, python-brace-format
 msgid "dict of {str: int}"
 msgstr "dict of {str: int}"
 
-#: bayesml.categorical._categorical.GenModel.get_constants:11 bayesml.categorical._categorical.LearnModel.get_constants:11 of
+#: bayesml.categorical._categorical.GenModel.get_constants:11
+#: bayesml.categorical._categorical.LearnModel.get_constants:11 of
 msgid "``\"c_degree\"`` : the value of ``self.c_degree``"
 msgstr "``\"c_degree\"``：``self.c_degree``の値"
 
-#: bayesml.categorical._categorical.GenModel.set_h_params:8 bayesml.categorical._categorical.LearnModel.set_h0_params:8
+#: bayesml.categorical._categorical.GenModel.set_h_params:8
+#: bayesml.categorical._categorical.LearnModel.set_h0_params:8
 #: bayesml.categorical._categorical.LearnModel.set_hn_params:8 of
-msgid "a vector of positive real numbers, by default None. If a single real number is input, it will be broadcasted."
+msgid ""
+"a vector of positive real numbers, by default None. If a single real "
+"number is input, it will be broadcasted."
 msgstr "正の実数のベクトルです。デフォルトではNoneとなります。単一の実数が入力された場合、ブロードキャストされます。"
 
 #: bayesml.categorical._categorical.GenModel.get_h_params:10 of
 msgid "**h_params**"
 msgstr "**h_params**"
 
-#: bayesml.categorical._categorical.GenModel.get_h_params:-1 bayesml.categorical._categorical.GenModel.get_params:-1 of
+#: bayesml.categorical._categorical.GenModel.get_h_params:-1
+#: bayesml.categorical._categorical.GenModel.get_params:-1 of
 #, python-brace-format
 msgid "{str:numpy ndarray}"
 msgstr "{str:numpy ndarray}"
@@ -481,35 +621,47 @@ msgstr "**params**"
 msgid "``{\"theta_vec\":self.theta_vec}``"
 msgstr "``{\"theta_vec\":self.theta_vec}``"
 
-#: bayesml.categorical._categorical.GenModel.gen_sample:7 bayesml.categorical._categorical.GenModel.save_sample:12
+#: bayesml.categorical._categorical.GenModel.gen_sample:7
+#: bayesml.categorical._categorical.GenModel.save_sample:12
 #: bayesml.categorical._categorical.GenModel.visualize_model:7 of
 msgid "**sample_size**"
 msgstr "**sample_size**"
 
-#: bayesml.categorical._categorical.GenModel.gen_sample:8 bayesml.categorical._categorical.GenModel.save_sample:13 of
+#: bayesml.categorical._categorical.GenModel.gen_sample:8
+#: bayesml.categorical._categorical.GenModel.save_sample:13 of
 msgid "A positive integer"
 msgstr "正の整数"
 
-#: bayesml.categorical._categorical.GenModel.gen_sample:10 bayesml.categorical._categorical.GenModel.save_sample:15
-#: bayesml.categorical._categorical.LearnModel.fit:19 bayesml.categorical._categorical.LearnModel.make_prediction:11
-#: bayesml.categorical._categorical.LearnModel.pred_and_update:15 bayesml.categorical._categorical.LearnModel.predict:11
+#: bayesml.categorical._categorical.GenModel.gen_sample:10
+#: bayesml.categorical._categorical.GenModel.save_sample:15
+#: bayesml.categorical._categorical.LearnModel.fit:19
+#: bayesml.categorical._categorical.LearnModel.make_prediction:11
+#: bayesml.categorical._categorical.LearnModel.pred_and_update:15
+#: bayesml.categorical._categorical.LearnModel.predict:11
 #: bayesml.categorical._categorical.LearnModel.update_posterior:14 of
 msgid "**onehot**"
 msgstr "**onehot**"
 
-#: bayesml.categorical._categorical.GenModel.gen_sample:-1 bayesml.categorical._categorical.GenModel.save_sample:-1
-#: bayesml.categorical._categorical.LearnModel.estimate_params:-1 bayesml.categorical._categorical.LearnModel.fit:-1
-#: bayesml.categorical._categorical.LearnModel.make_prediction:-1 bayesml.categorical._categorical.LearnModel.pred_and_update:-1
-#: bayesml.categorical._categorical.LearnModel.predict:-1 bayesml.categorical._categorical.LearnModel.update_posterior:-1 of
+#: bayesml.categorical._categorical.GenModel.gen_sample:-1
+#: bayesml.categorical._categorical.GenModel.save_sample:-1
+#: bayesml.categorical._categorical.LearnModel.estimate_params:-1
+#: bayesml.categorical._categorical.LearnModel.fit:-1
+#: bayesml.categorical._categorical.LearnModel.make_prediction:-1
+#: bayesml.categorical._categorical.LearnModel.pred_and_update:-1
+#: bayesml.categorical._categorical.LearnModel.predict:-1
+#: bayesml.categorical._categorical.LearnModel.update_posterior:-1 of
 msgid "bool, optional"
 msgstr "bool, optional"
 
-#: bayesml.categorical._categorical.GenModel.gen_sample:11 bayesml.categorical._categorical.GenModel.save_sample:16 of
+#: bayesml.categorical._categorical.GenModel.gen_sample:11
+#: bayesml.categorical._categorical.GenModel.save_sample:16 of
 msgid "If True, a generated sample will be one-hot encoded,  by default True."
 msgstr "Trueの場合、生成されたサンプルは one-hot 符号化されます。デフォルトはTrueです。"
 
-#: bayesml.categorical._categorical.GenModel.gen_sample:18 bayesml.categorical._categorical.LearnModel.fit:12
-#: bayesml.categorical._categorical.LearnModel.pred_and_update:7 bayesml.categorical._categorical.LearnModel.update_posterior:7 of
+#: bayesml.categorical._categorical.GenModel.gen_sample:18
+#: bayesml.categorical._categorical.LearnModel.fit:12
+#: bayesml.categorical._categorical.LearnModel.pred_and_update:7
+#: bayesml.categorical._categorical.LearnModel.update_posterior:7 of
 msgid "**x**"
 msgstr "**x**"
 
@@ -519,12 +671,14 @@ msgstr "numpy ndarray"
 
 #: bayesml.categorical._categorical.GenModel.gen_sample:19 of
 msgid ""
-"An non-negative int array. If onehot option is True, its shape will be  ``(sample_size,c_degree)`` and each row will be a one-"
-"hot vector.  If onehot option is False, its shape will be ``(sample_size,)``  and each element will be smaller than "
-"self.c_degree."
+"An non-negative int array. If onehot option is True, its shape will be  "
+"``(sample_size,c_degree)`` and each row will be a one-hot vector.  If "
+"onehot option is False, its shape will be ``(sample_size,)``  and each "
+"element will be smaller than self.c_degree."
 msgstr ""
-"非負の整数配列です。onehotオプションがTrueの場合、その形状は``(sample_size,c_degree)``となり、各行は one-hot ベクトルとなります。"
-"onehotオプションがFalseの場合、その形状は``(sample_size,)``となり、各要素はself.c_degreeよりも小さくなります。"
+"非負の整数配列です。onehotオプションがTrueの場合、その形状は``(sample_size,c_degree)``となり、各行は one-"
+"hot "
+"ベクトルとなります。onehotオプションがFalseの場合、その形状は``(sample_size,)``となり、各要素はself.c_degreeよりも小さくなります。"
 
 #: bayesml.categorical._categorical.GenModel.save_sample:4 of
 msgid "It is saved as a NpzFile with keyword: \"x\"."
@@ -539,7 +693,9 @@ msgid "str"
 msgstr "str"
 
 #: bayesml.categorical._categorical.GenModel.save_sample:9 of
-msgid "The filename to which the sample is saved. ``.npz`` will be appended if it isn't there."
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
 msgstr "サンプルを保存するファイル名。ない場合は ``.npz`` が追加されます。"
 
 #: bayesml.categorical._categorical.GenModel.save_sample:31 of
@@ -562,16 +718,23 @@ msgstr "**sample_num**"
 msgid "A positive integer, by default 5"
 msgstr "正の整数、デフォルトは5です"
 
-#: bayesml.categorical._categorical.GenModel.visualize_model:26 bayesml.categorical._categorical.LearnModel.visualize_posterior:19
-#: of
+#: bayesml.categorical._categorical.GenModel.visualize_model:26
+#: bayesml.categorical._categorical.LearnModel.visualize_posterior:19 of
 msgid "Examples"
 msgstr "例"
+
+#: bayesml.categorical._categorical.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
 
 #: bayesml.categorical._categorical.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
 msgstr "事後分布と予測分布"
 
-#: bayesml.categorical._categorical.LearnModel:10 bayesml.categorical._categorical.LearnModel.set_h0_params:7 of
+#: bayesml.categorical._categorical.LearnModel:10
+#: bayesml.categorical._categorical.LearnModel.set_h0_params:7 of
 msgid "**h0_alpha_vec**"
 msgstr "**h0_alpha_vec**"
 
@@ -583,12 +746,15 @@ msgstr "numpy.ndarray, optional"
 msgid "Attributes"
 msgstr "属性"
 
-#: bayesml.categorical._categorical.LearnModel:16 bayesml.categorical._categorical.LearnModel.set_hn_params:7 of
+#: bayesml.categorical._categorical.LearnModel:16
+#: bayesml.categorical._categorical.LearnModel.set_hn_params:7 of
 msgid "**hn_alpha_vec**"
 msgstr "**hn_alpha_vec**"
 
-#: bayesml.categorical._categorical.LearnModel:-1 bayesml.categorical._categorical.LearnModel.fit:-1
-#: bayesml.categorical._categorical.LearnModel.predict_proba:-1 bayesml.categorical._categorical.LearnModel.update_posterior:-1 of
+#: bayesml.categorical._categorical.LearnModel:-1
+#: bayesml.categorical._categorical.LearnModel.fit:-1
+#: bayesml.categorical._categorical.LearnModel.predict_proba:-1
+#: bayesml.categorical._categorical.LearnModel.update_posterior:-1 of
 msgid "numpy.ndarray"
 msgstr "numpy.ndarray"
 
@@ -605,8 +771,12 @@ msgid "a real vector in :math:`[0, 1]^d`"
 msgstr "`[0, 1]^d`に属する実数ベクトル"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`calc_log_marginal_likelihood <bayesml.categorical.LearnModel.calc_log_marginal_likelihood>`\\ \\(\\)"
-msgstr ":py:obj:`calc_log_marginal_likelihood <bayesml.categorical.LearnModel.calc_log_marginal_likelihood>`\\ \\(\\)"
+msgid ""
+":py:obj:`calc_log_marginal_likelihood "
+"<bayesml.categorical.LearnModel.calc_log_marginal_likelihood>`\\ \\(\\)"
+msgstr ""
+":py:obj:`calc_log_marginal_likelihood "
+"<bayesml.categorical.LearnModel.calc_log_marginal_likelihood>`\\ \\(\\)"
 
 #: bayesml.categorical._categorical.LearnModel.calc_log_marginal_likelihood:2
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
@@ -614,156 +784,270 @@ msgid "Calculate log marginal likelihood"
 msgstr "対数周辺尤度の計算"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`calc_pred_dist <bayesml.categorical.LearnModel.calc_pred_dist>`\\ \\(\\)"
-msgstr ":py:obj:`calc_pred_dist <bayesml.categorical.LearnModel.calc_pred_dist>`\\ \\(\\)"
+msgid ""
+":py:obj:`calc_pred_dist "
+"<bayesml.categorical.LearnModel.calc_pred_dist>`\\ \\(\\)"
+msgstr ""
+":py:obj:`calc_pred_dist "
+"<bayesml.categorical.LearnModel.calc_pred_dist>`\\ \\(\\)"
 
-#: bayesml.categorical._categorical.LearnModel.calc_pred_dist:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.LearnModel.calc_pred_dist:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Calculate the parameters of the predictive distribution."
 msgstr "予測分布のパラメータを計算します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`estimate_params <bayesml.categorical.LearnModel.estimate_params>`\\ \\(\\[loss\\, dict\\_out\\]\\)"
-msgstr ":py:obj:`estimate_params <bayesml.categorical.LearnModel.estimate_params>`\\ \\(\\[loss\\, dict\\_out\\]\\)"
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.categorical.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
+"dict\\_out\\]\\)"
+msgstr ""
+":py:obj:`estimate_params "
+"<bayesml.categorical.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
+"dict\\_out\\]\\)"
 
-#: bayesml.categorical._categorical.LearnModel.estimate_params:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid "Estimate the parameter of the stochastic data generative model under the given criterion."
+#: bayesml.categorical._categorical.LearnModel.estimate_params:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+msgid ""
+"Estimate the parameter of the stochastic data generative model under the "
+"given criterion."
 msgstr "与えられた基準の下で、確率的データ生成モデルのパラメータを推定します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`fit <bayesml.categorical.LearnModel.fit>`\\ \\(x\\[\\, onehot\\]\\)"
-msgstr ":py:obj:`fit <bayesml.categorical.LearnModel.fit>`\\ \\(x\\[\\, onehot\\]\\)"
+msgid ""
+":py:obj:`fit <bayesml.categorical.LearnModel.fit>`\\ \\(x\\[\\, "
+"onehot\\]\\)"
+msgstr ""
+":py:obj:`fit <bayesml.categorical.LearnModel.fit>`\\ \\(x\\[\\, "
+"onehot\\]\\)"
 
-#: bayesml.categorical._categorical.LearnModel.fit:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.LearnModel.fit:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Fit the model to the data."
 msgstr "モデルをデータに当てはめます。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`get_constants <bayesml.categorical.LearnModel.get_constants>`\\ \\(\\)"
-msgstr ":py:obj:`get_constants <bayesml.categorical.LearnModel.get_constants>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_constants <bayesml.categorical.LearnModel.get_constants>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_constants <bayesml.categorical.LearnModel.get_constants>`\\ "
+"\\(\\)"
 
-#: bayesml.categorical._categorical.LearnModel.get_constants:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.LearnModel.get_constants:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Get constants of LearnModel."
 msgstr "LearnModel の定数を取得します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`get_h0_params <bayesml.categorical.LearnModel.get_h0_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_h0_params <bayesml.categorical.LearnModel.get_h0_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_h0_params <bayesml.categorical.LearnModel.get_h0_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_h0_params <bayesml.categorical.LearnModel.get_h0_params>`\\ "
+"\\(\\)"
 
-#: bayesml.categorical._categorical.LearnModel.get_h0_params:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid "Get the initial values of the hyperparameters of the posterior distribution."
+#: bayesml.categorical._categorical.LearnModel.get_h0_params:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+msgid ""
+"Get the initial values of the hyperparameters of the posterior "
+"distribution."
 msgstr "事後分布のハイパーパラメータの初期値を取得します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`get_hn_params <bayesml.categorical.LearnModel.get_hn_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_hn_params <bayesml.categorical.LearnModel.get_hn_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_hn_params <bayesml.categorical.LearnModel.get_hn_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_hn_params <bayesml.categorical.LearnModel.get_hn_params>`\\ "
+"\\(\\)"
 
-#: bayesml.categorical._categorical.LearnModel.get_hn_params:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.LearnModel.get_hn_params:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Get the hyperparameters of the posterior distribution."
 msgstr "事後分布のハイパーパラメータを取得します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`get_p_params <bayesml.categorical.LearnModel.get_p_params>`\\ \\(\\)"
-msgstr ":py:obj:`get_p_params <bayesml.categorical.LearnModel.get_p_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`get_p_params <bayesml.categorical.LearnModel.get_p_params>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`get_p_params <bayesml.categorical.LearnModel.get_p_params>`\\ "
+"\\(\\)"
 
-#: bayesml.categorical._categorical.LearnModel.get_p_params:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.LearnModel.get_p_params:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Get the parameters of the predictive distribution."
 msgstr "予測分布のパラメータを取得します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`load_h0_params <bayesml.categorical.LearnModel.load_h0_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_h0_params <bayesml.categorical.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_h0_params "
+"<bayesml.categorical.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`load_h0_params "
+"<bayesml.categorical.LearnModel.load_h0_params>`\\ \\(filename\\)"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Load the hyperparameters to h0_params."
 msgstr "h0_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`load_hn_params <bayesml.categorical.LearnModel.load_hn_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_hn_params <bayesml.categorical.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_hn_params "
+"<bayesml.categorical.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`load_hn_params "
+"<bayesml.categorical.LearnModel.load_hn_params>`\\ \\(filename\\)"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Load the hyperparameters to hn_params."
 msgstr "hn_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`make_prediction <bayesml.categorical.LearnModel.make_prediction>`\\ \\(\\[loss\\, onehot\\]\\)"
-msgstr ":py:obj:`make_prediction <bayesml.categorical.LearnModel.make_prediction>`\\ \\(\\[loss\\, onehot\\]\\)"
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.categorical.LearnModel.make_prediction>`\\ \\(\\[loss\\, "
+"onehot\\]\\)"
+msgstr ""
+":py:obj:`make_prediction "
+"<bayesml.categorical.LearnModel.make_prediction>`\\ \\(\\[loss\\, "
+"onehot\\]\\)"
 
-#: bayesml.categorical._categorical.LearnModel.make_prediction:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.LearnModel.make_prediction:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Predict a new data point under the given criterion."
 msgstr "与えられた基準の下で、新しいデータ点を予測します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`overwrite_h0_params <bayesml.categorical.LearnModel.overwrite_h0_params>`\\ \\(\\)"
-msgstr ":py:obj:`overwrite_h0_params <bayesml.categorical.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.categorical.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.categorical.LearnModel.overwrite_h0_params>`\\ \\(\\)"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid "Overwrite the initial values of the hyperparameters of the posterior distribution by the learned values."
+msgid ""
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
 msgstr "事後分布のハイパーパラメータの初期値を学習した値で上書きします。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`pred_and_update <bayesml.categorical.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\, onehot\\]\\)"
-msgstr ":py:obj:`pred_and_update <bayesml.categorical.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\, onehot\\]\\)"
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.categorical.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\, "
+"onehot\\]\\)"
+msgstr ""
+":py:obj:`pred_and_update "
+"<bayesml.categorical.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\, "
+"onehot\\]\\)"
 
-#: bayesml.categorical._categorical.LearnModel.pred_and_update:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.LearnModel.pred_and_update:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Predict a new data point and update the posterior sequentially."
 msgstr "逐次的に新しいデータ点を予測し、事後分布を更新します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`predict <bayesml.categorical.LearnModel.predict>`\\ \\(\\[onehot\\]\\)"
-msgstr ":py:obj:`predict <bayesml.categorical.LearnModel.predict>`\\ \\(\\[onehot\\]\\)"
+msgid ""
+":py:obj:`predict <bayesml.categorical.LearnModel.predict>`\\ "
+"\\(\\[onehot\\]\\)"
+msgstr ""
+":py:obj:`predict <bayesml.categorical.LearnModel.predict>`\\ "
+"\\(\\[onehot\\]\\)"
 
-#: bayesml.categorical._categorical.LearnModel.predict:2 bayesml.categorical._categorical.LearnModel.predict_proba:2
+#: bayesml.categorical._categorical.LearnModel.predict:2
+#: bayesml.categorical._categorical.LearnModel.predict_proba:2
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Predict the next data point."
 msgstr "次のデータ点を予測します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`predict_proba <bayesml.categorical.LearnModel.predict_proba>`\\ \\(\\)"
-msgstr ":py:obj:`predict_proba <bayesml.categorical.LearnModel.predict_proba>`\\ \\(\\)"
+msgid ""
+":py:obj:`predict_proba <bayesml.categorical.LearnModel.predict_proba>`\\ "
+"\\(\\)"
+msgstr ""
+":py:obj:`predict_proba <bayesml.categorical.LearnModel.predict_proba>`\\ "
+"\\(\\)"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`reset_hn_params <bayesml.categorical.LearnModel.reset_hn_params>`\\ \\(\\)"
-msgstr ":py:obj:`reset_hn_params <bayesml.categorical.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.categorical.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`reset_hn_params "
+"<bayesml.categorical.LearnModel.reset_hn_params>`\\ \\(\\)"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid "Reset the hyperparameters of the posterior distribution to their initial values."
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
 msgstr "事後分布のハイパーパラメータを初期値に戻します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`save_h0_params <bayesml.categorical.LearnModel.save_h0_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_h0_params <bayesml.categorical.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_h0_params "
+"<bayesml.categorical.LearnModel.save_h0_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`save_h0_params "
+"<bayesml.categorical.LearnModel.save_h0_params>`\\ \\(filename\\)"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`save_hn_params <bayesml.categorical.LearnModel.save_hn_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_hn_params <bayesml.categorical.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_hn_params "
+"<bayesml.categorical.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`save_hn_params "
+"<bayesml.categorical.LearnModel.save_hn_params>`\\ \\(filename\\)"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`set_h0_params <bayesml.categorical.LearnModel.set_h0_params>`\\ \\(\\[h0\\_alpha\\_vec\\]\\)"
-msgstr ":py:obj:`set_h0_params <bayesml.categorical.LearnModel.set_h0_params>`\\ \\(\\[h0\\_alpha\\_vec\\]\\)"
+msgid ""
+":py:obj:`set_h0_params <bayesml.categorical.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_alpha\\_vec\\]\\)"
+msgstr ""
+":py:obj:`set_h0_params <bayesml.categorical.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_alpha\\_vec\\]\\)"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`set_hn_params <bayesml.categorical.LearnModel.set_hn_params>`\\ \\(\\[hn\\_alpha\\_vec\\]\\)"
-msgstr ":py:obj:`set_hn_params <bayesml.categorical.LearnModel.set_hn_params>`\\ \\(\\[hn\\_alpha\\_vec\\]\\)"
+msgid ""
+":py:obj:`set_hn_params <bayesml.categorical.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_alpha\\_vec\\]\\)"
+msgstr ""
+":py:obj:`set_hn_params <bayesml.categorical.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_alpha\\_vec\\]\\)"
 
-#: bayesml.categorical._categorical.LearnModel.set_hn_params:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+#: bayesml.categorical._categorical.LearnModel.set_hn_params:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Set updated values of the hyperparameter of the posterior distribution."
 msgstr "事後分布のハイパーパラメータの更新値を設定します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`update_posterior <bayesml.categorical.LearnModel.update_posterior>`\\ \\(x\\[\\, onehot\\]\\)"
-msgstr ":py:obj:`update_posterior <bayesml.categorical.LearnModel.update_posterior>`\\ \\(x\\[\\, onehot\\]\\)"
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.categorical.LearnModel.update_posterior>`\\ \\(x\\[\\, "
+"onehot\\]\\)"
+msgstr ""
+":py:obj:`update_posterior "
+"<bayesml.categorical.LearnModel.update_posterior>`\\ \\(x\\[\\, "
+"onehot\\]\\)"
 
-#: bayesml.categorical._categorical.LearnModel.update_posterior:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid "Update the hyperparameters of the posterior distribution using traning data."
+#: bayesml.categorical._categorical.LearnModel.update_posterior:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
+msgid ""
+"Update the hyperparameters of the posterior distribution using traning "
+"data."
 msgstr "訓練データを使って事後分布のハイパーパラメータを更新します。"
 
 #: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
-msgid ":py:obj:`visualize_posterior <bayesml.categorical.LearnModel.visualize_posterior>`\\ \\(\\)"
-msgstr ":py:obj:`visualize_posterior <bayesml.categorical.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.categorical.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgstr ""
+":py:obj:`visualize_posterior "
+"<bayesml.categorical.LearnModel.visualize_posterior>`\\ \\(\\)"
 
-#: bayesml.categorical._categorical.LearnModel.visualize_posterior:2 bayesml.categorical._categorical.LearnModel:60:<autosummary>:1
-#: of
+#: bayesml.categorical._categorical.LearnModel.visualize_posterior:2
+#: bayesml.categorical._categorical.LearnModel:60:<autosummary>:1 of
 msgid "Visualize the posterior distribution for the parameter."
 msgstr "パラメータの事後分布を可視化します。"
 
@@ -784,7 +1068,8 @@ msgstr "``\"h0_alpha_vec\"`` : The value of ``self.h0_alpha_vec``"
 msgid "**hn_params**"
 msgstr "**hn_params**"
 
-#: bayesml.categorical._categorical.LearnModel.get_hn_params:-1 bayesml.categorical._categorical.LearnModel.get_p_params:-1 of
+#: bayesml.categorical._categorical.LearnModel.get_hn_params:-1
+#: bayesml.categorical._categorical.LearnModel.get_p_params:-1 of
 #, python-brace-format
 msgid "dict of {str: numpy.ndarray}"
 msgstr "dict of {str: numpy.ndarray}"
@@ -793,38 +1078,42 @@ msgstr "dict of {str: numpy.ndarray}"
 msgid "``\"hn_alpha_vec\"`` : The value of ``self.hn_alpha_vec``"
 msgstr "``\"hn_alpha_vec\"`` : The value of ``self.hn_alpha_vec``"
 
-#: bayesml.categorical._categorical.LearnModel.fit:13 bayesml.categorical._categorical.LearnModel.update_posterior:8 of
+#: bayesml.categorical._categorical.LearnModel.fit:13
+#: bayesml.categorical._categorical.LearnModel.update_posterior:8 of
 msgid ""
-"A non-negative int array. If onehot option is True,  its shape must be ``(sample_size,c_degree)`` and  each row must be a one-"
-"hot vector. If onehot option is False,  its shape must be ``(sample_size,)`` and each element must be  smaller than "
-"``self.c_degree``."
+"A non-negative int array. If onehot option is True,  its shape must be "
+"``(sample_size,c_degree)`` and  each row must be a one-hot vector. If "
+"onehot option is False,  its shape must be ``(sample_size,)`` and each "
+"element must be  smaller than ``self.c_degree``."
 msgstr ""
-"非負の整数配列です。onehotオプションがTrueの場合、その形状は``(sample_size,c_degree)``でなければならず、各行はone-hotベクトルであ"
-"る必要があります。onehotオプションがFalseの場合、その形状は``(sample_size,)``でなければならず、各要素は``self.c_degree``より小さ"
-"い必要があります。"
+"非負の整数配列です。onehotオプションがTrueの場合、その形状は``(sample_size,c_degree)``でなければならず"
+"、各行はone-"
+"hotベクトルである必要があります。onehotオプションがFalseの場合、その形状は``(sample_size,)``でなければならず、各要素は``self.c_degree``より小さい必要があります。"
 
-#: bayesml.categorical._categorical.LearnModel.fit:20 bayesml.categorical._categorical.LearnModel.update_posterior:15 of
+#: bayesml.categorical._categorical.LearnModel.fit:20
+#: bayesml.categorical._categorical.LearnModel.update_posterior:15 of
 msgid "If True, the input sample must be one-hot encoded,  by default True."
 msgstr "Trueの場合、入力サンプルはone-hotエンコーディングされている必要があります。デフォルトはTrueです。"
 
-#: bayesml.categorical._categorical.LearnModel.estimate_params:7 bayesml.categorical._categorical.LearnModel.make_prediction:7
+#: bayesml.categorical._categorical.LearnModel.estimate_params:7
+#: bayesml.categorical._categorical.LearnModel.make_prediction:7
 #: bayesml.categorical._categorical.LearnModel.pred_and_update:11 of
 msgid "**loss**"
 msgstr "**loss**"
 
-#: bayesml.categorical._categorical.LearnModel.estimate_params:-1 bayesml.categorical._categorical.LearnModel.make_prediction:-1
+#: bayesml.categorical._categorical.LearnModel.estimate_params:-1
+#: bayesml.categorical._categorical.LearnModel.make_prediction:-1
 #: bayesml.categorical._categorical.LearnModel.pred_and_update:-1 of
 msgid "str, optional"
 msgstr "str, optional"
 
-#: bayesml.categorical._categorical.LearnModel.estimate_params:8 bayesml.categorical._categorical.LearnModel.make_prediction:8
+#: bayesml.categorical._categorical.LearnModel.estimate_params:8
+#: bayesml.categorical._categorical.LearnModel.make_prediction:8
 #: bayesml.categorical._categorical.LearnModel.pred_and_update:12 of
 msgid ""
-"Loss function underlying the Bayes risk function, by default \"squared\". This function supports \"squared\", \"0-1\", and "
-"\"KL\"."
-msgstr ""
-"ベイズリスク関数の基礎となる損失関数は、デフォルトで「二乗誤差損失」となります。この関数は「二乗誤差損失」、「0-1損失」、「KL」を"
-"サポートしております。"
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\", \"0-1\", and \"KL\"."
+msgstr "ベイズリスク関数の基礎となる損失関数は、デフォルトで「二乗誤差損失」となります。この関数は「二乗誤差損失」、「0-1損失」、「KL」をサポートしております。"
 
 #: bayesml.categorical._categorical.LearnModel.estimate_params:11 of
 msgid "**dict_out**"
@@ -845,11 +1134,12 @@ msgstr "{numpy ndarray, float, None, or rv_frozen}"
 
 #: bayesml.categorical._categorical.LearnModel.estimate_params:19 of
 msgid ""
-"The estimated values under the given loss function. If it is not exist, `None` will be returned. If the loss function is \"KL\", "
-"the posterior distribution itself will be returned as rv_frozen object of scipy.stats."
+"The estimated values under the given loss function. If it is not exist, "
+"`None` will be returned. If the loss function is \"KL\", the posterior "
+"distribution itself will be returned as rv_frozen object of scipy.stats."
 msgstr ""
-"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数が \"KL\" の場合、事後分布そのものが scipy.stats "
-"の rv_frozen オブジェクトとして返されます。"
+"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数が \"KL\" の場合、事後分布そのものが "
+"scipy.stats の rv_frozen オブジェクトとして返されます。"
 
 #: bayesml.categorical._categorical.LearnModel.estimate_params:32 of
 msgid ":obj:`scipy.stats.rv_continuous`"
@@ -868,10 +1158,13 @@ msgid "``\"p_theta_vec\"`` : The value of ``self.p_theta_vec``"
 msgstr "``\"p_theta_vec\"`` : ``self.p_theta_vec`` の値"
 
 #: bayesml.categorical._categorical.LearnModel.make_prediction:12 of
-msgid "If True, predected value under \"0-1\" loss will be one-hot encoded,  by default True."
+msgid ""
+"If True, predected value under \"0-1\" loss will be one-hot encoded,  by "
+"default True."
 msgstr "Trueの場合、「0-1」損失関数における予測値は one-hot 符号化されます。デフォルトではTrueです。"
 
-#: bayesml.categorical._categorical.LearnModel.make_prediction:19 bayesml.categorical._categorical.LearnModel.pred_and_update:23 of
+#: bayesml.categorical._categorical.LearnModel.make_prediction:19
+#: bayesml.categorical._categorical.LearnModel.pred_and_update:23 of
 msgid "**Predicted_value**"
 msgstr "**Predicted_value**"
 
@@ -882,11 +1175,10 @@ msgstr "{float, numpy.ndarray}"
 
 #: bayesml.categorical._categorical.LearnModel.make_prediction:20 of
 msgid ""
-"The predicted value under the given loss function.  If the loss function is \"KL\", the predictive distribution will be returned "
-"as 1-dimensional numpy.ndarray that consists of occurence probabilities."
-msgstr ""
-"指定された損失関数に基づく予測値です。損失関数が「KL」の場合、予測分布は出現確率で構成される1次元のnumpy.ndarrayとして返されま"
-"す。"
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the predictive distribution will be returned as 1-dimensional "
+"numpy.ndarray that consists of occurence probabilities."
+msgstr "指定された損失関数に基づく予測値です。損失関数が「KL」の場合、予測分布は出現確率で構成される1次元のnumpy.ndarrayとして返されます。"
 
 #: bayesml.categorical._categorical.LearnModel.pred_and_update:-1 of
 msgid "numpy.ndarray or int"
@@ -894,42 +1186,50 @@ msgstr "numpy.ndarray or int"
 
 #: bayesml.categorical._categorical.LearnModel.pred_and_update:8 of
 msgid ""
-"If onehot option is True, 1-dimensional array whose length is ``c_degree``.  If onehot option is False, a non-negative integer."
+"If onehot option is True, 1-dimensional array whose length is "
+"``c_degree``.  If onehot option is False, a non-negative integer."
 msgstr ""
-"onehot オプションが True の場合、長さ ``c_degree`` の 1 次元配列となります。onehot オプションが False の場合、非負の整数となりま"
-"す。"
+"onehot オプションが True の場合、長さ ``c_degree`` の 1 次元配列となります。onehot オプションが False "
+"の場合、非負の整数となります。"
 
 #: bayesml.categorical._categorical.LearnModel.pred_and_update:16 of
 msgid ""
-"If True, the input must be one-hot encoded and a predected value  under \"0-1\" loss will be one-hot encoded, by default True."
+"If True, the input must be one-hot encoded and a predected value  under "
+"\"0-1\" loss will be one-hot encoded, by default True."
 msgstr ""
-"Trueの場合、入力はone-hot エンコードされなければなりません。また、「0-1」損失関数における予測値もone-hot エンコードされます。デ"
-"フォルトではTrueです。"
+"Trueの場合、入力はone-hot エンコードされなければなりません。また、「0-1」損失関数における予測値もone-hot "
+"エンコードされます。デフォルトではTrueです。"
 
-#: bayesml.categorical._categorical.LearnModel.pred_and_update:-1 bayesml.categorical._categorical.LearnModel.predict:-1 of
+#: bayesml.categorical._categorical.LearnModel.pred_and_update:-1
+#: bayesml.categorical._categorical.LearnModel.predict:-1 of
 #, python-brace-format
 msgid "{int, numpy.ndarray}"
 msgstr "{int, numpy.ndarray}"
 
 #: bayesml.categorical._categorical.LearnModel.pred_and_update:24 of
 msgid ""
-"The predicted value under the given loss function.  If the loss function is \"KL\", the predictive distribution itself will be "
-"returned as numpy.ndarray."
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the predictive distribution itself will be returned as "
+"numpy.ndarray."
 msgstr "与えられた損失関数の下での予測値。  損失関数が \"KL \"の場合、予測分布自体がnumpy.ndarrayとして返されます。"
 
-#: bayesml.categorical._categorical.LearnModel.calc_log_marginal_likelihood:10 of
+#: bayesml.categorical._categorical.LearnModel.calc_log_marginal_likelihood:10
+#: of
 msgid "**log_marginal_likelihood**"
 msgstr "**log_marginal_likelihood**"
 
-#: bayesml.categorical._categorical.LearnModel.calc_log_marginal_likelihood:-1 of
+#: bayesml.categorical._categorical.LearnModel.calc_log_marginal_likelihood:-1
+#: of
 msgid "float"
 msgstr "float"
 
-#: bayesml.categorical._categorical.LearnModel.calc_log_marginal_likelihood:11 of
+#: bayesml.categorical._categorical.LearnModel.calc_log_marginal_likelihood:11
+#: of
 msgid "The log marginal likelihood."
 msgstr "対数周辺尤度"
 
-#: bayesml.categorical._categorical.LearnModel.fit:4 bayesml.categorical._categorical.LearnModel.predict:4
+#: bayesml.categorical._categorical.LearnModel.fit:4
+#: bayesml.categorical._categorical.LearnModel.predict:4
 #: bayesml.categorical._categorical.LearnModel.predict_proba:4 of
 msgid "This function is a wrapper of the following functions:"
 msgstr "この関数は以下の関数のラッパーです："
@@ -965,3 +1265,4 @@ msgstr "**predicted_distribution**"
 #: bayesml.categorical._categorical.LearnModel.predict_proba:15 of
 msgid "The predicted distribution under the KL loss function."
 msgstr "KL損失関数のもとでの予測分布。"
+

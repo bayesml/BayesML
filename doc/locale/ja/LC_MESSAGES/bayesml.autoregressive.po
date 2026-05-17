@@ -6,19 +6,18 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: BayesML\n"
+"Project-Id-Version:  BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-11 09:23+0900\n"
+"POT-Creation-Date: 2025-05-29 18:24+0900\n"
 "PO-Revision-Date: 2026-02-15 09:22+0900\n"
 "Last-Translator: \n"
-"Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.17.0\n"
-"X-Generator: Poedit 3.8\n"
 
 #: ../../bayesml.autoregressive.rst:2
 msgid "bayesml.autoregressive package"
@@ -54,19 +53,19 @@ msgstr ":math:`x_n \\in \\mathbb{R}`: 時点 :math:`n` におけるデータ点"
 #: bayesml.autoregressive:8 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{x}'_n := [1, x_{n-d}, x_{n-d+1}, \\dots , x_{n-1}]^\\top "
-"\\in \\mathbb{R}^{d+1}`. Here we assume :math:`x_n` for :math:`n < 1` is given "
-"as a initial value."
+":math:`\\boldsymbol{x}'_n := [1, x_{n-d}, x_{n-d+1}, \\dots , "
+"x_{n-1}]^\\top \\in \\mathbb{R}^{d+1}`. Here we assume :math:`x_n` for "
+":math:`n < 1` is given as a initial value."
 msgstr ""
-":math:`\\boldsymbol{x}'_n := [1, x_{n-d}, x_{n-d+1}, \\dots , x_{n-1}]^\\top "
-"\\in \\mathbb{R}^{d+1}`。ここで、:math:`n < 1` に対する :math:`x_n` は初期値とし"
-"て与えられているものと仮定します。"
+":math:`\\boldsymbol{x}'_n := [1, x_{n-d}, x_{n-d+1}, \\dots , "
+"x_{n-1}]^\\top \\in \\mathbb{R}^{d+1}`。ここで、:math:`n < 1` に対する :math:`x_n`"
+" は初期値として与えられているものと仮定します。"
 
 #: bayesml.autoregressive:9 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{\\theta} \\in \\mathbb{R}^{d+1}`: a regression coefficient "
-"parameter"
+":math:`\\boldsymbol{\\theta} \\in \\mathbb{R}^{d+1}`: a regression "
+"coefficient parameter"
 msgstr ":math:`\\boldsymbol{\\theta} \\in \\mathbb{R}^{d+1}`: 回帰係数パラメータ"
 
 #: bayesml.autoregressive:10 of
@@ -76,31 +75,33 @@ msgstr ":math:`\\tau \\in \\mathbb{R}_{>0}`: ノイズの精度パラメータ"
 
 #: bayesml.autoregressive:12 of
 msgid ""
-"p(x_n | \\boldsymbol{x}'_{n-1}, \\boldsymbol{\\theta}, \\tau) &= \\mathcal{N}"
-"(x_n|\\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1}, \\tau^{-1}) \\\\\n"
-"&= \\sqrt{\\frac{\\tau}{2 \\pi}} \\exp \\left\\{ -\\frac{\\tau}{2} (x_n - "
-"\\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1})^2 \\right\\}.\n"
+"p(x_n | \\boldsymbol{x}'_{n-1}, \\boldsymbol{\\theta}, \\tau) &= "
+"\\mathcal{N}(x_n|\\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1}, "
+"\\tau^{-1}) \\\\\n"
+"&= \\sqrt{\\frac{\\tau}{2 \\pi}} \\exp \\left\\{ -\\frac{\\tau}{2} (x_n -"
+" \\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1})^2 \\right\\}.\n"
 "\n"
 msgstr ""
-"p(x_n | \\boldsymbol{x}'_{n-1}, \\boldsymbol{\\theta}, \\tau) &= \\mathcal{N}"
-"(x_n|\\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1}, \\tau^{-1}) \\\\\n"
-"&= \\sqrt{\\frac{\\tau}{2 \\pi}} \\exp \\left\\{ -\\frac{\\tau}{2} (x_n - "
-"\\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1})^2 \\right\\}.\n"
+"p(x_n | \\boldsymbol{x}'_{n-1}, \\boldsymbol{\\theta}, \\tau) &= "
+"\\mathcal{N}(x_n|\\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1}, "
+"\\tau^{-1}) \\\\\n"
+"&= \\sqrt{\\frac{\\tau}{2 \\pi}} \\exp \\left\\{ -\\frac{\\tau}{2} (x_n -"
+" \\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1})^2 \\right\\}.\n"
 "\n"
 
 #: bayesml.autoregressive:16 of
 #, python-brace-format
 msgid ""
-"&\\mathbb{E}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau] = "
-"\\boldsymbol{\\theta}^{\\top} \\boldsymbol{x}'_{n-1}, \\\\\n"
-"&\\mathbb{V}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau ] = "
-"\\tau^{-1}.\n"
+"&\\mathbb{E}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau] ="
+" \\boldsymbol{\\theta}^{\\top} \\boldsymbol{x}'_{n-1}, \\\\\n"
+"&\\mathbb{V}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau ] "
+"= \\tau^{-1}.\n"
 "\n"
 msgstr ""
-"&\\mathbb{E}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau] = "
-"\\boldsymbol{\\theta}^{\\top} \\boldsymbol{x}'_{n-1}, \\\\\n"
-"&\\mathbb{V}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau ] = "
-"\\tau^{-1}.\n"
+"&\\mathbb{E}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau] ="
+" \\boldsymbol{\\theta}^{\\top} \\boldsymbol{x}'_{n-1}, \\\\\n"
+"&\\mathbb{V}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau ] "
+"= \\tau^{-1}.\n"
 "\n"
 
 #: bayesml.autoregressive:21 of
@@ -110,88 +111,91 @@ msgstr "事前分布は以下の通りです："
 #: bayesml.autoregressive:23 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{\\mu}_0 \\in \\mathbb{R}^{d+1}`: a hyperparameter "
-"for :math:`\\boldsymbol{\\theta}`"
+":math:`\\boldsymbol{\\mu}_0 \\in \\mathbb{R}^{d+1}`: a hyperparameter for"
+" :math:`\\boldsymbol{\\theta}`"
 msgstr ""
-":math:`\\boldsymbol{\\mu}_0 \\in \\mathbb{R}^{d+1}"
-"`: :math:`\\boldsymbol{\\theta}` のハイパーパラメータ"
+":math:`\\boldsymbol{\\mu}_0 \\in \\mathbb{R}^{d+1}`: "
+":math:`\\boldsymbol{\\theta}` のハイパーパラメータ"
 
 #: bayesml.autoregressive:24 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{\\Lambda}_0 \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: a "
-"hyperparameter for :math:`\\boldsymbol{\\theta}` (a positive definite matrix)"
+":math:`\\boldsymbol{\\Lambda}_0 \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: "
+"a hyperparameter for :math:`\\boldsymbol{\\theta}` (a positive definite "
+"matrix)"
 msgstr ""
-":math:`\\boldsymbol{\\Lambda}_0 \\in \\mathbb{R}^{(d+1) \\times (d+1)}"
-"`: :math:`\\boldsymbol{\\theta}` のハイパーパラメータ（正定値行列）"
+":math:`\\boldsymbol{\\Lambda}_0 \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: "
+":math:`\\boldsymbol{\\theta}` のハイパーパラメータ（正定値行列）"
 
 #: bayesml.autoregressive:25 of
 #, python-brace-format
 msgid ""
-":math:`| \\boldsymbol{\\Lambda}_0 | \\in \\mathbb{R}`: the determinant "
-"of :math:`\\boldsymbol{\\Lambda}_0`"
+":math:`| \\boldsymbol{\\Lambda}_0 | \\in \\mathbb{R}`: the determinant of"
+" :math:`\\boldsymbol{\\Lambda}_0`"
 msgstr ""
-":math:`| \\boldsymbol{\\Lambda}_0 | \\in \\mathbb{R}"
-"`: :math:`\\boldsymbol{\\Lambda}_0` の行列式"
+":math:`| \\boldsymbol{\\Lambda}_0 | \\in \\mathbb{R}`: "
+":math:`\\boldsymbol{\\Lambda}_0` の行列式"
 
 #: bayesml.autoregressive:26 of
 #, python-brace-format
 msgid ""
-":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter for :math:`\\tau`"
-msgstr ""
-":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: :math:`\\tau` のハイパーパラメータ"
+":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter for "
+":math:`\\tau`"
+msgstr ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: :math:`\\tau` のハイパーパラメータ"
 
 #: bayesml.autoregressive:27 of
 #, python-brace-format
 msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter for :math:`\\tau`"
-msgstr ""
-":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: :math:`\\tau` のハイパーパラメータ"
+msgstr ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: :math:`\\tau` のハイパーパラメータ"
 
 #: bayesml.autoregressive:28 of
 #, python-brace-format
 msgid ""
-":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}`: the Gamma function"
+":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}`: the Gamma "
+"function"
 msgstr ":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}`: ガンマ関数"
 
 #: bayesml.autoregressive:30 of
 msgid ""
-"p(\\boldsymbol{\\theta}, \\tau) &= \\mathcal{N}(\\boldsymbol{\\theta}|"
-"\\boldsymbol{\\mu}_0, (\\tau \\boldsymbol{\\Lambda}_0)^{-1}) \\mathrm{Gam}"
-"(\\tau|\\alpha_0,\\beta_0)\\\\\n"
+"p(\\boldsymbol{\\theta}, \\tau) &= "
+"\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_0, (\\tau "
+"\\boldsymbol{\\Lambda}_0)^{-1}) "
+"\\mathrm{Gam}(\\tau|\\alpha_0,\\beta_0)\\\\\n"
 "&= \\frac{|\\tau \\boldsymbol{\\Lambda}_0|^{1/2}}{(2 \\pi)^{(d+1)/2}} \n"
-"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}"
-"_0)^\\top \n"
+"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - "
+"\\boldsymbol{\\mu}_0)^\\top \n"
 "\\boldsymbol{\\Lambda}_0 (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}_0) "
 "\\right\\}\n"
-"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\tau^{\\alpha_0 - 1} \\exp \\"
-"{ -\\beta_0 \\tau \\} .\n"
+"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\tau^{\\alpha_0 - 1} "
+"\\exp \\{ -\\beta_0 \\tau \\} .\n"
 "\n"
 msgstr ""
-"p(\\boldsymbol{\\theta}, \\tau) &= \\mathcal{N}(\\boldsymbol{\\theta}|"
-"\\boldsymbol{\\mu}_0, (\\tau \\boldsymbol{\\Lambda}_0)^{-1}) \\mathrm{Gam}"
-"(\\tau|\\alpha_0,\\beta_0)\\\\\n"
+"p(\\boldsymbol{\\theta}, \\tau) &= "
+"\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_0, (\\tau "
+"\\boldsymbol{\\Lambda}_0)^{-1}) "
+"\\mathrm{Gam}(\\tau|\\alpha_0,\\beta_0)\\\\\n"
 "&= \\frac{|\\tau \\boldsymbol{\\Lambda}_0|^{1/2}}{(2 \\pi)^{(d+1)/2}} \n"
-"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}"
-"_0)^\\top \n"
+"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - "
+"\\boldsymbol{\\mu}_0)^\\top \n"
 "\\boldsymbol{\\Lambda}_0 (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}_0) "
 "\\right\\}\n"
-"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\tau^{\\alpha_0 - 1} \\exp \\"
-"{ -\\beta_0 \\tau \\} .\n"
+"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\tau^{\\alpha_0 - 1} "
+"\\exp \\{ -\\beta_0 \\tau \\} .\n"
 "\n"
 
 #: bayesml.autoregressive:37 of
 #, python-brace-format
 msgid ""
-"\\mathbb{E}[\\boldsymbol{\\theta}] &= \\boldsymbol{\\mu}_0 & \\left( \\alpha_0 "
-"> \\frac{1}{2} \\right), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{\\theta}] &= \\boldsymbol{\\mu}_0 & \\left( "
+"\\alpha_0 > \\frac{1}{2} \\right), \\\\\n"
 "\\mathrm{Cov}[\\boldsymbol{\\theta}] &= \\frac{\\beta_0}{\\alpha_0 - 1} "
 "\\boldsymbol{\\Lambda}_0^{-1} & (\\alpha_0 > 1), \\\\\n"
 "\\mathbb{E}[\\tau] &= \\frac{\\alpha_0}{\\beta_0}, \\\\\n"
 "\\mathbb{V}[\\tau] &= \\frac{\\alpha_0}{\\beta_0^2}.\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[\\boldsymbol{\\theta}] &= \\boldsymbol{\\mu}_0 & \\left( \\alpha_0 "
-"> \\frac{1}{2} \\right), \\\\\n"
+"\\mathbb{E}[\\boldsymbol{\\theta}] &= \\boldsymbol{\\mu}_0 & \\left( "
+"\\alpha_0 > \\frac{1}{2} \\right), \\\\\n"
 "\\mathrm{Cov}[\\boldsymbol{\\theta}] &= \\frac{\\beta_0}{\\alpha_0 - 1} "
 "\\boldsymbol{\\Lambda}_0^{-1} & (\\alpha_0 > 1), \\\\\n"
 "\\mathbb{E}[\\tau] &= \\frac{\\alpha_0}{\\beta_0}, \\\\\n"
@@ -205,75 +209,76 @@ msgstr "事後分布は以下の通りです："
 #: bayesml.autoregressive:45 of
 #, python-brace-format
 msgid ""
-":math:`x^n := [x_1, x_2, \\dots , x_n]^\\top \\in \\mathbb{R}^n`: given data"
-msgstr ""
-":math:`x^n := [x_1, x_2, \\dots , x_n]^\\top \\in \\mathbb{R}^n`: 与えられたデー"
-"タ"
+":math:`x^n := [x_1, x_2, \\dots , x_n]^\\top \\in \\mathbb{R}^n`: given "
+"data"
+msgstr ":math:`x^n := [x_1, x_2, \\dots , x_n]^\\top \\in \\mathbb{R}^n`: 与えられたデータ"
 
 #: bayesml.autoregressive:46 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{X}_n = [\\boldsymbol{x}'_1, \\boldsymbol{x}'_2, \\dots , "
-"\\boldsymbol{x}'_n]^\\top \\in \\mathbb{R}^{n \\times (d+1)}`"
+":math:`\\boldsymbol{X}_n = [\\boldsymbol{x}'_1, \\boldsymbol{x}'_2, "
+"\\dots , \\boldsymbol{x}'_n]^\\top \\in \\mathbb{R}^{n \\times (d+1)}`"
 msgstr ""
-":math:`\\boldsymbol{X}_n = [\\boldsymbol{x}'_1, \\boldsymbol{x}'_2, \\dots , "
-"\\boldsymbol{x}'_n]^\\top \\in \\mathbb{R}^{n \\times (d+1)}`"
+":math:`\\boldsymbol{X}_n = [\\boldsymbol{x}'_1, \\boldsymbol{x}'_2, "
+"\\dots , \\boldsymbol{x}'_n]^\\top \\in \\mathbb{R}^{n \\times (d+1)}`"
 
 #: bayesml.autoregressive:47 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{\\mu}_n \\in \\mathbb{R}^{d+1}`: a hyperparameter "
-"for :math:`\\boldsymbol{\\theta}`"
+":math:`\\boldsymbol{\\mu}_n \\in \\mathbb{R}^{d+1}`: a hyperparameter for"
+" :math:`\\boldsymbol{\\theta}`"
 msgstr ""
-":math:`\\boldsymbol{\\mu}_n \\in \\mathbb{R}^{d+1}"
-"`: :math:`\\boldsymbol{\\theta}` のハイパーパラメータ"
+":math:`\\boldsymbol{\\mu}_n \\in \\mathbb{R}^{d+1}`: "
+":math:`\\boldsymbol{\\theta}` のハイパーパラメータ"
 
 #: bayesml.autoregressive:48 of
 #, python-brace-format
 msgid ""
-":math:`\\boldsymbol{\\Lambda}_n \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: a "
-"hyperparameter for :math:`\\boldsymbol{\\theta}` (a positive definite matrix)"
+":math:`\\boldsymbol{\\Lambda}_n \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: "
+"a hyperparameter for :math:`\\boldsymbol{\\theta}` (a positive definite "
+"matrix)"
 msgstr ""
-":math:`\\boldsymbol{\\Lambda}_n \\in \\mathbb{R}^{(d+1) \\times (d+1)}"
-"`: :math:`\\boldsymbol{\\theta}` のハイパーパラメータ（正定値行列）"
+":math:`\\boldsymbol{\\Lambda}_n \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: "
+":math:`\\boldsymbol{\\theta}` のハイパーパラメータ（正定値行列）"
 
 #: bayesml.autoregressive:49 of
 #, python-brace-format
 msgid ""
-":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter for :math:`\\tau`"
-msgstr ""
-":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: :math:`\\tau` のハイパーパラメータ"
+":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter for "
+":math:`\\tau`"
+msgstr ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: :math:`\\tau` のハイパーパラメータ"
 
 #: bayesml.autoregressive:50 of
 #, python-brace-format
 msgid ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: a hyperparameter for :math:`\\tau`"
-msgstr ""
-":math:`\\beta_n \\in \\mathbb{R}_{>0}`: :math:`\\tau` のハイパーパラメータ"
+msgstr ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: :math:`\\tau` のハイパーパラメータ"
 
 #: bayesml.autoregressive:52 of
 msgid ""
-"p(\\boldsymbol{\\theta}, \\tau | x^n) &= \\mathcal{N}(\\boldsymbol{\\theta}|"
-"\\boldsymbol{\\mu}_n, (\\tau \\boldsymbol{\\Lambda}_n)^{-1}) \\mathrm{Gam}"
-"(\\tau|\\alpha_n,\\beta_n)\\\\\n"
+"p(\\boldsymbol{\\theta}, \\tau | x^n) &= "
+"\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_n, (\\tau "
+"\\boldsymbol{\\Lambda}_n)^{-1}) "
+"\\mathrm{Gam}(\\tau|\\alpha_n,\\beta_n)\\\\\n"
 "&= \\frac{|\\boldsymbol{\\tau \\Lambda}_n|^{1/2}}{(2 \\pi)^{(d+1)/2}}\n"
-"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}"
-"_n)^\\top \n"
+"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - "
+"\\boldsymbol{\\mu}_n)^\\top \n"
 "\\boldsymbol{\\Lambda}_n (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}_n) "
 "\\right\\}\n"
-"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\tau^{\\alpha_n - 1} \\exp \\"
-"{ -\\beta_n \\tau \\} .\n"
+"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\tau^{\\alpha_n - 1} "
+"\\exp \\{ -\\beta_n \\tau \\} .\n"
 "\n"
 msgstr ""
-"p(\\boldsymbol{\\theta}, \\tau | x^n) &= \\mathcal{N}(\\boldsymbol{\\theta}|"
-"\\boldsymbol{\\mu}_n, (\\tau \\boldsymbol{\\Lambda}_n)^{-1}) \\mathrm{Gam}"
-"(\\tau|\\alpha_n,\\beta_n)\\\\\n"
+"p(\\boldsymbol{\\theta}, \\tau | x^n) &= "
+"\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_n, (\\tau "
+"\\boldsymbol{\\Lambda}_n)^{-1}) "
+"\\mathrm{Gam}(\\tau|\\alpha_n,\\beta_n)\\\\\n"
 "&= \\frac{|\\boldsymbol{\\tau \\Lambda}_n|^{1/2}}{(2 \\pi)^{(d+1)/2}}\n"
-"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}"
-"_n)^\\top \n"
+"\\exp \\left\\{ -\\frac{\\tau}{2} (\\boldsymbol{\\theta} - "
+"\\boldsymbol{\\mu}_n)^\\top \n"
 "\\boldsymbol{\\Lambda}_n (\\boldsymbol{\\theta} - \\boldsymbol{\\mu}_n) "
 "\\right\\}\n"
-"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\tau^{\\alpha_n - 1} \\exp \\"
-"{ -\\beta_n \\tau \\} .\n"
+"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\tau^{\\alpha_n - 1} "
+"\\exp \\{ -\\beta_n \\tau \\} .\n"
 "\n"
 
 #: bayesml.autoregressive:59 of
@@ -281,16 +286,16 @@ msgstr ""
 msgid ""
 "\\mathbb{E}[\\boldsymbol{\\theta} | x^n] &= \\boldsymbol{\\mu}_n & "
 "\\left( \\alpha_n > \\frac{1}{2} \\right), \\\\\n"
-"\\mathrm{Cov}[\\boldsymbol{\\theta} | x^n] &= \\frac{\\beta_n}{\\alpha_n - 1} "
-"\\boldsymbol{\\Lambda}_n^{-1} & (\\alpha_n > 1), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{\\theta} | x^n] &= \\frac{\\beta_n}{\\alpha_n "
+"- 1} \\boldsymbol{\\Lambda}_n^{-1} & (\\alpha_n > 1), \\\\\n"
 "\\mathbb{E}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n}, \\\\\n"
 "\\mathbb{V}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n^2},\n"
 "\n"
 msgstr ""
 "\\mathbb{E}[\\boldsymbol{\\theta} | x^n] &= \\boldsymbol{\\mu}_n & "
 "\\left( \\alpha_n > \\frac{1}{2} \\right), \\\\\n"
-"\\mathrm{Cov}[\\boldsymbol{\\theta} | x^n] &= \\frac{\\beta_n}{\\alpha_n - 1} "
-"\\boldsymbol{\\Lambda}_n^{-1} & (\\alpha_n > 1), \\\\\n"
+"\\mathrm{Cov}[\\boldsymbol{\\theta} | x^n] &= \\frac{\\beta_n}{\\alpha_n "
+"- 1} \\boldsymbol{\\Lambda}_n^{-1} & (\\alpha_n > 1), \\\\\n"
 "\\mathbb{E}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n}, \\\\\n"
 "\\mathbb{V}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n^2},\n"
 "\n"
@@ -302,10 +307,11 @@ msgstr "ただし、ハイパーパラメータの更新ルールは次の通り
 #: bayesml.autoregressive:67 of
 #, python-brace-format
 msgid ""
-"\\boldsymbol{\\Lambda}_n &= \\boldsymbol{\\Lambda}_0 + \\boldsymbol{X}_n^\\top "
-"\\boldsymbol{X}_n,\\\\\n"
-"\\boldsymbol{\\mu}_n &= \\boldsymbol{\\Lambda}_n^{-1} (\\boldsymbol{\\Lambda}_0 "
-"\\boldsymbol{\\mu}_0 + \\boldsymbol{X}_n^\\top x^n),\\\\\n"
+"\\boldsymbol{\\Lambda}_n &= \\boldsymbol{\\Lambda}_0 + "
+"\\boldsymbol{X}_n^\\top \\boldsymbol{X}_n,\\\\\n"
+"\\boldsymbol{\\mu}_n &= \\boldsymbol{\\Lambda}_n^{-1} "
+"(\\boldsymbol{\\Lambda}_0 \\boldsymbol{\\mu}_0 + \\boldsymbol{X}_n^\\top "
+"x^n),\\\\\n"
 "\\alpha_n &= \\alpha_0 + \\frac{n}{2},\\\\\n"
 "\\beta_n &= \\beta_0 + \\frac{1}{2} \\left( -\\boldsymbol{\\mu}_n^\\top "
 "\\boldsymbol{\\Lambda}_n \\boldsymbol{\\mu}_n \n"
@@ -313,10 +319,11 @@ msgid ""
 "\\boldsymbol{\\mu}_0 \\right).\n"
 "\n"
 msgstr ""
-"\\boldsymbol{\\Lambda}_n &= \\boldsymbol{\\Lambda}_0 + \\boldsymbol{X}_n^\\top "
-"\\boldsymbol{X}_n,\\\\\n"
-"\\boldsymbol{\\mu}_n &= \\boldsymbol{\\Lambda}_n^{-1} (\\boldsymbol{\\Lambda}_0 "
-"\\boldsymbol{\\mu}_0 + \\boldsymbol{X}_n^\\top x^n),\\\\\n"
+"\\boldsymbol{\\Lambda}_n &= \\boldsymbol{\\Lambda}_0 + "
+"\\boldsymbol{X}_n^\\top \\boldsymbol{X}_n,\\\\\n"
+"\\boldsymbol{\\mu}_n &= \\boldsymbol{\\Lambda}_n^{-1} "
+"(\\boldsymbol{\\Lambda}_0 \\boldsymbol{\\mu}_0 + \\boldsymbol{X}_n^\\top "
+"x^n),\\\\\n"
 "\\alpha_n &= \\alpha_0 + \\frac{n}{2},\\\\\n"
 "\\beta_n &= \\beta_0 + \\frac{1}{2} \\left( -\\boldsymbol{\\mu}_n^\\top "
 "\\boldsymbol{\\Lambda}_n \\boldsymbol{\\mu}_n \n"
@@ -350,38 +357,47 @@ msgstr ":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: パラメータ"
 
 #: bayesml.autoregressive:81 of
 msgid ""
-"\\mathrm{St}(x_{n+1}|m_\\mathrm{p}, \\lambda_\\mathrm{p}, \\nu_\\mathrm{p})\n"
-"= \\frac{\\Gamma (\\nu_\\mathrm{p}/2 + 1/2)}{\\Gamma (\\nu_\\mathrm{p}/2)}\n"
-"\\left( \\frac{\\lambda_\\mathrm{p}}{\\pi \\nu_\\mathrm{p}} \\right)^{1/2}\n"
-"\\left[ 1 + \\frac{\\lambda_\\mathrm{p}(x_{n+1}-m_\\mathrm{p})^2}"
-"{\\nu_\\mathrm{p}} \\right]^{-\\nu_\\mathrm{p}/2 - 1/2}.\n"
+"\\mathrm{St}(x_{n+1}|m_\\mathrm{p}, \\lambda_\\mathrm{p}, "
+"\\nu_\\mathrm{p})\n"
+"= \\frac{\\Gamma (\\nu_\\mathrm{p}/2 + 1/2)}{\\Gamma "
+"(\\nu_\\mathrm{p}/2)}\n"
+"\\left( \\frac{\\lambda_\\mathrm{p}}{\\pi \\nu_\\mathrm{p}} "
+"\\right)^{1/2}\n"
+"\\left[ 1 + "
+"\\frac{\\lambda_\\mathrm{p}(x_{n+1}-m_\\mathrm{p})^2}{\\nu_\\mathrm{p}} "
+"\\right]^{-\\nu_\\mathrm{p}/2 - 1/2}.\n"
 "\n"
 msgstr ""
-"\\mathrm{St}(x_{n+1}|m_\\mathrm{p}, \\lambda_\\mathrm{p}, \\nu_\\mathrm{p})\n"
-"= \\frac{\\Gamma (\\nu_\\mathrm{p}/2 + 1/2)}{\\Gamma (\\nu_\\mathrm{p}/2)}\n"
-"\\left( \\frac{\\lambda_\\mathrm{p}}{\\pi \\nu_\\mathrm{p}} \\right)^{1/2}\n"
-"\\left[ 1 + \\frac{\\lambda_\\mathrm{p}(x_{n+1}-m_\\mathrm{p})^2}"
-"{\\nu_\\mathrm{p}} \\right]^{-\\nu_\\mathrm{p}/2 - 1/2}.\n"
+"\\mathrm{St}(x_{n+1}|m_\\mathrm{p}, \\lambda_\\mathrm{p}, "
+"\\nu_\\mathrm{p})\n"
+"= \\frac{\\Gamma (\\nu_\\mathrm{p}/2 + 1/2)}{\\Gamma "
+"(\\nu_\\mathrm{p}/2)}\n"
+"\\left( \\frac{\\lambda_\\mathrm{p}}{\\pi \\nu_\\mathrm{p}} "
+"\\right)^{1/2}\n"
+"\\left[ 1 + "
+"\\frac{\\lambda_\\mathrm{p}(x_{n+1}-m_\\mathrm{p})^2}{\\nu_\\mathrm{p}} "
+"\\right]^{-\\nu_\\mathrm{p}/2 - 1/2}.\n"
 "\n"
 
 #: bayesml.autoregressive:87 of
 msgid ""
-"\\mathbb{E}[x_{n+1} | x^n] &= m_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
+"\\mathbb{E}[x_{n+1} | x^n] &= m_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), "
+"\\\\\n"
 "\\mathbb{V}[x_{n+1} | x^n] &= \\frac{1}{\\lambda_\\mathrm{p}} "
 "\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} & (\\nu_\\mathrm{p} > 2),\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[x_{n+1} | x^n] &= m_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
+"\\mathbb{E}[x_{n+1} | x^n] &= m_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), "
+"\\\\\n"
 "\\mathbb{V}[x_{n+1} | x^n] &= \\frac{1}{\\lambda_\\mathrm{p}} "
 "\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} & (\\nu_\\mathrm{p} > 2),\n"
 "\n"
 
 #: bayesml.autoregressive:91 of
 msgid ""
-"where the parameters are obtained from the hyperparameters of the posterior "
-"distribution as follows."
-msgstr ""
-"ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます。"
+"where the parameters are obtained from the hyperparameters of the "
+"posterior distribution as follows."
+msgstr "ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます。"
 
 #: bayesml.autoregressive:93 of
 #, python-brace-format
@@ -399,6 +415,10 @@ msgstr ""
 "\\boldsymbol{x}'_n)^{-1},\\\\\n"
 "\\nu_\\mathrm{p} &= 2 \\alpha_n.\n"
 "\n"
+
+#: bayesml.autoregressive._autoregressive.GenModel:1 of
+msgid "Bases: :py:class:`~bayesml.base.Generative`"
+msgstr ""
 
 #: bayesml.autoregressive._autoregressive.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution."
@@ -458,11 +478,9 @@ msgstr "numpy ndarray, optional"
 
 #: bayesml.autoregressive._autoregressive.GenModel:11 of
 msgid ""
-"a vector of real numbers, which includs the constant term,  by default [0.0, "
-"0.0, ... , 0.0]"
-msgstr ""
-"実数のベクトルであり、定数項を含みます。デフォルトでは [0.0, 0.0, ..., 0.0] とな"
-"ります。"
+"a vector of real numbers, which includs the constant term,  by default "
+"[0.0, 0.0, ... , 0.0]"
+msgstr "実数のベクトルであり、定数項を含みます。デフォルトでは [0.0, 0.0, ..., 0.0] となります。"
 
 #: bayesml.autoregressive._autoregressive.GenModel:14
 #: bayesml.autoregressive._autoregressive.GenModel.set_params:10 of
@@ -536,8 +554,7 @@ msgstr "メソッド"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ":py:obj:`gen_params <bayesml.autoregressive.GenModel.gen_params>`\\ \\(\\)"
-msgstr ""
-":py:obj:`gen_params <bayesml.autoregressive.GenModel.gen_params>`\\ \\(\\)"
+msgstr ":py:obj:`gen_params <bayesml.autoregressive.GenModel.gen_params>`\\ \\(\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel.gen_params:2
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
@@ -546,11 +563,11 @@ msgstr "事前分布からパラメータを生成します。"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`gen_sample <bayesml.autoregressive.GenModel.gen_sample>`\\ \\"
-"(sample\\_length\\[\\, initial\\_values\\]\\)"
+":py:obj:`gen_sample <bayesml.autoregressive.GenModel.gen_sample>`\\ "
+"\\(sample\\_length\\[\\, initial\\_values\\]\\)"
 msgstr ""
-":py:obj:`gen_sample <bayesml.autoregressive.GenModel.gen_sample>`\\ \\"
-"(sample\\_length\\[\\, initial\\_values\\]\\)"
+":py:obj:`gen_sample <bayesml.autoregressive.GenModel.gen_sample>`\\ "
+"\\(sample\\_length\\[\\, initial\\_values\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel.gen_sample:2
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
@@ -559,9 +576,11 @@ msgstr "確率的データ生成モデルからサンプルを生成します。
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`get_constants <bayesml.autoregressive.GenModel.get_constants>`\\ \\(\\)"
+":py:obj:`get_constants <bayesml.autoregressive.GenModel.get_constants>`\\"
+" \\(\\)"
 msgstr ""
-":py:obj:`get_constants <bayesml.autoregressive.GenModel.get_constants>`\\ \\(\\)"
+":py:obj:`get_constants <bayesml.autoregressive.GenModel.get_constants>`\\"
+" \\(\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel.get_constants:2
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
@@ -570,9 +589,11 @@ msgstr "GenModel の定数を取得します。"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`get_h_params <bayesml.autoregressive.GenModel.get_h_params>`\\ \\(\\)"
+":py:obj:`get_h_params <bayesml.autoregressive.GenModel.get_h_params>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`get_h_params <bayesml.autoregressive.GenModel.get_h_params>`\\ \\(\\)"
+":py:obj:`get_h_params <bayesml.autoregressive.GenModel.get_h_params>`\\ "
+"\\(\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel.get_h_params:2
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
@@ -581,8 +602,7 @@ msgstr "事前分布のハイパーパラメータを取得します。"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ":py:obj:`get_params <bayesml.autoregressive.GenModel.get_params>`\\ \\(\\)"
-msgstr ""
-":py:obj:`get_params <bayesml.autoregressive.GenModel.get_params>`\\ \\(\\)"
+msgstr ":py:obj:`get_params <bayesml.autoregressive.GenModel.get_params>`\\ \\(\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel.get_params:2
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
@@ -591,11 +611,11 @@ msgstr "確率的データ生成モデルのパラメータを取得します。
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`load_h_params <bayesml.autoregressive.GenModel.load_h_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_h_params <bayesml.autoregressive.GenModel.load_h_params>`\\"
+" \\(filename\\)"
 msgstr ""
-":py:obj:`load_h_params <bayesml.autoregressive.GenModel.load_h_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_h_params <bayesml.autoregressive.GenModel.load_h_params>`\\"
+" \\(filename\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid "Load the hyperparameters to h_params."
@@ -603,11 +623,11 @@ msgstr "h_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`load_params <bayesml.autoregressive.GenModel.load_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_params <bayesml.autoregressive.GenModel.load_params>`\\ "
+"\\(filename\\)"
 msgstr ""
-":py:obj:`load_params <bayesml.autoregressive.GenModel.load_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_params <bayesml.autoregressive.GenModel.load_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid "Load the parameters saved by ``save_params``."
@@ -615,11 +635,11 @@ msgstr "``save_paramsで保存したパラメータを読み込みます。"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`save_h_params <bayesml.autoregressive.GenModel.save_h_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_h_params <bayesml.autoregressive.GenModel.save_h_params>`\\"
+" \\(filename\\)"
 msgstr ""
-":py:obj:`save_h_params <bayesml.autoregressive.GenModel.save_h_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_h_params <bayesml.autoregressive.GenModel.save_h_params>`\\"
+" \\(filename\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -628,11 +648,11 @@ msgstr "python ``pickle`` モジュールを使ってハイパーパラメータ
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`save_params <bayesml.autoregressive.GenModel.save_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_params <bayesml.autoregressive.GenModel.save_params>`\\ "
+"\\(filename\\)"
 msgstr ""
-":py:obj:`save_params <bayesml.autoregressive.GenModel.save_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_params <bayesml.autoregressive.GenModel.save_params>`\\ "
+"\\(filename\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid "Save the parameters using python ``pickle`` module."
@@ -640,11 +660,11 @@ msgstr "python の ``pickle`` モジュールを使ってパラメータを保�
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`save_sample <bayesml.autoregressive.GenModel.save_sample>`\\ \\"
-"(filename\\, sample\\_length\\[\\, ...\\]\\)"
+":py:obj:`save_sample <bayesml.autoregressive.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_length\\[\\, ...\\]\\)"
 msgstr ""
-":py:obj:`save_sample <bayesml.autoregressive.GenModel.save_sample>`\\ \\"
-"(filename\\, sample\\_length\\[\\, ...\\]\\)"
+":py:obj:`save_sample <bayesml.autoregressive.GenModel.save_sample>`\\ "
+"\\(filename\\, sample\\_length\\[\\, ...\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel.save_sample:2
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
@@ -653,11 +673,11 @@ msgstr "生成されたサンプルを NumPy ``.npz`` フォーマットで保�
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`set_h_params <bayesml.autoregressive.GenModel.set_h_params>`\\ \\(\\"
-"[h\\_mu\\_vec\\, h\\_lambda\\_mat\\, ...\\]\\)"
+":py:obj:`set_h_params <bayesml.autoregressive.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_mu\\_vec\\, h\\_lambda\\_mat\\, ...\\]\\)"
 msgstr ""
-":py:obj:`set_h_params <bayesml.autoregressive.GenModel.set_h_params>`\\ \\(\\"
-"[h\\_mu\\_vec\\, h\\_lambda\\_mat\\, ...\\]\\)"
+":py:obj:`set_h_params <bayesml.autoregressive.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_mu\\_vec\\, h\\_lambda\\_mat\\, ...\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel.set_h_params:2
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
@@ -666,11 +686,11 @@ msgstr "事前分布のハイパーパラメータを設定します。"
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`set_params <bayesml.autoregressive.GenModel.set_params>`\\ \\(\\"
-"[theta\\_vec\\, tau\\]\\)"
+":py:obj:`set_params <bayesml.autoregressive.GenModel.set_params>`\\ "
+"\\(\\[theta\\_vec\\, tau\\]\\)"
 msgstr ""
-":py:obj:`set_params <bayesml.autoregressive.GenModel.set_params>`\\ \\(\\"
-"[theta\\_vec\\, tau\\]\\)"
+":py:obj:`set_params <bayesml.autoregressive.GenModel.set_params>`\\ "
+"\\(\\[theta\\_vec\\, tau\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel.set_params:2
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
@@ -679,11 +699,13 @@ msgstr "確率的データ生成モデルのパラメータを設定します。
 
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
 msgid ""
-":py:obj:`visualize_model <bayesml.autoregressive.GenModel.visualize_model>`\\ \\"
-"(\\[sample\\_length\\, sample\\_num\\, ...\\]\\)"
+":py:obj:`visualize_model "
+"<bayesml.autoregressive.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_length\\, sample\\_num\\, ...\\]\\)"
 msgstr ""
-":py:obj:`visualize_model <bayesml.autoregressive.GenModel.visualize_model>`\\ \\"
-"(\\[sample\\_length\\, sample\\_num\\, ...\\]\\)"
+":py:obj:`visualize_model "
+"<bayesml.autoregressive.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_length\\, sample\\_num\\, ...\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.GenModel.visualize_model:2
 #: bayesml.autoregressive._autoregressive.GenModel:63:<autosummary>:1 of
@@ -819,11 +841,9 @@ msgstr "**initial_valules**"
 #: bayesml.autoregressive._autoregressive.GenModel.save_sample:16
 #: bayesml.autoregressive._autoregressive.GenModel.visualize_model:14 of
 msgid ""
-"1 dimensional float array whose size coincide with ``self.c_degree``,  by "
-"default None."
-msgstr ""
-"1次元の浮動小数点数配列で、そのサイズは``self.c_degree``と一致します。デフォルト"
-"ではNoneです。"
+"1 dimensional float array whose size coincide with ``self.c_degree``,  by"
+" default None."
+msgstr "1次元の浮動小数点数配列で、そのサイズは``self.c_degree``と一致します。デフォルトではNoneです。"
 
 #: bayesml.autoregressive._autoregressive.GenModel.gen_sample:18
 #: bayesml.autoregressive._autoregressive.LearnModel.calc_pred_dist:7
@@ -858,8 +878,8 @@ msgstr "str"
 
 #: bayesml.autoregressive._autoregressive.GenModel.save_sample:9 of
 msgid ""
-"The filename to which the sample is saved. ``.npz`` will be appended if it "
-"isn't there."
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it isn't there."
 msgstr "サンプルを保存するファイル名。ない場合は ``.npz`` が追加されます。"
 
 #: bayesml.autoregressive._autoregressive.GenModel.save_sample:31 of
@@ -886,6 +906,12 @@ msgstr "正の整数、デフォルトは5です"
 #: bayesml.autoregressive._autoregressive.LearnModel.visualize_posterior:19 of
 msgid "Examples"
 msgstr "例"
+
+#: bayesml.autoregressive._autoregressive.LearnModel:1 of
+msgid ""
+"Bases: :py:class:`~bayesml.base.Posterior`, "
+":py:class:`~bayesml.base.PredictiveMixin`"
+msgstr ""
 
 #: bayesml.autoregressive._autoregressive.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
@@ -969,11 +995,11 @@ msgstr "**p_nu**"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`calc_pred_dist <bayesml.autoregressive.LearnModel.calc_pred_dist>`\\ \\"
-"(x\\)"
+":py:obj:`calc_pred_dist "
+"<bayesml.autoregressive.LearnModel.calc_pred_dist>`\\ \\(x\\)"
 msgstr ""
-":py:obj:`calc_pred_dist <bayesml.autoregressive.LearnModel.calc_pred_dist>`\\ \\"
-"(x\\)"
+":py:obj:`calc_pred_dist "
+"<bayesml.autoregressive.LearnModel.calc_pred_dist>`\\ \\(x\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.calc_pred_dist:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -982,26 +1008,26 @@ msgstr "予測分布のパラメータを計算します。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`estimate_params <bayesml.autoregressive.LearnModel.estimate_params>`\\ "
-"\\(\\[loss\\]\\)"
+":py:obj:`estimate_params "
+"<bayesml.autoregressive.LearnModel.estimate_params>`\\ \\(\\[loss\\]\\)"
 msgstr ""
-":py:obj:`estimate_params <bayesml.autoregressive.LearnModel.estimate_params>`\\ "
-"\\(\\[loss\\]\\)"
+":py:obj:`estimate_params "
+"<bayesml.autoregressive.LearnModel.estimate_params>`\\ \\(\\[loss\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-"Estimate the parameter of the stochastic data generative model under the given "
-"criterion."
+"Estimate the parameter of the stochastic data generative model under the "
+"given criterion."
 msgstr "与えられた基準の下で、確率的データ生成モデルのパラメータを推定します。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`get_constants <bayesml.autoregressive.LearnModel.get_constants>`\\ \\"
-"(\\)"
+":py:obj:`get_constants "
+"<bayesml.autoregressive.LearnModel.get_constants>`\\ \\(\\)"
 msgstr ""
-":py:obj:`get_constants <bayesml.autoregressive.LearnModel.get_constants>`\\ \\"
-"(\\)"
+":py:obj:`get_constants "
+"<bayesml.autoregressive.LearnModel.get_constants>`\\ \\(\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.get_constants:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -1010,25 +1036,26 @@ msgstr "LearnModel の定数を取得します。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`get_h0_params <bayesml.autoregressive.LearnModel.get_h0_params>`\\ \\"
-"(\\)"
+":py:obj:`get_h0_params "
+"<bayesml.autoregressive.LearnModel.get_h0_params>`\\ \\(\\)"
 msgstr ""
-":py:obj:`get_h0_params <bayesml.autoregressive.LearnModel.get_h0_params>`\\ \\"
-"(\\)"
+":py:obj:`get_h0_params "
+"<bayesml.autoregressive.LearnModel.get_h0_params>`\\ \\(\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-"Get the initial values of the hyperparameters of the posterior distribution."
+"Get the initial values of the hyperparameters of the posterior "
+"distribution."
 msgstr "事後分布のハイパーパラメータの初期値を取得します。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`get_hn_params <bayesml.autoregressive.LearnModel.get_hn_params>`\\ \\"
-"(\\)"
+":py:obj:`get_hn_params "
+"<bayesml.autoregressive.LearnModel.get_hn_params>`\\ \\(\\)"
 msgstr ""
-":py:obj:`get_hn_params <bayesml.autoregressive.LearnModel.get_hn_params>`\\ \\"
-"(\\)"
+":py:obj:`get_hn_params "
+"<bayesml.autoregressive.LearnModel.get_hn_params>`\\ \\(\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.get_hn_params:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -1037,9 +1064,11 @@ msgstr "事後分布のハイパーパラメータを取得します。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`get_p_params <bayesml.autoregressive.LearnModel.get_p_params>`\\ \\(\\)"
+":py:obj:`get_p_params <bayesml.autoregressive.LearnModel.get_p_params>`\\"
+" \\(\\)"
 msgstr ""
-":py:obj:`get_p_params <bayesml.autoregressive.LearnModel.get_p_params>`\\ \\(\\)"
+":py:obj:`get_p_params <bayesml.autoregressive.LearnModel.get_p_params>`\\"
+" \\(\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.get_p_params:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -1048,11 +1077,11 @@ msgstr "予測分布のパラメータを取得します。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`load_h0_params <bayesml.autoregressive.LearnModel.load_h0_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_h0_params "
+"<bayesml.autoregressive.LearnModel.load_h0_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`load_h0_params <bayesml.autoregressive.LearnModel.load_h0_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_h0_params "
+"<bayesml.autoregressive.LearnModel.load_h0_params>`\\ \\(filename\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid "Load the hyperparameters to h0_params."
@@ -1060,11 +1089,11 @@ msgstr "h0_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`load_hn_params <bayesml.autoregressive.LearnModel.load_hn_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_hn_params "
+"<bayesml.autoregressive.LearnModel.load_hn_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`load_hn_params <bayesml.autoregressive.LearnModel.load_hn_params>`\\ \\"
-"(filename\\)"
+":py:obj:`load_hn_params "
+"<bayesml.autoregressive.LearnModel.load_hn_params>`\\ \\(filename\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid "Load the hyperparameters to hn_params."
@@ -1072,11 +1101,11 @@ msgstr "hn_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`make_prediction <bayesml.autoregressive.LearnModel.make_prediction>`\\ "
-"\\(\\[loss\\]\\)"
+":py:obj:`make_prediction "
+"<bayesml.autoregressive.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
 msgstr ""
-":py:obj:`make_prediction <bayesml.autoregressive.LearnModel.make_prediction>`\\ "
-"\\(\\[loss\\]\\)"
+":py:obj:`make_prediction "
+"<bayesml.autoregressive.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -1099,11 +1128,13 @@ msgstr "事後分布のハイパーパラメータの初期値を学習した値
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`pred_and_update <bayesml.autoregressive.LearnModel.pred_and_update>`\\ "
-"\\(x\\[\\, loss\\]\\)"
+":py:obj:`pred_and_update "
+"<bayesml.autoregressive.LearnModel.pred_and_update>`\\ \\(x\\[\\, "
+"loss\\]\\)"
 msgstr ""
-":py:obj:`pred_and_update <bayesml.autoregressive.LearnModel.pred_and_update>`\\ "
-"\\(x\\[\\, loss\\]\\)"
+":py:obj:`pred_and_update "
+"<bayesml.autoregressive.LearnModel.pred_and_update>`\\ \\(x\\[\\, "
+"loss\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -1113,10 +1144,12 @@ msgstr "逐次的に新しいデータ点を予測し、事後分布を更新し
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
 ":py:obj:`predict_interval "
-"<bayesml.autoregressive.LearnModel.predict_interval>`\\ \\(\\[credibility\\]\\)"
+"<bayesml.autoregressive.LearnModel.predict_interval>`\\ "
+"\\(\\[credibility\\]\\)"
 msgstr ""
 ":py:obj:`predict_interval "
-"<bayesml.autoregressive.LearnModel.predict_interval>`\\ \\(\\[credibility\\]\\)"
+"<bayesml.autoregressive.LearnModel.predict_interval>`\\ "
+"\\(\\[credibility\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -1125,40 +1158,43 @@ msgstr "予測の信頼区間"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`reset_hn_params <bayesml.autoregressive.LearnModel.reset_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`reset_hn_params "
+"<bayesml.autoregressive.LearnModel.reset_hn_params>`\\ \\(\\)"
 msgstr ""
-":py:obj:`reset_hn_params <bayesml.autoregressive.LearnModel.reset_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`reset_hn_params "
+"<bayesml.autoregressive.LearnModel.reset_hn_params>`\\ \\(\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-"Reset the hyperparameters of the posterior distribution to their initial values."
+"Reset the hyperparameters of the posterior distribution to their initial "
+"values."
 msgstr "事後分布のハイパーパラメータを初期値に戻します。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`save_h0_params <bayesml.autoregressive.LearnModel.save_h0_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_h0_params "
+"<bayesml.autoregressive.LearnModel.save_h0_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`save_h0_params <bayesml.autoregressive.LearnModel.save_h0_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_h0_params "
+"<bayesml.autoregressive.LearnModel.save_h0_params>`\\ \\(filename\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`save_hn_params <bayesml.autoregressive.LearnModel.save_hn_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_hn_params "
+"<bayesml.autoregressive.LearnModel.save_hn_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`save_hn_params <bayesml.autoregressive.LearnModel.save_hn_params>`\\ \\"
-"(filename\\)"
+":py:obj:`save_hn_params "
+"<bayesml.autoregressive.LearnModel.save_hn_params>`\\ \\(filename\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`set_h0_params <bayesml.autoregressive.LearnModel.set_h0_params>`\\ \\"
-"(\\[h0\\_mu\\_vec\\, h0\\_lambda\\_mat\\, ...\\]\\)"
+":py:obj:`set_h0_params "
+"<bayesml.autoregressive.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_mu\\_vec\\, h0\\_lambda\\_mat\\, ...\\]\\)"
 msgstr ""
-":py:obj:`set_h0_params <bayesml.autoregressive.LearnModel.set_h0_params>`\\ \\"
-"(\\[h0\\_mu\\_vec\\, h0\\_lambda\\_mat\\, ...\\]\\)"
+":py:obj:`set_h0_params "
+"<bayesml.autoregressive.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_mu\\_vec\\, h0\\_lambda\\_mat\\, ...\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -1167,11 +1203,13 @@ msgstr "事後分布のハイパーパラメータの初期値を設定します
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-":py:obj:`set_hn_params <bayesml.autoregressive.LearnModel.set_hn_params>`\\ \\"
-"(\\[hn\\_mu\\_vec\\, hn\\_lambda\\_mat\\, ...\\]\\)"
+":py:obj:`set_hn_params "
+"<bayesml.autoregressive.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_mu\\_vec\\, hn\\_lambda\\_mat\\, ...\\]\\)"
 msgstr ""
-":py:obj:`set_hn_params <bayesml.autoregressive.LearnModel.set_hn_params>`\\ \\"
-"(\\[hn\\_mu\\_vec\\, hn\\_lambda\\_mat\\, ...\\]\\)"
+":py:obj:`set_hn_params "
+"<bayesml.autoregressive.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_mu\\_vec\\, hn\\_lambda\\_mat\\, ...\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -1181,15 +1219,18 @@ msgstr "事後分布のハイパーパラメータの更新値を設定します
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
 ":py:obj:`update_posterior "
-"<bayesml.autoregressive.LearnModel.update_posterior>`\\ \\(x\\[\\, padding\\]\\)"
+"<bayesml.autoregressive.LearnModel.update_posterior>`\\ \\(x\\[\\, "
+"padding\\]\\)"
 msgstr ""
 ":py:obj:`update_posterior "
-"<bayesml.autoregressive.LearnModel.update_posterior>`\\ \\(x\\[\\, padding\\]\\)"
+"<bayesml.autoregressive.LearnModel.update_posterior>`\\ \\(x\\[\\, "
+"padding\\]\\)"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:2
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
 msgid ""
-"Update the hyperparameters of the posterior distribution using traning data."
+"Update the hyperparameters of the posterior distribution using traning "
+"data."
 msgstr "訓練データを使って事後分布のハイパーパラメータを更新します。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel:80:<autosummary>:1 of
@@ -1207,12 +1248,10 @@ msgstr "パラメータの事後分布を可視化します。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.set_h0_params:4 of
 msgid ""
-"Note that the parameters of the predictive distribution are also calculated "
-"from  ``self.h0_mu_vec``, ``slef.h0_lambda_mat``, ``self.h0_alpha`` and "
-"``self.h0_beta``."
-msgstr ""
-"予測分布のパラメータも、``self.h0_mu_vec``、``slef.h0_lambda_mat``、"
-"``self.h0_alpha``、および``self.h0_beta``から計算されることにご留意ください。"
+"Note that the parameters of the predictive distribution are also "
+"calculated from  ``self.h0_mu_vec``, ``slef.h0_lambda_mat``, "
+"``self.h0_alpha`` and ``self.h0_beta``."
+msgstr "予測分布のパラメータも、``self.h0_mu_vec``、``slef.h0_lambda_mat``、``self.h0_alpha``、および``self.h0_beta``から計算されることにご留意ください。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.get_h0_params:10 of
 msgid "**h0_params**"
@@ -1256,12 +1295,10 @@ msgstr "``\"hn_beta\"`` : ``self.hn_beta`` の値"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.set_hn_params:4 of
 msgid ""
-"Note that the parameters of the predictive distribution are also calculated "
-"from  ``self.hn_mu_vec``, ``slef.hn_lambda_mat``, ``self.hn_alpha`` and "
-"``self.hn_beta``."
-msgstr ""
-"予測分布のパラメータも、``self.hn_mu_vec``、``self.hn_lambda_mat``、"
-"``self.hn_alpha``、および``self.hn_beta``から計算されることにご留意ください。"
+"Note that the parameters of the predictive distribution are also "
+"calculated from  ``self.hn_mu_vec``, ``slef.hn_lambda_mat``, "
+"``self.hn_alpha`` and ``self.hn_beta``."
+msgstr "予測分布のパラメータも、``self.hn_mu_vec``、``self.hn_lambda_mat``、``self.hn_alpha``、および``self.hn_beta``から計算されることにご留意ください。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:8 of
 msgid "1 dimensional float array"
@@ -1280,23 +1317,18 @@ msgstr "str, optional"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.update_posterior:11 of
 msgid ""
-"Padding option for data values at negative time points. Default is ``None``, in "
-"which case the first ``self.c_degree`` values of ``X`` are used as initial "
-"values. If \"zeros\" is given, the zero vector is used as a initial value."
-msgstr ""
-"負の時間点におけるデータ値のパディングオプションです。デフォルトは「None」であ"
-"り、この場合「X」の最初の「self.c_degree」個の値が初期値として使用されます。もし"
-"「zeros」が指定された場合、ゼロベクトルが初期値として使用されます。"
+"Padding option for data values at negative time points. Default is "
+"``None``, in which case the first ``self.c_degree`` values of ``X`` are "
+"used as initial values. If \"zeros\" is given, the zero vector is used as"
+" a initial value."
+msgstr "負の時間点におけるデータ値のパディングオプションです。デフォルトは「None」であり、この場合「X」の最初の「self.c_degree」個の値が初期値として使用されます。もし「zeros」が指定された場合、ゼロベクトルが初期値として使用されます。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:4 of
 msgid ""
-"Note that the criterion is applied to estimating ``theta_vec`` and ``tau`` "
-"independently. Therefore, a tuple of the student's t-distribution and the gamma "
-"distribution will be returned when loss=\"KL\""
-msgstr ""
-"なお、この基準は「theta_vec」と「tau」をそれぞれ独立して推定する際に適用されま"
-"す。したがって、loss=\"KL\"の場合、スチューデントのt分布とガンマ分布の組が返され"
-"ます。"
+"Note that the criterion is applied to estimating ``theta_vec`` and "
+"``tau`` independently. Therefore, a tuple of the student's t-distribution"
+" and the gamma distribution will be returned when loss=\"KL\""
+msgstr "なお、この基準は「theta_vec」と「tau」をそれぞれ独立して推定する際に適用されます。したがって、loss=\"KL\"の場合、スチューデントのt分布とガンマ分布の組が返されます。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:9
 #: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:7
@@ -1308,8 +1340,8 @@ msgstr "**loss**"
 #: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:8
 #: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:13 of
 msgid ""
-"Loss function underlying the Bayes risk function, by default \"squared\". This "
-"function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
+"Loss function underlying the Bayes risk function, by default \"squared\"."
+" This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
 msgstr ""
 "ベイズリスク関数の基礎となる損失関数、デフォルトは \"squared\"。この関数は "
 "\"squared\"、\"0-1\"、\"abs\"、\"KL \"をサポートしています。"
@@ -1333,13 +1365,12 @@ msgstr "``tau_hat`` : tau の推定値"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:20 of
 msgid ""
-"The estimated values under the given loss function. If it is not exist, `None` "
-"will be returned. If the loss function is \"KL\", the posterior distribution "
-"itself will be returned as rv_frozen object of scipy.stats."
+"The estimated values under the given loss function. If it is not exist, "
+"`None` will be returned. If the loss function is \"KL\", the posterior "
+"distribution itself will be returned as rv_frozen object of scipy.stats."
 msgstr ""
-"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数"
-"が \"KL\" の場合、事後分布そのものが scipy.stats の rv_frozen オブジェクトとして"
-"返されます。"
+"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数が \"KL\" の場合、事後分布そのものが "
+"scipy.stats の rv_frozen オブジェクトとして返されます。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.estimate_params:33
 #: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:29 of
@@ -1390,12 +1421,12 @@ msgstr "{float, rv_frozen}"
 #: bayesml.autoregressive._autoregressive.LearnModel.make_prediction:16
 #: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:21 of
 msgid ""
-"The predicted value under the given loss function.  If the loss function is "
-"\"KL\", the predictive distribution itself will be returned as rv_frozen object "
-"of scipy.stats."
+"The predicted value under the given loss function.  If the loss function "
+"is \"KL\", the predictive distribution itself will be returned as "
+"rv_frozen object of scipy.stats."
 msgstr ""
-"指定された損失関数に基づく予測値です。損失関数が「KL」の場合、予測分布そのもの"
-"が scipy.stats の rv_frozen オブジェクトとして返されます。"
+"指定された損失関数に基づく予測値です。損失関数が「KL」の場合、予測分布そのものが scipy.stats の rv_frozen "
+"オブジェクトとして返されます。"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:7 of
 msgid "**credibility**"
@@ -1403,7 +1434,8 @@ msgstr "**credibility**"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:8 of
 msgid ""
-"A posterior probability that the interval conitans the paramter, by default 0.95"
+"A posterior probability that the interval conitans the paramter, by "
+"default 0.95"
 msgstr "パラメータがその区間に含まれるという事後確率（デフォルト値：0.95）"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.predict_interval:14 of
@@ -1416,8 +1448,10 @@ msgstr "区間の下限と上限"
 
 #: bayesml.autoregressive._autoregressive.LearnModel.pred_and_update:8 of
 msgid ""
-"1 dimensional float array whose size is ``self.c_degree + 1``, which consists "
-"of the ``self.c_degree`` number of past values and the current value."
+"1 dimensional float array whose size is ``self.c_degree + 1``, which "
+"consists of the ``self.c_degree`` number of past values and the current "
+"value."
 msgstr ""
-"1次元の浮動小数点数配列で、そのサイズは``self.c_degree + 1``となります。この配列"
-"は、``self.c_degree``個の過去の値と現在の値で構成されています。"
+"1次元の浮動小数点数配列で、そのサイズは``self.c_degree + "
+"1``となります。この配列は、``self.c_degree``個の過去の値と現在の値で構成されています。"
+
