@@ -1,0 +1,1644 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bayesml.metatree package &#8212; BayesML</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ad100702" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=ba1e48b6"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/translations.js?v=4755f45a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-59F6KL8C5D"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-59F6KL8C5D');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-59F6KL8C5D');
+            </script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bayesml.metatree';</script>
+    <link rel="icon" href="_static/BayesML_favicon.ico"/>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="bayesml.multivariate_normal package" href="bayesml.multivariate_normal.html" />
+    <link rel="prev" title="bayesml.logisticregression package" href="bayesml.logisticregression.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href='https://bayesml.github.io/BayesML/ja/examples/metatree_prediction_interval.html'>こちら</a>！</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BayesML_logo.png" class="logo__image only-light" alt="BayesML - Home"/>
+    <script>document.write(`<img src="_static/BayesML_logo.png" class="logo__image only-dark" alt="BayesML - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><div style="text-align:center">
+  <span><i class="fas fa-globe"></i> Language:</span>
+  <a href="../en/bayesml.metatree.html" class="language-link" lang="en">English</a> / 
+  <a href="../ja/bayesml.metatree.html" class="language-link active" lang="ja">日本語</a>
+</div></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesml.html">Bayesml パッケージ</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.bernoulli.html">bayesml.bernoulli package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.categorical.html">bayesml.categorical package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.contexttree.html">bayesml.contexttree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.exponential.html">bayesml.exponential package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesml.metatree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.poisson.html">bayesml.poisson package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">使用例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html"><code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> に基づく予測区間の導出（AISTATS 2025でアクセプト済）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML 開発者</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/bayesml/BayesML" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="ソースリポジトリ"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/bayesml.metatree.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>bayesml.metatree package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.metatree">モジュール内容</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-data-generative-model">確率的データ生成モデル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-distribution">事前分布</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-distribution">事後分布</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-by-mtrf">MTRFによる近似</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-by-mtmcmc">MTMCMCによる近似</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">参照</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.get_constants"><code class="docutils literal notranslate"><span class="pre">GenModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.set_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.get_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.gen_params"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.set_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.get_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.gen_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.save_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.save_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.visualize_model"><code class="docutils literal notranslate"><span class="pre">GenModel.visualize_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel"><code class="docutils literal notranslate"><span class="pre">LearnModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.get_constants"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.set_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.get_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.set_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.get_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.update_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.update_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.estimate_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.visualize_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.visualize_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.get_p_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_p_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_dist"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.make_prediction"><code class="docutils literal notranslate"><span class="pre">LearnModel.make_prediction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.pred_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.pred_and_update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_var"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_var()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_feature_importances"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_feature_importances()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_density"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_density()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.fit"><code class="docutils literal notranslate"><span class="pre">LearnModel.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.predict"><code class="docutils literal notranslate"><span class="pre">LearnModel.predict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.predict_proba"><code class="docutils literal notranslate"><span class="pre">LearnModel.predict_proba()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="bayesml-metatree-package">
+<h1>bayesml.metatree package<a class="headerlink" href="#bayesml-metatree-package" title="Link to this heading">#</a></h1>
+<img alt="_images/metatree_example1.png" src="_images/metatree_example1.png" />
+<img alt="_images/metatree_example2.png" src="_images/metatree_example2.png" />
+<section id="module-bayesml.metatree">
+<span id="module-contents"></span><h2>モジュール内容<a class="headerlink" href="#module-bayesml.metatree" title="Link to this heading">#</a></h2>
+<section id="stochastic-data-generative-model">
+<h3>確率的データ生成モデル<a class="headerlink" href="#stochastic-data-generative-model" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{x}=[x_1, \ldots, x_p, x_{p+1}, \ldots , x_{p+q}]\)</span>：説明変数です。最初の <span class="math notranslate nohighlight">\(p\)</span> 個の変数は連続変数です。残りの <span class="math notranslate nohighlight">\(q\)</span> 個の変数はカテゴリ変数です。</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{Y}\)</span> : 目的変数の空間</p></li>
+<li><p><span class="math notranslate nohighlight">\(y \in \mathcal{Y}\)</span> : 目的変数</p></li>
+<li><p><span class="math notranslate nohighlight">\(D_\mathrm{max} \in \mathbb{N}\)</span> : 木の最大深さ</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_\mathrm{max}\)</span>：すべての内部ノードが同じ数の子ノードを持ち、すべての葉ノードが同じ深さ <span class="math notranslate nohighlight">\(D_\mathrm{max}\)</span> を持つ完全木</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{S}_\mathrm{max}\)</span>：<span class="math notranslate nohighlight">\(T_\mathrm{max}\)</span> のすべてのノードの集合</p></li>
+<li><p><span class="math notranslate nohighlight">\(s \in \mathcal{S}_\mathrm{max}\)</span> : 木のノード</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{I}_\mathrm{max} \subset \mathcal{S}_\mathrm{max}\)</span>：<span class="math notranslate nohighlight">\(T_\mathrm{max}\)</span> のすべての内部ノードの集合</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_\mathrm{max} \subset \mathcal{S}_\mathrm{max}\)</span>：<span class="math notranslate nohighlight">\(T_\mathrm{max}\)</span> のすべての葉ノードの集合</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{T}\)</span>：:<span class="math notranslate nohighlight">\(T_\mathrm{max}\)</span> の部分木からなる集合</p></li>
+<li><p><span class="math notranslate nohighlight">\(T \in \mathcal{T}\)</span>：<span class="math notranslate nohighlight">\(T_\mathrm{max}\)</span> の部分木</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{I}_T\)</span>：<span class="math notranslate nohighlight">\(T\)</span> のすべての内部ノードの集合</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_T\)</span> : <span class="math notranslate nohighlight">\(T\)</span> のすべての葉ノードの集合</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{k}=(k_s)_{s \in \mathcal{I}_\mathrm{max}}\)</span> : 内部ノードに割り当てられた特徴量のインデックス、すなわち <span class="math notranslate nohighlight">\(k_s \in \{1, 2,\ldots,p+q\}\)</span> です。もし <span class="math notranslate nohighlight">\(k_s \leq p\)</span> であれば、ノード <span class="math notranslate nohighlight">\(s\)</span> には閾値があります。</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{K}=\{ 1, 2, \ldots , p+q \}^{|\mathcal{I}_\mathrm{max}|}\)</span> : すべての <span class="math notranslate nohighlight">\(\boldsymbol{k}\)</span> の集合</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\theta}=(\theta_s)_{s \in \mathcal{S}}\)</span> : ノードに割り当てられたパラメータ</p></li>
+<li><p><span class="math notranslate nohighlight">\(s_{\boldsymbol{k},T}(\boldsymbol{x}) \in \mathcal{L}_T\)</span>： <span class="math notranslate nohighlight">\(T\)</span> かつ <span class="math notranslate nohighlight">\(\boldsymbol{k}\)</span> の下で <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> が到達する葉ノード</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[p(y | \boldsymbol{x}, \boldsymbol{\theta}, T, \boldsymbol{k})=p(y | \theta_{s_{\boldsymbol{k},T}(\boldsymbol{x})})\]</div>
+</section>
+<section id="prior-distribution">
+<h3>事前分布<a class="headerlink" href="#prior-distribution" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(g_s \in [0,1]\)</span>：各ノード  <span class="math notranslate nohighlight">\(s \in \mathcal{S}_\mathrm{max}\)</span> に割り当てられるハイパーパラメータ。 <span class="math notranslate nohighlight">\(T_\mathrm{max}\)</span> の任意の葉ノード <span class="math notranslate nohighlight">\(s\)</span> について、<span class="math notranslate nohighlight">\(g_s=0\)</span> と仮定します。</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(\boldsymbol{k}) &amp;= \frac{1}{|\mathcal{K}|} = \left( \frac{1}{p+q} \right)^{|\mathcal{I}_\mathrm{max}|}, \\
+p(T) &amp;= \prod_{s \in \mathcal{I}_T} g_s \prod_{s' \in \mathcal{L}_T} (1-g_{s'}).\end{split}\]</div>
+<p>パラメータ <span class="math notranslate nohighlight">\(\theta_s\)</span> の事前分布は、<span class="math notranslate nohighlight">\(p(y | \theta_s)\)</span> に対して共役事前分布であり、各ノードごとに独立していると仮定します。</p>
+</section>
+<section id="posterior-distribution">
+<h3>事後分布<a class="headerlink" href="#posterior-distribution" title="Link to this heading">#</a></h3>
+<p>事後分布は次のように近似されます：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n \in \mathbb N\)</span>: サンプルサイズ</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{x}^n = \{ \boldsymbol{x}_1, \boldsymbol{x}_2, \ldots, \boldsymbol{x}_n \}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{x}_{s, \boldsymbol{k}}\)</span>：<span class="math notranslate nohighlight">\(\boldsymbol{k}\)</span> の下で <span class="math notranslate nohighlight">\(s\)</span> を通過するデータ点の説明変数です。</p></li>
+<li><p><span class="math notranslate nohighlight">\(y^n = \{ y_1, y_2, \ldots, y_n \}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y_{s, \boldsymbol{k}}\)</span>：<span class="math notranslate nohighlight">\(\boldsymbol{k}\)</span> の下で <span class="math notranslate nohighlight">\(s\)</span> を通過するデータ点の目的変数です。</p></li>
+</ul>
+<p>まず、事後分布 <span class="math notranslate nohighlight">\(p(\boldsymbol{k}, T, \boldsymbol{\theta} | \boldsymbol{x}^n, y^n)\)</span> は、次のように分解できます：</p>
+<div class="math notranslate nohighlight">
+\[p(\boldsymbol{k}, T, \boldsymbol{\theta} | \boldsymbol{x}^n, y^n) = p(\boldsymbol{k} | \boldsymbol{x}^n, y^n) p(T | \boldsymbol{x}^n, y^n, \boldsymbol{k}) p(\boldsymbol{\theta} | \boldsymbol{x}^n, y^n, \boldsymbol{k}, T).\]</div>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> については、共役事前分布を仮定しているため、事後分布 <span class="math notranslate nohighlight">\(p(\boldsymbol{\theta} | \boldsymbol{x}^n, y^n, \boldsymbol{k}, T)\)</span> を正確に計算することができます。</p>
+<p>また、<span class="math notranslate nohighlight">\(T\)</span> についても、メタツリーと呼ばれる概念を用いることで、事後分布 <span class="math notranslate nohighlight">\(p(T | \boldsymbol{x}^n, y^n, \boldsymbol{k})\)</span> を正確に計算することができます。メタツリーは単一のツリーではなく、すべてのツリーの内部ノードに対して同じ特徴量の割り当て <span class="math notranslate nohighlight">\(\boldsymbol{k}\)</span> が与えられているツリーの集合です。  <span class="math notranslate nohighlight">\(\boldsymbol{k}\)</span> で定義されるメタツリー上の木々の事後分布は、以下の通りです：</p>
+<div class="math notranslate nohighlight">
+\[p(T | \boldsymbol{x}^n, y^n, \boldsymbol{k}) = \prod_{s \in \mathcal{I}_T} g_{s|\boldsymbol{x}^n, y^n, \boldsymbol{k}} \prod_{s' \in \mathcal{L}_T} (1-g_{s'|\boldsymbol{x}^n, y^n, \boldsymbol{k}}),\]</div>
+<p>ここで、<span class="math notranslate nohighlight">\(g_{s|\boldsymbol{x}^n, y^n, \boldsymbol{k}} \in [0,1]\)</span> は、<span class="math notranslate nohighlight">\(\boldsymbol{x}^n\)</span>、<span class="math notranslate nohighlight">\(y^n\)</span>、および <span class="math notranslate nohighlight">\(\boldsymbol{k}\)</span> から次のように計算できます：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}g_{s|\boldsymbol{x}^n, y^n, \boldsymbol{k}} =
+\begin{cases}
+    \frac{g_s \prod_{s' \in \mathrm{Ch}(s)}q(y_{s', \boldsymbol{k}}|\boldsymbol{x}_{s', \boldsymbol{k}}, s', \boldsymbol{k})}{q(y_{s, \boldsymbol{k}}|\boldsymbol{x}_{s, \boldsymbol{k}}, s, \boldsymbol{k})}, &amp; s \in \mathcal{I}_\mathrm{max},\\
+    g_s, &amp; \mathrm{otherwise},
+\end{cases}\end{split}\]</div>
+<p>ここで、<span class="math notranslate nohighlight">\(\mathrm{Ch}(s)\)</span> は、<span class="math notranslate nohighlight">\(T_\mathrm{max}\)</span> 上の <span class="math notranslate nohighlight">\(s\)</span> の子ノードの集合を表し、<span class="math notranslate nohighlight">\(q(y_{s, \boldsymbol{k}}|\boldsymbol{x}_{s, \boldsymbol{k}}, s, \boldsymbol{k})\)</span> は、任意の <span class="math notranslate nohighlight">\(s \in \mathcal{S}_\mathrm{max}\)</span> に対して次のように定義されます。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;q(y_{s, \boldsymbol{k}}|\boldsymbol{x}_{s, \boldsymbol{k}}, s, \boldsymbol{k}) =
+\begin{cases}
+    (1-g_s) f(y_{s, \boldsymbol{k}} | \boldsymbol{x}_{s, \boldsymbol{k}}, s, \boldsymbol{k}) \\
+    \qquad {}+ g_s \prod_{s' \in \mathrm{Ch}(s)} q(y_{s', \boldsymbol{k}} | \boldsymbol{x}_{s', \boldsymbol{k}}, s', \boldsymbol{k}), &amp; s \in \mathcal{I}_\mathrm{max},\\
+    f(y_{s, \boldsymbol{k}} | \boldsymbol{x}_{s, \boldsymbol{k}}, s, \boldsymbol{k}), &amp; \mathrm{otherwise}.
+\end{cases}\end{split}\]</div>
+<p>ここで、<span class="math notranslate nohighlight">\(f(y_{s, \boldsymbol{k}} | \boldsymbol{x}_{s, \boldsymbol{k}}, s, \boldsymbol{k})\)</span> は次のように定義されます：</p>
+<div class="math notranslate nohighlight">
+\[f(y_{s, \boldsymbol{k}} | \boldsymbol{x}_{s, \boldsymbol{k}}, s, \boldsymbol{k}) = \int p(y_{s, \boldsymbol{k}} | \boldsymbol{x}_{s, \boldsymbol{k}}, \theta_s) p(\theta_s) \mathrm{d}\theta_s.\]</div>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{k}\)</span> について、事後分布 <span class="math notranslate nohighlight">\(p(\boldsymbol{k} | \boldsymbol{x}^n, y^n)\)</span> を近似するアルゴリズムとして、メタツリー・ランダムフォレスト（MTRF）とメタツリー・マルコフ連鎖モンテカルロ（MTMCMC）法の2つがあります。</p>
+<section id="approximation-by-mtrf">
+<h4>MTRFによる近似<a class="headerlink" href="#approximation-by-mtrf" title="Link to this heading">#</a></h4>
+<p>MTRFでは、まず通常の（非ベイズ）ランダムフォレストアルゴリズムを用いて、特徴量割り当てベクトルの集合 <span class="math notranslate nohighlight">\(\mathcal{K}' = \{\boldsymbol{k}_1, \boldsymbol{k}_2, \ldots, \boldsymbol{k}_B\}\)</span> を構築します。 次に、<span class="math notranslate nohighlight">\(\boldsymbol{k} \in \mathcal{K}\)</span> について、事後分布 <span class="math notranslate nohighlight">\(p(\boldsymbol{k} | \boldsymbol{x}^n, y^n)\)</span> を次のように近似します：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(\boldsymbol{k} | \boldsymbol{x}^n, y^n) \approx \tilde{p}(\boldsymbol{k} | \boldsymbol{x}^n, y^n) \propto \begin{cases}
+    q(y_{s_\lambda, \boldsymbol{k}}|\boldsymbol{x}_{s_\lambda, \boldsymbol{k}}, s_\lambda, \boldsymbol{k}), &amp; \boldsymbol{k} \in \mathcal{K}',\\
+    0, &amp; \mathrm{otherwise}.
+\end{cases}\end{split}\]</div>
+<p>ここで、<span class="math notranslate nohighlight">\(s_{\lambda}\)</span> は <span class="math notranslate nohighlight">\(T_\mathrm{max}\)</span> の根ノードです。</p>
+<p>予測分布は次のように近似されます：</p>
+<div class="math notranslate nohighlight">
+\[p(y_{n+1}| \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n) = \sum_{\boldsymbol{k} \in \mathcal{K}'} \tilde{p}(\boldsymbol{k} | \boldsymbol{x}^n, y^n) q(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s_\lambda, \boldsymbol{k}),\]</div>
+<p>ここで、<span class="math notranslate nohighlight">\(q(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s_\lambda, \boldsymbol{k})\)</span> は、 <span class="math notranslate nohighlight">\(q(y_{s_\lambda, \boldsymbol{k}}|\boldsymbol{x}_{s_\lambda, \boldsymbol{k}}, s_\lambda, \boldsymbol{k})\)</span> と同様の方法で計算されます。</p>
+<p>予測分布の期待値は、次のように近似されます。</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}_{p(y_{n+1}| \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n)} [Y_{n+1}| \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n] = \sum_{\boldsymbol{k} \in \mathcal{K}'} \tilde{p}(\boldsymbol{k} | \boldsymbol{x}^n, y^n) \mathbb{E}_{q(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s_\lambda, \boldsymbol{k})} [Y_{n+1}| \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n, \boldsymbol{k}],\]</div>
+<p>ここで、<span class="math notranslate nohighlight">\(q\)</span> の期待値は、次のように再帰的に与えられます。</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;\mathbb{E}_{q(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s, \boldsymbol{k})} [Y_{n+1} | \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n, \boldsymbol{k}] \\
+&amp;= \begin{cases}
+(1-g_{s|\boldsymbol{x}^n, y^n, \boldsymbol{k}}) \mathbb{E}_{f(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s, \boldsymbol{k})} [Y_{n+1} | \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n, \boldsymbol{k}] \\
+\qquad + g_{s|\boldsymbol{x}^n, y^n, \boldsymbol{k}} \mathbb{E}_{q(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s_\mathrm{child}, \boldsymbol{k})} [Y_{n+1} | \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n, \boldsymbol{k}] ,&amp; s \in \mathcal{I}_\mathrm{max},\\
+\mathbb{E}_{f(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s, \boldsymbol{k})} [Y_{n+1} | \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n, \boldsymbol{k}],&amp; (\mathrm{otherwise}).
+\end{cases}\end{split}\]</div>
+<p>ここで、<span class="math notranslate nohighlight">\(f(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s, \boldsymbol{k})\)</span>  は、  <span class="math notranslate nohighlight">\(f(y_{s, \boldsymbol{k}} | \boldsymbol{x}_{s, \boldsymbol{k}}, s, \boldsymbol{k}\)</span> と同様の方法で計算され、 <span class="math notranslate nohighlight">\(s_\mathrm{child}\)</span> は、根ノードから葉ノード  <span class="math notranslate nohighlight">\(s_{\boldsymbol{k},T_\mathrm{max}}(\boldsymbol{x}_{n+1})\)</span> へのパス上の  <span class="math notranslate nohighlight">\(s\)</span>  の子ノードとなります。</p>
+</section>
+<section id="approximation-by-mtmcmc">
+<h4>MTMCMCによる近似<a class="headerlink" href="#approximation-by-mtmcmc" title="Link to this heading">#</a></h4>
+<p>MTMCMC法では、MCMC法を用いて事後分布 <span class="math notranslate nohighlight">\(p(\boldsymbol{k} | \boldsymbol{x}^n, y^n)\)</span> から標本 <span class="math notranslate nohighlight">\(\boldsymbol{k}\)</span> を生成し、この標本の経験分布によって事後分布を近似します。 得られた標本を <span class="math notranslate nohighlight">\(\{\boldsymbol{k}^{(t)}\}_{t=1}^{t_\mathrm{end}}\)</span> とします。</p>
+<p>予測分布は次のように近似されます：</p>
+<div class="math notranslate nohighlight">
+\[p(y_{n+1}| \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n) = \frac{1}{t_\mathrm{end}} \sum_{t=1}^{t_\mathrm{end}} q(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s_\lambda, \boldsymbol{k}^{(t)}).\]</div>
+<p>予測分布の期待値は、次のように近似されます：</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}_{p(y_{n+1}| \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n)} [Y_{n+1}| \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n] = \frac{1}{t_\mathrm{end}} \sum_{t=1}^{t_\mathrm{end}} \mathbb{E}_{q(y_{n+1}|\boldsymbol{x}_{n+1},\boldsymbol{x}^n, y^n, s_\lambda, \boldsymbol{k}^{(t)})} [Y_{n+1}| \boldsymbol{x}_{n+1}, \boldsymbol{x}^n, y^n, \boldsymbol{k}^{(t)}].\]</div>
+</section>
+</section>
+<section id="references">
+<h3>参照<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Dobashi, N.; Saito, S.; Nakahara, Y.; Matsushima, T. Meta-Tree Random Forest: Probabilistic Data-Generative Model and Bayes Optimal Prediction. <em>Entropy</em> 2021, 23, 768. <a class="reference external" href="https://doi.org/10.3390/e23060768">https://doi.org/10.3390/e23060768</a></p></li>
+<li><p>Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability Distribution on Full Rooted Trees. <em>Entropy</em> 2022, 24, 328. <a class="reference external" href="https://doi.org/10.3390/e24030328">https://doi.org/10.3390/e24030328</a></p></li>
+<li><p>Nakahara, Y.; Saito, S.; Ichijo, N.; Kazama, K.; Matsushima, T. Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. <em>Proceedings of The 28th International Conference on Artificial Intelligence and Statistics</em>, in <em>Proceedings of Machine Learning Research</em> 2025, 258:1045-1053 Available from <a class="reference external" href="https://proceedings.mlr.press/v258/nakahara25a.html">https://proceedings.mlr.press/v258/nakahara25a.html</a>.</p></li>
+</ul>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'</span> <span class="pre">from</span> <span class="pre">'/Users/nakahara/Documents/GitHub/BayesML/bayesml/bernoulli/__init__.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_prob_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel" title="Link to this definition">#</a></dt>
+<dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Generative" title="bayesml.base.Generative"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generative</span></code></a></p>
+<p>確率的データ生成モデルと事前分布</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>c_dim_continuous</strong><span class="classifier">int</span></dt><dd><p>非負の整数</p>
+</dd>
+<dt><strong>c_dim_categorical</strong><span class="classifier">int</span></dt><dd><p>非負の整数</p>
+</dd>
+<dt><strong>c_num_children_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の整数のベクトルで、デフォルトでは [2,2,...,2] となります。 最初の <code class="docutils literal notranslate"><span class="pre">c_dim_continuous</span></code> 個の要素は、内部ノードにおける連続型特徴の子要素の数を表します。残りの <code class="docutils literal notranslate"><span class="pre">c_dim_categorical</span></code> 個の要素は、カテゴリ型特徴の子要素の数を表します。単一の整数が入力された場合、それはブロードキャストされます。</p>
+</dd>
+<dt><strong>c_max_depth</strong><span class="classifier">int, オプション</span></dt><dd><p>正の整数（デフォルトは2）</p>
+</dd>
+<dt><strong>c_num_assignment_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の整数のベクトルです。最初の <code class="docutils literal notranslate"><span class="pre">c_dim_continuous</span></code> 個の要素は、パス上の連続型特徴の最大割り当て数を表します。 残りの <code class="docutils literal notranslate"><span class="pre">c_dim_categorical</span></code> 個の要素は、カテゴリ型特徴量の最大割り当て数を表します。負の要素（例：-1）が含まれる場合、対応する特徴量は何度でも割り当てられます。デフォルトでは [-1,...,-1] です。</p>
+</dd>
+<dt><strong>c_ranges</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが (c_dim_continuous,2) の numpy.ndarray です。「k」番目の連続特徴量に対する閾値は、「c_ranges[k,0]」と「c_ranges[k,1]」の間で生成されます。デフォルトでは、[[-3,3],[-3,3],...,[-3,3]] となります。</p>
+</dd>
+<dt><strong>SubModel</strong><span class="classifier">class, optional</span></dt><dd><p>ベルヌーイ、カテゴリカル、ポアソン、正規、指数、または線形回帰。デフォルトはベルヌーイです。</p>
+</dd>
+<dt><strong>sub_constants</strong><span class="classifier">dict, optional</span></dt><dd><p>self.SubModel.GenModel の定数。デフォルトは {} です</p>
+</dd>
+<dt><strong>root</strong><span class="classifier">metatree._Node, optional</span></dt><dd><p>メタツリーの根ノードです。デフォルトでは、木は1つのノードのみで構成されます。</p>
+</dd>
+<dt><strong>h_k_weight_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の実数のベクトルで、デフォルトでは [1,...,1] です。</p>
+</dd>
+<dt><strong>h_g</strong><span class="classifier">float, optional</span></dt><dd><p>0以上1以下の実数で、デフォルトは 0.5 です</p>
+</dd>
+<dt><strong>sub_h_params</strong><span class="classifier">dict, optional</span></dt><dd><p>self.SubModel.GenModel の h_params は、デフォルトで {} です</p>
+</dd>
+<dt><strong>h_metatree_list</strong><span class="classifier">list of metatree._Node, optional</span></dt><dd><p>メタツリーの根ノード、デフォルトでは [] です</p>
+</dd>
+<dt><strong>h_metatree_prob_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p><span class="math notranslate nohighlight">\([0, 1]\)</span> 内の実数のベクトルで、h_metatree_list の事前分布を表します。デフォルトでは一様分布となります。要素の和は 1.0 でなければなりません。</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">{None, int}, optional</span></dt><dd><p>numpy.random.default_rng() を初期化するシード値です。デフォルトでは None</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">属性<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>c_dim_features: int</strong></dt><dd><p>c_dim_continuous + c_dim_categorical</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">メソッド</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.gen_params" title="bayesml.metatree.GenModel.gen_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_params</span></code></a>([feature_fix, threshold_fix, ...])</p></td>
+<td><p>事前分布からパラメータを生成します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.gen_sample" title="bayesml.metatree.GenModel.gen_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_sample</span></code></a>([sample_size, x_continuous, ...])</p></td>
+<td><p>確率的データ生成モデルからサンプルを生成します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.get_constants" title="bayesml.metatree.GenModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
+<td><p>GenModel の定数を取得します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.get_h_params" title="bayesml.metatree.GenModel.get_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h_params</span></code></a>()</p></td>
+<td><p>事前分布のハイパーパラメータを取得します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.get_params" title="bayesml.metatree.GenModel.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
+<td><p>確率的データ生成モデルのパラメータを取得します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h_params</span></code>(filename)</p></td>
+<td><p>h_paramsにハイパーパラメータをロードします。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_params</span></code>(filename)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">save_params</span></code> に保存されたパラメータをロードします。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h_params</span></code>(filename)</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_params</span></code>(filename)</p></td>
+<td><p>python の <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってパラメータを保存します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.save_sample" title="bayesml.metatree.GenModel.save_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_sample</span></code></a>(filename, sample_size[, x])</p></td>
+<td><p>生成されたサンプルを NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> フォーマットで保存します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.set_h_params" title="bayesml.metatree.GenModel.set_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h_params</span></code></a>([h_k_weight_vec, h_g, ...])</p></td>
+<td><p>事前分布のハイパーパラメータを設定します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.set_params" title="bayesml.metatree.GenModel.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>([root])</p></td>
+<td><p>確率的データ生成モデルのパラメータを設定します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.GenModel.visualize_model" title="bayesml.metatree.GenModel.visualize_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_model</span></code></a>([filename, format, ...])</p></td>
+<td><p>確率的データ生成モデルと生成されたサンプルを可視化します。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel.get_constants">
+<span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.get_constants" title="Link to this definition">#</a></dt>
+<dd><p>GenModel の定数を取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>constants</strong><span class="classifier">dict of {str: int, numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_dim_continuous&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_dim_continuous``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_dim_categorical&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_dim_categorical``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_num_children_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_num_children_vec``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_max_depth&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_max_depth``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_num_assignment_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_num_assignment_vec``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_ranges&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_ranges``の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel.set_h_params">
+<span class="sig-name descname"><span class="pre">set_h_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h_k_weight_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_metatree_prob_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.set_h_params" title="Link to this definition">#</a></dt>
+<dd><p>事前分布のハイパーパラメータを設定します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h_k_weight_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の実数のベクトルです。デフォルトでは None です。</p>
+</dd>
+<dt><strong>h_g</strong><span class="classifier">float, optional</span></dt><dd><p><span class="math notranslate nohighlight">\([0, 1]\)</span> 内の実数。デフォルトは <code class="docutils literal notranslate"><span class="pre">None</span></code> です</p>
+</dd>
+<dt><strong>sub_h_params</strong><span class="classifier">dict, optional</span></dt><dd><p>self.SubModel.GenModel の h_params は、デフォルトでは None です</p>
+</dd>
+<dt><strong>h_metatree_list</strong><span class="classifier">list of metatree._Node, optional</span></dt><dd><p>メタツリーのルートノード。デフォルトでは None です</p>
+</dd>
+<dt><strong>h_metatree_prob_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>h_metatree_list の事前分布を表す:math:<cite>[0, 1]</cite> 内の実数のベクトルです。デフォルトは None です。要素の合計は 1.0 でなければなりません。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel.get_h_params">
+<span class="sig-name descname"><span class="pre">get_h_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.get_h_params" title="Link to this definition">#</a></dt>
+<dd><p>事前分布のハイパーパラメータを取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h_params</strong><span class="classifier">dict of {str: float, list, dict, numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_k_weight_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h_k_weight_vec``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_g&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h_g``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;sub_h_params&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.sub_h_params``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_metatree_list&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h_metatree_list``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_metatree_prob_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h_metatree_prob_vec``の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel.gen_params">
+<span class="sig-name descname"><span class="pre">gen_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_fix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_fix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_fix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'even'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.gen_params" title="Link to this definition">#</a></dt>
+<dd><p>事前分布からパラメータを生成します。</p>
+<p>生成された値は <code class="docutils literal notranslate"><span class="pre">self.root</span></code> に設定されます。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>feature_fix</strong><span class="classifier">bool, optional</span></dt><dd><p>「True」の場合、特徴量の割り当てインデックスは固定されます。デフォルトは「False」です。</p>
+</dd>
+<dt><strong>threshold_fix</strong><span class="classifier">bool, optional</span></dt><dd><p>「True」の場合、連続型特徴量の閾値は固定されます。デフォルトは「False」です。「feature_fix」が「False」の場合、「threshold_fix」は「False」でなければなりません。</p>
+</dd>
+<dt><strong>tree_fix</strong><span class="classifier">bool, optional</span></dt><dd><p>「True」の場合、ツリーの形状は固定されます。デフォルトは「False」です。「feature_fix」が「False」の場合、「tree_fix」は「False」でなければなりません。</p>
+</dd>
+<dt><strong>しきい値の種類</strong><span class="classifier">{'even', 'random'}, optional</span></dt><dd><p>しきい値を生成する手順の一種で、デフォルトは <code class="docutils literal notranslate"><span class="pre">'even'</span></code> です。<code class="docutils literal notranslate"><span class="pre">'even'</span></code> の場合、self.c_ranges は等間隔で再帰的に分割されます。<code class="docutils literal notranslate"><span class="pre">'random'</span></code> の場合、self.c_ranges はランダムな間隔で再帰的に分割されます。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.set_params" title="Link to this definition">#</a></dt>
+<dd><p>確率的データ生成モデルのパラメータを設定します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>root</strong><span class="classifier">metatree._Node, optional</span></dt><dd><p>メタツリーの根ノード。デフォルトではNoneです。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.get_params" title="Link to this definition">#</a></dt>
+<dd><p>確率的データ生成モデルのパラメータを取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">dict of {str:metatree._Node}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;root&quot;</span></code> : <code class="docutils literal notranslate"><span class="pre">self.root</span></code> の値です。</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel.gen_sample">
+<span class="sig-name descname"><span class="pre">gen_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_categorical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.gen_sample" title="Link to this definition">#</a></dt>
+<dd><p>確率的データ生成モデルからサンプルを生成します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample_size</strong><span class="classifier">int, オプション</span></dt><dd><p>正の整数、デフォルトは <code class="docutils literal notranslate"><span class="pre">None</span></code> です。</p>
+</dd>
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat配列です。デフォルトではNoneです。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。デフォルトでは None です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat型配列です。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>サイズが「sample_size」の1次元配列です。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel.save_sample">
+<span class="sig-name descname"><span class="pre">save_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.save_sample" title="Link to this definition">#</a></dt>
+<dd><p>生成されたサンプルを NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> フォーマットで保存します。</p>
+<p>キーワード &quot;x &quot;でNpzFileとして保存されます。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>サンプルを保存するファイル名。ない場合は <code class="docutils literal notranslate"><span class="pre">.npz</span></code> が追加されます。</p>
+</dd>
+<dt><strong>sample_size</strong><span class="classifier">int, オプション</span></dt><dd><p>正の整数、デフォルトは <code class="docutils literal notranslate"><span class="pre">None</span></code> です。</p>
+</dd>
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat配列です。デフォルトではNoneです。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。デフォルトでは None です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.GenModel.visualize_model">
+<span class="sig-name descname"><span class="pre">visualize_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_categorical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.GenModel.visualize_model" title="Link to this definition">#</a></dt>
+<dd><p>確率的データ生成モデルと生成されたサンプルを可視化します。</p>
+<p>なお、カテゴリカル特徴量の値にはジッターが適用されます。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str, optional</span></dt><dd><p>図を保存する際のファイル名。デフォルトは「None」です</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">str, optional</span></dt><dd><p>レンダリングの出力形式（「pdf」、 「png」など）。</p>
+</dd>
+<dt><strong>sample_size</strong><span class="classifier">int, オプション</span></dt><dd><p>正の整数、デフォルトは100</p>
+</dd>
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat配列です。デフォルトではNoneです。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。デフォルトでは None です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://graphviz.readthedocs.io/en/stable/api.html#graphviz.Digraph" title="(in graphviz)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">graphviz.Digraph</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">metatree</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">metatree</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_continuous</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_categorical</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">gen_params</span><span class="p">(</span><span class="n">threshold_type</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">visualize_model</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/metatree_example1.png" src="_images/metatree_example1.png" />
+<img alt="_images/metatree_example2.png" src="_images/metatree_example2.png" />
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesml.metatree.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_dim_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_dim_categorical</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_max_depth=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_children_vec=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_num_assignment_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_ranges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SubModel=&lt;module</span> <span class="pre">'bayesml.bernoulli'</span> <span class="pre">from</span> <span class="pre">'/Users/nakahara/Documents/GitHub/BayesML/bayesml/bernoulli/__init__.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_constants={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_k_weight_vec=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_g=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h0_params={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_list=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_prob_vec=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel" title="Link to this definition">#</a></dt>
+<dd><p>ベースクラス: <a class="reference internal" href="bayesml.html#bayesml.base.Posterior" title="bayesml.base.Posterior"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posterior</span></code></a>, <a class="reference internal" href="bayesml.html#bayesml.base.PredictiveMixin" title="bayesml.base.PredictiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictiveMixin</span></code></a></p>
+<p>事後分布と予測分布</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>c_dim_continuous</strong><span class="classifier">int</span></dt><dd><p>非負の整数</p>
+</dd>
+<dt><strong>c_dim_categorical</strong><span class="classifier">int</span></dt><dd><p>非負の整数</p>
+</dd>
+<dt><strong>c_max_depth</strong><span class="classifier">int, オプション</span></dt><dd><p>正の整数（デフォルトは2）</p>
+</dd>
+<dt><strong>c_num_children_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の整数のベクトルで、デフォルトでは [2,2,...,2] となります。 最初の <code class="docutils literal notranslate"><span class="pre">c_dim_continuous</span></code> 個の要素は、内部ノードにおける連続型特徴の子要素の数を表します。残りの <code class="docutils literal notranslate"><span class="pre">c_dim_categorical</span></code> 個の要素は、カテゴリ型特徴の子要素の数を表します。単一の整数が入力された場合、それはブロードキャストされます。</p>
+</dd>
+<dt><strong>c_num_assignment_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の整数のベクトルです。最初の <code class="docutils literal notranslate"><span class="pre">c_dim_continuous</span></code> 個の要素は、パス上の連続型特徴の最大割り当て数を表します。 残りの <code class="docutils literal notranslate"><span class="pre">c_dim_categorical</span></code> 個の要素は、カテゴリ型特徴量の最大割り当て数を表します。負の要素（例：-1）が含まれる場合、対応する特徴量は何度でも割り当てられます。デフォルトでは [-1,...,-1] です。</p>
+</dd>
+<dt><strong>c_ranges</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが (c_dim_continuous,2) の numpy.ndarray です。「k」番目の連続特徴量に対する閾値は、「c_ranges[k,0]」と「c_ranges[k,1]」の間で生成されます。デフォルトでは、[[-3,3],[-3,3],...,[-3,3]] となります。</p>
+</dd>
+<dt><strong>SubModel</strong><span class="classifier">class, optional</span></dt><dd><p>ベルヌーイ、カテゴリカル、ポアソン、正規、指数、または線形回帰。デフォルトはベルヌーイです。</p>
+</dd>
+<dt><strong>sub_constants</strong><span class="classifier">dict, optional</span></dt><dd><p>self.SubModel.LearnModel の定数。デフォルトは {} です</p>
+</dd>
+<dt><strong>h0_k_weight_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の実数のベクトルで、デフォルトでは [1,...,1] です。</p>
+</dd>
+<dt><strong>h0_g</strong><span class="classifier">float, optional</span></dt><dd><p>0以上1以下の実数で、デフォルトは 0.5 です</p>
+</dd>
+<dt><strong>sub_h0_params</strong><span class="classifier">dict, optional</span></dt><dd><p>self.SubModel.LearnModel の h0_params は、デフォルトで {} です</p>
+</dd>
+<dt><strong>h0_metatree_list</strong><span class="classifier">list of metatree._Node, optional</span></dt><dd><p>メタツリーの根ノード、デフォルトでは [] です</p>
+</dd>
+<dt><strong>h0_metatree_prob_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p><span class="math notranslate nohighlight">\([0, 1]\)</span> 内の実数のベクトルで、h0_metatree_list の事前分布を表します。デフォルトでは一様分布となります。要素の和は 1.0 でなければなりません。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">属性<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>c_dim_features: int</strong></dt><dd><p>c_dim_continuous + c_dim_categorical</p>
+</dd>
+<dt><strong>hn_k_weight_vec</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の実数のベクトル</p>
+</dd>
+<dt><strong>hn_g</strong><span class="classifier">float</span></dt><dd><p>:math:<a href="#id1"><span class="problematic" id="id2">`</span></a>[0, 1]`に属する実数</p>
+</dd>
+<dt><strong>sub_hn_params</strong><span class="classifier">dict</span></dt><dd><p>self.SubModel.LearnModel の hn_params</p>
+</dd>
+<dt><strong>hn_metatree_list</strong><span class="classifier">metatree._Node のリスト</span></dt><dd><p>メタツリーの根ノード</p>
+</dd>
+<dt><strong>hn_metatree_prob_vec</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>h0_metatree_list の事前分布を表す、<span class="math notranslate nohighlight">\([0, 1]\)</span> 内の実数のベクトルです。その要素の和は 1.0 になります。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">メソッド</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.calc_feature_importances" title="bayesml.metatree.LearnModel.calc_feature_importances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_feature_importances</span></code></a>()</p></td>
+<td><p>特徴量の重要度を計算します</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.calc_pred_density" title="bayesml.metatree.LearnModel.calc_pred_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_density</span></code></a>(y)</p></td>
+<td><p>予測分布の確率密度関数の値の計算</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.calc_pred_dist" title="bayesml.metatree.LearnModel.calc_pred_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_dist</span></code></a>([x_continuous, x_categorical])</p></td>
+<td><p>予測分布のパラメータを計算します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.calc_pred_var" title="bayesml.metatree.LearnModel.calc_pred_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_var</span></code></a>()</p></td>
+<td><p>予測分布の分散を計算</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.estimate_params" title="bayesml.metatree.LearnModel.estimate_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_params</span></code></a>([loss, visualize, filename, ...])</p></td>
+<td><p>与えられた基準に基づいたパラメータ推定</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.fit" title="bayesml.metatree.LearnModel.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>([x_continuous, x_categorical, y, alg_type])</p></td>
+<td><p>モデルをデータに当てはめます。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_constants" title="bayesml.metatree.LearnModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
+<td><p>LearnModel の定数を取得します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_h0_params" title="bayesml.metatree.LearnModel.get_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h0_params</span></code></a>()</p></td>
+<td><p>事前分布のハイパーパラメータを取得します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_hn_params" title="bayesml.metatree.LearnModel.get_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hn_params</span></code></a>()</p></td>
+<td><p>事後分布のハイパーパラメータを取得します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.get_p_params" title="bayesml.metatree.LearnModel.get_p_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_p_params</span></code></a>()</p></td>
+<td><p>予測分布のパラメータを取得します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h0_params</span></code>(filename)</p></td>
+<td><p>h0_paramsにハイパーパラメータをロードします。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_hn_params</span></code>(filename)</p></td>
+<td><p>hn_paramsにハイパーパラメータをロードします。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.make_prediction" title="bayesml.metatree.LearnModel.make_prediction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_prediction</span></code></a>([loss])</p></td>
+<td><p>与えられた基準の下で、新しいデータ点を予測します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwrite_h0_params</span></code>()</p></td>
+<td><p>事後分布のハイパーパラメータの初期値を学習した値で上書きします。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.pred_and_update" title="bayesml.metatree.LearnModel.pred_and_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pred_and_update</span></code></a>([x_continuous, ...])</p></td>
+<td><p>逐次的に新しいデータ点を予測し、事後分布を更新します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.predict" title="bayesml.metatree.LearnModel.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>([x_continuous, x_categorical])</p></td>
+<td><p>データを予測</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.predict_proba" title="bayesml.metatree.LearnModel.predict_proba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict_proba</span></code></a>([x_continuous, x_categorical])</p></td>
+<td><p>データを予測</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_hn_params</span></code>()</p></td>
+<td><p>事後分布のハイパーパラメータを初期値に戻します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h0_params</span></code>(filename)</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_hn_params</span></code>(filename)</p></td>
+<td><p>python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> モジュールを使ってハイパーパラメータを保存します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.set_h0_params" title="bayesml.metatree.LearnModel.set_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h0_params</span></code></a>([h0_k_weight_vec, h0_g, ...])</p></td>
+<td><p>事前分布のハイパーパラメータを設定します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.set_hn_params" title="bayesml.metatree.LearnModel.set_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_hn_params</span></code></a>([hn_k_weight_vec, hn_g, ...])</p></td>
+<td><p>事後分布のハイパーパラメータを設定します。</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.update_posterior" title="bayesml.metatree.LearnModel.update_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_posterior</span></code></a>([x_continuous, ...])</p></td>
+<td><p>訓練データを使って事後分布のハイパーパラメータを更新します。</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.metatree.LearnModel.visualize_posterior" title="bayesml.metatree.LearnModel.visualize_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_posterior</span></code></a>([filename, format, ...])</p></td>
+<td><p>パラメータの事後分布を可視化します。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.get_constants">
+<span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.get_constants" title="Link to this definition">#</a></dt>
+<dd><p>LearnModel の定数を取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>constants</strong><span class="classifier">dict of {str: int, numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_dim_continuous&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_dim_continuous``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_dim_categorical&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_dim_categorical``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_num_children_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_num_children_vec``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_max_depth&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_max_depth``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_num_assignment_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_num_assignment_vec``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_ranges&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.c_ranges``の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.set_h0_params">
+<span class="sig-name descname"><span class="pre">set_h0_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h0_k_weight_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_h0_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_metatree_prob_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.set_h0_params" title="Link to this definition">#</a></dt>
+<dd><p>事前分布のハイパーパラメータを設定します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h0_k_weight_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の実数のベクトルです。デフォルトでは None です。</p>
+</dd>
+<dt><strong>h0_g</strong><span class="classifier">float, optional</span></dt><dd><p><span class="math notranslate nohighlight">\([0, 1]\)</span> 内の実数。デフォルトは <code class="docutils literal notranslate"><span class="pre">None</span></code> です</p>
+</dd>
+<dt><strong>sub_h0_params</strong><span class="classifier">dict, optional</span></dt><dd><p>self.SubModel.LearnModel の h0_params は、デフォルトでは None です</p>
+</dd>
+<dt><strong>h0_metatree_list</strong><span class="classifier">list of metatree._Node, optional</span></dt><dd><p>メタツリーのルートノード。デフォルトでは None です</p>
+</dd>
+<dt><strong>h0_metatree_prob_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>h0_metatree_list の事前分布を表す、<span class="math notranslate nohighlight">\([0, 1]\)</span> の実数ベクトルです。デフォルトは None です。要素の合計は 1.0 でなければなりません。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.get_h0_params">
+<span class="sig-name descname"><span class="pre">get_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.get_h0_params" title="Link to this definition">#</a></dt>
+<dd><p>事前分布のハイパーパラメータを取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h0_params</strong><span class="classifier">dict of {str: float, list, dict, numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_k_weight_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h0_k_weight_vec``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_g&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h0_g``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;sub_h0_params&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.sub_h0_params``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_metatree_list&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h0_metatree_list``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_metatree_prob_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.h0_metatree_prob_vec``の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.set_hn_params">
+<span class="sig-name descname"><span class="pre">set_hn_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hn_k_weight_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_hn_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_metatree_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_metatree_prob_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.set_hn_params" title="Link to this definition">#</a></dt>
+<dd><p>事後分布のハイパーパラメータを設定します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hn_k_weight_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>長さが <code class="docutils literal notranslate"><span class="pre">c_dim_continuous+c_dim_categorical</span></code> である正の実数のベクトルです。デフォルトでは None です。</p>
+</dd>
+<dt><strong>hn_g</strong><span class="classifier">float, optional</span></dt><dd><p><span class="math notranslate nohighlight">\([0, 1]\)</span> 内の実数。デフォルトは <code class="docutils literal notranslate"><span class="pre">None</span></code> です</p>
+</dd>
+<dt><strong>sub_hn_params</strong><span class="classifier">dict, optional</span></dt><dd><p>self.SubModel.LearnModel の hn_params は、デフォルトでは None です</p>
+</dd>
+<dt><strong>hn_metatree_list</strong><span class="classifier">list of metatree._Node, optional</span></dt><dd><p>メタツリーのルートノード。デフォルトでは None です</p>
+</dd>
+<dt><strong>hn_metatree_prob_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p><span class="math notranslate nohighlight">\([0, 1]\)</span> の実数のベクトルで、hn_metatree_list の事前分布を表します。デフォルトは None です。要素の合計は 1.0 でなければなりません。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.get_hn_params">
+<span class="sig-name descname"><span class="pre">get_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.get_hn_params" title="Link to this definition">#</a></dt>
+<dd><p>事後分布のハイパーパラメータを取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hn_params</strong><span class="classifier">dict of {str: float, list, dict, numpy.ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_k_weight_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.hn_k_weight_vec``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_g&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.hn_g``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;sub_hn_params&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.sub_hn_params``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_metatree_list&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.hn_metatree_list``の値</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_metatree_prob_vec&quot;</span></code>：<a href="#id1"><span class="problematic" id="id2">``</span></a>self.hn_metatree_prob_vec``の値</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.update_posterior">
+<span class="sig-name descname"><span class="pre">update_posterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_categorical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alg_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MTRF'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.update_posterior" title="Link to this definition">#</a></dt>
+<dd><p>訓練データを使って事後分布のハイパーパラメータを更新します。</p>
+<dl class="field-list">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat配列です。デフォルトではNoneです。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。デフォルトでは None です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>dtypeがintまたはfloatである目的変数の値</p>
+</dd>
+<dt><strong>alg_type</strong><span class="classifier">{'MTRF', 'given_MT', 'MTMCMC', 'REMTMCMC'}, optional</span></dt><dd><p>アルゴリズムの種類。デフォルトは「MTRF」です</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>アルゴリズムのオプションパラメータ。デフォルトは {} です。</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">alg_type='MTRF'</span></code> の場合</p>
+<ul class="simple">
+<li><p>MTRF[1]では、 <code class="docutils literal notranslate"><span class="pre">sklearn.ensemble.RandomForestClassifier</span></code> または <code class="docutils literal notranslate"><span class="pre">sklearn.ensemble.RandomForestRegressor</span></code> がサブルーチンとして呼び出されます。 <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> として指定された引数は、これらのサブルーチンに渡されます。  したがって、これらのサブルーチンに対して、例えば <code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> や <code class="docutils literal notranslate"><span class="pre">random_state</span></code> などのオプションを指定したい場合は、ここで指定することができます。ただし、これらのサブルーチンの <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> は <code class="docutils literal notranslate"><span class="pre">self.c_max_depth</span></code> の値に設定されているため、再度設定しようとするとエラーが発生します。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alg_type='given_MT’</span></code> の場合</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'given_MT'</span></code> にはオプションのパラメータはありません。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alg_type='MTMCMC’</span></code> の場合</p>
+<ul>
+<li><p>burn_in : int</p>
+<p>バーンイン段階の期間は、デフォルトで100です。</p>
+</li>
+<li><p>num_metatrees : int</p>
+<p>バーンイン段階後のサンプリング回数は、デフォルトで500回です。</p>
+</li>
+<li><p>g_max : float</p>
+<p>メトロポリス・ヘイスティングス法における提案分布のエントロピーを制御するためのパラメータの初期値です。デフォルトは 0.0 です。[2] の付録 B.4 も参照してください。<code class="docutils literal notranslate"><span class="pre">g_max</span></code> は、[2] のアルゴリズム 1 によってバーンイン段階で調整されます。</p>
+</li>
+<li><p>rho : float</p>
+<p>[2]のアルゴリズム1のパラメータで、デフォルト値は0.99です。</p>
+</li>
+<li><p>phi : float</p>
+<p>[2]のアルゴリズム1のパラメータで、デフォルト値は0.999です。</p>
+</li>
+<li><p>p_obj : float</p>
+<p>[2]のアルゴリズム1のパラメータで、デフォルト値は0.3です。 <code class="docutils literal notranslate"><span class="pre">p_obj</span></code> は、[2]のアルゴリズム1における$r_\mathrm{obj}$に対応します。</p>
+</li>
+<li><p>threshold_type : {'1d_kmeans', 'sample_midpoint'}</p>
+<p>連続説明変数の閾値を生成するルールで、デフォルトでは <code class="docutils literal notranslate"><span class="pre">'1d_kmeans'</span></code> です。[2] の付録 G も参照してください。</p>
+</li>
+<li><p>seed : {None, int}, 省略可</p>
+<p>numpy.random.default_rng()を初期化するためのシード。デフォルトはNone。</p>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alg_type='REMTMCMC’</span></code> の場合</p>
+<ul>
+<li><p>burn_in : int</p>
+<p>バーンイン段階の期間は、デフォルトで100です。</p>
+</li>
+<li><p>num_metatrees : int</p>
+<p>バーンイン段階後のサンプリング回数は、デフォルトで500回です。</p>
+</li>
+<li><p>num_chains : int</p>
+<p>レプリカ交換モンテカルロ法におけるレプリカの数。デフォルトでは8です。これは[2]の付録Dにおける$J$に相当します。</p>
+</li>
+<li><p>g_max : float</p>
+<p>メトロポリス・ヘイスティングス法における提案分布のエントロピーを制御するパラメータで、デフォルト値は 0.9 です。MTMCMC とは異なり、バーンイン段階では <code class="docutils literal notranslate"><span class="pre">g_max</span></code> の調整は行われません。[2] の付録 B.4 も参照してください。</p>
+</li>
+<li><p>beta_vec : {None, numpy.ndarray}</p>
+<p>レプリカ交換モンテカルロ法における温度パラメータ。デフォルトは None です。$0 \leq \beta_1 &lt; \beta_2 &lt; \cdots &lt; \beta_J = 1$ を満たす必要があります。None の場合、$\beta_j = j/J$ となります。[2] の付録 D も参照してください。</p>
+</li>
+<li><p>num_interval : int</p>
+<p>レプリカ交換プロセス間の間隔の長さ。デフォルトは10です。[2]の付録Dも参照してください。</p>
+</li>
+<li><p>num_exchange : int</p>
+<p>1回のレプリカ交換プロセスで交換されるレプリカの数。デフォルトは4です。[2]の付録Dも参照してください。</p>
+</li>
+<li><p>threshold_type : {'1d_kmeans', 'sample_midpoint'}</p>
+<p>連続説明変数の閾値を生成するルールで、デフォルトでは <code class="docutils literal notranslate"><span class="pre">'1d_kmeans'</span></code> です。[2] の付録 G も参照してください。</p>
+</li>
+<li><p>seed : {None, int}, 省略可</p>
+<p>numpy.random.default_rng()を初期化するためのシード。デフォルトはNone。</p>
+</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier" title="(in scikit-learn v1.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sklearn.ensemble.RandomForestClassifier</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor" title="(in scikit-learn v1.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sklearn.ensemble.RandomForestRegressor</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">参照</p>
+<div role="list" class="citation-list">
+<div class="citation" id="rd12bbd48bc8d-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>Dobashi, N., Saito, S., Nakahara, Y., &amp; Matsushima, T. (2021). 
+Meta-Tree Random Forest: Probabilistic Data-Generative Model and 
+Bayes Optimal Prediction. <em>Entropy</em>, 23(6), 768. 
+Available from <a class="reference external" href="https://doi.org/10.3390/e23060768">https://doi.org/10.3390/e23060768</a></p>
+</div>
+<div class="citation" id="rd12bbd48bc8d-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>Nakahara, Y., Saito, S., Ichijo, N., Kazama, K. &amp; Matsushima, T. (2025). 
+Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. 
+<em>Proceedings of The 28th International Conference on Artificial Intelligence and Statistics</em>, 
+in <em>Proceedings of Machine Learning Research</em> 258:1045-1053 
+Available from <a class="reference external" href="https://proceedings.mlr.press/v258/nakahara25a.html">https://proceedings.mlr.press/v258/nakahara25a.html</a>.</p>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.estimate_params">
+<span class="sig-name descname"><span class="pre">estimate_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0-1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visualize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.estimate_params" title="Link to this definition">#</a></dt>
+<dd><p>与えられた基準に基づいたパラメータ推定</p>
+<p>近似MAPメタツリー  <span class="math notranslate nohighlight">\(M_{T,\boldsymbol{k}_b} = \mathrm{argmax} p(M_{T,\boldsymbol{k}_{b'}} | \boldsymbol{x}^n, y^n)\)</span>  が返されます。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数で、デフォルトでは <code class="docutils literal notranslate"><span class="pre">&quot;0-1&quot;</span></code> です。この関数は <code class="docutils literal notranslate"><span class="pre">&quot;0-1&quot;</span></code> のみをサポートしています。</p>
+</dd>
+<dt><strong>visualize</strong><span class="classifier">bool, optional</span></dt><dd><p>「True」の場合、推定されたメタツリーが可視化されます。デフォルトでは「True」です。この可視化には「graphviz」が必要です。</p>
+</dd>
+<dt><strong>filename</strong><span class="classifier">str, optional</span></dt><dd><p>図を保存する際のファイル名。デフォルトは「None」です</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">str, optional</span></dt><dd><p>レンダリングの出力形式（「pdf」、 「png」など）。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>map_root</strong><span class="classifier">metatree._Node</span></dt><dd><p>推定されたメタツリーの根ノードであり、各ノードには推定されたパラメータも含まれています。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>複数のメタツリーが、同等のモデルクラスを表す場合があります。この関数は、そのような重複を考慮していません。</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://graphviz.readthedocs.io/en/stable/api.html#graphviz.Digraph" title="(in graphviz)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">graphviz.Digraph</span></code></a></dt><dd></dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.visualize_posterior">
+<span class="sig-name descname"><span class="pre">visualize_posterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_metatrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.visualize_posterior" title="Link to this definition">#</a></dt>
+<dd><p>パラメータの事後分布を可視化します。</p>
+<p>この方法には「graphviz」が必要です。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str, optional</span></dt><dd><p>図を保存する際のファイル名。デフォルトは「None」です</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">str, optional</span></dt><dd><p>レンダリングの出力形式（「pdf」、 「png」など）。</p>
+</dd>
+<dt><strong>num_metatrees</strong><span class="classifier">int, オプション</span></dt><dd><p>表示するメタツリーの数。デフォルトは3です。</p>
+</dd>
+<dt><strong>h_params</strong><span class="classifier">bool, optional</span></dt><dd><p>「True」の場合、各ノードのハイパーパラメータが表示されます。「False」の場合、各ノードの推定パラメータが表示されます。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://graphviz.readthedocs.io/en/stable/api.html#graphviz.Digraph" title="(in graphviz)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">graphviz.Digraph</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">metatree</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gen_model</span> <span class="o">=</span> <span class="n">metatree</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_continuous</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_categorical</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gen_model</span><span class="o">.</span><span class="n">gen_params</span><span class="p">(</span><span class="n">threshold_type</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_continuous</span><span class="p">,</span><span class="n">x_categorical</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">gen_model</span><span class="o">.</span><span class="n">gen_sample</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span> <span class="o">=</span> <span class="n">metatree</span><span class="o">.</span><span class="n">LearnModel</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_continuous</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">c_dim_categorical</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span><span class="o">.</span><span class="n">update_posterior</span><span class="p">(</span><span class="n">x_continuous</span><span class="p">,</span><span class="n">x_categorical</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span><span class="o">.</span><span class="n">visualize_posterior</span><span class="p">(</span><span class="n">num_metatrees</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/metatree_posterior2.png" src="_images/metatree_posterior2.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.get_p_params">
+<span class="sig-name descname"><span class="pre">get_p_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.get_p_params" title="Link to this definition">#</a></dt>
+<dd><p>予測分布のパラメータを取得します。</p>
+<p>このモデルには、予測分布を表す単純なパラメトリック式がありません。そのため、この関数は「None」を返します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">None</span></code></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.calc_pred_dist">
+<span class="sig-name descname"><span class="pre">calc_pred_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_categorical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.calc_pred_dist" title="Link to this definition">#</a></dt>
+<dd><p>予測分布のパラメータを計算します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat配列です。デフォルトではNoneです。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。デフォルトでは None です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.make_prediction">
+<span class="sig-name descname"><span class="pre">make_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.make_prediction" title="Link to this definition">#</a></dt>
+<dd><p>与えられた基準の下で、新しいデータ点を予測します。</p>
+<dl class="field-list">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数です。デフォルトでは <cite>None</cite> です。この関数は、「squared」、「0-1」、および「KL」をサポートしています。損失関数が <cite>None</cite> の場合、サブモデルが回帰モデル（正規、ポアソン、指数、または線形回帰）であるときは「squared」が使用され、サブモデルが分類モデル（ベルヌーイまたはカテゴリカル）であるときは「0-1」が使用されます。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>Predicted_values</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>指定された損失関数に基づく予測値です。サブモデルが分類モデル（ベルヌーイまたはカテゴリカル）であり、損失関数が「KL」の場合、予測分布は出現確率からなるnumpy.ndarrayとして返されます。</p>
+<p>calc_pred_dist(x_continuous, x_categorical) を呼び出した際、予測値のサイズまたは予測分布の数は、x_continuous および x_categorical の標本サイズと同じになります。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.pred_and_update">
+<span class="sig-name descname"><span class="pre">pred_and_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_categorical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.pred_and_update" title="Link to this definition">#</a></dt>
+<dd><p>逐次的に新しいデータ点を予測し、事後分布を更新します。</p>
+<dl class="field-list">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat配列です。デフォルトではNoneです。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。デフォルトでは None です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>dtypeがintまたはfloatである目的変数の値</p>
+</dd>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>ベイズリスク関数の基礎となる損失関数です。デフォルトではNoneです。この関数は、「squared」、「0-1」、および「KL」をサポートしています。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>Predicted_values</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>指定された損失関数に基づく予測値です。サブモデルが分類モデル（ベルヌーイまたはカテゴリカル）であり、損失関数が「KL」の場合、予測分布は出現確率からなるnumpy.ndarrayとして返されます。</p>
+<p>calc_pred_dist(x_continuous, x_categorical) を呼び出した際、予測値のサイズまたは予測分布の数は、x_continuous および x_categorical の標本サイズと同じになります。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.calc_pred_var">
+<span class="sig-name descname"><span class="pre">calc_pred_var</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.calc_pred_var" title="Link to this definition">#</a></dt>
+<dd><p>予測分布の分散を計算</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>vars</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>予測分布の分散です。この分散のサイズは、calc_pred_dist(x) を呼び出した際の x のサンプルサイズと同じです。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.calc_feature_importances">
+<span class="sig-name descname"><span class="pre">calc_feature_importances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.calc_feature_importances" title="Link to this definition">#</a></dt>
+<dd><p>特徴量の重要度を計算します</p>
+<dl class="field-list simple">
+<dt class="field-odd">返り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>feature_importances</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>特徴量の重要度</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.calc_pred_density">
+<span class="sig-name descname"><span class="pre">calc_pred_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.calc_pred_density" title="Link to this definition">#</a></dt>
+<dd><p>予測分布の確率密度関数の値の計算</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>y のサイズは (sample_size, ) にブロードキャスト可能なものでなければなりません。つまり、最後の次元のサイズは 1 または sample_size でなければなりません。ここで、sample_size は calc_pred_dist(x) を呼び出した際の x のサンプルサイズです。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>p_y</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>予測分布の確率密度関数の値です。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_categorical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alg_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MTRF'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.fit" title="Link to this definition">#</a></dt>
+<dd><p>モデルをデータに当てはめます。</p>
+<p>この関数は以下の関数のラッパーです：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">reset_hn_params</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">update_posterior</span><span class="p">(</span><span class="n">x_continuous</span><span class="p">,</span><span class="n">x_categorical</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">alg_type</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="bp">self</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat配列です。デフォルトではNoneです。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。デフォルトでは None です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>dtypeがintまたはfloatである目的変数の値</p>
+</dd>
+<dt><strong>alg_type</strong><span class="classifier">{'MTRF', 'given_MT', 'MTMCMC', 'REMTMCMC'}, optional</span></dt><dd><p>アルゴリズムの種類。デフォルトは「MTRF」です</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>アルゴリズムのオプションパラメータ。デフォルトは {} です</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">LearnModel</span></dt><dd><p>The fitted model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_categorical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.predict" title="Link to this definition">#</a></dt>
+<dd><p>データを予測</p>
+<p>この関数は以下の関数のラッパーです：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_pred_dist</span><span class="p">(</span><span class="n">x_continuous</span><span class="p">,</span><span class="n">x_categorical</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_prediction</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat配列です。デフォルトではNoneです。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。デフォルトでは None です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>Predicted_values</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>サブモデルが回帰モデル（正規、ポアソン、指数、または線形回帰）の場合、二乗損失関数に基づく予測値が返されます。サブモデルが分類モデル（ベルヌーイまたはカテゴリカル）の場合、0-1損失関数に基づく予測値が返されます。予測値のサイズは、x_continuous および x_categorical のサンプルサイズと同じです。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.metatree.LearnModel.predict_proba">
+<span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_categorical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.metatree.LearnModel.predict_proba" title="Link to this definition">#</a></dt>
+<dd><p>データを予測</p>
+<p>この関数は、サブモデルが分類モデル（bernoulli または categorical）である場合にサポートされます。これは、以下の関数のラッパーです：</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_pred_dist</span><span class="p">(</span><span class="n">x_continuous</span><span class="p">,</span><span class="n">x_categorical</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_prediction</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;KL&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x_continuous</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_continuous)</span></code> である2次元のfloat配列です。デフォルトではNoneです。</p>
+</dd>
+<dt><strong>x_categorical</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>サイズが <code class="docutils literal notranslate"><span class="pre">(sample_size,c_dim_categorical)</span></code> である 2 次元の int 配列です。デフォルトでは None です。各要素 x_categorical[i,j] は、0 &lt;= x_categorical[i,j] &lt; self.c_num_children_vec[self.c_dim_continuous+j] を満たす必要があります。</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">返り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>predicted_distributions</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>KL損失関数に基づく予測分布です。予測分布の数は、x_continuous および x_categorical の標本サイズと同じです。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bayesml.logisticregression.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title">bayesml.logisticregression package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="bayesml.multivariate_normal.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">bayesml.multivariate_normal package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.metatree">モジュール内容</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-data-generative-model">確率的データ生成モデル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-distribution">事前分布</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-distribution">事後分布</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-by-mtrf">MTRFによる近似</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-by-mtmcmc">MTMCMCによる近似</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">参照</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.get_constants"><code class="docutils literal notranslate"><span class="pre">GenModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.set_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.get_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.gen_params"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.set_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.get_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.gen_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.save_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.save_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.GenModel.visualize_model"><code class="docutils literal notranslate"><span class="pre">GenModel.visualize_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel"><code class="docutils literal notranslate"><span class="pre">LearnModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.get_constants"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.set_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.get_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.set_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.get_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.update_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.update_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.estimate_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.visualize_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.visualize_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.get_p_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_p_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_dist"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.make_prediction"><code class="docutils literal notranslate"><span class="pre">LearnModel.make_prediction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.pred_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.pred_and_update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_var"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_var()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_feature_importances"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_feature_importances()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.calc_pred_density"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_density()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.fit"><code class="docutils literal notranslate"><span class="pre">LearnModel.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.predict"><code class="docutils literal notranslate"><span class="pre">LearnModel.predict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.metatree.LearnModel.predict_proba"><code class="docutils literal notranslate"><span class="pre">LearnModel.predict_proba()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 BayesML Developers
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, BayesML Developers.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -114,12 +114,12 @@ class GenModel(base.Generative):
         return self
 
     def set_params(self,mu=None,tau=None):
-        """Set the parameter of the sthocastic data generative model.
+        r"""Set the parameter of the sthocastic data generative model.
 
         Parameters
         ----------
         mu : float, optional
-            a real number :math:`mu \in \mathbb{R}`, by default None.
+            a real number :math:`\mu \in \mathbb{R}`, by default None.
         tau : float, optional
             a positive real number, by default None.
         """

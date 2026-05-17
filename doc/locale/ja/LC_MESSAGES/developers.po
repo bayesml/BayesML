@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-17 22:32+0900\n"
+"PO-Revision-Date: 2026-05-17 22:53+0900\n"
+"Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
+"Language-Team: ja <LL@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: Babel 2.17.0\n"
+"X-Generator: Poedit 3.9\n"
+
+#: ../../developers.rst:3
+msgid "BayesML Developers"
+msgstr "BayesML 開発者"
+
+#: ../../developers.rst:6
+msgid "Code Author"
+msgstr "コード作成者"
+
+#: ../../developers.rst:8 ../../developers.rst:16 ../../developers.rst:31
+msgid "`Yuta Nakahara <https://researchmap.jp/y-nak?lang=en>`_, Waseda University"
+msgstr "`中原 悠太 <https://researchmap.jp/y-nak?lang=ja>`_、早稲田大学"
+
+#: ../../developers.rst:9 ../../developers.rst:19
+msgid "Yasushi Esaki"
+msgstr "江崎 泰志"
+
+#: ../../developers.rst:10 ../../developers.rst:21
+msgid "Naoki Ichijo"
+msgstr "一條 尚希"
+
+#: ../../developers.rst:11 ../../developers.rst:20
+msgid ""
+"`Koshi Shimada <https://researchmap.jp/shimada2k?lang=en>`_, Waseda University"
+msgstr "`島田 航志 <https://researchmap.jp/shimada2k?lang=ja>`_、早稲田大学"
+
+#: ../../developers.rst:12 ../../developers.rst:22
+msgid ""
+"`Kohei Horinouchi <https://researchmap.jp/Kohei_Horinouchi?lang=en>`_, Waseda "
+"University"
+msgstr ""
+"`堀之内 康平 <https://researchmap.jp/Kohei_Horinouchi?lang=ja>`_、早稲田大学"
+
+#: ../../developers.rst:15
+msgid "Document Author"
+msgstr "ドキュメント作成者"
+
+#: ../../developers.rst:17
+msgid "`Shota Saito <https://saito-lab-en.labby.jp>`_, Gunma University"
+msgstr "`齋藤 翔太 <https://saito-lab.labby.jp/>`_、群馬大学"
+
+#: ../../developers.rst:18
+msgid ""
+"`Koki Kazama <https://researchmap.jp/KokiKAZAMA?lang=en>`_, Shonan Institute of "
+"Technology"
+msgstr "`風間 皐希 <https://researchmap.jp/KokiKAZAMA?lang=ja>`_、湘南工科大学"
+
+#: ../../developers.rst:25
+msgid "Adviser"
+msgstr "アドバイザー"
+
+#: ../../developers.rst:26
+msgid ""
+"`Toshiyasu Matsushima <https://researchmap.jp/read0044887?lang=en>`_, Waseda "
+"University"
+msgstr "`松嶋 敏泰 <https://researchmap.jp/read0044887?lang=ja>`_、早稲田大学"
+
+#: ../../developers.rst:29
+msgid "Logo Designer"
+msgstr "ロゴデザイナー"
+
+#: ../../developers.rst:30
+msgid "Akiyo Arakawa"
+msgstr "荒川 暁世"
+
+#: ../../developers.rst:34
+msgid "Past Contributors"
+msgstr "過去の貢献者"
+
+#: ../../developers.rst:35
+msgid "Haruka Murayama"
+msgstr "村山 春香"
+
+#: ../../developers.rst:36
+msgid "Kairi-SUZUKI-8"
+msgstr "鈴木 海里"
+
+#: ../../developers.rst:37
+msgid "Keito Tajima"
+msgstr "田島 慶斗"
+
+#: ../../developers.rst:38
+msgid "Luyu Ruan"
+msgstr "Luyu Ruan"
+
+#: ../../developers.rst:39
+msgid "Mikio.U"
+msgstr "潮田 幹生"
+
+#: ../../developers.rst:40
+msgid "Nishikawa Jun"
+msgstr "西川 潤"
+
+#: ../../developers.rst:41
+msgid "Noboru Namegaya"
+msgstr "行谷 昇"
+
+#: ../../developers.rst:42
+msgid "RyoheiO"
+msgstr "岡 凌平"
+
+#: ../../developers.rst:43
+msgid "Ryota Maniwa"
+msgstr "馬庭 良太"
+
+#: ../../developers.rst:44
+msgid "Taisuke Ishiwatari"
+msgstr "石渡 泰祐"
+
+#: ../../developers.rst:45
+msgid "Wenbin Yu"
+msgstr "Wenbin Yu"
+
+#: ../../developers.rst:46
+msgid "Yuji Iikubo"
+msgstr "飯窪 祐二"
+
+#: ../../developers.rst:49
+msgid "Citation"
+msgstr "引用"
+
+#: ../../developers.rst:51
+msgid ""
+"When you use BayesML for your academic work, please provide the following "
+"bibliographic reference."
+msgstr "BayesMLを学術研究に利用する場合は、以下のとおり引用をお願いいたします。"
+
+#: ../../developers.rst:53
+msgid "Plain text"
+msgstr "Plain text"
+
+#: ../../developers.rst:62
+msgid "BibTeX"
+msgstr "BibTeX"
+
+#~ msgid "Naoki Ichijo, Waseda University (Ph.D. Student)"
+#~ msgstr "一條 尚希"
+
+#~ msgid "Koshi Shimada, Waseda University (Ph.D. Student)"
+#~ msgstr "島田 航志"
+
+#~ msgid "Kohei Horinouchi, Waseda University (Ph.D. Student)"
+#~ msgstr "堀之内 康平"
+
+#~ msgid "Supervisor"
+#~ msgstr "スーパーバイザー"
+
+#~ msgid "Toshiyasu Matsushima, Waseda University"
+#~ msgstr "松嶋 敏泰"

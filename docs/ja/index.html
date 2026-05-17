@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Your First Library for Bayesian Machine Learning &#8212; BayesML</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ad100702" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=ba1e48b6"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/translations.js?v=4755f45a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-59F6KL8C5D"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-59F6KL8C5D');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-59F6KL8C5D');
+            </script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="icon" href="_static/BayesML_favicon.ico"/>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="Bayesml パッケージ" href="bayesml.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href='https://bayesml.github.io/BayesML/ja/examples/metatree_prediction_interval.html'>こちら</a>！</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BayesML_logo.png" class="logo__image only-light" alt="BayesML - Home"/>
+    <script>document.write(`<img src="_static/BayesML_logo.png" class="logo__image only-dark" alt="BayesML - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><div style="text-align:center">
+  <span><i class="fas fa-globe"></i> Language:</span>
+  <a href="../en/index.html" class="language-link" lang="en">English</a> / 
+  <a href="../ja/index.html" class="language-link active" lang="ja">日本語</a>
+</div></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="bayesml.html">Bayesml パッケージ</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.bernoulli.html">bayesml.bernoulli package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.categorical.html">bayesml.categorical package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.contexttree.html">bayesml.contexttree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.exponential.html">bayesml.exponential package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.poisson.html">bayesml.poisson package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">使用例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html"><code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> に基づく予測区間の導出（AISTATS 2025でアクセプト済）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML 開発者</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/bayesml/BayesML" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="ソースリポジトリ"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Your First Library for Bayesian Machine Learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Your First Library for Bayesian Machine Learning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics">特徴</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#news">ニュース</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">インストール手順</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial">チュートリアル</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-generation-with-genmodel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code> による人工データ生成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-and-decision-making-with-learnmodel"><code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> による学習と意思決定</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-posterior-distribution-using-genmodel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code> を用いた事後分布からのサンプリング</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-list">パッケージリスト</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">引用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">コンテンツ</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices">Indices</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <img alt="_images/BayesML_logo.png" src="_images/BayesML_logo.png" />
+<section id="your-first-library-for-bayesian-machine-learning">
+<h1>Your First Library for Bayesian Machine Learning<a class="headerlink" href="#your-first-library-for-bayesian-machine-learning" title="Link to this heading">#</a></h1>
+<p>BayesMLは、ベイズ統計学やベイズ決定理論に基づく機械学習の教育、研究、活用を促進し、社会に広く貢献することを目的としたライブラリです。</p>
+<section id="characteristics">
+<h2>特徴<a class="headerlink" href="#characteristics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>使いやすい</strong></p>
+<ul>
+<li><p>ライブラリをインポートするだけで実装済みのベイズ統計モデルを使用できます。PyMCやStanのように自分でモデルを定義する必要はありません。</p></li>
+</ul>
+</li>
+<li><p><strong>ベイズ決定理論に基づくAPI</strong></p>
+<ul>
+<li><p>BayesMLのAPIは、ベイズ決定理論に基づく意思決定の構造に対応しています。ベイズ決定理論は、パラメータ推定や新しいデータの予測など、様々な意思決定のプロセスを扱うための統一的なフレームワークです。そのためBayesMLでは、scikit-learnなどのライブラリで採用されているfit-predict型のAPIと比較して、より幅広い意思決定に対して直感的な操作が可能です。さらに、BayesMLのモデルの多くもfit-predict関数を実装しています。</p></li>
+</ul>
+</li>
+<li><p><strong>Model Visualization Functions:</strong></p>
+<ul>
+<li><p>すべてのパッケージは、確率的データ生成モデル、そのモデルから生成されたデータ、そのデータから学習された事後分布を2～3次元空間で可視化するメソッドを持っています。このように、人工データの生成とそのデータからの学習を通して、確率的データ生成モデルやアルゴリズムの特徴を効果的に理解することができます。</p></li>
+</ul>
+</li>
+<li><p><strong>共役事前分布を用いた高速アルゴリズム</strong></p>
+<ul>
+<li><p>BayesMLの学習アルゴリズムの多くは、確率的データ生成モデルと事前分布の共役性を効果的に利用する厳密計算法や変分ベイズ法を採用しています。そのため、汎用のMCMC法よりもはるかに高速であり、オンライン学習にも適しています。MCMC法を採用したアルゴリズムもありますが、共役性を利用してモデルごとに特化したMCMC法を用いています。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="news">
+<h2>ニュース<a class="headerlink" href="#news" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>メタツリーモデルに対する我々のアルゴリズムがAISTATS2025に採択されました！詳細は以下のリンクをご覧ください。</p>
+<ul>
+<li><p><a class="reference external" href="https://proceedings.mlr.press/v258/nakahara25a.html">論文</a></p></li>
+<li><p><a class="reference external" href="https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html">具体例</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="installation">
+<h2>インストール手順<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>BayesMLをインストールするには、以下のコマンドを使用してください。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>bayesml
+</pre></div>
+</div>
+<p>以下が必要です。</p>
+<ul class="simple">
+<li><p>Python (&gt;= 3.7)</p></li>
+<li><p>NumPy (&gt;= 1.20)</p></li>
+<li><p>SciPy (&gt;= 1.7)</p></li>
+<li><p>MatplotLib (&gt;= 3.5)</p></li>
+<li><p>Scikit-learn (&gt;= 1.1)</p></li>
+</ul>
+</section>
+<section id="tutorial">
+<h2>チュートリアル<a class="headerlink" href="#tutorial" title="Link to this heading">#</a></h2>
+<p>BayesMLの各モデルには2つのクラスがあります。一つは <code class="docutils literal notranslate"><span class="pre">GenModel</span></code> で、事前分布や事後分布からパラメータを生成したり、データを生成したりします。もう一つは <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> であり、データから事後分布を推定したり、予測分布を計算したりすることができます。それぞれベイズ決定理論に沿ったAPIを持っています。ここでは <code class="docutils literal notranslate"><span class="pre">linearregression</span></code> モデルを例に、それぞれの使い方を紹介します。</p>
+<section id="synthetic-data-generation-with-genmodel">
+<h3><code class="docutils literal notranslate"><span class="pre">GenModel</span></code> による人工データ生成<a class="headerlink" href="#synthetic-data-generation-with-genmodel" title="Link to this heading">#</a></h3>
+<p>まず、以下のライブラリをインポートします。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">linearregression</span>
+</pre></div>
+</div>
+<p>次に、確率的データ生成モデルのインスタンスを作成します。ここでは、モデルの定数として回帰係数（定数項を含む）の次元を <code class="docutils literal notranslate"><span class="pre">c_degree=2</span></code> と指定し、パラメータとして回帰係数を <code class="docutils literal notranslate"><span class="pre">theta_vec</span> <span class="pre">=</span> <span class="pre">np.array([1,1])</span></code> と指定します。また、ノイズ項にはガウス分布（正規分布）を仮定し、平均を0、精度（分散の逆数）を <code class="docutils literal notranslate"><span class="pre">tau</span> <span class="pre">=</span> <span class="pre">10</span></code> とします。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gen_model</span> <span class="o">=</span> <span class="n">linearregression</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+    <span class="n">c_degree</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># degree</span>
+    <span class="n">theta_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="c1"># coefficients</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="c1"># noise precision</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>作成したモデルの特徴は、以下の方法で可視化できます。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gen_model</span><span class="o">.</span><span class="n">visualize_model</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>出力</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">theta_vec：</div>
+<div class="line">[1. 1.]</div>
+<div class="line">tau:</div>
+<div class="line">10.0</div>
+</div>
+<img alt="_images/README_LR1.png" src="_images/README_LR1.png" />
+</div></blockquote>
+<p>サンプルを生成して変数 <code class="docutils literal notranslate"><span class="pre">x</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> に保存するには、以下のメソッドを使います。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">gen_model</span><span class="o">.</span><span class="n">gen_sample</span><span class="p">(</span><span class="n">sample_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>また、後で使用するためのテストデータも生成しておきましょう。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_test</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">gen_model</span><span class="o">.</span><span class="n">gen_sample</span><span class="p">(</span><span class="n">sample_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="learning-and-decision-making-with-learnmodel">
+<h3><code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> による学習と意思決定<a class="headerlink" href="#learning-and-decision-making-with-learnmodel" title="Link to this heading">#</a></h3>
+<p>それでは <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> を使って、先ほど生成したデータからモデルを学習してみましょう。</p>
+<p>もちろん、<code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> で使用できるデータは <code class="docutils literal notranslate"><span class="pre">GenModel</span></code> から生成されたデータに限りません。実世界の様々なデータを分析することができます。</p>
+<p>まず、学習モデルのインスタンスを作成しましょう。ここではモデルの定数として次数 <code class="docutils literal notranslate"><span class="pre">c_degree</span> <span class="pre">=</span> <span class="pre">2</span></code> だけを指定していますが、事前分布のハイパーパラメータを指定することもできます。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span> <span class="o">=</span> <span class="n">linearregression</span><span class="o">.</span><span class="n">LearnModel</span><span class="p">(</span>
+    <span class="n">c_degree</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># degree</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>パラメータの事後分布を可視化するメソッドは <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> に実装されています。この時点で事後分布を可視化すると、データからの学習がまだ行われていないため、事前分布が表示されます。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">visualize_posterior</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>出力</p>
+<blockquote>
+<div><img alt="_images/README_LR2.png" src="_images/README_LR2.png" />
+</div></blockquote>
+<p>データから学習して事後分布を更新するには、以下のメソッドを使います。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">update_posterior</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>更新された事後分布を可視化すると、事後分布の確率密度が <code class="docutils literal notranslate"><span class="pre">x</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> の生成に使われた真のパラメータに近づいていることがわかります。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">visualize_posterior</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>出力</p>
+<blockquote>
+<div><img alt="_images/README_LR3.png" src="_images/README_LR3.png" />
+</div></blockquote>
+<p>学習したモデルに基づいてパラメータ推定や新しいデータの予測などの判断を行う手順は、以下の通りです。</p>
+<p>パラメータ推定には <code class="docutils literal notranslate"><span class="pre">estimate_params</span></code> メソッドを使用します。 <code class="docutils literal notranslate"><span class="pre">loss</span></code> オプションに <code class="docutils literal notranslate"><span class="pre">squared</span></code> を指定することで、二乗誤差損失関数に基づくベイズリスク関数を最小化する推定値を得ることができます。結果の値は事後分布の期待値（平均）となります。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">estimate_params</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;squared&quot;</span><span class="p">,</span><span class="n">dict_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>出力</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">{'theta_vec': array([0.99846525, 0.96263024]), 'tau'： 6.9036925167513195}</div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">loss</span></code> オプションに <code class="docutils literal notranslate"><span class="pre">abs</span></code> を指定すると、絶対誤差損失関数に基づくベイズリスク関数を最小化する推定値を得ることができます。その結果得られる値は事後分布の中央値（メジアン）となり、そのため <code class="docutils literal notranslate"><span class="pre">tau</span></code> の推定値は先ほどとは異なります。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">estimate_params</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;abs&quot;</span><span class="p">,</span><span class="n">dict_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>出力</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">{'theta_vec': array([0.99846525, 0.96263024]), 'tau'： 6.858623148933392}</div>
+</div>
+</div></blockquote>
+<p>新しいデータを予測するために、まず新しい説明変数の予測分布を計算するための以下のメソッドを使います。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">learn_model</span><span class="o">.</span><span class="n">calc_pred_dist</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>次に <code class="docutils literal notranslate"><span class="pre">make_prediction</span></code> メソッドを使って予測値を求めます。パラメータ推定と同様に、 <code class="docutils literal notranslate"><span class="pre">loss</span></code> オプションで損失関数を指定することができます（この例では、事後予測分布が対称的であるため、二乗誤差損失を仮定しても、絶対誤差損失を仮定しても、同じ予測値が返されます）。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">learn_model</span><span class="o">.</span><span class="n">make_prediction</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;squared&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>平均二乗誤差を計算してみましょう。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MSE: </span><span class="si">{</span><span class="n">mse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>出力</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">MSE: 0.09020880284291456</div>
+</div>
+</div></blockquote>
+<p>データ生成に使用したノイズ項の精度（分散の逆数）が10であることを考慮すると、十分な精度で予測が達成されていることがわかります。</p>
+</section>
+<section id="sampling-from-posterior-distribution-using-genmodel">
+<h3><code class="docutils literal notranslate"><span class="pre">GenModel</span></code> を用いた事後分布からのサンプリング<a class="headerlink" href="#sampling-from-posterior-distribution-using-genmodel" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GenModel</span></code> は <code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> によって学習された事後分布からパラメータをサンプリングしたり、事後予測分布から新しいデータをサンプリングするために使用することができます。</p>
+<p>まず、<code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> によって学習された事後分布のハイパーパラメータは以下のように求めることができます。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hn_params</span> <span class="o">=</span> <span class="n">learn_model</span><span class="o">.</span><span class="n">get_hn_params</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hn_params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>出力</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">{'hn_mu_vec': array([0.99846525, 0.96263024]), 'hn_lambda_mat': array([ [ 99.87503339, 5.96145913], [ 5.96145913, 101. ]]), 'hn_alpha': 51.0, 'hn_beta': 7.387351026461872}</div>
+</div>
+</div></blockquote>
+<p>これらを <code class="docutils literal notranslate"><span class="pre">GenModel</span></code> に渡すことで、事後分布からパラメータをサンプリングすることができます。</p>
+<p>パラメータサンプリングのために新しい <code class="docutils literal notranslate"><span class="pre">GenModel</span></code> インスタンスを作成し、 <code class="docutils literal notranslate"><span class="pre">set_h_params</span></code> メソッドを通してハイパーパラメータを渡します。(以下の例では、<code class="docutils literal notranslate"><span class="pre">hn_params.values()</span></code> に <code class="docutils literal notranslate"><span class="pre">*</span></code> を用いて辞書 <code class="docutils literal notranslate"><span class="pre">hn_params</span></code> の値を展開(アンパック)しています。これは Python の機能であり、BayesML の機能ではありません)。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">posterior_gen_model</span> <span class="o">=</span> <span class="n">linearregression</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+    <span class="n">c_degree</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># degree</span>
+<span class="p">)</span>
+<span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">set_h_params</span><span class="p">(</span><span class="o">*</span><span class="n">hn_params</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>パラメータの生成には <code class="docutils literal notranslate"><span class="pre">gen_params</span></code> メソッドを使用し、生成されたパラメータを取得するには <code class="docutils literal notranslate"><span class="pre">get_params</span></code> メソッドを使用します。複数のサンプリングを行いたい場合は、 <code class="docutils literal notranslate"><span class="pre">for</span></code> ループの中で以下を繰り返してください。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">gen_params</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">get_params</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>出力</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">{'theta_vec': array([1.00935782, 0.93804208]), 'tau'： 5.50775630793475}</div>
+</div>
+</div></blockquote>
+<p>事後予測分布から新しいデータをサンプリングするために、パラメータをサンプリングした後にデータを生成します。人工データを生成する際、<code class="docutils literal notranslate"><span class="pre">gen_sample</span></code> の引数に説明変数を指定しませんでしたが、以下のように明示的に指定することもできます。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">gen_params</span><span class="p">()</span>
+<span class="n">_</span><span class="p">,</span><span class="n">y_new</span> <span class="o">=</span> <span class="n">posterior_gen_model</span><span class="o">.</span><span class="n">gen_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_test</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y_new: </span><span class="si">{</span><span class="n">y_new</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>出力</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">y_new: [-0.49532975 2.03473075 1.13758759 -0.46735058 -0.71902336 -0.09288005 0.89463227 2.07886012 2.81211771 1.60020635]</div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="package-list">
+<h2>パッケージリスト<a class="headerlink" href="#package-list" title="Link to this heading">#</a></h2>
+<p>現在、以下のパッケージが利用可能です。本ライブラリでは、確率的データ生成モデル、事前分布、事後分布（または近似事後分布）、 予測分布（または近似予測分布）を総称してモデルと呼びます。</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="bayesml.html"><span class="doc">Bayesml パッケージ</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.autoregressive.html"><span class="doc">bayesml.autoregressive package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.bernoulli.html"><span class="doc">bayesml.bernoulli package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.categorical.html"><span class="doc">bayesml.categorical package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.contexttree.html"><span class="doc">bayesml.contexttree package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.exponential.html"><span class="doc">bayesml.exponential package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.gaussianmixture.html"><span class="doc">bayesml.gaussianmixture package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.hiddenmarkovnormal.html"><span class="doc">bayesml.hiddenmarkovnormal package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.linearregression.html"><span class="doc">bayesml.linearregression package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.logisticregression.html"><span class="doc">bayesml.logisticregression package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.linearregressionmixture.html"><span class="doc">bayesml.linearregressionmixture package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.metatree.html"><span class="doc">bayesml.metatree package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.multivariate_normal.html"><span class="doc">bayesml.multivariate_normal package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.normal.html"><span class="doc">bayesml.normal package</span></a></p></li>
+<li><p><a class="reference internal" href="bayesml.poisson.html"><span class="doc">bayesml.poisson package</span></a></p></li>
+</ul>
+<p>将来的には、より複雑な階層モデルを扱うためのパッケージを追加する予定です。</p>
+</section>
+<section id="citation">
+<h2>引用<a class="headerlink" href="#citation" title="Link to this heading">#</a></h2>
+<p>BayesMLを学術研究に利用する場合は、以下のとおり引用をお願いいたします。</p>
+<p>Plain text</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo,
+S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,&#39;&#39;
+Python package version 0.4.1, 2026.
+[Online] https://github.com/bayesml/BayesML
+</pre></div>
+</div>
+<p>BibTeX</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">bayesml</span><span class="p">,</span>
+<span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Nakahara, Yuta and Ichijo, Naoki and Shimada, Koshi and</span>
+<span class="s">          Iikubo, Yuji and Saito, Shota and Kazama, Koki and</span>
+<span class="s">          Matsushima, Toshiyasu and {BayesML Developers}}</span><span class="p">,</span>
+<span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{BayesML}}</span><span class="p">,</span>
+<span class="na">howpublished</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Python package version 0.4.1}</span><span class="p">,</span>
+<span class="na">note</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{\url{https://github.com/bayesml/BayesML}}</span><span class="p">,</span>
+<span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="contents">
+<h2>コンテンツ<a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bayesml.html">Bayesml パッケージ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">使用例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML 開発者</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="indices">
+<h1>Indices<a class="headerlink" href="#indices" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">モジュール索引</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></p></li>
+</ul>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="bayesml.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">Bayesml パッケージ</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Your First Library for Bayesian Machine Learning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics">特徴</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#news">ニュース</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">インストール手順</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial">チュートリアル</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-generation-with-genmodel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code> による人工データ生成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-and-decision-making-with-learnmodel"><code class="docutils literal notranslate"><span class="pre">LearnModel</span></code> による学習と意思決定</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-from-posterior-distribution-using-genmodel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code> を用いた事後分布からのサンプリング</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-list">パッケージリスト</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">引用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">コンテンツ</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices">Indices</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 BayesML Developers
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, BayesML Developers.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

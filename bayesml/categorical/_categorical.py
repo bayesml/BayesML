@@ -96,7 +96,7 @@ class GenModel(base.Generative):
         return self
 
     def set_params(self, theta_vec=None):
-        """Set the parameter of the sthocastic data generative model.
+        r"""Set the parameter of the sthocastic data generative model.
 
         Parameters
         ----------
