@@ -190,6 +190,8 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesml.gaussianmixture package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
@@ -647,11 +649,11 @@ by default None</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>pi_vec</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>a real vector in <span class="math notranslate nohighlight">\([0, 1]^K\)</span>. The sum of its elements must be 1.</p>
+<dt><strong>pi_vec</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>a real vector in <span class="math notranslate nohighlight">\([0, 1]^K\)</span>. The sum of its elements must be 1.</p>
 </dd>
-<dt><strong>mu_vecs</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>vectors of real numbers</p>
+<dt><strong>mu_vecs</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>vectors of real numbers</p>
 </dd>
-<dt><strong>lambda_mats</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>positive definite symetric matrices</p>
+<dt><strong>lambda_mats</strong><span class="classifier">numpy.ndarray, optional</span></dt><dd><p>positive definite symetric matrices</p>
 </dd>
 </dl>
 </dd>
@@ -739,7 +741,7 @@ by default None</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">gaussianmixture</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
 <span class="gp">&gt;&gt;&gt; </span>            <span class="n">c_num_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-<span class="gp">&gt;&gt;&gt; </span>            <span class="n">c_degree</span><span class="o">=</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">c_degree</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="gp">&gt;&gt;&gt; </span>            <span class="n">pi_vec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.444</span><span class="p">,</span><span class="mf">0.444</span><span class="p">,</span><span class="mf">0.112</span><span class="p">]),</span>
 <span class="gp">&gt;&gt;&gt; </span>            <span class="n">mu_vecs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">2.8</span><span class="p">],[</span><span class="o">-</span><span class="mf">0.8</span><span class="p">],[</span><span class="mi">2</span><span class="p">]]),</span>
 <span class="gp">&gt;&gt;&gt; </span>            <span class="n">lambda_mats</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mf">6.25</span><span class="p">]],[[</span><span class="mf">6.25</span><span class="p">]],[[</span><span class="mi">100</span><span class="p">]]])</span>
@@ -810,6 +812,11 @@ by default None</p>
 <dt><strong>ns</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>positive real numbers</p>
 </dd>
 <dt><strong>s_mats</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>positive difinite symmetric matrices</p>
+</dd>
+<dt><strong>vl</strong><span class="classifier">float</span></dt><dd><p>real number</p>
+</dd>
+<dt><strong>p_pi_vecs</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A vector of real numbers in <span class="math notranslate nohighlight">\([0, 1]\)</span>. 
+Sum of its elements must be 1.0.</p>
 </dd>
 <dt><strong>p_mu_vecs</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>vectors of real numbers</p>
 </dd>
@@ -1230,7 +1237,9 @@ and use its mean and covariance matrix as an initial values of <code class="docu
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>predicted_value</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>The estimated values under the given loss function.</p>
+<dt><strong>estimates</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>The estimated values under the given loss function. 
+If the loss function is “KL”, the posterior distribution will be returned 
+as a numpy.ndarray whose elements consist of occurence probabilities.</p>
 </dd>
 </dl>
 </dd>

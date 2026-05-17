@@ -136,3 +136,4 @@ dmypy.json
 *.pkl
 *.gv
 .DS_Store
+.vscode/

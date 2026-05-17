@@ -15,6 +15,8 @@ Subpackages
    bayesml.gaussianmixture
    bayesml.hiddenmarkovnormal
    bayesml.linearregression
+   bayesml.linearregressionmixture
+   bayesml.logisticregression
    bayesml.metatree
    bayesml.multivariate_normal
    bayesml.normal
