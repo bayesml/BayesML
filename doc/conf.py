@@ -22,7 +22,7 @@ copyright = '2025, BayesML Developers'
 author = 'BayesML Developers'
 
 # The full version, including alpha/beta/rc tags
-release = '0.4.1'
+release = '0.5.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -39,6 +39,8 @@ extensions = [
 	'sphinx.ext.intersphinx',
 	#'sphinx.ext.napoleon',
 	'nbsphinx',
+    'sphinx_favicon',
+    'sphinxext.opengraph',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -66,8 +68,6 @@ html_css_files = ["custom.css"]
 
 html_title = 'BayesML'
 
-html_logo = 'logos/BayesML_logo.png'
-
 myst_enable_extensions = ["dollarmath", "amsmath","html_image"]
 
 # get the language to build (Makefile is modified to create SPHINX_LANGUAGE variable)
@@ -83,6 +83,10 @@ html_theme_options = {
   "announcement": announcement_text,
   "analytics": {
       "google_analytics_id": "G-59F6KL8C5D",
+  },
+  "logo": {
+      "image_light": "logos/BayesML_logo.svg",
+      "image_dark": "logos/BayesML_logo_reverse.svg",
   },
 }
 
@@ -104,7 +108,27 @@ intersphinx_mapping = {'python': ('https://docs.python.org/3', None),
                        'sklarn': ('https://scikit-learn.org/stable/', None),
 }
 
-html_favicon = 'logos/BayesML_favicon.ico'
+favicons = [
+    {
+        "rel": "icon",
+        "href": "favicon.ico",
+        # NOTE: favicon.ico actually contains 16x16/32x32/48x48 images,
+        # but we deliberately declare only "32x32" here.
+        # If we list all sizes accurately (e.g. "16x16 32x32 48x48"),
+        # some browsers prioritize this exact-size match over the
+        # SVG's "sizes=any", causing the dark-mode SVG favicon below
+        # to be ignored. Declaring a single specific size keeps this
+        # icon's priority lower than the SVG, so browsers that support
+        # SVG favicons pick the dark-mode-aware SVG, while older
+        # browsers fall back to this ICO.
+        "sizes": "32x32",
+    },
+    {
+        "rel": "icon",
+        "href": "favicon.svg",
+        "sizes": "any",
+    },
+]
 
 locale_dirs = ['locale/']   # path is example but recommended.
 gettext_compact = False     # optional.
@@ -116,3 +140,8 @@ html_sidebars = {
            'search-button-field.html',
            'sbt-sidebar-nav.html']
 }
+
+ogp_site_url = "https://bayesml.github.io/BayesML/"
+ogp_image = "https://bayesml.github.io/BayesML/en/_static/BayesML_logo_ogp.png"
+
+autodoc_preserve_defaults = True

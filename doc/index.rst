@@ -6,7 +6,11 @@
    Yuta Nakahara <y.nakahara@waseda.jp>
    Shota Saito <shota.s@gunma-u.ac.jp>
 
-.. image:: ./logos/BayesML_logo.png
+.. image:: ./logos/BayesML_logo.svg
+    :class: only-light
+
+.. image:: ./logos/BayesML_logo_reverse.svg
+    :class: only-dark
 
 Your First Library for Bayesian Machine Learning
 ================================================
