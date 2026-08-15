@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'BayesML'
-copyright = '2025, BayesML Developers'
+copyright = '2022-2026, BayesML Developers'
 author = 'BayesML Developers'
 
 # The full version, including alpha/beta/rc tags
