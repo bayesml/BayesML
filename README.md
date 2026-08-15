@@ -16,7 +16,7 @@ Shota Saito <shota.s@gunma-u.ac.jp>
 
 # Your First Library for Bayesian Machine Learning
 
-BayesML contributes to wide society thourgh promoting education, research, and application of machine learning based on Bayesian statistics and Bayesian decision theory.
+BayesML contributes to wide society through promoting education, research, and application of machine learning based on Bayesian statistics and Bayesian decision theory.
 
 ## Characteristics
 
