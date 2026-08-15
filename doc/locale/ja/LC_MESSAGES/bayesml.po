@@ -6,39 +6,35 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version:  BayesML\n"
+"Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-17 22:32+0900\n"
-"PO-Revision-Date: 2026-04-05 09:57+0900\n"
-"Last-Translator: \n"
-"Language: ja\n"
+"POT-Creation-Date: 2026-08-16 04:07+0900\n"
+"PO-Revision-Date: 2026-08-16 04:08+0900\n"
+"Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: Babel 2.18.0\n"
+"X-Generator: Poedit 3.9\n"
 
 #: ../../bayesml.rst:2
-msgid "Bayesml packages"
-msgstr "Bayesml パッケージ"
+msgid "bayesml package"
+msgstr "bayesml パッケージ"
 
 #: ../../bayesml.rst:5
 msgid "Subpackages"
 msgstr "サブパッケージ"
 
-#: ../../bayesml.rst:26
+#: ../../bayesml.rst:27
 msgid "Submodules"
 msgstr "サブモジュール"
 
-#: ../../bayesml.rst:29
+#: ../../bayesml.rst:30
 msgid "bayesml.base module"
 msgstr "bayesml.base モジュール"
-
-#: bayesml.base.Generative:1 bayesml.base.Posterior:1
-#: bayesml.base.PredictiveMixin:1 of
-msgid "Bases: :py:class:`object`"
-msgstr ""
 
 #: bayesml.base.Generative:7 bayesml.base.Posterior:7
 #: bayesml.base.PredictiveMixin:9 of
@@ -47,11 +43,11 @@ msgstr "メソッド"
 
 #: bayesml.base.Generative:16:<autosummary>:1 of
 msgid ""
-":py:obj:`load_h_params <bayesml.base.Generative.load_h_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_h_params <bayesml.base.Generative.load_h_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`load_h_params <bayesml.base.Generative.load_h_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_h_params <bayesml.base.Generative.load_h_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.base.Generative.load_h_params:2
 #: bayesml.base.Generative:16:<autosummary>:1 of
@@ -60,11 +56,9 @@ msgstr "h_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.base.Generative:16:<autosummary>:1 of
 msgid ""
-":py:obj:`load_params <bayesml.base.Generative.load_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_params <bayesml.base.Generative.load_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`load_params <bayesml.base.Generative.load_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_params <bayesml.base.Generative.load_params>`\\ \\(filename\\)"
 
 #: bayesml.base.Generative.load_params:2
 #: bayesml.base.Generative:16:<autosummary>:1 of
@@ -73,11 +67,11 @@ msgstr "``save_params`` に保存されたパラメータをロードします�
 
 #: bayesml.base.Generative:16:<autosummary>:1 of
 msgid ""
-":py:obj:`save_h_params <bayesml.base.Generative.save_h_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_h_params <bayesml.base.Generative.save_h_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`save_h_params <bayesml.base.Generative.save_h_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_h_params <bayesml.base.Generative.save_h_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.base.Generative.save_h_params:2
 #: bayesml.base.Generative:16:<autosummary>:1
@@ -89,11 +83,9 @@ msgstr "python ``pickle`` モジュールを使ってハイパーパラメータ
 
 #: bayesml.base.Generative:16:<autosummary>:1 of
 msgid ""
-":py:obj:`save_params <bayesml.base.Generative.save_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_params <bayesml.base.Generative.save_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`save_params <bayesml.base.Generative.save_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_params <bayesml.base.Generative.save_params>`\\ \\(filename\\)"
 
 #: bayesml.base.Generative.save_params:2
 #: bayesml.base.Generative:16:<autosummary>:1 of
@@ -136,7 +128,9 @@ msgstr "**visualize_model**"
 msgid ""
 "They are saved as a python dictionary obtained by "
 "``GenModel.get_h_params()``."
-msgstr "これらは、``GenModel.get_h_params()`` によって取得される Python の辞書として保存されます。"
+msgstr ""
+"これらは、``GenModel.get_h_params()`` によって取得される Python の辞書として"
+"保存されます。"
 
 #: bayesml.base.Generative.load_h_params bayesml.base.Generative.load_params
 #: bayesml.base.Generative.save_h_params bayesml.base.Generative.save_params
@@ -172,9 +166,10 @@ msgstr "str"
 #: bayesml.base.Posterior.save_h0_params:9
 #: bayesml.base.Posterior.save_hn_params:9 of
 msgid ""
-"The filename (including a extention like .pkl) to which the "
-"hyperparameters are saved."
-msgstr "ハイパーパラメータが保存されるファイル名（.pkl などの拡張子を含む）です。"
+"The filename (including a extention like .pkl) to which the hyperparameters "
+"are saved."
+msgstr ""
+"ハイパーパラメータが保存されるファイル名（.pkl などの拡張子を含む）です。"
 
 #: bayesml.base.Generative.load_h_params:23
 #: bayesml.base.Generative.load_params:21
@@ -185,7 +180,9 @@ msgstr "ハイパーパラメータが保存されるファイル名（.pkl な�
 #: bayesml.base.Posterior.save_h0_params:21
 #: bayesml.base.Posterior.save_hn_params:21 of
 msgid "The ``pickle`` module is not secure. Only unpickle data you trust."
-msgstr "「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleしてください。"
+msgstr ""
+"「pickle」モジュールは安全ではありません。信頼できるデータのみをunpickleして"
+"ください。"
 
 #: bayesml.base.Generative.load_h_params:28
 #: bayesml.base.Generative.load_params:26
@@ -202,41 +199,45 @@ msgstr ":obj:`pickle`"
 #: bayesml.base.Posterior.load_h0_params:8
 #: bayesml.base.Posterior.load_hn_params:8 of
 msgid ""
-"The filename (including a extention like .pkl) to be loaded. It must be a"
-" pickled python dictionary obtained by ``GenModel.save_h_params()``, "
+"The filename (including a extention like .pkl) to be loaded. It must be a "
+"pickled python dictionary obtained by ``GenModel.save_h_params()``, "
 "``LearnModel.save_h0_params()``  or ``LearnModel.save_hn_params()``."
 msgstr ""
-"読み込むファイル名（.pkl "
-"などの拡張子を含む）です。これは、``GenModel.save_h_params()``、``LearnModel.save_h0_params()``、または"
-" ``LearnModel.save_hn_params()`` によって生成された、pickle形式のPython辞書でなければなりません。"
+"読み込むファイル名（.pkl などの拡張子を含む）です。これは、"
+"``GenModel.save_h_params()``、``LearnModel.save_h0_params()``、または "
+"``LearnModel.save_hn_params()`` によって生成された、pickle形式のPython辞書で"
+"なければなりません。"
 
 #: bayesml.base.Generative.save_params:4 of
 msgid ""
 "They are saved as a pickled python dictionary obtained by "
 "``GenModel.get_params()``."
-msgstr "これらは、``GenModel.get_params()`` で取得されるpickled Python辞書として保存されます。"
+msgstr ""
+"これらは、``GenModel.get_params()`` で取得されるpickled Python辞書として保存"
+"されます。"
 
 #: bayesml.base.Generative.save_params:9 of
 msgid ""
-"The filename (including a extention like .pkl) to which the parameters "
-"are saved."
+"The filename (including a extention like .pkl) to which the parameters are "
+"saved."
 msgstr "パラメータが保存されるファイル名（.pkl などの拡張子を含む）です。"
 
 #: bayesml.base.Generative.load_params:8 of
 msgid ""
-"The filename (including a extention like .pkl) to be loaded. It must be a"
-" pickled python dictionary obtained by ``GenModel.save_params()``."
+"The filename (including a extention like .pkl) to be loaded. It must be a "
+"pickled python dictionary obtained by ``GenModel.save_params()``."
 msgstr ""
-"読み込むファイル名（.pkl などの拡張子を含む）です。これは、``GenModel.save_params()`` "
-"によって取得された、pickle形式のPython辞書でなければなりません。"
+"読み込むファイル名（.pkl などの拡張子を含む）です。これは、"
+"``GenModel.save_params()`` によって取得された、pickle形式のPython辞書でなけ"
+"ればなりません。"
 
 #: bayesml.base.Posterior:18:<autosummary>:1 of
 msgid ""
-":py:obj:`load_h0_params <bayesml.base.Posterior.load_h0_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_h0_params <bayesml.base.Posterior.load_h0_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`load_h0_params <bayesml.base.Posterior.load_h0_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_h0_params <bayesml.base.Posterior.load_h0_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.base.Posterior.load_h0_params:2
 #: bayesml.base.Posterior:18:<autosummary>:1 of
@@ -245,11 +246,11 @@ msgstr "h0_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.base.Posterior:18:<autosummary>:1 of
 msgid ""
-":py:obj:`load_hn_params <bayesml.base.Posterior.load_hn_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_hn_params <bayesml.base.Posterior.load_hn_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`load_hn_params <bayesml.base.Posterior.load_hn_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_hn_params <bayesml.base.Posterior.load_hn_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.base.Posterior.load_hn_params:2
 #: bayesml.base.Posterior:18:<autosummary>:1 of
@@ -273,11 +274,9 @@ msgstr "事後分布のハイパーパラメータの初期値を学習した値
 
 #: bayesml.base.Posterior:18:<autosummary>:1 of
 msgid ""
-":py:obj:`reset_hn_params <bayesml.base.Posterior.reset_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`reset_hn_params <bayesml.base.Posterior.reset_hn_params>`\\ \\(\\)"
 msgstr ""
-":py:obj:`reset_hn_params <bayesml.base.Posterior.reset_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`reset_hn_params <bayesml.base.Posterior.reset_hn_params>`\\ \\(\\)"
 
 #: bayesml.base.Posterior.reset_hn_params:2
 #: bayesml.base.Posterior:18:<autosummary>:1 of
@@ -288,19 +287,19 @@ msgstr "事後分布のハイパーパラメータを初期値に戻します。
 
 #: bayesml.base.Posterior:18:<autosummary>:1 of
 msgid ""
-":py:obj:`save_h0_params <bayesml.base.Posterior.save_h0_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_h0_params <bayesml.base.Posterior.save_h0_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`save_h0_params <bayesml.base.Posterior.save_h0_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_h0_params <bayesml.base.Posterior.save_h0_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.base.Posterior:18:<autosummary>:1 of
 msgid ""
-":py:obj:`save_hn_params <bayesml.base.Posterior.save_hn_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_hn_params <bayesml.base.Posterior.save_hn_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`save_hn_params <bayesml.base.Posterior.save_hn_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_hn_params <bayesml.base.Posterior.save_hn_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.base.Posterior:20 of
 msgid "**estimate_params**"
@@ -334,30 +333,33 @@ msgstr "**visualize_posterior**"
 msgid ""
 "They are saved as a pickled python dictionary obtained by "
 "``LearnModel.get_h0_params()``."
-msgstr "これらは、``LearnModel.get_h0_params()`` で取得したpickled Python辞書として保存されます。"
+msgstr ""
+"これらは、``LearnModel.get_h0_params()`` で取得したpickled Python辞書として"
+"保存されます。"
 
 #: bayesml.base.Posterior.save_hn_params:4 of
 msgid ""
 "They are saved as a pickled python dictionary obtained by "
 "``LearnModel.get_hn_params()``."
-msgstr "これらは、``LearnModel.get_hn_params()`` で取得されるpickled Python辞書として保存されます。"
+msgstr ""
+"これらは、``LearnModel.get_hn_params()`` で取得されるpickled Python辞書とし"
+"て保存されます。"
 
 #: bayesml.base.Posterior.reset_hn_params:4 of
 msgid ""
 "They are reset to the output of `self.get_h0_params()`. Note that the "
 "parameters of the predictive distribution are also calculated from them."
 msgstr ""
-"これらは `self.get_h0_params()` "
-"の出力値にリセットされます。なお、予測分布のパラメータもこれらから計算されることにご留意ください。"
+"これらは `self.get_h0_params()` の出力値にリセットされます。なお、予測分布の"
+"パラメータもこれらから計算されることにご留意ください。"
 
 #: bayesml.base.Posterior.overwrite_h0_params:4 of
 msgid ""
-"They are overwitten by the output of `self.get_hn_params()`. Note that "
-"the parameters of the predictive distribution are also calculated from "
-"them."
+"They are overwitten by the output of `self.get_hn_params()`. Note that the "
+"parameters of the predictive distribution are also calculated from them."
 msgstr ""
-"これらは `self.get_hn_params()` "
-"の出力によって上書きされます。なお、予測分布のパラメータもこれらから計算されることにご留意ください。"
+"これらは `self.get_hn_params()` の出力によって上書きされます。なお、予測分布"
+"のパラメータもこれらから計算されることにご留意ください。"
 
 #: bayesml.base.PredictiveMixin:11 of
 msgid "**calc_pred_dist**"
@@ -374,4 +376,3 @@ msgstr "**make_prediction**"
 #: bayesml.base.PredictiveMixin:14 of
 msgid "**pred_and_update**"
 msgstr "**pred_and_update**"
-

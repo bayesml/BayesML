@@ -1,7 +1,12 @@
 # Document Author
 # Kohei Horinouchi <horinouchi@aoni.waseda.jp>
 r"""
-The sparse linear regression model with the Laplace prior distribution (represented as a Gaussian scale mixture).
+This module provides the sparse linear regression model with the Laplace prior distribution (represented as a Gaussian scale mixture).
+
+.. image:: ./images/sparselinearregression_example.png
+
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -23,6 +28,9 @@ The stochastic data generative model is as follows:
 .. math::
     \mathbb{E}[y | \boldsymbol{x}, \boldsymbol{\theta}, \tau] &= \boldsymbol{x}^{\top}\boldsymbol{\theta}, \\
     \mathbb{V}[y | \boldsymbol{x}, \boldsymbol{\theta}, \tau] &= \tau^{-1}.
+
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -52,9 +60,12 @@ Marginalizing out each :math:`v_j` yields the Laplace prior on :math:`\theta_j`:
 
 .. math::
     p(\theta_j | \tau, \lambda_{0,j})
-    &= \int_0^\infty p(\theta_j | \tau, v_j) p(v_j | \lambda_{0,j})\, dv_j
-    = \frac{\lambda_{0,j} \sqrt{\tau}}{2}
+    &= \int_0^\infty p(\theta_j | \tau, v_j) p(v_j | \lambda_{0,j})\, dv_j \\
+    &= \frac{\lambda_{0,j} \sqrt{\tau}}{2}
     \exp\left(-\lambda_{0,j} \sqrt{\tau}\, |\theta_j|\right).
+
+Posterior Distribution
+----------------------
 
 The approximate posterior distribution in the :math:`t`-th iteration of a variational Bayesian method is as follows:
 
@@ -118,6 +129,9 @@ Accordingly,
     \mathbb{E}[\tau | \boldsymbol{X}, \boldsymbol{y}]
     &\approx \frac{\alpha_n}{\beta_n}.
 
+Predictive Distribution
+-----------------------
+
 The approximate predictive distribution is as follows:
 
 * :math:`\boldsymbol{x}_{n+1} \in \mathbb{R}^d`: a new explanatory variable
@@ -141,6 +155,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
     m_{\mathrm{p}} &= \boldsymbol{x}_{n+1}^{\top} \boldsymbol{\mu}_n, \\
     \lambda_{\mathrm{p}} &= \frac{\alpha_n}{\beta_n}\left(1 + \boldsymbol{x}_{n+1}^{\top} \boldsymbol{\Lambda}_n^{-1} \boldsymbol{x}_{n+1}\right)^{-1}, \\
     \nu_{\mathrm{p}} &= 2\alpha_n.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Classes
+-------
 """
 
 from ._sparselinearregression import GenModel

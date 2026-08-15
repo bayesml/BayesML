@@ -1,6 +1,13 @@
 # Document Author
 # Koshi Shimada <shimada.koshi.re@gmail.com>
 r"""
+This module provides the context tree model with its conjugate prior distribution.
+
+.. image:: ./images/contexttree_example.png
+
+Stochastic Data Generative Model
+--------------------------------
+
 The stochastic data generative model is as follows:
 
 * :math:`\mathcal{X}=\{1,2,\ldots,K\}` : a space of a source symbol
@@ -17,6 +24,9 @@ The stochastic data generative model is as follows:
 
 .. math::
     p(x_n | x^{n-1}, \boldsymbol{\theta}_T, T)=\theta_{x_n|s_T(x^{n-1})}.
+
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -36,6 +46,9 @@ For :math:`T \in \mathcal{T}`,
     p(T)=\prod_{s \in \mathcal{I}(T)} g_{0,s} \prod_{s' \in \mathcal{L}(T)} (1-g_{0,s'}),
 
 where :math:`g_{0,s}=0` if the depth of :math:`s` is :math:`D_\mathrm{max}`.
+
+Posterior Distribution
+----------------------
 
 The posterior distribution is as follows:
 
@@ -86,6 +99,9 @@ Here,
     q_s(x_n|x^{n-1}) = \frac{ \beta_{n-1}(x_n|s) }
     {\sum_{k'=1}^{K} \beta_{n-1}(k'|s)}.
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is as follows:
 
 * :math:`\boldsymbol{\theta}_\mathrm{p} = (\theta_{\mathrm{p},1}, \theta_{\mathrm{p},2}, \ldots, \theta_{\mathrm{p},K})` : a parameter of the predictive distribution, where :math:`\theta_{\mathrm{p},k}` denotes the occurrence probability of :math:`k\in\mathcal{X}`.
@@ -102,6 +118,14 @@ References
 
 * Matsushima, T.; and Hirasawa, S. Reducing the space complexity of a Bayes coding algorithm using an expanded context tree, *2009 IEEE International Symposium on Information Theory*, 2009, pp. 719-723, https://doi.org/10.1109/ISIT.2009.5205677
 * Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. https://doi.org/10.3390/e24030328
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Classes
+-------
 """
 from ._contexttree import GenModel
 from ._contexttree import LearnModel

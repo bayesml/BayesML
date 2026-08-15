@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-29 18:24+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,35 +17,41 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../bayesml.exponential.rst:2
 msgid "bayesml.exponential package"
 msgstr ""
 
-#: ../../bayesml.exponential.rst:7
+#: ../../bayesml.exponential.rst:5
 msgid "Module contents"
 msgstr ""
 
 #: bayesml.exponential:1 of
-msgid "The exponential distribution with the gamma prior distribution."
+msgid ""
+"This module provides the exponential distribution with the gamma prior "
+"distribution."
 msgstr ""
 
-#: bayesml.exponential:3 of
+#: bayesml.exponential:6 of
+msgid "Stochastic Data Generative Model"
+msgstr ""
+
+#: bayesml.exponential:8 of
 msgid "The stochastic data generative model is as follows:"
 msgstr ""
 
-#: bayesml.exponential:5 of
+#: bayesml.exponential:10 of
 #, python-brace-format
 msgid ":math:`x \\in \\mathbb{R}_{\\geq 0}`: a data point"
 msgstr ""
 
-#: bayesml.exponential:6 of
+#: bayesml.exponential:11 of
 #, python-brace-format
 msgid ":math:`\\lambda \\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ""
 
-#: bayesml.exponential:8 of
+#: bayesml.exponential:13 of
 #, python-brace-format
 msgid ""
 "p(x | \\lambda) = \\mathrm{Exp}(x|\\lambda) = \\lambda\\exp(-\\lambda x)."
@@ -53,7 +59,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential:11 of
+#: bayesml.exponential:16 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[x] &= \\frac{1}{\\lambda}, \\\\\n"
@@ -61,28 +67,32 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential:16 of
+#: bayesml.exponential:21 of
+msgid "Prior Distribution"
+msgstr ""
+
+#: bayesml.exponential:23 of
 msgid "The prior distribution is as follows:"
 msgstr ""
 
-#: bayesml.exponential:18 of
+#: bayesml.exponential:25 of
 #, python-brace-format
 msgid ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.exponential:19 of
+#: bayesml.exponential:26 of
 #, python-brace-format
 msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.exponential:20 of
+#: bayesml.exponential:27 of
 #, python-brace-format
 msgid ""
 ":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}`: the "
 "Gamma function"
 msgstr ""
 
-#: bayesml.exponential:22 of
+#: bayesml.exponential:29 of
 msgid ""
 "p(\\lambda) = \\mathrm{Gam}(\\lambda|\\alpha_0,\\beta_0) = "
 "\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\lambda^{\\alpha_0 - "
@@ -90,7 +100,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential:25 of
+#: bayesml.exponential:32 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\lambda] &= \\frac{\\alpha_0}{\\beta_0}, \\\\\n"
@@ -98,28 +108,32 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential:30 of
+#: bayesml.exponential:37 of
+msgid "Posterior Distribution"
+msgstr ""
+
+#: bayesml.exponential:39 of
 msgid "The posterior distribution is as follows:"
 msgstr ""
 
-#: bayesml.exponential:32 of
+#: bayesml.exponential:41 of
 #, python-brace-format
 msgid ""
 ":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{R}_{\\geq 0}^n`: "
 "given data"
 msgstr ""
 
-#: bayesml.exponential:33 of
+#: bayesml.exponential:42 of
 #, python-brace-format
 msgid ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.exponential:34 of
+#: bayesml.exponential:43 of
 #, python-brace-format
 msgid ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.exponential:36 of
+#: bayesml.exponential:45 of
 msgid ""
 "p(\\lambda | x^n) = \\mathrm{Gam}(\\lambda|\\alpha_n,\\beta_n) = "
 "\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\lambda^{\\alpha_n - "
@@ -127,7 +141,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential:39 of
+#: bayesml.exponential:48 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\lambda | x^n] &= \\frac{\\alpha_n}{\\beta_n}, \\\\\n"
@@ -135,11 +149,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential:43 of
+#: bayesml.exponential:52 of
 msgid "where the updating rule of the hyperparameters is"
 msgstr ""
 
-#: bayesml.exponential:45 of
+#: bayesml.exponential:54 of
 #, python-brace-format
 msgid ""
 "\\alpha_n &= \\alpha_0 + n,\\\\\n"
@@ -147,30 +161,34 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential:50 of
+#: bayesml.exponential:59 of
+msgid "Predictive Distribution"
+msgstr ""
+
+#: bayesml.exponential:61 of
 msgid "The predictive distribution is as follows:"
 msgstr ""
 
-#: bayesml.exponential:52 of
+#: bayesml.exponential:63 of
 #, python-brace-format
 msgid ":math:`x_{n+1} \\in \\mathbb{R}_{\\geq 0}`: a new data point"
 msgstr ""
 
-#: bayesml.exponential:53 of
+#: bayesml.exponential:64 of
 #, python-brace-format
 msgid ""
 ":math:`\\kappa_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of "
 "the posterior"
 msgstr ""
 
-#: bayesml.exponential:54 of
+#: bayesml.exponential:65 of
 #, python-brace-format
 msgid ""
 ":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of"
 " the posterior"
 msgstr ""
 
-#: bayesml.exponential:56 of
+#: bayesml.exponential:67 of
 msgid ""
 "p(x_{n+1}|x^n)=\\mathrm{Lomax}(x_{n+1}|\\kappa_\\mathrm{p},\\lambda_\\mathrm{p})"
 " = "
@@ -179,7 +197,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential:59 of
+#: bayesml.exponential:70 of
 msgid ""
 "\\mathbb{E}[x_{n+1} | x^n] &=\n"
 "\\begin{cases}\n"
@@ -198,13 +216,13 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential:72 of
+#: bayesml.exponential:83 of
 msgid ""
 "where the parameters are obtained from the hyperparameters of the "
 "posterior distribution as follows:"
 msgstr ""
 
-#: bayesml.exponential:74 of
+#: bayesml.exponential:85 of
 #, python-brace-format
 msgid ""
 "&\\kappa_\\mathrm{p} = \\alpha_n, \\\\\n"
@@ -212,8 +230,32 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.exponential._exponential.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.exponential:90 of
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`_"
+msgstr ""
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr ""
+
+#: bayesml.exponential:95 of
+msgid "Classes"
 msgstr ""
 
 #: bayesml.exponential._exponential.GenModel:2 of
@@ -584,12 +626,6 @@ msgstr ""
 #: bayesml.exponential._exponential.GenModel.visualize_model:26
 #: bayesml.exponential._exponential.LearnModel.visualize_posterior:19 of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.exponential._exponential.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.exponential._exponential.LearnModel:2 of
@@ -1067,5 +1103,11 @@ msgstr ""
 #~ msgid ""
 #~ "Bases: :py:class:`~bayesml.base.Posterior`, "
 #~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
+
+#~ msgid "The exponential distribution with the gamma prior distribution."
+#~ msgstr ""
+
+#~ msgid "Class and Methods"
 #~ msgstr ""
 

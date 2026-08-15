@@ -1,0 +1,1793 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-2026, BayesML Developers
+# This file is distributed under the same license as the BayesML package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BayesML \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../bayesml.sparselinearregression.rst:2
+msgid "bayesml.sparselinearregression package"
+msgstr ""
+
+#: ../../bayesml.sparselinearregression.rst:5
+msgid "Module contents"
+msgstr ""
+
+#: bayesml.sparselinearregression:1 of
+msgid ""
+"This module provides the sparse linear regression model with the Laplace "
+"prior distribution (represented as a Gaussian scale mixture)."
+msgstr ""
+
+#: bayesml.sparselinearregression:6 of
+msgid "Stochastic Data Generative Model"
+msgstr ""
+
+#: bayesml.sparselinearregression:8 of
+msgid "The stochastic data generative model is as follows:"
+msgstr ""
+
+#: bayesml.sparselinearregression:10 of
+#, python-brace-format
+msgid ":math:`d \\in \\mathbb{N}`: a dimension of explanatory variables"
+msgstr ""
+
+#: bayesml.sparselinearregression:11 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{x} \\in \\mathbb{R}^d`: an explanatory variable. If "
+"you consider an intercept term, it should be included as one of the "
+"elements of :math:`\\boldsymbol{x}`."
+msgstr ""
+
+#: bayesml.sparselinearregression:12 of
+#, python-brace-format
+msgid ":math:`y \\in \\mathbb{R}`: an objective variable"
+msgstr ""
+
+#: bayesml.sparselinearregression:13 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\theta} \\in \\mathbb{R}^d`: a regression "
+"coefficient vector"
+msgstr ""
+
+#: bayesml.sparselinearregression:14 of
+#, python-brace-format
+msgid ":math:`\\tau \\in \\mathbb{R}_{>0}`: a precision parameter"
+msgstr ""
+
+#: bayesml.sparselinearregression:15 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{v} = (v_1, \\ldots, v_d)^\\top \\in "
+"\\mathbb{R}_{>0}^d`: latent scale variables"
+msgstr ""
+
+#: bayesml.sparselinearregression:17 of
+msgid ""
+"p(y | \\boldsymbol{x}, \\boldsymbol{\\theta}, \\tau)\n"
+"&= \\mathcal{N}(y | \\boldsymbol{x}^{\\top}\\boldsymbol{\\theta}, "
+"\\tau^{-1}) \\\\\n"
+"&= \\sqrt{\\frac{\\tau}{2\\pi}}\n"
+"\\exp\\left\\{\n"
+"    -\\frac{\\tau}{2}(y-\\boldsymbol{x}^{\\top}\\boldsymbol{\\theta})^2\n"
+"\\right\\}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:25 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[y | \\boldsymbol{x}, \\boldsymbol{\\theta}, \\tau] &= "
+"\\boldsymbol{x}^{\\top}\\boldsymbol{\\theta}, \\\\\n"
+"\\mathbb{V}[y | \\boldsymbol{x}, \\boldsymbol{\\theta}, \\tau] &= "
+"\\tau^{-1}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:30 of
+msgid "Prior Distribution"
+msgstr ""
+
+#: bayesml.sparselinearregression:32 of
+msgid "The prior distribution is as follows:"
+msgstr ""
+
+#: bayesml.sparselinearregression:34 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\lambda}_0 = (\\lambda_{0,1}, \\ldots, "
+"\\lambda_{0,d})^\\top \\in \\mathbb{R}_{>0}^d`: a hyperparameter vector "
+"(Laplace regularization strength for each dimension)"
+msgstr ""
+
+#: bayesml.sparselinearregression:35 of
+#, python-brace-format
+msgid ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.sparselinearregression:36 of
+#, python-brace-format
+msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.sparselinearregression:37 of
+msgid ":math:`\\Gamma(\\cdot)`: the gamma function"
+msgstr ""
+
+#: bayesml.sparselinearregression:39 of
+msgid ""
+"p(\\boldsymbol{\\theta} | \\tau, \\boldsymbol{v})\n"
+"&= \\mathcal{N}(\\boldsymbol{\\theta} | \\boldsymbol{0}, \\tau^{-1} "
+"\\mathrm{diag}(\\boldsymbol{v})) \\\\\n"
+"&= \\left(\\frac{\\tau}{2\\pi}\\right)^{d/2}\n"
+"\\left(\\prod_{j=1}^d v_j\\right)^{-1/2}\n"
+"\\exp\\left\\{\n"
+"    -\\frac{\\tau}{2}\\boldsymbol{\\theta}^\\top\n"
+"    \\mathrm{diag}(\\boldsymbol{v})^{-1}\n"
+"    \\boldsymbol{\\theta}\n"
+"\\right\\}, \\\\\n"
+"p(\\boldsymbol{v} | \\boldsymbol{\\lambda}_0)\n"
+"&= \\prod_{j=1}^d \\mathrm{Exp}\\left(v_j \\middle| "
+"\\frac{\\lambda_{0,j}^2}{2}\\right)\n"
+"= \\prod_{j=1}^d "
+"\\frac{\\lambda_{0,j}^2}{2}\\exp\\left(-\\frac{\\lambda_{0,j}^2}{2}v_j\\right),"
+" \\\\\n"
+"p(\\tau | \\alpha_0, \\beta_0)\n"
+"&= \\mathrm{Gam}(\\tau | \\alpha_0, \\beta_0)\n"
+"= "
+"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma(\\alpha_0)}\\tau^{\\alpha_0-1}\\exp(-\\beta_0\\tau)."
+"\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:56 of
+msgid ""
+"Marginalizing out each :math:`v_j` yields the Laplace prior on "
+":math:`\\theta_j`:"
+msgstr ""
+
+#: bayesml.sparselinearregression:58 of
+msgid ""
+"p(\\theta_j | \\tau, \\lambda_{0,j})\n"
+"&= \\int_0^\\infty p(\\theta_j | \\tau, v_j) p(v_j | \\lambda_{0,j})\\, "
+"dv_j \\\\\n"
+"&= \\frac{\\lambda_{0,j} \\sqrt{\\tau}}{2}\n"
+"\\exp\\left(-\\lambda_{0,j} \\sqrt{\\tau}\\, |\\theta_j|\\right).\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:65 of
+msgid "Posterior Distribution"
+msgstr ""
+
+#: bayesml.sparselinearregression:67 of
+msgid ""
+"The approximate posterior distribution in the :math:`t`-th iteration of a"
+" variational Bayesian method is as follows:"
+msgstr ""
+
+#: bayesml.sparselinearregression:69 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{X} = (\\boldsymbol{x}_1, \\ldots, "
+"\\boldsymbol{x}_n)^\\top \\in \\mathbb{R}^{n \\times d}`: given "
+"explanatory variables"
+msgstr ""
+
+#: bayesml.sparselinearregression:70 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{y} = (y_1, \\ldots, y_n)^\\top \\in \\mathbb{R}^n`: "
+"given objective variables"
+msgstr ""
+
+#: bayesml.sparselinearregression:71 of
+#, python-brace-format
+msgid ":math:`\\boldsymbol{\\mu}_n^{(t)} \\in \\mathbb{R}^d`: a hyperparameter"
+msgstr ""
+
+#: bayesml.sparselinearregression:72 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{\\Lambda}_n^{(t)} \\in \\mathbb{R}^{d \\times d}`: a "
+"hyperparameter (a positive definite matrix)"
+msgstr ""
+
+#: bayesml.sparselinearregression:73 of
+#, python-brace-format
+msgid ":math:`\\alpha_n^{(t)} \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.sparselinearregression:74 of
+#, python-brace-format
+msgid ":math:`\\beta_n^{(t)} \\in \\mathbb{R}_{>0}`: a hyperparameter"
+msgstr ""
+
+#: bayesml.sparselinearregression:75 of
+#, python-brace-format
+msgid ""
+":math:`a_{n,j}^{(t)} \\in \\mathbb{R}_{>0}`: a hyperparameter for "
+":math:`q(v_j)`"
+msgstr ""
+
+#: bayesml.sparselinearregression:76 of
+#, python-brace-format
+msgid ""
+":math:`b_{n,j}^{(t)} \\in \\mathbb{R}_{>0}`: a hyperparameter for "
+":math:`q(v_j)`"
+msgstr ""
+
+#: bayesml.sparselinearregression:77 of
+#, python-brace-format
+msgid ":math:`K_{\\nu}(\\cdot)`: the modified Bessel function of the second kind"
+msgstr ""
+
+#: bayesml.sparselinearregression:79 of
+msgid ""
+"&q(\\boldsymbol{\\theta}, \\tau, \\boldsymbol{v}) \\nonumber \\\\\n"
+"&= \\mathcal{N}\\left(\n"
+"    \\boldsymbol{\\theta} \\middle|\n"
+"    \\boldsymbol{\\mu}_n^{(t)},\n"
+"    (\\tau \\boldsymbol{\\Lambda}_n^{(t)})^{-1}\n"
+"\\right)\n"
+"\\mathrm{Gam}(\\tau | \\alpha_n^{(t)}, \\beta_n^{(t)})  \\prod_{j=1}^d "
+"\\mathrm{GIG}\\left(\n"
+"    v_j \\middle| 1/2,\\, a_{n,j}^{(t)},\\, b_{n,j}^{(t)}\n"
+"\\right) \\\\\n"
+"&= \\frac{|\\tau \\boldsymbol{\\Lambda}_n^{(t)}|^{1/2}}{(2\\pi)^{d/2}} "
+"\\exp \\left\\{ -\\frac{\\tau}{2}(\\boldsymbol{\\theta} "
+"-\\boldsymbol{\\mu}_n^{(t)})^\\top \\boldsymbol{\\Lambda}_n^{(t)} "
+"(\\boldsymbol{\\theta} - \\boldsymbol{\\mu}_n^{(t)}) \\right\\} \\\\\n"
+"&\\qquad \\times "
+"\\frac{(\\beta_n^{(t)})^{\\alpha_n^{(t)}}}{\\Gamma(\\alpha_n^{(t)})}\\tau^{\\alpha_n^{(t)}-1}\\exp\\{-\\beta_n^{(t)}\\tau\\}"
+" \\nonumber \\\\\n"
+"&\\qquad \\times \\prod_{j=1}^d "
+"\\frac{(a_{n,j}^{(t)}/b_{n,j}^{(t)})^{1/4}}{2K_{1/2}\\left(\\sqrt{a_{n,j}^{(t)}"
+" b_{n,j}^{(t)}}\\right)} v_j^{-1/2} "
+"\\exp\\left\\{-\\frac{1}{2}(a_{n,j}^{(t)} v_j + b_{n,j}^{(t)} "
+"v_j^{-1})\\right\\}\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:93 of
+msgid ""
+"where :math:`\\mathrm{GIG}(x | p, a, b) = "
+"\\frac{(a/b)^{p/2}}{2K_p(\\sqrt{ab})} x^{p-1} "
+"\\exp\\left\\{-\\frac{1}{2}(ax + bx^{-1})\\right\\}`."
+msgstr ""
+
+#: bayesml.sparselinearregression:95 of
+msgid "The updating rule of the hyperparameters is as follows."
+msgstr ""
+
+#: bayesml.sparselinearregression:97 of
+msgid ""
+"\\boldsymbol{\\Lambda}_n^{(t+1)}\n"
+"&= \\boldsymbol{X}^\\top \\boldsymbol{X}\n"
+"+ \\mathrm{diag}\\left(\n"
+"    \\sqrt{\\frac{a_{n,1}^{(t)}}{b_{n,1}^{(t)}}},\n"
+"    \\ldots,\n"
+"    \\sqrt{\\frac{a_{n,d}^{(t)}}{b_{n,d}^{(t)}}}\n"
+"\\right), \\\\\n"
+"\\boldsymbol{\\mu}_n^{(t+1)}\n"
+"&= (\\boldsymbol{\\Lambda}_n^{(t+1)})^{-1} \\boldsymbol{X}^\\top "
+"\\boldsymbol{y}, \\\\\n"
+"\\alpha_n^{(t+1)}\n"
+"&= \\alpha_0 + \\frac{n}{2}, \\\\\n"
+"\\beta_n^{(t+1)}\n"
+"&= \\beta_0 + \\frac{1}{2}\n"
+"\\left(\n"
+"    \\boldsymbol{y}^\\top \\boldsymbol{y}\n"
+"    - (\\boldsymbol{\\mu}_n^{(t+1)})^\\top "
+"\\boldsymbol{\\Lambda}_n^{(t+1)} \\boldsymbol{\\mu}_n^{(t+1)}\n"
+"\\right), \\\\\n"
+"a_{n,j}^{(t+1)}\n"
+"&= \\lambda_{0,j}^2, \\\\\n"
+"b_{n,j}^{(t+1)}\n"
+"&= \\frac{\\alpha_n^{(t+1)}}{\\beta_n^{(t+1)}} (\\mu_{n,j}^{(t+1)})^2\n"
+"+ \\left((\\boldsymbol{\\Lambda}_n^{(t+1)})^{-1}\\right)_{jj}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:121 of
+msgid "Accordingly,"
+msgstr ""
+
+#: bayesml.sparselinearregression:123 of
+#, python-brace-format
+msgid ""
+"\\mathbb{E}[\\boldsymbol{\\theta} | \\boldsymbol{X}, \\boldsymbol{y}]\n"
+"&\\approx \\boldsymbol{\\mu}_n, \\\\\n"
+"\\mathbb{E}[\\tau | \\boldsymbol{X}, \\boldsymbol{y}]\n"
+"&\\approx \\frac{\\alpha_n}{\\beta_n}.\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:130 of
+msgid "Predictive Distribution"
+msgstr ""
+
+#: bayesml.sparselinearregression:132 of
+msgid "The approximate predictive distribution is as follows:"
+msgstr ""
+
+#: bayesml.sparselinearregression:134 of
+#, python-brace-format
+msgid ""
+":math:`\\boldsymbol{x}_{n+1} \\in \\mathbb{R}^d`: a new explanatory "
+"variable"
+msgstr ""
+
+#: bayesml.sparselinearregression:135 of
+#, python-brace-format
+msgid ":math:`y_{n+1} \\in \\mathbb{R}`: a new objective variable"
+msgstr ""
+
+#: bayesml.sparselinearregression:136 of
+msgid ""
+":math:`m_{\\mathrm{p}} \\in \\mathbb{R}`: a parameter of the predictive "
+"distribution"
+msgstr ""
+
+#: bayesml.sparselinearregression:137 of
+msgid ""
+":math:`\\lambda_{\\mathrm{p}} \\in \\mathbb{R}_{>0}`: a parameter of the "
+"predictive distribution"
+msgstr ""
+
+#: bayesml.sparselinearregression:138 of
+msgid ""
+":math:`\\nu_{\\mathrm{p}} \\in \\mathbb{R}_{>0}`: a parameter of the "
+"predictive distribution"
+msgstr ""
+
+#: bayesml.sparselinearregression:140 of
+msgid ""
+"&p(y_{n+1} | \\boldsymbol{X}, \\boldsymbol{y}, \\boldsymbol{x}_{n+1}) "
+"\\nonumber \\\\\n"
+"&\\approx \\mathrm{St}\\left(y_{n+1} | m_{\\mathrm{p}}, "
+"\\lambda_{\\mathrm{p}}, \\nu_{\\mathrm{p}}\\right) \\nonumber \\\\\n"
+"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + 1/2 )}{\\Gamma "
+"(\\nu_\\mathrm{p} / 2)} \\left( \\frac{\\lambda_\\mathrm{p}}{\\pi "
+"\\nu_\\mathrm{p}} \\right)^{1/2} \\left( 1 + \\frac{\\lambda_\\mathrm{p} "
+"(y_{n+1} - m_\\mathrm{p})^2}{\\nu_\\mathrm{p}} "
+"\\right)^{-\\nu_\\mathrm{p}/2 - 1/2},\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:145 of
+msgid ""
+"\\mathbb{E}[y_{n+1} | \\boldsymbol{X}, \\boldsymbol{y}, "
+"\\boldsymbol{x}_{n+1}] &\\approx m_{\\mathrm{p}} \\quad "
+"(\\nu_{\\mathrm{p}} > 1), \\\\\n"
+"\\mathbb{V}[y_{n+1} | \\boldsymbol{X}, \\boldsymbol{y}, "
+"\\boldsymbol{x}_{n+1}] &\\approx \\frac{1}{\\lambda_{\\mathrm{p}}} "
+"\\frac{\\nu_{\\mathrm{p}}}{\\nu_{\\mathrm{p}} - 2} \\quad "
+"(\\nu_{\\mathrm{p}} > 2),\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:149 of
+msgid ""
+"where the parameters are obtained from the hyperparameters of the "
+"posterior distribution as follows:"
+msgstr ""
+
+#: bayesml.sparselinearregression:151 of
+msgid ""
+"m_{\\mathrm{p}} &= \\boldsymbol{x}_{n+1}^{\\top} \\boldsymbol{\\mu}_n, "
+"\\\\\n"
+"\\lambda_{\\mathrm{p}} &= \\frac{\\alpha_n}{\\beta_n}\\left(1 + "
+"\\boldsymbol{x}_{n+1}^{\\top} \\boldsymbol{\\Lambda}_n^{-1} "
+"\\boldsymbol{x}_{n+1}\\right)^{-1}, \\\\\n"
+"\\nu_{\\mathrm{p}} &= 2\\alpha_n.\n"
+"\n"
+msgstr ""
+
+#: bayesml.sparselinearregression:157 of
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`_"
+msgstr ""
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr ""
+
+#: bayesml.sparselinearregression:162 of
+msgid "Classes"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:2 of
+msgid "The stochastic data generative model and the prior distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_params
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.visualize_model
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.calc_pred_dist
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.predict
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior
+#: of
+msgid "Parameters"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:7
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:8 of
+msgid "**c_degree**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:-1 of
+msgid "int"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:8 of
+msgid ""
+"A positive integer. The dimension of the explanatory variable. If you "
+"consider an intercept term, it should be included as one of the elements "
+"of the explanatory variable."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:12
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_params:7
+#: of
+msgid "**theta_vec**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:-1
+#: of
+msgid "numpy ndarray, optional"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:13 of
+msgid "A vector of real numbers, by default ``[0.0, ..., 0.0]``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:15
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_params:10
+#: of
+msgid "**tau**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:-1
+#: of
+msgid "float, optional"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:16
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:24
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:27
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:17
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:20 of
+msgid "A positive real number, by default ``1.0``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:18
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params:7
+#: of
+msgid "**h_lambdas**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params:-1
+#: of
+msgid "float or numpy.ndarray, optional"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:19
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:12 of
+msgid ""
+"Positive real numbers, (Laplace regularization strength), by default "
+"``[1.0, 1.0, ... , 1.0]``. If a single real number is input, it will be "
+"broadcasted."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:23
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params:12
+#: of
+msgid "**h_alpha**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:26
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params:15
+#: of
+msgid "**h_beta**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:29
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:22 of
+msgid "**seed**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:-1 of
+#, python-brace-format
+msgid "{None, int}, optional"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:30 of
+msgid "A seed to initialize ``numpy.random.default_rng()``, by default ``None``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:35
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:59 of
+msgid "Methods"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`gen_params "
+"<bayesml.sparselinearregression.GenModel.gen_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_params:2
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Generate parameters from the prior distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`gen_sample "
+"<bayesml.sparselinearregression.GenModel.gen_sample>`\\ "
+"\\(\\[sample\\_size\\, x\\, constant\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:2
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Generate a sample from the stochastic data generative model."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.sparselinearregression.GenModel.get_constants>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_constants:2
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Get constants of GenModel."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_h_params "
+"<bayesml.sparselinearregression.GenModel.get_h_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_h_params:2
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Get the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_params "
+"<bayesml.sparselinearregression.GenModel.get_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_params:2
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Get the parameters of the stochastic data generative model."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_h_params "
+"<bayesml.sparselinearregression.GenModel.load_h_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Load the hyperparameters to h_params."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_params "
+"<bayesml.sparselinearregression.GenModel.load_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Load the parameters saved by ``save_params``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_h_params "
+"<bayesml.sparselinearregression.GenModel.save_h_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Save the hyperparameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_params "
+"<bayesml.sparselinearregression.GenModel.save_params>`\\ \\(filename\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Save the parameters using python ``pickle`` module."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_sample "
+"<bayesml.sparselinearregression.GenModel.save_sample>`\\ "
+"\\(filename\\[\\, sample\\_size\\, x\\, constant\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:2
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Save the generated sample as NumPy ``.npz`` format."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_h_params "
+"<bayesml.sparselinearregression.GenModel.set_h_params>`\\ "
+"\\(\\[h\\_lambdas\\, h\\_alpha\\, h\\_beta\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params:2
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Set the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_params "
+"<bayesml.sparselinearregression.GenModel.set_params>`\\ "
+"\\(\\[theta\\_vec\\, tau\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_params:2
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Set the parameters of the stochastic data generative model."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`visualize_model "
+"<bayesml.sparselinearregression.GenModel.visualize_model>`\\ "
+"\\(\\[sample\\_size\\, constant\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.visualize_model:2
+#: bayesml.sparselinearregression._sparselinearregression.GenModel:63:<autosummary>:1
+#: of
+msgid "Visualize the stochastic data generative model and generated samples."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_constants
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_h_params
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_params
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_constants
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_h0_params
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_p_params
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.predict of
+msgid "Returns"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_constants:10
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_constants:10
+#: of
+msgid "**constants**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_constants:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_constants:-1
+#: of
+#, python-brace-format
+msgid "dict of {str: int}"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_constants:11
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_constants:11
+#: of
+msgid "``\"c_degree\"`` : the value of ``self.c_degree``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params:8
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params:9
+#: of
+msgid ""
+"Positive real numbers, (Laplace regularization strength), by default "
+"``None``. If a single real number is input, it will be broadcasted."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params:13
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_h_params:16
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_params:11
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params:14
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params:17
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:15
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:18
+#: of
+msgid "A positive real number, by default ``None``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_h_params:10
+#: of
+msgid "**h_params**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_h_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_h0_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_p_params:-1
+#: of
+#, python-brace-format
+msgid "dict of {str: float}"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_h_params:11
+#: of
+msgid "``\"h_lambdas\"`` : The value of ``self.h_lambdas``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_h_params:12
+#: of
+msgid "``\"h_alpha\"`` : The value of ``self.h_alpha``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_h_params:13
+#: of
+msgid "``\"h_beta\"`` : The value of ``self.h_beta``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_params:4
+#: of
+msgid ""
+"The generated values are set at ``self.theta_vec``, ``self.tau``, and "
+"``self.v_vec``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.set_params:8
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:9
+#: of
+msgid "A vector of real numbers, by default ``None``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_params:10
+#: of
+msgid "**params**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params:-1
+#: of
+#, python-brace-format
+msgid "dict of {str: float or numpy ndarray}"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_params:11
+#: of
+msgid "``\"theta_vec\"`` : The value of ``self.theta_vec``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.get_params:12
+#: of
+msgid "``\"tau\"`` : The value of ``self.tau``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:4
+#: of
+msgid ""
+"If ``x`` is given, it will be used for explanatory variables as it is "
+"(independent of the other options: ``sample_size`` and ``constant``)."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:7
+#: of
+msgid ""
+"If ``x`` is not given, it will be generated from i.i.d. standard normal "
+"distributions. The size of the generated sample is defined by "
+"``sample_size``. If ``constant`` is ``True``, the last element of the "
+"generated explanatory variables will be overwritten by ``1.0``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:14
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:13
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.visualize_model:7
+#: of
+msgid "**sample_size**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.visualize_model:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:-1
+#: of
+msgid "int, optional"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:15
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:14
+#: of
+msgid "A positive integer, by default ``None``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:17
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:28
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:16
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.calc_pred_dist:7
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:12
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:8
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.predict:11
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:7
+#: of
+msgid "**x**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:18
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:17
+#: of
+msgid ""
+"A float array whose shape is ``(sample_size, c_degree)``, by default "
+"``None``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:21
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:20
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.visualize_model:10
+#: of
+msgid "**constant**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:-1
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.visualize_model:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:-1
+#: of
+msgid "bool, optional"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:22
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:21
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.visualize_model:11
+#: of
+msgid "A boolean value, by default ``True``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.calc_pred_dist:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.predict:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:-1
+#: of
+msgid "numpy ndarray"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:29
+#: of
+msgid "A float array whose shape is ``(sample_size, c_degree)``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:31
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:16
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:12
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:11
+#: of
+msgid "**y**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.gen_sample:32
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:13
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:12
+#: of
+msgid "A 1-dimensional float array whose size is ``sample_size``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:4
+#: of
+msgid ""
+"The generated sample is saved as a NpzFile with keywords ``\"x\"`` and "
+"``\"y\"``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:9
+#: of
+msgid "**filename**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:-1
+#: of
+msgid "str"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:10
+#: of
+msgid ""
+"The filename to which the sample is saved. ``.npz`` will be appended if "
+"it is not there."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.save_sample:35
+#: of
+msgid ":obj:`numpy.savez_compressed`"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.visualize_model:8
+#: of
+msgid "A positive integer, by default ``100``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.GenModel.visualize_model:26
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.visualize_posterior:19
+#: of
+msgid "Examples"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:2 of
+msgid "The posterior distribution and the predictive distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:4 of
+msgid "Inference is performed by variational Bayes. The variational posterior is"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:9 of
+msgid "A positive integer. The dimension of the explanatory variable."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:11
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params:8
+#: of
+msgid "**h0_lambdas**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:16
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params:13
+#: of
+msgid "**h0_alpha**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:19
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params:16
+#: of
+msgid "**h0_beta**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:23 of
+msgid ""
+"A seed to initialize ``numpy.random.default_rng()`` used for VB random "
+"restarts, by default ``None``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel of
+msgid "Attributes"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:28
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:8
+#: of
+msgid "**hn_mu_vec**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:29 of
+msgid "A vector of real numbers."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:31
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:11
+#: of
+msgid "**hn_lambda_mat**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:32 of
+msgid "A positive definite matrix."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:34
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:14
+#: of
+msgid "**hn_alpha**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:-1 of
+msgid "float"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:35
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:38
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:50
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:53 of
+msgid "A positive real number."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:37
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:17
+#: of
+msgid "**hn_beta**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:40
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:20
+#: of
+msgid "**hn_as**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:41 of
+msgid "A vector of positive real numbers (:math:`= \\lambda_0^2`)."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:43
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:23
+#: of
+msgid "**hn_bs**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:44 of
+msgid "A vector of positive real numbers."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:46 of
+msgid "**p_ms**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:47 of
+msgid "A real number."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:49 of
+msgid "**p_lambdas**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:52 of
+msgid "**p_nus**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:55 of
+msgid "**vl**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:56 of
+msgid "The variational lower bound."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`calc_pred_dist "
+"<bayesml.sparselinearregression.LearnModel.calc_pred_dist>`\\ \\(x\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.calc_pred_dist:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Calculate the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`estimate_params "
+"<bayesml.sparselinearregression.LearnModel.estimate_params>`\\ "
+"\\(\\[loss\\, dict\\_out\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+"Estimate the parameter of the stochastic data generative model under the "
+"given criterion."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`fit <bayesml.sparselinearregression.LearnModel.fit>`\\ \\(x\\, "
+"y\\[\\, max\\_itr\\, num\\_init\\, tolerance\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Fit the model to the data."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_constants "
+"<bayesml.sparselinearregression.LearnModel.get_constants>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_constants:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Get constants of LearnModel."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_h0_params "
+"<bayesml.sparselinearregression.LearnModel.get_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_h0_params:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Get the initial values of the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_hn_params "
+"<bayesml.sparselinearregression.LearnModel.get_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Get the hyperparameters of the posterior distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`get_p_params "
+"<bayesml.sparselinearregression.LearnModel.get_p_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_p_params:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Get the parameters of the predictive distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_h0_params "
+"<bayesml.sparselinearregression.LearnModel.load_h0_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Load the hyperparameters to h0_params."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`load_hn_params "
+"<bayesml.sparselinearregression.LearnModel.load_hn_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Load the hyperparameters to hn_params."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`make_prediction "
+"<bayesml.sparselinearregression.LearnModel.make_prediction>`\\ "
+"\\(\\[loss\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Predict a new data point under the given criterion."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`overwrite_h0_params "
+"<bayesml.sparselinearregression.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.overwrite_h0_params:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+"Overwrite the initial values of the hyperparameters of the prior "
+"distribution by the learned values."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`pred_and_update "
+"<bayesml.sparselinearregression.LearnModel.pred_and_update>`\\ \\(x\\, "
+"y\\[\\, max\\_itr\\, num\\_init\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Predict a new data point and update the posterior sequentially."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`predict <bayesml.sparselinearregression.LearnModel.predict>`\\ "
+"\\(x\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.predict:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Predict the data."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`reset_hn_params "
+"<bayesml.sparselinearregression.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.reset_hn_params:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Reset the hyperparameters of the posterior distribution to initial values."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_h0_params "
+"<bayesml.sparselinearregression.LearnModel.save_h0_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`save_hn_params "
+"<bayesml.sparselinearregression.LearnModel.save_hn_params>`\\ "
+"\\(filename\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_h0_params "
+"<bayesml.sparselinearregression.LearnModel.set_h0_params>`\\ "
+"\\(\\[h0\\_lambdas\\, h0\\_alpha\\, h0\\_beta\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Set initial values of the hyperparameters of the prior distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`set_hn_params "
+"<bayesml.sparselinearregression.LearnModel.set_hn_params>`\\ "
+"\\(\\[hn\\_mu\\_vec\\, hn\\_lambda\\_mat\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Set updated values of the hyperparameters of the posterior distribution."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`update_posterior "
+"<bayesml.sparselinearregression.LearnModel.update_posterior>`\\ \\(x\\, "
+"y\\[\\, max\\_itr\\, num\\_init\\, ...\\]\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+"Update the hyperparameters of the posterior distribution using training "
+"data."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid ""
+":py:obj:`visualize_posterior "
+"<bayesml.sparselinearregression.LearnModel.visualize_posterior>`\\ \\(\\)"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.visualize_posterior:2
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel:94:<autosummary>:1
+#: of
+msgid "Visualize the posterior distribution for the parameter."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.overwrite_h0_params:8
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_h0_params:4
+#: of
+msgid "Note that ``reset_hn_params()`` is called inside this method."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_h0_params:10
+#: of
+msgid "**h0_params**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_h0_params:11
+#: of
+msgid "``\"h0_lambdas\"`` : The value of ``self.h0_lambdas``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_h0_params:12
+#: of
+msgid "``\"h0_alpha\"`` : The value of ``self.h0_alpha``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_h0_params:13
+#: of
+msgid "``\"h0_beta\"`` : The value of ``self.h0_beta``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.reset_hn_params:4
+#: of
+msgid ""
+"Usualy, `hn_params` are reset to the output of `self.get_h0_params()`, "
+"but the prior distribution and the posterior distribution have different "
+"form in this model, therefore, they are set to the solution of "
+"variational Bayesian updating formula with no data."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.reset_hn_params:8
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:4
+#: of
+msgid ""
+"Note that ``calc_pred_dist`` is called with a zero vector inside this "
+"method."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.overwrite_h0_params:4
+#: of
+msgid ""
+"Usualy, `h0_params` are overwritten to the output of "
+"`self.get_hn_params()`, but the prior distribution and the posterior "
+"distribution have different form in this model, therefore, `h0_lambdas` "
+"are set to minimize "
+"KL(GIG(1/2,`hn_as`,`hn_bs`)||Exp(0.5*`h0_lambdas`**2))."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:12
+#: of
+msgid "A positive definite matrix, by default ``None``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:21
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.set_hn_params:24
+#: of
+msgid "A vector of positive real numbers, by default ``None``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params:10
+#: of
+msgid "**hn_params**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params:11
+#: of
+msgid "``\"hn_mu_vec\"`` : The value of ``self.hn_mu_vec``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params:12
+#: of
+msgid "``\"hn_lambda_mat\"`` : The value of ``self.hn_lambda_mat``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params:13
+#: of
+msgid "``\"hn_alpha\"`` : The value of ``self.hn_alpha``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params:14
+#: of
+msgid "``\"hn_beta\"`` : The value of ``self.hn_beta``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params:15
+#: of
+msgid "``\"hn_as\"`` : The value of ``self.hn_as``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_hn_params:16
+#: of
+msgid "``\"hn_bs\"`` : The value of ``self.hn_bs``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:9
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:8
+#: of
+msgid ""
+"A float array whose shape is ``(sample_size, c_degree)``. If you want to "
+"use a constant term, it should be included in ``x``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:19
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:15
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:14
+#: of
+msgid "**max_itr**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:16
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:15
+#: of
+msgid "Maximum number of VB iterations per initialization, by default ``100``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:22
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:18
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:17
+#: of
+msgid "**num_init**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:18
+#: of
+msgid ""
+"Number of random restarts, by default ``10``. If ``init_type`` is "
+"``'Ridge'``, ``'OLS'``, or ``'manual'`` or ``warm_start`` is ``True`` "
+"this argument is ignored."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:25
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:21
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:21
+#: of
+msgid "**tolerance**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:22
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:22
+#: of
+msgid "Convergence threshold on relative change of VL, by default ``1.0e-8``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:24
+#: of
+msgid "**init_type**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:-1
+#: of
+msgid "str, optional"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:25
+#: of
+msgid ""
+"Initialization method for the variational Bayesian method, by default "
+"``'Ridge'``. This function supports the following values: * ``'Ridge'`` :"
+" Initialize hn_mu_vec and hn_lambda_mat to the Ridge solution with "
+"h0_lambdas as the regularization strength. * ``'OLS'`` : Initialize "
+"hn_mu_vec and hn_lambda_mat to the OLS solution. * ``'exponential_rv'`` :"
+" Randomly initialize hn_bs from an exponential distribution with scale "
+"1.0. * ``'manual'`` : Manually set initial values of hn_bs. In this case,"
+" the argument ``initial_bs`` must be given."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:32
+#: of
+msgid "**initial_bs**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:33
+#: of
+msgid ""
+"A vector of positive real numbers, by default ``None``. If ``init_type`` "
+"is ``'manual'``, this argument must be given."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:36
+#: of
+msgid "**warm_start**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.update_posterior:37
+#: of
+msgid ""
+"If True, use the sufficient statistics of past samples and  the current "
+"posterior as the starting point for the next update."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:4
+#: of
+msgid ""
+"Note that the criterion is applied to estimating ``theta_vec`` and "
+"``tau`` independently."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:8
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction:7
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:24
+#: of
+msgid "**loss**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:9
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction:8
+#: of
+msgid ""
+"Loss function underlying the Bayes risk function, by default "
+"``\"squared\"``. This function supports ``\"squared\"``, ``\"0-1\"``, "
+"``\"abs\"``, and ``\"KL\"``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:12
+#: of
+msgid "**dict_out**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:13
+#: of
+msgid "If ``True``, output will be a dict, by default ``False``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:19
+#: of
+msgid "**estimates**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:-1
+#: of
+#, python-brace-format
+msgid "tuple of {numpy ndarray, float, None, or rv_frozen}"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:20
+#: of
+msgid "``theta_vec`` : the estimate for theta"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:21
+#: of
+msgid "``tau_hat`` : the estimate for tau"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:22
+#: of
+msgid ""
+"The estimated values under the given loss function. If it does not exist,"
+" ``None`` will be returned. If the loss is ``\"KL\"``, the approximate "
+"posterior distribution itself will be returned as ``rv_frozen`` objects "
+"of ``scipy.stats``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.estimate_params:35
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction:30
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:46
+#: of
+msgid ":obj:`scipy.stats.rv_continuous`"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_p_params:10
+#: of
+msgid "**p_params**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_p_params:11
+#: of
+msgid "``\"p_ms\"`` : The value of ``self.p_ms``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_p_params:12
+#: of
+msgid "``\"p_lambdas\"`` : The value of ``self.p_lambdas``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.get_p_params:13
+#: of
+msgid "``\"p_nus\"`` : The value of ``self.p_nus``"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.calc_pred_dist:8
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:13
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.predict:12
+#: of
+msgid ""
+"float array. The size along the last dimension must conincides with the "
+"c_degree. If you want to use a constant term, it should be included in x."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction:15
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:31
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.predict:19
+#: of
+msgid "**Predicted_values**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction:-1
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:-1
+#: of
+#, python-brace-format
+msgid "{numpy ndarray, rv_frozen}"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.make_prediction:16
+#: of
+msgid ""
+"The predicted values under the given loss function.  The size of the "
+"predicted values is the same as the sample size of x when you called "
+"calc_pred_dist(x). If the loss function is \"KL\", the predictive "
+"distribution itself will be returned as rv_frozen object of scipy.stats. "
+"The rv_frozen object supports broadcasting."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:4
+#: of
+msgid ""
+"Note that ``update_posterior`` is called with ``warm_start=True`` inside "
+"this method."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:19
+#: of
+msgid "Number of random restarts, by default ``10``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:25
+#: of
+msgid ""
+"Loss function underlying the Bayes risk function, by default "
+"``\"squared\"``."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.pred_and_update:32
+#: of
+msgid ""
+"The predicted values under the given loss function.  The size of the "
+"predicted values is the same as the sample size of x when you called "
+"calc_pred_dist(x). If the loss function is \"KL\", the predictive "
+"distribution itself will be returned as rv_frozen object of scipy.stats."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:4
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.predict:4
+#: of
+msgid "This function is a wrapper of the following functions:"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:17 of
+msgid "float array."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:20 of
+msgid "maximum number of iterations, by default 1000"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:23 of
+msgid "number of initializations, by default 10"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:26 of
+msgid "convergence criterion of variational lower bound, by default 1.0E-8"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:32 of
+msgid "**self**"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:-1 of
+msgid "LearnModel"
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.fit:33 of
+msgid "The fitted model."
+msgstr ""
+
+#: bayesml.sparselinearregression._sparselinearregression.LearnModel.predict:20
+#: of
+msgid ""
+"The predicted values under the squared loss function.  The size of the "
+"predicted values is the same as the sample size of x."
+msgstr ""
+
+#~ msgid "Class and Methods"
+#~ msgstr ""
+

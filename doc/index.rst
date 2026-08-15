@@ -6,12 +6,16 @@
    Yuta Nakahara <y.nakahara@waseda.jp>
    Shota Saito <shota.s@gunma-u.ac.jp>
 
-.. image:: ./logos/BayesML_logo.png
+.. image:: ./logos/BayesML_logo.svg
+    :class: only-light
+
+.. image:: ./logos/BayesML_logo_reverse.svg
+    :class: only-dark
 
 Your First Library for Bayesian Machine Learning
 ================================================
 
-BayesML contributes to wide society thourgh promoting education, research, and application of machine learning based on Bayesian statistics and Bayesian decision theory.
+BayesML contributes to wide society through promoting education, research, and application of machine learning based on Bayesian statistics and Bayesian decision theory.
 
 Characteristics
 ---------------
@@ -263,6 +267,7 @@ The following packages are currently available. In this library, a probabilistic
 * :doc:`bayesml.gaussianmixture`
 * :doc:`bayesml.hiddenmarkovnormal`
 * :doc:`bayesml.linearregression`
+* :doc:`bayesml.sparselinearregression`
 * :doc:`bayesml.logisticregression`
 * :doc:`bayesml.linearregressionmixture`
 * :doc:`bayesml.metatree`
@@ -283,7 +288,7 @@ Plain text
 
    Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
    S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
-   Python package version 0.4.1, 2026.
+   Python package version 0.5.0, 2026.
    [Online] https://github.com/bayesml/BayesML
 
 BibTeX
@@ -295,10 +300,15 @@ BibTeX
              Iikubo, Yuji and Saito, Shota and Kazama, Koki and
              Matsushima, Toshiyasu and {BayesML Developers}},
    title = {{BayesML}},
-   howpublished = {Python package version 0.4.1},
+   howpublished = {Python package version 0.5.0},
    note = {\url{https://github.com/bayesml/BayesML}},
    year = {2026}
    }
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
 
 Contents
 --------

@@ -2,7 +2,12 @@
 # Haruka Murayama <h-murayama@ruri.waseda.jp>
 # Yuta Nakahara <y.nakahara@waseda.jp>
 r'''
-The mixture of linear regression model with the Gauss-Gamma prior distribution and the Dirichlet prior distribution.
+This module provides the mixture of linear regression model with the normal-gamma prior distribution and the Dirichlet prior distribution.
+
+.. image:: ./images/linearregressionmixture_example.png
+
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -22,6 +27,9 @@ The stochastic data generative model is as follows:
     p(y | \boldsymbol{x}, \boldsymbol{\theta}, \boldsymbol{\tau}, \boldsymbol{z}) &= \prod_{k=1}^K \mathcal{N}(y | \boldsymbol{\theta}^\top_k \boldsymbol{x},\tau_k^{-1})^{z_k} \\
     &= \prod_{k=1}^K \left( \sqrt{\frac{\tau_k}{2\pi}} \exp \left\{ -\frac{\tau_k}{2}(y - \boldsymbol{\theta}^\top_k\boldsymbol{x})^2 \right\} \right)^{z_k}.
 
+Prior Distribution
+------------------
+
 The prior distribution is as follows:
 
 * :math:`\boldsymbol{\mu}_0 \in \mathbb{R}^{D}`: a hyperparameter
@@ -40,6 +48,9 @@ where :math:`C(\boldsymbol{\gamma}_0)` are defined as follows:
 
 .. math::
     C(\boldsymbol{\gamma}_0) = \frac{\Gamma(\sum_{k=1}^K \gamma_{0,k})}{\Gamma(\gamma_{0,1})\cdots\Gamma(\gamma_{0,K})}.
+
+Posterior Distribution
+----------------------
 
 The apporoximate posterior distribution in the :math:`t`-th iteration of a variational Bayesian method is as follows:
 
@@ -76,6 +87,9 @@ where the updating rules of the hyperparameters are as follows:
     &\qquad -\frac{1}{2} \left( \frac{\alpha_{n,k}^{(t+1)}}{\beta_{n,k}^{(t+1)}} \left(y_i - (\boldsymbol{\mu}_{n,k}^{(t+1)})^\top \boldsymbol{x}_i \right)^2 + \boldsymbol{x}_i^\top \boldsymbol{\Lambda}_{n,k}^{(t+1)} \boldsymbol{x}_i \right), \\
     r_{i,k}^{(t+1)} &= \frac{\rho_{i,k}^{(t+1)}}{\sum_{k=1}^K \rho_{i,k}^{(t+1)}}.
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is as follows:
 
 * :math:`\boldsymbol{x}_{n+1}\in \mathbb{R}^D`: a new data point
@@ -95,6 +109,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
     m_{\mathrm{p},k} &= \boldsymbol{x}_{n+1}^{\top} \boldsymbol{\mu}_{n,k}^{(t)}, \\
     \lambda_{\mathrm{p},k} &= \frac{\alpha_{n,k}^{(t)}}{\beta_{n,k}^{(t)}}\left(1+\boldsymbol{x}_{n+1}^{\top} \boldsymbol{\Lambda}_{n,k}^{(t)} \boldsymbol{x}_{n+1}\right)^{-1}, \\
     \nu_{\mathrm{p},k} &= 2 \alpha_{n,k}^{(t)}.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Classes
+-------
 '''
 from ._linearregressionmixture import GenModel
 from ._linearregressionmixture import LearnModel

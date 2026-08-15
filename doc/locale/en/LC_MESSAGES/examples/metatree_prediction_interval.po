@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-22 03:31+0900\n"
+"POT-Creation-Date: 2026-08-16 04:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../examples/metatree_prediction_interval.ipynb:9
 msgid ""
@@ -129,6 +129,34 @@ msgid ""
 "sample from the posterior predictive distribution. For details of the "
 "parameters of ``GenModel``, please see `this page "
 "<https://bayesml.github.io/BayesML/bayesml.metatree.html#bayesml.metatree.GenModel>`__."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:841
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:843
+msgid ""
+"If you found this notebook helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:844
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:846
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`__"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:848
+msgid "|Star on GitHub|"
+msgstr ""
+
+#: ../../examples/metatree_prediction_interval.ipynb:850
+msgid "Star on GitHub"
 msgstr ""
 
 #~ msgid ""

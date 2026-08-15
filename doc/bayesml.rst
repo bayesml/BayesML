@@ -1,5 +1,5 @@
-Bayesml packages
-================
+bayesml package
+===============
 
 Subpackages
 -----------
@@ -21,6 +21,7 @@ Subpackages
    bayesml.multivariate_normal
    bayesml.normal
    bayesml.poisson
+   bayesml.sparselinearregression
 
 Submodules
 ----------
