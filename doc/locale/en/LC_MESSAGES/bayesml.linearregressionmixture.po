@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-17 23:42+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,80 +17,84 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../bayesml.linearregressionmixture.rst:2
 msgid "bayesml.linearregressionmixture package"
 msgstr ""
 
-#: ../../bayesml.linearregressionmixture.rst:7
+#: ../../bayesml.linearregressionmixture.rst:5
 msgid "Module contents"
 msgstr ""
 
 #: bayesml.linearregressionmixture:1 of
 msgid ""
-"The mixture of linear regression model with the Gauss-Gamma prior "
-"distribution and the Dirichlet prior distribution."
+"This module provides the mixture of linear regression model with the "
+"normal-gamma prior distribution and the Dirichlet prior distribution."
 msgstr ""
 
-#: bayesml.linearregressionmixture:3 of
+#: bayesml.linearregressionmixture:6 of
+msgid "Stochastic Data Generative Model"
+msgstr ""
+
+#: bayesml.linearregressionmixture:8 of
 msgid "The stochastic data generative model is as follows:"
 msgstr ""
 
-#: bayesml.linearregressionmixture:5 of
+#: bayesml.linearregressionmixture:10 of
 #, python-brace-format
 msgid ":math:`K \\in \\mathbb{N}`: number of latent classes"
 msgstr ""
 
-#: bayesml.linearregressionmixture:6 of
+#: bayesml.linearregressionmixture:11 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{z} \\in \\{ 0, 1 \\}^K`: a one-hot vector "
 "representing the latent class (latent variable)"
 msgstr ""
 
-#: bayesml.linearregressionmixture:7 of
+#: bayesml.linearregressionmixture:12 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\pi} \\in [0, 1]^K`: a parameter for latent classes,"
 " (:math:`\\sum_{k=1}^K \\pi_k=1`)"
 msgstr ""
 
-#: bayesml.linearregressionmixture:8 of
+#: bayesml.linearregressionmixture:13 of
 #, python-brace-format
 msgid ":math:`D \\in \\mathbb{N}`: a dimension of data"
 msgstr ""
 
-#: bayesml.linearregressionmixture:9 of
+#: bayesml.linearregressionmixture:14 of
 #, python-brace-format
 msgid ":math:`y\\in\\mathbb{R}`: an objective variable"
 msgstr ""
 
-#: bayesml.linearregressionmixture:10 of
+#: bayesml.linearregressionmixture:15 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{x} \\in \\mathbb{R}^D`: a data point"
 msgstr ""
 
-#: bayesml.linearregressionmixture:11 of
+#: bayesml.linearregressionmixture:16 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{\\theta}_k\\in\\mathbb{R}^{D}`: a parameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:12 of
+#: bayesml.linearregressionmixture:17 of
 msgid ":math:`\\boldsymbol{\\theta} = \\{ \\boldsymbol{\\theta}_k \\}_{k=1}^K`"
 msgstr ""
 
-#: bayesml.linearregressionmixture:13 of
+#: bayesml.linearregressionmixture:18 of
 #, python-brace-format
 msgid ":math:`\\tau_k \\in \\mathbb{R}_{>0}` : a parameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:14 of
+#: bayesml.linearregressionmixture:19 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{\\tau} = \\{ \\tau_k \\}_{k=1}^K`"
 msgstr ""
 
-#: bayesml.linearregressionmixture:16 of
+#: bayesml.linearregressionmixture:21 of
 msgid ""
 "p(\\boldsymbol{z} | \\boldsymbol{\\pi}) &= "
 "\\mathrm{Cat}(\\boldsymbol{z}|\\boldsymbol{\\pi}) = \\prod_{k=1}^K "
@@ -104,42 +108,46 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.linearregressionmixture:21 of
+#: bayesml.linearregressionmixture:27 of
+msgid "Prior Distribution"
+msgstr ""
+
+#: bayesml.linearregressionmixture:29 of
 msgid "The prior distribution is as follows:"
 msgstr ""
 
-#: bayesml.linearregressionmixture:23 of
+#: bayesml.linearregressionmixture:31 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{\\mu}_0 \\in \\mathbb{R}^{D}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:24 of
+#: bayesml.linearregressionmixture:32 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\Lambda}_0 \\in \\mathbb{R}^{D\\times D}`: a "
 "hyperparameter (a positive definite matrix)"
 msgstr ""
 
-#: bayesml.linearregressionmixture:25 of
+#: bayesml.linearregressionmixture:33 of
 #, python-brace-format
 msgid ":math:`\\alpha_0 \\in \\mathbb{R}_{> 0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:26 of
+#: bayesml.linearregressionmixture:34 of
 #, python-brace-format
 msgid ":math:`\\beta_0\\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:27 of
+#: bayesml.linearregressionmixture:35 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{\\gamma}_0 \\in \\mathbb{R}_{>0}^K`: a hyper parameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:28 of
+#: bayesml.linearregressionmixture:36 of
 msgid ":math:`\\Gamma (\\cdot)`: the gamma function"
 msgstr ""
 
-#: bayesml.linearregressionmixture:30 of
+#: bayesml.linearregressionmixture:38 of
 msgid ""
 "p(\\boldsymbol{\\theta},\\boldsymbol{\\tau},\\boldsymbol{\\pi}) &= "
 "\\left\\{ \\prod_{k=1}^K "
@@ -159,25 +167,29 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.linearregressionmixture:35 of
+#: bayesml.linearregressionmixture:43 of
 #, python-brace-format
 msgid "where :math:`C(\\boldsymbol{\\gamma}_0)` are defined as follows:"
 msgstr ""
 
-#: bayesml.linearregressionmixture:37 of
+#: bayesml.linearregressionmixture:45 of
 msgid ""
 "C(\\boldsymbol{\\gamma}_0) = \\frac{\\Gamma(\\sum_{k=1}^K "
 "\\gamma_{0,k})}{\\Gamma(\\gamma_{0,1})\\cdots\\Gamma(\\gamma_{0,K})}.\n"
 "\n"
 msgstr ""
 
-#: bayesml.linearregressionmixture:40 of
+#: bayesml.linearregressionmixture:49 of
+msgid "Posterior Distribution"
+msgstr ""
+
+#: bayesml.linearregressionmixture:51 of
 msgid ""
 "The apporoximate posterior distribution in the :math:`t`-th iteration of "
 "a variational Bayesian method is as follows:"
 msgstr ""
 
-#: bayesml.linearregressionmixture:42 of
+#: bayesml.linearregressionmixture:53 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{X} = [\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots , "
@@ -185,7 +197,7 @@ msgid ""
 "explanatory variables"
 msgstr ""
 
-#: bayesml.linearregressionmixture:43 of
+#: bayesml.linearregressionmixture:54 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{z}^n = (\\boldsymbol{z}_1, \\boldsymbol{z}_2, \\dots "
@@ -193,7 +205,7 @@ msgid ""
 "given data"
 msgstr ""
 
-#: bayesml.linearregressionmixture:44 of
+#: bayesml.linearregressionmixture:55 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{r}_i^{(t)} = (r_{i,1}^{(t)}, r_{i,2}^{(t)}, \\dots , "
@@ -201,49 +213,49 @@ msgid ""
 "(:math:`\\sum_{k=1}^K r_{i,k}^{(t)} = 1`)"
 msgstr ""
 
-#: bayesml.linearregressionmixture:45 of
+#: bayesml.linearregressionmixture:56 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{y} = [y_1, y_2, \\dots , y_n]^\\top \\in "
 "\\mathbb{R}^n`: given objective variables"
 msgstr ""
 
-#: bayesml.linearregressionmixture:46 of
+#: bayesml.linearregressionmixture:57 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\mu}_{n,k}^{(t)} \\in \\mathbb{R}^{D}`: a "
 "hyperparameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:47 of
+#: bayesml.linearregressionmixture:58 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\Lambda}_{n,k}^{(t)} \\in \\mathbb{R}^{D\\times D}`:"
 " a hyperparameter (a positive definite matrix)"
 msgstr ""
 
-#: bayesml.linearregressionmixture:48 of
+#: bayesml.linearregressionmixture:59 of
 #, python-brace-format
 msgid ":math:`\\alpha_{n,k}^{(t)} \\in \\mathbb{R}_{> 0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:49 of
+#: bayesml.linearregressionmixture:60 of
 #, python-brace-format
 msgid ":math:`\\beta_{n,k}^{(t)} \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:50 of
+#: bayesml.linearregressionmixture:61 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\gamma}_n^{(t)} \\in \\mathbb{R}_{>0}^K`: a hyper "
 "parameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:51 of
+#: bayesml.linearregressionmixture:62 of
 msgid ":math:`\\psi (\\cdot)`: the digamma function"
 msgstr ""
 
-#: bayesml.linearregressionmixture:53 of
+#: bayesml.linearregressionmixture:64 of
 msgid ""
 "&q(\\boldsymbol{z}^n, "
 "\\boldsymbol{\\theta},\\boldsymbol{\\tau},\\boldsymbol{\\pi}) \\nonumber "
@@ -272,11 +284,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.linearregressionmixture:60 of
+#: bayesml.linearregressionmixture:71 of
 msgid "where the updating rules of the hyperparameters are as follows:"
 msgstr ""
 
-#: bayesml.linearregressionmixture:62 of
+#: bayesml.linearregressionmixture:73 of
 msgid ""
 "N_{k}^{(t)} &= \\sum_{i=1}^{n} r_{i,k}^{(t)}, \\\\\n"
 "\\boldsymbol{R}_k^{(t)} &= \\mathrm{diag} (r_{1,k}^{(t)}, r_{2,k}^{(t)}, "
@@ -311,33 +323,37 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.linearregressionmixture:75 of
+#: bayesml.linearregressionmixture:87 of
+msgid "Predictive Distribution"
+msgstr ""
+
+#: bayesml.linearregressionmixture:89 of
 msgid "The predictive distribution is as follows:"
 msgstr ""
 
-#: bayesml.linearregressionmixture:77 of
+#: bayesml.linearregressionmixture:91 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{x}_{n+1}\\in \\mathbb{R}^D`: a new data point"
 msgstr ""
 
-#: bayesml.linearregressionmixture:78 of
+#: bayesml.linearregressionmixture:92 of
 #, python-brace-format
 msgid ":math:`y_{n+1}\\in \\mathbb{R}`: a new objective variable"
 msgstr ""
 
-#: bayesml.linearregressionmixture:79 of
+#: bayesml.linearregressionmixture:93 of
 msgid ":math:`m_{\\mathrm{p},k}\\in \\mathbb{R}`: a parameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:80 of
+#: bayesml.linearregressionmixture:94 of
 msgid ":math:`\\lambda_{\\mathrm{p},k}\\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:81 of
+#: bayesml.linearregressionmixture:95 of
 msgid ":math:`\\nu_{\\mathrm{p},k}\\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ""
 
-#: bayesml.linearregressionmixture:83 of
+#: bayesml.linearregressionmixture:97 of
 msgid ""
 "&p(y_{n+1} | \\boldsymbol{X}, \\boldsymbol{y}, \\boldsymbol{x}_{n+1} ) "
 "\\nonumber \\\\\n"
@@ -354,13 +370,13 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.linearregressionmixture:88 of
+#: bayesml.linearregressionmixture:102 of
 msgid ""
 "where the parameters are obtained from the hyperparameters of the "
 "posterior distribution as follows."
 msgstr ""
 
-#: bayesml.linearregressionmixture:90 of
+#: bayesml.linearregressionmixture:104 of
 msgid ""
 "m_{\\mathrm{p},k} &= \\boldsymbol{x}_{n+1}^{\\top} "
 "\\boldsymbol{\\mu}_{n,k}^{(t)}, \\\\\n"
@@ -372,8 +388,32 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.linearregressionmixture._linearregressionmixture.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.linearregressionmixture:110 of
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`_"
+msgstr ""
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr ""
+
+#: bayesml.linearregressionmixture:115 of
+msgid "Classes"
 msgstr ""
 
 #: bayesml.linearregressionmixture._linearregressionmixture.GenModel:2 of
@@ -1044,12 +1084,6 @@ msgstr ""
 #: bayesml.linearregressionmixture._linearregressionmixture.GenModel.visualize_model:48
 #: of
 msgid "taus: [1. 1.]"
-msgstr ""
-
-#: bayesml.linearregressionmixture._linearregressionmixture.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.linearregressionmixture._linearregressionmixture.LearnModel:2 of
@@ -1970,5 +2004,23 @@ msgstr ""
 #~ "\\frac{\\rho_{i,k}^{(t+1)}}{\\sum_{k=1}^K \\rho_{i,k}^{(t+1)}}."
 #~ "\n"
 #~ "\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The mixture of linear regression model"
+#~ " with the Gauss-Gamma prior "
+#~ "distribution and the Dirichlet prior "
+#~ "distribution."
+#~ msgstr ""
+
+#~ msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Bases: :py:class:`~bayesml.base.Posterior`, "
+#~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
+
+#~ msgid "Class and Methods"
 #~ msgstr ""
 

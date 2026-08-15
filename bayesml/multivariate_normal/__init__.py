@@ -4,7 +4,12 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
-The multivariate normal distribution with normal-wishart prior distribution.
+This module provides the multivariate normal distribution with Gauss-Wishart prior distribution.
+
+.. image:: ./images/multivariate_normal_example.png
+
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -21,6 +26,9 @@ The stochastic data generative model is as follows:
 .. math::
     \mathbb{E} [\boldsymbol{x} | \boldsymbol{\mu}, \boldsymbol{\Lambda}] &= \boldsymbol{\mu}, \\
     \mathrm{Cov} [\boldsymbol{x} | \boldsymbol{\mu}, \boldsymbol{\Lambda}] &= \boldsymbol{\Lambda}^{-1}.
+
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -45,6 +53,9 @@ where :math:`B(\boldsymbol{W}_0, \nu_0)` is defined as follows:
 
 .. math::
     B(\boldsymbol{W}_0, \nu_0) = | \boldsymbol{W}_0 |^{-\nu_0 / 2} \left( 2^{\nu_0 D / 2} \pi^{D(D-1)/4} \prod_{i=1}^D \Gamma \left( \frac{\nu_0 + 1 - i}{2} \right) \right)^{-1}.
+
+Posterior Distribution
+----------------------
 
 The posterior distribution is as follows:
 
@@ -73,6 +84,9 @@ where the updating rule of the hyperparameters is
     \boldsymbol{W}_n^{-1} &= \boldsymbol{W}_0^{-1} + \sum_{i=1}^{n}(\boldsymbol{x}_i-\bar{\boldsymbol{x}})(\boldsymbol{x}_i-\bar{\boldsymbol{x}})^\top + \frac{\kappa_0 n}{\kappa_0+n}(\bar{\boldsymbol{x}}-\boldsymbol{\mu}_0)(\bar{\boldsymbol{x}}-\boldsymbol{\mu}_0)^\top, \\
     \nu_n &= \nu_0 + n.\\
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is as follows:
 
 * :math:`\boldsymbol{x}_{n+1} \in \mathbb{R}^D`: a new data point
@@ -95,6 +109,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
     \boldsymbol{\mu}_\mathrm{p} &= \boldsymbol{m}_n, \\
     \boldsymbol{\Lambda}_\mathrm{p} &= \frac{\kappa_n (\nu_n - D + 1)}{\kappa_n + 1} \boldsymbol{W}_n, \\
     \nu_\mathrm{p} &= \nu_n - D + 1.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Classes
+-------
 """
 
 from ._multivariatenormal import GenModel

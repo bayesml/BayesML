@@ -4,7 +4,12 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
-The categorical distribution with the dirichlet prior distribution
+This module provides the categorical distribution with the Dirichlet prior distribution.
+
+.. image:: ./images/categorical_example.png
+
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -20,6 +25,8 @@ The stochastic data generative model is as follows:
     \mathbb{V}[x_k | \boldsymbol{\theta}] &= \theta_k (1 - \theta_k), \\
     \mathrm{Cov}[x_k, x_{k'} | \boldsymbol{\theta}] &= -\theta_k \theta_{k'}.
 
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -35,6 +42,9 @@ The prior distribution is as follows:
     \mathbb{E}[\boldsymbol{\theta}] &= \frac{\boldsymbol{\alpha}_0}{\tilde{\alpha}_0}, \\
     \mathbb{V}[\theta_k] &= \frac{1}{\tilde{\alpha}_0 + 1} \frac{\alpha_{0,k}}{\tilde{\alpha}_0} \left(1 - \frac{\alpha_{0,k}}{\tilde{\alpha}_0} \right), \\
     \mathrm{Cov}[\theta_k, \theta_{k'}] &= - \frac{1}{\tilde{\alpha}_0 + 1} \frac{\alpha_{0,k}}{\tilde{\alpha}_0} \frac{\alpha_{0,k'}}{\tilde{\alpha}_0}.
+
+Posterior Distribution
+----------------------
 
 The posterior distribution is as follows:
 
@@ -56,6 +66,9 @@ where the updating rule of the hyperparameters is as follows.
 .. math::
     \alpha_{n,k} = \alpha_{0,k} + \sum_{i=1}^n x_{i,k}, \quad (k \in \{ 1, 2, \dots , d \}).
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is as follows:
 
 * :math:`\boldsymbol{x}_{n+1} \in \{ 0, 1\}^d`: a new data point
@@ -73,6 +86,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
 
 .. math::
     \theta_{\mathrm{p},k} = \frac{\alpha_{n,k}}{\sum_{k=1}^d \alpha_{n,k}}, \quad (k \in \{ 1, 2, \dots , d \}).
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Classes
+-------
 """
 
 from ._categorical import GenModel

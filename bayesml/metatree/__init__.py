@@ -2,6 +2,11 @@
 # Shota Saito <shota.s@gunma-u.ac.jp>
 # Yuta Nakahara <y.nakahara@waseda.jp>
 r"""
+This module provides a Bayesian decision tree model with a prior distribution.
+
+.. image:: ./images/metatree_example1.png
+.. image:: ./images/metatree_example2.png
+
 Stochastic Data Generative Model
 --------------------------------
 
@@ -132,6 +137,9 @@ Approximation by MTMCMC
 In MTMCMC method, we generate a sample :math:`\boldsymbol{k}` from the posterior distribution :math:`p(\boldsymbol{k} | \boldsymbol{x}^n, y^n)` by a MCMC method, and the posterior distribution is approximated by the empirical distribution of this sample.
 Let :math:`\{\boldsymbol{k}^{(t)}\}_{t=1}^{t_\mathrm{end}}` be the obtained sample. 
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is approximated as follows:
 
 .. math::
@@ -148,6 +156,14 @@ References
 * Dobashi, N.; Saito, S.; Nakahara, Y.; Matsushima, T. Meta-Tree Random Forest: Probabilistic Data-Generative Model and Bayes Optimal Prediction. *Entropy* 2021, 23, 768. https://doi.org/10.3390/e23060768
 * Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. https://doi.org/10.3390/e24030328
 * Nakahara, Y.; Saito, S.; Ichijo, N.; Kazama, K.; Matsushima, T. Bayesian Decision Theory on Decision Trees: Uncertainty Evaluation and Interpretability. *Proceedings of The 28th International Conference on Artificial Intelligence and Statistics*, in *Proceedings of Machine Learning Research* 2025, 258:1045-1053 Available from https://proceedings.mlr.press/v258/nakahara25a.html.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Classes
+-------
 """
 from ._metatree import GenModel
 from ._metatree import LearnModel

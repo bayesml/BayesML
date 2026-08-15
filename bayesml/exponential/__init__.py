@@ -2,7 +2,12 @@
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 # Yuta Nakahara <y.nakahara@waseda.jp>
 r"""
-The exponential distribution with the gamma prior distribution.
+This module provides the exponential distribution with the gamma prior distribution.
+
+.. image:: ./images/exponential_example.png
+
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -16,6 +21,8 @@ The stochastic data generative model is as follows:
     \mathbb{E}[x] &= \frac{1}{\lambda}, \\
     \mathbb{V}[x] &= \frac{1}{\lambda^2}.
 
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -30,6 +37,8 @@ The prior distribution is as follows:
     \mathbb{E}[\lambda] &= \frac{\alpha_0}{\beta_0}, \\
     \mathbb{V}[\lambda] &= \frac{\alpha_0}{\beta_0^2}.
 
+Posterior Distribution
+----------------------
 
 The posterior distribution is as follows:
 
@@ -50,6 +59,8 @@ where the updating rule of the hyperparameters is
     \alpha_n &= \alpha_0 + n,\\
     \beta_n &= \beta_0 + \sum_{i=1}^n x_i.
 
+Predictive Distribution
+-----------------------
 
 The predictive distribution is as follows:
 
@@ -78,6 +89,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
 .. math::
     &\kappa_\mathrm{p} = \alpha_n, \\
     &\lambda_\mathrm{p} = \beta_n.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Classes
+-------
 """
 from ._exponential import GenModel
 from ._exponential import LearnModel

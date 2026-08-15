@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bayesml"
+version = "0.5.0"
+description = "Your First Library for Bayesian Machine Learning"
+authors = [
+    { name = "Yuta Nakahara et al.", email = "y.nakahara@waseda.jp" },
+]
+readme = { file = "DESCRIPTION.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+license = "BSD-3-Clause"
+license-files = ["LICENSE.txt"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.20",
+    "scipy>=1.7",
+    "matplotlib>=3.5",
+    "scikit-learn>=1.1",
+]
+
+[project.urls]
+Homepage = "https://bayesml.github.io/BayesML/"
+
+[tool.setuptools.packages.find]
+include = ["bayesml*"]
+
+[dependency-groups]
+docs = [
+    "myst-parser>=5.1.0",
+    "nbsphinx>=0.9.8",
+    "notebook>=7.6.1",
+    "numpydoc>=1.10.0",
+    "sphinx>=9.1.0",
+    "sphinx-book-theme>=1.4.0",
+    "sphinx-favicon>=1.1.0",
+    "sphinx-intl>=2.3.2",
+    "sphinxext-opengraph>=0.13.0",
+]
+
+[tool.uv]
+default-groups = ["docs"]
+environments = ["python_full_version >= '3.14'"]

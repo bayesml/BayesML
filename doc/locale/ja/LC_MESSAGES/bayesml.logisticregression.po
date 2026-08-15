@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-17 22:32+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -17,29 +17,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../bayesml.logisticregression.rst:2
 msgid "bayesml.logisticregression package"
 msgstr ""
 
-#: ../../bayesml.logisticregression.rst:7
+#: ../../bayesml.logisticregression.rst:5
 msgid "Module contents"
 msgstr ""
 
 #: bayesml.logisticregression:1 of
-msgid "The logistic regression model with the Gaussian prior distribution."
-msgstr ""
-
-#: bayesml.logisticregression:3 of
-msgid "The stochastic data generative model is as follows:"
-msgstr ""
-
-#: bayesml.logisticregression:5 of
-msgid ":math:`d \\in \\mathbb N`: a dimension"
+msgid ""
+"This module provides the logistic regression model with the Gaussian "
+"prior distribution."
 msgstr ""
 
 #: bayesml.logisticregression:6 of
+msgid "Stochastic Data Generative Model"
+msgstr ""
+
+#: bayesml.logisticregression:8 of
+msgid "The stochastic data generative model is as follows:"
+msgstr ""
+
+#: bayesml.logisticregression:10 of
+msgid ":math:`d \\in \\mathbb N`: a dimension"
+msgstr ""
+
+#: bayesml.logisticregression:11 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{x} \\in \\mathbb{R}^d`: an explanatory variable. If "
@@ -47,17 +53,17 @@ msgid ""
 "elements of :math:`\\boldsymbol{x}`."
 msgstr ""
 
-#: bayesml.logisticregression:7 of
+#: bayesml.logisticregression:12 of
 #, python-brace-format
 msgid ":math:`y\\in\\{ 0, 1\\}`: an objective variable"
 msgstr ""
 
-#: bayesml.logisticregression:8 of
+#: bayesml.logisticregression:13 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{w}\\in\\mathbb{R}^{d}`: a parameter"
 msgstr ""
 
-#: bayesml.logisticregression:10 of
+#: bayesml.logisticregression:15 of
 msgid ""
 "p(y|\\boldsymbol{x},\\boldsymbol{w}) = \\sigma( \\boldsymbol{w}^\\top "
 "\\boldsymbol{x} )^y \\left\\{ 1 - \\sigma( \\boldsymbol{w}^\\top "
@@ -65,36 +71,40 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.logisticregression:13 of
+#: bayesml.logisticregression:18 of
 msgid ""
 "where :math:`\\sigma(\\cdot)` is defined as follows (called a sigmoid "
 "function):"
 msgstr ""
 
-#: bayesml.logisticregression:15 of
+#: bayesml.logisticregression:20 of
 #, python-brace-format
 msgid ""
 "\\sigma(a) = \\frac{1}{1+\\exp(-a)}.\n"
 "\n"
 msgstr ""
 
-#: bayesml.logisticregression:18 of
+#: bayesml.logisticregression:24 of
+msgid "Prior Distribution"
+msgstr ""
+
+#: bayesml.logisticregression:26 of
 msgid "The prior distribution is as follows:"
 msgstr ""
 
-#: bayesml.logisticregression:20 of
+#: bayesml.logisticregression:28 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{\\mu}_0 \\in \\mathbb{R}^d`: a hyperparameter"
 msgstr ""
 
-#: bayesml.logisticregression:21 of
+#: bayesml.logisticregression:29 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\Lambda}_0 \\in \\mathbb{R}^{d\\times d}`: a "
 "hyperparameter (a positive definite matrix)"
 msgstr ""
 
-#: bayesml.logisticregression:23 of
+#: bayesml.logisticregression:31 of
 msgid ""
 "p(\\boldsymbol{w}) &= \\mathcal{N}(\\boldsymbol{w}|\\boldsymbol{\\mu}_0, "
 "\\boldsymbol{\\Lambda}_0^{-1})\\\\\n"
@@ -105,41 +115,45 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.logisticregression:27 of
+#: bayesml.logisticregression:36 of
+msgid "Posterior Distribution"
+msgstr ""
+
+#: bayesml.logisticregression:38 of
 msgid ""
 "The apporoximate posterior distribution in the :math:`t`-th iteration of "
 "a variational Bayesian method is as follows:"
 msgstr ""
 
-#: bayesml.logisticregression:29 of
+#: bayesml.logisticregression:40 of
 msgid ":math:`n \\in \\mathbb N`: a sample size"
 msgstr ""
 
-#: bayesml.logisticregression:30 of
+#: bayesml.logisticregression:41 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
 ", \\boldsymbol{x}_n) \\in \\mathbb{R}^{n \\times d}`"
 msgstr ""
 
-#: bayesml.logisticregression:31 of
+#: bayesml.logisticregression:42 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{y}^n = (y_1, y_2, \\dots , y_n) \\in \\{0,1\\}^n`"
 msgstr ""
 
-#: bayesml.logisticregression:32 of
+#: bayesml.logisticregression:43 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{\\mu}_n^{(t)}\\in \\mathbb{R}^d`: a hyperparameter"
 msgstr ""
 
-#: bayesml.logisticregression:33 of
+#: bayesml.logisticregression:44 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\Lambda}_n^{(t)} \\in \\mathbb{R}^{d\\times d}`: a "
 "hyperparameter (a positive definite matrix)"
 msgstr ""
 
-#: bayesml.logisticregression:35 of
+#: bayesml.logisticregression:46 of
 msgid ""
 "q(\\boldsymbol{w}) &= "
 "\\mathcal{N}(\\boldsymbol{w}|\\boldsymbol{\\mu}_n^{(t)}, "
@@ -151,11 +165,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.logisticregression:39 of
+#: bayesml.logisticregression:50 of
 msgid "where the updating rules of the hyperparameters are as follows:"
 msgstr ""
 
-#: bayesml.logisticregression:41 of
+#: bayesml.logisticregression:52 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\xi}^{(t)} = (\\xi_{1}^{(t)}, \\xi_{2}^{(t)}, "
@@ -163,7 +177,7 @@ msgid ""
 "parameter"
 msgstr ""
 
-#: bayesml.logisticregression:43 of
+#: bayesml.logisticregression:54 of
 msgid ""
 "\\boldsymbol{\\Lambda}_n^{(t+1)} &= \\boldsymbol{\\Lambda}_0 + 2 "
 "\\sum_{i=1}^{n} \\lambda(\\xi_i^{(t)}) \\boldsymbol{x}_i "
@@ -179,32 +193,36 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.logisticregression:48 of
+#: bayesml.logisticregression:59 of
 msgid "where :math:`\\lambda(\\cdot)` is defined as follows:"
 msgstr ""
 
-#: bayesml.logisticregression:50 of
+#: bayesml.logisticregression:61 of
 msgid ""
 "\\lambda(\\xi) = \\frac{1}{2\\xi} \\left\\{ \\sigma(\\xi) - \\frac{1}{2} "
 "\\right\\}.\n"
 "\n"
 msgstr ""
 
-#: bayesml.logisticregression:53 of
+#: bayesml.logisticregression:65 of
+msgid "Predictive Distribution"
+msgstr ""
+
+#: bayesml.logisticregression:67 of
 msgid "The approximate predictive distribution is as follows:"
 msgstr ""
 
-#: bayesml.logisticregression:55 of
+#: bayesml.logisticregression:69 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{x}_{n+1}\\in \\mathbb{R}^d`: a new data point"
 msgstr ""
 
-#: bayesml.logisticregression:56 of
+#: bayesml.logisticregression:70 of
 #, python-brace-format
 msgid ":math:`y_{n+1}\\in \\{ 0, 1\\}`: a new objective variable"
 msgstr ""
 
-#: bayesml.logisticregression:58 of
+#: bayesml.logisticregression:72 of
 msgid ""
 "p(y_{n+1} | \\boldsymbol{x}^n, \\boldsymbol{y}^n, \\boldsymbol{x}_{n+1} )"
 " = \\sigma \\left( \\kappa(\\sigma_\\mathrm{p}^2) \\mu_\\mathrm{p} "
@@ -213,7 +231,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.logisticregression:61 of
+#: bayesml.logisticregression:75 of
 #, python-brace-format
 msgid ""
 "where :math:`\\sigma_\\mathrm{p}^2`, :math:`\\mu_\\mathrm{p}` are "
@@ -221,7 +239,7 @@ msgid ""
 "distribution as follows:"
 msgstr ""
 
-#: bayesml.logisticregression:63 of
+#: bayesml.logisticregression:77 of
 #, python-brace-format
 msgid ""
 "\\sigma_\\mathrm{p}^2 &= \\boldsymbol{x}_{n+1}^\\top "
@@ -231,19 +249,43 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.logisticregression:67 of
+#: bayesml.logisticregression:81 of
 msgid "and :math:`\\kappa(\\cdot)` is defined as"
 msgstr ""
 
-#: bayesml.logisticregression:69 of
+#: bayesml.logisticregression:83 of
 #, python-brace-format
 msgid ""
 "\\kappa(\\sigma^2) = (1 + \\pi \\sigma^2 / 8)^{-1/2}.\n"
 "\n"
 msgstr ""
 
-#: bayesml.logisticregression._logisticregression.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.logisticregression:87 of
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`_"
+msgstr ""
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr ""
+
+#: bayesml.logisticregression:92 of
+msgid "Classes"
 msgstr ""
 
 #: bayesml.logisticregression._logisticregression.GenModel:2 of
@@ -734,12 +776,6 @@ msgstr ""
 #: bayesml.logisticregression._logisticregression.LearnModel.visualize_posterior:19
 #: of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.logisticregression._logisticregression.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.logisticregression._logisticregression.LearnModel:2 of
@@ -1303,4 +1339,18 @@ msgid ""
 "The predicted values under the 0-1 loss function.  The size of the "
 "predicted values is the same as the sample size of x."
 msgstr ""
+
+#~ msgid "The logistic regression model with the Gaussian prior distribution."
+#~ msgstr ""
+
+#~ msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Bases: :py:class:`~bayesml.base.Posterior`, "
+#~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
+
+#~ msgid "Class and Methods"
+#~ msgstr ""
 

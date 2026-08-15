@@ -2,7 +2,12 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
-The linear autoregressive model with the normal-gamma prior distribution.
+This module provides the linear autoregressive model with the normal-gamma prior distribution.
+
+.. image:: ./images/autoregressive_example.png
+
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -21,6 +26,8 @@ The stochastic data generative model is as follows:
     &\mathbb{E}[ x_n | \boldsymbol{x}'_{n-1},\boldsymbol{\theta},\tau] = \boldsymbol{\theta}^{\top} \boldsymbol{x}'_{n-1}, \\
     &\mathbb{V}[ x_n | \boldsymbol{x}'_{n-1},\boldsymbol{\theta},\tau ] = \tau^{-1}.
 
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -43,6 +50,9 @@ The prior distribution is as follows:
     \mathrm{Cov}[\boldsymbol{\theta}] &= \frac{\beta_0}{\alpha_0 - 1} \boldsymbol{\Lambda}_0^{-1} & (\alpha_0 > 1), \\
     \mathbb{E}[\tau] &= \frac{\alpha_0}{\beta_0}, \\
     \mathbb{V}[\tau] &= \frac{\alpha_0}{\beta_0^2}.
+
+Posterior Distribution
+----------------------
 
 The posterior distribution is as follows:
 
@@ -75,6 +85,9 @@ where the updating rules of the hyperparameters are
     \beta_n &= \beta_0 + \frac{1}{2} \left( -\boldsymbol{\mu}_n^\top \boldsymbol{\Lambda}_n \boldsymbol{\mu}_n 
     + (x^n)^\top x^n + \boldsymbol{\mu}_0^\top \boldsymbol{\Lambda}_0 \boldsymbol{\mu}_0 \right).
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is as follows:
 
 * :math:`x_{n+1} \in \mathbb{R}`: a new data point
@@ -98,6 +111,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
     m_\mathrm{p} &= \boldsymbol{\mu}_n^\top \boldsymbol{x}'_n,\\
     \lambda_\mathrm{p} &= \frac{\alpha_n}{\beta_n} (1 + (\boldsymbol{x}'_n)^\top \boldsymbol{\Lambda}_n^{-1} \boldsymbol{x}'_n)^{-1},\\
     \nu_\mathrm{p} &= 2 \alpha_n.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Classes
+-------
 """
 
 from ._autoregressive import GenModel

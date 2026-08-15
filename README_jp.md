@@ -11,7 +11,7 @@ Yuta Nakahara <y.nakahara@waseda.jp>
 
 ---
 
-<img src="./doc/logos/BayesML_logo.png" width="600">
+<img src="./doc/logos/BayesML_logo.svg" width="600">
 
 # Your First Library for Bayesian Machine Learning
 
@@ -23,7 +23,7 @@ BayesMLは，ベイズ統計学やベイズ決定理論に基づく機械学習�
   * 定義済みのベイズ統計モデルをインポートするだけで利用できます．PyMCやStanのようにモデルを自分で定義する必要はありません．
 * **ベイズ決定理論に基づくAPI:**
   * ライブラリのAPIがベイズ決定理論に基づく意思決定の構造と対応しています．ベイズ決定理論は，パラメータ推定や新規データの予測など，幅広い意思決定を統一的に取り扱うためのフレームワークです．そのため，BayesMLでは，scikit-learnなどで採用されているfit-predict型のAPIよりも幅広い意思決定を直感的な操作で実現できます．（多くのモデルにはfit-predict関数も実装されています．）
-* **モデル可視化関数:**
+* **モデル可視化機能:**
   * 2~3次元空間上で，データ生成確率モデル，生成された人工データ，学習された事後分布を可視化するメソッドが全てのパッケージに備わっています．そのため，人工データの生成と学習を通じて確率モデル，アルゴリズムの特性を効果的に把握することができます．
 * **共役事前分布を利用した高速アルゴリズム:**
   * 学習アルゴリズムの多くはデータ生成確率モデルと事前分布の共役性を効果的に用いた厳密計算法や変分ベイズ法を採用しているため，汎用的なMCMC法と比べて非常に高速で，オンライン学習にも適しています．一部のアルゴリズムではMCMC法を採用していますが，その場合も共役性を活かしてモデル毎に専用開発されたMCMC法を採用しています．
@@ -240,6 +240,7 @@ print(f"y_new: {y_new}")
 * [指数モデル](https://bayesml.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
 * [混合正規モデル](https://bayesml.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
 * [線形回帰モデル](https://bayesml.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
+* [スパース線形回帰モデル](https://bayesml.github.io/BayesML/bayesml.sparselinearregression.html "BayesML Sparse Lenear Regression Model")
 * [ロジスティック回帰モデル](https://bayesml.github.io/BayesML/bayesml.logisticregression.html "BayesML Logistic Regression Model")
 * [混合線形回帰モデル](https://bayesml.github.io/BayesML/bayesml.linearregressionmixture.html "BayesML Lenear Regression Mixture Model")
 * [メタツリーモデル](https://bayesml.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
@@ -262,7 +263,7 @@ BayesMLへのコントリビューションを考えてくださってありが�
 ```text
 Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
 S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
-Python package version 0.4.1, 2026.
+Python package version 0.5.0, 2026.
 [Online] https://github.com/bayesml/BayesML
 ```
 
@@ -274,8 +275,17 @@ BibTeX
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
   title = {{BayesML}},
-  howpublished = {Python package version 0.4.1},
+  howpublished = {Python package version 0.5.0},
   note = {\url{https://github.com/bayesml/BayesML}},
   year = {2026}
 }
 ```
+
+## GitHubスターのお願い
+
+もしこのライブラリが参考になったら，GitHubリポジトリにスターをいただけると開発の励みになります．  
+以下のリンクからリポジトリを開いて右上の☆Starを押してください．
+
+**[リポジトリを開いて右上の☆Starを押す！](https://github.com/bayesml/BayesML)**
+
+[![Star on GitHub](https://img.shields.io/github/stars/bayesml/BayesML?style=social)](https://github.com/bayesml/BayesML)

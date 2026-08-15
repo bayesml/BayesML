@@ -1,0 +1,1534 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="_static/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="_static/favicon.svg" sizes="any" type="image/svg+xml"><meta property="og:title" content="bayesml.sparselinearregression package" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bayesml.github.io/BayesML/bayesml.sparselinearregression.html" />
+<meta property="og:site_name" content="BayesML" />
+<meta property="og:description" content="Module contents: This module provides the sparse linear regression model with the Laplace prior distribution (represented as a Gaussian scale mixture). Stochastic Data Generative Model: The stochas..." />
+<meta property="og:image" content="https://bayesml.github.io/BayesML/en/_static/BayesML_logo_ogp.png" />
+<meta property="og:image:alt" content="BayesML" />
+<meta name="description" content="Module contents: This module provides the sparse linear regression model with the Laplace prior distribution (represented as a Gaussian scale mixture). Stochastic Data Generative Model: The stochas..." />
+
+    <title>bayesml.sparselinearregression package &#8212; BayesML</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ad100702" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="_static/documentation_options.js?v=e4e9a439"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-59F6KL8C5D"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-59F6KL8C5D');
+            </script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bayesml.sparselinearregression';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="bayesml.poisson package" href="bayesml.poisson.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html'>here</a>!</div>
+</aside>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BayesML_logo.svg" class="logo__image only-light" alt="BayesML - Home"/>
+    <img src="_static/BayesML_logo_reverse.svg" class="logo__image only-dark pst-js-only" alt="BayesML - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><div style="text-align:center">
+  <span><i class="fas fa-globe"></i> Language:</span>
+  <a href="../en/bayesml.sparselinearregression.html" class="language-link active" lang="en">English</a> / 
+  <a href="../ja/bayesml.sparselinearregression.html" class="language-link" lang="ja">日本語</a>
+</div></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesml.html">bayesml package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bayesml.autoregressive.html">bayesml.autoregressive package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.bernoulli.html">bayesml.bernoulli package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.categorical.html">bayesml.categorical package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.contexttree.html">bayesml.contexttree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.exponential.html">bayesml.exponential package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.gaussianmixture.html">bayesml.gaussianmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.hiddenmarkovnormal.html">bayesml.hiddenmarkovnormal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregression.html">bayesml.linearregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.linearregressionmixture.html">bayesml.linearregressionmixture package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.logisticregression.html">bayesml.logisticregression package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.metatree.html">bayesml.metatree package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.multivariate_normal.html">bayesml.multivariate_normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.normal.html">bayesml.normal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesml.poisson.html">bayesml.poisson package</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesml.sparselinearregression package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/metatree_prediction_interval.html">Prediction interval calculation by <code class="docutils literal notranslate"><span class="pre">bayesml.metatree</span></code> (accepted at AISTATS 2025)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">BayesML Developers</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/bayesml/BayesML" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/bayesml.sparselinearregression.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>bayesml.sparselinearregression package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.sparselinearregression">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-data-generative-model">Stochastic Data Generative Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-distribution">Prior Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-distribution">Posterior Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution">Predictive Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#star-us-on-github">Star Us on GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.get_constants"><code class="docutils literal notranslate"><span class="pre">GenModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.set_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.get_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.gen_params"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.set_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.get_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.gen_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.save_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.save_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.visualize_model"><code class="docutils literal notranslate"><span class="pre">GenModel.visualize_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel"><code class="docutils literal notranslate"><span class="pre">LearnModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.get_constants"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.set_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.get_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.reset_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.reset_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.overwrite_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.overwrite_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.set_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.get_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.update_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.update_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.estimate_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.visualize_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.visualize_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.get_p_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_p_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.calc_pred_dist"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.make_prediction"><code class="docutils literal notranslate"><span class="pre">LearnModel.make_prediction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.pred_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.pred_and_update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.fit"><code class="docutils literal notranslate"><span class="pre">LearnModel.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.predict"><code class="docutils literal notranslate"><span class="pre">LearnModel.predict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="bayesml-sparselinearregression-package">
+<h1>bayesml.sparselinearregression package<a class="headerlink" href="#bayesml-sparselinearregression-package" title="Link to this heading">#</a></h1>
+<section id="module-bayesml.sparselinearregression">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-bayesml.sparselinearregression" title="Link to this heading">#</a></h2>
+<p>This module provides the sparse linear regression model with the Laplace prior distribution (represented as a Gaussian scale mixture).</p>
+<img alt="_images/sparselinearregression_example.png" src="_images/sparselinearregression_example.png" />
+<section id="stochastic-data-generative-model">
+<h3>Stochastic Data Generative Model<a class="headerlink" href="#stochastic-data-generative-model" title="Link to this heading">#</a></h3>
+<p>The stochastic data generative model is as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(d \in \mathbb{N}\)</span>: a dimension of explanatory variables</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{x} \in \mathbb{R}^d\)</span>: an explanatory variable. If you consider an intercept term, it should be included as one of the elements of <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y \in \mathbb{R}\)</span>: an objective variable</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\theta} \in \mathbb{R}^d\)</span>: a regression coefficient vector</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau \in \mathbb{R}_{&gt;0}\)</span>: a precision parameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{v} = (v_1, \ldots, v_d)^\top \in \mathbb{R}_{&gt;0}^d\)</span>: latent scale variables</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(y | \boldsymbol{x}, \boldsymbol{\theta}, \tau)
+&amp;= \mathcal{N}(y | \boldsymbol{x}^{\top}\boldsymbol{\theta}, \tau^{-1}) \\
+&amp;= \sqrt{\frac{\tau}{2\pi}}
+\exp\left\{
+    -\frac{\tau}{2}(y-\boldsymbol{x}^{\top}\boldsymbol{\theta})^2
+\right\}.\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbb{E}[y | \boldsymbol{x}, \boldsymbol{\theta}, \tau] &amp;= \boldsymbol{x}^{\top}\boldsymbol{\theta}, \\
+\mathbb{V}[y | \boldsymbol{x}, \boldsymbol{\theta}, \tau] &amp;= \tau^{-1}.\end{split}\]</div>
+</section>
+<section id="prior-distribution">
+<h3>Prior Distribution<a class="headerlink" href="#prior-distribution" title="Link to this heading">#</a></h3>
+<p>The prior distribution is as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\lambda}_0 = (\lambda_{0,1}, \ldots, \lambda_{0,d})^\top \in \mathbb{R}_{&gt;0}^d\)</span>: a hyperparameter vector (Laplace regularization strength for each dimension)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha_0 \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_0 \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma(\cdot)\)</span>: the gamma function</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(\boldsymbol{\theta} | \tau, \boldsymbol{v})
+&amp;= \mathcal{N}(\boldsymbol{\theta} | \boldsymbol{0}, \tau^{-1} \mathrm{diag}(\boldsymbol{v})) \\
+&amp;= \left(\frac{\tau}{2\pi}\right)^{d/2}
+\left(\prod_{j=1}^d v_j\right)^{-1/2}
+\exp\left\{
+    -\frac{\tau}{2}\boldsymbol{\theta}^\top
+    \mathrm{diag}(\boldsymbol{v})^{-1}
+    \boldsymbol{\theta}
+\right\}, \\
+p(\boldsymbol{v} | \boldsymbol{\lambda}_0)
+&amp;= \prod_{j=1}^d \mathrm{Exp}\left(v_j \middle| \frac{\lambda_{0,j}^2}{2}\right)
+= \prod_{j=1}^d \frac{\lambda_{0,j}^2}{2}\exp\left(-\frac{\lambda_{0,j}^2}{2}v_j\right), \\
+p(\tau | \alpha_0, \beta_0)
+&amp;= \mathrm{Gam}(\tau | \alpha_0, \beta_0)
+= \frac{\beta_0^{\alpha_0}}{\Gamma(\alpha_0)}\tau^{\alpha_0-1}\exp(-\beta_0\tau).\end{split}\]</div>
+<p>Marginalizing out each <span class="math notranslate nohighlight">\(v_j\)</span> yields the Laplace prior on <span class="math notranslate nohighlight">\(\theta_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(\theta_j | \tau, \lambda_{0,j})
+&amp;= \int_0^\infty p(\theta_j | \tau, v_j) p(v_j | \lambda_{0,j})\, dv_j \\
+&amp;= \frac{\lambda_{0,j} \sqrt{\tau}}{2}
+\exp\left(-\lambda_{0,j} \sqrt{\tau}\, |\theta_j|\right).\end{split}\]</div>
+</section>
+<section id="posterior-distribution">
+<h3>Posterior Distribution<a class="headerlink" href="#posterior-distribution" title="Link to this heading">#</a></h3>
+<p>The approximate posterior distribution in the <span class="math notranslate nohighlight">\(t\)</span>-th iteration of a variational Bayesian method is as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{X} = (\boldsymbol{x}_1, \ldots, \boldsymbol{x}_n)^\top \in \mathbb{R}^{n \times d}\)</span>: given explanatory variables</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{y} = (y_1, \ldots, y_n)^\top \in \mathbb{R}^n\)</span>: given objective variables</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\mu}_n^{(t)} \in \mathbb{R}^d\)</span>: a hyperparameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\Lambda}_n^{(t)} \in \mathbb{R}^{d \times d}\)</span>: a hyperparameter (a positive definite matrix)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha_n^{(t)} \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_n^{(t)} \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter</p></li>
+<li><p><span class="math notranslate nohighlight">\(a_{n,j}^{(t)} \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter for <span class="math notranslate nohighlight">\(q(v_j)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_{n,j}^{(t)} \in \mathbb{R}_{&gt;0}\)</span>: a hyperparameter for <span class="math notranslate nohighlight">\(q(v_j)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(K_{\nu}(\cdot)\)</span>: the modified Bessel function of the second kind</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;q(\boldsymbol{\theta}, \tau, \boldsymbol{v}) \nonumber \\
+&amp;= \mathcal{N}\left(
+    \boldsymbol{\theta} \middle|
+    \boldsymbol{\mu}_n^{(t)},
+    (\tau \boldsymbol{\Lambda}_n^{(t)})^{-1}
+\right)
+\mathrm{Gam}(\tau | \alpha_n^{(t)}, \beta_n^{(t)})  \prod_{j=1}^d \mathrm{GIG}\left(
+    v_j \middle| 1/2,\, a_{n,j}^{(t)},\, b_{n,j}^{(t)}
+\right) \\
+&amp;= \frac{|\tau \boldsymbol{\Lambda}_n^{(t)}|^{1/2}}{(2\pi)^{d/2}} \exp \left\{ -\frac{\tau}{2}(\boldsymbol{\theta} -\boldsymbol{\mu}_n^{(t)})^\top \boldsymbol{\Lambda}_n^{(t)} (\boldsymbol{\theta} - \boldsymbol{\mu}_n^{(t)}) \right\} \\
+&amp;\qquad \times \frac{(\beta_n^{(t)})^{\alpha_n^{(t)}}}{\Gamma(\alpha_n^{(t)})}\tau^{\alpha_n^{(t)}-1}\exp\{-\beta_n^{(t)}\tau\} \nonumber \\
+&amp;\qquad \times \prod_{j=1}^d \frac{(a_{n,j}^{(t)}/b_{n,j}^{(t)})^{1/4}}{2K_{1/2}\left(\sqrt{a_{n,j}^{(t)} b_{n,j}^{(t)}}\right)} v_j^{-1/2} \exp\left\{-\frac{1}{2}(a_{n,j}^{(t)} v_j + b_{n,j}^{(t)} v_j^{-1})\right\}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{GIG}(x | p, a, b) = \frac{(a/b)^{p/2}}{2K_p(\sqrt{ab})} x^{p-1} \exp\left\{-\frac{1}{2}(ax + bx^{-1})\right\}\)</span>.</p>
+<p>The updating rule of the hyperparameters is as follows.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boldsymbol{\Lambda}_n^{(t+1)}
+&amp;= \boldsymbol{X}^\top \boldsymbol{X}
++ \mathrm{diag}\left(
+    \sqrt{\frac{a_{n,1}^{(t)}}{b_{n,1}^{(t)}}},
+    \ldots,
+    \sqrt{\frac{a_{n,d}^{(t)}}{b_{n,d}^{(t)}}}
+\right), \\
+\boldsymbol{\mu}_n^{(t+1)}
+&amp;= (\boldsymbol{\Lambda}_n^{(t+1)})^{-1} \boldsymbol{X}^\top \boldsymbol{y}, \\
+\alpha_n^{(t+1)}
+&amp;= \alpha_0 + \frac{n}{2}, \\
+\beta_n^{(t+1)}
+&amp;= \beta_0 + \frac{1}{2}
+\left(
+    \boldsymbol{y}^\top \boldsymbol{y}
+    - (\boldsymbol{\mu}_n^{(t+1)})^\top \boldsymbol{\Lambda}_n^{(t+1)} \boldsymbol{\mu}_n^{(t+1)}
+\right), \\
+a_{n,j}^{(t+1)}
+&amp;= \lambda_{0,j}^2, \\
+b_{n,j}^{(t+1)}
+&amp;= \frac{\alpha_n^{(t+1)}}{\beta_n^{(t+1)}} (\mu_{n,j}^{(t+1)})^2
++ \left((\boldsymbol{\Lambda}_n^{(t+1)})^{-1}\right)_{jj}.\end{split}\]</div>
+<p>Accordingly,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbb{E}[\boldsymbol{\theta} | \boldsymbol{X}, \boldsymbol{y}]
+&amp;\approx \boldsymbol{\mu}_n, \\
+\mathbb{E}[\tau | \boldsymbol{X}, \boldsymbol{y}]
+&amp;\approx \frac{\alpha_n}{\beta_n}.\end{split}\]</div>
+</section>
+<section id="predictive-distribution">
+<h3>Predictive Distribution<a class="headerlink" href="#predictive-distribution" title="Link to this heading">#</a></h3>
+<p>The approximate predictive distribution is as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{x}_{n+1} \in \mathbb{R}^d\)</span>: a new explanatory variable</p></li>
+<li><p><span class="math notranslate nohighlight">\(y_{n+1} \in \mathbb{R}\)</span>: a new objective variable</p></li>
+<li><p><span class="math notranslate nohighlight">\(m_{\mathrm{p}} \in \mathbb{R}\)</span>: a parameter of the predictive distribution</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda_{\mathrm{p}} \in \mathbb{R}_{&gt;0}\)</span>: a parameter of the predictive distribution</p></li>
+<li><p><span class="math notranslate nohighlight">\(\nu_{\mathrm{p}} \in \mathbb{R}_{&gt;0}\)</span>: a parameter of the predictive distribution</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}&amp;p(y_{n+1} | \boldsymbol{X}, \boldsymbol{y}, \boldsymbol{x}_{n+1}) \nonumber \\
+&amp;\approx \mathrm{St}\left(y_{n+1} | m_{\mathrm{p}}, \lambda_{\mathrm{p}}, \nu_{\mathrm{p}}\right) \nonumber \\
+&amp;= \frac{\Gamma (\nu_\mathrm{p} / 2 + 1/2 )}{\Gamma (\nu_\mathrm{p} / 2)} \left( \frac{\lambda_\mathrm{p}}{\pi \nu_\mathrm{p}} \right)^{1/2} \left( 1 + \frac{\lambda_\mathrm{p} (y_{n+1} - m_\mathrm{p})^2}{\nu_\mathrm{p}} \right)^{-\nu_\mathrm{p}/2 - 1/2},\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbb{E}[y_{n+1} | \boldsymbol{X}, \boldsymbol{y}, \boldsymbol{x}_{n+1}] &amp;\approx m_{\mathrm{p}} \quad (\nu_{\mathrm{p}} &gt; 1), \\
+\mathbb{V}[y_{n+1} | \boldsymbol{X}, \boldsymbol{y}, \boldsymbol{x}_{n+1}] &amp;\approx \frac{1}{\lambda_{\mathrm{p}}} \frac{\nu_{\mathrm{p}}}{\nu_{\mathrm{p}} - 2} \quad (\nu_{\mathrm{p}} &gt; 2),\end{split}\]</div>
+<p>where the parameters are obtained from the hyperparameters of the posterior distribution as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}m_{\mathrm{p}} &amp;= \boldsymbol{x}_{n+1}^{\top} \boldsymbol{\mu}_n, \\
+\lambda_{\mathrm{p}} &amp;= \frac{\alpha_n}{\beta_n}\left(1 + \boldsymbol{x}_{n+1}^{\top} \boldsymbol{\Lambda}_n^{-1} \boldsymbol{x}_{n+1}\right)^{-1}, \\
+\nu_{\mathrm{p}} &amp;= 2\alpha_n.\end{split}\]</div>
+</section>
+<section id="star-us-on-github">
+<h3>Star Us on GitHub<a class="headerlink" href="#star-us-on-github" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">If you found this page helpful, please consider giving us a star on GitHub.</div>
+<div class="line">It really helps the project grow.</div>
+</div>
+<p><a class="reference external" href="https://github.com/bayesml/BayesML">Open the repo and hit ☆ Star in the top right!</a></p>
+<a class="reference external image-reference" href="https://github.com/bayesml/BayesML"><img alt="Star on GitHub" src="https://img.shields.io/github/stars/bayesml/BayesML?style=social" />
+</a>
+</section>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h3>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bayesml.sparselinearregression.</span></span><span class="sig-name descname"><span class="pre">GenModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_degree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_lambdas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bayesml.html#bayesml.base.Generative" title="bayesml.base.Generative"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generative</span></code></a></p>
+<p>The stochastic data generative model and the prior distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>c_degree</strong><span class="classifier">int</span></dt><dd><p>A positive integer. The dimension of the explanatory variable.
+If you consider an intercept term, it should be included as one of the
+elements of the explanatory variable.</p>
+</dd>
+<dt><strong>theta_vec</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>A vector of real numbers, by default <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">...,</span> <span class="pre">0.0]</span></code>.</p>
+</dd>
+<dt><strong>tau</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+</dd>
+<dt><strong>h_lambdas</strong><span class="classifier">float or numpy.ndarray, optional</span></dt><dd><p>Positive real numbers, (Laplace regularization strength),
+by default <code class="docutils literal notranslate"><span class="pre">[1.0,</span> <span class="pre">1.0,</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">1.0]</span></code>.
+If a single real number is input, it will be broadcasted.</p>
+</dd>
+<dt><strong>h_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+</dd>
+<dt><strong>h_beta</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">{None, int}, optional</span></dt><dd><p>A seed to initialize <code class="docutils literal notranslate"><span class="pre">numpy.random.default_rng()</span></code>,
+by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.GenModel.gen_params" title="bayesml.sparselinearregression.GenModel.gen_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_params</span></code></a>()</p></td>
+<td><p>Generate parameters from the prior distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.GenModel.gen_sample" title="bayesml.sparselinearregression.GenModel.gen_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_sample</span></code></a>([sample_size, x, constant])</p></td>
+<td><p>Generate a sample from the stochastic data generative model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.GenModel.get_constants" title="bayesml.sparselinearregression.GenModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
+<td><p>Get constants of GenModel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.GenModel.get_h_params" title="bayesml.sparselinearregression.GenModel.get_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h_params</span></code></a>()</p></td>
+<td><p>Get the hyperparameters of the prior distribution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.GenModel.get_params" title="bayesml.sparselinearregression.GenModel.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
+<td><p>Get the parameters of the stochastic data generative model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h_params</span></code>(filename)</p></td>
+<td><p>Load the hyperparameters to h_params.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_params</span></code>(filename)</p></td>
+<td><p>Load the parameters saved by <code class="docutils literal notranslate"><span class="pre">save_params</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h_params</span></code>(filename)</p></td>
+<td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_params</span></code>(filename)</p></td>
+<td><p>Save the parameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.GenModel.save_sample" title="bayesml.sparselinearregression.GenModel.save_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_sample</span></code></a>(filename[, sample_size, x, constant])</p></td>
+<td><p>Save the generated sample as NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.GenModel.set_h_params" title="bayesml.sparselinearregression.GenModel.set_h_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h_params</span></code></a>([h_lambdas, h_alpha, h_beta])</p></td>
+<td><p>Set the hyperparameters of the prior distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.GenModel.set_params" title="bayesml.sparselinearregression.GenModel.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>([theta_vec, tau])</p></td>
+<td><p>Set the parameters of the stochastic data generative model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.GenModel.visualize_model" title="bayesml.sparselinearregression.GenModel.visualize_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_model</span></code></a>([sample_size, constant])</p></td>
+<td><p>Visualize the stochastic data generative model and generated samples.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel.get_constants">
+<span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel.get_constants" title="Link to this definition">#</a></dt>
+<dd><p>Get constants of GenModel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>constants</strong><span class="classifier">dict of {str: int}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_degree&quot;</span></code> : the value of <code class="docutils literal notranslate"><span class="pre">self.c_degree</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel.set_h_params">
+<span class="sig-name descname"><span class="pre">set_h_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h_lambdas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel.set_h_params" title="Link to this definition">#</a></dt>
+<dd><p>Set the hyperparameters of the prior distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h_lambdas</strong><span class="classifier">float or numpy.ndarray, optional</span></dt><dd><p>Positive real numbers, (Laplace regularization strength),
+by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+If a single real number is input, it will be broadcasted.</p>
+</dd>
+<dt><strong>h_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>h_beta</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel.get_h_params">
+<span class="sig-name descname"><span class="pre">get_h_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel.get_h_params" title="Link to this definition">#</a></dt>
+<dd><p>Get the hyperparameters of the prior distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h_params</strong><span class="classifier">dict of {str: float}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_lambdas&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h_lambdas</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_alpha&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h_alpha</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h_beta&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h_beta</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel.gen_params">
+<span class="sig-name descname"><span class="pre">gen_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel.gen_params" title="Link to this definition">#</a></dt>
+<dd><p>Generate parameters from the prior distribution.</p>
+<p>The generated values are set at <code class="docutils literal notranslate"><span class="pre">self.theta_vec</span></code>, <code class="docutils literal notranslate"><span class="pre">self.tau</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">self.v_vec</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel.set_params" title="Link to this definition">#</a></dt>
+<dd><p>Set the parameters of the stochastic data generative model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>theta_vec</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>A vector of real numbers, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>tau</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel.get_params" title="Link to this definition">#</a></dt>
+<dd><p>Get the parameters of the stochastic data generative model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">dict of {str: float or numpy ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;theta_vec&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.theta_vec</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;tau&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.tau</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel.gen_sample">
+<span class="sig-name descname"><span class="pre">gen_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel.gen_sample" title="Link to this definition">#</a></dt>
+<dd><p>Generate a sample from the stochastic data generative model.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is given, it will be used for explanatory variables as it is
+(independent of the other options: <code class="docutils literal notranslate"><span class="pre">sample_size</span></code> and <code class="docutils literal notranslate"><span class="pre">constant</span></code>).</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is not given, it will be generated from i.i.d. standard
+normal distributions. The size of the generated sample is defined by
+<code class="docutils literal notranslate"><span class="pre">sample_size</span></code>. If <code class="docutils literal notranslate"><span class="pre">constant</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the last element of the
+generated explanatory variables will be overwritten by <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample_size</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>x</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>A float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sample_size,</span> <span class="pre">c_degree)</span></code>,
+by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>constant</strong><span class="classifier">bool, optional</span></dt><dd><p>A boolean value, by default <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sample_size,</span> <span class="pre">c_degree)</span></code>.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A 1-dimensional float array whose size is <code class="docutils literal notranslate"><span class="pre">sample_size</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel.save_sample">
+<span class="sig-name descname"><span class="pre">save_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel.save_sample" title="Link to this definition">#</a></dt>
+<dd><p>Save the generated sample as NumPy <code class="docutils literal notranslate"><span class="pre">.npz</span></code> format.</p>
+<p>The generated sample is saved as a NpzFile with keywords <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>
+and <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>The filename to which the sample is saved.
+<code class="docutils literal notranslate"><span class="pre">.npz</span></code> will be appended if it is not there.</p>
+</dd>
+<dt><strong>sample_size</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>x</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>A float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sample_size,</span> <span class="pre">c_degree)</span></code>,
+by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>constant</strong><span class="classifier">bool, optional</span></dt><dd><p>A boolean value, by default <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.savez_compressed</span></code></a></dt><dd></dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.GenModel.visualize_model">
+<span class="sig-name descname"><span class="pre">visualize_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.GenModel.visualize_model" title="Link to this definition">#</a></dt>
+<dd><p>Visualize the stochastic data generative model and generated samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample_size</strong><span class="classifier">int, optional</span></dt><dd><p>A positive integer, by default <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+</dd>
+<dt><strong>constant</strong><span class="classifier">bool, optional</span></dt><dd><p>A boolean value, by default <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">sparselinearregression</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">sparselinearregression</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">c_degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">theta_vec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">visualize_model</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/sparselinearregression_example.png" src="_images/sparselinearregression_example.png" />
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bayesml.sparselinearregression.</span></span><span class="sig-name descname"><span class="pre">LearnModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_degree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_lambdas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bayesml.html#bayesml.base.Posterior" title="bayesml.base.Posterior"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posterior</span></code></a>, <a class="reference internal" href="bayesml.html#bayesml.base.PredictiveMixin" title="bayesml.base.PredictiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredictiveMixin</span></code></a></p>
+<p>The posterior distribution and the predictive distribution.</p>
+<p>Inference is performed by variational Bayes. The variational posterior is</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>c_degree</strong><span class="classifier">int</span></dt><dd><p>A positive integer. The dimension of the explanatory variable.</p>
+</dd>
+<dt><strong>h0_lambdas</strong><span class="classifier">float, optional</span></dt><dd><p>Positive real numbers, (Laplace regularization strength),
+by default <code class="docutils literal notranslate"><span class="pre">[1.0,</span> <span class="pre">1.0,</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">1.0]</span></code>.
+If a single real number is input, it will be broadcasted.</p>
+</dd>
+<dt><strong>h0_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+</dd>
+<dt><strong>h0_beta</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">{None, int}, optional</span></dt><dd><p>A seed to initialize <code class="docutils literal notranslate"><span class="pre">numpy.random.default_rng()</span></code> used for VB
+random restarts, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>hn_mu_vec</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A vector of real numbers.</p>
+</dd>
+<dt><strong>hn_lambda_mat</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A positive definite matrix.</p>
+</dd>
+<dt><strong>hn_alpha</strong><span class="classifier">float</span></dt><dd><p>A positive real number.</p>
+</dd>
+<dt><strong>hn_beta</strong><span class="classifier">float</span></dt><dd><p>A positive real number.</p>
+</dd>
+<dt><strong>hn_as</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A vector of positive real numbers (<span class="math notranslate nohighlight">\(= \lambda_0^2\)</span>).</p>
+</dd>
+<dt><strong>hn_bs</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A vector of positive real numbers.</p>
+</dd>
+<dt><strong>p_ms</strong><span class="classifier">float</span></dt><dd><p>A real number.</p>
+</dd>
+<dt><strong>p_lambdas</strong><span class="classifier">float</span></dt><dd><p>A positive real number.</p>
+</dd>
+<dt><strong>p_nus</strong><span class="classifier">float</span></dt><dd><p>A positive real number.</p>
+</dd>
+<dt><strong>vl</strong><span class="classifier">float</span></dt><dd><p>The variational lower bound.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.calc_pred_dist" title="bayesml.sparselinearregression.LearnModel.calc_pred_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_pred_dist</span></code></a>(x)</p></td>
+<td><p>Calculate the parameters of the predictive distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.estimate_params" title="bayesml.sparselinearregression.LearnModel.estimate_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_params</span></code></a>([loss, dict_out])</p></td>
+<td><p>Estimate the parameter of the stochastic data generative model under the given criterion.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.fit" title="bayesml.sparselinearregression.LearnModel.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(x, y[, max_itr, num_init, tolerance])</p></td>
+<td><p>Fit the model to the data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.get_constants" title="bayesml.sparselinearregression.LearnModel.get_constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_constants</span></code></a>()</p></td>
+<td><p>Get constants of LearnModel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.get_h0_params" title="bayesml.sparselinearregression.LearnModel.get_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_h0_params</span></code></a>()</p></td>
+<td><p>Get the initial values of the hyperparameters of the prior distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.get_hn_params" title="bayesml.sparselinearregression.LearnModel.get_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hn_params</span></code></a>()</p></td>
+<td><p>Get the hyperparameters of the posterior distribution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.get_p_params" title="bayesml.sparselinearregression.LearnModel.get_p_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_p_params</span></code></a>()</p></td>
+<td><p>Get the parameters of the predictive distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_h0_params</span></code>(filename)</p></td>
+<td><p>Load the hyperparameters to h0_params.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_hn_params</span></code>(filename)</p></td>
+<td><p>Load the hyperparameters to hn_params.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.make_prediction" title="bayesml.sparselinearregression.LearnModel.make_prediction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_prediction</span></code></a>([loss])</p></td>
+<td><p>Predict a new data point under the given criterion.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.overwrite_h0_params" title="bayesml.sparselinearregression.LearnModel.overwrite_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overwrite_h0_params</span></code></a>()</p></td>
+<td><p>Overwrite the initial values of the hyperparameters of the prior distribution by the learned values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.pred_and_update" title="bayesml.sparselinearregression.LearnModel.pred_and_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pred_and_update</span></code></a>(x, y[, max_itr, num_init, ...])</p></td>
+<td><p>Predict a new data point and update the posterior sequentially.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.predict" title="bayesml.sparselinearregression.LearnModel.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(x)</p></td>
+<td><p>Predict the data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.reset_hn_params" title="bayesml.sparselinearregression.LearnModel.reset_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_hn_params</span></code></a>()</p></td>
+<td><p>Reset the hyperparameters of the posterior distribution to initial values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_h0_params</span></code>(filename)</p></td>
+<td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_hn_params</span></code>(filename)</p></td>
+<td><p>Save the hyperparameters using python <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.set_h0_params" title="bayesml.sparselinearregression.LearnModel.set_h0_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_h0_params</span></code></a>([h0_lambdas, h0_alpha, h0_beta])</p></td>
+<td><p>Set initial values of the hyperparameters of the prior distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.set_hn_params" title="bayesml.sparselinearregression.LearnModel.set_hn_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_hn_params</span></code></a>([hn_mu_vec, hn_lambda_mat, ...])</p></td>
+<td><p>Set updated values of the hyperparameters of the posterior distribution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.update_posterior" title="bayesml.sparselinearregression.LearnModel.update_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_posterior</span></code></a>(x, y[, max_itr, num_init, ...])</p></td>
+<td><p>Update the hyperparameters of the posterior distribution using training data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesml.sparselinearregression.LearnModel.visualize_posterior" title="bayesml.sparselinearregression.LearnModel.visualize_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_posterior</span></code></a>()</p></td>
+<td><p>Visualize the posterior distribution for the parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.get_constants">
+<span class="sig-name descname"><span class="pre">get_constants</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.get_constants" title="Link to this definition">#</a></dt>
+<dd><p>Get constants of LearnModel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>constants</strong><span class="classifier">dict of {str: int}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;c_degree&quot;</span></code> : the value of <code class="docutils literal notranslate"><span class="pre">self.c_degree</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.set_h0_params">
+<span class="sig-name descname"><span class="pre">set_h0_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h0_lambdas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.set_h0_params" title="Link to this definition">#</a></dt>
+<dd><p>Set initial values of the hyperparameters of the prior distribution.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">reset_hn_params()</span></code> is called inside this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h0_lambdas</strong><span class="classifier">float, optional</span></dt><dd><p>Positive real numbers, (Laplace regularization strength),
+by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+If a single real number is input, it will be broadcasted.</p>
+</dd>
+<dt><strong>h0_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>h0_beta</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.get_h0_params">
+<span class="sig-name descname"><span class="pre">get_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.get_h0_params" title="Link to this definition">#</a></dt>
+<dd><p>Get the initial values of the hyperparameters of the prior distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h0_params</strong><span class="classifier">dict of {str: float}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_lambdas&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h0_lambdas</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_alpha&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h0_alpha</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;h0_beta&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.h0_beta</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.reset_hn_params">
+<span class="sig-name descname"><span class="pre">reset_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.reset_hn_params" title="Link to this definition">#</a></dt>
+<dd><p>Reset the hyperparameters of the posterior distribution to initial values.</p>
+<p>Usualy, <cite>hn_params</cite> are reset to the output of <cite>self.get_h0_params()</cite>,
+but the prior distribution and the posterior distribution have different form in this model,
+therefore, they are set to the solution of variational Bayesian updating formula with no data.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">calc_pred_dist</span></code> is called with a zero vector inside this method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.overwrite_h0_params">
+<span class="sig-name descname"><span class="pre">overwrite_h0_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.overwrite_h0_params" title="Link to this definition">#</a></dt>
+<dd><p>Overwrite the initial values of the hyperparameters of the prior distribution by the learned values.</p>
+<p>Usualy, <cite>h0_params</cite> are overwritten to the output of <cite>self.get_hn_params()</cite>,
+but the prior distribution and the posterior distribution have different form in this model,
+therefore, <cite>h0_lambdas</cite> are set to minimize KL(GIG(1/2,`hn_as`,`hn_bs`)||Exp(0.5*`h0_lambdas`**2)).</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">reset_hn_params()</span></code> is called inside this method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.set_hn_params">
+<span class="sig-name descname"><span class="pre">set_hn_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hn_mu_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_lambda_mat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hn_bs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.set_hn_params" title="Link to this definition">#</a></dt>
+<dd><p>Set updated values of the hyperparameters of the posterior distribution.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">calc_pred_dist</span></code> is called with a zero vector inside this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hn_mu_vec</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>A vector of real numbers, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>hn_lambda_mat</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>A positive definite matrix, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>hn_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>hn_beta</strong><span class="classifier">float, optional</span></dt><dd><p>A positive real number, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>hn_as</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>A vector of positive real numbers, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>hn_bs</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>A vector of positive real numbers, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.get_hn_params">
+<span class="sig-name descname"><span class="pre">get_hn_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.get_hn_params" title="Link to this definition">#</a></dt>
+<dd><p>Get the hyperparameters of the posterior distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hn_params</strong><span class="classifier">dict of {str: float or numpy ndarray}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_mu_vec&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_mu_vec</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_lambda_mat&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_lambda_mat</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_alpha&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_alpha</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_beta&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_beta</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_as&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_as</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hn_bs&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.hn_bs</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.update_posterior">
+<span class="sig-name descname"><span class="pre">update_posterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0e-8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Ridge'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_bs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warm_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.update_posterior" title="Link to this definition">#</a></dt>
+<dd><p>Update the hyperparameters of the posterior distribution using training data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sample_size,</span> <span class="pre">c_degree)</span></code>.
+If you want to use a constant term, it should be included in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A 1-dimensional float array whose size is <code class="docutils literal notranslate"><span class="pre">sample_size</span></code>.</p>
+</dd>
+<dt><strong>max_itr</strong><span class="classifier">int, optional</span></dt><dd><p>Maximum number of VB iterations per initialization, by default <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+</dd>
+<dt><strong>num_init</strong><span class="classifier">int, optional</span></dt><dd><p>Number of random restarts, by default <code class="docutils literal notranslate"><span class="pre">10</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">init_type</span></code> is <code class="docutils literal notranslate"><span class="pre">'Ridge'</span></code>, <code class="docutils literal notranslate"><span class="pre">'OLS'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'manual'</span></code> or <code class="docutils literal notranslate"><span class="pre">warm_start</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> this argument is ignored.</p>
+</dd>
+<dt><strong>tolerance</strong><span class="classifier">float, optional</span></dt><dd><p>Convergence threshold on relative change of VL, by default <code class="docutils literal notranslate"><span class="pre">1.0e-8</span></code>.</p>
+</dd>
+<dt><strong>init_type</strong><span class="classifier">str, optional</span></dt><dd><p>Initialization method for the variational Bayesian method, by default <code class="docutils literal notranslate"><span class="pre">'Ridge'</span></code>.
+This function supports the following values:
+* <code class="docutils literal notranslate"><span class="pre">'Ridge'</span></code> : Initialize hn_mu_vec and hn_lambda_mat to the Ridge solution with h0_lambdas as the regularization strength.
+* <code class="docutils literal notranslate"><span class="pre">'OLS'</span></code> : Initialize hn_mu_vec and hn_lambda_mat to the OLS solution.
+* <code class="docutils literal notranslate"><span class="pre">'exponential_rv'</span></code> : Randomly initialize hn_bs from an exponential distribution with scale 1.0.
+* <code class="docutils literal notranslate"><span class="pre">'manual'</span></code> : Manually set initial values of hn_bs. In this case, the argument <code class="docutils literal notranslate"><span class="pre">initial_bs</span></code> must be given.</p>
+</dd>
+<dt><strong>initial_bs</strong><span class="classifier">numpy ndarray, optional</span></dt><dd><p>A vector of positive real numbers, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">init_type</span></code> is <code class="docutils literal notranslate"><span class="pre">'manual'</span></code>, this argument must be given.</p>
+</dd>
+<dt><strong>warm_start</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, use the sufficient statistics of past samples and 
+the current posterior as the starting point for the next update.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.estimate_params">
+<span class="sig-name descname"><span class="pre">estimate_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'squared'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.estimate_params" title="Link to this definition">#</a></dt>
+<dd><p>Estimate the parameter of the stochastic data generative model under the given criterion.</p>
+<p>Note that the criterion is applied to estimating <code class="docutils literal notranslate"><span class="pre">theta_vec</span></code> and <code class="docutils literal notranslate"><span class="pre">tau</span></code> independently.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default <code class="docutils literal notranslate"><span class="pre">&quot;squared&quot;</span></code>.
+This function supports <code class="docutils literal notranslate"><span class="pre">&quot;squared&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;0-1&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;abs&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;KL&quot;</span></code>.</p>
+</dd>
+<dt><strong>dict_out</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, output will be a dict, by default <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>estimates</strong><span class="classifier">tuple of {numpy ndarray, float, None, or rv_frozen}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">theta_vec</span></code> : the estimate for theta</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tau_hat</span></code> : the estimate for tau</p></li>
+</ul>
+<p>The estimated values under the given loss function. If it does not exist,
+<code class="docutils literal notranslate"><span class="pre">None</span></code> will be returned. If the loss is <code class="docutils literal notranslate"><span class="pre">&quot;KL&quot;</span></code>, the approximate posterior
+distribution itself will be returned as <code class="docutils literal notranslate"><span class="pre">rv_frozen</span></code> objects of <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.visualize_posterior">
+<span class="sig-name descname"><span class="pre">visualize_posterior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.visualize_posterior" title="Link to this definition">#</a></dt>
+<dd><p>Visualize the posterior distribution for the parameter.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">bayesml</span><span class="w"> </span><span class="kn">import</span> <span class="n">sparselinearregression</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gen_model</span> <span class="o">=</span> <span class="n">sparselinearregression</span><span class="o">.</span><span class="n">GenModel</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">c_degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">theta_vec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]),</span> <span class="n">tau</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">gen_model</span><span class="o">.</span><span class="n">gen_sample</span><span class="p">(</span><span class="n">sample_size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span> <span class="o">=</span> <span class="n">sparselinearregression</span><span class="o">.</span><span class="n">LearnModel</span><span class="p">(</span><span class="n">c_degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span><span class="o">.</span><span class="n">update_posterior</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">learn_model</span><span class="o">.</span><span class="n">visualize_posterior</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/sparselinearregression_posterior.png" src="_images/sparselinearregression_posterior.png" />
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.get_p_params">
+<span class="sig-name descname"><span class="pre">get_p_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.get_p_params" title="Link to this definition">#</a></dt>
+<dd><p>Get the parameters of the predictive distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>p_params</strong><span class="classifier">dict of {str: float}</span></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_ms&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.p_ms</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_lambdas&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.p_lambdas</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;p_nus&quot;</span></code> : The value of <code class="docutils literal notranslate"><span class="pre">self.p_nus</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.calc_pred_dist">
+<span class="sig-name descname"><span class="pre">calc_pred_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.calc_pred_dist" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the parameters of the predictive distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>float array. The size along the last dimension must conincides with the c_degree.
+If you want to use a constant term, it should be included in x.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.make_prediction">
+<span class="sig-name descname"><span class="pre">make_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'squared'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.make_prediction" title="Link to this definition">#</a></dt>
+<dd><p>Predict a new data point under the given criterion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default <code class="docutils literal notranslate"><span class="pre">&quot;squared&quot;</span></code>.
+This function supports <code class="docutils literal notranslate"><span class="pre">&quot;squared&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;0-1&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;abs&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;KL&quot;</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>Predicted_values</strong><span class="classifier">{numpy ndarray, rv_frozen}</span></dt><dd><p>The predicted values under the given loss function. 
+The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
+If the loss function is “KL”, the predictive distribution itself will be returned
+as rv_frozen object of scipy.stats. The rv_frozen object supports broadcasting.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.pred_and_update">
+<span class="sig-name descname"><span class="pre">pred_and_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0e-8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'squared'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.pred_and_update" title="Link to this definition">#</a></dt>
+<dd><p>Predict a new data point and update the posterior sequentially.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">update_posterior</span></code> is called with <code class="docutils literal notranslate"><span class="pre">warm_start=True</span></code> inside this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A float array whose shape is <code class="docutils literal notranslate"><span class="pre">(sample_size,</span> <span class="pre">c_degree)</span></code>.
+If you want to use a constant term, it should be included in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">numpy ndarray</span></dt><dd><p>A 1-dimensional float array whose size is <code class="docutils literal notranslate"><span class="pre">sample_size</span></code>.</p>
+</dd>
+<dt><strong>max_itr</strong><span class="classifier">int, optional</span></dt><dd><p>Maximum number of VB iterations per initialization, by default <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+</dd>
+<dt><strong>num_init</strong><span class="classifier">int, optional</span></dt><dd><p>Number of random restarts, by default <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+</dd>
+<dt><strong>tolerance</strong><span class="classifier">float, optional</span></dt><dd><p>Convergence threshold on relative change of VL, by default <code class="docutils literal notranslate"><span class="pre">1.0e-8</span></code>.</p>
+</dd>
+<dt><strong>loss</strong><span class="classifier">str, optional</span></dt><dd><p>Loss function underlying the Bayes risk function, by default <code class="docutils literal notranslate"><span class="pre">&quot;squared&quot;</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>Predicted_values</strong><span class="classifier">{numpy ndarray, rv_frozen}</span></dt><dd><p>The predicted values under the given loss function. 
+The size of the predicted values is the same as the sample size of x when you called calc_pred_dist(x).
+If the loss function is “KL”, the predictive distribution itself will be returned
+as rv_frozen object of scipy.stats.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="(in SciPy v1.17.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.stats.rv_continuous</span></code></a></dt><dd></dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_itr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0E-8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit the model to the data.</p>
+<p>This function is a wrapper of the following functions:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">reset_hn_params</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">update_posterior</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">max_itr</span><span class="p">,</span><span class="n">tolerance</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="bp">self</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>float array. The size along the last dimension must conincides with the c_degree.
+If you want to use a constant term, it should be included in x.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">numpy ndarray</span></dt><dd><p>float array.</p>
+</dd>
+<dt><strong>max_itr</strong><span class="classifier">int, optional</span></dt><dd><p>maximum number of iterations, by default 1000</p>
+</dd>
+<dt><strong>num_init</strong><span class="classifier">int, optional</span></dt><dd><p>number of initializations, by default 10</p>
+</dd>
+<dt><strong>tolerance</strong><span class="classifier">float, optional</span></dt><dd><p>convergence criterion of variational lower bound, by default 1.0E-8</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">LearnModel</span></dt><dd><p>The fitted model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesml.sparselinearregression.LearnModel.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesml.sparselinearregression.LearnModel.predict" title="Link to this definition">#</a></dt>
+<dd><p>Predict the data.</p>
+<p>This function is a wrapper of the following functions:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_pred_dist</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_prediction</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;squared&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">numpy ndarray</span></dt><dd><p>float array. The size along the last dimension must conincides with the c_degree.
+If you want to use a constant term, it should be included in x.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>Predicted_values</strong><span class="classifier">numpy ndarray</span></dt><dd><p>The predicted values under the squared loss function. 
+The size of the predicted values is the same as the sample size of x.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bayesml.poisson.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">bayesml.poisson package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="examples.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bayesml.sparselinearregression">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-data-generative-model">Stochastic Data Generative Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-distribution">Prior Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-distribution">Posterior Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-distribution">Predictive Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#star-us-on-github">Star Us on GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel"><code class="docutils literal notranslate"><span class="pre">GenModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.get_constants"><code class="docutils literal notranslate"><span class="pre">GenModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.set_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.get_h_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_h_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.gen_params"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.set_params"><code class="docutils literal notranslate"><span class="pre">GenModel.set_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.get_params"><code class="docutils literal notranslate"><span class="pre">GenModel.get_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.gen_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.gen_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.save_sample"><code class="docutils literal notranslate"><span class="pre">GenModel.save_sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.GenModel.visualize_model"><code class="docutils literal notranslate"><span class="pre">GenModel.visualize_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel"><code class="docutils literal notranslate"><span class="pre">LearnModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.get_constants"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_constants()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.set_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.get_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.reset_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.reset_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.overwrite_h0_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.overwrite_h0_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.set_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.set_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.get_hn_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_hn_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.update_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.update_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.estimate_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.estimate_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.visualize_posterior"><code class="docutils literal notranslate"><span class="pre">LearnModel.visualize_posterior()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.get_p_params"><code class="docutils literal notranslate"><span class="pre">LearnModel.get_p_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.calc_pred_dist"><code class="docutils literal notranslate"><span class="pre">LearnModel.calc_pred_dist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.make_prediction"><code class="docutils literal notranslate"><span class="pre">LearnModel.make_prediction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.pred_and_update"><code class="docutils literal notranslate"><span class="pre">LearnModel.pred_and_update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.fit"><code class="docutils literal notranslate"><span class="pre">LearnModel.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesml.sparselinearregression.LearnModel.predict"><code class="docutils literal notranslate"><span class="pre">LearnModel.predict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By BayesML Developers
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2026, BayesML Developers.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

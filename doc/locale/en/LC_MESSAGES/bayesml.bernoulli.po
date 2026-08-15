@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-17 23:42+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,34 +17,40 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../bayesml.bernoulli.rst:2
 msgid "bayesml.bernoulli package"
 msgstr ""
 
-#: ../../bayesml.bernoulli.rst:7
+#: ../../bayesml.bernoulli.rst:5
 msgid "Module contents"
 msgstr ""
 
 #: bayesml.bernoulli:1 of
-msgid "The Bernoulli distribution with the beta prior distribution."
+msgid ""
+"This module provides the Bernoulli distribution with the beta prior "
+"distribution."
 msgstr ""
 
-#: bayesml.bernoulli:3 of
+#: bayesml.bernoulli:6 of
+msgid "Stochastic Data Generative Model"
+msgstr ""
+
+#: bayesml.bernoulli:8 of
 msgid "The stochastic data generative model is as follows:"
 msgstr ""
 
-#: bayesml.bernoulli:5 of
+#: bayesml.bernoulli:10 of
 #, python-brace-format
 msgid ":math:`x \\in \\{ 0, 1\\}`: a data point"
 msgstr ""
 
-#: bayesml.bernoulli:6 of
+#: bayesml.bernoulli:11 of
 msgid ":math:`\\theta \\in [0, 1]`: a parameter"
 msgstr ""
 
-#: bayesml.bernoulli:8 of
+#: bayesml.bernoulli:13 of
 #, python-brace-format
 msgid ""
 "p(x | \\theta) = \\mathrm{Bern}(x|\\theta) = \\theta^x (1-\\theta)^{1-x}."
@@ -52,7 +58,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli:11 of
+#: bayesml.bernoulli:16 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[x | \\theta] &= \\theta, \\\\\n"
@@ -60,28 +66,32 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli:15 of
+#: bayesml.bernoulli:21 of
+msgid "Prior Distribution"
+msgstr ""
+
+#: bayesml.bernoulli:23 of
 msgid "The prior distribution is as follows:"
 msgstr ""
 
-#: bayesml.bernoulli:17 of
+#: bayesml.bernoulli:25 of
 #, python-brace-format
 msgid ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.bernoulli:18 of
+#: bayesml.bernoulli:26 of
 #, python-brace-format
 msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.bernoulli:19 of
+#: bayesml.bernoulli:27 of
 #, python-brace-format
 msgid ""
 ":math:`B(\\cdot,\\cdot): \\mathbb{R}_{>0} \\times \\mathbb{R}_{>0} \\to "
 "\\mathbb{R}_{>0}`: the Beta function"
 msgstr ""
 
-#: bayesml.bernoulli:21 of
+#: bayesml.bernoulli:29 of
 #, python-brace-format
 msgid ""
 "p(\\theta) = \\mathrm{Beta}(\\theta|\\alpha_0,\\beta_0) = "
@@ -90,7 +100,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli:24 of
+#: bayesml.bernoulli:32 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\theta] &= \\frac{\\alpha_0}{\\alpha_0 + \\beta_0}, \\\\\n"
@@ -99,26 +109,30 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli:28 of
+#: bayesml.bernoulli:37 of
+msgid "Posterior Distribution"
+msgstr ""
+
+#: bayesml.bernoulli:39 of
 msgid "The posterior distribution is as follows:"
 msgstr ""
 
-#: bayesml.bernoulli:30 of
+#: bayesml.bernoulli:41 of
 #, python-brace-format
 msgid ":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\{ 0, 1\\}^n`: given data"
 msgstr ""
 
-#: bayesml.bernoulli:31 of
+#: bayesml.bernoulli:42 of
 #, python-brace-format
 msgid ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.bernoulli:32 of
+#: bayesml.bernoulli:43 of
 #, python-brace-format
 msgid ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.bernoulli:34 of
+#: bayesml.bernoulli:45 of
 #, python-brace-format
 msgid ""
 "p(\\theta | x^n) = \\mathrm{Beta}(\\theta|\\alpha_n,\\beta_n) = "
@@ -127,7 +141,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli:37 of
+#: bayesml.bernoulli:48 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\theta | x^n] &= \\frac{\\alpha_n}{\\alpha_n + \\beta_n}, "
@@ -137,11 +151,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli:41 of
+#: bayesml.bernoulli:52 of
 msgid "where the updating rule of the hyperparameters is"
 msgstr ""
 
-#: bayesml.bernoulli:43 of
+#: bayesml.bernoulli:54 of
 #, python-brace-format
 msgid ""
 "\\alpha_n = \\alpha_0 + \\sum_{i=1}^n I \\{ x_i = 1 \\},\\\\\n"
@@ -149,38 +163,42 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli:47 of
+#: bayesml.bernoulli:59 of
+msgid "Predictive Distribution"
+msgstr ""
+
+#: bayesml.bernoulli:61 of
 msgid "The predictive distribution is as follows:"
 msgstr ""
 
-#: bayesml.bernoulli:49 of
+#: bayesml.bernoulli:63 of
 #, python-brace-format
 msgid ":math:`x_{n+1} \\in \\{ 0, 1\\}`: a new data point"
 msgstr ""
 
-#: bayesml.bernoulli:50 of
+#: bayesml.bernoulli:64 of
 #, python-brace-format
 msgid ":math:`\\alpha_\\mathrm{p} \\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ""
 
-#: bayesml.bernoulli:51 of
+#: bayesml.bernoulli:65 of
 #, python-brace-format
 msgid ":math:`\\beta_\\mathrm{p} \\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ""
 
-#: bayesml.bernoulli:52 of
+#: bayesml.bernoulli:66 of
 #, python-brace-format
 msgid ":math:`\\theta_\\mathrm{p} \\in [0,1]`: a parameter"
 msgstr ""
 
-#: bayesml.bernoulli:54 of
+#: bayesml.bernoulli:68 of
 msgid ""
 "p(x_{n+1} | x^n) = \\mathrm{Bern}(x_{n+1}|\\theta_\\mathrm{p}) "
 "=\\theta_\\mathrm{p}^{x_{n+1}}(1-\\theta_\\mathrm{p})^{1-x_{n+1}},\n"
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli:57 of
+#: bayesml.bernoulli:71 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[x_{n+1} | x^n] &= \\theta_\\mathrm{p}, \\\\\n"
@@ -189,21 +207,45 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli:61 of
+#: bayesml.bernoulli:75 of
 msgid ""
 "where the parameters are obtained from the hyperparameters of the "
 "posterior distribution as follows."
 msgstr ""
 
-#: bayesml.bernoulli:63 of
+#: bayesml.bernoulli:77 of
 #, python-brace-format
 msgid ""
 "\\theta_\\mathrm{p} = \\frac{\\alpha_n}{\\alpha_n + \\beta_n}.\n"
 "\n"
 msgstr ""
 
-#: bayesml.bernoulli._bernoulli.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.bernoulli:81 of
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`_"
+msgstr ""
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr ""
+
+#: bayesml.bernoulli:86 of
+msgid "Classes"
 msgstr ""
 
 #: bayesml.bernoulli._bernoulli.GenModel:2 of
@@ -579,12 +621,6 @@ msgstr ""
 #: bayesml.bernoulli._bernoulli.GenModel.visualize_model:26
 #: bayesml.bernoulli._bernoulli.LearnModel.visualize_posterior:19 of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.bernoulli._bernoulli.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.bernoulli._bernoulli.LearnModel:2 of
@@ -1078,5 +1114,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "a real number :math:`   heta_\\mathrm{p} \\in [0, 1]`"
+#~ msgstr ""
+
+#~ msgid "The Bernoulli distribution with the beta prior distribution."
+#~ msgstr ""
+
+#~ msgid "Class and Methods"
 #~ msgstr ""
 

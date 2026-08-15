@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-17 23:58+0900\n"
-"PO-Revision-Date: 2026-05-18 00:01+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
+"PO-Revision-Date: 2026-08-16 03:58+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -17,51 +17,59 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 "X-Generator: Poedit 3.9\n"
 
 #: ../../bayesml.normal.rst:2
 msgid "bayesml.normal package"
 msgstr "bayesml.normal package"
 
-#: ../../bayesml.normal.rst:7
+#: ../../bayesml.normal.rst:5
 msgid "Module contents"
 msgstr "モジュール内容"
 
 #: bayesml.normal:1 of
-msgid "The normal distribution with the normaml-gamma prior distribution."
-msgstr "正規分布と、正規-ガンマ事前分布を用いたモデルです。"
+msgid ""
+"This module provides the normal distribution with the normal-gamma prior "
+"distribution."
+msgstr "このモジュールでは正規-ガンマ事前分布を用いた正規分布を利用できます。"
 
-#: bayesml.normal:3 of
+#: bayesml.normal:6 of
+msgid "Stochastic Data Generative Model"
+msgstr "確率的データ生成モデル"
+
+#: bayesml.normal:8 of
 msgid "The stochastic data generative model is as follows:"
 msgstr "確率的データ生成モデルは以下の通りです："
 
-#: bayesml.normal:5 of
+#: bayesml.normal:10 of
 #, python-brace-format
 msgid ":math:`x \\in \\mathbb{R}`: a data point"
 msgstr ":math:`x \\in \\mathbb{R}`: データ点"
 
-#: bayesml.normal:6 of
+#: bayesml.normal:11 of
 #, python-brace-format
 msgid ":math:`\\mu \\in \\mathbb{R}`: a mean parameter"
 msgstr ":math:`\\mu \\in \\mathbb{R}`: 平均パラメータ"
 
-#: bayesml.normal:7 of
+#: bayesml.normal:12 of
 #, python-brace-format
 msgid ":math:`\\tau \\in \\mathbb{R}_{>0}`: a precision parameter"
 msgstr ":math:`\\tau \\in \\mathbb{R}_{>0}`: ノイズの精度パラメータ"
 
-#: bayesml.normal:9 of
+#: bayesml.normal:14 of
 msgid ""
 "p(x | \\mu, \\tau) &= \\mathcal{N}(x|\\mu,\\tau^{-1})\\\\\n"
-"&= \\sqrt{\\frac{\\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\tau}{2}(x-\\mu)^2 \\right\\},\n"
+"&= \\sqrt{\\frac{\\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\tau}{2}(x-\\mu)^2 "
+"\\right\\},\n"
 "\n"
 msgstr ""
 "p(x | \\mu, \\tau) &= \\mathcal{N}(x|\\mu,\\tau^{-1})\\\\\n"
-"&= \\sqrt{\\frac{\\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\tau}{2}(x-\\mu)^2 \\right\\},\n"
+"&= \\sqrt{\\frac{\\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\tau}{2}(x-\\mu)^2 "
+"\\right\\},\n"
 "\n"
 
-#: bayesml.normal:14 of
+#: bayesml.normal:19 of
 #, python-brace-format
 msgid ""
 "&\\mathbb{E}[x | \\mu, \\tau] = \\mu, \\\\\n"
@@ -72,132 +80,145 @@ msgstr ""
 "&\\mathbb{V}[x | \\mu, \\tau] = \\tau^{-1}.\n"
 "\n"
 
-#: bayesml.normal:19 of
+#: bayesml.normal:24 of
+msgid "Prior Distribution"
+msgstr "事前分布"
+
+#: bayesml.normal:26 of
 msgid "The prior distribution is as follows:"
 msgstr "事前分布は以下の通りです："
 
-#: bayesml.normal:21 of
+#: bayesml.normal:28 of
 #, python-brace-format
 msgid ":math:`m_0 \\in \\mathbb{R}`: a hyperparameter"
 msgstr ":math:`m_0 \\in \\mathbb{R}`: ハイパーパラメータ"
 
-#: bayesml.normal:22 of
+#: bayesml.normal:29 of
 #, python-brace-format
 msgid ":math:`\\kappa_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\kappa_0 \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 
-#: bayesml.normal:23 of
+#: bayesml.normal:30 of
 #, python-brace-format
 msgid ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 
-#: bayesml.normal:24 of
+#: bayesml.normal:31 of
 #, python-brace-format
 msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 
-#: bayesml.normal:25 bayesml.normal:44 of
+#: bayesml.normal:32 bayesml.normal:54 of
 msgid ":math:`\\Gamma ( \\cdot )`: the gamma function"
 msgstr ":math:`\\Gamma (\\cdot)`: ガンマ関数"
 
-#: bayesml.normal:27 of
+#: bayesml.normal:34 of
 msgid ""
-"p(\\mu, \\tau) &= \\mathcal{N}(\\mu|m_0,(\\kappa_0 \\tau)^{-1}) \\mathrm{Gam}(\\tau | "
-"\\alpha_0, \\beta_0) \\\\\n"
-"&= \\sqrt{\\frac{\\kappa_0 \\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\kappa_0 \\tau}{2}(\\mu-"
-"m_0)^2 \\right\\} \\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\tau^{\\alpha_0 - 1} "
-"\\exp \\{ -\\beta_0 \\tau \\},\n"
+"p(\\mu, \\tau) &= \\mathcal{N}(\\mu|m_0,(\\kappa_0 \\tau)^{-1}) \\mathrm{Gam}"
+"(\\tau | \\alpha_0, \\beta_0) \\\\\n"
+"&= \\sqrt{\\frac{\\kappa_0 \\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\kappa_0 "
+"\\tau}{2}(\\mu-m_0)^2 \\right\\} \\frac{\\beta_0^{\\alpha_0}}{\\Gamma "
+"(\\alpha_0)} \\tau^{\\alpha_0 - 1} \\exp \\{ -\\beta_0 \\tau \\},\n"
 "\n"
 msgstr ""
-"p(\\mu, \\tau) &= \\mathcal{N}(\\mu|m_0,(\\kappa_0 \\tau)^{-1}) \\mathrm{Gam}(\\tau | "
-"\\alpha_0, \\beta_0) \\\\\n"
-"&= \\sqrt{\\frac{\\kappa_0 \\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\kappa_0 \\tau}{2}(\\mu-"
-"m_0)^2 \\right\\} \\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\tau^{\\alpha_0 - 1} "
-"\\exp \\{ -\\beta_0 \\tau \\},\n"
+"p(\\mu, \\tau) &= \\mathcal{N}(\\mu|m_0,(\\kappa_0 \\tau)^{-1}) \\mathrm{Gam}"
+"(\\tau | \\alpha_0, \\beta_0) \\\\\n"
+"&= \\sqrt{\\frac{\\kappa_0 \\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\kappa_0 "
+"\\tau}{2}(\\mu-m_0)^2 \\right\\} \\frac{\\beta_0^{\\alpha_0}}{\\Gamma "
+"(\\alpha_0)} \\tau^{\\alpha_0 - 1} \\exp \\{ -\\beta_0 \\tau \\},\n"
 "\n"
 
-#: bayesml.normal:31 of
+#: bayesml.normal:38 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\mu] &= m_0 & \\left( \\alpha_0 > \\frac{1}{2} \\right), \\\\\n"
-"\\mathbb{V}[\\mu] &= \\frac{\\beta_0}{\\kappa_0 (\\alpha_0 - 1)} & (\\alpha_0 > 1), \\\\\n"
+"\\mathbb{V}[\\mu] &= \\frac{\\beta_0}{\\kappa_0 (\\alpha_0 - 1)} & (\\alpha_0 > "
+"1), \\\\\n"
 "\\mathbb{E}[\\tau] &= \\frac{\\alpha_0}{\\beta_0}, \\\\\n"
 "\\mathbb{V}[\\tau] &= \\frac{\\alpha_0}{\\beta_0^2}.\n"
 "\n"
 msgstr ""
 "\\mathbb{E}[\\mu] &= m_0 & \\left( \\alpha_0 > \\frac{1}{2} \\right), \\\\\n"
-"\\mathbb{V}[\\mu] &= \\frac{\\beta_0}{\\kappa_0 (\\alpha_0 - 1)} & (\\alpha_0 > 1), \\\\\n"
+"\\mathbb{V}[\\mu] &= \\frac{\\beta_0}{\\kappa_0 (\\alpha_0 - 1)} & (\\alpha_0 > "
+"1), \\\\\n"
 "\\mathbb{E}[\\tau] &= \\frac{\\alpha_0}{\\beta_0}, \\\\\n"
 "\\mathbb{V}[\\tau] &= \\frac{\\alpha_0}{\\beta_0^2}.\n"
 "\n"
 
-#: bayesml.normal:37 of
+#: bayesml.normal:45 of
+msgid "Posterior Distribution"
+msgstr "事後分布"
+
+#: bayesml.normal:47 of
 msgid "The posterior distribution is as follows:"
 msgstr "事後分布は以下の通りです："
 
-#: bayesml.normal:39 of
+#: bayesml.normal:49 of
 #, python-brace-format
 msgid ":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{R}^n`: given data"
-msgstr ":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{R}^n`: 与えられたデータ"
+msgstr ""
+":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{R}^n`: 与えられたデータ"
 
-#: bayesml.normal:40 of
+#: bayesml.normal:50 of
 #, python-brace-format
 msgid ":math:`m_n \\in \\mathbb{R}`: a hyperparameter"
 msgstr ":math:`m_n \\in \\mathbb{R}`: ハイパーパラメータ"
 
-#: bayesml.normal:41 of
+#: bayesml.normal:51 of
 #, python-brace-format
 msgid ":math:`\\kappa_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\kappa_n \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 
-#: bayesml.normal:42 of
+#: bayesml.normal:52 of
 #, python-brace-format
 msgid ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`:ハイパーパラメータ"
 
-#: bayesml.normal:43 of
+#: bayesml.normal:53 of
 #, python-brace-format
 msgid ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 
-#: bayesml.normal:46 of
+#: bayesml.normal:56 of
 msgid ""
-"p(\\mu, \\tau | x^n) &= \\mathcal{N}(\\mu|m_n,(\\kappa_n \\tau)^{-1}) \\mathrm{Gam}(\\tau "
-"| \\alpha_n, \\beta_n) \\\\\n"
-"&= \\sqrt{\\frac{\\kappa_n \\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\kappa_n \\tau}{2}(\\mu-"
-"m_n)^2 \\right\\} \\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\tau^{\\alpha_n - 1} "
-"\\exp \\{ -\\beta_n \\tau \\},\n"
+"p(\\mu, \\tau | x^n) &= \\mathcal{N}(\\mu|m_n,(\\kappa_n \\tau)^{-1}) "
+"\\mathrm{Gam}(\\tau | \\alpha_n, \\beta_n) \\\\\n"
+"&= \\sqrt{\\frac{\\kappa_n \\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\kappa_n "
+"\\tau}{2}(\\mu-m_n)^2 \\right\\} \\frac{\\beta_n^{\\alpha_n}}{\\Gamma "
+"(\\alpha_n)} \\tau^{\\alpha_n - 1} \\exp \\{ -\\beta_n \\tau \\},\n"
 "\n"
 msgstr ""
-"p(\\mu, \\tau | x^n) &= \\mathcal{N}(\\mu|m_n,(\\kappa_n \\tau)^{-1}) \\mathrm{Gam}(\\tau "
-"| \\alpha_n, \\beta_n) \\\\\n"
-"&= \\sqrt{\\frac{\\kappa_n \\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\kappa_n \\tau}{2}(\\mu-"
-"m_n)^2 \\right\\} \\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\tau^{\\alpha_n - 1} "
-"\\exp \\{ -\\beta_n \\tau \\},\n"
+"p(\\mu, \\tau | x^n) &= \\mathcal{N}(\\mu|m_n,(\\kappa_n \\tau)^{-1}) "
+"\\mathrm{Gam}(\\tau | \\alpha_n, \\beta_n) \\\\\n"
+"&= \\sqrt{\\frac{\\kappa_n \\tau}{2\\pi}} \\exp \\left\\{ -\\frac{\\kappa_n "
+"\\tau}{2}(\\mu-m_n)^2 \\right\\} \\frac{\\beta_n^{\\alpha_n}}{\\Gamma "
+"(\\alpha_n)} \\tau^{\\alpha_n - 1} \\exp \\{ -\\beta_n \\tau \\},\n"
 "\n"
 
-#: bayesml.normal:50 of
+#: bayesml.normal:60 of
 #, python-brace-format
 msgid ""
-"\\mathbb{E}[\\mu | x^n] &= m_n & \\left( \\alpha_n > \\frac{1}{2} \\right), \\\\\n"
-"\\mathbb{V}[\\mu | x^n] &= \\frac{\\beta_n}{\\kappa_n (\\alpha_n - 1)} & (\\alpha_n > 1), "
-"\\\\\n"
+"\\mathbb{E}[\\mu | x^n] &= m_n & \\left( \\alpha_n > \\frac{1}{2} \\right), \\"
+"\\\n"
+"\\mathbb{V}[\\mu | x^n] &= \\frac{\\beta_n}{\\kappa_n (\\alpha_n - 1)} & "
+"(\\alpha_n > 1), \\\\\n"
 "\\mathbb{E}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n}, \\\\\n"
 "\\mathbb{V}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n^2},\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[\\mu | x^n] &= m_n & \\left( \\alpha_n > \\frac{1}{2} \\right), \\\\\n"
-"\\mathbb{V}[\\mu | x^n] &= \\frac{\\beta_n}{\\kappa_n (\\alpha_n - 1)} & (\\alpha_n > 1), "
-"\\\\\n"
+"\\mathbb{E}[\\mu | x^n] &= m_n & \\left( \\alpha_n > \\frac{1}{2} \\right), \\"
+"\\\n"
+"\\mathbb{V}[\\mu | x^n] &= \\frac{\\beta_n}{\\kappa_n (\\alpha_n - 1)} & "
+"(\\alpha_n > 1), \\\\\n"
 "\\mathbb{E}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n}, \\\\\n"
 "\\mathbb{V}[\\tau | x^n] &= \\frac{\\alpha_n}{\\beta_n^2},\n"
 "\n"
 
-#: bayesml.normal:56 of
+#: bayesml.normal:66 of
 msgid "where the updating rule of the hyperparameters is"
 msgstr "ここでハイパーパラメータの更新式は以下で与えられます"
 
-#: bayesml.normal:58 of
+#: bayesml.normal:68 of
 msgid ""
 "\\bar{x} &= \\frac{1}{n} \\sum_{i=1}^n x_i, \\\\\n"
 "m_n &= \\frac{\\kappa_0 m_0 + n \\bar{x}}{\\kappa_0 + n}, \\\\\n"
@@ -215,100 +236,136 @@ msgstr ""
 "\\frac{\\kappa_0 n}{\\kappa_0 + n} (\\bar{x} - m_0)^2 \\right).\n"
 "\n"
 
-#: bayesml.normal:65 of
+#: bayesml.normal:76 of
+msgid "Predictive Distribution"
+msgstr "予測分布"
+
+#: bayesml.normal:78 of
 msgid "The predictive distribution is as follows:"
 msgstr "予測分布は以下の通りです："
 
-#: bayesml.normal:67 of
+#: bayesml.normal:80 of
 #, python-brace-format
 msgid ":math:`x_{n+1} \\in \\mathbb{R}`: a new data point"
 msgstr ":math:`x_{n+1} \\in \\mathbb{R}`: 新たなデータ点"
 
-#: bayesml.normal:68 of
+#: bayesml.normal:81 of
 #, python-brace-format
 msgid ""
 ":math:`\\mu_\\mathrm{p} \\in \\mathbb{R}`: the hyperparameter of the predictive "
 "distribution"
 msgstr ":math:`\\mu_\\mathrm{p} \\in \\mathbb{R}`: 予測分布のハイパーパラメータ"
 
-#: bayesml.normal:69 of
+#: bayesml.normal:82 of
 #, python-brace-format
 msgid ""
-":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of the predictive "
-"distribution"
-msgstr ":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 予測分布のハイパーパラメータ"
-
-#: bayesml.normal:70 of
-#, python-brace-format
-msgid ""
-":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of the predictive "
-"distribution"
-msgstr ":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 予測分布のハイパーパラメータ"
-
-#: bayesml.normal:72 of
-msgid ""
-"p(x_{n+1} | x^{n} ) &= \\mathrm{St}(x_{n+1} | \\mu_\\mathrm{p}, \\lambda_\\mathrm{p}, "
-"\\nu_\\mathrm{p}) \\\\\n"
-"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + 1/2 )}{\\Gamma (\\nu_\\mathrm{p} / 2)} "
-"\\left( \\frac{\\lambda_\\mathrm{p}}{\\pi \\nu_\\mathrm{p}} \\right)^{1/2} \\left( 1 + "
-"\\frac{\\lambda_\\mathrm{p} (x_{n+1} - \\mu_\\mathrm{p})^2}{\\nu_\\mathrm{p}} \\right)^{-"
-"\\nu_\\mathrm{p}/2 - 1/2},\n"
-"\n"
+":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of the "
+"predictive distribution"
 msgstr ""
-"p(x_{n+1} | x^{n} ) &= \\mathrm{St}(x_{n+1} | \\mu_\\mathrm{p}, \\lambda_\\mathrm{p}, "
-"\\nu_\\mathrm{p}) \\\\\n"
-"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + 1/2 )}{\\Gamma (\\nu_\\mathrm{p} / 2)} "
-"\\left( \\frac{\\lambda_\\mathrm{p}}{\\pi \\nu_\\mathrm{p}} \\right)^{1/2} \\left( 1 + "
-"\\frac{\\lambda_\\mathrm{p} (x_{n+1} - \\mu_\\mathrm{p})^2}{\\nu_\\mathrm{p}} \\right)^{-"
-"\\nu_\\mathrm{p}/2 - 1/2},\n"
-"\n"
-
-#: bayesml.normal:76 of
-msgid ""
-"\\mathbb{E}[x_{n+1} | x^n] &= \\mu_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
-"\\mathbb{V}[x_{n+1} | x^n] &= \\frac{1}{\\lambda_\\mathrm{p}} \\frac{\\nu_\\mathrm{p}}"
-"{\\nu_\\mathrm{p}-2} & (\\nu_\\mathrm{p} > 2),\n"
-"\n"
-msgstr ""
-"\\mathbb{E}[x_{n+1} | x^n] &= \\mu_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
-"\\mathbb{V}[x_{n+1} | x^n] &= \\frac{1}{\\lambda_\\mathrm{p}} \\frac{\\nu_\\mathrm{p}}"
-"{\\nu_\\mathrm{p}-2} & (\\nu_\\mathrm{p} > 2),\n"
-"\n"
-
-#: bayesml.normal:81 of
-msgid ""
-"where the parameters are obtained from the hyperparameters of the posterior distribution "
-"as follows:"
-msgstr "ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:"
+":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 予測分布のハイパーパラメータ"
 
 #: bayesml.normal:83 of
 #, python-brace-format
 msgid ""
+":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of the "
+"predictive distribution"
+msgstr ""
+":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: 予測分布のハイパーパラメータ"
+
+#: bayesml.normal:85 of
+msgid ""
+"p(x_{n+1} | x^{n} ) &= \\mathrm{St}(x_{n+1} | \\mu_\\mathrm{p}, "
+"\\lambda_\\mathrm{p}, \\nu_\\mathrm{p}) \\\\\n"
+"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + 1/2 )}{\\Gamma (\\nu_\\mathrm{p} / 2)} "
+"\\left( \\frac{\\lambda_\\mathrm{p}}{\\pi \\nu_\\mathrm{p}} \\right)^{1/2} "
+"\\left( 1 + \\frac{\\lambda_\\mathrm{p} (x_{n+1} - \\mu_\\mathrm{p})^2}"
+"{\\nu_\\mathrm{p}} \\right)^{-\\nu_\\mathrm{p}/2 - 1/2},\n"
+"\n"
+msgstr ""
+"p(x_{n+1} | x^{n} ) &= \\mathrm{St}(x_{n+1} | \\mu_\\mathrm{p}, "
+"\\lambda_\\mathrm{p}, \\nu_\\mathrm{p}) \\\\\n"
+"&= \\frac{\\Gamma (\\nu_\\mathrm{p} / 2 + 1/2 )}{\\Gamma (\\nu_\\mathrm{p} / 2)} "
+"\\left( \\frac{\\lambda_\\mathrm{p}}{\\pi \\nu_\\mathrm{p}} \\right)^{1/2} "
+"\\left( 1 + \\frac{\\lambda_\\mathrm{p} (x_{n+1} - \\mu_\\mathrm{p})^2}"
+"{\\nu_\\mathrm{p}} \\right)^{-\\nu_\\mathrm{p}/2 - 1/2},\n"
+"\n"
+
+#: bayesml.normal:89 of
+msgid ""
+"\\mathbb{E}[x_{n+1} | x^n] &= \\mu_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
+"\\mathbb{V}[x_{n+1} | x^n] &= \\frac{1}{\\lambda_\\mathrm{p}} "
+"\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} & (\\nu_\\mathrm{p} > 2),\n"
+"\n"
+msgstr ""
+"\\mathbb{E}[x_{n+1} | x^n] &= \\mu_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), \\\\\n"
+"\\mathbb{V}[x_{n+1} | x^n] &= \\frac{1}{\\lambda_\\mathrm{p}} "
+"\\frac{\\nu_\\mathrm{p}}{\\nu_\\mathrm{p}-2} & (\\nu_\\mathrm{p} > 2),\n"
+"\n"
+
+#: bayesml.normal:94 of
+msgid ""
+"where the parameters are obtained from the hyperparameters of the posterior "
+"distribution as follows:"
+msgstr ""
+"ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:"
+
+#: bayesml.normal:96 of
+#, python-brace-format
+msgid ""
 "\\mu_\\mathrm{p} &= \\mu_n, \\\\\n"
-"\\lambda_\\mathrm{p} &= \\frac{\\kappa_n}{\\kappa_n + 1} \\frac{\\alpha_n}{\\beta_n}, \\"
-"\\\n"
+"\\lambda_\\mathrm{p} &= \\frac{\\kappa_n}{\\kappa_n + 1} \\frac{\\alpha_n}"
+"{\\beta_n}, \\\\\n"
 "\\nu_\\mathrm{p} &= 2 \\alpha_n.\n"
 "\n"
 msgstr ""
 "\\mu_\\mathrm{p} &= \\mu_n, \\\\\n"
-"\\lambda_\\mathrm{p} &= \\frac{\\kappa_n}{\\kappa_n + 1} \\frac{\\alpha_n}{\\beta_n}, \\"
-"\\\n"
+"\\lambda_\\mathrm{p} &= \\frac{\\kappa_n}{\\kappa_n + 1} \\frac{\\alpha_n}"
+"{\\beta_n}, \\\\\n"
 "\\nu_\\mathrm{p} &= 2 \\alpha_n.\n"
 "\n"
 
-#: bayesml.normal._normal.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.normal:102 of
+msgid "Star Us on GitHub"
+msgstr "GitHubスターのお願い"
+
+#: ../../_star.rst:1
+msgid "If you found this page helpful, please consider giving us a star on GitHub."
 msgstr ""
+"もしこのページが参考になったら、GitHubリポジトリにスターをいただけると開発の励み"
+"になります。"
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr "以下のリンクからリポジトリを開いて右上の☆Starを押してください。"
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! <https://github.com/bayesml/"
+"BayesML>`_"
+msgstr ""
+"`リポジトリを開いて右上の☆Starを押す！ <https://github.com/bayesml/BayesML>`_"
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr "GitHubスター"
+
+#: bayesml.normal:107 of
+msgid "Classes"
+msgstr "クラス"
 
 #: bayesml.normal._normal.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution"
 msgstr "確率的データ生成モデルと事前分布"
 
 #: bayesml.normal._normal.GenModel bayesml.normal._normal.GenModel.gen_sample
-#: bayesml.normal._normal.GenModel.save_sample bayesml.normal._normal.GenModel.set_h_params
-#: bayesml.normal._normal.GenModel.set_params bayesml.normal._normal.GenModel.visualize_model
-#: bayesml.normal._normal.LearnModel bayesml.normal._normal.LearnModel.estimate_interval
-#: bayesml.normal._normal.LearnModel.estimate_params bayesml.normal._normal.LearnModel.fit
+#: bayesml.normal._normal.GenModel.save_sample
+#: bayesml.normal._normal.GenModel.set_h_params
+#: bayesml.normal._normal.GenModel.set_params
+#: bayesml.normal._normal.GenModel.visualize_model
+#: bayesml.normal._normal.LearnModel
+#: bayesml.normal._normal.LearnModel.estimate_interval
+#: bayesml.normal._normal.LearnModel.estimate_params
+#: bayesml.normal._normal.LearnModel.fit
 #: bayesml.normal._normal.LearnModel.make_prediction
 #: bayesml.normal._normal.LearnModel.pred_and_update
 #: bayesml.normal._normal.LearnModel.set_h0_params
@@ -317,13 +374,16 @@ msgstr "確率的データ生成モデルと事前分布"
 msgid "Parameters"
 msgstr "パラメータ"
 
-#: bayesml.normal._normal.GenModel:7 bayesml.normal._normal.GenModel.set_params:7 of
+#: bayesml.normal._normal.GenModel:7 bayesml.normal._normal.GenModel.set_params:7
+#: of
 msgid "**mu**"
 msgstr "**mu**"
 
-#: bayesml.normal._normal.GenModel:-1 bayesml.normal._normal.GenModel.set_h_params:-1
+#: bayesml.normal._normal.GenModel:-1
+#: bayesml.normal._normal.GenModel.set_h_params:-1
 #: bayesml.normal._normal.GenModel.set_params:-1
-#: bayesml.normal._normal.GenModel.visualize_model:-1 bayesml.normal._normal.LearnModel:-1
+#: bayesml.normal._normal.GenModel.visualize_model:-1
+#: bayesml.normal._normal.LearnModel:-1
 #: bayesml.normal._normal.LearnModel.estimate_interval:-1
 #: bayesml.normal._normal.LearnModel.set_h0_params:-1
 #: bayesml.normal._normal.LearnModel.set_hn_params:-1 of
@@ -335,7 +395,8 @@ msgstr "float, optional"
 msgid "a real number, by default 0.0"
 msgstr "実数。デフォルトは 0.0 です"
 
-#: bayesml.normal._normal.GenModel:10 bayesml.normal._normal.GenModel.set_params:10 of
+#: bayesml.normal._normal.GenModel:10 bayesml.normal._normal.GenModel.set_params:10
+#: of
 msgid "**tau**"
 msgstr "**tau**"
 
@@ -346,19 +407,23 @@ msgstr "**tau**"
 msgid "a positive real number, by default 1.0"
 msgstr "正の実数、デフォルトでは1.0です"
 
-#: bayesml.normal._normal.GenModel:13 bayesml.normal._normal.GenModel.set_h_params:7 of
+#: bayesml.normal._normal.GenModel:13
+#: bayesml.normal._normal.GenModel.set_h_params:7 of
 msgid "**h_m**"
 msgstr "**h_m**"
 
-#: bayesml.normal._normal.GenModel:16 bayesml.normal._normal.GenModel.set_h_params:10 of
+#: bayesml.normal._normal.GenModel:16
+#: bayesml.normal._normal.GenModel.set_h_params:10 of
 msgid "**h_kappa**"
 msgstr "**h_kappa**"
 
-#: bayesml.normal._normal.GenModel:19 bayesml.normal._normal.GenModel.set_h_params:13 of
+#: bayesml.normal._normal.GenModel:19
+#: bayesml.normal._normal.GenModel.set_h_params:13 of
 msgid "**h_alpha**"
 msgstr "**h_alpha**"
 
-#: bayesml.normal._normal.GenModel:22 bayesml.normal._normal.GenModel.set_h_params:16 of
+#: bayesml.normal._normal.GenModel:22
+#: bayesml.normal._normal.GenModel.set_h_params:16 of
 msgid "**h_beta**"
 msgstr "**h_beta**"
 
@@ -389,8 +454,10 @@ msgid "Generate the parameter from the prior distribution."
 msgstr "事前分布からパラメータを生成します。"
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
-msgid ":py:obj:`gen_sample <bayesml.normal.GenModel.gen_sample>`\\ \\(sample\\_size\\)"
-msgstr ":py:obj:`gen_sample <bayesml.normal.GenModel.gen_sample>`\\ \\(sample\\_size\\)"
+msgid ""
+":py:obj:`gen_sample <bayesml.normal.GenModel.gen_sample>`\\ \\(sample\\_size\\)"
+msgstr ""
+":py:obj:`gen_sample <bayesml.normal.GenModel.gen_sample>`\\ \\(sample\\_size\\)"
 
 #: bayesml.normal._normal.GenModel.gen_sample:2
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
@@ -425,24 +492,30 @@ msgid "Get the parameter of the sthocastic data generative model."
 msgstr "確率的データ生成モデルのパラメータを取得します。"
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
-msgid ":py:obj:`load_h_params <bayesml.normal.GenModel.load_h_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_h_params <bayesml.normal.GenModel.load_h_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_h_params <bayesml.normal.GenModel.load_h_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`load_h_params <bayesml.normal.GenModel.load_h_params>`\\ \\(filename\\)"
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
 msgid "Load the hyperparameters to h_params."
 msgstr "h_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
-msgid ":py:obj:`load_params <bayesml.normal.GenModel.load_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_params <bayesml.normal.GenModel.load_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_params <bayesml.normal.GenModel.load_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`load_params <bayesml.normal.GenModel.load_params>`\\ \\(filename\\)"
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
 msgid "Load the parameters saved by ``save_params``."
 msgstr "Load the parameters saved by ``save_params``."
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
-msgid ":py:obj:`save_h_params <bayesml.normal.GenModel.save_h_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_h_params <bayesml.normal.GenModel.save_h_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_h_params <bayesml.normal.GenModel.save_h_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`save_h_params <bayesml.normal.GenModel.save_h_params>`\\ \\(filename\\)"
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
@@ -450,8 +523,10 @@ msgid "Save the hyperparameters using python ``pickle`` module."
 msgstr "python ``pickle`` モジュールを使ってハイパーパラメータを保存します。"
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
-msgid ":py:obj:`save_params <bayesml.normal.GenModel.save_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_params <bayesml.normal.GenModel.save_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_params <bayesml.normal.GenModel.save_params>`\\ \\(filename\\)"
+msgstr ""
+":py:obj:`save_params <bayesml.normal.GenModel.save_params>`\\ \\(filename\\)"
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
 msgid "Save the parameters using python ``pickle`` module."
@@ -486,8 +561,10 @@ msgid "Set the hyperparameters of the prior distribution."
 msgstr "事前分布のハイパーパラメータを設定します。"
 
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
-msgid ":py:obj:`set_params <bayesml.normal.GenModel.set_params>`\\ \\(\\[mu\\, tau\\]\\)"
-msgstr ":py:obj:`set_params <bayesml.normal.GenModel.set_params>`\\ \\(\\[mu\\, tau\\]\\)"
+msgid ""
+":py:obj:`set_params <bayesml.normal.GenModel.set_params>`\\ \\(\\[mu\\, tau\\]\\)"
+msgstr ""
+":py:obj:`set_params <bayesml.normal.GenModel.set_params>`\\ \\(\\[mu\\, tau\\]\\)"
 
 #: bayesml.normal._normal.GenModel.set_params:2
 #: bayesml.normal._normal.GenModel:59:<autosummary>:1 of
@@ -511,17 +588,21 @@ msgstr "確率的データ生成モデルと生成されたサンプルを可視
 #: bayesml.normal._normal.LearnModel.get_constants:4 of
 #, python-brace-format
 msgid ""
-"This model does not have any constants.  Therefore, this function returns an emtpy dict "
-"``{}``."
+"This model does not have any constants.  Therefore, this function returns an "
+"emtpy dict ``{}``."
 msgstr ""
-"このモデルは定数を持ちません。  したがって、この関数は emtpy dict ``{}`` を返します。"
+"このモデルは定数を持ちません。  したがって、この関数は emtpy dict ``{}`` を返しま"
+"す。"
 
-#: bayesml.normal._normal.GenModel.gen_sample bayesml.normal._normal.GenModel.get_constants
-#: bayesml.normal._normal.GenModel.get_h_params bayesml.normal._normal.GenModel.get_params
+#: bayesml.normal._normal.GenModel.gen_sample
+#: bayesml.normal._normal.GenModel.get_constants
+#: bayesml.normal._normal.GenModel.get_h_params
+#: bayesml.normal._normal.GenModel.get_params
 #: bayesml.normal._normal.LearnModel.calc_log_marginal_likelihood
 #: bayesml.normal._normal.LearnModel.calc_pred_var
 #: bayesml.normal._normal.LearnModel.estimate_interval
-#: bayesml.normal._normal.LearnModel.estimate_params bayesml.normal._normal.LearnModel.fit
+#: bayesml.normal._normal.LearnModel.estimate_params
+#: bayesml.normal._normal.LearnModel.fit
 #: bayesml.normal._normal.LearnModel.get_constants
 #: bayesml.normal._normal.LearnModel.get_h0_params
 #: bayesml.normal._normal.LearnModel.get_hn_params
@@ -634,7 +715,8 @@ msgstr "int"
 msgid "A positive integer"
 msgstr "正の整数"
 
-#: bayesml.normal._normal.GenModel.gen_sample:14 bayesml.normal._normal.LearnModel.fit:12
+#: bayesml.normal._normal.GenModel.gen_sample:14
+#: bayesml.normal._normal.LearnModel.fit:12
 #: bayesml.normal._normal.LearnModel.pred_and_update:7
 #: bayesml.normal._normal.LearnModel.update_posterior:7 of
 msgid "**x**"
@@ -662,7 +744,8 @@ msgstr "str"
 
 #: bayesml.normal._normal.GenModel.save_sample:9 of
 msgid ""
-"The filename to which the sample is saved. ``.npz`` will be appended if it isn't there."
+"The filename to which the sample is saved. ``.npz`` will be appended if it isn't "
+"there."
 msgstr "サンプルを保存するファイル名。ない場合は ``.npz`` が追加されます。"
 
 #: bayesml.normal._normal.GenModel.save_sample:27 of
@@ -690,27 +773,27 @@ msgstr "正の浮動小数点数、デフォルト値は10"
 msgid "Examples"
 msgstr "例"
 
-#: bayesml.normal._normal.LearnModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Posterior`, :py:class:`~bayesml.base.PredictiveMixin`"
-msgstr ""
-
 #: bayesml.normal._normal.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
 msgstr "事後分布と予測分布"
 
-#: bayesml.normal._normal.LearnModel:7 bayesml.normal._normal.LearnModel.set_h0_params:7 of
+#: bayesml.normal._normal.LearnModel:7
+#: bayesml.normal._normal.LearnModel.set_h0_params:7 of
 msgid "**h0_m**"
 msgstr "**h0_m**"
 
-#: bayesml.normal._normal.LearnModel:10 bayesml.normal._normal.LearnModel.set_h0_params:10 of
+#: bayesml.normal._normal.LearnModel:10
+#: bayesml.normal._normal.LearnModel.set_h0_params:10 of
 msgid "**h0_kappa**"
 msgstr "**h0_kappa**"
 
-#: bayesml.normal._normal.LearnModel:13 bayesml.normal._normal.LearnModel.set_h0_params:13 of
+#: bayesml.normal._normal.LearnModel:13
+#: bayesml.normal._normal.LearnModel.set_h0_params:13 of
 msgid "**h0_alpha**"
 msgstr "**h0_alpha**"
 
-#: bayesml.normal._normal.LearnModel:16 bayesml.normal._normal.LearnModel.set_h0_params:16 of
+#: bayesml.normal._normal.LearnModel:16
+#: bayesml.normal._normal.LearnModel.set_h0_params:16 of
 msgid "**h0_beta**"
 msgstr "**h0_beta**"
 
@@ -718,7 +801,8 @@ msgstr "**h0_beta**"
 msgid "Attributes"
 msgstr "属性"
 
-#: bayesml.normal._normal.LearnModel:21 bayesml.normal._normal.LearnModel.set_hn_params:7 of
+#: bayesml.normal._normal.LearnModel:21
+#: bayesml.normal._normal.LearnModel.set_hn_params:7 of
 msgid "**hn_m**"
 msgstr "**hn_m**"
 
@@ -734,7 +818,8 @@ msgstr "float"
 msgid "a real number"
 msgstr "実数"
 
-#: bayesml.normal._normal.LearnModel:24 bayesml.normal._normal.LearnModel.set_hn_params:10 of
+#: bayesml.normal._normal.LearnModel:24
+#: bayesml.normal._normal.LearnModel.set_hn_params:10 of
 msgid "**hn_kappa**"
 msgstr "**hn_kappa**"
 
@@ -744,11 +829,13 @@ msgstr "**hn_kappa**"
 msgid "a positive real number"
 msgstr "正の実数"
 
-#: bayesml.normal._normal.LearnModel:27 bayesml.normal._normal.LearnModel.set_hn_params:13 of
+#: bayesml.normal._normal.LearnModel:27
+#: bayesml.normal._normal.LearnModel.set_hn_params:13 of
 msgid "**hn_alpha**"
 msgstr "**hn_alpha**"
 
-#: bayesml.normal._normal.LearnModel:30 bayesml.normal._normal.LearnModel.set_hn_params:16 of
+#: bayesml.normal._normal.LearnModel:30
+#: bayesml.normal._normal.LearnModel.set_hn_params:16 of
 msgid "**hn_beta**"
 msgstr "**hn_beta**"
 
@@ -778,8 +865,10 @@ msgid "Calculate log marginal likelihood"
 msgstr "対数周辺尤度の計算"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid ":py:obj:`calc_pred_dist <bayesml.normal.LearnModel.calc_pred_dist>`\\ \\(\\)"
-msgstr ":py:obj:`calc_pred_dist <bayesml.normal.LearnModel.calc_pred_dist>`\\ \\(\\)"
+msgid ""
+":py:obj:`calc_pred_dist <bayesml.normal.LearnModel.calc_pred_dist>`\\ \\(\\)"
+msgstr ""
+":py:obj:`calc_pred_dist <bayesml.normal.LearnModel.calc_pred_dist>`\\ \\(\\)"
 
 #: bayesml.normal._normal.LearnModel.calc_pred_dist:2
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
@@ -810,16 +899,17 @@ msgstr "パラメータの信頼区間"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid ""
-":py:obj:`estimate_params <bayesml.normal.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
-"dict\\_out\\]\\)"
+":py:obj:`estimate_params <bayesml.normal.LearnModel.estimate_params>`\\ \\(\\"
+"[loss\\, dict\\_out\\]\\)"
 msgstr ""
-":py:obj:`estimate_params <bayesml.normal.LearnModel.estimate_params>`\\ \\(\\[loss\\, "
-"dict\\_out\\]\\)"
+":py:obj:`estimate_params <bayesml.normal.LearnModel.estimate_params>`\\ \\(\\"
+"[loss\\, dict\\_out\\]\\)"
 
 #: bayesml.normal._normal.LearnModel.estimate_params:2
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid ""
-"Estimate the parameter of the stochastic data generative model under the given criterion."
+"Estimate the parameter of the stochastic data generative model under the given "
+"criterion."
 msgstr "与えられた基準の下で、確率的データ生成モデルのパラメータを推定します。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
@@ -846,7 +936,8 @@ msgstr ":py:obj:`get_h0_params <bayesml.normal.LearnModel.get_h0_params>`\\ \\(\
 
 #: bayesml.normal._normal.LearnModel.get_h0_params:2
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid "Get the initial values of the hyperparameters of the posterior distribution."
+msgid ""
+"Get the initial values of the hyperparameters of the posterior distribution."
 msgstr "事後分布のハイパーパラメータの初期値を取得します。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
@@ -868,16 +959,24 @@ msgid "Get the parameters of the predictive distribution."
 msgstr "予測分布のパラメータを取得します。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid ":py:obj:`load_h0_params <bayesml.normal.LearnModel.load_h0_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_h0_params <bayesml.normal.LearnModel.load_h0_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_h0_params <bayesml.normal.LearnModel.load_h0_params>`\\ \\"
+"(filename\\)"
+msgstr ""
+":py:obj:`load_h0_params <bayesml.normal.LearnModel.load_h0_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid "Load the hyperparameters to h0_params."
 msgstr "h0_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid ":py:obj:`load_hn_params <bayesml.normal.LearnModel.load_hn_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`load_hn_params <bayesml.normal.LearnModel.load_hn_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`load_hn_params <bayesml.normal.LearnModel.load_hn_params>`\\ \\"
+"(filename\\)"
+msgstr ""
+":py:obj:`load_hn_params <bayesml.normal.LearnModel.load_hn_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid "Load the hyperparameters to hn_params."
@@ -885,9 +984,11 @@ msgstr "hn_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid ""
-":py:obj:`make_prediction <bayesml.normal.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+":py:obj:`make_prediction <bayesml.normal.LearnModel.make_prediction>`\\ \\(\\"
+"[loss\\]\\)"
 msgstr ""
-":py:obj:`make_prediction <bayesml.normal.LearnModel.make_prediction>`\\ \\(\\[loss\\]\\)"
+":py:obj:`make_prediction <bayesml.normal.LearnModel.make_prediction>`\\ \\(\\"
+"[loss\\]\\)"
 
 #: bayesml.normal._normal.LearnModel.make_prediction:2
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
@@ -896,23 +997,25 @@ msgstr "与えられた基準の下で、新しいデータ点を予測します
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid ""
-":py:obj:`overwrite_h0_params <bayesml.normal.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+":py:obj:`overwrite_h0_params <bayesml.normal.LearnModel.overwrite_h0_params>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`overwrite_h0_params <bayesml.normal.LearnModel.overwrite_h0_params>`\\ \\(\\)"
+":py:obj:`overwrite_h0_params <bayesml.normal.LearnModel.overwrite_h0_params>`\\ "
+"\\(\\)"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid ""
-"Overwrite the initial values of the hyperparameters of the posterior distribution by the "
-"learned values."
+"Overwrite the initial values of the hyperparameters of the posterior "
+"distribution by the learned values."
 msgstr "事後分布のハイパーパラメータの初期値を学習した値で上書きします。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid ""
-":py:obj:`pred_and_update <bayesml.normal.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]"
-"\\)"
+":py:obj:`pred_and_update <bayesml.normal.LearnModel.pred_and_update>`\\ \\(x\\"
+"[\\, loss\\]\\)"
 msgstr ""
-":py:obj:`pred_and_update <bayesml.normal.LearnModel.pred_and_update>`\\ \\(x\\[\\, loss\\]"
-"\\)"
+":py:obj:`pred_and_update <bayesml.normal.LearnModel.pred_and_update>`\\ \\(x\\"
+"[\\, loss\\]\\)"
 
 #: bayesml.normal._normal.LearnModel.pred_and_update:2
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
@@ -929,36 +1032,47 @@ msgid "Predict the next data point."
 msgstr "次のデータ点を予測します。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid ":py:obj:`reset_hn_params <bayesml.normal.LearnModel.reset_hn_params>`\\ \\(\\)"
-msgstr ":py:obj:`reset_hn_params <bayesml.normal.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgid ""
+":py:obj:`reset_hn_params <bayesml.normal.LearnModel.reset_hn_params>`\\ \\(\\)"
+msgstr ""
+":py:obj:`reset_hn_params <bayesml.normal.LearnModel.reset_hn_params>`\\ \\(\\)"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid "Reset the hyperparameters of the posterior distribution to their initial values."
+msgid ""
+"Reset the hyperparameters of the posterior distribution to their initial values."
 msgstr "事後分布のハイパーパラメータを初期値に戻します。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid ":py:obj:`save_h0_params <bayesml.normal.LearnModel.save_h0_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_h0_params <bayesml.normal.LearnModel.save_h0_params>`\\ \\(filename\\)"
-
-#: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid ":py:obj:`save_hn_params <bayesml.normal.LearnModel.save_hn_params>`\\ \\(filename\\)"
-msgstr ":py:obj:`save_hn_params <bayesml.normal.LearnModel.save_hn_params>`\\ \\(filename\\)"
+msgid ""
+":py:obj:`save_h0_params <bayesml.normal.LearnModel.save_h0_params>`\\ \\"
+"(filename\\)"
+msgstr ""
+":py:obj:`save_h0_params <bayesml.normal.LearnModel.save_h0_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid ""
-":py:obj:`set_h0_params <bayesml.normal.LearnModel.set_h0_params>`\\ \\(\\[h0\\_m\\, "
-"h0\\_kappa\\, h0\\_alpha\\, ...\\]\\)"
+":py:obj:`save_hn_params <bayesml.normal.LearnModel.save_hn_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`set_h0_params <bayesml.normal.LearnModel.set_h0_params>`\\ \\(\\[h0\\_m\\, "
-"h0\\_kappa\\, h0\\_alpha\\, ...\\]\\)"
+":py:obj:`save_hn_params <bayesml.normal.LearnModel.save_hn_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid ""
-":py:obj:`set_hn_params <bayesml.normal.LearnModel.set_hn_params>`\\ \\(\\[hn\\_m\\, "
-"hn\\_kappa\\, hn\\_alpha\\, ...\\]\\)"
+":py:obj:`set_h0_params <bayesml.normal.LearnModel.set_h0_params>`\\ \\(\\"
+"[h0\\_m\\, h0\\_kappa\\, h0\\_alpha\\, ...\\]\\)"
 msgstr ""
-":py:obj:`set_hn_params <bayesml.normal.LearnModel.set_hn_params>`\\ \\(\\[hn\\_m\\, "
-"hn\\_kappa\\, hn\\_alpha\\, ...\\]\\)"
+":py:obj:`set_h0_params <bayesml.normal.LearnModel.set_h0_params>`\\ \\(\\"
+"[h0\\_m\\, h0\\_kappa\\, h0\\_alpha\\, ...\\]\\)"
+
+#: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
+msgid ""
+":py:obj:`set_hn_params <bayesml.normal.LearnModel.set_hn_params>`\\ \\(\\"
+"[hn\\_m\\, hn\\_kappa\\, hn\\_alpha\\, ...\\]\\)"
+msgstr ""
+":py:obj:`set_hn_params <bayesml.normal.LearnModel.set_hn_params>`\\ \\(\\"
+"[hn\\_m\\, hn\\_kappa\\, hn\\_alpha\\, ...\\]\\)"
 
 #: bayesml.normal._normal.LearnModel.set_hn_params:2
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
@@ -966,19 +1080,24 @@ msgid "Set updated values of the hyperparameter of the posterior distribution."
 msgstr "事後分布のハイパーパラメータの更新値を設定します。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid ":py:obj:`update_posterior <bayesml.normal.LearnModel.update_posterior>`\\ \\(x\\)"
-msgstr ":py:obj:`update_posterior <bayesml.normal.LearnModel.update_posterior>`\\ \\(x\\)"
+msgid ""
+":py:obj:`update_posterior <bayesml.normal.LearnModel.update_posterior>`\\ \\(x\\)"
+msgstr ""
+":py:obj:`update_posterior <bayesml.normal.LearnModel.update_posterior>`\\ \\(x\\)"
 
 #: bayesml.normal._normal.LearnModel.update_posterior:2
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
-msgid "Update the hyperparameters of the posterior distribution using traning data."
+msgid ""
+"Update the hyperparameters of the posterior distribution using traning data."
 msgstr "訓練データを使って事後分布のハイパーパラメータを更新します。"
 
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
 msgid ""
-":py:obj:`visualize_posterior <bayesml.normal.LearnModel.visualize_posterior>`\\ \\(\\)"
+":py:obj:`visualize_posterior <bayesml.normal.LearnModel.visualize_posterior>`\\ "
+"\\(\\)"
 msgstr ""
-":py:obj:`visualize_posterior <bayesml.normal.LearnModel.visualize_posterior>`\\ \\(\\)"
+":py:obj:`visualize_posterior <bayesml.normal.LearnModel.visualize_posterior>`\\ "
+"\\(\\)"
 
 #: bayesml.normal._normal.LearnModel.visualize_posterior:2
 #: bayesml.normal._normal.LearnModel:81:<autosummary>:1 of
@@ -1036,12 +1155,13 @@ msgstr "実数"
 
 #: bayesml.normal._normal.LearnModel.estimate_params:4 of
 msgid ""
-"Note that the criterion is applied to estimating ``mu`` and ``tau`` independently. "
-"Therefore, a tuple of the student's t-distribution and the gamma distribution will be "
-"returned when loss=\"KL\""
+"Note that the criterion is applied to estimating ``mu`` and ``tau`` "
+"independently. Therefore, a tuple of the student's t-distribution and the gamma "
+"distribution will be returned when loss=\"KL\""
 msgstr ""
-"この基準は、「μ」と「τ」を個別に推定する際に適用される点にご注意ください。したがって、"
-"loss=\"KL\" を指定した場合、スチューデントの t 分布とガンマ分布のタプルが返されます。"
+"この基準は、「μ」と「τ」を個別に推定する際に適用される点にご注意ください。した"
+"がって、loss=\"KL\" を指定した場合、スチューデントの t 分布とガンマ分布のタプルが"
+"返されます。"
 
 #: bayesml.normal._normal.LearnModel.estimate_params:9
 #: bayesml.normal._normal.LearnModel.make_prediction:7
@@ -1059,11 +1179,11 @@ msgstr "str, optional"
 #: bayesml.normal._normal.LearnModel.make_prediction:8
 #: bayesml.normal._normal.LearnModel.pred_and_update:11 of
 msgid ""
-"Loss function underlying the Bayes risk function, by default \"squared\". This function "
-"supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
+"Loss function underlying the Bayes risk function, by default \"squared\". This "
+"function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
 msgstr ""
-"ベイズリスク関数の基礎となる損失関数、デフォルトは \"squared\"。この関数は \"squared\"、"
-"\"0-1\"、\"abs\"、\"KL \"をサポートしています。"
+"ベイズリスク関数の基礎となる損失関数、デフォルトは \"squared\"。この関数は "
+"\"squared\"、\"0-1\"、\"abs\"、\"KL \"をサポートしています。"
 
 #: bayesml.normal._normal.LearnModel.estimate_params:13 of
 msgid "**dict_out**"
@@ -1096,12 +1216,13 @@ msgstr "``tau_hat`` : tau の推定値"
 
 #: bayesml.normal._normal.LearnModel.estimate_params:23 of
 msgid ""
-"The estimated values under the given loss function. If it is not exist, `None` will be "
-"returned. If the loss function is \"KL\", the posterior distribution itself will be "
-"returned as rv_frozen object of scipy.stats."
+"The estimated values under the given loss function. If it is not exist, `None` "
+"will be returned. If the loss function is \"KL\", the posterior distribution "
+"itself will be returned as rv_frozen object of scipy.stats."
 msgstr ""
-"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数が \"KL\" "
-"の場合、事後分布そのものが scipy.stats の rv_frozen オブジェクトとして返されます。"
+"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数"
+"が \"KL\" の場合、事後分布そのものが scipy.stats の rv_frozen オブジェクトとして"
+"返されます。"
 
 #: bayesml.normal._normal.LearnModel.estimate_params:36
 #: bayesml.normal._normal.LearnModel.make_prediction:29
@@ -1120,7 +1241,8 @@ msgid "**credibility**"
 msgstr "**credibility**"
 
 #: bayesml.normal._normal.LearnModel.estimate_interval:8 of
-msgid "A posterior probability that the interval conitans the paramter, by default 0.95"
+msgid ""
+"A posterior probability that the interval conitans the paramter, by default 0.95"
 msgstr "パラメータがその区間に含まれるという事後確率（デフォルト値：0.95）"
 
 #: bayesml.normal._normal.LearnModel.estimate_interval:14 of
@@ -1161,8 +1283,9 @@ msgstr "{float, rv_frozen}"
 #: bayesml.normal._normal.LearnModel.make_prediction:16
 #: bayesml.normal._normal.LearnModel.pred_and_update:19 of
 msgid ""
-"The predicted value under the given loss function.  If the loss function is \"KL\", the "
-"posterior distribution itself will be returned as rv_frozen object of scipy.stats."
+"The predicted value under the given loss function.  If the loss function is "
+"\"KL\", the posterior distribution itself will be returned as rv_frozen object "
+"of scipy.stats."
 msgstr ""
 "指定された損失関数における予測値です。損失関数が「KL」の場合、事後分布そのものが "
 "scipy.stats の rv_frozen オブジェクトとして返されます。"
@@ -1187,7 +1310,8 @@ msgstr "**var**"
 msgid "The variance of the predictive distribution."
 msgstr "予測分布の分散"
 
-#: bayesml.normal._normal.LearnModel.fit:4 bayesml.normal._normal.LearnModel.predict:4 of
+#: bayesml.normal._normal.LearnModel.fit:4
+#: bayesml.normal._normal.LearnModel.predict:4 of
 msgid "This function is a wrapper of the following functions:"
 msgstr "この関数は以下の関数のラッパーです："
 
@@ -1214,3 +1338,6 @@ msgstr "**predicted_value**"
 #: bayesml.normal._normal.LearnModel.predict:15 of
 msgid "The predicted value under the squared loss function."
 msgstr "二乗誤差関数に基づく予測値。"
+
+#~ msgid "Class and Methods"
+#~ msgstr "クラスとメソッド"

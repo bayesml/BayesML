@@ -2,7 +2,12 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
 r"""
-The Gaussian mixture model with the Gauss-Wishart prior distribution and the Dirichlet prior distribution.
+This module provides the Gaussian mixture model with the Gauss-Wishart prior distribution and the Dirichlet prior distribution.
+
+.. image:: ./images/gaussianmixture_example.png
+
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -21,6 +26,9 @@ The stochastic data generative model is as follows:
     p(\boldsymbol{z} | \boldsymbol{\pi}) &= \mathrm{Cat}(\boldsymbol{z}|\boldsymbol{\pi}) = \prod_{k=1}^K \pi_k^{z_k},\\
     p(\boldsymbol{x} | \boldsymbol{\mu}, \boldsymbol{\Lambda}, \boldsymbol{z}) &= \prod_{k=1}^K \mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}_k,\boldsymbol{\Lambda}_k^{-1})^{z_k} \\
     &= \prod_{k=1}^K \left( \frac{| \boldsymbol{\Lambda}_k |^{1/2}}{(2\pi)^{D/2}} \exp \left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu}_k)^\top \boldsymbol{\Lambda}_k (\boldsymbol{x}-\boldsymbol{\mu}_k) \right\} \right)^{z_k}.
+
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -43,6 +51,9 @@ where :math:`B(\boldsymbol{W}_0, \nu_0)` and :math:`C(\boldsymbol{\alpha}_0)` ar
 .. math::
     B(\boldsymbol{W}_0, \nu_0) &= | \boldsymbol{W}_0 |^{-\nu_0 / 2} \left( 2^{\nu_0 D / 2} \pi^{D(D-1)/4} \prod_{i=1}^D \Gamma \left( \frac{\nu_0 + 1 - i}{2} \right) \right)^{-1}, \\
     C(\boldsymbol{\alpha}_0) &= \frac{\Gamma(\sum_{k=1}^K \alpha_{0,k})}{\Gamma(\alpha_{0,1})\cdots\Gamma(\alpha_{0,K})}.
+
+Posterior Distribution
+----------------------
 
 The apporoximate posterior distribution in the :math:`t`-th iteration of a variational Bayesian method is as follows:
 
@@ -76,6 +87,9 @@ where the updating rule of the hyperparameters is as follows.
     &\qquad - D \ln (2 \pi ) - \frac{D}{\kappa_{n,k}^{(t+1)}} - \nu_{n,k}^{(t+1)} (\boldsymbol{x}_i - \boldsymbol{m}_{n,k}^{(t+1)})^\top \boldsymbol{W}_{n,k}^{(t+1)} (\boldsymbol{x}_i - \boldsymbol{m}_{n,k}^{(t+1)}) \Biggr], \\
     r_{i,k}^{(t+1)} &= \frac{\rho_{i,k}^{(t+1)}}{\sum_{j=1}^K \rho_{i,j}^{(t+1)}}.
 
+Predictive Distribution
+-----------------------
+
 The approximate predictive distribution is as follows:
 
 * :math:`\boldsymbol{x}_{n+1} \in \mathbb{R}^D`: a new data point
@@ -95,6 +109,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
     \boldsymbol{\mu}_{\mathrm{p},k} &= \boldsymbol{m}_{n,k}^{(t)}, \\
     \nu_{\mathrm{p},k} &= \nu_{n,k}^{(t)} - D + 1,\\
     \boldsymbol{\Lambda}_{\mathrm{p},k} &= \frac{\kappa_{n,k}^{(t)} \nu_{\mathrm{p},k}}{\kappa_{n,k}^{(t)} + 1} \boldsymbol{W}_{n,k}^{(t)}.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Classes
+-------
 """
 
 from ._gaussianmixture import GenModel

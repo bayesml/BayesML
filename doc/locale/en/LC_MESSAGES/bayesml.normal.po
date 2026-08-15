@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-17 23:58+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,40 +17,46 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../bayesml.normal.rst:2
 msgid "bayesml.normal package"
 msgstr ""
 
-#: ../../bayesml.normal.rst:7
+#: ../../bayesml.normal.rst:5
 msgid "Module contents"
 msgstr ""
 
 #: bayesml.normal:1 of
-msgid "The normal distribution with the normaml-gamma prior distribution."
+msgid ""
+"This module provides the normal distribution with the normal-gamma prior "
+"distribution."
 msgstr ""
 
-#: bayesml.normal:3 of
+#: bayesml.normal:6 of
+msgid "Stochastic Data Generative Model"
+msgstr ""
+
+#: bayesml.normal:8 of
 msgid "The stochastic data generative model is as follows:"
 msgstr ""
 
-#: bayesml.normal:5 of
+#: bayesml.normal:10 of
 #, python-brace-format
 msgid ":math:`x \\in \\mathbb{R}`: a data point"
 msgstr ""
 
-#: bayesml.normal:6 of
+#: bayesml.normal:11 of
 #, python-brace-format
 msgid ":math:`\\mu \\in \\mathbb{R}`: a mean parameter"
 msgstr ""
 
-#: bayesml.normal:7 of
+#: bayesml.normal:12 of
 #, python-brace-format
 msgid ":math:`\\tau \\in \\mathbb{R}_{>0}`: a precision parameter"
 msgstr ""
 
-#: bayesml.normal:9 of
+#: bayesml.normal:14 of
 msgid ""
 "p(x | \\mu, \\tau) &= \\mathcal{N}(x|\\mu,\\tau^{-1})\\\\\n"
 "&= \\sqrt{\\frac{\\tau}{2\\pi}} \\exp \\left\\{ "
@@ -58,7 +64,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal:14 of
+#: bayesml.normal:19 of
 #, python-brace-format
 msgid ""
 "&\\mathbb{E}[x | \\mu, \\tau] = \\mu, \\\\\n"
@@ -66,35 +72,39 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal:19 of
+#: bayesml.normal:24 of
+msgid "Prior Distribution"
+msgstr ""
+
+#: bayesml.normal:26 of
 msgid "The prior distribution is as follows:"
 msgstr ""
 
-#: bayesml.normal:21 of
+#: bayesml.normal:28 of
 #, python-brace-format
 msgid ":math:`m_0 \\in \\mathbb{R}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.normal:22 of
+#: bayesml.normal:29 of
 #, python-brace-format
 msgid ":math:`\\kappa_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.normal:23 of
+#: bayesml.normal:30 of
 #, python-brace-format
 msgid ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.normal:24 of
+#: bayesml.normal:31 of
 #, python-brace-format
 msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.normal:25 bayesml.normal:44 of
+#: bayesml.normal:32 bayesml.normal:54 of
 msgid ":math:`\\Gamma ( \\cdot )`: the gamma function"
 msgstr ""
 
-#: bayesml.normal:27 of
+#: bayesml.normal:34 of
 msgid ""
 "p(\\mu, \\tau) &= \\mathcal{N}(\\mu|m_0,(\\kappa_0 \\tau)^{-1}) "
 "\\mathrm{Gam}(\\tau | \\alpha_0, \\beta_0) \\\\\n"
@@ -105,7 +115,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal:31 of
+#: bayesml.normal:38 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\mu] &= m_0 & \\left( \\alpha_0 > \\frac{1}{2} \\right), "
@@ -117,36 +127,40 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal:37 of
+#: bayesml.normal:45 of
+msgid "Posterior Distribution"
+msgstr ""
+
+#: bayesml.normal:47 of
 msgid "The posterior distribution is as follows:"
 msgstr ""
 
-#: bayesml.normal:39 of
+#: bayesml.normal:49 of
 #, python-brace-format
 msgid ":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{R}^n`: given data"
 msgstr ""
 
-#: bayesml.normal:40 of
+#: bayesml.normal:50 of
 #, python-brace-format
 msgid ":math:`m_n \\in \\mathbb{R}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.normal:41 of
+#: bayesml.normal:51 of
 #, python-brace-format
 msgid ":math:`\\kappa_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.normal:42 of
+#: bayesml.normal:52 of
 #, python-brace-format
 msgid ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.normal:43 of
+#: bayesml.normal:53 of
 #, python-brace-format
 msgid ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.normal:46 of
+#: bayesml.normal:56 of
 msgid ""
 "p(\\mu, \\tau | x^n) &= \\mathcal{N}(\\mu|m_n,(\\kappa_n \\tau)^{-1}) "
 "\\mathrm{Gam}(\\tau | \\alpha_n, \\beta_n) \\\\\n"
@@ -157,7 +171,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal:50 of
+#: bayesml.normal:60 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\mu | x^n] &= m_n & \\left( \\alpha_n > \\frac{1}{2} "
@@ -169,11 +183,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal:56 of
+#: bayesml.normal:66 of
 msgid "where the updating rule of the hyperparameters is"
 msgstr ""
 
-#: bayesml.normal:58 of
+#: bayesml.normal:68 of
 msgid ""
 "\\bar{x} &= \\frac{1}{n} \\sum_{i=1}^n x_i, \\\\\n"
 "m_n &= \\frac{\\kappa_0 m_0 + n \\bar{x}}{\\kappa_0 + n}, \\\\\n"
@@ -185,37 +199,41 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal:65 of
+#: bayesml.normal:76 of
+msgid "Predictive Distribution"
+msgstr ""
+
+#: bayesml.normal:78 of
 msgid "The predictive distribution is as follows:"
 msgstr ""
 
-#: bayesml.normal:67 of
+#: bayesml.normal:80 of
 #, python-brace-format
 msgid ":math:`x_{n+1} \\in \\mathbb{R}`: a new data point"
 msgstr ""
 
-#: bayesml.normal:68 of
+#: bayesml.normal:81 of
 #, python-brace-format
 msgid ""
 ":math:`\\mu_\\mathrm{p} \\in \\mathbb{R}`: the hyperparameter of the "
 "predictive distribution"
 msgstr ""
 
-#: bayesml.normal:69 of
+#: bayesml.normal:82 of
 #, python-brace-format
 msgid ""
 ":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of"
 " the predictive distribution"
 msgstr ""
 
-#: bayesml.normal:70 of
+#: bayesml.normal:83 of
 #, python-brace-format
 msgid ""
 ":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: the hyperparameter of the"
 " predictive distribution"
 msgstr ""
 
-#: bayesml.normal:72 of
+#: bayesml.normal:85 of
 msgid ""
 "p(x_{n+1} | x^{n} ) &= \\mathrm{St}(x_{n+1} | \\mu_\\mathrm{p}, "
 "\\lambda_\\mathrm{p}, \\nu_\\mathrm{p}) \\\\\n"
@@ -227,7 +245,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal:76 of
+#: bayesml.normal:89 of
 msgid ""
 "\\mathbb{E}[x_{n+1} | x^n] &= \\mu_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), "
 "\\\\\n"
@@ -236,13 +254,13 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal:81 of
+#: bayesml.normal:94 of
 msgid ""
 "where the parameters are obtained from the hyperparameters of the "
 "posterior distribution as follows:"
 msgstr ""
 
-#: bayesml.normal:83 of
+#: bayesml.normal:96 of
 #, python-brace-format
 msgid ""
 "\\mu_\\mathrm{p} &= \\mu_n, \\\\\n"
@@ -252,8 +270,32 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.normal._normal.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.normal:102 of
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`_"
+msgstr ""
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr ""
+
+#: bayesml.normal:107 of
+msgid "Classes"
 msgstr ""
 
 #: bayesml.normal._normal.GenModel:2 of
@@ -666,12 +708,6 @@ msgstr ""
 #: bayesml.normal._normal.GenModel.visualize_model:26
 #: bayesml.normal._normal.LearnModel.visualize_posterior:19 of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.normal._normal.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.normal._normal.LearnModel:2 of
@@ -1217,5 +1253,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "a real number :math:`mu \\in \\mathbb{R}`, by default None."
+#~ msgstr ""
+
+#~ msgid "The normal distribution with the normaml-gamma prior distribution."
+#~ msgstr ""
+
+#~ msgid "Class and Methods"
 #~ msgstr ""
 

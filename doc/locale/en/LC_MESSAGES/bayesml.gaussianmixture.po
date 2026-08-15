@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-17 22:32+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,83 +17,87 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../bayesml.gaussianmixture.rst:2
 msgid "bayesml.gaussianmixture package"
 msgstr ""
 
-#: ../../bayesml.gaussianmixture.rst:7
+#: ../../bayesml.gaussianmixture.rst:5
 msgid "Module contents"
 msgstr ""
 
 #: bayesml.gaussianmixture:1 of
 msgid ""
-"The Gaussian mixture model with the Gauss-Wishart prior distribution and "
-"the Dirichlet prior distribution."
+"This module provides the Gaussian mixture model with the Gauss-Wishart "
+"prior distribution and the Dirichlet prior distribution."
 msgstr ""
 
-#: bayesml.gaussianmixture:3 of
+#: bayesml.gaussianmixture:6 of
+msgid "Stochastic Data Generative Model"
+msgstr ""
+
+#: bayesml.gaussianmixture:8 of
 msgid "The stochastic data generative model is as follows:"
 msgstr ""
 
-#: bayesml.gaussianmixture:5 of
+#: bayesml.gaussianmixture:10 of
 #, python-brace-format
 msgid ":math:`K \\in \\mathbb{N}`: number of latent classes"
 msgstr ""
 
-#: bayesml.gaussianmixture:6 of
+#: bayesml.gaussianmixture:11 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{z} \\in \\{ 0, 1 \\}^K`: a one-hot vector "
 "representing the latent class (latent variable)"
 msgstr ""
 
-#: bayesml.gaussianmixture:7 of
+#: bayesml.gaussianmixture:12 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\pi} \\in [0, 1]^K`: a parameter for latent classes,"
 " (:math:`\\sum_{k=1}^K \\pi_k=1`)"
 msgstr ""
 
-#: bayesml.gaussianmixture:8 of
+#: bayesml.gaussianmixture:13 of
 #, python-brace-format
 msgid ":math:`D \\in \\mathbb{N}`: a dimension of data"
 msgstr ""
 
-#: bayesml.gaussianmixture:9 of
+#: bayesml.gaussianmixture:14 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{x} \\in \\mathbb{R}^D`: a data point"
 msgstr ""
 
-#: bayesml.gaussianmixture:10 of
+#: bayesml.gaussianmixture:15 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{\\mu}_k \\in \\mathbb{R}^D`: a parameter"
 msgstr ""
 
-#: bayesml.gaussianmixture:11 of
+#: bayesml.gaussianmixture:16 of
 msgid ":math:`\\boldsymbol{\\mu} = \\{ \\boldsymbol{\\mu}_k \\}_{k=1}^K`"
 msgstr ""
 
-#: bayesml.gaussianmixture:12 of
+#: bayesml.gaussianmixture:17 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\Lambda}_k \\in \\mathbb{R}^{D\\times D}` : a "
 "parameter (a positive definite matrix)"
 msgstr ""
 
-#: bayesml.gaussianmixture:13 of
+#: bayesml.gaussianmixture:18 of
 msgid ":math:`\\boldsymbol{\\Lambda} = \\{ \\boldsymbol{\\Lambda}_k \\}_{k=1}^K`"
 msgstr ""
 
-#: bayesml.gaussianmixture:14 of
+#: bayesml.gaussianmixture:19 of
 #, python-brace-format
 msgid ""
 ":math:`| \\boldsymbol{\\Lambda}_k | \\in \\mathbb{R}`: the determinant of"
 " :math:`\\boldsymbol{\\Lambda}_k`"
 msgstr ""
 
-#: bayesml.gaussianmixture:16 of
+#: bayesml.gaussianmixture:21 of
 msgid ""
 "p(\\boldsymbol{z} | \\boldsymbol{\\pi}) &= "
 "\\mathrm{Cat}(\\boldsymbol{z}|\\boldsymbol{\\pi}) = \\prod_{k=1}^K "
@@ -110,47 +114,51 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.gaussianmixture:21 of
+#: bayesml.gaussianmixture:27 of
+msgid "Prior Distribution"
+msgstr ""
+
+#: bayesml.gaussianmixture:29 of
 msgid "The prior distribution is as follows:"
 msgstr ""
 
-#: bayesml.gaussianmixture:23 of
+#: bayesml.gaussianmixture:31 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{m}_0 \\in \\mathbb{R}^{D}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.gaussianmixture:24 of
+#: bayesml.gaussianmixture:32 of
 #, python-brace-format
 msgid ":math:`\\kappa_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.gaussianmixture:25 of
+#: bayesml.gaussianmixture:33 of
 #, python-brace-format
 msgid ":math:`\\nu_0 \\in \\mathbb{R}`: a hyperparameter (:math:`\\nu_0 > D-1`)"
 msgstr ""
 
-#: bayesml.gaussianmixture:26 of
+#: bayesml.gaussianmixture:34 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{W}_0 \\in \\mathbb{R}^{D\\times D}`: a hyperparameter"
 " (a positive definite matrix)"
 msgstr ""
 
-#: bayesml.gaussianmixture:27 of
+#: bayesml.gaussianmixture:35 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{\\alpha}_0 \\in \\mathbb{R}_{> 0}^K`: a hyperparameter"
 msgstr ""
 
-#: bayesml.gaussianmixture:28 of
+#: bayesml.gaussianmixture:36 of
 #, python-brace-format
 msgid ":math:`\\mathrm{Tr} \\{ \\cdot \\}`: a trace of a matrix"
 msgstr ""
 
-#: bayesml.gaussianmixture:29 of
+#: bayesml.gaussianmixture:37 of
 msgid ":math:`\\Gamma (\\cdot)`: the gamma function"
 msgstr ""
 
-#: bayesml.gaussianmixture:31 of
+#: bayesml.gaussianmixture:39 of
 msgid ""
 "p(\\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi}) &= "
 "\\left\\{ \\prod_{k=1}^K "
@@ -172,14 +180,14 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.gaussianmixture:37 of
+#: bayesml.gaussianmixture:45 of
 #, python-brace-format
 msgid ""
 "where :math:`B(\\boldsymbol{W}_0, \\nu_0)` and "
 ":math:`C(\\boldsymbol{\\alpha}_0)` are defined as follows:"
 msgstr ""
 
-#: bayesml.gaussianmixture:39 of
+#: bayesml.gaussianmixture:47 of
 msgid ""
 "B(\\boldsymbol{W}_0, \\nu_0) &= | \\boldsymbol{W}_0 |^{-\\nu_0 / 2} "
 "\\left( 2^{\\nu_0 D / 2} \\pi^{D(D-1)/4} \\prod_{i=1}^D \\Gamma \\left( "
@@ -189,20 +197,24 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.gaussianmixture:43 of
+#: bayesml.gaussianmixture:52 of
+msgid "Posterior Distribution"
+msgstr ""
+
+#: bayesml.gaussianmixture:54 of
 msgid ""
 "The apporoximate posterior distribution in the :math:`t`-th iteration of "
 "a variational Bayesian method is as follows:"
 msgstr ""
 
-#: bayesml.gaussianmixture:45 of
+#: bayesml.gaussianmixture:56 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{x}^n = (\\boldsymbol{x}_1, \\boldsymbol{x}_2, \\dots "
 ", \\boldsymbol{x}_n) \\in \\mathbb{R}^{D \\times n}`: given data"
 msgstr ""
 
-#: bayesml.gaussianmixture:46 of
+#: bayesml.gaussianmixture:57 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{z}^n = (\\boldsymbol{z}_1, \\boldsymbol{z}_2, \\dots "
@@ -210,7 +222,7 @@ msgid ""
 "given data"
 msgstr ""
 
-#: bayesml.gaussianmixture:47 of
+#: bayesml.gaussianmixture:58 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{r}_i^{(t)} = (r_{i,1}^{(t)}, r_{i,2}^{(t)}, \\dots , "
@@ -218,38 +230,38 @@ msgid ""
 "class. (:math:`\\sum_{k=1}^K r_{i, k}^{(t)} = 1`)"
 msgstr ""
 
-#: bayesml.gaussianmixture:48 of
+#: bayesml.gaussianmixture:59 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{m}_{n,k}^{(t)} \\in \\mathbb{R}^{D}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.gaussianmixture:49 of
+#: bayesml.gaussianmixture:60 of
 #, python-brace-format
 msgid ":math:`\\kappa_{n,k}^{(t)} \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ""
 
-#: bayesml.gaussianmixture:50 of
+#: bayesml.gaussianmixture:61 of
 #, python-brace-format
 msgid ""
 ":math:`\\nu_{n,k}^{(t)} \\in \\mathbb{R}`: a hyperparameter "
 ":math:`(\\nu_n > D-1)`"
 msgstr ""
 
-#: bayesml.gaussianmixture:51 of
+#: bayesml.gaussianmixture:62 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{W}_{n,k}^{(t)} \\in \\mathbb{R}^{D\\times D}`: a "
 "hyperparameter (a positive definite matrix)"
 msgstr ""
 
-#: bayesml.gaussianmixture:52 of
+#: bayesml.gaussianmixture:63 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\alpha}_n^{(t)} \\in \\mathbb{R}_{> 0}^K`: a "
 "hyperparameter"
 msgstr ""
 
-#: bayesml.gaussianmixture:54 of
+#: bayesml.gaussianmixture:65 of
 msgid ""
 "q(\\boldsymbol{z}^n, "
 "\\boldsymbol{\\mu},\\boldsymbol{\\Lambda},\\boldsymbol{\\pi}) &= "
@@ -276,11 +288,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.gaussianmixture:60 of
+#: bayesml.gaussianmixture:71 of
 msgid "where the updating rule of the hyperparameters is as follows."
 msgstr ""
 
-#: bayesml.gaussianmixture:62 of
+#: bayesml.gaussianmixture:73 of
 msgid ""
 "N_k^{(t)} &= \\sum_{i=1}^n r_{i,k}^{(t)}, \\\\\n"
 "\\bar{\\boldsymbol{x}}_k^{(t)} &= \\frac{1}{N_k^{(t)}} \\sum_{i=1}^n "
@@ -310,35 +322,39 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.gaussianmixture:75 of
+#: bayesml.gaussianmixture:87 of
+msgid "Predictive Distribution"
+msgstr ""
+
+#: bayesml.gaussianmixture:89 of
 msgid "The approximate predictive distribution is as follows:"
 msgstr ""
 
-#: bayesml.gaussianmixture:77 of
+#: bayesml.gaussianmixture:91 of
 #, python-brace-format
 msgid ":math:`\\boldsymbol{x}_{n+1} \\in \\mathbb{R}^D`: a new data point"
 msgstr ""
 
-#: bayesml.gaussianmixture:78 of
+#: bayesml.gaussianmixture:92 of
 msgid ""
 ":math:`\\boldsymbol{\\mu}_{\\mathrm{p},k} \\in \\mathbb{R}^D`: the "
 "parameter of the predictive distribution"
 msgstr ""
 
-#: bayesml.gaussianmixture:79 of
+#: bayesml.gaussianmixture:93 of
 msgid ""
 ":math:`\\boldsymbol{\\Lambda}_{\\mathrm{p},k} \\in \\mathbb{R}^{D \\times"
 " D}`: the parameter of the predictive distribution (a positive definite "
 "matrix)"
 msgstr ""
 
-#: bayesml.gaussianmixture:80 of
+#: bayesml.gaussianmixture:94 of
 msgid ""
 ":math:`\\nu_{\\mathrm{p},k} \\in \\mathbb{R}_{>0}`: the parameter of the "
 "predictive distribution"
 msgstr ""
 
-#: bayesml.gaussianmixture:82 of
+#: bayesml.gaussianmixture:96 of
 msgid ""
 "&p(x_{n+1}|x^n) \\\\\n"
 "&= \\frac{1}{\\sum_{k=1}^K \\alpha_{n,k}^{(t)}} \\sum_{k=1}^K "
@@ -359,13 +375,13 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.gaussianmixture:88 of
+#: bayesml.gaussianmixture:102 of
 msgid ""
 "where the parameters are obtained from the hyperparameters of the "
 "posterior distribution as follows:"
 msgstr ""
 
-#: bayesml.gaussianmixture:90 of
+#: bayesml.gaussianmixture:104 of
 msgid ""
 "\\boldsymbol{\\mu}_{\\mathrm{p},k} &= \\boldsymbol{m}_{n,k}^{(t)}, \\\\\n"
 "\\nu_{\\mathrm{p},k} &= \\nu_{n,k}^{(t)} - D + 1,\\\\\n"
@@ -375,8 +391,32 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.gaussianmixture._gaussianmixture.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.gaussianmixture:110 of
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`_"
+msgstr ""
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr ""
+
+#: bayesml.gaussianmixture:115 of
+msgid "Classes"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.GenModel:2 of
@@ -895,12 +935,6 @@ msgstr ""
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.visualize_posterior:19
 #: of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.gaussianmixture._gaussianmixture.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel:2 of
@@ -2710,5 +2744,8 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "The estimated values under the given loss function."
+#~ msgstr ""
+
+#~ msgid "Class and Methods"
 #~ msgstr ""
 

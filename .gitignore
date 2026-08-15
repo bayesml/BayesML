@@ -137,3 +137,5 @@ dmypy.json
 *.gv
 .DS_Store
 .vscode/
+CLAUDE.md
+.claude/

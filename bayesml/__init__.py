@@ -12,6 +12,7 @@ from . import gaussianmixture
 from . import hiddenmarkovnormal
 from . import logisticregression
 from . import linearregressionmixture
+from . import sparselinearregression
 
 __all__ = ['bernoulli',
            'categorical',
@@ -27,4 +28,5 @@ __all__ = ['bernoulli',
            'hiddenmarkovnormal',
            'logisticregression',
            'linearregressionmixture',
+           'sparselinearregression',
            ]
