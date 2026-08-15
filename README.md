@@ -12,7 +12,7 @@ Shota Saito <shota.s@gunma-u.ac.jp>
 
 ---
 
-<img src="./doc/logos/BayesML_logo.png" width="600">
+<img src="./doc/logos/BayesML_logo.svg" width="600">
 
 # Your First Library for Bayesian Machine Learning
 
@@ -241,6 +241,7 @@ The following packages are currently available. In this library, a probabilistic
 * [Exponential model](https://bayesml.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
 * [Gaussian mixture model](https://bayesml.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
 * [Linear regression model](https://bayesml.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
+* [Sparse linear regression model](https://bayesml.github.io/BayesML/bayesml.sparselinearregression.html "BayesML Sparse Lenear Regression Model")
 * [Logistic regression model](https://bayesml.github.io/BayesML/bayesml.logisticregression.html "BayesML Logistic Regression Model")
 * [Linear regression mixture model](https://bayesml.github.io/BayesML/bayesml.linearregressionmixture.html "BayesML Lenear Regression Mixture Model")
 * [Meta-tree model](https://bayesml.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
@@ -263,7 +264,7 @@ Plain text
 ```text
 Y. Nakahara, N. Ichijo, K. Shimada, Y. Iikubo, 
 S. Saito, K. Kazama, T. Matsushima, BayesML Developers, ``BayesML,'' 
-Python package version 0.4.1, 2026.
+Python package version 0.5.0, 2026.
 [Online] https://github.com/bayesml/BayesML
 ```
 
@@ -275,8 +276,17 @@ BibTeX
             Iikubo, Yuji and Saito, Shota and Kazama, Koki and
             Matsushima, Toshiyasu and {BayesML Developers}},
   title = {{BayesML}},
-  howpublished = {Python package version 0.4.1},
+  howpublished = {Python package version 0.5.0},
   note = {\url{https://github.com/bayesml/BayesML}},
   year = {2026}
 }
 ```
+
+## Star Us on GitHub
+
+If you found this library helpful, please consider giving us a star on GitHub.  
+It really helps the project grow.
+
+**[Open the repo and hit ☆ Star in the top right!](https://github.com/bayesml/BayesML)**
+
+[![Star on GitHub](https://img.shields.io/github/stars/bayesml/BayesML?style=social)](https://github.com/bayesml/BayesML)
