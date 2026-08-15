@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 02:45+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -534,7 +534,7 @@ msgid "Star on GitHub"
 msgstr ""
 
 #: bayesml.metatree:162 of
-msgid "Class and Methods"
+msgid "Classes"
 msgstr ""
 
 #: bayesml.metatree._metatree.GenModel:2 of
@@ -3899,5 +3899,8 @@ msgstr ""
 #~ "This module provides a Bayesian decision"
 #~ " tree model with a conjugate prior"
 #~ " distribution."
+#~ msgstr ""
+
+#~ msgid "Class and Methods"
 #~ msgstr ""
 

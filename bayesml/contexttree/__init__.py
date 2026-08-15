@@ -124,8 +124,8 @@ Star Us on GitHub
 
 .. include:: _star.rst
 
-Class and Methods
------------------
+Classes
+-------
 """
 from ._contexttree import GenModel
 from ._contexttree import LearnModel

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 01:39+0900\n"
-"PO-Revision-Date: 2026-08-16 02:38+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
+"PO-Revision-Date: 2026-08-16 03:57+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -366,8 +366,8 @@ msgid "Star on GitHub"
 msgstr "GitHubスター"
 
 #: bayesml.linearregression:108 of
-msgid "Class and Methods"
-msgstr "クラスとメソッド"
+msgid "Classes"
+msgstr "クラス"
 
 #: bayesml.linearregression._linearregression.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution."
@@ -1364,3 +1364,6 @@ msgstr "二乗損失関数に基づく予測値です。予測値のサイズは
 
 #~ msgid "The  Baysian Linear Regression."
 #~ msgstr "ベイズ線形回帰"
+
+#~ msgid "Class and Methods"
+#~ msgstr "クラスとメソッド"

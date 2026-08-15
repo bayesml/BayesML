@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 01:39+0900\n"
-"PO-Revision-Date: 2026-08-16 01:59+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
+"PO-Revision-Date: 2026-08-16 03:55+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -374,8 +374,8 @@ msgid "Star on GitHub"
 msgstr "GitHubスター"
 
 #: bayesml.autoregressive:117 of
-msgid "Class and Methods"
-msgstr "クラスとメソッド"
+msgid "Classes"
+msgstr "クラス"
 
 #: bayesml.autoregressive._autoregressive.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution."
@@ -1206,3 +1206,6 @@ msgid ""
 msgstr ""
 "1次元の浮動小数点数配列で、そのサイズは``self.c_degree + 1``となります。この配列は、``self.c_degree``個の過去の値と現在の値で構成さ"
 "れています。"
+
+#~ msgid "Class and Methods"
+#~ msgstr "クラスとメソッド"

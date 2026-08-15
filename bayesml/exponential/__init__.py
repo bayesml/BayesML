@@ -95,8 +95,8 @@ Star Us on GitHub
 
 .. include:: _star.rst
 
-Class and Methods
------------------
+Classes
+-------
 """
 from ._exponential import GenModel
 from ._exponential import LearnModel

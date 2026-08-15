@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 01:39+0900\n"
-"PO-Revision-Date: 2026-08-16 02:33+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
+"PO-Revision-Date: 2026-08-16 03:57+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -571,8 +571,8 @@ msgid "Star on GitHub"
 msgstr "GitHubスター"
 
 #: bayesml.hiddenmarkovnormal:146 of
-msgid "Class and Methods"
-msgstr "クラスとメソッド"
+msgid "Classes"
+msgstr "クラス"
 
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution."
@@ -1823,3 +1823,6 @@ msgstr ""
 #: bayesml.hiddenmarkovnormal._hiddenmarkovnormal.LearnModel.estimate_latent_vars_and_update:33 of
 msgid "Type of initialization, by default ``'random_responsibility'``"
 msgstr "初期化の種類。デフォルトは ``'random_responsibility'`` です"
+
+#~ msgid "Class and Methods"
+#~ msgstr "クラスとメソッド"

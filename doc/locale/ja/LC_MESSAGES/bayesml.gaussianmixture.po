@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 01:39+0900\n"
-"PO-Revision-Date: 2026-08-16 02:31+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
+"PO-Revision-Date: 2026-08-16 03:57+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -398,8 +398,8 @@ msgid "Star on GitHub"
 msgstr "GitHubスター"
 
 #: bayesml.gaussianmixture:115 of
-msgid "Class and Methods"
-msgstr "クラスとメソッド"
+msgid "Classes"
+msgstr "クラス"
 
 #: bayesml.gaussianmixture._gaussianmixture.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution"
@@ -1378,3 +1378,6 @@ msgstr "指定された損失関数に基づく推定値です。損失関数が
 #: bayesml.gaussianmixture._gaussianmixture.LearnModel.estimate_latent_vars_and_update:13 of
 msgid "Loss function underlying the Bayes risk function, by default \"0-1\". This function supports \"squared\" and \"0-1\"."
 msgstr "ベイズリスク関数の基礎となる損失関数で、デフォルトは「0-1」です。この関数では、「squared」および「0-1」がサポートされています。"
+
+#~ msgid "Class and Methods"
+#~ msgstr "クラスとメソッド"

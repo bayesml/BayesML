@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 01:39+0900\n"
-"PO-Revision-Date: 2026-08-16 02:47+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
+"PO-Revision-Date: 2026-08-16 03:58+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -439,8 +439,8 @@ msgid "Star on GitHub"
 msgstr "GitHubスター"
 
 #: bayesml.multivariate_normal:113 of
-msgid "Class and Methods"
-msgstr "クラスとメソッド"
+msgid "Classes"
+msgstr "クラス"
 
 #: bayesml.multivariate_normal._multivariatenormal.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution"
@@ -1447,3 +1447,6 @@ msgstr "**predicted_value**"
 #: bayesml.multivariate_normal._multivariatenormal.LearnModel.predict:15 of
 msgid "The predicted value under the squared loss function."
 msgstr "二乗誤差関数に基づく予測値。"
+
+#~ msgid "Class and Methods"
+#~ msgstr "クラスとメソッド"

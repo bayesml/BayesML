@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 01:39+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -363,7 +363,7 @@ msgid "Star on GitHub"
 msgstr ""
 
 #: bayesml.autoregressive:117 of
-msgid "Class and Methods"
+msgid "Classes"
 msgstr ""
 
 #: bayesml.autoregressive._autoregressive.GenModel:2 of
@@ -1332,5 +1332,8 @@ msgstr ""
 #~ msgid ""
 #~ "The linear autoregressive model with the"
 #~ " normal-gamma prior distribution."
+#~ msgstr ""
+
+#~ msgid "Class and Methods"
 #~ msgstr ""
 

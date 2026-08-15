@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 02:45+0900\n"
-"PO-Revision-Date: 2026-08-16 02:46+0900\n"
+"POT-Creation-Date: 2026-08-16 03:54+0900\n"
+"PO-Revision-Date: 2026-08-16 03:57+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -603,8 +603,8 @@ msgid "Star on GitHub"
 msgstr "GitHubスター"
 
 #: bayesml.metatree:162 of
-msgid "Class and Methods"
-msgstr "クラスとメソッド"
+msgid "Classes"
+msgstr "クラス"
 
 #: bayesml.metatree._metatree.GenModel:2 of
 msgid "The stochastice data generative model and the prior distribution"
@@ -2145,3 +2145,6 @@ msgid ""
 "same as the sample size of  x_continuous and x_categorical."
 msgstr ""
 "KL損失関数に基づく予測分布です。予測分布の数は、x_continuous および x_categorical の標本サイズと同じです。"
+
+#~ msgid "Class and Methods"
+#~ msgstr "クラスとメソッド"
