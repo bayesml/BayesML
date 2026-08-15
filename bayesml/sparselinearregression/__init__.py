@@ -54,8 +54,8 @@ Marginalizing out each :math:`v_j` yields the Laplace prior on :math:`\theta_j`:
 
 .. math::
     p(\theta_j | \tau, \lambda_{0,j})
-    &= \int_0^\infty p(\theta_j | \tau, v_j) p(v_j | \lambda_{0,j})\, dv_j
-    = \frac{\lambda_{0,j} \sqrt{\tau}}{2}
+    &= \int_0^\infty p(\theta_j | \tau, v_j) p(v_j | \lambda_{0,j})\, dv_j \\
+    &= \frac{\lambda_{0,j} \sqrt{\tau}}{2}
     \exp\left(-\lambda_{0,j} \sqrt{\tau}\, |\theta_j|\right).
 
 The approximate posterior distribution in the :math:`t`-th iteration of a variational Bayesian method is as follows:
