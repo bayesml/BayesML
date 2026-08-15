@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-17 22:32+0900\n"
-"PO-Revision-Date: 2026-05-17 22:53+0900\n"
+"POT-Creation-Date: 2026-08-16 01:39+0900\n"
+"PO-Revision-Date: 2026-08-16 02:49+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 "X-Generator: Poedit 3.9\n"
 
 #: ../../developers.rst:3
@@ -153,6 +153,32 @@ msgstr "Plain text"
 #: ../../developers.rst:62
 msgid "BibTeX"
 msgstr "BibTeX"
+
+#: ../../developers.rst:77
+msgid "Star Us on GitHub"
+msgstr "GitHubスターのお願い"
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on GitHub."
+msgstr ""
+"もしこのページが参考になったら、GitHubリポジトリにスターをいただけると開発の励み"
+"になります。"
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr "以下のリンクからリポジトリを開いて右上の☆Starを押してください。"
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! <https://github.com/bayesml/"
+"BayesML>`_"
+msgstr ""
+"`リポジトリを開いて右上の☆Starを押す！ <https://github.com/bayesml/BayesML>`_"
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr "GitHubスター"
 
 #~ msgid "Naoki Ichijo, Waseda University (Ph.D. Student)"
 #~ msgstr "一條 尚希"

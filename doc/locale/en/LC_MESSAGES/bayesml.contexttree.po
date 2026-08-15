@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-29 18:24+0900\n"
+"POT-Creation-Date: 2026-08-16 01:39+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,40 +17,50 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../bayesml.contexttree.rst:2
 msgid "bayesml.contexttree package"
 msgstr ""
 
-#: ../../bayesml.contexttree.rst:7
+#: ../../bayesml.contexttree.rst:5
 msgid "Module contents"
 msgstr ""
 
 #: bayesml.contexttree:1 of
+msgid ""
+"This module provides the context tree model with its conjugate prior "
+"distribution."
+msgstr ""
+
+#: bayesml.contexttree:6 of
+msgid "Stochastic Data Generative Model"
+msgstr ""
+
+#: bayesml.contexttree:8 of
 msgid "The stochastic data generative model is as follows:"
 msgstr ""
 
-#: bayesml.contexttree:3 of
+#: bayesml.contexttree:10 of
 #, python-brace-format
 msgid ":math:`\\mathcal{X}=\\{1,2,\\ldots,K\\}` : a space of a source symbol"
 msgstr ""
 
-#: bayesml.contexttree:4 of
+#: bayesml.contexttree:11 of
 #, python-brace-format
 msgid ""
 ":math:`x^n = x_1 x_2 \\cdots x_n \\in \\mathcal{X}^n~(n\\in\\mathbb{N})` "
 ": an source sequence"
 msgstr ""
 
-#: bayesml.contexttree:5 of
+#: bayesml.contexttree:12 of
 #, python-brace-format
 msgid ""
 ":math:`D_\\mathrm{max} \\in \\mathbb{N}` : the maximum depth of context "
 "tree models"
 msgstr ""
 
-#: bayesml.contexttree:6 of
+#: bayesml.contexttree:13 of
 #, python-brace-format
 msgid ""
 ":math:`T` : a context tree model, :math:`K`-ary regular tree whose depth "
@@ -58,40 +68,40 @@ msgid ""
 "means that all inner nodes have :math:`K` child nodes"
 msgstr ""
 
-#: bayesml.contexttree:7 of
+#: bayesml.contexttree:14 of
 #, python-brace-format
 msgid ":math:`\\mathcal{T}` : a set of :math:`T`"
 msgstr ""
 
-#: bayesml.contexttree:8 of
+#: bayesml.contexttree:15 of
 msgid ":math:`s` : a node of a context tree model"
 msgstr ""
 
-#: bayesml.contexttree:9 of
+#: bayesml.contexttree:16 of
 #, python-brace-format
 msgid ":math:`\\mathcal{I}(T)` : a set of inner nodes of :math:`T`"
 msgstr ""
 
-#: bayesml.contexttree:10 of
+#: bayesml.contexttree:17 of
 #, python-brace-format
 msgid ":math:`\\mathcal{L}(T)` : a set of leaf nodes of :math:`T`"
 msgstr ""
 
-#: bayesml.contexttree:11 of
+#: bayesml.contexttree:18 of
 #, python-brace-format
 msgid ""
 ":math:`\\mathcal{S}(T)` : a set of all nodes of :math:`T`, i.e., "
 ":math:`\\mathcal{S}(T) = \\mathcal{I}(T) \\cup \\mathcal{L}(T)`"
 msgstr ""
 
-#: bayesml.contexttree:12 of
+#: bayesml.contexttree:19 of
 #, python-brace-format
 msgid ""
 ":math:`s_T(x^{n-1}) \\in \\mathcal{L}(T)` : a leaf node of :math:`T` "
 "corresponding to :math:`x^{n-1} = x_1 x_2\\cdots x_{n-1}`"
 msgstr ""
 
-#: bayesml.contexttree:13 of
+#: bayesml.contexttree:20 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\theta}_s = (\\theta_{1|s}, \\theta_{2|s}, \\ldots, "
@@ -99,38 +109,42 @@ msgid ""
 " denotes the occurrence probability of :math:`k\\in\\mathcal{X}`"
 msgstr ""
 
-#: bayesml.contexttree:15 of
+#: bayesml.contexttree:22 of
 msgid ""
 "p(x_n | x^{n-1}, \\boldsymbol{\\theta}_T, T)=\\theta_{x_n|s_T(x^{n-1})}.\n"
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:18 of
+#: bayesml.contexttree:26 of
+msgid "Prior Distribution"
+msgstr ""
+
+#: bayesml.contexttree:28 of
 msgid "The prior distribution is as follows:"
 msgstr ""
 
-#: bayesml.contexttree:20 of
+#: bayesml.contexttree:30 of
 #, python-brace-format
 msgid ""
 ":math:`g_{0,s} \\in [0,1]` : a hyperparameter assigned to :math:`s \\in "
 "\\mathcal{S}(T)`"
 msgstr ""
 
-#: bayesml.contexttree:21 of
+#: bayesml.contexttree:31 of
 #, python-brace-format
 msgid ""
 ":math:`\\beta_0(k|s) \\in\\mathbb{R}_{>0}` : a hyperparameter of the "
 "Dirichlet distribution"
 msgstr ""
 
-#: bayesml.contexttree:22 of
+#: bayesml.contexttree:32 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\beta}_0(s) = (\\beta_0(1|s), \\beta_0(2|s), "
 "\\ldots, \\beta_0(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
 msgstr ""
 
-#: bayesml.contexttree:23 of
+#: bayesml.contexttree:33 of
 msgid ""
 ":math:`C(\\boldsymbol{\\beta}_0(s)) = "
 "\\frac{\\Gamma\\left(\\sum_{k=1}^{K} "
@@ -138,14 +152,14 @@ msgid ""
 "\\Gamma\\left(\\beta_0(k|s)\\right)}`"
 msgstr ""
 
-#: bayesml.contexttree:25 of
+#: bayesml.contexttree:35 of
 #, python-brace-format
 msgid ""
 "For :math:`\\boldsymbol{\\theta}_s` on :math:`s\\in\\mathcal{L}(T)`, the "
 "Dirichlet distribution is assumed as the prior distribution as follows:"
 msgstr ""
 
-#: bayesml.contexttree:27 of
+#: bayesml.contexttree:37 of
 #, python-brace-format
 msgid ""
 "p(\\boldsymbol{\\theta}_s|T) = "
@@ -155,70 +169,74 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:30 bayesml.contexttree:56 of
+#: bayesml.contexttree:40 bayesml.contexttree:69 of
 #, python-brace-format
 msgid "For :math:`T \\in \\mathcal{T}`,"
 msgstr ""
 
-#: bayesml.contexttree:32 of
+#: bayesml.contexttree:42 of
 msgid ""
 "p(T)=\\prod_{s \\in \\mathcal{I}(T)} g_{0,s} \\prod_{s' \\in "
 "\\mathcal{L}(T)} (1-g_{0,s'}),\n"
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:35 of
+#: bayesml.contexttree:45 of
 #, python-brace-format
 msgid ""
 "where :math:`g_{0,s}=0` if the depth of :math:`s` is "
 ":math:`D_\\mathrm{max}`."
 msgstr ""
 
-#: bayesml.contexttree:37 of
+#: bayesml.contexttree:48 of
+msgid "Posterior Distribution"
+msgstr ""
+
+#: bayesml.contexttree:50 of
 msgid "The posterior distribution is as follows:"
 msgstr ""
 
-#: bayesml.contexttree:39 of
+#: bayesml.contexttree:52 of
 #, python-brace-format
 msgid ":math:`g_{n,s} \\in [0,1]` : the updated hyperparameter"
 msgstr ""
 
-#: bayesml.contexttree:40 of
+#: bayesml.contexttree:53 of
 #, python-brace-format
 msgid ""
 ":math:`T_\\mathrm{max}` : a superposed context tree, :math:`K`-ary "
 "perfect tree whose depth is :math:`D_\\mathrm{max}`"
 msgstr ""
 
-#: bayesml.contexttree:41 of
+#: bayesml.contexttree:54 of
 msgid ":math:`s_\\lambda` : the root node"
 msgstr ""
 
-#: bayesml.contexttree:42 of
+#: bayesml.contexttree:55 of
 #, python-brace-format
 msgid ""
 ":math:`\\beta_n(k|s) \\in\\mathbb{R}_{>0}` : a hyperparameter of the "
 "posterior Dirichlet distribution"
 msgstr ""
 
-#: bayesml.contexttree:43 of
+#: bayesml.contexttree:56 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\beta}_n(s) = (\\beta_n(1|s), \\beta_n(2|s), "
 "\\ldots, \\beta_n(K|s)) \\in\\mathbb{R}^{K}_{>0}`"
 msgstr ""
 
-#: bayesml.contexttree:44 of
+#: bayesml.contexttree:57 of
 #, python-brace-format
 msgid ":math:`I \\{ \\cdot \\}`: the indicator function"
 msgstr ""
 
-#: bayesml.contexttree:46 of
+#: bayesml.contexttree:59 of
 #, python-brace-format
 msgid "For :math:`\\boldsymbol{\\theta}_s \\in\\mathcal{L}(T_\\mathrm{max})`,"
 msgstr ""
 
-#: bayesml.contexttree:48 of
+#: bayesml.contexttree:61 of
 #, python-brace-format
 msgid ""
 "p(\\boldsymbol{\\theta}_s|x^n) = "
@@ -228,11 +246,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:51 of
+#: bayesml.contexttree:64 of
 msgid "where the updating rule of the hyperparameter is as follows:"
 msgstr ""
 
-#: bayesml.contexttree:53 of
+#: bayesml.contexttree:66 of
 msgid ""
 "\\beta_n(k|s) = \\beta_0(k|s) + \\sum_{i=1}^n I \\left\\{ s \\ "
 "\\mathrm{is \\ the \\ ancestor \\ of} \\ s_{T_\\mathrm{max}}(x^{i-1}) \\ "
@@ -240,18 +258,18 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:58 of
+#: bayesml.contexttree:71 of
 msgid ""
 "p(T|x^{n-1})=\\prod_{s \\in \\mathcal{I}(T)} g_{n,s} \\prod_{s' \\in "
 "\\mathcal{L}(T)} (1-g_{n,s'}),\n"
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:61 of
+#: bayesml.contexttree:74 of
 msgid "where the updating rules of the hyperparameter are as follows:"
 msgstr ""
 
-#: bayesml.contexttree:63 of
+#: bayesml.contexttree:76 of
 msgid ""
 "g_{n,s} =\n"
 "\\begin{cases}\n"
@@ -262,13 +280,13 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:71 of
+#: bayesml.contexttree:84 of
 msgid ""
 "where :math:`s_{\\mathrm{child}}` is the child node of :math:`s` on the "
 "path from :math:`s_\\lambda` to :math:`s_{T_\\mathrm{max}}(x^n)` and"
 msgstr ""
 
-#: bayesml.contexttree:73 of
+#: bayesml.contexttree:86 of
 msgid ""
 "\\tilde{q}_s(x_n|x^{n-1}) =\n"
 "\\begin{cases}\n"
@@ -279,22 +297,26 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:80 of
+#: bayesml.contexttree:93 of
 msgid "Here,"
 msgstr ""
 
-#: bayesml.contexttree:82 of
+#: bayesml.contexttree:95 of
 msgid ""
 "q_s(x_n|x^{n-1}) = \\frac{ \\beta_{n-1}(x_n|s) }\n"
 "{\\sum_{k'=1}^{K} \\beta_{n-1}(k'|s)}.\n"
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:86 of
+#: bayesml.contexttree:100 of
+msgid "Predictive Distribution"
+msgstr ""
+
+#: bayesml.contexttree:102 of
 msgid "The predictive distribution is as follows:"
 msgstr ""
 
-#: bayesml.contexttree:88 of
+#: bayesml.contexttree:104 of
 msgid ""
 ":math:`\\boldsymbol{\\theta}_\\mathrm{p} = (\\theta_{\\mathrm{p},1}, "
 "\\theta_{\\mathrm{p},2}, \\ldots, \\theta_{\\mathrm{p},K})` : a parameter"
@@ -302,29 +324,29 @@ msgid ""
 "denotes the occurrence probability of :math:`k\\in\\mathcal{X}`."
 msgstr ""
 
-#: bayesml.contexttree:90 of
+#: bayesml.contexttree:106 of
 msgid ""
 "p(x_n|x^{n-1}) = \\theta_{\\mathrm{p},x_n},\n"
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:93 of
+#: bayesml.contexttree:109 of
 msgid ""
 "where the updating rule of the parameters of the pridictive distribution "
 "is as follows."
 msgstr ""
 
-#: bayesml.contexttree:95 of
+#: bayesml.contexttree:111 of
 msgid ""
 "\\theta_{\\mathrm{p}, k} = \\tilde{q}_{s_\\lambda}(k|x^{n-1})\n"
 "\n"
 msgstr ""
 
-#: bayesml.contexttree:98 of
+#: bayesml.contexttree:114 of
 msgid "References"
 msgstr ""
 
-#: bayesml.contexttree:100 of
+#: bayesml.contexttree:116 of
 msgid ""
 "Matsushima, T.; and Hirasawa, S. Reducing the space complexity of a Bayes"
 " coding algorithm using an expanded context tree, *2009 IEEE "
@@ -332,15 +354,39 @@ msgid ""
 "https://doi.org/10.1109/ISIT.2009.5205677"
 msgstr ""
 
-#: bayesml.contexttree:101 of
+#: bayesml.contexttree:117 of
 msgid ""
 "Nakahara, Y.; Saito, S.; Kamatsuka, A.; Matsushima, T. Probability "
 "Distribution on Full Rooted Trees. *Entropy* 2022, 24, 328. "
 "https://doi.org/10.3390/e24030328"
 msgstr ""
 
-#: bayesml.contexttree._contexttree.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.contexttree:120 of
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`_"
+msgstr ""
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr ""
+
+#: bayesml.contexttree:125 of
+msgid "Class and Methods"
 msgstr ""
 
 #: bayesml.contexttree._contexttree.GenModel:2 of
@@ -836,12 +882,6 @@ msgstr ""
 #: bayesml.contexttree._contexttree.GenModel.visualize_model:34
 #: bayesml.contexttree._contexttree.LearnModel.visualize_posterior:36 of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.contexttree._contexttree.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.contexttree._contexttree.LearnModel:2 of

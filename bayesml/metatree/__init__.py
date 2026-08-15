@@ -2,7 +2,7 @@
 # Shota Saito <shota.s@gunma-u.ac.jp>
 # Yuta Nakahara <y.nakahara@waseda.jp>
 r"""
-This module provides a Bayesian decision tree model with a conjugate prior distribution.
+This module provides a Bayesian decision tree model with a prior distribution.
 
 .. image:: ./images/metatree_example1.png
 .. image:: ./images/metatree_example2.png

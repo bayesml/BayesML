@@ -6,89 +6,100 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version:  BayesML\n"
+"Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-29 18:24+0900\n"
-"PO-Revision-Date: 2026-04-05 09:28+0900\n"
-"Last-Translator: \n"
-"Language: ja\n"
+"POT-Creation-Date: 2026-08-16 01:39+0900\n"
+"PO-Revision-Date: 2026-08-16 02:48+0900\n"
+"Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: Babel 2.18.0\n"
+"X-Generator: Poedit 3.9\n"
 
 #: ../../bayesml.poisson.rst:2
 msgid "bayesml.poisson package"
 msgstr "bayesml.poisson package"
 
-#: ../../bayesml.poisson.rst:7
+#: ../../bayesml.poisson.rst:5
 msgid "Module contents"
 msgstr "モジュール内容"
 
 #: bayesml.poisson:1 of
-msgid "The Poisson distribution with the gamma prior distribution."
-msgstr "ガンマ事前分布を用いたポアソン分布"
+msgid ""
+"This module provides the Poisson distribution with the gamma prior distribution."
+msgstr "このモジュールではガンマ事前分布を用いたポアソン分布を利用できます。"
 
-#: bayesml.poisson:3 of
+#: bayesml.poisson:6 of
+msgid "Stochastic Data Generative Model"
+msgstr "確率的データ生成モデル"
+
+#: bayesml.poisson:8 of
 msgid "The stochastic data generative model is as follows:"
 msgstr "確率的データ生成モデルは以下の通りです："
 
-#: bayesml.poisson:5 of
+#: bayesml.poisson:10 of
 #, python-brace-format
 msgid ":math:`x \\in \\mathbb{N}`: a data point"
 msgstr ":math:`x \\in \\mathbb{N}`: データ点"
 
-#: bayesml.poisson:6 of
+#: bayesml.poisson:11 of
 #, python-brace-format
 msgid ":math:`\\lambda \\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ":math:`\\lambda \\in \\mathbb{R}_{>0}`: パラメータ"
 
-#: bayesml.poisson:8 of
+#: bayesml.poisson:13 of
 msgid ""
-"p(x | \\lambda) = \\mathrm{Po}(x|\\lambda) = \\frac{ \\lambda^{x} "
-"}{x!}\\exp \\{ -\\lambda \\}.\n"
+"p(x | \\lambda) = \\mathrm{Po}(x|\\lambda) = \\frac{ \\lambda^{x} }{x!}\\exp \\"
+"{ -\\lambda \\}.\n"
 "\n"
 msgstr ""
-"p(x | \\lambda) = \\mathrm{Po}(x|\\lambda) = \\frac{ \\lambda^{x} "
-"}{x!}\\exp \\{ -\\lambda \\}.\n"
+"p(x | \\lambda) = \\mathrm{Po}(x|\\lambda) = \\frac{ \\lambda^{x} }{x!}\\exp \\"
+"{ -\\lambda \\}.\n"
 "\n"
 
-#: bayesml.poisson:11 of
+#: bayesml.poisson:17 of
+msgid "Prior Distribution"
+msgstr "事前分布"
+
+#: bayesml.poisson:19 of
 msgid "The prior distribution is as follows:"
 msgstr "事前分布は以下の通りです："
 
-#: bayesml.poisson:13 of
+#: bayesml.poisson:21 of
 #, python-brace-format
 msgid ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 
-#: bayesml.poisson:14 of
+#: bayesml.poisson:22 of
 #, python-brace-format
 msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 
-#: bayesml.poisson:15 of
+#: bayesml.poisson:23 of
 #, python-brace-format
 msgid ""
-":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}`: the "
-"Gamma function"
-msgstr ":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}`: ガンマ関数"
+":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}`: the Gamma "
+"function"
+msgstr ""
+":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}_{>0}`: ガンマ関数"
 
-#: bayesml.poisson:17 of
+#: bayesml.poisson:25 of
 msgid ""
 "p(\\lambda) = \\mathrm{Gam}(\\lambda|\\alpha_0,\\beta_0) = "
-"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\lambda^{\\alpha_0 - "
-"1} \\exp \\{ -\\beta_0 \\lambda \\},\n"
+"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\lambda^{\\alpha_0 - 1} "
+"\\exp \\{ -\\beta_0 \\lambda \\},\n"
 "\n"
 msgstr ""
 "p(\\lambda) = \\mathrm{Gam}(\\lambda|\\alpha_0,\\beta_0) = "
-"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\lambda^{\\alpha_0 - "
-"1} \\exp \\{ -\\beta_0 \\lambda \\},\n"
+"\\frac{\\beta_0^{\\alpha_0}}{\\Gamma (\\alpha_0)} \\lambda^{\\alpha_0 - 1} "
+"\\exp \\{ -\\beta_0 \\lambda \\},\n"
 "\n"
 
-#: bayesml.poisson:20 of
+#: bayesml.poisson:28 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\lambda] &= \\frac{\\alpha_0}{\\beta_0}, \\\\\n"
@@ -99,38 +110,43 @@ msgstr ""
 "\\mathbb{V}[\\lambda] &= \\frac{\\alpha_0}{\\beta_0^2}.\n"
 "\n"
 
-#: bayesml.poisson:24 of
+#: bayesml.poisson:33 of
+msgid "Posterior Distribution"
+msgstr "事後分布"
+
+#: bayesml.poisson:35 of
 msgid "The posterior distribution is as follows:"
 msgstr "事後分布は以下の通りです："
 
-#: bayesml.poisson:26 of
+#: bayesml.poisson:37 of
 #, python-brace-format
 msgid ":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{N}^n`: given data"
-msgstr ":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{N}^n`: 与えられたデータ"
+msgstr ""
+":math:`x^n = (x_1, x_2, \\dots , x_n) \\in \\mathbb{N}^n`: 与えられたデータ"
 
-#: bayesml.poisson:27 of
+#: bayesml.poisson:38 of
 #, python-brace-format
 msgid ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`:ハイパーパラメータ"
 
-#: bayesml.poisson:28 of
+#: bayesml.poisson:39 of
 #, python-brace-format
 msgid ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: a hyperparameter"
 msgstr ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: ハイパーパラメータ"
 
-#: bayesml.poisson:30 of
+#: bayesml.poisson:41 of
 msgid ""
 "p(\\lambda | x^n) = \\mathrm{Gam}(\\lambda|\\alpha_n,\\beta_n) = "
-"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\lambda^{\\alpha_n - "
-"1} \\exp \\{ -\\beta_n \\lambda \\},\n"
+"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\lambda^{\\alpha_n - 1} "
+"\\exp \\{ -\\beta_n \\lambda \\},\n"
 "\n"
 msgstr ""
 "p(\\lambda | x^n) = \\mathrm{Gam}(\\lambda|\\alpha_n,\\beta_n) = "
-"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\lambda^{\\alpha_n - "
-"1} \\exp \\{ -\\beta_n \\lambda \\},\n"
+"\\frac{\\beta_n^{\\alpha_n}}{\\Gamma (\\alpha_n)} \\lambda^{\\alpha_n - 1} "
+"\\exp \\{ -\\beta_n \\lambda \\},\n"
 "\n"
 
-#: bayesml.poisson:33 of
+#: bayesml.poisson:44 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\lambda | x^n] &= \\frac{\\alpha_n}{\\beta_n}, \\\\\n"
@@ -141,11 +157,11 @@ msgstr ""
 "\\mathbb{V}[\\lambda | x^n] &= \\frac{\\alpha_n}{\\beta_n^2},\n"
 "\n"
 
-#: bayesml.poisson:37 of
+#: bayesml.poisson:48 of
 msgid "where the updating rule of the hyperparameters is"
 msgstr "ここでハイパーパラメータの更新式は以下で与えられます"
 
-#: bayesml.poisson:39 of
+#: bayesml.poisson:50 of
 #, python-brace-format
 msgid ""
 "\\alpha_n &= \\alpha_0 + \\sum_{i=1}^n x_i,\\\\\n"
@@ -156,64 +172,68 @@ msgstr ""
 "\\beta_n &= \\beta_0 + n.\n"
 "\n"
 
-#: bayesml.poisson:43 of
+#: bayesml.poisson:55 of
+msgid "Predictive Distribution"
+msgstr "予測分布"
+
+#: bayesml.poisson:57 of
 msgid "The predictive distribution is as follows:"
 msgstr "予測分布は以下の通りです："
 
-#: bayesml.poisson:45 of
+#: bayesml.poisson:59 of
 #, python-brace-format
 msgid ":math:`x_{n+1} \\in \\mathbb{N}`: a new data point"
 msgstr ":math:`x_{n+1} \\in \\mathbb{N}`: 新たなデータ点"
 
-#: bayesml.poisson:46 of
+#: bayesml.poisson:60 of
 #, python-brace-format
 msgid ""
-":math:`\\theta_\\mathrm{p} \\in \\mathbb{R}_{>0}, "
-"0<\\theta_\\mathrm{p}<1`: the hyperparameter of the posterior"
+":math:`\\theta_\\mathrm{p} \\in \\mathbb{R}_{>0}, 0<\\theta_\\mathrm{p}<1`: the "
+"hyperparameter of the posterior"
 msgstr ""
-":math:`\\theta_\\mathrm{p} \\in \\mathbb{R}_{>0}, "
-"0<\\theta_\\mathrm{p}<1`: 事後分布のハイパーパラメータ"
+":math:`\\theta_\\mathrm{p} \\in \\mathbb{R}_{>0}, 0<\\theta_\\mathrm{p}<1`: 事後"
+"分布のハイパーパラメータ"
 
-#: bayesml.poisson:47 of
+#: bayesml.poisson:61 of
 #, python-brace-format
 msgid ""
-":math:`r_\\mathrm{p} \\in \\mathbb{N}`: the hyperparameter of the "
-"posterior"
+":math:`r_\\mathrm{p} \\in \\mathbb{N}`: the hyperparameter of the posterior"
 msgstr ":math:`r_\\mathrm{p} \\in \\mathbb{N}`: 事後分布のハイパーパラメータ"
 
-#: bayesml.poisson:49 of
+#: bayesml.poisson:63 of
 msgid ""
 "\\mathrm{NB}(x_{n+1}|r_\\mathrm{p},\\theta_\\mathrm{p}) = "
-"\\frac{\\Gamma(x_{n+1}+r_\\mathrm{p})}{\\Gamma(x_{n+1}+1)\\Gamma(r_\\mathrm{p})}\\theta_\\mathrm{p}^{x_{n+1}}(1-\\theta_\\mathrm{p})^{r_\\mathrm{p}},"
-"\n"
+"\\frac{\\Gamma(x_{n+1}+r_\\mathrm{p})}{\\Gamma(x_{n+1}+1)\\Gamma(r_\\mathrm{p})}"
+"\\theta_\\mathrm{p}^{x_{n+1}}(1-\\theta_\\mathrm{p})^{r_\\mathrm{p}},\n"
 "\n"
 msgstr ""
 "\\mathrm{NB}(x_{n+1}|r_\\mathrm{p},\\theta_\\mathrm{p}) = "
-"\\frac{\\Gamma(x_{n+1}+r_\\mathrm{p})}{\\Gamma(x_{n+1}+1)\\Gamma(r_\\mathrm{p})}\\theta_\\mathrm{p}^{x_{n+1}}(1-\\theta_\\mathrm{p})^{r_\\mathrm{p}},"
-"\n"
+"\\frac{\\Gamma(x_{n+1}+r_\\mathrm{p})}{\\Gamma(x_{n+1}+1)\\Gamma(r_\\mathrm{p})}"
+"\\theta_\\mathrm{p}^{x_{n+1}}(1-\\theta_\\mathrm{p})^{r_\\mathrm{p}},\n"
 "\n"
 
-#: bayesml.poisson:52 of
+#: bayesml.poisson:66 of
 msgid ""
-"\\mathbb{E}[x_{n+1} | x^n] &= \\frac{r_\\mathrm{p} \\theta_\\mathrm{p}}{1"
-" - \\theta_\\mathrm{p}}, \\\\\n"
-"\\mathbb{V}[x_{n+1} | x^n] &= \\frac{r_\\mathrm{p} "
-"\\theta_\\mathrm{p}}{(1 - \\theta_\\mathrm{p})^2},\n"
+"\\mathbb{E}[x_{n+1} | x^n] &= \\frac{r_\\mathrm{p} \\theta_\\mathrm{p}}{1 - "
+"\\theta_\\mathrm{p}}, \\\\\n"
+"\\mathbb{V}[x_{n+1} | x^n] &= \\frac{r_\\mathrm{p} \\theta_\\mathrm{p}}{(1 - "
+"\\theta_\\mathrm{p})^2},\n"
 "\n"
 msgstr ""
-"\\mathbb{E}[x_{n+1} | x^n] &= \\frac{r_\\mathrm{p} \\theta_\\mathrm{p}}{1"
-" - \\theta_\\mathrm{p}}, \\\\\n"
-"\\mathbb{V}[x_{n+1} | x^n] &= \\frac{r_\\mathrm{p} "
-"\\theta_\\mathrm{p}}{(1 - \\theta_\\mathrm{p})^2},\n"
+"\\mathbb{E}[x_{n+1} | x^n] &= \\frac{r_\\mathrm{p} \\theta_\\mathrm{p}}{1 - "
+"\\theta_\\mathrm{p}}, \\\\\n"
+"\\mathbb{V}[x_{n+1} | x^n] &= \\frac{r_\\mathrm{p} \\theta_\\mathrm{p}}{(1 - "
+"\\theta_\\mathrm{p})^2},\n"
 "\n"
 
-#: bayesml.poisson:56 of
+#: bayesml.poisson:70 of
 msgid ""
-"where the parameters are obtained from the hyperparameters of the "
-"posterior distribution as follows:"
-msgstr "ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:"
+"where the parameters are obtained from the hyperparameters of the posterior "
+"distribution as follows:"
+msgstr ""
+"ここで、パラメータは事後分布のハイパーパラメータから以下のように求められます:"
 
-#: bayesml.poisson:58 of
+#: bayesml.poisson:72 of
 #, python-brace-format
 msgid ""
 "&r_\\mathrm{p}=\\alpha_n, \\\\\n"
@@ -224,16 +244,41 @@ msgstr ""
 "&\\theta_\\mathrm{p} = \\frac{1}{\\beta_n + 1}.\n"
 "\n"
 
-#: bayesml.poisson._poisson.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.poisson:77 of
+msgid "Star Us on GitHub"
+msgstr "GitHubスターのお願い"
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on GitHub."
 msgstr ""
+"もしこのページが参考になったら、GitHubリポジトリにスターをいただけると開発の励み"
+"になります。"
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr "以下のリンクからリポジトリを開いて右上の☆Starを押してください。"
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! <https://github.com/bayesml/"
+"BayesML>`_"
+msgstr ""
+"`リポジトリを開いて右上の☆Starを押す！ <https://github.com/bayesml/BayesML>`_"
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr "GitHubスター"
+
+#: bayesml.poisson:82 of
+msgid "Class and Methods"
+msgstr "クラスとメソッド"
 
 #: bayesml.poisson._poisson.GenModel:2 of
 msgid "The stochastic data generative model and the prior distribution."
 msgstr "確率的データ生成モデルと事前分布"
 
-#: bayesml.poisson._poisson.GenModel
-#: bayesml.poisson._poisson.GenModel.gen_sample
+#: bayesml.poisson._poisson.GenModel bayesml.poisson._poisson.GenModel.gen_sample
 #: bayesml.poisson._poisson.GenModel.save_sample
 #: bayesml.poisson._poisson.GenModel.set_h_params
 #: bayesml.poisson._poisson.GenModel.set_params
@@ -294,8 +339,7 @@ msgstr "{None, int}, optional"
 msgid "A seed to initialize numpy.random.default_rng(), by default None"
 msgstr "numpy.random.default_rng() を初期化するシード値です。デフォルトでは None "
 
-#: bayesml.poisson._poisson.GenModel:22 bayesml.poisson._poisson.LearnModel:28
-#: of
+#: bayesml.poisson._poisson.GenModel:22 bayesml.poisson._poisson.LearnModel:28 of
 msgid "Methods"
 msgstr "メソッド"
 
@@ -310,11 +354,9 @@ msgstr "事前分布からパラメータを生成します。"
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`gen_sample <bayesml.poisson.GenModel.gen_sample>`\\ "
-"\\(sample\\_size\\)"
+":py:obj:`gen_sample <bayesml.poisson.GenModel.gen_sample>`\\ \\(sample\\_size\\)"
 msgstr ""
-":py:obj:`gen_sample <bayesml.poisson.GenModel.gen_sample>`\\ "
-"\\(sample\\_size\\)"
+":py:obj:`gen_sample <bayesml.poisson.GenModel.gen_sample>`\\ \\(sample\\_size\\)"
 
 #: bayesml.poisson._poisson.GenModel.gen_sample:2
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
@@ -350,11 +392,11 @@ msgstr "確率的データ生成モデルのパラメータを取得します。
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`load_h_params <bayesml.poisson.GenModel.load_h_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_h_params <bayesml.poisson.GenModel.load_h_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`load_h_params <bayesml.poisson.GenModel.load_h_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_h_params <bayesml.poisson.GenModel.load_h_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid "Load the hyperparameters to h_params."
@@ -362,11 +404,9 @@ msgstr "h_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`load_params <bayesml.poisson.GenModel.load_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_params <bayesml.poisson.GenModel.load_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`load_params <bayesml.poisson.GenModel.load_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_params <bayesml.poisson.GenModel.load_params>`\\ \\(filename\\)"
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid "Load the parameters saved by ``save_params``."
@@ -374,11 +414,11 @@ msgstr "Load the parameters saved by ``save_params``."
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`save_h_params <bayesml.poisson.GenModel.save_h_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_h_params <bayesml.poisson.GenModel.save_h_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`save_h_params <bayesml.poisson.GenModel.save_h_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_h_params <bayesml.poisson.GenModel.save_h_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -387,11 +427,9 @@ msgstr "python ``pickle`` モジュールを使ってハイパーパラメータ
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`save_params <bayesml.poisson.GenModel.save_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_params <bayesml.poisson.GenModel.save_params>`\\ \\(filename\\)"
 msgstr ""
-":py:obj:`save_params <bayesml.poisson.GenModel.save_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_params <bayesml.poisson.GenModel.save_params>`\\ \\(filename\\)"
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid "Save the parameters using python ``pickle`` module."
@@ -399,11 +437,11 @@ msgstr "python の ``pickle`` モジュールを使ってパラメータを保�
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`save_sample <bayesml.poisson.GenModel.save_sample>`\\ "
-"\\(filename\\, sample\\_size\\)"
+":py:obj:`save_sample <bayesml.poisson.GenModel.save_sample>`\\ \\(filename\\, "
+"sample\\_size\\)"
 msgstr ""
-":py:obj:`save_sample <bayesml.poisson.GenModel.save_sample>`\\ "
-"\\(filename\\, sample\\_size\\)"
+":py:obj:`save_sample <bayesml.poisson.GenModel.save_sample>`\\ \\(filename\\, "
+"sample\\_size\\)"
 
 #: bayesml.poisson._poisson.GenModel.save_sample:2
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
@@ -412,11 +450,11 @@ msgstr "生成されたサンプルを NumPy ``.npz`` フォーマットで保�
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`set_h_params <bayesml.poisson.GenModel.set_h_params>`\\ "
-"\\(\\[h\\_alpha\\, h\\_beta\\]\\)"
+":py:obj:`set_h_params <bayesml.poisson.GenModel.set_h_params>`\\ \\(\\"
+"[h\\_alpha\\, h\\_beta\\]\\)"
 msgstr ""
-":py:obj:`set_h_params <bayesml.poisson.GenModel.set_h_params>`\\ "
-"\\(\\[h\\_alpha\\, h\\_beta\\]\\)"
+":py:obj:`set_h_params <bayesml.poisson.GenModel.set_h_params>`\\ \\(\\"
+"[h\\_alpha\\, h\\_beta\\]\\)"
 
 #: bayesml.poisson._poisson.GenModel.set_h_params:2
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
@@ -425,11 +463,11 @@ msgstr "事前分布のハイパーパラメータを設定します。"
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`set_params <bayesml.poisson.GenModel.set_params>`\\ "
-"\\(\\[lambda\\_\\]\\)"
+":py:obj:`set_params <bayesml.poisson.GenModel.set_params>`\\ \\(\\[lambda\\_\\]"
+"\\)"
 msgstr ""
-":py:obj:`set_params <bayesml.poisson.GenModel.set_params>`\\ "
-"\\(\\[lambda\\_\\]\\)"
+":py:obj:`set_params <bayesml.poisson.GenModel.set_params>`\\ \\(\\[lambda\\_\\]"
+"\\)"
 
 #: bayesml.poisson._poisson.GenModel.set_params:2
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
@@ -438,11 +476,11 @@ msgstr "確率的データ生成モデルのパラメータを設定します。
 
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
 msgid ""
-":py:obj:`visualize_model <bayesml.poisson.GenModel.visualize_model>`\\ "
-"\\(\\[sample\\_size\\]\\)"
+":py:obj:`visualize_model <bayesml.poisson.GenModel.visualize_model>`\\ \\(\\"
+"[sample\\_size\\]\\)"
 msgstr ""
-":py:obj:`visualize_model <bayesml.poisson.GenModel.visualize_model>`\\ "
-"\\(\\[sample\\_size\\]\\)"
+":py:obj:`visualize_model <bayesml.poisson.GenModel.visualize_model>`\\ \\(\\"
+"[sample\\_size\\]\\)"
 
 #: bayesml.poisson._poisson.GenModel.visualize_model:2
 #: bayesml.poisson._poisson.GenModel:50:<autosummary>:1 of
@@ -453,9 +491,11 @@ msgstr "確率的データ生成モデルと生成されたサンプルを可視
 #: bayesml.poisson._poisson.LearnModel.get_constants:4 of
 #, python-brace-format
 msgid ""
-"This model does not have any constants.  Therefore, this function returns"
-" an emtpy dict ``{}``."
-msgstr "このモデルは定数を持ちません。  したがって、この関数は emtpy dict ``{}`` を返します。"
+"This model does not have any constants.  Therefore, this function returns an "
+"emtpy dict ``{}``."
+msgstr ""
+"このモデルは定数を持ちません。  したがって、この関数は emtpy dict ``{}`` を返し"
+"ます。"
 
 #: bayesml.poisson._poisson.GenModel.gen_sample
 #: bayesml.poisson._poisson.GenModel.get_constants
@@ -562,8 +602,8 @@ msgstr "numpy ndarray"
 
 #: bayesml.poisson._poisson.GenModel.gen_sample:15 of
 msgid ""
-"1 dimensional array whose size is ``sammple_size`` and elements are "
-"natural number."
+"1 dimensional array whose size is ``sammple_size`` and elements are natural "
+"number."
 msgstr "サイズが「sammple_size」で、要素が自然数である1次元配列です。"
 
 #: bayesml.poisson._poisson.GenModel.save_sample:4 of
@@ -580,8 +620,8 @@ msgstr "str"
 
 #: bayesml.poisson._poisson.GenModel.save_sample:9 of
 msgid ""
-"The filename to which the sample is saved. ``.npz`` will be appended if "
-"it isn't there."
+"The filename to which the sample is saved. ``.npz`` will be appended if it "
+"isn't there."
 msgstr "サンプルを保存するファイル名。ない場合は ``.npz`` が追加されます。"
 
 #: bayesml.poisson._poisson.GenModel.save_sample:27 of
@@ -600,12 +640,6 @@ msgstr "正の整数。デフォルトは 20。"
 #: bayesml.poisson._poisson.LearnModel.visualize_posterior:19 of
 msgid "Examples"
 msgstr "例"
-
-#: bayesml.poisson._poisson.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
-msgstr ""
 
 #: bayesml.poisson._poisson.LearnModel:2 of
 msgid "The posterior distribution and the predictive distribution."
@@ -636,8 +670,7 @@ msgstr "**hn_alpha**"
 msgid "float"
 msgstr "float"
 
-#: bayesml.poisson._poisson.LearnModel:16
-#: bayesml.poisson._poisson.LearnModel:19
+#: bayesml.poisson._poisson.LearnModel:16 bayesml.poisson._poisson.LearnModel:19
 #: bayesml.poisson._poisson.LearnModel:22 of
 msgid "a positive real number"
 msgstr "正の実数"
@@ -674,11 +707,9 @@ msgstr "対数周辺尤度の計算"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`calc_pred_dist <bayesml.poisson.LearnModel.calc_pred_dist>`\\ "
-"\\(\\)"
+":py:obj:`calc_pred_dist <bayesml.poisson.LearnModel.calc_pred_dist>`\\ \\(\\)"
 msgstr ""
-":py:obj:`calc_pred_dist <bayesml.poisson.LearnModel.calc_pred_dist>`\\ "
-"\\(\\)"
+":py:obj:`calc_pred_dist <bayesml.poisson.LearnModel.calc_pred_dist>`\\ \\(\\)"
 
 #: bayesml.poisson._poisson.LearnModel.calc_pred_dist:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -687,11 +718,11 @@ msgstr "予測分布のパラメータを計算します。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`estimate_interval "
-"<bayesml.poisson.LearnModel.estimate_interval>`\\ \\(\\[credibility\\]\\)"
+":py:obj:`estimate_interval <bayesml.poisson.LearnModel.estimate_interval>`\\ \\"
+"(\\[credibility\\]\\)"
 msgstr ""
-":py:obj:`estimate_interval "
-"<bayesml.poisson.LearnModel.estimate_interval>`\\ \\(\\[credibility\\]\\)"
+":py:obj:`estimate_interval <bayesml.poisson.LearnModel.estimate_interval>`\\ \\"
+"(\\[credibility\\]\\)"
 
 #: bayesml.poisson._poisson.LearnModel.estimate_interval:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -700,17 +731,17 @@ msgstr "パラメータの信頼区間"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`estimate_params <bayesml.poisson.LearnModel.estimate_params>`\\ "
-"\\(\\[loss\\, dict\\_out\\]\\)"
+":py:obj:`estimate_params <bayesml.poisson.LearnModel.estimate_params>`\\ \\(\\"
+"[loss\\, dict\\_out\\]\\)"
 msgstr ""
-":py:obj:`estimate_params <bayesml.poisson.LearnModel.estimate_params>`\\ "
-"\\(\\[loss\\, dict\\_out\\]\\)"
+":py:obj:`estimate_params <bayesml.poisson.LearnModel.estimate_params>`\\ \\(\\"
+"[loss\\, dict\\_out\\]\\)"
 
 #: bayesml.poisson._poisson.LearnModel.estimate_params:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-"Estimate the parameter of the stochastic data generative model under the "
-"given criterion."
+"Estimate the parameter of the stochastic data generative model under the given "
+"criterion."
 msgstr "与えられた基準の下で、確率的データ生成モデルのパラメータを推定します。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -724,11 +755,9 @@ msgstr "モデルをデータに当てはめます。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`get_constants <bayesml.poisson.LearnModel.get_constants>`\\ "
-"\\(\\)"
+":py:obj:`get_constants <bayesml.poisson.LearnModel.get_constants>`\\ \\(\\)"
 msgstr ""
-":py:obj:`get_constants <bayesml.poisson.LearnModel.get_constants>`\\ "
-"\\(\\)"
+":py:obj:`get_constants <bayesml.poisson.LearnModel.get_constants>`\\ \\(\\)"
 
 #: bayesml.poisson._poisson.LearnModel.get_constants:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -737,26 +766,21 @@ msgstr "LearnModel の定数を取得します。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`get_h0_params <bayesml.poisson.LearnModel.get_h0_params>`\\ "
-"\\(\\)"
+":py:obj:`get_h0_params <bayesml.poisson.LearnModel.get_h0_params>`\\ \\(\\)"
 msgstr ""
-":py:obj:`get_h0_params <bayesml.poisson.LearnModel.get_h0_params>`\\ "
-"\\(\\)"
+":py:obj:`get_h0_params <bayesml.poisson.LearnModel.get_h0_params>`\\ \\(\\)"
 
 #: bayesml.poisson._poisson.LearnModel.get_h0_params:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-"Get the initial values of the hyperparameters of the posterior "
-"distribution."
+"Get the initial values of the hyperparameters of the posterior distribution."
 msgstr "事後分布のハイパーパラメータの初期値を取得します。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`get_hn_params <bayesml.poisson.LearnModel.get_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`get_hn_params <bayesml.poisson.LearnModel.get_hn_params>`\\ \\(\\)"
 msgstr ""
-":py:obj:`get_hn_params <bayesml.poisson.LearnModel.get_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`get_hn_params <bayesml.poisson.LearnModel.get_hn_params>`\\ \\(\\)"
 
 #: bayesml.poisson._poisson.LearnModel.get_hn_params:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -774,11 +798,11 @@ msgstr "予測分布のパラメータを取得します。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`load_h0_params <bayesml.poisson.LearnModel.load_h0_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_h0_params <bayesml.poisson.LearnModel.load_h0_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`load_h0_params <bayesml.poisson.LearnModel.load_h0_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_h0_params <bayesml.poisson.LearnModel.load_h0_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid "Load the hyperparameters to h0_params."
@@ -786,11 +810,11 @@ msgstr "h0_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`load_hn_params <bayesml.poisson.LearnModel.load_hn_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_hn_params <bayesml.poisson.LearnModel.load_hn_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`load_hn_params <bayesml.poisson.LearnModel.load_hn_params>`\\ "
-"\\(filename\\)"
+":py:obj:`load_hn_params <bayesml.poisson.LearnModel.load_hn_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid "Load the hyperparameters to hn_params."
@@ -798,11 +822,11 @@ msgstr "hn_paramsにハイパーパラメータをロードします。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`make_prediction <bayesml.poisson.LearnModel.make_prediction>`\\ "
-"\\(\\[loss\\]\\)"
+":py:obj:`make_prediction <bayesml.poisson.LearnModel.make_prediction>`\\ \\(\\"
+"[loss\\]\\)"
 msgstr ""
-":py:obj:`make_prediction <bayesml.poisson.LearnModel.make_prediction>`\\ "
-"\\(\\[loss\\]\\)"
+":py:obj:`make_prediction <bayesml.poisson.LearnModel.make_prediction>`\\ \\(\\"
+"[loss\\]\\)"
 
 #: bayesml.poisson._poisson.LearnModel.make_prediction:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -825,11 +849,11 @@ msgstr "事後分布のハイパーパラメータの初期値を学習した値
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`pred_and_update <bayesml.poisson.LearnModel.pred_and_update>`\\ "
-"\\(x\\[\\, loss\\]\\)"
+":py:obj:`pred_and_update <bayesml.poisson.LearnModel.pred_and_update>`\\ \\(x\\"
+"[\\, loss\\]\\)"
 msgstr ""
-":py:obj:`pred_and_update <bayesml.poisson.LearnModel.pred_and_update>`\\ "
-"\\(x\\[\\, loss\\]\\)"
+":py:obj:`pred_and_update <bayesml.poisson.LearnModel.pred_and_update>`\\ \\(x\\"
+"[\\, loss\\]\\)"
 
 #: bayesml.poisson._poisson.LearnModel.pred_and_update:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -847,41 +871,38 @@ msgstr "次のデータ点を予測します。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`reset_hn_params <bayesml.poisson.LearnModel.reset_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`reset_hn_params <bayesml.poisson.LearnModel.reset_hn_params>`\\ \\(\\)"
 msgstr ""
-":py:obj:`reset_hn_params <bayesml.poisson.LearnModel.reset_hn_params>`\\ "
-"\\(\\)"
+":py:obj:`reset_hn_params <bayesml.poisson.LearnModel.reset_hn_params>`\\ \\(\\)"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-"Reset the hyperparameters of the posterior distribution to their initial "
-"values."
+"Reset the hyperparameters of the posterior distribution to their initial values."
 msgstr "事後分布のハイパーパラメータを初期値に戻します。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`save_h0_params <bayesml.poisson.LearnModel.save_h0_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_h0_params <bayesml.poisson.LearnModel.save_h0_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`save_h0_params <bayesml.poisson.LearnModel.save_h0_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_h0_params <bayesml.poisson.LearnModel.save_h0_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`save_hn_params <bayesml.poisson.LearnModel.save_hn_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_hn_params <bayesml.poisson.LearnModel.save_hn_params>`\\ \\"
+"(filename\\)"
 msgstr ""
-":py:obj:`save_hn_params <bayesml.poisson.LearnModel.save_hn_params>`\\ "
-"\\(filename\\)"
+":py:obj:`save_hn_params <bayesml.poisson.LearnModel.save_hn_params>`\\ \\"
+"(filename\\)"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`set_h0_params <bayesml.poisson.LearnModel.set_h0_params>`\\ "
-"\\(\\[h0\\_alpha\\, h0\\_beta\\]\\)"
+":py:obj:`set_h0_params <bayesml.poisson.LearnModel.set_h0_params>`\\ \\(\\"
+"[h0\\_alpha\\, h0\\_beta\\]\\)"
 msgstr ""
-":py:obj:`set_h0_params <bayesml.poisson.LearnModel.set_h0_params>`\\ "
-"\\(\\[h0\\_alpha\\, h0\\_beta\\]\\)"
+":py:obj:`set_h0_params <bayesml.poisson.LearnModel.set_h0_params>`\\ \\(\\"
+"[h0\\_alpha\\, h0\\_beta\\]\\)"
 
 #: bayesml.poisson._poisson.LearnModel.set_h0_params:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -890,11 +911,11 @@ msgstr "事後分布のハイパーパラメータの初期値を設定します
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`set_hn_params <bayesml.poisson.LearnModel.set_hn_params>`\\ "
-"\\(\\[hn\\_alpha\\, hn\\_beta\\]\\)"
+":py:obj:`set_hn_params <bayesml.poisson.LearnModel.set_hn_params>`\\ \\(\\"
+"[hn\\_alpha\\, hn\\_beta\\]\\)"
 msgstr ""
-":py:obj:`set_hn_params <bayesml.poisson.LearnModel.set_hn_params>`\\ "
-"\\(\\[hn\\_alpha\\, hn\\_beta\\]\\)"
+":py:obj:`set_hn_params <bayesml.poisson.LearnModel.set_hn_params>`\\ \\(\\"
+"[hn\\_alpha\\, hn\\_beta\\]\\)"
 
 #: bayesml.poisson._poisson.LearnModel.set_hn_params:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -903,17 +924,16 @@ msgstr "事後分布のハイパーパラメータの更新値を設定します
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-":py:obj:`update_posterior "
-"<bayesml.poisson.LearnModel.update_posterior>`\\ \\(x\\)"
+":py:obj:`update_posterior <bayesml.poisson.LearnModel.update_posterior>`\\ \\"
+"(x\\)"
 msgstr ""
-":py:obj:`update_posterior "
-"<bayesml.poisson.LearnModel.update_posterior>`\\ \\(x\\)"
+":py:obj:`update_posterior <bayesml.poisson.LearnModel.update_posterior>`\\ \\"
+"(x\\)"
 
 #: bayesml.poisson._poisson.LearnModel.update_posterior:2
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
 msgid ""
-"Update the hyperparameters of the posterior distribution using traning "
-"data."
+"Update the hyperparameters of the posterior distribution using traning data."
 msgstr "訓練データを使って事後分布のハイパーパラメータを更新します。"
 
 #: bayesml.poisson._poisson.LearnModel:65:<autosummary>:1 of
@@ -979,8 +999,8 @@ msgstr "str, optional"
 #: bayesml.poisson._poisson.LearnModel.make_prediction:8
 #: bayesml.poisson._poisson.LearnModel.pred_and_update:11 of
 msgid ""
-"Loss function underlying the Bayes risk function, by default \"squared\"."
-" This function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
+"Loss function underlying the Bayes risk function, by default \"squared\". This "
+"function supports \"squared\", \"0-1\", \"abs\", and \"KL\"."
 msgstr ""
 "ベイズリスク関数の基礎となる損失関数、デフォルトは \"squared\"。この関数は "
 "\"squared\"、\"0-1\"、\"abs\"、\"KL \"をサポートしています。"
@@ -1008,12 +1028,13 @@ msgstr "{float, None, rv_frozen}"
 
 #: bayesml.poisson._poisson.LearnModel.estimate_params:19 of
 msgid ""
-"The estimated values under the given loss function. If it is not exist, "
-"`None` will be returned. If the loss function is \"KL\", the posterior "
-"distribution itself will be returned as rv_frozen object of scipy.stats."
+"The estimated values under the given loss function. If it is not exist, `None` "
+"will be returned. If the loss function is \"KL\", the posterior distribution "
+"itself will be returned as rv_frozen object of scipy.stats."
 msgstr ""
-"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数が \"KL\" の場合、事後分布そのものが "
-"scipy.stats の rv_frozen オブジェクトとして返されます。"
+"与えられた損失関数の下での推定値。存在しない場合は `None` が返されます。損失関数"
+"が \"KL\" の場合、事後分布そのものが scipy.stats の rv_frozen オブジェクトとして"
+"返されます。"
 
 #: bayesml.poisson._poisson.LearnModel.estimate_params:32
 #: bayesml.poisson._poisson.LearnModel.make_prediction:29
@@ -1033,8 +1054,7 @@ msgstr "**credibility**"
 
 #: bayesml.poisson._poisson.LearnModel.estimate_interval:8 of
 msgid ""
-"A posterior probability that the interval conitans the paramter, by "
-"default 0.95"
+"A posterior probability that the interval conitans the paramter, by default 0.95"
 msgstr "パラメータがその区間に含まれるという事後確率（デフォルト値：0.95）"
 
 #: bayesml.poisson._poisson.LearnModel.estimate_interval:14 of
@@ -1071,12 +1091,12 @@ msgstr "{float, rv_frozen}"
 #: bayesml.poisson._poisson.LearnModel.make_prediction:16
 #: bayesml.poisson._poisson.LearnModel.pred_and_update:19 of
 msgid ""
-"The predicted value under the given loss function.  If the loss function "
-"is \"KL\", the posterior distribution itself will be returned as "
-"rv_frozen object of scipy.stats."
+"The predicted value under the given loss function.  If the loss function is "
+"\"KL\", the posterior distribution itself will be returned as rv_frozen object "
+"of scipy.stats."
 msgstr ""
-"指定された損失関数における予測値です。損失関数が「KL」の場合、事後分布そのものが scipy.stats の rv_frozen "
-"オブジェクトとして返されます。"
+"指定された損失関数における予測値です。損失関数が「KL」の場合、事後分布そのもの"
+"が scipy.stats の rv_frozen オブジェクトとして返されます。"
 
 #: bayesml.poisson._poisson.LearnModel.pred_and_update:8 of
 msgid "It must be natural number"
@@ -1114,4 +1134,3 @@ msgstr "**predicted_value**"
 #: bayesml.poisson._poisson.LearnModel.predict:15 of
 msgid "The predicted value under the squared loss function."
 msgstr "二乗誤差関数に基づく予測値。"
-

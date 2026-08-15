@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-29 18:24+0900\n"
+"POT-Creation-Date: 2026-08-16 01:39+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,40 +17,46 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../bayesml.autoregressive.rst:2
 msgid "bayesml.autoregressive package"
 msgstr ""
 
-#: ../../bayesml.autoregressive.rst:7
+#: ../../bayesml.autoregressive.rst:5
 msgid "Module contents"
 msgstr ""
 
 #: bayesml.autoregressive:1 of
-msgid "The linear autoregressive model with the normal-gamma prior distribution."
+msgid ""
+"This module provides the linear autoregressive model with the normal-"
+"gamma prior distribution."
 msgstr ""
 
-#: bayesml.autoregressive:3 of
+#: bayesml.autoregressive:6 of
+msgid "Stochastic Data Generative Model"
+msgstr ""
+
+#: bayesml.autoregressive:8 of
 msgid "The stochastic data generative model is as follows:"
 msgstr ""
 
-#: bayesml.autoregressive:5 of
+#: bayesml.autoregressive:10 of
 #, python-brace-format
 msgid ":math:`d \\in \\mathbb{N}`: the degree of the model"
 msgstr ""
 
-#: bayesml.autoregressive:6 of
+#: bayesml.autoregressive:11 of
 #, python-brace-format
 msgid ":math:`n \\in \\mathbb{N}`: time index"
 msgstr ""
 
-#: bayesml.autoregressive:7 of
+#: bayesml.autoregressive:12 of
 #, python-brace-format
 msgid ":math:`x_n \\in \\mathbb{R}`: a data point at :math:`n`"
 msgstr ""
 
-#: bayesml.autoregressive:8 of
+#: bayesml.autoregressive:13 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{x}'_n := [1, x_{n-d}, x_{n-d+1}, \\dots , "
@@ -58,19 +64,19 @@ msgid ""
 ":math:`n < 1` is given as a initial value."
 msgstr ""
 
-#: bayesml.autoregressive:9 of
+#: bayesml.autoregressive:14 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\theta} \\in \\mathbb{R}^{d+1}`: a regression "
 "coefficient parameter"
 msgstr ""
 
-#: bayesml.autoregressive:10 of
+#: bayesml.autoregressive:15 of
 #, python-brace-format
 msgid ":math:`\\tau \\in \\mathbb{R}_{>0}`: a precision parameter of noise"
 msgstr ""
 
-#: bayesml.autoregressive:12 of
+#: bayesml.autoregressive:17 of
 msgid ""
 "p(x_n | \\boldsymbol{x}'_{n-1}, \\boldsymbol{\\theta}, \\tau) &= "
 "\\mathcal{N}(x_n|\\boldsymbol{\\theta}^\\top \\boldsymbol{x}'_{n-1}, "
@@ -80,7 +86,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive:16 of
+#: bayesml.autoregressive:21 of
 #, python-brace-format
 msgid ""
 "&\\mathbb{E}[ x_n | \\boldsymbol{x}'_{n-1},\\boldsymbol{\\theta},\\tau] ="
@@ -90,18 +96,22 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive:21 of
+#: bayesml.autoregressive:26 of
+msgid "Prior Distribution"
+msgstr ""
+
+#: bayesml.autoregressive:28 of
 msgid "The prior distribution is as follows:"
 msgstr ""
 
-#: bayesml.autoregressive:23 of
+#: bayesml.autoregressive:30 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\mu}_0 \\in \\mathbb{R}^{d+1}`: a hyperparameter for"
 " :math:`\\boldsymbol{\\theta}`"
 msgstr ""
 
-#: bayesml.autoregressive:24 of
+#: bayesml.autoregressive:31 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\Lambda}_0 \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: "
@@ -109,33 +119,33 @@ msgid ""
 "matrix)"
 msgstr ""
 
-#: bayesml.autoregressive:25 of
+#: bayesml.autoregressive:32 of
 #, python-brace-format
 msgid ""
 ":math:`| \\boldsymbol{\\Lambda}_0 | \\in \\mathbb{R}`: the determinant of"
 " :math:`\\boldsymbol{\\Lambda}_0`"
 msgstr ""
 
-#: bayesml.autoregressive:26 of
+#: bayesml.autoregressive:33 of
 #, python-brace-format
 msgid ""
 ":math:`\\alpha_0 \\in \\mathbb{R}_{>0}`: a hyperparameter for "
 ":math:`\\tau`"
 msgstr ""
 
-#: bayesml.autoregressive:27 of
+#: bayesml.autoregressive:34 of
 #, python-brace-format
 msgid ":math:`\\beta_0 \\in \\mathbb{R}_{>0}`: a hyperparameter for :math:`\\tau`"
 msgstr ""
 
-#: bayesml.autoregressive:28 of
+#: bayesml.autoregressive:35 of
 #, python-brace-format
 msgid ""
 ":math:`\\Gamma(\\cdot): \\mathbb{R}_{>0} \\to \\mathbb{R}`: the Gamma "
 "function"
 msgstr ""
 
-#: bayesml.autoregressive:30 of
+#: bayesml.autoregressive:37 of
 msgid ""
 "p(\\boldsymbol{\\theta}, \\tau) &= "
 "\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_0, (\\tau "
@@ -151,7 +161,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive:37 of
+#: bayesml.autoregressive:44 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\boldsymbol{\\theta}] &= \\boldsymbol{\\mu}_0 & \\left( "
@@ -163,32 +173,36 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive:43 of
+#: bayesml.autoregressive:51 of
+msgid "Posterior Distribution"
+msgstr ""
+
+#: bayesml.autoregressive:53 of
 msgid "The posterior distribution is as follows:"
 msgstr ""
 
-#: bayesml.autoregressive:45 of
+#: bayesml.autoregressive:55 of
 #, python-brace-format
 msgid ""
 ":math:`x^n := [x_1, x_2, \\dots , x_n]^\\top \\in \\mathbb{R}^n`: given "
 "data"
 msgstr ""
 
-#: bayesml.autoregressive:46 of
+#: bayesml.autoregressive:56 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{X}_n = [\\boldsymbol{x}'_1, \\boldsymbol{x}'_2, "
 "\\dots , \\boldsymbol{x}'_n]^\\top \\in \\mathbb{R}^{n \\times (d+1)}`"
 msgstr ""
 
-#: bayesml.autoregressive:47 of
+#: bayesml.autoregressive:57 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\mu}_n \\in \\mathbb{R}^{d+1}`: a hyperparameter for"
 " :math:`\\boldsymbol{\\theta}`"
 msgstr ""
 
-#: bayesml.autoregressive:48 of
+#: bayesml.autoregressive:58 of
 #, python-brace-format
 msgid ""
 ":math:`\\boldsymbol{\\Lambda}_n \\in \\mathbb{R}^{(d+1) \\times (d+1)}`: "
@@ -196,19 +210,19 @@ msgid ""
 "matrix)"
 msgstr ""
 
-#: bayesml.autoregressive:49 of
+#: bayesml.autoregressive:59 of
 #, python-brace-format
 msgid ""
 ":math:`\\alpha_n \\in \\mathbb{R}_{>0}`: a hyperparameter for "
 ":math:`\\tau`"
 msgstr ""
 
-#: bayesml.autoregressive:50 of
+#: bayesml.autoregressive:60 of
 #, python-brace-format
 msgid ":math:`\\beta_n \\in \\mathbb{R}_{>0}`: a hyperparameter for :math:`\\tau`"
 msgstr ""
 
-#: bayesml.autoregressive:52 of
+#: bayesml.autoregressive:62 of
 msgid ""
 "p(\\boldsymbol{\\theta}, \\tau | x^n) &= "
 "\\mathcal{N}(\\boldsymbol{\\theta}|\\boldsymbol{\\mu}_n, (\\tau "
@@ -224,7 +238,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive:59 of
+#: bayesml.autoregressive:69 of
 #, python-brace-format
 msgid ""
 "\\mathbb{E}[\\boldsymbol{\\theta} | x^n] &= \\boldsymbol{\\mu}_n & "
@@ -236,11 +250,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive:65 of
+#: bayesml.autoregressive:75 of
 msgid "where the updating rules of the hyperparameters are"
 msgstr ""
 
-#: bayesml.autoregressive:67 of
+#: bayesml.autoregressive:77 of
 #, python-brace-format
 msgid ""
 "\\boldsymbol{\\Lambda}_n &= \\boldsymbol{\\Lambda}_0 + "
@@ -256,31 +270,35 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive:74 of
+#: bayesml.autoregressive:85 of
+msgid "Predictive Distribution"
+msgstr ""
+
+#: bayesml.autoregressive:87 of
 msgid "The predictive distribution is as follows:"
 msgstr ""
 
-#: bayesml.autoregressive:76 of
+#: bayesml.autoregressive:89 of
 #, python-brace-format
 msgid ":math:`x_{n+1} \\in \\mathbb{R}`: a new data point"
 msgstr ""
 
-#: bayesml.autoregressive:77 of
+#: bayesml.autoregressive:90 of
 #, python-brace-format
 msgid ":math:`m_\\mathrm{p} \\in \\mathbb{R}`: a parameter"
 msgstr ""
 
-#: bayesml.autoregressive:78 of
+#: bayesml.autoregressive:91 of
 #, python-brace-format
 msgid ":math:`\\lambda_\\mathrm{p} \\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ""
 
-#: bayesml.autoregressive:79 of
+#: bayesml.autoregressive:92 of
 #, python-brace-format
 msgid ":math:`\\nu_\\mathrm{p} \\in \\mathbb{R}_{>0}`: a parameter"
 msgstr ""
 
-#: bayesml.autoregressive:81 of
+#: bayesml.autoregressive:94 of
 msgid ""
 "\\mathrm{St}(x_{n+1}|m_\\mathrm{p}, \\lambda_\\mathrm{p}, "
 "\\nu_\\mathrm{p})\n"
@@ -294,7 +312,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive:87 of
+#: bayesml.autoregressive:100 of
 msgid ""
 "\\mathbb{E}[x_{n+1} | x^n] &= m_\\mathrm{p} & (\\nu_\\mathrm{p} > 1), "
 "\\\\\n"
@@ -303,13 +321,13 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive:91 of
+#: bayesml.autoregressive:104 of
 msgid ""
 "where the parameters are obtained from the hyperparameters of the "
 "posterior distribution as follows."
 msgstr ""
 
-#: bayesml.autoregressive:93 of
+#: bayesml.autoregressive:106 of
 #, python-brace-format
 msgid ""
 "m_\\mathrm{p} &= \\boldsymbol{\\mu}_n^\\top \\boldsymbol{x}'_n,\\\\\n"
@@ -320,8 +338,32 @@ msgid ""
 "\n"
 msgstr ""
 
-#: bayesml.autoregressive._autoregressive.GenModel:1 of
-msgid "Bases: :py:class:`~bayesml.base.Generative`"
+#: bayesml.autoregressive:112 of
+msgid "Star Us on GitHub"
+msgstr ""
+
+#: ../../_star.rst:1
+msgid ""
+"If you found this page helpful, please consider giving us a star on "
+"GitHub."
+msgstr ""
+
+#: ../../_star.rst:2
+msgid "It really helps the project grow."
+msgstr ""
+
+#: ../../_star.rst:4
+msgid ""
+"`Open the repo and hit ☆ Star in the top right! "
+"<https://github.com/bayesml/BayesML>`_"
+msgstr ""
+
+#: ../../_star.rst:6
+msgid "Star on GitHub"
+msgstr ""
+
+#: bayesml.autoregressive:117 of
+msgid "Class and Methods"
 msgstr ""
 
 #: bayesml.autoregressive._autoregressive.GenModel:2 of
@@ -786,12 +828,6 @@ msgstr ""
 #: bayesml.autoregressive._autoregressive.GenModel.visualize_model:30
 #: bayesml.autoregressive._autoregressive.LearnModel.visualize_posterior:19 of
 msgid "Examples"
-msgstr ""
-
-#: bayesml.autoregressive._autoregressive.LearnModel:1 of
-msgid ""
-"Bases: :py:class:`~bayesml.base.Posterior`, "
-":py:class:`~bayesml.base.PredictiveMixin`"
 msgstr ""
 
 #: bayesml.autoregressive._autoregressive.LearnModel:2 of
@@ -1291,5 +1327,10 @@ msgstr ""
 #~ msgid ""
 #~ "Bases: :py:class:`~bayesml.base.Posterior`, "
 #~ ":py:class:`~bayesml.base.PredictiveMixin`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The linear autoregressive model with the"
+#~ " normal-gamma prior distribution."
 #~ msgstr ""
 
