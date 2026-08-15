@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 07:53+0900\n"
+"POT-Creation-Date: 2026-08-16 08:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -121,7 +121,7 @@ msgid "The following are required."
 msgstr ""
 
 #: ../../index.rst:58
-msgid "Python (>= 3.7)"
+msgid "Python (>= 3.10)"
 msgstr ""
 
 #: ../../index.rst:59
@@ -540,5 +540,8 @@ msgstr ""
 #~ "application of machine learning based on"
 #~ " Bayesian statistics and Bayesian decision"
 #~ " theory."
+#~ msgstr ""
+
+#~ msgid "Python (>= 3.7)"
 #~ msgstr ""
 
