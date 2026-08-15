@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 01:39+0900\n"
+"POT-Creation-Date: 2026-08-16 04:07+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Generated-By: Babel 2.18.0\n"
 
 #: ../../bayesml.rst:2
-msgid "Bayesml packages"
+msgid "bayesml package"
 msgstr ""
 
 #: ../../bayesml.rst:5
@@ -342,5 +342,8 @@ msgid "**pred_and_update**"
 msgstr ""
 
 #~ msgid "Bases: :py:class:`object`"
+#~ msgstr ""
+
+#~ msgid "Bayesml packages"
 #~ msgstr ""
 
