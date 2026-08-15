@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-16 04:16+0900\n"
-"PO-Revision-Date: 2026-08-16 04:20+0900\n"
+"PO-Revision-Date: 2026-08-16 04:28+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -185,7 +185,7 @@ msgstr ""
 
 #: ../../examples/metatree_prediction_interval.ipynb:848
 msgid "|Star on GitHub|"
-msgstr "|GitHubスター|"
+msgstr "|Star on GitHub|"
 
 #: ../../examples/metatree_prediction_interval.ipynb:850
 msgid "Star on GitHub"
