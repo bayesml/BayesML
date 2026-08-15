@@ -304,6 +304,11 @@ BibTeX
    year = {2026}
    }
 
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
 Contents
 --------
 

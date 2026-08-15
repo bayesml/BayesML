@@ -1,9 +1,12 @@
 # Document Author
 # Ryohei Oka <o.ryohei07@gmail.com>
 r"""
+This module provides the hidden Markov model with the Gauss-Wishart prior distribution and the Dirichlet prior distribution.
+
 .. image:: ./images/hiddenmarkovnormal_example.png
 
-The hidden Markov model with the Gauss-Wishart prior distribution and the Dirichlet prior distribution.
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -26,6 +29,9 @@ The stochastic data generative model is as follows:
     p(\boldsymbol{z}_{n} |\boldsymbol{z}_{n-1} ,\boldsymbol{A}) &= \prod_{k=1}^K \prod_{j=1}^K a_{j,k}^{z_{n-1,j}z_{n,k}},\\
     p(\boldsymbol{x}_{n} | \boldsymbol{\mu}, \boldsymbol{\Lambda}, \boldsymbol{z}_{n}) &= \prod_{k=1}^K \mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}_k,\boldsymbol{\Lambda}_k^{-1})^{z_{n,k}} \\
     &= \prod_{k=1}^K \left( \frac{| \boldsymbol{\Lambda}_{k} |^{1/2}}{(2\pi)^{D/2}} \exp \left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu}_{k})^\top \boldsymbol{\Lambda}_{k} (\boldsymbol{x}-\boldsymbol{\mu}_{k}) \right\} \right)^{z_{n,k}},
+
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -51,6 +57,9 @@ where :math:`B(\boldsymbol{W}_0, \nu_0)` and :math:`C(\boldsymbol{\eta}_0)` are 
     B(\boldsymbol{W}_0, \nu_0) &= | \boldsymbol{W}_0 |^{-\nu_0 / 2} \left( 2^{\nu_0 D / 2} \pi^{D(D-1)/4} \prod_{i=1}^D \Gamma \left( \frac{\nu_0 + 1 - i}{2} \right) \right)^{-1}, \\
     C(\boldsymbol{\eta}_0) &= \frac{\Gamma(\sum_{k=1}^K \eta_{0,k})}{\Gamma(\eta_{0,1})\cdots\Gamma(\eta_{0,K})},\\
     C(\boldsymbol{\zeta}_{0,j}) &= \frac{\Gamma(\sum_{k=1}^K \zeta_{0,j,k})}{\Gamma(\zeta_{0,j,1})\cdots\Gamma(\zeta_{0,j,K})}. 
+
+Posterior Distribution
+----------------------
 
 The apporoximate posterior distribution in the :math:`t`-th iteration of a variational Bayesian method is as follows:
 
@@ -106,6 +115,9 @@ The approximate posterior distribution of the latent variable :math:`q^{(t+1)}(z
     q^{(t+1)}(\boldsymbol{z}_{i-1}, \boldsymbol{z}_{i}) &\propto \alpha^{(t+1)}(\boldsymbol{z}_{i-1}) \prod_{k=1}^{K} \left( \rho_{i,k}^{(t+1)}\right)^{z_{i,k}} \prod_{k=1}^{K}\prod_{j=1}^{K}\left(\tilde{a}^{(t+1)}_{j,k}\right)^{z_{i-1,j}z_{i,k}} \beta^{(t+1)}(\boldsymbol{z}_i) \\
     \xi^{(t+1)}_{i,j,k} &= \sum_{\boldsymbol{z}_{i-1}} \sum_{\boldsymbol{z}_i} q^{(t+1)}(\boldsymbol{z}_{i-1}, \boldsymbol{z}_{i}) z_{i-1,j} z_{i,k}
 
+Predictive Distribution
+-----------------------
+
 The approximate predictive distribution is as follows:
 
 * :math:`\boldsymbol{x}_{n+1} \in \mathbb{R}^D`: a new data point
@@ -127,6 +139,14 @@ where the parameters are obtained from the hyperparameters of the predictive dis
     \boldsymbol{\mu}_{\mathrm{p},k} &= \boldsymbol{m}_{n,k}^{(t)}, \\
     \boldsymbol{\Lambda}_{\mathrm{p},k} &= \frac{\kappa_{n,k}^{(t)} (\nu_{n,k}^{(t)} - D + 1)}{\kappa_{n,k}^{(t)} + 1} \boldsymbol{W}_{n,k}^{(t)}, \\
     \nu_{\mathrm{p},k} &= \nu_{n,k}^{(t)} - D + 1.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Class and Methods
+-----------------
 """
 from ._hiddenmarkovnormal import GenModel
 from ._hiddenmarkovnormal import LearnModel

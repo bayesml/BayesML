@@ -1,9 +1,12 @@
 # Document Author
 # Yuji Iikubo <yuji-iikubo.8@fuji.waseda.jp>
 r"""
+This module provides the logistic regression model with the Gaussian prior distribution.
+
 .. image:: ./images/logisticregression_example.png
 
-The logistic regression model with the Gaussian prior distribution.
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -20,6 +23,9 @@ where :math:`\sigma(\cdot)` is defined as follows (called a sigmoid function):
 .. math::
     \sigma(a) = \frac{1}{1+\exp(-a)}.
 
+Prior Distribution
+------------------
+
 The prior distribution is as follows:
 
 * :math:`\boldsymbol{\mu}_0 \in \mathbb{R}^d`: a hyperparameter
@@ -28,6 +34,9 @@ The prior distribution is as follows:
 .. math::
     p(\boldsymbol{w}) &= \mathcal{N}(\boldsymbol{w}|\boldsymbol{\mu}_0, \boldsymbol{\Lambda}_0^{-1})\\
     &= \frac{|\boldsymbol{\Lambda}_0|^{1/2}}{(2 \pi)^{d/2}} \exp \left\{ -\frac{1}{2} (\boldsymbol{w} - \boldsymbol{\mu}_0)^\top \boldsymbol{\Lambda}_0 (\boldsymbol{w} - \boldsymbol{\mu}_0) \right\}.
+
+Posterior Distribution
+----------------------
 
 The apporoximate posterior distribution in the :math:`t`-th iteration of a variational Bayesian method is as follows:
 
@@ -55,6 +64,9 @@ where :math:`\lambda(\cdot)` is defined as follows:
 .. math::
     \lambda(\xi) = \frac{1}{2\xi} \left\{ \sigma(\xi) - \frac{1}{2} \right\}.
 
+Predictive Distribution
+-----------------------
+
 The approximate predictive distribution is as follows:
 
 * :math:`\boldsymbol{x}_{n+1}\in \mathbb{R}^d`: a new data point
@@ -73,6 +85,14 @@ and :math:`\kappa(\cdot)` is defined as
 
 .. math::
     \kappa(\sigma^2) = (1 + \pi \sigma^2 / 8)^{-1/2}.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Class and Methods
+-----------------
 """
 
 from ._logisticregression import GenModel

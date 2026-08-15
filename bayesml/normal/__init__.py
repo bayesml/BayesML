@@ -4,9 +4,12 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+This module provides the normal distribution with the normal-gamma prior distribution.
+
 .. image:: ./images/normal_example.png
 
-The normal distribution with the normaml-gamma prior distribution.
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -23,6 +26,8 @@ The stochastic data generative model is as follows:
     &\mathbb{E}[x | \mu, \tau] = \mu, \\
     &\mathbb{V}[x | \mu, \tau] = \tau^{-1}.
 
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -41,6 +46,9 @@ The prior distribution is as follows:
     \mathbb{V}[\mu] &= \frac{\beta_0}{\kappa_0 (\alpha_0 - 1)} & (\alpha_0 > 1), \\
     \mathbb{E}[\tau] &= \frac{\alpha_0}{\beta_0}, \\
     \mathbb{V}[\tau] &= \frac{\alpha_0}{\beta_0^2}.
+
+Posterior Distribution
+----------------------
 
 The posterior distribution is as follows:
 
@@ -70,6 +78,9 @@ where the updating rule of the hyperparameters is
     \alpha_n &= \alpha_0 + \frac{n}{2}, \\
     \beta_n &=  \beta_0 + \frac{1}{2} \left( \sum_{i=1}^n (x_i - \bar{x})^2 + \frac{\kappa_0 n}{\kappa_0 + n} (\bar{x} - m_0)^2 \right).
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is as follows:
 
 * :math:`x_{n+1} \in \mathbb{R}`: a new data point
@@ -92,6 +103,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
     \mu_\mathrm{p} &= \mu_n, \\
     \lambda_\mathrm{p} &= \frac{\kappa_n}{\kappa_n + 1} \frac{\alpha_n}{\beta_n}, \\
     \nu_\mathrm{p} &= 2 \alpha_n.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Class and Methods
+-----------------
 """
 from ._normal import GenModel
 from ._normal import LearnModel

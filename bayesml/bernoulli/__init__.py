@@ -2,9 +2,12 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+This module provides the Bernoulli distribution with the beta prior distribution.
+
 .. image:: ./images/bernoulli_example.png
 
-The Bernoulli distribution with the beta prior distribution.
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -18,6 +21,9 @@ The stochastic data generative model is as follows:
     \mathbb{E}[x | \theta] &= \theta, \\
     \mathbb{V}[x | \theta] &= \theta (1 - \theta).
 
+Prior Distribution
+------------------
+
 The prior distribution is as follows:
 
 * :math:`\alpha_0 \in \mathbb{R}_{>0}`: a hyperparameter
@@ -30,6 +36,9 @@ The prior distribution is as follows:
 .. math::
     \mathbb{E}[\theta] &= \frac{\alpha_0}{\alpha_0 + \beta_0}, \\
     \mathbb{V}[\theta] &= \frac{\alpha_0 \beta_0}{(\alpha_0 + \beta_0)^2 (\alpha_0 + \beta_0 + 1)}.
+
+Posterior Distribution
+----------------------
 
 The posterior distribution is as follows:
 
@@ -50,6 +59,9 @@ where the updating rule of the hyperparameters is
     \alpha_n = \alpha_0 + \sum_{i=1}^n I \{ x_i = 1 \},\\
     \beta_n = \beta_0 + \sum_{i=1}^n I \{ x_i = 0 \}.
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is as follows:
 
 * :math:`x_{n+1} \in \{ 0, 1\}`: a new data point
@@ -68,6 +80,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
 
 .. math::
     \theta_\mathrm{p} = \frac{\alpha_n}{\alpha_n + \beta_n}.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Class and Methods
+-----------------
 """
 
 from ._bernoulli import GenModel

@@ -4,9 +4,12 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+This module provides the Poisson distribution with the gamma prior distribution.
+
 .. image:: ./images/poisson_example.png
 
-The Poisson distribution with the gamma prior distribution.
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -15,6 +18,9 @@ The stochastic data generative model is as follows:
 
 .. math::
     p(x | \lambda) = \mathrm{Po}(x|\lambda) = \frac{ \lambda^{x} }{x!}\exp \{ -\lambda \}.
+
+Prior Distribution
+------------------
 
 The prior distribution is as follows:
 
@@ -28,6 +34,9 @@ The prior distribution is as follows:
 .. math::
     \mathbb{E}[\lambda] &= \frac{\alpha_0}{\beta_0}, \\
     \mathbb{V}[\lambda] &= \frac{\alpha_0}{\beta_0^2}.
+
+Posterior Distribution
+----------------------
 
 The posterior distribution is as follows:
 
@@ -48,6 +57,9 @@ where the updating rule of the hyperparameters is
     \alpha_n &= \alpha_0 + \sum_{i=1}^n x_i,\\
     \beta_n &= \beta_0 + n.
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is as follows:
 
 * :math:`x_{n+1} \in \mathbb{N}`: a new data point
@@ -66,6 +78,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
 .. math::
     &r_\mathrm{p}=\alpha_n, \\
     &\theta_\mathrm{p} = \frac{1}{\beta_n + 1}.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Class and Methods
+-----------------
 """
 
 from ._poisson import GenModel

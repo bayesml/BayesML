@@ -72,3 +72,8 @@ BibTeX
    note = {\url{https://github.com/bayesml/BayesML}},
    year = {2026}
    }
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst

@@ -3,9 +3,12 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+This module provides the linear regression model with the normal-gamma prior distribution.
+
 .. image:: ./images/linearregression_example.png
 
-The  Baysian Linear Regression.
+Stochastic Data Generative Model
+--------------------------------
 
 The stochastic data generative model is as follows:
 
@@ -24,6 +27,9 @@ The stochastic data generative model is as follows:
     &\mathbb{E}[ y | \boldsymbol{x},\boldsymbol{\theta},\tau] = \boldsymbol{\theta}^{\top} \boldsymbol{x}, \\
     &\mathbb{V}[ y | \boldsymbol{x},\boldsymbol{\theta},\tau ] = \tau^{-1}.
 
+Prior Distribution
+------------------
+
 The prior distribution is as follows:
 
 * :math:`\boldsymbol{\mu_0} \in \mathbb{R}^d`: a hyperparameter
@@ -41,6 +47,8 @@ The prior distribution is as follows:
     \mathbb{E}[\tau] &= \frac{\alpha_0}{\beta_0}, \\
     \mathbb{V}[\tau] &= \frac{\alpha_0}{\beta_0^2}.
 
+Posterior Distribution
+----------------------
 
 The posterior distribution is as follows:
 
@@ -70,6 +78,9 @@ where the updating rules of the hyperparameters are
     \alpha_n &= \alpha_0 + \frac{n}{2},\\
     \beta_n &= \beta_0 + \frac{1}{2} \left( -\boldsymbol{\mu}_n^\top \boldsymbol{\Lambda}_n \boldsymbol{\mu}_n + \boldsymbol{y}^\top \boldsymbol{y} + \boldsymbol{\mu}_0^\top \boldsymbol{\Lambda}_0 \boldsymbol{\mu}_0 \right).
 
+Predictive Distribution
+-----------------------
+
 The predictive distribution is as follows:
 
 * :math:`\boldsymbol{x}_{n+1}\in \mathbb{R}^d`: a new data point
@@ -92,6 +103,14 @@ where the parameters are obtained from the hyperparameters of the posterior dist
     m_\mathrm{p} &= \boldsymbol{x}_{n+1}^{\top} \boldsymbol{\mu}_{n}, \\
     \lambda_\mathrm{p} &= \frac{\alpha_{n}}{\beta_{n}}\left(1+\boldsymbol{x}_{n+1}^{\top} \boldsymbol{\Lambda}_{n} \boldsymbol{x}_{n+1}\right)^{-1}, \\
     \nu_\mathrm{p} &= 2 \alpha_{n}.
+
+Star Us on GitHub
+-----------------
+
+.. include:: _star.rst
+
+Class and Methods
+-----------------
 """
 
 from ._linearregression import GenModel
