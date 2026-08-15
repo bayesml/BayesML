@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 01:39+0900\n"
-"PO-Revision-Date: 2026-08-16 02:52+0900\n"
+"POT-Creation-Date: 2026-08-16 03:36+0900\n"
+"PO-Revision-Date: 2026-08-16 03:38+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -396,50 +396,54 @@ msgid ":doc:`bayesml.linearregression`"
 msgstr ":doc:`bayesml.linearregression`"
 
 #: ../../index.rst:270
+msgid ":doc:`bayesml.sparselinearregression`"
+msgstr ":doc:`bayesml.sparselinearregression`"
+
+#: ../../index.rst:271
 msgid ":doc:`bayesml.logisticregression`"
 msgstr ":doc:`bayesml.logisticregression`"
 
-#: ../../index.rst:271
+#: ../../index.rst:272
 msgid ":doc:`bayesml.linearregressionmixture`"
 msgstr ":doc:`bayesml.linearregressionmixture`"
 
-#: ../../index.rst:272
+#: ../../index.rst:273
 msgid ":doc:`bayesml.metatree`"
 msgstr ":doc:`bayesml.metatree`"
 
-#: ../../index.rst:273
+#: ../../index.rst:274
 msgid ":doc:`bayesml.multivariate_normal`"
 msgstr ":doc:`bayesml.multivariate_normal`"
 
-#: ../../index.rst:274
+#: ../../index.rst:275
 msgid ":doc:`bayesml.normal`"
 msgstr ":doc:`bayesml.normal`"
 
-#: ../../index.rst:275
+#: ../../index.rst:276
 msgid ":doc:`bayesml.poisson`"
 msgstr ":doc:`bayesml.poisson`"
 
-#: ../../index.rst:277
+#: ../../index.rst:278
 msgid "In the future, we will add packages to deal with more complicated hierarchical models."
 msgstr "将来的には、より複雑な階層モデルを扱うためのパッケージを追加する予定です。"
 
-#: ../../index.rst:280
+#: ../../index.rst:281
 msgid "Citation"
 msgstr "引用"
 
-#: ../../index.rst:282
+#: ../../index.rst:283
 msgid "When you use BayesML for your academic work, please provide the following bibliographic reference."
 msgstr "BayesMLを学術研究に利用する場合は、以下のとおり引用をお願いいたします。"
 
-#: ../../index.rst:284
+#: ../../index.rst:285
 msgid "Plain text"
 msgstr "Plain text"
 
-#: ../../index.rst:293
+#: ../../index.rst:294
 msgid "BibTeX"
 msgstr "BibTeX"
 
-#: ../../index.rst:308
+#: ../../index.rst:309
 msgid "Star Us on GitHub"
 msgstr "GitHubスターのお願い"
 
@@ -459,22 +463,22 @@ msgstr "`リポジトリを開いて右上の☆Starを押す！ <https://github
 msgid "Star on GitHub"
 msgstr "GitHubスター"
 
-#: ../../index.rst:313
+#: ../../index.rst:314
 msgid "Contents"
 msgstr "コンテンツ"
 
-#: ../../index.rst:323
+#: ../../index.rst:324
 msgid "Indices"
 msgstr "Indices"
 
-#: ../../index.rst:325
+#: ../../index.rst:326
 msgid ":ref:`genindex`"
 msgstr ":ref:`genindex`"
 
-#: ../../index.rst:326
+#: ../../index.rst:327
 msgid ":ref:`modindex`"
 msgstr ":ref:`modindex`"
 
-#: ../../index.rst:327
+#: ../../index.rst:328
 msgid ":ref:`search`"
 msgstr ":ref:`search`"
