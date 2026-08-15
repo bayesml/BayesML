@@ -1,6 +1,8 @@
 # Document Author
 # Koshi Shimada <shimada.koshi.re@gmail.com>
 r"""
+.. image:: ./images/contexttree_example.png
+
 The stochastic data generative model is as follows:
 
 * :math:`\mathcal{X}=\{1,2,\ldots,K\}` : a space of a source symbol

@@ -1,6 +1,8 @@
 # Document Author
 # Yuji Iikubo <yuji-iikubo.8@fuji.waseda.jp>
 r"""
+.. image:: ./images/logisticregression_example.png
+
 The logistic regression model with the Gaussian prior distribution.
 
 The stochastic data generative model is as follows:

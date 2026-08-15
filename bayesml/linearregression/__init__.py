@@ -3,6 +3,8 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+.. image:: ./images/linearregression_example.png
+
 The  Baysian Linear Regression.
 
 The stochastic data generative model is as follows:

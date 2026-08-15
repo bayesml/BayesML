@@ -2,6 +2,8 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Naoki Ichijo <1jonao@fuji.waseda.jp>
 r"""
+.. image:: ./images/gaussianmixture_example.png
+
 The Gaussian mixture model with the Gauss-Wishart prior distribution and the Dirichlet prior distribution.
 
 The stochastic data generative model is as follows:

@@ -2,6 +2,8 @@
 # Haruka Murayama <h-murayama@ruri.waseda.jp>
 # Yuta Nakahara <y.nakahara@waseda.jp>
 r'''
+.. image:: ./images/linearregressionmixture_example.png
+
 The mixture of linear regression model with the Gauss-Gamma prior distribution and the Dirichlet prior distribution.
 
 The stochastic data generative model is as follows:

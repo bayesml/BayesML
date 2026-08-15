@@ -4,6 +4,8 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+.. image:: ./images/normal_example.png
+
 The normal distribution with the normaml-gamma prior distribution.
 
 The stochastic data generative model is as follows:

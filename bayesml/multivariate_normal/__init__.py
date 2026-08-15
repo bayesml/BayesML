@@ -4,6 +4,8 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+.. image:: ./images/multivariate_normal_example.png
+
 The multivariate normal distribution with normal-wishart prior distribution.
 
 The stochastic data generative model is as follows:

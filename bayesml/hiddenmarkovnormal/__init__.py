@@ -1,6 +1,8 @@
 # Document Author
 # Ryohei Oka <o.ryohei07@gmail.com>
 r"""
+.. image:: ./images/hiddenmarkovnormal_example.png
+
 The hidden Markov model with the Gauss-Wishart prior distribution and the Dirichlet prior distribution.
 
 The stochastic data generative model is as follows:

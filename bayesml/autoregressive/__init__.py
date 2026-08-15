@@ -2,6 +2,8 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+.. image:: ./images/autoregressive_example.png
+
 The linear autoregressive model with the normal-gamma prior distribution.
 
 The stochastic data generative model is as follows:

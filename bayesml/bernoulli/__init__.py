@@ -2,6 +2,8 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+.. image:: ./images/bernoulli_example.png
+
 The Bernoulli distribution with the beta prior distribution.
 
 The stochastic data generative model is as follows:

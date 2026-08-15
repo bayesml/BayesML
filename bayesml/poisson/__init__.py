@@ -4,6 +4,8 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+.. image:: ./images/poisson_example.png
+
 The Poisson distribution with the gamma prior distribution.
 
 The stochastic data generative model is as follows:

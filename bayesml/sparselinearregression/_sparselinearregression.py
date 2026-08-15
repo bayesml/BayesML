@@ -901,7 +901,7 @@ class LearnModel(base.Posterior, base.PredictiveMixin):
         hn_lambda_inv = self._hn_lambda_mat_inv
 
         if self.c_degree == 1:
-            fig, axes = plt.subplots(1, 2, figsize=(8, 3))
+            fig, axes = plt.subplots(1, 2)
             x = np.linspace(
                 self.hn_mu_vec[0] - 4.0 * np.sqrt(self.hn_beta / self.hn_alpha * self._hn_lambda_mat_inv[0, 0]),
                 self.hn_mu_vec[0] + 4.0 * np.sqrt(self.hn_beta / self.hn_alpha * self._hn_lambda_mat_inv[0, 0]),
@@ -921,7 +921,7 @@ class LearnModel(base.Posterior, base.PredictiveMixin):
             fig.tight_layout()
             plt.show()
         elif self.c_degree == 2:
-            fig, axes = plt.subplots(1, 2, figsize=(8, 3))
+            fig, axes = plt.subplots(1, 2)
             x = np.linspace(
                 self.hn_mu_vec[0] - 3.0 * np.sqrt(self.hn_beta / self.hn_alpha * self._hn_lambda_mat_inv[0, 0]),
                 self.hn_mu_vec[0] + 3.0 * np.sqrt(self.hn_beta / self.hn_alpha * self._hn_lambda_mat_inv[0, 0]),

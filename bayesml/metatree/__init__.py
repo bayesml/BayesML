@@ -2,6 +2,9 @@
 # Shota Saito <shota.s@gunma-u.ac.jp>
 # Yuta Nakahara <y.nakahara@waseda.jp>
 r"""
+.. image:: ./images/metatree_example1.png
+.. image:: ./images/metatree_example2.png
+
 Stochastic Data Generative Model
 --------------------------------
 

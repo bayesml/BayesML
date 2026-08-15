@@ -1,6 +1,8 @@
 # Document Author
 # Kohei Horinouchi <horinouchi@aoni.waseda.jp>
 r"""
+.. image:: ./images/sparselinearregression_example.png
+
 The sparse linear regression model with the Laplace prior distribution (represented as a Gaussian scale mixture).
 
 The stochastic data generative model is as follows:

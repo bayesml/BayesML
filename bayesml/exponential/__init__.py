@@ -2,6 +2,8 @@
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 # Yuta Nakahara <y.nakahara@waseda.jp>
 r"""
+.. image:: ./images/exponential_example.png
+
 The exponential distribution with the gamma prior distribution.
 
 The stochastic data generative model is as follows:

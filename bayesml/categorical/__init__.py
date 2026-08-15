@@ -4,6 +4,8 @@
 # Yuta Nakahara <y.nakahara@waseda.jp>
 # Koki Kazama <kazama@info.shonan-it.ac.jp>
 r"""
+.. image:: ./images/categorical_example.png
+
 The categorical distribution with the dirichlet prior distribution
 
 The stochastic data generative model is as follows:
