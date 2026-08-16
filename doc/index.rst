@@ -55,7 +55,7 @@ Please use the following command to install BayesML.
 
 The following are required.
 
-* Python (>= 3.7)
+* Python (>= 3.10)
 * NumPy (>= 1.20)
 * SciPy (>= 1.7)
 * MatplotLib (>= 3.5)

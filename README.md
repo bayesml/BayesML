@@ -7,7 +7,7 @@ Shota Saito <shota.s@gunma-u.ac.jp>
 ---
 
 <div align="center">
-<b>Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href="https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html">here</a>!</b>
+<b>Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href="https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html">here</a>!</b>
 </div>
 
 ---
@@ -35,7 +35,7 @@ For more details, see our [website](https://bayesml.github.io/BayesML/).
 
 * Our algorithm for the meta-tree model has been accepted to AISTATS 2025! For more details, please see the links below.
   * [Paper](https://proceedings.mlr.press/v258/nakahara25a.html)
-  * [Code Example](https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html)
+  * [Code Example](https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html)
 
 ## Installation
 
@@ -47,7 +47,7 @@ pip install bayesml
 
 The following are required.
 
-* Python (>= 3.7)
+* Python (>= 3.10)
 * NumPy (>= 1.20)
 * SciPy (>= 1.7)
 * MatplotLib (>= 3.5)
@@ -233,21 +233,21 @@ print(f"y_new: {y_new}")
 
 The following packages are currently available. In this library, a probabilistic data generative model, prior distribution, posterior distribution (or approximate posterior distribution), and predictive distribution (or approximate predictive distribution) are collectively called a model.
 
-* [Bernoulli model](https://bayesml.github.io/BayesML/bayesml.bernoulli.html "Bayesml Bernoulli Model")
-* [Categorical model](https://bayesml.github.io/BayesML/bayesml.categorical.html "BayesML Categorical Model")
-* [Poisson model](https://bayesml.github.io/BayesML/bayesml.poisson.html "BayesML Poisson Model")
-* [Normal model](https://bayesml.github.io/BayesML/bayesml.normal.html "BayesML Normal Model")
-* [Multivariate normal model](https://bayesml.github.io/BayesML/bayesml.multivariate_normal.html "BayesML Multivariate Normal Model")
-* [Exponential model](https://bayesml.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
-* [Gaussian mixture model](https://bayesml.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
-* [Linear regression model](https://bayesml.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
-* [Sparse linear regression model](https://bayesml.github.io/BayesML/bayesml.sparselinearregression.html "BayesML Sparse Lenear Regression Model")
-* [Logistic regression model](https://bayesml.github.io/BayesML/bayesml.logisticregression.html "BayesML Logistic Regression Model")
-* [Linear regression mixture model](https://bayesml.github.io/BayesML/bayesml.linearregressionmixture.html "BayesML Lenear Regression Mixture Model")
-* [Meta-tree model](https://bayesml.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
-* [Autoregressive model](https://bayesml.github.io/BayesML/bayesml.autoregressive.html "BayesML Autoregressive Model")
-* [Hidden Markov normal model](https://bayesml.github.io/BayesML/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
-* [Context tree model](https://bayesml.github.io/BayesML/bayesml.contexttree.html "BayesML Context Tree Model")
+* [Bernoulli model](https://bayesml.github.io/BayesML/en/bayesml.bernoulli.html "Bayesml Bernoulli Model")
+* [Categorical model](https://bayesml.github.io/BayesML/en/bayesml.categorical.html "BayesML Categorical Model")
+* [Poisson model](https://bayesml.github.io/BayesML/en/bayesml.poisson.html "BayesML Poisson Model")
+* [Normal model](https://bayesml.github.io/BayesML/en/bayesml.normal.html "BayesML Normal Model")
+* [Multivariate normal model](https://bayesml.github.io/BayesML/en/bayesml.multivariate_normal.html "BayesML Multivariate Normal Model")
+* [Exponential model](https://bayesml.github.io/BayesML/en/bayesml.exponential.html "BayesML Exponential Model")
+* [Gaussian mixture model](https://bayesml.github.io/BayesML/en/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
+* [Linear regression model](https://bayesml.github.io/BayesML/en/bayesml.linearregression.html "BayesML Lenear Regression Model")
+* [Sparse linear regression model](https://bayesml.github.io/BayesML/en/bayesml.sparselinearregression.html "BayesML Sparse Lenear Regression Model")
+* [Logistic regression model](https://bayesml.github.io/BayesML/en/bayesml.logisticregression.html "BayesML Logistic Regression Model")
+* [Linear regression mixture model](https://bayesml.github.io/BayesML/en/bayesml.linearregressionmixture.html "BayesML Lenear Regression Mixture Model")
+* [Meta-tree model](https://bayesml.github.io/BayesML/en/bayesml.metatree.html "BayesML Meta-tree Model")
+* [Autoregressive model](https://bayesml.github.io/BayesML/en/bayesml.autoregressive.html "BayesML Autoregressive Model")
+* [Hidden Markov normal model](https://bayesml.github.io/BayesML/en/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
+* [Context tree model](https://bayesml.github.io/BayesML/en/bayesml.contexttree.html "BayesML Context Tree Model")
 
 In the future, we will add packages to deal with more complicated hierarchical models.
 
