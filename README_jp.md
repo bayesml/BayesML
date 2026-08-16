@@ -6,7 +6,7 @@ Yuta Nakahara <y.nakahara@waseda.jp>
 ---
 
 <div align="center">
-<b>メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href="https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html">こちら</a>！</b>
+<b>メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href="https://bayesml.github.io/BayesML/ja/examples/metatree_prediction_interval.html">こちら</a>！</b>
 </div>
 
 ---
@@ -34,7 +34,7 @@ BayesMLは，ベイズ統計学やベイズ決定理論に基づく機械学習�
 
 * メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択されました．詳細は以下のリンク先を御覧ください．
   * [論文](https://proceedings.mlr.press/v258/nakahara25a.html)
-  * [サンプルコード](https://bayesml.github.io/BayesML/examples/metatree_prediction_interval.html)
+  * [サンプルコード](https://bayesml.github.io/BayesML/ja/examples/metatree_prediction_interval.html)
 
 ## インストール
 
@@ -46,7 +46,7 @@ pip install bayesml
 
 BayesMLの実行には以下が必要です．
 
-* Python (>= 3.7)
+* Python (>= 3.10)
 * NumPy (>= 1.20)
 * SciPy (>= 1.7)
 * MatplotLib (>= 3.5)
@@ -232,21 +232,21 @@ print(f"y_new: {y_new}")
 
 現在，以下のモデルに関するパッケージが利用可能です．本ライブラリでは，データ生成確率モデル，事前分布，事後分布（または近似事後分布），予測分布（または近似予測分布）を合わせてモデルと呼んでいます．
 
-* [ベルヌーイモデル](https://bayesml.github.io/BayesML/bayesml.bernoulli.html "Bayesml Bernoulli Model")
-* [カテゴリカルモデル](https://bayesml.github.io/BayesML/bayesml.categorical.html "BayesML Categorical Model")
-* [ポアソンモデル](https://bayesml.github.io/BayesML/bayesml.poisson.html "BayesML Poisson Model")
-* [正規モデル](https://bayesml.github.io/BayesML/bayesml.normal.html "BayesML Normal Model")
-* [多変量正規モデル](https://bayesml.github.io/BayesML/bayesml.multivariate_normal.html "BayesML Multivariate Normal Model")
-* [指数モデル](https://bayesml.github.io/BayesML/bayesml.exponential.html "BayesML Exponential Model")
-* [混合正規モデル](https://bayesml.github.io/BayesML/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
-* [線形回帰モデル](https://bayesml.github.io/BayesML/bayesml.linearregression.html "BayesML Lenear Regression Model")
-* [スパース線形回帰モデル](https://bayesml.github.io/BayesML/bayesml.sparselinearregression.html "BayesML Sparse Lenear Regression Model")
-* [ロジスティック回帰モデル](https://bayesml.github.io/BayesML/bayesml.logisticregression.html "BayesML Logistic Regression Model")
-* [混合線形回帰モデル](https://bayesml.github.io/BayesML/bayesml.linearregressionmixture.html "BayesML Lenear Regression Mixture Model")
-* [メタツリーモデル](https://bayesml.github.io/BayesML/bayesml.metatree.html "BayesML Meta-tree Model")
-* [自己回帰モデル](https://bayesml.github.io/BayesML/bayesml.autoregressive.html "BayesML Autoregressive Model")
-* [隠れマルコフモデル](https://bayesml.github.io/BayesML/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
-* [文脈木モデル](https://bayesml.github.io/BayesML/bayesml.contexttree.html "BayesML Context Tree Model")
+* [ベルヌーイモデル](https://bayesml.github.io/BayesML/ja/bayesml.bernoulli.html "Bayesml Bernoulli Model")
+* [カテゴリカルモデル](https://bayesml.github.io/BayesML/ja/bayesml.categorical.html "BayesML Categorical Model")
+* [ポアソンモデル](https://bayesml.github.io/BayesML/ja/bayesml.poisson.html "BayesML Poisson Model")
+* [正規モデル](https://bayesml.github.io/BayesML/ja/bayesml.normal.html "BayesML Normal Model")
+* [多変量正規モデル](https://bayesml.github.io/BayesML/ja/bayesml.multivariate_normal.html "BayesML Multivariate Normal Model")
+* [指数モデル](https://bayesml.github.io/BayesML/ja/bayesml.exponential.html "BayesML Exponential Model")
+* [混合正規モデル](https://bayesml.github.io/BayesML/ja/bayesml.gaussianmixture.html "BayesML Gaussian Mixture Model")
+* [線形回帰モデル](https://bayesml.github.io/BayesML/ja/bayesml.linearregression.html "BayesML Lenear Regression Model")
+* [スパース線形回帰モデル](https://bayesml.github.io/BayesML/ja/bayesml.sparselinearregression.html "BayesML Sparse Lenear Regression Model")
+* [ロジスティック回帰モデル](https://bayesml.github.io/BayesML/ja/bayesml.logisticregression.html "BayesML Logistic Regression Model")
+* [混合線形回帰モデル](https://bayesml.github.io/BayesML/ja/bayesml.linearregressionmixture.html "BayesML Lenear Regression Mixture Model")
+* [メタツリーモデル](https://bayesml.github.io/BayesML/ja/bayesml.metatree.html "BayesML Meta-tree Model")
+* [自己回帰モデル](https://bayesml.github.io/BayesML/ja/bayesml.autoregressive.html "BayesML Autoregressive Model")
+* [隠れマルコフモデル](https://bayesml.github.io/BayesML/ja/bayesml.hiddenmarkovnormal.html "BayesML Hidden Markov Normal Model")
+* [文脈木モデル](https://bayesml.github.io/BayesML/ja/bayesml.contexttree.html "BayesML Context Tree Model")
 
 また，今後はより複雑な階層的モデルを取り扱うパッケージを追加していく予定です．
 

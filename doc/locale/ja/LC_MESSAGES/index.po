@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BayesML\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 07:53+0900\n"
-"PO-Revision-Date: 2026-08-16 07:55+0900\n"
+"POT-Creation-Date: 2026-08-16 08:52+0900\n"
+"PO-Revision-Date: 2026-08-16 08:53+0900\n"
 "Last-Translator: Yuta Nakahara <y.nakahara@waseda.jp>\n"
 "Language-Team: ja <LL@li.org>\n"
 "Language: ja\n"
@@ -110,8 +110,8 @@ msgid "The following are required."
 msgstr "以下が必要です。"
 
 #: ../../index.rst:58
-msgid "Python (>= 3.7)"
-msgstr "Python (>= 3.7)"
+msgid "Python (>= 3.10)"
+msgstr "Python (>= 3.10)"
 
 #: ../../index.rst:59
 msgid "NumPy (>= 1.20)"
