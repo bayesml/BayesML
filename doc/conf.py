@@ -73,9 +73,14 @@ myst_enable_extensions = ["dollarmath", "amsmath","html_image"]
 # get the language to build (Makefile is modified to create SPHINX_LANGUAGE variable)
 language = os.environ.get('SPHINX_LANGUAGE', 'en')
 if language == 'ja':
+  ogp_site_url = "https://bayesml.github.io/BayesML/ja/"
   announcement_text = "メタツリーモデルに対するアルゴリズムがAISTATS 2025に採択！詳細は<a href='https://bayesml.github.io/BayesML/ja/examples/metatree_prediction_interval.html'>こちら</a>！"
 else:
+  ogp_site_url = "https://bayesml.github.io/BayesML/en/"
   announcement_text = "Our algorithm for the meta-tree model is accepted at AISTATS 2025! Click <a href='https://bayesml.github.io/BayesML/en/examples/metatree_prediction_interval.html'>here</a>!"
+
+ogp_image = "./_static/BayesML_logo_ogp.png"
+ogp_use_first_image = True
 
 html_theme_options = {
   "repository_url": "https://github.com/bayesml/BayesML/",
@@ -140,8 +145,5 @@ html_sidebars = {
            'search-button-field.html',
            'sbt-sidebar-nav.html']
 }
-
-ogp_site_url = "https://bayesml.github.io/BayesML/"
-ogp_image = "https://bayesml.github.io/BayesML/en/_static/BayesML_logo_ogp.png"
 
 autodoc_preserve_defaults = True
