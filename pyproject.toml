@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bayesml"
-version = "0.5.0"
+version = "0.5.1"
 description = "Your First Library for Bayesian Machine Learning"
 authors = [
     { name = "Yuta Nakahara et al.", email = "y.nakahara@waseda.jp" },
