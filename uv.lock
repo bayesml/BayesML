@@ -149,7 +149,7 @@ wheels = [
 
 [[package]]
 name = "bayesml"
-version = "0.5.0"
+version = "0.5.1"
 source = { editable = "." }
 dependencies = [
     { name = "matplotlib", marker = "python_full_version >= '3.14'" },
