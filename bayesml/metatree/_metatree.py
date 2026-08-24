@@ -852,7 +852,7 @@ class GenModel(base.Generative):
             y = np.empty(sample_size,dtype=float)
         
         for i in range(sample_size):
-            y[i] = self._gen_sample_recursion(self.root,x_continuous[i],x_categorical[i])
+            y[i:i+1] = self._gen_sample_recursion(self.root,x_continuous[i],x_categorical[i])
 
         return x_continuous,x_categorical,y
         
