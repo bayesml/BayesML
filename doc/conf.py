@@ -22,7 +22,7 @@ copyright = '2022-2026, BayesML Developers'
 author = 'BayesML Developers'
 
 # The full version, including alpha/beta/rc tags
-release = '0.5.0'
+release = '0.5.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -86,9 +86,11 @@ html_theme_options = {
   "repository_url": "https://github.com/bayesml/BayesML/",
   "use_repository_button": True,
   "announcement": announcement_text,
-  "analytics": {
-      "google_analytics_id": "G-59F6KL8C5D",
-  },
+# Disabled: theme injects consent default 'denied' for all regions,
+# blocking all GA4 events. GA now lives in _static/consent.js.
+#   "analytics": {
+#       "google_analytics_id": "G-59F6KL8C5D",
+#   },
   "logo": {
       "image_light": "logos/BayesML_logo.svg",
       "image_dark": "logos/BayesML_logo_reverse.svg",
@@ -147,3 +149,7 @@ html_sidebars = {
 }
 
 autodoc_preserve_defaults = True
+
+html_js_files = [
+    "consent.js",
+]
