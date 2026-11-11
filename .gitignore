@@ -139,3 +139,10 @@ dmypy.json
 .vscode/
 CLAUDE.md
 .claude/
+
+# AI coding assistant configuration files
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+AGENTS.override.md
+.claude/
